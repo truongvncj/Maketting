@@ -1,0 +1,370 @@
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemainload.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestoreinput.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PosmCreateTK.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.EditContractItem.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Createpayment.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.CreatnewCust.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Noouthourise.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Passwordchange.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.SetCustGroup.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.selectinput.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewdatatable.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaconfirmPayment.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodmake.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kareportsform.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Kasalesuploadandreports.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KAcontractlisting.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.CreatenewContract.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Datepick.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestorereciept.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodpicker.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Login.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PrintLetterOption.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KASeachcontract.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Seachcode.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeServersetup.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.SetGroupFrom.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.valueinput.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeInputchange.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Reportsview.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewtable.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Main.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.Properties.Resources.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BeeAccounting.csproj.GenerateResource.Cache
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\RdlCompile.cache
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\RdlCompile.compiled
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\Reports\PaymentRequest.rdlc
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe.config
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.pdb
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\bin\x86\Debug\stdole.dll
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.exe
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.pdb
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BeeAccounting.csprojResolveAssemblyReference.cache
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCaculating.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCreatenewaccount.resources
+E:\Desktop\Developing product\Bee Accounting\Bee Accounting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeAccountsetup.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe.config
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.exe
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.pdb
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Paymentrequest.rdlc
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.pdb
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\stdole.dll
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csprojResolveAssemblyReference.cache
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemainload.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeAccountsetup.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestoreinput.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCaculating.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCreatenewaccount.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PosmCreateTK.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.EditContractItem.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Createpayment.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.CreatnewCust.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Noouthourise.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Passwordchange.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.SetCustGroup.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewdatatable.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaconfirmPayment.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodmake.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kareportsform.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Kasalesuploadandreports.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KAcontractlisting.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.CreatenewContract.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Datepick.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestorereciept.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodpicker.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Login.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PrintLetterOption.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KASeachcontract.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Seachcode.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeServersetup.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.SetGroupFrom.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.valueinput.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeInputchange.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Reportsview.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewtable.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Main.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.Properties.Resources.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csproj.GenerateResource.Cache
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.cache
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.compiled
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuThu.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.beeselectinput.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemosochitiettaikhoan.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeloaitaikhoan.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beechooseslect.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuthu.rdlc
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeSeachtwofield.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaidoiungphieuthu.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuchi.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaiphieuchi.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuchi.rdlc
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Soquy.rdlc
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeselecttk.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeThongtindoanhnghiep.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\SoCai.rdlc
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeselecSocai.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sochitetsocai.rdlc
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sonhatkychung.rdlc
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeyearsellect.resources
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopchitiet.rdlc
+D:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Socandoitkphatsinh.rdlc
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeNCCnewaccount.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachkho.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachnhomsanpham.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachsanpham.resources
+D:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beephieunhapkho.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe.config
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.exe
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.pdb
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuchi.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sonhatkychung.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sochitetsocai.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\SoCai.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Socandoitkphatsinh.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopchitiet.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Soquy.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuthu.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Paymentrequest.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.pdb
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\stdole.dll
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csprojResolveAssemblyReference.cache
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachsanpham.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachnhomsanpham.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachkho.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeNCCnewaccount.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaiphieuchi.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeloaitaikhoan.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemosochitiettaikhoan.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemainload.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeAccountsetup.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuchi.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuThu.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beechooseslect.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaidoiungphieuthu.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeselecSocai.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCaculating.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCreatenewaccount.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeSeachtwofield.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeselecttk.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeThongtindoanhnghiep.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeyearsellect.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Noouthourise.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Passwordchange.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.beeselectinput.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewdatatable.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodmake.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kareportsform.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Kasalesuploadandreports.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Datepick.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestorereciept.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodpicker.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Login.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PrintLetterOption.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KASeachcontract.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Seachcode.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeServersetup.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.valueinput.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeInputchange.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Reportsview.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewtable.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Main.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.Properties.Resources.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csproj.GenerateResource.Cache
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.cache
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.compiled
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieunhap.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieunhapkho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe.config
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.exe
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.pdb
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuchi.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sonhatkychung.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sochitetsocai.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\SoCai.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Socandoitkphatsinh.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopchitiet.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Soquy.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuthu.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Paymentrequest.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.pdb
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\stdole.dll
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csprojResolveAssemblyReference.cache
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachsanpham.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachnhomsanpham.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachkho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieunhapkho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeNCCnewaccount.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaiphieuchi.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeloaitaikhoan.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemosochitiettaikhoan.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemainload.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuchi.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieunhap.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuThu.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beechooseslect.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaidoiungphieuthu.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeselecSocai.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCaculating.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCreatenewaccount.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeSeachtwofield.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeselecttk.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeThongtindoanhnghiep.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeyearsellect.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Noouthourise.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Passwordchange.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.beeselectinput.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewdatatable.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kareportsform.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Kasalesuploadandreports.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Datepick.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestorereciept.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodpicker.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Login.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PrintLetterOption.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KASeachcontract.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Seachcode.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeServersetup.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.valueinput.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeInputchange.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Reportsview.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewtable.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Main.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.Properties.Resources.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csproj.GenerateResource.Cache
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.Common.dll
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.DataVisualization.dll
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.cache
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.compiled
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieuxuat.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieuxuatkho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieuxuatkho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieuxuat.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuxuatkho.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieunhapkho.rdlc
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopxuatnhapton.rdlc
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeseleckhobcxnt.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beebuttoantonghop.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuketoanth.rdlc
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsachnhavantai.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPdanhsachxe.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsackhachhangvantai.resources
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPgiavantaitheotuyen.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoKQKD.rdlc
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeBCKQKD200updatechotso.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BangCDKToant200lt.rdlc
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCDKT200nhapsocho.resources
+E:\Product\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoLuuchuyenttett.rdlc
+E:\Product\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeLCTT200dauky.resources
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BangCDKToant200lt.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoLuuchuyenttett.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuketoanth.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuxuatkho.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieunhapkho.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoKQKD.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopxuatnhapton.rdlc
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeLCTT200dauky.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCDKT200nhapsocho.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeBCKQKD200updatechotso.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPgiavantaitheotuyen.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsackhachhangvantai.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPdanhsachxe.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsachnhavantai.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeButtoantonghop.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeseleckhobcxnt.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe.config
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.exe
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEE ACCOUNTING.pdb
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BangCDKToant200lt.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoLuuchuyenttett.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuketoanth.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuxuatkho.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieunhapkho.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuchi.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\BaocaoKQKD.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sonhatkychung.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sochitetsocai.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\SoCai.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Socandoitkphatsinh.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopxuatnhapton.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Sotonghopchitiet.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Soquy.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Phieuthu.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Reports\Paymentrequest.rdlc
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.exe
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\BEE ACCOUNTING.pdb
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\bin\x86\Debug\stdole.dll
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csprojResolveAssemblyReference.cache
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeLCTT200dauky.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCDKT200nhapsocho.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeBCKQKD200updatechotso.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPgiavantaitheotuyen.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsackhachhangvantai.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPdanhsachxe.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.NPDanhsachnhavantai.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachsanpham.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachnhomsanpham.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeDanhsachkho.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieuxuatkho.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtdoiungphieunhapkho.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeButtoantonghop.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieuxuat.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeNCCnewaccount.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaiphieuchi.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeloaitaikhoan.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemosochitiettaikhoan.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beemainload.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuchi.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeKhophieunhap.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeePhieuThu.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beechooseslect.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeHtoansocaidoiungphieuthu.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeseleckhobcxnt.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeselecSocai.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCaculating.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeCreatenewaccount.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeSeachtwofield.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeselecttk.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeThongtindoanhnghiep.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beeyearsellect.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Noouthourise.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Passwordchange.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.beeselectinput.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewdatatable.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodmake.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kareportsform.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Kasalesuploadandreports.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Datepick.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beestorereciept.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.kaPriodpicker.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Login.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.PrintLetterOption.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.KASeachcontract.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Seachcode.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeServersetup.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.valueinput.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.BeeInputchange.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Reportsview.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Viewtable.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Main.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.Properties.Resources.resources
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BeeAccounting.csproj.GenerateResource.Cache
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.cache
+C:\Users\mtruong\Documents\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\RdlCompile.compiled
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.Beekyketoan.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.beektth.resources
+D:\GitHub\BeeAccouting\BeeAccounting\obj\x86\Debug\BEEACCOUNT.View.bedieuvan.resources
