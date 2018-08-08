@@ -38,7 +38,6 @@
             this.lbtencty = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.messageinfor = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.lbusername = new System.Windows.Forms.Label();
             this.lb_user = new System.Windows.Forms.Label();
             this.panelmain = new System.Windows.Forms.Panel();
@@ -154,7 +153,6 @@
             this.panel1.Controls.Add(this.lbtencty);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.messageinfor);
-            this.panel1.Controls.Add(this.webBrowser1);
             this.panel1.Controls.Add(this.lbusername);
             this.panel1.Controls.Add(this.lb_user);
             this.panel1.Controls.Add(this.panelmain);
@@ -196,19 +194,6 @@
             this.messageinfor.TabIndex = 31;
             this.messageinfor.Text = "  ";
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.webBrowser1.Location = new System.Drawing.Point(1118, 7);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(212, 630);
-            this.webBrowser1.TabIndex = 25;
-            this.webBrowser1.Url = new System.Uri("https://sites.google.com/site/advcocacolagogle/", System.UriKind.Absolute);
-            // 
             // lbusername
             // 
             this.lbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -240,7 +225,7 @@
             this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelmain.Location = new System.Drawing.Point(6, 0);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1106, 624);
+            this.panelmain.Size = new System.Drawing.Size(1327, 630);
             this.panelmain.TabIndex = 7;
             // 
             // dfasfToolStripMenuItem
@@ -1036,7 +1021,6 @@
      //   private ToolStripMenuItem Menu;
         private ToolStripMenuItem dfasfToolStripMenuItem;
         private ToolStripMenuItem ádfasdfToolStripMenuItem;
-        private WebBrowser webBrowser1;
         private Panel panelmain;
         private Label messageinfor;
         private MenuStrip menuStrip1;
