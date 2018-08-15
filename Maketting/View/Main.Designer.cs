@@ -225,7 +225,7 @@
             this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelmain.Location = new System.Drawing.Point(6, 0);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1327, 630);
+            this.panelmain.Size = new System.Drawing.Size(1327, 624);
             this.panelmain.TabIndex = 7;
             // 
             // dfasfToolStripMenuItem
