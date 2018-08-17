@@ -3658,6 +3658,11 @@ namespace Maketting.View
         {
             
         }
+
+        private void uploadDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
