@@ -218,7 +218,7 @@ namespace Maketting.View
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
-            View.BeeServersetup stup = new BeeServersetup();
+            View.Serversetup stup = new Serversetup();
             stup.Show();
 
 

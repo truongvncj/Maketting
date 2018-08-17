@@ -336,11 +336,11 @@
     <Compile Include="View\Beeselecttk.Designer.cs">
       <DependentUpon>Beeselecttk.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeThongtindoanhnghiep.cs">
+    <Compile Include="View\Thongtindonvi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeThongtindoanhnghiep.Designer.cs">
-      <DependentUpon>BeeThongtindoanhnghiep.cs</DependentUpon>
+    <Compile Include="View\Thongtindonvi.Designer.cs">
+      <DependentUpon>Thongtindonvi.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Beeyearsellect.cs">
       <SubType>Form</SubType>
@@ -432,11 +432,11 @@
     <Compile Include="View\Seachcode.Designer.cs">
       <DependentUpon>Seachcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeServersetup.cs">
+    <Compile Include="View\Serversetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeServersetup.Designer.cs">
-      <DependentUpon>BeeServersetup.cs</DependentUpon>
+    <Compile Include="View\Serversetup.Designer.cs">
+      <DependentUpon>Serversetup.cs</DependentUpon>
     </Compile>
     <Compile Include="View\valueinput.cs">
       <SubType>Form</SubType>
@@ -616,8 +616,8 @@
     <EmbeddedResource Include="View\Beeselecttk.resx">
       <DependentUpon>Beeselecttk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeThongtindoanhnghiep.resx">
-      <DependentUpon>BeeThongtindoanhnghiep.cs</DependentUpon>
+    <EmbeddedResource Include="View\Thongtindonvi.resx">
+      <DependentUpon>Thongtindonvi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Beeyearsellect.resx">
       <DependentUpon>Beeyearsellect.cs</DependentUpon>
@@ -664,8 +664,8 @@
     <EmbeddedResource Include="View\Seachcode.resx">
       <DependentUpon>Seachcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeServersetup.resx">
-      <DependentUpon>BeeServersetup.cs</DependentUpon>
+    <EmbeddedResource Include="View\Serversetup.resx">
+      <DependentUpon>Serversetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\valueinput.resx">
       <DependentUpon>valueinput.cs</DependentUpon>

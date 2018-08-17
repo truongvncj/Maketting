@@ -54,7 +54,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeCaculating.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeCreatenewaccount.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeSeachtwofield.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Beeselecttk.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeThongtindoanhnghiep.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Beeyearsellect.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Noouthourise.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Passwordchange.resources
@@ -70,7 +69,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Login.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.PrintLetterOption.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.KASeachcontract.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Seachcode.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeServersetup.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.valueinput.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeInputchange.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Reportsview.resources
@@ -82,3 +80,5 @@ D:\GitHub\Maketting\Maketting\obj\Debug\RdlCompile.cache
 D:\GitHub\Maketting\Maketting\obj\Debug\RdlCompile.compiled
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.exe
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.pdb
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Thongtindonvi.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Serversetup.resources

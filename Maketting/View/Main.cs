@@ -1846,7 +1846,7 @@ namespace Maketting.View
 
         private void serverNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.BeeServersetup stup = new BeeServersetup();
+            View.Serversetup stup = new Serversetup();
             stup.Show();
         }
 
@@ -3003,7 +3003,7 @@ namespace Maketting.View
 
         private void thôngTínDoanhNghiệpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.BeeThongtindoanhnghiep view = new BeeThongtindoanhnghiep();
+            View.Thongtindonvi view = new Thongtindonvi();
             view.ShowDialog();
         }
 
