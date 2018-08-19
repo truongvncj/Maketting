@@ -3656,11 +3656,69 @@ namespace Maketting.View
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {
-            
+
         }
 
         private void uploadDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void báoCáoPhiếuMKTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+         
+            var rs = from p in db.tbl_MKt_Listphieus
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         p.Gate_pass,
+                         p.Requested_by,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+                         Số_lượng_yêu_cầu = p.Issued,
+                         Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         p.Description,
+
+
+
+
+
+                         ID = p.id,
+                     };
+
+
+
+
+            Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            viewtbl.ShowDialog();
+
+
+
+
+
+
+
+
+        }
+
+        private void lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
 
         }
     }

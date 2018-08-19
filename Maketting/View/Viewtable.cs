@@ -264,33 +264,16 @@ namespace Maketting.View
 
             this.formlabel.Text = fornname;
 
-            //     bt_addtomaster.Visible = false;
-            //     this.bt_addtomaster.Visible = false;
+            if (viewcode ==100)
+            {
+                bt_themmoi.Visible = false;
+                bt_sua.Visible = false;
+            }
 
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
                                                                                                             //   this.Show();
             this.KeyPreview = true;
-
-            #region  // viewcode ==12  la view bang tong hop phat sinh
-
-
-            if (this.viewcode == 12)
-            {
-                //lb_seach.Visible = false;
-
-                bt_themmoi.Visible = false;
-
-                bt_sua.Visible = false;
-            }
-
-            if (this.viewcode == 114) // dang ky tai khoan chi tiet thì cho edit
-            {
-                //lb_seach.Visible = false;
-
-                dataGridView1.ReadOnly = false;
-            }
-            #endregion
 
         }
 

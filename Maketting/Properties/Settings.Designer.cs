@@ -77,5 +77,15 @@ namespace Maketting.Properties {
                 return ((string)(this["BEEConnectionString4"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HAN-L-3PFF7H2;Initial Catalog=MKTing;Integrated Security=True")]
+        public string MKTingConnectionString {
+            get {
+                return ((string)(this["MKTingConnectionString"]));
+            }
+        }
     }
 }

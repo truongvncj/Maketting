@@ -348,11 +348,11 @@ namespace Maketting.Model
 
             //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var typeffmain = typeof(tbl_netcoDonhangTMP);
-            var typeffsub = typeof(tbl_netcoDonhangTMP);
+            //var typeffmain = typeof(tbl_netcoDonhangTMP);
+            //var typeffsub = typeof(tbl_netcoDonhangTMP);
 
-            View.BeeInputchange inputcdata1 = new View.BeeInputchange("", "ĐƠN HÀNG NETCO ", dc, "tbl_netcoDonhangTMP", "tbl_netcoDonhangTMP", typeffmain, typeffsub, "id", "id", Username1);
-            inputcdata1.ShowDialog();
+            //View.BeeInputchange inputcdata1 = new View.BeeInputchange("", "ĐƠN HÀNG NETCO ", dc, "tbl_netcoDonhangTMP", "tbl_netcoDonhangTMP", typeffmain, typeffsub, "id", "id", Username1);
+            //inputcdata1.ShowDialog();
 
 
 
