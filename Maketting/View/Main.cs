@@ -2945,41 +2945,6 @@ namespace Maketting.View
         private void phânQuyềnNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (!Username.getphanquyen())
-            {
-                View.Noouthourise view = new Noouthourise();
-                view.ShowDialog();
-                return;
-            }
-
-            #region//phanquyen
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var typeff = typeof(tbl_Temp);
-
-            BeeInputchange inputcdata = new BeeInputchange("", "Thiết lập và phân quyền người dùng", dc, "tbl_Temp", "tbl_Temp", typeff, typeff, "id", "id", "");
-            inputcdata.TopLevel = false;
-            inputcdata.AutoScroll = true;
-
-            //    main1.clearpannel();
-
-
-            Controls.Add(inputcdata);
-            inputcdata.Show();
-
-
-            //Formload.TopLevel = false;
-            //Formload.AutoScroll = true;
-            //panelmain.Controls.Add(Formload);
-            //Formload.Show();
-
-
-
-
-            #endregion
 
         }
 
@@ -3720,6 +3685,46 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!Username.getphanquyen())
+            {
+                View.Noouthourise view = new Noouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+            #region//phanquyen
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var typeff = typeof(tbl_Temp);
+
+            BeeInputchange inputcdata = new BeeInputchange("", "Thiết lập và phân quyền người dùng", dc, "tbl_Temp", "tbl_Temp", typeff, typeff, "id", "id", "");
+            inputcdata.TopLevel = false;
+            inputcdata.AutoScroll = true;
+
+            //    main1.clearpannel();
+
+
+            Controls.Add(inputcdata);
+            inputcdata.Show();
+
+
+            //Formload.TopLevel = false;
+            //Formload.AutoScroll = true;
+            //panelmain.Controls.Add(Formload);
+            //Formload.Show();
+
+
+
+
+            #endregion
         }
     }
 

@@ -45,7 +45,6 @@
             this.ádfasdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.phânQuyềnNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thiếtLậpHệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTínDoanhNghiệpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +70,7 @@
             this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -190,26 +190,19 @@
             // hệThốngToolStripMenuItem
             // 
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.phânQuyềnNgườiDùngToolStripMenuItem,
             this.thiếtLậpHệThốngToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.hệThốngToolStripMenuItem.Text = "System";
             // 
-            // phânQuyềnNgườiDùngToolStripMenuItem
-            // 
-            this.phânQuyềnNgườiDùngToolStripMenuItem.Name = "phânQuyềnNgườiDùngToolStripMenuItem";
-            this.phânQuyềnNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
-            this.phânQuyềnNgườiDùngToolStripMenuItem.Text = "Users";
-            this.phânQuyềnNgườiDùngToolStripMenuItem.Click += new System.EventHandler(this.phânQuyềnNgườiDùngToolStripMenuItem_Click);
-            // 
             // thiếtLậpHệThốngToolStripMenuItem
             // 
             this.thiếtLậpHệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTínDoanhNghiệpToolStripMenuItem,
-            this.uploadDataToolStripMenuItem});
+            this.uploadDataToolStripMenuItem,
+            this.usersToolStripMenuItem});
             this.thiếtLậpHệThốngToolStripMenuItem.Name = "thiếtLậpHệThốngToolStripMenuItem";
-            this.thiếtLậpHệThốngToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.thiếtLậpHệThốngToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.thiếtLậpHệThốngToolStripMenuItem.Text = "Option";
             // 
             // thôngTínDoanhNghiệpToolStripMenuItem
@@ -382,6 +375,13 @@
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
             // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,7 +416,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem hệThốngToolStripMenuItem;
         private ToolStripMenuItem khoToolStripMenuItem;
-        private ToolStripMenuItem phânQuyềnNgườiDùngToolStripMenuItem;
         private ToolStripMenuItem thiếtLậpHệThốngToolStripMenuItem;
         private ToolStripMenuItem thôngTínDoanhNghiệpToolStripMenuItem;
         private ToolStripMenuItem hạchToánKếToánTổngHợpToolStripMenuItem;
@@ -443,6 +442,7 @@
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem gatePassIssueToolStripMenuItem;
         private ToolStripMenuItem storeAvaiableListToolStripMenuItem;
+        private ToolStripMenuItem usersToolStripMenuItem;
     }
 }
 
