@@ -3682,6 +3682,21 @@ namespace Maketting.View
         private void lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            #region//tmphieuthu
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTissuephieu accsup = new MKTissuephieu(this);
+            this.clearpannelload(accsup);
+           // this.Close();
+            #endregion
+
 
 
 
