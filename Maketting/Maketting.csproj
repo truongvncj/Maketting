@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Model\dieuvan.cs" />
     <Compile Include="Model\Khohang.cs" />
+    <Compile Include="Model\MKT.cs" />
     <Compile Include="Model\Soketoan.cs" />
     <Compile Include="Model\Congty.cs" />
     <Compile Include="Model\Danhsachtkchitiet.cs" />

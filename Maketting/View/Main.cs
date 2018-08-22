@@ -3741,6 +3741,11 @@ namespace Maketting.View
 
             #endregion
         }
+
+        private void storeAvaiableListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

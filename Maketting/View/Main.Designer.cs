@@ -51,6 +51,7 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gatePassIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hạchToánKếToánTổngHợpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@
             this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -240,6 +240,14 @@
             this.storeAvaiableListToolStripMenuItem.Name = "storeAvaiableListToolStripMenuItem";
             this.storeAvaiableListToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
             this.storeAvaiableListToolStripMenuItem.Text = "Store avaiable list";
+            this.storeAvaiableListToolStripMenuItem.Click += new System.EventHandler(this.storeAvaiableListToolStripMenuItem_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.usersToolStripMenuItem.Text = "Users";
+            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // hạchToánKếToánTổngHợpToolStripMenuItem
             // 
@@ -374,13 +382,6 @@
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
-            this.usersToolStripMenuItem.Text = "Users";
-            this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // Main
             // 

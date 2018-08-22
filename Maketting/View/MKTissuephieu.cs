@@ -13,18 +13,11 @@ namespace Maketting.View
 {
     public partial class MKTissuephieu : Form
     {
-        public int statusphieuchi { get; set; } // mới  // 2 suawra // 3 display //
-        public int phieuchiid { get; set; }
-        public string sophieuchi { get; set; }
-        public string tkno { get; set; }
-        public int tknochitiet { get; set; }
-        public string tkco { get; set; }
-        public int tkcochitiet { get; set; }
-        public double pssotienno { get; set; }
-        public double pssotienco { get; set; }
+        public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
+        public int sophieuID { get; set; }
+        public string sophieuxuathangQC { get; set; }
+      
 
-        public string maphieuchiOld { get; set; }
-        //    public DataGridView DataGridView1 { get; set; }
         public class ComboboxItem
         {
             public string Text { get; set; }
@@ -37,7 +30,7 @@ namespace Maketting.View
         }
 
 
-        public void add_detailGridviewTkNophieuchi(tbl_Socai socaitemp)
+        public void addDEtailPhieuMKT(tbl_MKt_Listphieu PhieuMKT)
         {
 
 
@@ -51,22 +44,29 @@ namespace Maketting.View
             //---------------
 
             DataTable dataTable = (DataTable)dataGridViewTkNo.DataSource;
+
             DataRow drToAdd = dataTable.NewRow();
 
             //    drToAdd["Tk_Có"] = socaitemp.TkCo;
-            drToAdd["Diễn_giải"] = socaitemp.Diengiai;
-            //      drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
-            //   drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
+            drToAdd["Code"] = PhieuMKT.Materiacode;
+            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["Issue"] = PhieuMKT.Issued;
+          
 
-            if (socaitemp.PsNo != null)
-            {
-                drToAdd["Số_tiền"] = socaitemp.PsNo;
-            }
 
-            drToAdd["Mã_chi_tiết"] = socaitemp.MaCTietTKCo;
-            drToAdd["Tên_chi_tiết"] = socaitemp.tenchitietCo;
 
-            drToAdd["tkNohide"] = socaitemp.TkNo;
+            ////      drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
+            ////   drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
+
+            ////if (socaitemp.PsNo != null)
+            ////{
+            ////    drToAdd["Số_tiền"] = socaitemp.PsNo;
+            ////}
+
+            //drToAdd["Mã_chi_tiết"] = socaitemp.MaCTietTKCo;
+            //drToAdd["Tên_chi_tiết"] = socaitemp.tenchitietCo;
+
+            //drToAdd["tkNohide"] = socaitemp.TkNo;
 
 
             //     drToAdd["ngayctuhide"] = socaitemp.Ngayctu;
@@ -79,88 +79,26 @@ namespace Maketting.View
             int i = dataTable.Rows.Count - 1;
             //   int i = dataGridViewTkCo.RowCount -1;
 
-            DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
-            DataGridViewCell dgvc = (DataGridViewCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
+            //DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
+            //DataGridViewCell dgvc = (DataGridViewCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
 
-            #region tim item comboboc
+            //#region tim item comboboc
 
-            foreach (ComboboxItem item in (List<ComboboxItem>)cb.DataSource)
-            {
+            //foreach (ComboboxItem item in (List<ComboboxItem>)cb.DataSource)
+            //{
 
-                if (item.Value.ToString().Trim() == socaitemp.TkNo.ToString().Trim())
-                {
+            //    if (item.Value.ToString().Trim() == socaitemp.TkNo.ToString().Trim())
+            //    {
 
-                    dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"].Value = item.Value;
-                }
+            //        dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"].Value = item.Value;
+            //    }
 
-            }
-
-
-            #endregion tom item comboubox
+            //}
 
 
+            //#endregion tom item comboubox
 
 
-        }
-
-        public void add_detailGridviewTkCoPhieuchi(tbl_Socai socaitemp)
-        {
-
-
-
-
-
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            //---------------
-
-            DataTable dataTable = (DataTable)dataGridViewTkNo.DataSource;
-            DataRow drToAdd = dataTable.NewRow();
-
-            //    drToAdd["Tk_Có"] = socaitemp.TkCo;
-            drToAdd["Diễn_giải"] = socaitemp.Diengiai;
-            //     drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
-            //    drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
-            drToAdd["Số_tiền"] = socaitemp.PsNo;
-            drToAdd["Mã_chi_tiết"] = socaitemp.MaCTietTKCo;
-            drToAdd["Tên_chi_tiết"] = socaitemp.tenchitietCo;
-
-            drToAdd["tkCohide"] = socaitemp.TkNo;
-
-
-            drToAdd["ngayctuhide"] = socaitemp.Ngayctu;
-
-            dataTable.Rows.Add(drToAdd);
-            dataTable.AcceptChanges();
-
-
-
-            int i = dataTable.Rows.Count - 1;
-            //   int i = dataGridViewTkCo.RowCount -1;
-
-            DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Có"];
-            DataGridViewCell dgvc = (DataGridViewCell)dataGridViewTkNo.Rows[i].Cells["Tk_Có"];
-
-            #region tim item comboboc
-
-            foreach (ComboboxItem item in (List<ComboboxItem>)cb.DataSource)
-            {
-
-                if (item.Value.ToString().Trim() == socaitemp.TkNo.ToString().Trim())
-                {
-
-                    dataGridViewTkNo.Rows[i].Cells["Tk_Có"].Value = item.Value;
-                }
-
-            }
-
-
-            #endregion tom item comboubox
-
-
-         
 
 
         }
@@ -170,7 +108,7 @@ namespace Maketting.View
 
 
 
-            dataGridViewListphieuchi.DataSource = Model.Phieuthuchi.reloadseachview("PC", nguoinop, diachi, noidung);
+       //     dataGridViewListphieuchi.DataSource = Model.Phieuthuchi.reloadseachview("PC", nguoinop, diachi, noidung);
 
 
         }
@@ -201,11 +139,12 @@ namespace Maketting.View
 
             datepickngayphieu.Focus();
 
+            dataGridViewTkNo = Model.MKT.Loadnewdetail(dataGridViewTkNo);
 
-            this.phieuchiid = -1;
 
-            this.statusphieuchi = 1; // tạo mới
-            dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
+         //   dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
+
+
             #endregion
 
 
@@ -293,11 +232,10 @@ namespace Maketting.View
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
 
-            this.pssotienno = 0;
-            this.pssotienco = 0;
+          
             this.main1 = Main;
 
-            this.statusphieuchi = 1; // tạo mới
+            this.statusphieu = 1; // tạo mới
 
             Model.Username used = new Model.Username();
             string connection_string = Utils.getConnectionstr();
@@ -585,97 +523,97 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rptphieuchi = from phieuthud in dc.Rpt_PhieuThus
-                              where phieuthud.username == username
-                              select phieuthud;
+            //var rptphieuchi = from phieuthud in dc.Rpt_PhieuThus
+            //                  where phieuthud.username == username
+            //                  select phieuthud;
 
-            dc.Rpt_PhieuThus.DeleteAllOnSubmit(rptphieuchi);
-            dc.SubmitChanges();
-
-
-            var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
-                            where tbl_SoQuy.id == this.phieuchiid
-                            select new
-                            {
-
-                                //     tencongty = Model.Congty.getnamecongty(),
-                                //     diachicongty = Model.Congty.getdiachicongty(),
-                                ////     masothue = Model.Congty.getmasothuecongty(),
-                                //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
-                                //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
-
-                                sophieuthu = tbl_SoQuy.Sophieu,
-                                ngaychungtu = tbl_SoQuy.Ngayctu,
-                                nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
-                                //    nguoilapphieu = Utils.getname(),
-                                diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
-                                lydothu = tbl_SoQuy.Diengiai,
-                                sotien = tbl_SoQuy.PsCo,
-                                //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
-                                sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
-                                //    username = Utils.getusername(),
-                                tkco = tbl_SoQuy.TKtienmat,
-                                tkno = tbl_SoQuy.TKdoiung,
+            //dc.Rpt_PhieuThus.DeleteAllOnSubmit(rptphieuchi);
+            //dc.SubmitChanges();
 
 
-                            }).FirstOrDefault();
+            //var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
+            //                where tbl_SoQuy.id == this.phieuchiid
+            //                select new
+            //                {
+
+            //                    //     tencongty = Model.Congty.getnamecongty(),
+            //                    //     diachicongty = Model.Congty.getdiachicongty(),
+            //                    ////     masothue = Model.Congty.getmasothuecongty(),
+            //                    //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
+            //                    //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
+
+            //                    sophieuthu = tbl_SoQuy.Sophieu,
+            //                    ngaychungtu = tbl_SoQuy.Ngayctu,
+            //                    nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
+            //                    //    nguoilapphieu = Utils.getname(),
+            //                    diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
+            //                    lydothu = tbl_SoQuy.Diengiai,
+            //                    sotien = tbl_SoQuy.PsCo,
+            //                    //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
+            //                    sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
+            //                    //    username = Utils.getusername(),
+            //                    tkco = tbl_SoQuy.TKtienmat,
+            //                    tkno = tbl_SoQuy.TKdoiung,
+
+
+            //                }).FirstOrDefault();
 
             //   this.dataGridViewListphieuthu.DataSource = phieuthu;
 
-            #region  view reports payment request  
+            //#region  view reports payment request  
 
-            //Control_ac ctrac = new Control_ac();
+            ////Control_ac ctrac = new Control_ac();
 
-            //var rs1 = ctrac.KArptdataset1(dc);
-            //var rs2 = ctrac.KArptdataset2(dc);
-
-
-
-            if (phieuchi != null)
-            {
+            ////var rs1 = ctrac.KArptdataset1(dc);
+            ////var rs2 = ctrac.KArptdataset2(dc);
 
 
-                #region  insert vao rpt phieu thu
 
-                Rpt_PhieuThu pt = new Rpt_PhieuThu();
-                string macty = Model.Username.getmacty();
-                pt.tencongty = Model.Congty.getnamecongty(macty);
-                pt.diachicongty = Model.Congty.getdiachicongty(macty);
-                pt.masothue = Model.Congty.getmasothuecongty(macty);
-                pt.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
-                pt.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
-                pt.sotienbangchu = phieuchi.sophieuthu;
-                pt.ngaychungtu = phieuchi.ngaychungtu;
-                pt.nguoinoptien = phieuchi.nguoinoptien;
-                pt.nguoilapphieu = Utils.getname();
-                pt.diachinguoinop = phieuchi.diachinguoinop;
-                pt.lydothu = phieuchi.lydothu;
-                pt.sotien = phieuchi.sotien;
-                pt.sotienbangchu = Utils.ChuyenSo(decimal.Parse(phieuchi.sotien.ToString()));
-                pt.sochungtugoc = phieuchi.sochungtugoc;
-                pt.username = Utils.getusername();
-                pt.tkno = phieuchi.tkno;
-                pt.tkco = phieuchi.tkco;
-                pt.phieuthuso = phieuchi.sophieuthu;
-
-                dc.Rpt_PhieuThus.InsertOnSubmit(pt);
-                dc.SubmitChanges();
-                #endregion
-
-                var rsphieuchi = from tblRpt_PhieuThu in dc.Rpt_PhieuThus
-                                 where tblRpt_PhieuThu.username == username
-                                 select tblRpt_PhieuThu;
+            //if (phieuchi != null)
+            //{
 
 
-                Utils ut = new Utils();
-                var dataset1 = ut.ToDataTable(dc, rsphieuchi);
+            //    #region  insert vao rpt phieu thu
 
-                Reportsview rpt = new Reportsview(dataset1, null, "Phieuchi.rdlc");
-                rpt.ShowDialog();
+            //    Rpt_PhieuThu pt = new Rpt_PhieuThu();
+            //    string macty = Model.Username.getmacty();
+            //    pt.tencongty = Model.Congty.getnamecongty(macty);
+            //    pt.diachicongty = Model.Congty.getdiachicongty(macty);
+            //    pt.masothue = Model.Congty.getmasothuecongty(macty);
+            //    pt.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
+            //    pt.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
+            //    pt.sotienbangchu = phieuchi.sophieuthu;
+            //    pt.ngaychungtu = phieuchi.ngaychungtu;
+            //    pt.nguoinoptien = phieuchi.nguoinoptien;
+            //    pt.nguoilapphieu = Utils.getname();
+            //    pt.diachinguoinop = phieuchi.diachinguoinop;
+            //    pt.lydothu = phieuchi.lydothu;
+            //    pt.sotien = phieuchi.sotien;
+            //    pt.sotienbangchu = Utils.ChuyenSo(decimal.Parse(phieuchi.sotien.ToString()));
+            //    pt.sochungtugoc = phieuchi.sochungtugoc;
+            //    pt.username = Utils.getusername();
+            //    pt.tkno = phieuchi.tkno;
+            //    pt.tkco = phieuchi.tkco;
+            //    pt.phieuthuso = phieuchi.sophieuthu;
 
-            }
+            //    dc.Rpt_PhieuThus.InsertOnSubmit(pt);
+            //    dc.SubmitChanges();
+            //    #endregion
 
-            #endregion view reports payment request  // 
+            //    var rsphieuchi = from tblRpt_PhieuThu in dc.Rpt_PhieuThus
+            //                     where tblRpt_PhieuThu.username == username
+            //                     select tblRpt_PhieuThu;
+
+
+            //    Utils ut = new Utils();
+            //    var dataset1 = ut.ToDataTable(dc, rsphieuchi);
+
+            //    Reportsview rpt = new Reportsview(dataset1, null, "Phieuchi.rdlc");
+            //    rpt.ShowDialog();
+
+            //}
+
+            //#endregion view reports payment request  // 
 
         }
 
@@ -685,18 +623,18 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
-            var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-                     where tbl_dstaikhoan.loaitkid == "tien" // tien mat la loai 8
-                     orderby tbl_dstaikhoan.matk
-                     select tbl_dstaikhoan;
-            foreach (var item in rs)
-            {
-                ComboboxItem cb = new ComboboxItem();
-                cb.Value = item.matk.Trim();
-                cb.Text = item.matk.Trim() + ": " + item.tentk;
-                CombomCollection.Add(cb);
-            }
+            //List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
+            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
+            //         where tbl_dstaikhoan.loaitkid == "tien" // tien mat la loai 8
+            //         orderby tbl_dstaikhoan.matk
+            //         select tbl_dstaikhoan;
+            //foreach (var item in rs)
+            //{
+            //    ComboboxItem cb = new ComboboxItem();
+            //    cb.Value = item.matk.Trim();
+            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
+            //    CombomCollection.Add(cb);
+            //}
 
             //cbtkco.DataSource = CombomCollection;
 
@@ -704,73 +642,73 @@ namespace Maketting.View
 
 
 
-            try
-            {
-                this.phieuchiid = (int)this.dataGridViewListphieuchi.Rows[this.dataGridViewListphieuchi.CurrentCell.RowIndex].Cells["ID"].Value;
+         //   try
+            //{
+            //    this.phieuchiid = (int)this.dataGridViewListphieuchi.Rows[this.dataGridViewListphieuchi.CurrentCell.RowIndex].Cells["ID"].Value;
 
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-                this.phieuchiid = 0;
-            }
+            //    this.phieuchiid = 0;
+            //}
 
-            if (this.phieuchiid != 0)
-            {
+            //if (this.phieuchiid != 0)
+            //{
 
-                string macty = Model.Username.getmacty();
+            //    string macty = Model.Username.getmacty();
 
-                #region view load form
-                var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
-                                where tbl_SoQuy.id == this.phieuchiid
-                                && tbl_SoQuy.macty == macty
-                                select new
-                                {
+            //    #region view load form
+            //    var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
+            //                    where tbl_SoQuy.id == this.phieuchiid
+            //                    && tbl_SoQuy.macty == macty
+            //                    select new
+            //                    {
 
-                                    //     tencongty = Model.Congty.getnamecongty(),
-                                    //     diachicongty = Model.Congty.getdiachicongty(),
-                                    ////     masothue = Model.Congty.getmasothuecongty(),
-                                    //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
-                                    //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
+            //                        //     tencongty = Model.Congty.getnamecongty(),
+            //                        //     diachicongty = Model.Congty.getdiachicongty(),
+            //                        ////     masothue = Model.Congty.getmasothuecongty(),
+            //                        //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
+            //                        //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
 
-                                    sophieuthu = tbl_SoQuy.Sophieu,
-                                    ngaychungtu = tbl_SoQuy.Ngayctu,
-                                    nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
-                                    //    nguoilapphieu = Utils.getname(),
-                                    diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
-                                    lydothu = tbl_SoQuy.Diengiai,
-                                    sotien = tbl_SoQuy.PsCo,
-                                    //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
-                                    sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
-                                    //    username = Utils.getusername(),
-
-
-                                    machitietco = tbl_SoQuy.ChitietTM,
-                                    tentkchitiet = tbl_SoQuy.TenchitietTM,
-                                    tkno = tbl_SoQuy.TKtienmat,
-
-                                    taikhoandoiung = tbl_SoQuy.TKdoiung,
-
-                                }).FirstOrDefault();
+            //                        sophieuthu = tbl_SoQuy.Sophieu,
+            //                        ngaychungtu = tbl_SoQuy.Ngayctu,
+            //                        nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
+            //                        //    nguoilapphieu = Utils.getname(),
+            //                        diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
+            //                        lydothu = tbl_SoQuy.Diengiai,
+            //                        sotien = tbl_SoQuy.PsCo,
+            //                        //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
+            //                        sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
+            //                        //    username = Utils.getusername(),
 
 
-                if (phieuchi != null)
-                {
-                    datepickngayphieu.Value = phieuchi.ngaychungtu;
+            //                        machitietco = tbl_SoQuy.ChitietTM,
+            //                        tentkchitiet = tbl_SoQuy.TenchitietTM,
+            //                        tkno = tbl_SoQuy.TKtienmat,
+
+            //                        taikhoandoiung = tbl_SoQuy.TKdoiung,
+
+            //                    }).FirstOrDefault();
+
+
+            //    if (phieuchi != null)
+            //    {
+            //        datepickngayphieu.Value = phieuchi.ngaychungtu;
                 
-                    txttennguoinhan.Text = phieuchi.nguoinoptien;
-                    txtdiachi.Text = phieuchi.diachinguoinop;
-                    txtdiengiai.Text = phieuchi.lydothu;
+            //        txttennguoinhan.Text = phieuchi.nguoinoptien;
+            //        txtdiachi.Text = phieuchi.diachinguoinop;
+            //        txtdiengiai.Text = phieuchi.lydothu;
                    
 
-                    //foreach (ComboboxItem item in (List<ComboboxItem>)cbtkco.DataSource)
-                    //{
-                    //    if (item.Value.ToString().Trim() == phieuchi.tkno.Trim())
-                    //    {
-                    //        cbtkco.SelectedItem = item;
-                    //    }
-                    //}
+            //        //foreach (ComboboxItem item in (List<ComboboxItem>)cbtkco.DataSource)
+            //        //{
+            //        //    if (item.Value.ToString().Trim() == phieuchi.tkno.Trim())
+            //        //    {
+            //        //        cbtkco.SelectedItem = item;
+            //        //    }
+            //        //}
 
 
 
@@ -779,13 +717,13 @@ namespace Maketting.View
 
 
 
-                    datepickngayphieu.Enabled = false;
+            //        datepickngayphieu.Enabled = false;
                   
-                    txttennguoinhan.Enabled = false;
-                    txtdiachi.Enabled = false;
-                    txtdiengiai.Enabled = false;
+            //        txttennguoinhan.Enabled = false;
+            //        txtdiachi.Enabled = false;
+            //        txtdiengiai.Enabled = false;
                
-                    btsua.Enabled = true;
+            //        btsua.Enabled = true;
 
 
 
@@ -793,18 +731,16 @@ namespace Maketting.View
             
 
 
-                    this.statusphieuchi = 3;// View
-             //       Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
-            //        Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
-                    btluu.Visible = false;
+            //        this.statusphieuchi = 3;// View
+            // //       Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
+            ////        Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
+            //        btluu.Visible = false;
 
-                }
-
-
-
-                #endregion view load form
+            //    }
 
 
+
+            //    #endregion view load form
 
 
 
@@ -812,7 +748,9 @@ namespace Maketting.View
 
 
 
-            }
+
+
+            //}
 
 
         }
@@ -828,51 +766,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var phieuthu = (from tbl_SoQuy in dc.tbl_SoQuys
-                            where tbl_SoQuy.id == this.phieuchiid
-                            select tbl_SoQuy).FirstOrDefault();
-
-            if (phieuthu != null)
-            {
-                this.sophieuchi = phieuthu.Machungtu;
-
-                dc.tbl_SoQuys.DeleteOnSubmit(phieuthu);
-                dc.SubmitChanges();
-
-
-                Model.hachtoantonghop.xoa("PC", phieuthu.Machungtu);
-
-                MessageBox.Show("Đã xóa phiếu thu: " + this.sophieuchi, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //  Model.
-                #region load list phieu chi
-                var Listphieuthu = from listpt in dc.tbl_SoQuys
-                                   where listpt.Machungtu == "PC" // mã 8 là tiền mặt
-                                   select new
-                                   {
-
-                                       Ngày_chứng_từ = listpt.Ngayctu,
-                                       Số_chứng_từ = listpt.Sophieu,
-                                       TK_Nợ = listpt.TKtienmat,
-                                       TK_Có = listpt.TKdoiung,
-                                       Số_Tiền = listpt.PsNo,
-                                       Diễn_Giải = listpt.Diengiai,
-                                       Người_nộp = listpt.Nguoinopnhantien,
-                                       Địa_chỉ = listpt.Diachinguoinhannop,
-                                       Username = listpt.Username,
-                                       Ngày_nhập_liệu = listpt.Ngayghiso,
-                                       ID = listpt.id
-
-                                   };
-
-                dataGridViewListphieuchi.DataSource = Listphieuthu;
-                #endregion
-
-
-
-
-
-            }
-
+        
 
 
 
@@ -881,7 +775,7 @@ namespace Maketting.View
         private void button2_Click(object sender, EventArgs e)
         {
 
-            this.statusphieuchi = 2;
+            this.statusphieu = 2;
 
             btluu.Visible = true;
 
@@ -900,7 +794,7 @@ namespace Maketting.View
             //   cbtaikhoanco.Enabled = true;
     
 
-            this.statusphieuchi = 2;
+            this.statusphieu = 2;
 
         }
 
