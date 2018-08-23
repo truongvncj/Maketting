@@ -83,3 +83,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.pdb
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Thongtindonvi.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Serversetup.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Viewchooseiquery.resources

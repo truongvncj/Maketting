@@ -56,7 +56,7 @@
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(464, 479);
+            this.button2.Location = new System.Drawing.Point(468, 479);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 22);
             this.button2.TabIndex = 40;

@@ -41,16 +41,17 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
+          
             //---------------
 
-            DataTable dataTable = (DataTable)dataGridViewTkNo.DataSource;
+            //DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
 
-            DataRow drToAdd = dataTable.NewRow();
+            //DataRow drToAdd = dataTable.NewRow();
 
-            //    drToAdd["Tk_Có"] = socaitemp.TkCo;
-            drToAdd["Code"] = PhieuMKT.Materiacode;
-            drToAdd["Description"] = PhieuMKT.Description;
-            drToAdd["Issue"] = PhieuMKT.Issued;
+            ////    drToAdd["Tk_Có"] = socaitemp.TkCo;
+            //drToAdd["Code"] = PhieuMKT.Materiacode;
+            //drToAdd["Description"] = PhieuMKT.Description;
+            //drToAdd["Issue"] = PhieuMKT.Issued;
           
 
 
@@ -71,12 +72,12 @@ namespace Maketting.View
 
             //     drToAdd["ngayctuhide"] = socaitemp.Ngayctu;
 
-            dataTable.Rows.Add(drToAdd);
-            dataTable.AcceptChanges();
+            //dataTable.Rows.Add(drToAdd);
+            //dataTable.AcceptChanges();
 
 
 
-            int i = dataTable.Rows.Count - 1;
+            //int i = dataTable.Rows.Count - 1;
             //   int i = dataGridViewTkCo.RowCount -1;
 
             //DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
@@ -139,7 +140,7 @@ namespace Maketting.View
 
             datepickngayphieu.Focus();
 
-            dataGridViewTkNo = Model.MKT.Loadnewdetail(dataGridViewTkNo);
+            dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
 
 
          //   dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
@@ -226,6 +227,7 @@ namespace Maketting.View
         }
 
         public View.Main main1;
+
         public MKTissuephieu(View.Main Main)
         {
             InitializeComponent();
@@ -237,19 +239,20 @@ namespace Maketting.View
 
             this.statusphieu = 1; // tạo mới
 
-            Model.Username used = new Model.Username();
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //Model.Username used = new Model.Username();
+            //string connection_string = Utils.getConnectionstr();
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            string username = Utils.getusername();
-
-
-          
-
-        
+            //string username = Utils.getusername();
 
 
-        
+
+
+
+
+            dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
+
+
 
         }
 
@@ -973,7 +976,7 @@ namespace Maketting.View
             //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
             //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
 
-            foreach (var c in dataGridViewTkNo.Columns)
+            foreach (var c in dataGridViewDetail.Columns)
             {
                 DataGridViewColumn clm = (DataGridViewColumn)c;
                 clm.HeaderText = clm.HeaderText.Replace("_", " ");
@@ -1008,9 +1011,9 @@ namespace Maketting.View
 
                     // int i = dataGridProgramdetail.CurrentRow.Index;
                     int i = currentCell.RowIndex;
-                    string colname = this.dataGridViewTkNo.Columns[this.dataGridViewTkNo.CurrentCell.ColumnIndex].Name;
+                    string colname = this.dataGridViewDetail.Columns[this.dataGridViewDetail.CurrentCell.ColumnIndex].Name;
 
-                    dataGridViewTkNo.Rows[i].Cells[colname].Value = SelectedItem;
+                    dataGridViewDetail.Rows[i].Cells[colname].Value = SelectedItem;
 
 
 
@@ -1037,7 +1040,7 @@ namespace Maketting.View
                 }
 
 
-                currentCell = this.dataGridViewTkNo.CurrentCell;
+                currentCell = this.dataGridViewDetail.CurrentCell;
 
 
 
@@ -1105,11 +1108,11 @@ namespace Maketting.View
 
         private void dataGridViewTkCo_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            DataGridView view = (DataGridView)sender;
-            int i = view.CurrentRow.Index;
-            string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
-            string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
+///
+        //    DataGridView view = (DataGridView)sender;
+       //     int i = view.CurrentRow.Index;
+        //    string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
+       //     string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
 
             //#region if la slect tai khoan co chi tiet
 
@@ -1414,6 +1417,83 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataGridViewDetail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //dt.Columns.Add(new DataColumn("Material_code", typeof(string)));
+            //dt.Columns.Add(new DataColumn("SAP_Code", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(int)));
+
+     
+
+
+
+
+
+
+
+
+            }
+
+        private void dataGridViewDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewDetail_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+
+
+
+                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+
+                bool kq = false;
+                foreach (Form frm in fc)
+                {
+                    if (frm.Text == "SELECT")
+
+
+                    {
+                        kq = true;
+                        frm.Focus();
+
+                    }
+                }
+
+                if (!kq && dataGridViewDetail.CurrentCell.RowIndex >0 )
+                {
+                  
+                    string connection_string = Utils.getConnectionstr();
+                    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    string username = Utils.getusername();
+
+                    string columhead = dataGridViewDetail.Columns[dataGridViewDetail.CurrentCell.ColumnIndex].HeaderText.ToString();
+                    string valueseach = dataGridViewDetail.Rows[dataGridViewDetail.CurrentCell.RowIndex - 1].Cells[dataGridViewDetail.CurrentCell.ColumnIndex].Value.ToString();
+                 //   dataGridViewDetail.CurrentCell.Value.ToString();
+                    var rs = from pp in dc.tbl_MKt_Listphieus
+                             where pp.Description.Contains(valueseach)
+                             select pp;
+
+                  //  MessageBox.Show(columhead);
+
+
+
+                    View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "Please select product", columhead);
+
+                    selectkq.ShowDialog();
+
+                    //               View.BeeSeachtwofield sheaching = new BeeSeachtwofield(this, "Người nôp", "Địa chỉ", "Nội dung");
+                    //             sheaching.Show();
+                }
+
+            }
 
         }
     }
