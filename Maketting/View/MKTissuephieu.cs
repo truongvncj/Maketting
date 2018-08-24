@@ -16,7 +16,7 @@ namespace Maketting.View
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
         public int sophieuID { get; set; }
         public string sophieuxuathangQC { get; set; }
-      
+
 
         public class ComboboxItem
         {
@@ -41,7 +41,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-          
+
             //---------------
 
             //DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
@@ -52,7 +52,7 @@ namespace Maketting.View
             //drToAdd["Code"] = PhieuMKT.Materiacode;
             //drToAdd["Description"] = PhieuMKT.Description;
             //drToAdd["Issue"] = PhieuMKT.Issued;
-          
+
 
 
 
@@ -109,7 +109,7 @@ namespace Maketting.View
 
 
 
-       //     dataGridViewListphieuchi.DataSource = Model.Phieuthuchi.reloadseachview("PC", nguoinop, diachi, noidung);
+            //     dataGridViewListphieuchi.DataSource = Model.Phieuthuchi.reloadseachview("PC", nguoinop, diachi, noidung);
 
 
         }
@@ -120,30 +120,30 @@ namespace Maketting.View
             #region  list black phiếu
             datepickngayphieu.Enabled = true;
 
-        
+
             txttennguoinhan.Enabled = true;
             txtdiachi.Enabled = true;
             txtdiengiai.Enabled = true;
-        
+
             btluu.Visible = true;
             btluu.Enabled = true;
             //    cbtaikhoanco.Enabled = true;
-       
+
             btsua.Enabled = false;
 
-       
+
             txttennguoinhan.Text = "";
             txtdiachi.Text = "";
             txtdiengiai.Text = "";
-         
-      
+
+
 
             datepickngayphieu.Focus();
 
             dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
 
 
-         //   dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
+            //   dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
 
 
             #endregion
@@ -214,8 +214,8 @@ namespace Maketting.View
 
                 if (!kq)
                 {
-                 //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
-                 //   BeeHtoansocaidoiung.Show();
+                    //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
+                    //   BeeHtoansocaidoiung.Show();
                 }
 
 
@@ -234,7 +234,7 @@ namespace Maketting.View
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
 
-          
+
             this.main1 = Main;
 
             this.statusphieu = 1; // tạo mới
@@ -264,7 +264,7 @@ namespace Maketting.View
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-           // main1.clearpannel();
+            // main1.clearpannel();
             //View.Beemainload main = new Beemainload(main1);
 
             //main1.clearpannelload(main);
@@ -354,7 +354,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-           //     txtsotien.Focus();
+                //     txtsotien.Focus();
 
 
 
@@ -439,23 +439,23 @@ namespace Maketting.View
         public static void ghisoQuy(tbl_SoQuy soquy)
         {
 
-            string connection_string = Utils.getConnectionstr();
+            //      string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            dc.tbl_SoQuys.InsertOnSubmit(soquy);
-            dc.SubmitChanges();
+            //  dc.tbl_SoQuys.InsertOnSubmit(soquy);
+            //       dc.SubmitChanges();
 
         }
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
 
-            
 
-          
 
-     
+
+
+
 
         }
 
@@ -494,11 +494,11 @@ namespace Maketting.View
             //    CombomCollection.Add(cb);
             //}
 
-          //  string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
+            //  string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
             //     this.matk = taikhoan;
 
 
-        
+
 
             //    dataGridViewTkCo.Focus();
 
@@ -645,7 +645,7 @@ namespace Maketting.View
 
 
 
-         //   try
+            //   try
             //{
             //    this.phieuchiid = (int)this.dataGridViewListphieuchi.Rows[this.dataGridViewListphieuchi.CurrentCell.RowIndex].Cells["ID"].Value;
 
@@ -699,11 +699,11 @@ namespace Maketting.View
             //    if (phieuchi != null)
             //    {
             //        datepickngayphieu.Value = phieuchi.ngaychungtu;
-                
+
             //        txttennguoinhan.Text = phieuchi.nguoinoptien;
             //        txtdiachi.Text = phieuchi.diachinguoinop;
             //        txtdiengiai.Text = phieuchi.lydothu;
-                   
+
 
             //        //foreach (ComboboxItem item in (List<ComboboxItem>)cbtkco.DataSource)
             //        //{
@@ -721,17 +721,17 @@ namespace Maketting.View
 
 
             //        datepickngayphieu.Enabled = false;
-                  
+
             //        txttennguoinhan.Enabled = false;
             //        txtdiachi.Enabled = false;
             //        txtdiengiai.Enabled = false;
-               
+
             //        btsua.Enabled = true;
 
 
 
 
-            
+
 
 
             //        this.statusphieuchi = 3;// View
@@ -769,7 +769,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-        
+
 
 
 
@@ -791,11 +791,11 @@ namespace Maketting.View
             txttennguoinhan.Enabled = true;
             txtdiachi.Enabled = true;
             txtdiengiai.Enabled = true;
-         
+
             btluu.Enabled = true;
 
             //   cbtaikhoanco.Enabled = true;
-    
+
 
             this.statusphieu = 2;
 
@@ -864,7 +864,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-             //  txtsotien.Focus();
+                //  txtsotien.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -936,8 +936,8 @@ namespace Maketting.View
 
             if (!kq)
             {
-             //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
-            //    BeeHtoansocaidoiung.ShowDialog();
+                //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
+                //    BeeHtoansocaidoiung.ShowDialog();
             }
 
 
@@ -1108,11 +1108,11 @@ namespace Maketting.View
 
         private void dataGridViewTkCo_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-///
-        //    DataGridView view = (DataGridView)sender;
-       //     int i = view.CurrentRow.Index;
-        //    string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
-       //     string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
+            ///
+            //    DataGridView view = (DataGridView)sender;
+            //     int i = view.CurrentRow.Index;
+            //    string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
+            //     string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
 
             //#region if la slect tai khoan co chi tiet
 
@@ -1289,7 +1289,7 @@ namespace Maketting.View
         private void dataGridViewTkCo_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
 
-        
+
 
         }
 
@@ -1381,7 +1381,7 @@ namespace Maketting.View
 
         private void txtsotien_Leave(object sender, EventArgs e)
         {
-         
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -1391,11 +1391,11 @@ namespace Maketting.View
 
         private void cbtkco_SelectionChangeCommitted(object sender, EventArgs e)
         {
-        //    string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
+            //    string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
             //     this.matk = taikhoan;
 
 
-       
+
 
         }
 
@@ -1408,7 +1408,7 @@ namespace Maketting.View
         {
 
 
-           
+
 
 
 
@@ -1427,7 +1427,6 @@ namespace Maketting.View
             //dt.Columns.Add(new DataColumn("Description", typeof(string)));
             //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(int)));
 
-     
 
 
 
@@ -1436,7 +1435,8 @@ namespace Maketting.View
 
 
 
-            }
+
+        }
 
         private void dataGridViewDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1466,9 +1466,9 @@ namespace Maketting.View
                     }
                 }
 
-                if (!kq && dataGridViewDetail.CurrentCell.RowIndex >0 )
+                if (!kq && dataGridViewDetail.CurrentCell.RowIndex > 0)
                 {
-                  
+
                     string connection_string = Utils.getConnectionstr();
                     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -1476,12 +1476,12 @@ namespace Maketting.View
 
                     string columhead = dataGridViewDetail.Columns[dataGridViewDetail.CurrentCell.ColumnIndex].HeaderText.ToString();
                     string valueseach = dataGridViewDetail.Rows[dataGridViewDetail.CurrentCell.RowIndex - 1].Cells[dataGridViewDetail.CurrentCell.ColumnIndex].Value.ToString();
-                 //   dataGridViewDetail.CurrentCell.Value.ToString();
+                    //   dataGridViewDetail.CurrentCell.Value.ToString();
                     var rs = from pp in dc.tbl_MKt_Listphieus
                              where pp.Description.Contains(valueseach)
                              select pp;
 
-                  //  MessageBox.Show(columhead);
+                    //  MessageBox.Show(columhead);
 
 
 
@@ -1495,6 +1495,19 @@ namespace Maketting.View
 
             }
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.TabIndex == 2) //  Danh sách phiếu
+
+            {     //if (sender.a)
+                  //{
+                  ccc
+                //}
+           //     xxxx
+
+            }
         }
     }
 }

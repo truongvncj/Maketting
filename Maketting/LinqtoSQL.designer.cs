@@ -25423,6 +25423,10 @@ namespace Maketting
 		
 		private System.Nullable<double> _Soluongconlai;
 		
+		private string _Status;
+		
+		private System.Nullable<System.DateTime> _Ngayhoanthanh;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -25461,6 +25465,10 @@ namespace Maketting
     partial void OnSoluongdaxuatChanged();
     partial void OnSoluongconlaiChanging(System.Nullable<double> value);
     partial void OnSoluongconlaiChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnNgayhoanthanhChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayhoanthanhChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -25804,6 +25812,46 @@ namespace Maketting
 					this._Soluongconlai = value;
 					this.SendPropertyChanged("Soluongconlai");
 					this.OnSoluongconlaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngayhoanthanh", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ngayhoanthanh
+		{
+			get
+			{
+				return this._Ngayhoanthanh;
+			}
+			set
+			{
+				if ((this._Ngayhoanthanh != value))
+				{
+					this.OnNgayhoanthanhChanging(value);
+					this.SendPropertyChanging();
+					this._Ngayhoanthanh = value;
+					this.SendPropertyChanged("Ngayhoanthanh");
+					this.OnNgayhoanthanhChanged();
 				}
 			}
 		}
