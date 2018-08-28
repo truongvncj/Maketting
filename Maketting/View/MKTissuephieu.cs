@@ -1477,17 +1477,99 @@ namespace Maketting.View
                     string columhead = dataGridViewDetail.Columns[dataGridViewDetail.CurrentCell.ColumnIndex].HeaderText.ToString();
                     string valueseach = dataGridViewDetail.Rows[dataGridViewDetail.CurrentCell.RowIndex - 1].Cells[dataGridViewDetail.CurrentCell.ColumnIndex].Value.ToString();
                     //   dataGridViewDetail.CurrentCell.Value.ToString();
-                    var rs = from pp in dc.tbl_MKt_Listphieus
+                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Unit", typeof(int)));
+                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(int)));
+                    IQueryable rs = null;
+                    if (columhead == "Description")
+                    {
+                        rs = from pp in dc.tbl_MKT_Stockends
                              where pp.Description.Contains(valueseach)
-                             select pp;
+                             select new
+                             {
+                                 pp.ITEM_Code,
+                                 pp.SAP_CODE,
+                                 pp.MATERIAL,
+                                 pp.Description,
+                                 pp.UNIT,
+                                 Avaiable_stock = pp.END_STOCK,
 
+                                 pp.id,
+
+                             };
+                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+
+                        selectkq.ShowDialog();
+                    }
+
+                    if (columhead == "ITEM Code")
+                    {
+                        rs = from pp in dc.tbl_MKT_Stockends
+                             where pp.ITEM_Code.Contains(valueseach)
+                             select new
+                             {
+                                 pp.ITEM_Code,
+                                 pp.SAP_CODE,
+                                 pp.MATERIAL,
+                                 pp.Description,
+                                 pp.UNIT,
+                                 Avaiable_stock = pp.END_STOCK,
+
+                                 pp.id,
+
+                             };
+                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+
+                        selectkq.ShowDialog();
+                    }
+                    if (columhead == "Sap Code")
+                    {
+                        rs = from pp in dc.tbl_MKT_Stockends
+                             where pp.SAP_CODE.Contains(valueseach)
+                             select new
+                             {
+                                 pp.ITEM_Code,
+                                 pp.SAP_CODE,
+                                 pp.MATERIAL,
+                                 pp.Description,
+                                 pp.UNIT,
+                                 Avaiable_stock = pp.END_STOCK,
+
+                                 pp.id,
+
+                             };
+                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+
+                        selectkq.ShowDialog();
+                    }
+
+                    if (columhead == "MATERIAL")
+                    {
+                        rs = from pp in dc.tbl_MKT_Stockends
+                             where pp.MATERIAL.Contains(valueseach)
+                             select new
+                             {
+                                 pp.ITEM_Code,
+                                 pp.SAP_CODE,
+                                 pp.MATERIAL,
+                                 pp.Description,
+                                 pp.UNIT,
+                                 Avaiable_stock = pp.END_STOCK,
+
+                                 pp.id,
+
+                             };
+                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+
+                        selectkq.ShowDialog();
+                    }
                     //  MessageBox.Show(columhead);
 
 
 
-                    View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "Please select product", columhead);
 
-                    selectkq.ShowDialog();
 
                     //               View.BeeSeachtwofield sheaching = new BeeSeachtwofield(this, "Người nôp", "Địa chỉ", "Nội dung");
                     //             sheaching.Show();
@@ -1502,7 +1584,7 @@ namespace Maketting.View
             if (tabControl1.TabIndex == 2) //  Danh sách phiếu
 
             {
-               // string valueinput = cb_customerka.Text;
+                // string valueinput = cb_customerka.Text;
 
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -1512,9 +1594,26 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKt_Listphieus
                          where pp.Status == "CRT"
-                         select pp;
+                         select new
+                         {
+                             Date = pp.Ngaytaophieu,
+                             pp.Gate_pass,
+                             pp.Requested_by,
+                             pp.Purpose,
+
+
+                             pp.Receiver_by,
+                             pp.Customer_SAP_Code,
+                             pp.Address,
+                             pp.Materiacode,
+                             //  pp.MateriaSAPcode,
+                             pp.Description,
+                             pp.Issued,
+                             pp.id,
+
+                         };
                 dataGridViewListphieu.DataSource = rs;
-          
+
 
 
 

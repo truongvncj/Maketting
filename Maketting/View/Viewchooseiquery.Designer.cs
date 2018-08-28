@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 502);
+            this.panel1.Size = new System.Drawing.Size(1121, 502);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -61,7 +61,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(4, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(809, 467);
+            this.dataGridView1.Size = new System.Drawing.Size(1110, 467);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
@@ -72,9 +72,9 @@
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 1);
+            this.label7.Location = new System.Drawing.Point(-6, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(809, 21);
+            this.label7.Size = new System.Drawing.Size(1120, 21);
             this.label7.TabIndex = 17;
             this.label7.Text = "TABLEVIEW";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 509);
+            this.ClientSize = new System.Drawing.Size(1126, 509);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

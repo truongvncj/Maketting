@@ -26,9 +26,11 @@ namespace Maketting.Model
             //    pp.Issued
 
             //   dt.Columns.Add(new DataColumn("Ngày_chứng_từ", typeof(DGV_DateTimePicker.DateTimePickerCell)));
-            dt.Columns.Add(new DataColumn("Material_code", typeof(string)));
-            dt.Columns.Add(new DataColumn("SAP_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("Unit", typeof(int)));
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(int)));
         
             //Threahold
