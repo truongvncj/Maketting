@@ -17,6 +17,11 @@ namespace Maketting.View
         public string Valuechoose { get; set; }
         public string columhead { get; set; }
         public bool chon { get; set; }
+        public int id { get; set; }
+
+
+
+
 
         //  IQueryable rs, LinqtoSQLDataContext d
         public Viewchooseiquery(IQueryable rs, LinqtoSQLDataContext dc, string fornname, string columhead)
@@ -31,15 +36,14 @@ namespace Maketting.View
 
             Valuechoose = "";
             chon = false;
+          
 
-        
-
-            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
 
-         
+
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -49,26 +53,26 @@ namespace Maketting.View
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.RowCount > 0)
-            {
+            //if (dataGridView1.RowCount > 0)
+            //{
 
 
 
 
-                if (this.dataGridView1.CurrentCell.RowIndex >= 0)
-                {
-              //      Valuechoose = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells[columhead].Value.ToString();
-                 //   region = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Region"].Value.ToString();
+            //    if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+            //    {
+            //  //      Valuechoose = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells[columhead].Value.ToString();
+            //     //   region = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Region"].Value.ToString();
 
-                    chon = true;
+            //        chon = true;
 
-                    this.Close();
-                }
+            //        this.Close();
+            //    }
 
 
 
-            }
-          
+            //}
+
 
 
 
@@ -77,23 +81,38 @@ namespace Maketting.View
 
         private void dataGridView1_Enter(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount > 0)
+
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+            if (e.KeyCode == Keys.Enter)
             {
+               
 
-
-
-
-                if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                if (dataGridView1.RowCount > 0)
                 {
-                  //  Valuechoose = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells[columhead].Value.ToString();
-                    //   region = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Region"].Value.ToString();
 
-                    chon = true;
 
-               //     this.Close();
+
+
+                    if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                    {
+                      
+                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value != DBNull.Value)
+                        {
+                          this.id =int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
+
+                        }
+
+                       
+                        chon = true;
+
+                        this.Close();
+                    }
+
                 }
-
-
 
             }
 

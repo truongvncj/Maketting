@@ -1499,9 +1499,7 @@ namespace Maketting.View
                                  pp.id,
 
                              };
-                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
-
-                        selectkq.ShowDialog();
+                    
                     }
 
                     if (columhead == "ITEM Code")
@@ -1520,9 +1518,7 @@ namespace Maketting.View
                                  pp.id,
 
                              };
-                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
-
-                        selectkq.ShowDialog();
+                  
                     }
                     if (columhead == "Sap Code")
                     {
@@ -1540,9 +1536,7 @@ namespace Maketting.View
                                  pp.id,
 
                              };
-                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
-
-                        selectkq.ShowDialog();
+                      
                     }
 
                     if (columhead == "MATERIAL")
@@ -1561,18 +1555,35 @@ namespace Maketting.View
                                  pp.id,
 
                              };
+                     
+                    }
+
+                    if (columhead == "Unit")
+                    {
+                        rs = from pp in dc.tbl_MKT_Stockends
+                             where pp.UNIT.Contains(valueseach)
+                             select new
+                             {
+                                 pp.ITEM_Code,
+                                 pp.SAP_CODE,
+                                 pp.MATERIAL,
+                                 pp.Description,
+                                 pp.UNIT,
+                                 Avaiable_stock = pp.END_STOCK,
+
+                                 pp.id,
+
+                             };
+
+                    }
+                    //  MessageBox.Show(columhead);
+                    if (rs != null)
+                    {
                         View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
 
                         selectkq.ShowDialog();
                     }
-                    //  MessageBox.Show(columhead);
-
-
-
-
-
-                    //               View.BeeSeachtwofield sheaching = new BeeSeachtwofield(this, "Người nôp", "Địa chỉ", "Nội dung");
-                    //             sheaching.Show();
+                  
                 }
 
             }
