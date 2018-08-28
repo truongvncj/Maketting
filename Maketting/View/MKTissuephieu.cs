@@ -465,7 +465,7 @@ namespace Maketting.View
             //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
             //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
 
-            foreach (var c in dataGridViewListphieuchi.Columns)
+            foreach (var c in dataGridViewListphieu.Columns)
             {
                 DataGridViewColumn clm = (DataGridViewColumn)c;
                 clm.HeaderText = clm.HeaderText.Replace("_", " ");
@@ -1501,11 +1501,23 @@ namespace Maketting.View
         {
             if (tabControl1.TabIndex == 2) //  Danh sách phiếu
 
-            {     //if (sender.a)
-                  //{
-                  ccc
-                //}
-           //     xxxx
+            {
+               // string valueinput = cb_customerka.Text;
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                string username = Utils.getusername();
+
+
+                var rs = from pp in dc.tbl_MKt_Listphieus
+                         where pp.Status == "CRT"
+                         select pp;
+                dataGridViewListphieu.DataSource = rs;
+          
+
+
+
 
             }
         }
