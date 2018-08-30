@@ -89,8 +89,6 @@ namespace Maketting.View
           
             if (e.KeyCode == Keys.Enter)
             {
-               
-
                 if (dataGridView1.RowCount > 0)
                 {
 
@@ -99,14 +97,14 @@ namespace Maketting.View
 
                     if (this.dataGridView1.CurrentCell.RowIndex >= 0)
                     {
-                      
+
                         if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value != DBNull.Value)
                         {
-                          this.id =int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
+                            this.id = int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
 
                         }
 
-                       
+
                         chon = true;
 
                         this.Close();
@@ -114,8 +112,16 @@ namespace Maketting.View
 
                 }
 
+
+
             }
 
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        
         }
     }
 }
