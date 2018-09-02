@@ -157,11 +157,17 @@
     <Compile Include="View\BeeLCTT200dauky.Designer.cs">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeCDKT200nhapsocho.cs">
+    <Compile Include="View\MKTWHkiemkeapproval.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeCDKT200nhapsocho.Designer.cs">
-      <DependentUpon>BeeCDKT200nhapsocho.cs</DependentUpon>
+    <Compile Include="View\MKTWHkiemkeapproval.Designer.cs">
+      <DependentUpon>MKTWHkiemkeapproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTWHkiemke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHkiemke.Designer.cs">
+      <DependentUpon>MKTWHkiemke.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeBCKQKD200updatechotso.cs">
       <SubType>Form</SubType>
@@ -175,35 +181,41 @@
     <Compile Include="View\beektth.Designer.cs">
       <DependentUpon>beektth.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTWHxuathang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHxuathang.Designer.cs">
+      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTLoadCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTLoadCreate.Designer.cs">
+      <DependentUpon>MKTLoadCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTissuephieu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\MKTissuephieu.Designer.cs">
       <DependentUpon>MKTissuephieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NPgiavantaitheotuyen.cs">
+    <Compile Include="View\MKTVTDanhsackhachhang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NPgiavantaitheotuyen.Designer.cs">
-      <DependentUpon>NPgiavantaitheotuyen.cs</DependentUpon>
+    <Compile Include="View\MKTVTDanhsackhachhang.Designer.cs">
+      <DependentUpon>MKTVTDanhsackhachhang.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NPDanhsackhachhangvantai.cs">
+    <Compile Include="View\MKTVTdanhsachxe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NPDanhsackhachhangvantai.Designer.cs">
-      <DependentUpon>NPDanhsackhachhangvantai.cs</DependentUpon>
+    <Compile Include="View\MKTVTdanhsachxe.Designer.cs">
+      <DependentUpon>MKTVTdanhsachxe.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NPdanhsachxe.cs">
+    <Compile Include="View\MKTVTDanhsachnhavantai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NPdanhsachxe.Designer.cs">
-      <DependentUpon>NPdanhsachxe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\NPDanhsachnhavantai.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\NPDanhsachnhavantai.Designer.cs">
-      <DependentUpon>NPDanhsachnhavantai.cs</DependentUpon>
+    <Compile Include="View\MKTVTDanhsachnhavantai.Designer.cs">
+      <DependentUpon>MKTVTDanhsachnhavantai.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeDanhsachsanpham.cs">
       <SubType>Form</SubType>
@@ -217,11 +229,11 @@
     <Compile Include="View\BeeDanhsachnhomsanpham.Designer.cs">
       <DependentUpon>BeeDanhsachnhomsanpham.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeDanhsachkho.cs">
+    <Compile Include="View\MKTDanhsachkho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeDanhsachkho.Designer.cs">
-      <DependentUpon>BeeDanhsachkho.cs</DependentUpon>
+    <Compile Include="View\MKTDanhsachkho.Designer.cs">
+      <DependentUpon>MKTDanhsachkho.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeHtdoiungphieuxuatkho.cs">
       <SubType>Form</SubType>
@@ -319,11 +331,11 @@
     <Compile Include="View\BeeselecSocai.Designer.cs">
       <DependentUpon>BeeselecSocai.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeCaculating.cs">
+    <Compile Include="View\MKTCaculating.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeCaculating.Designer.cs">
-      <DependentUpon>BeeCaculating.cs</DependentUpon>
+    <Compile Include="View\MKTCaculating.Designer.cs">
+      <DependentUpon>MKTCaculating.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeCreatenewaccount.cs">
       <SubType>Form</SubType>
@@ -343,29 +355,23 @@
     <Compile Include="View\Beeselecttk.Designer.cs">
       <DependentUpon>Beeselecttk.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Thongtindonvi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Thongtindonvi.Designer.cs">
-      <DependentUpon>Thongtindonvi.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Beeyearsellect.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Beeyearsellect.Designer.cs">
       <DependentUpon>Beeyearsellect.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Noouthourise.cs">
+    <Compile Include="View\MKTNoouthourise.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Noouthourise.Designer.cs">
-      <DependentUpon>Noouthourise.cs</DependentUpon>
+    <Compile Include="View\MKTNoouthourise.Designer.cs">
+      <DependentUpon>MKTNoouthourise.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Passwordchange.cs">
+    <Compile Include="View\MKTPasswordchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Passwordchange.Designer.cs">
-      <DependentUpon>Passwordchange.cs</DependentUpon>
+    <Compile Include="View\MKTPasswordchange.Designer.cs">
+      <DependentUpon>MKTPasswordchange.cs</DependentUpon>
     </Compile>
     <Compile Include="View\beeselectinput.cs">
       <SubType>Form</SubType>
@@ -373,11 +379,11 @@
     <Compile Include="View\beeselectinput.Designer.cs">
       <DependentUpon>beeselectinput.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Viewchooseiquery.cs">
+    <Compile Include="View\MKTViewchooseiquery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Viewchooseiquery.Designer.cs">
-      <DependentUpon>Viewchooseiquery.cs</DependentUpon>
+    <Compile Include="View\MKTViewchooseiquery.Designer.cs">
+      <DependentUpon>MKTViewchooseiquery.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Viewdatatable.cs">
       <SubType>Form</SubType>
@@ -445,11 +451,11 @@
     <Compile Include="View\Seachcode.Designer.cs">
       <DependentUpon>Seachcode.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Serversetup.cs">
+    <Compile Include="View\MKTServersetup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Serversetup.Designer.cs">
-      <DependentUpon>Serversetup.cs</DependentUpon>
+    <Compile Include="View\MKTServersetup.Designer.cs">
+      <DependentUpon>MKTServersetup.cs</DependentUpon>
     </Compile>
     <Compile Include="View\valueinput.cs">
       <SubType>Form</SubType>
@@ -538,8 +544,11 @@
     <EmbeddedResource Include="View\BeeLCTT200dauky.resx">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeCDKT200nhapsocho.resx">
-      <DependentUpon>BeeCDKT200nhapsocho.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTWHkiemkeapproval.resx">
+      <DependentUpon>MKTWHkiemkeapproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHkiemke.resx">
+      <DependentUpon>MKTWHkiemke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeBCKQKD200updatechotso.resx">
       <DependentUpon>BeeBCKQKD200updatechotso.cs</DependentUpon>
@@ -547,20 +556,23 @@
     <EmbeddedResource Include="View\beektth.resx">
       <DependentUpon>beektth.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHxuathang.resx">
+      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTLoadCreate.resx">
+      <DependentUpon>MKTLoadCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTissuephieu.resx">
       <DependentUpon>MKTissuephieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NPgiavantaitheotuyen.resx">
-      <DependentUpon>NPgiavantaitheotuyen.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTVTDanhsackhachhang.resx">
+      <DependentUpon>MKTVTDanhsackhachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NPDanhsackhachhangvantai.resx">
-      <DependentUpon>NPDanhsackhachhangvantai.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTVTdanhsachxe.resx">
+      <DependentUpon>MKTVTdanhsachxe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NPdanhsachxe.resx">
-      <DependentUpon>NPdanhsachxe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\NPDanhsachnhavantai.resx">
-      <DependentUpon>NPDanhsachnhavantai.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTVTDanhsachnhavantai.resx">
+      <DependentUpon>MKTVTDanhsachnhavantai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeDanhsachsanpham.resx">
       <DependentUpon>BeeDanhsachsanpham.cs</DependentUpon>
@@ -568,8 +580,8 @@
     <EmbeddedResource Include="View\BeeDanhsachnhomsanpham.resx">
       <DependentUpon>BeeDanhsachnhomsanpham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeDanhsachkho.resx">
-      <DependentUpon>BeeDanhsachkho.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTDanhsachkho.resx">
+      <DependentUpon>MKTDanhsachkho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeHtdoiungphieuxuatkho.resx">
       <DependentUpon>BeeHtdoiungphieuxuatkho.cs</DependentUpon>
@@ -619,8 +631,8 @@
     <EmbeddedResource Include="View\BeeselecSocai.resx">
       <DependentUpon>BeeselecSocai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeCaculating.resx">
-      <DependentUpon>BeeCaculating.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTCaculating.resx">
+      <DependentUpon>MKTCaculating.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeCreatenewaccount.resx">
@@ -632,23 +644,20 @@
     <EmbeddedResource Include="View\Beeselecttk.resx">
       <DependentUpon>Beeselecttk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Thongtindonvi.resx">
-      <DependentUpon>Thongtindonvi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Beeyearsellect.resx">
       <DependentUpon>Beeyearsellect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Noouthourise.resx">
-      <DependentUpon>Noouthourise.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTNoouthourise.resx">
+      <DependentUpon>MKTNoouthourise.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Passwordchange.resx">
-      <DependentUpon>Passwordchange.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTPasswordchange.resx">
+      <DependentUpon>MKTPasswordchange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\beeselectinput.resx">
       <DependentUpon>beeselectinput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Viewchooseiquery.resx">
-      <DependentUpon>Viewchooseiquery.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTViewchooseiquery.resx">
+      <DependentUpon>MKTViewchooseiquery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Viewdatatable.resx">
       <DependentUpon>Viewdatatable.cs</DependentUpon>
@@ -683,8 +692,8 @@
     <EmbeddedResource Include="View\Seachcode.resx">
       <DependentUpon>Seachcode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Serversetup.resx">
-      <DependentUpon>Serversetup.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTServersetup.resx">
+      <DependentUpon>MKTServersetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\valueinput.resx">
       <DependentUpon>valueinput.cs</DependentUpon>
@@ -771,6 +780,8 @@
   <ItemGroup>
     <Content Include="giphyipg_Pb0_3.ico" />
     <Content Include="marketing_3111733_960_720_vus_4.ico" />
+    <None Include="Resources\marketing-3111733_960_7201.jpg" />
+    <None Include="Resources\marketing-3111733_960_720.jpg" />
     <None Include="Resources\04-example_800x600_v4 %281%29.gif" />
     <None Include="Resources\blogosfera-diciembre-640x300.jpg" />
     <None Include="Resources\DIEUVAN.png" />

@@ -1625,7 +1625,7 @@ namespace Maketting.Control
         class datashowwait
         {
 
-            public View.BeeCaculating wat { get; set; }
+            public View.MKTCaculating wat { get; set; }
 
 
         }
@@ -1639,7 +1639,7 @@ namespace Maketting.Control
             //            View.Caculating wat = (View.Caculating)obj;
             datashowwait obshow = (datashowwait)obj;
 
-            View.BeeCaculating wat = obshow.wat;
+            View.MKTCaculating wat = obshow.wat;
 
             wat.ShowDialog();
 

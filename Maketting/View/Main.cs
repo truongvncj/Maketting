@@ -28,8 +28,8 @@ namespace Maketting.View
         //
         public void messagetext(string message, Color colornen)
         {
-            messageinfor.Text = message;
-            messageinfor.BackColor = colornen;
+            //messageinfor.Text = message;
+          //  messageinfor.BackColor = colornen;
 
         }
 
@@ -66,7 +66,7 @@ namespace Maketting.View
             lbusername.Text = username;
 
             string tencty = Model.Username.getnamecty();
-            lbtencty.Text = tencty;
+
 
             panelmain.Controls.Clear();
 
@@ -1665,7 +1665,7 @@ namespace Maketting.View
         //}
         public void showwait()
         {
-            View.BeeCaculating wat = new View.BeeCaculating();
+            View.MKTCaculating wat = new View.MKTCaculating();
 
 
             wat.ShowDialog();
@@ -1846,7 +1846,7 @@ namespace Maketting.View
 
         private void serverNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.Serversetup stup = new Serversetup();
+            View.MKTServersetup stup = new MKTServersetup();
             stup.Show();
         }
 
@@ -2307,7 +2307,7 @@ namespace Maketting.View
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            View.Passwordchange changep = new Passwordchange();
+            View.MKTPasswordchange changep = new MKTPasswordchange();
             changep.ShowDialog();
 
         }
@@ -2968,8 +2968,7 @@ namespace Maketting.View
 
         private void thôngTínDoanhNghiệpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.Thongtindonvi view = new Thongtindonvi();
-            view.ShowDialog();
+          
         }
 
         private void danhSáchLoạiTàiKhoảnToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -3201,65 +3200,49 @@ namespace Maketting.View
         private void danhSáchKháchHàngVậnTảiToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            #region//dskhachhangvantai
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachkhachhangvantai(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHÁCH HÀNG VẬN TẢI", 10, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-
-
-
-            #endregion
-
-
         }
 
         private void báoCáoNhậpXuấtTồnKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
 
-        private void bảngGiáVậnTảiTheoTuyếnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            List<View.beeselectinput.ComboboxItem> CombomCollection = new List<View.beeselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
+        //private void bảngGiáVậnTảiTheoTuyếnToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    List<View.beeselectinput.ComboboxItem> CombomCollection = new List<View.beeselectinput.ComboboxItem>();
+        //    string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = from p in dc.tbl_NP_khachhangvanchuyens
-                         //     where p.Code != "DIS"
-                     orderby p.maKH
-                     select p;
-            foreach (var item2 in rs)
-            {
-                View.beeselectinput.ComboboxItem cb = new View.beeselectinput.ComboboxItem();
-                cb.Value = item2.maKH.Trim();
-                cb.Text = item2.maKH.Trim() + ": " + item2.tenKH.Trim();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
-            }
+        //    var rs = from p in dc.tbl_NP_khachhangvanchuyens
+        //                 //     where p.Code != "DIS"
+        //             orderby p.maKH
+        //             select p;
+        //    foreach (var item2 in rs)
+        //    {
+        //        View.beeselectinput.ComboboxItem cb = new View.beeselectinput.ComboboxItem();
+        //        cb.Value = item2.maKH.Trim();
+        //        cb.Text = item2.maKH.Trim() + ": " + item2.tenKH.Trim();// + "    || Example: " + item2.Example;
+        //        CombomCollection.Add(cb);
+        //    }
 
 
-            beeselectinput choosesl = new beeselectinput("Chọn khách hàng vận tải", CombomCollection);
-            choosesl.ShowDialog();
+        //    beeselectinput choosesl = new beeselectinput("Chọn khách hàng vận tải", CombomCollection);
+        //    choosesl.ShowDialog();
 
-            if (choosesl.kq == true)
-            {
-                string makh = choosesl.value;
-                String tenkh = choosesl.valuetext;
-                //string connection_string = Utils.getConnectionstr();
+        //    if (choosesl.kq == true)
+        //    {
+        //        string makh = choosesl.value;
+        //        String tenkh = choosesl.valuetext;
+        //        //string connection_string = Utils.getConnectionstr();
 
-                //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //        //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs1 = Model.Nhacungcap.danhsachgiatheotuyenvamanhavantai(dc, makh);
-                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH GIÁ THEO TUYẾN CỦA KHÁCH HÀNG " + tenkh.ToUpper(), 11, makh);// mã 8 là danh sach nha nha van tai
+        //        var rs1 = Model.Nhacungcap.danhsachgiatheotuyenvamanhavantai(dc, makh);
+        //        Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH GIÁ THEO TUYẾN CỦA KHÁCH HÀNG " + tenkh.ToUpper(), 11, makh);// mã 8 là danh sach nha nha van tai
 
-                viewtbl.Show();
-            }
-        }
+        //        viewtbl.Show();
+        //    }
+        //}
 
         private void danhSáchNhàCungCấpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -3707,7 +3690,7 @@ namespace Maketting.View
 
             if (!Username.getphanquyen())
             {
-                View.Noouthourise view = new Noouthourise();
+                View.MKTNoouthourise view = new MKTNoouthourise();
                 view.ShowDialog();
                 return;
             }
@@ -3745,6 +3728,12 @@ namespace Maketting.View
         private void storeAvaiableListToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTPasswordchange change = new MKTPasswordchange();
+            change.ShowDialog();
         }
     }
 

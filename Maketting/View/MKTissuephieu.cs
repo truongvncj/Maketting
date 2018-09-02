@@ -1239,7 +1239,7 @@ namespace Maketting.View
                 //  MessageBox.Show(columhead);
                 if (rs != null)
                 {
-                    View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+                    View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
                     selectkq.ShowDialog();
                     int id = selectkq.id;
 

@@ -340,26 +340,7 @@ namespace Maketting.View
 
             #endregion
 
-            #region  // viewcode ==10  la danh sách khách hàng kế toán
-
-
-            if (this.viewcode == 10)
-            {
-
-                Model.Nhacungcap.themmoikhachhangvantai();
-                var rs = Model.Nhacungcap.danhsachkhachhangvantai(this.db);
-
-                dataGridView1.DataSource = rs;
-
-
-
-            }
-
-
-
-            #endregion
-
-
+    
             #region  // viewcode ==0  la danh sách tài k khoản kê toán
 
 
@@ -577,62 +558,6 @@ namespace Maketting.View
             #endregion viewcode = 1 dnah muc tai khoan ke toan
 
 
-
-            #region  viewcode = 10 à  khach hang van tai
-
-
-            if (this.viewcode == 10)  // viewcode ==0  la danh sách tài k khoản kê toán
-            {
-
-                int idtk = 0;
-                try
-                {
-                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
-                }
-                catch (Exception)
-                {
-
-                    MessageBox.Show("Bạn phải chọn một khách hàng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string connection_string = Utils.getConnectionstr();
-
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-                var rs = (from p in dc.tbl_NP_khachhangvanchuyens
-                          where p.id == idtk
-                          select p).FirstOrDefault();
-                if (rs == null)
-                {
-                    MessageBox.Show("Bạn chọn một tài khoản khác bên bảng danh sách tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-
-                if (rs != null)
-                {
-
-                    //     string taikhoan = rs.matk;
-
-                    ////View.BeeCreatenewaccount createacc = new BeeCreatenewaccount(4, taikhoan); // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
-
-                    ////createacc.ShowDialog();
-
-                    Model.Nhacungcap.suadanhsachkhachhangvantai(idtk);
-
-                    var rs3 = Model.Nhacungcap.danhsachkhachhangvantai(dc);
-
-                    dataGridView1.DataSource = rs3;
-
-                }
-            }
-
-
-
-
-            #endregion viewcode = 1 dnah muc tai khoan ke toan
 
 
 
@@ -1100,63 +1025,6 @@ namespace Maketting.View
 
             #endregion viewcode = 1 dnah muc tai khoan ke toan
 
-
-
-            #region  viewcode = 10 à  khach hang van tai
-
-
-            if (this.viewcode == 10)  // viewcode ==0  la danh sách tài k khoản kê toán
-            {
-
-                int idtk = 0;
-                try
-                {
-                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
-                }
-                catch (Exception)
-                {
-
-                    MessageBox.Show("Bạn phải chọn một khách hàng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string connection_string = Utils.getConnectionstr();
-
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-                var rs = (from p in dc.tbl_NP_khachhangvanchuyens
-                          where p.id == idtk
-                          select p).FirstOrDefault();
-                if (rs == null)
-                {
-                    MessageBox.Show("Bạn chọn một tài khoản khác bên bảng danh sách tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-
-                if (rs != null)
-                {
-
-                    //     string taikhoan = rs.matk;
-
-                    ////View.BeeCreatenewaccount createacc = new BeeCreatenewaccount(4, taikhoan); // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
-
-                    ////createacc.ShowDialog();
-
-                    Model.Nhacungcap.suadanhsachkhachhangvantai(idtk);
-
-                    var rs3 = Model.Nhacungcap.danhsachkhachhangvantai(dc);
-
-                    dataGridView1.DataSource = rs3;
-
-                }
-            }
-
-
-
-
-            #endregion viewcode = 1 dnah muc tai khoan ke toan
 
 
 

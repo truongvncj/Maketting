@@ -130,7 +130,7 @@ namespace Maketting.Model
         public static void themmoiNVT(int v1, int v2)
         {
 
-            View.NPDanhsachnhavantai p = new NPDanhsachnhavantai(3, -1);  // 3 là thêm ới
+            View.MKTVTDanhsachnhavantai p = new MKTVTDanhsachnhavantai(3, -1);  // 3 là thêm ới
 
             p.ShowDialog();
 
@@ -141,7 +141,7 @@ namespace Maketting.Model
         {
 
 
-            View.NPDanhsachnhavantai p = new NPDanhsachnhavantai(4, idtk);  // 3 là thêm ới
+            View.MKTVTDanhsachnhavantai p = new MKTVTDanhsachnhavantai(4, idtk);  // 3 là thêm ới
 
             p.ShowDialog();
 
@@ -191,7 +191,7 @@ namespace Maketting.Model
         {
             // throw new NotImplementedException();
 
-            View.NPdanhsachxe p = new NPdanhsachxe(3, -1);  // 3 là thêm ới
+            View.MKTVTdanhsachxe p = new MKTVTdanhsachxe(3, -1);  // 3 là thêm ới
 
             p.ShowDialog();
 
@@ -200,55 +200,55 @@ namespace Maketting.Model
 
         public static void suathongtinxe(int id)
         {
-            View.NPdanhsachxe p = new NPdanhsachxe(4, id);  // 3 là thêm ới
+            View.MKTVTdanhsachxe p = new MKTVTdanhsachxe(4, id);  // 3 là thêm ới
 
             p.ShowDialog();
         }
 
-        public static IQueryable danhsachkhachhangvantai(LinqtoSQLDataContext dc)
-        {
+        //public static IQueryable danhsachkhachhangvantai(LinqtoSQLDataContext dc)
+        //{
 
-            LinqtoSQLDataContext db = dc;
-            var rs = from p in db.tbl_NP_khachhangvanchuyens
-                     orderby p.maKH
-                     select new
-                     {
-
-
-                         Mã_khách_hàng = p.maKH,
-                         Tên_khách_hàng = p.tenKH,
-                         Địa_chỉ_khách_hàng = p.diachiKH,
-                         Mã_số_thuế = p.masothueKH,
-                         Số_tài_khoản_ngân_hàng = p.sotaikhoannganhangKH,
-
-                         Tại_ngân_hàng = p.diachinganhangKH,
+        //    LinqtoSQLDataContext db = dc;
+        //    var rs = from p in db.tbl_NP_khachhangvanchuyens
+        //             orderby p.maKH
+        //             select new
+        //             {
 
 
-                         ID = p.id,
-                     };
+        //                 Mã_khách_hàng = p.maKH,
+        //                 Tên_khách_hàng = p.tenKH,
+        //                 Địa_chỉ_khách_hàng = p.diachiKH,
+        //                 Mã_số_thuế = p.masothueKH,
+        //                 Số_tài_khoản_ngân_hàng = p.sotaikhoannganhangKH,
 
-            //    grviewlisttk.DataSource = rs;
+        //                 Tại_ngân_hàng = p.diachinganhangKH,
 
 
+        //                 ID = p.id,
+        //             };
+
+        //    //    grviewlisttk.DataSource = rs;
 
 
 
 
 
-            return rs;
+
+
+        //    return rs;
 
 
 
 
 
-            //   throw new NotImplementedException();
-        }
+        //    //   throw new NotImplementedException();
+        //}
 
         public static void themmoikhachhangvantai()
         {
 
 
-            View.NPDanhsackhachhangvantai p = new NPDanhsackhachhangvantai(3, -1);  // 3 là thêm ới
+            View.MKTVTDanhsackhachhang p = new MKTVTDanhsackhachhang(3, -1);  // 3 là thêm ới
 
             p.ShowDialog();
 
@@ -265,7 +265,7 @@ namespace Maketting.Model
 
 
 
-            View.NPDanhsackhachhangvantai p = new NPDanhsackhachhangvantai(4, idtk);  // 4 là sua
+            View.MKTVTDanhsackhachhang p = new MKTVTDanhsackhachhang(4, idtk);  // 4 là sua
 
             p.ShowDialog();
 
@@ -320,10 +320,7 @@ namespace Maketting.Model
         {
 
 
-            View.NPgiavantaitheotuyen p = new NPgiavantaitheotuyen(3, -1);  // 3 là them moi
-
-            p.ShowDialog();
-
+         
 
 
 
@@ -335,10 +332,7 @@ namespace Maketting.Model
 
         public static void suadanhsachgiatheotuyencuakhachhang(int idtk)
         {
-            View.NPgiavantaitheotuyen p = new NPgiavantaitheotuyen(4, idtk);  // 4 là sua
-
-            p.ShowDialog();
-
+         
 
         }
     }

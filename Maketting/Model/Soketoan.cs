@@ -1197,7 +1197,7 @@ namespace Maketting.Model
                 if (chon)
                 {
 
-                    View.BeeCDKT200nhapsocho xemsuacdkt = new BeeCDKT200nhapsocho(yearchon);
+                    View.MKTWHkiemke xemsuacdkt = new MKTWHkiemke(yearchon);
                     xemsuacdkt.ShowDialog();
                 }
 

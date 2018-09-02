@@ -874,8 +874,7 @@ namespace Maketting.View
 
         private void button4_Click_2(object sender, EventArgs e)
         {
-            View.Thongtindonvi doanhnghiep = new Thongtindonvi();
-            doanhnghiep.ShowDialog();
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -909,15 +908,7 @@ namespace Maketting.View
 
         private void button14_Click_1(object sender, EventArgs e)
         {
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachkhachhangvantai(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHÁCH HÀNG VẬN TẢI", 10, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-            this.Close();
+        
         }
 
         private void button13_Click_1(object sender, EventArgs e)

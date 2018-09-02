@@ -532,7 +532,7 @@ namespace Maketting.Model
         class datashowwait
         {
 
-            public View.BeeCaculating wat { get; set; }
+            public View.MKTCaculating wat { get; set; }
 
 
         }
@@ -546,7 +546,7 @@ namespace Maketting.Model
             //            View.Caculating wat = (View.Caculating)obj;
             datashowwait obshow = (datashowwait)obj;
 
-            View.BeeCaculating wat = obshow.wat;
+            View.MKTCaculating wat = obshow.wat;
 
             wat.ShowDialog();
 
@@ -575,7 +575,7 @@ namespace Maketting.Model
 
 
 
-                View.BeeCaculating wat = new View.BeeCaculating();
+                View.MKTCaculating wat = new View.MKTCaculating();
                 Thread t2 = new Thread(showwait);
                 t2.Start(new datashowwait() { wat = wat });
 

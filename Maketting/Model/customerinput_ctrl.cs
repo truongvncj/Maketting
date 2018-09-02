@@ -565,7 +565,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
         class datashowwait
         {
 
-            public View.BeeCaculating wat { get; set; }
+            public View.MKTCaculating wat { get; set; }
 
 
         }
@@ -579,7 +579,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
             //            View.Caculating wat = (View.Caculating)obj;
             datashowwait obshow = (datashowwait)obj;
 
-            View.BeeCaculating wat = obshow.wat;
+            View.MKTCaculating wat = obshow.wat;
 
             wat.ShowDialog();
 
@@ -609,7 +609,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 
-                View.BeeCaculating wat = new View.BeeCaculating();
+                View.MKTCaculating wat = new View.MKTCaculating();
                 Thread t2 = new Thread(showwait);
                 t2.Start(new datashowwait() { wat = wat });
 
@@ -659,7 +659,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
                 t1.Start(new datainportF() { filename = filename });
 
 
-                View.BeeCaculating wat = new View.BeeCaculating();
+                View.MKTCaculating wat = new View.MKTCaculating();
                 Thread t2 = new Thread(showwait);
                 t2.Start(new datashowwait() { wat = wat });
 

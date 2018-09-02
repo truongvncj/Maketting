@@ -874,8 +874,7 @@ namespace Maketting.View
 
         private void button4_Click_2(object sender, EventArgs e)
         {
-            View.Thongtindonvi doanhnghiep = new Thongtindonvi();
-            doanhnghiep.ShowDialog();
+      
         }
 
         private void button1_Click(object sender, EventArgs e)

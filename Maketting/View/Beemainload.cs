@@ -1057,15 +1057,7 @@ namespace Maketting.View
 
         private void button7_Click_2(object sender, EventArgs e)
         {
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachkhachhangvantai(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHÁCH HÀNG VẬN TẢI", 10, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-
+          
         }
 
         private void button8_Click_1(object sender, EventArgs e)

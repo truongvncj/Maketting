@@ -46,7 +46,7 @@ namespace Maketting.Model
 
         public static void themmoikhohang()
         {
-            View.BeeDanhsachkho p = new BeeDanhsachkho(3, -1);  // 3 là thêm ới/ 4 là sửa xóa
+            View.MKTDanhsachkho p = new MKTDanhsachkho(3, -1);  // 3 là thêm ới/ 4 là sửa xóa
                                                                 //  View.BeeDanhsachkho p = new View.BeeDanhsachkho
             p.ShowDialog();
 
@@ -64,7 +64,7 @@ namespace Maketting.Model
 
 
 
-            View.BeeDanhsachkho p = new BeeDanhsachkho(4, iddanhscahkho);  // 3 là thêm ới/ 4 là sửa xóa
+            View.MKTDanhsachkho p = new MKTDanhsachkho(4, iddanhscahkho);  // 3 là thêm ới/ 4 là sửa xóa
                                                                            //  View.BeeDanhsachkho p = new View.BeeDanhsachkho
             p.ShowDialog();
 
