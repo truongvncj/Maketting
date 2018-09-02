@@ -1049,6 +1049,8 @@ namespace Maketting
 		
 		private string _Macty;
 		
+		private string _Khohang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1077,6 +1079,8 @@ namespace Maketting
     partial void OnThiết_lập_tài_khoảnChanged();
     partial void OnMactyChanging(string value);
     partial void OnMactyChanged();
+    partial void OnKhohangChanging(string value);
+    partial void OnKhohangChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1320,6 +1324,26 @@ namespace Maketting
 					this._Macty = value;
 					this.SendPropertyChanged("Macty");
 					this.OnMactyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Khohang", DbType="NVarChar(50)")]
+		public string Khohang
+		{
+			get
+			{
+				return this._Khohang;
+			}
+			set
+			{
+				if ((this._Khohang != value))
+				{
+					this.OnKhohangChanging(value);
+					this.SendPropertyChanging();
+					this._Khohang = value;
+					this.SendPropertyChanged("Khohang");
+					this.OnKhohangChanged();
 				}
 			}
 		}
