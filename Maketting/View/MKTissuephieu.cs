@@ -1114,112 +1114,165 @@ namespace Maketting.View
             //    string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
             //     string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
 
-            //#region if la slect tai khoan co chi tiet
-
-            //if (colname == "Tk_Nợ" && SelectedItem != "")
-            //{
-            //    string taikhoan = currentCell.Value.ToString();
-            //    string connection_string = Utils.getConnectionstr();
-            //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
 
-            //    var detail = (from c in db.tbl_dstaikhoans
-            //                  where c.matk.Trim() == taikhoan.Trim()
-            //                  select c).FirstOrDefault();
+            FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
-            //    if (detail.loaichitiet == true) // là co theo doi chi tiết
-            //    {
-
-            //        List<beeselectinput.ComboboxItem> listcb = new List<beeselectinput.ComboboxItem>();
-            //        var rs = from tbl_machitiettk in db.tbl_machitiettks
-            //                 where tbl_machitiettk.matk.Trim() == taikhoan.Trim()
-            //                 orderby tbl_machitiettk.machitiet
-            //                 select tbl_machitiettk;
-            //        if (rs.Count() > 0)
-            //        {
+            bool kq = false;
+            foreach (Form frm in fc)
+            {
+                if (frm.Text == "SELECT")
 
 
-            //            foreach (var item2 in rs)
-            //            {
-            //                beeselectinput.ComboboxItem cb = new beeselectinput.ComboboxItem();
-            //                cb.Value = item2.machitiet.ToString().Trim();
-            //                cb.Text = item2.tenchitiet; //item2.machitiet.ToString().Trim() + ": " +
-            //                listcb.Add(cb);
-            //            }
+                {
+                    kq = true;
+                    frm.Focus();
+
+                }
+            }
+
+            if (!kq && e.RowIndex >= 0 && dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                string username = Utils.getusername();
+
+                string columhead = dataGridViewDetail.Columns[e.ColumnIndex].HeaderText.ToString();
+                string valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                IQueryable rs = null;
+                if (columhead == "Description")
+                {
+                    rs = from pp in dc.tbl_MKT_Stockends
+                         where pp.Description.Contains(valueseach)
+                         select new
+                         {
+                             pp.ITEM_Code,
+                             pp.SAP_CODE,
+                             pp.MATERIAL,
+                             pp.Description,
+                             pp.UNIT,
+                             Avaiable_stock = pp.END_STOCK,
+
+                             pp.id,
+
+                         };
+
+                }
+
+                if (columhead == "ITEM Code")
+                {
+                    rs = from pp in dc.tbl_MKT_Stockends
+                         where pp.ITEM_Code.Contains(valueseach)
+                         select new
+                         {
+                             pp.ITEM_Code,
+                             pp.SAP_CODE,
+                             pp.MATERIAL,
+                             pp.Description,
+                             pp.UNIT,
+                             Avaiable_stock = pp.END_STOCK,
+
+                             pp.id,
+
+                         };
+
+                }
+                if (columhead == "Sap Code")
+                {
+                    rs = from pp in dc.tbl_MKT_Stockends
+                         where pp.SAP_CODE.Contains(valueseach)
+                         select new
+                         {
+                             pp.ITEM_Code,
+                             pp.SAP_CODE,
+                             pp.MATERIAL,
+                             pp.Description,
+                             pp.UNIT,
+                             Avaiable_stock = pp.END_STOCK,
+
+                             pp.id,
+
+                         };
+
+                }
+
+                if (columhead == "MATERIAL")
+                {
+                    rs = from pp in dc.tbl_MKT_Stockends
+                         where pp.MATERIAL.Contains(valueseach)
+                         select new
+                         {
+                             pp.ITEM_Code,
+                             pp.SAP_CODE,
+                             pp.MATERIAL,
+                             pp.Description,
+                             pp.UNIT,
+                             Avaiable_stock = pp.END_STOCK,
+
+                             pp.id,
+
+                         };
+
+                }
+
+                if (columhead == "Unit")
+                {
+                    rs = from pp in dc.tbl_MKT_Stockends
+                         where pp.UNIT.Contains(valueseach)
+                         select new
+                         {
+                             pp.ITEM_Code,
+                             pp.SAP_CODE,
+                             pp.MATERIAL,
+                             pp.Description,
+                             pp.UNIT,
+                             Avaiable_stock = pp.END_STOCK,
+
+                             pp.id,
+
+                         };
+
+                }
+                //  MessageBox.Show(columhead);
+                if (rs != null)
+                {
+                    View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+                    selectkq.ShowDialog();
+                    int id = selectkq.id;
+
+                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+                    //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
+                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+
+
+                    var valuechon = (from pp in dc.tbl_MKT_Stockends
+                                     where pp.id == id
+                                     select pp).FirstOrDefault();
+
+
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["MATERIAL"].Value = valuechon.MATERIAL;
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
+                    dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
 
 
 
-            //            FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
-            //            bool kq = false;
-            //            foreach (Form frm in fc)
-            //            {
-            //                if (frm.Text == "beeselectinput")
+                }
 
+                //   }
 
-            //                {
-            //                    kq = true;
-            //                    frm.Close();
-
-            //                }
-            //            }
-
-            //            if (kq == false)
-            //            {
-            //                //        beeselectinput
-
-            //                View.beeselectinput selecdetail = new beeselectinput("Chọn chi tiết tài khoản ", listcb);
-
-            //                selecdetail.ShowDialog();
-
-
-            //                bool chon = selecdetail.kq;
-            //                if (chon)
-            //                {
-            //                    string machitiet = selecdetail.value;
-            //                    string namechitiet = selecdetail.valuetext;
-
-            //                    dataGridViewTkNo.Rows[i].Cells["Mã_chi_tiết"].Value = machitiet;
-            //                    dataGridViewTkNo.Rows[i].Cells["Tên_chi_tiết"].Value = namechitiet;
-
-
-            //                }
-            //                else
-            //                {
-            //                    dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"].Value = "";
-            //                    dataGridViewTkNo.Rows[i].Cells["Mã_chi_tiết"].Value = "";
-            //                    dataGridViewTkNo.Rows[i].Cells["Tên_chi_tiết"].Value = "";
-            //                }
-
-
-
-
-            //            }
-            //            else
-            //            {
-            //                dataGridViewTkNo.Rows[i].Cells["Mã_chi_tiết"].Value = "";
-            //                dataGridViewTkNo.Rows[i].Cells["Tên_chi_tiết"].Value = "";
-
-
-            //            }
-
-
-            //        }
-            //    }
-
-
-            //    else
-            //    {
-            //        dataGridViewTkNo.Rows[i].Cells["Mã_chi_tiết"].Value = "";
-            //        dataGridViewTkNo.Rows[i].Cells["Tên_chi_tiết"].Value = "";
-
-
-            //    }
-
-            //}
-
-            //#endregion
-
+            }
 
 
 
@@ -1445,148 +1498,7 @@ namespace Maketting.View
 
         private void dataGridViewDetail_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
 
-
-
-
-                FormCollection fc = System.Windows.Forms.Application.OpenForms;
-
-                bool kq = false;
-                foreach (Form frm in fc)
-                {
-                    if (frm.Text == "SELECT")
-
-
-                    {
-                        kq = true;
-                        frm.Focus();
-
-                    }
-                }
-
-                if (!kq && dataGridViewDetail.CurrentCell.RowIndex > 0)
-                {
-
-                    string connection_string = Utils.getConnectionstr();
-                    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                    string username = Utils.getusername();
-
-                    string columhead = dataGridViewDetail.Columns[dataGridViewDetail.CurrentCell.ColumnIndex].HeaderText.ToString();
-                    string valueseach = dataGridViewDetail.Rows[dataGridViewDetail.CurrentCell.RowIndex - 1].Cells[dataGridViewDetail.CurrentCell.ColumnIndex].Value.ToString();
-                    //   dataGridViewDetail.CurrentCell.Value.ToString();
-                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Unit", typeof(int)));
-                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(int)));
-                    IQueryable rs = null;
-                    if (columhead == "Description")
-                    {
-                        rs = from pp in dc.tbl_MKT_Stockends
-                             where pp.Description.Contains(valueseach)
-                             select new
-                             {
-                                 pp.ITEM_Code,
-                                 pp.SAP_CODE,
-                                 pp.MATERIAL,
-                                 pp.Description,
-                                 pp.UNIT,
-                                 Avaiable_stock = pp.END_STOCK,
-
-                                 pp.id,
-
-                             };
-                    
-                    }
-
-                    if (columhead == "ITEM Code")
-                    {
-                        rs = from pp in dc.tbl_MKT_Stockends
-                             where pp.ITEM_Code.Contains(valueseach)
-                             select new
-                             {
-                                 pp.ITEM_Code,
-                                 pp.SAP_CODE,
-                                 pp.MATERIAL,
-                                 pp.Description,
-                                 pp.UNIT,
-                                 Avaiable_stock = pp.END_STOCK,
-
-                                 pp.id,
-
-                             };
-                  
-                    }
-                    if (columhead == "Sap Code")
-                    {
-                        rs = from pp in dc.tbl_MKT_Stockends
-                             where pp.SAP_CODE.Contains(valueseach)
-                             select new
-                             {
-                                 pp.ITEM_Code,
-                                 pp.SAP_CODE,
-                                 pp.MATERIAL,
-                                 pp.Description,
-                                 pp.UNIT,
-                                 Avaiable_stock = pp.END_STOCK,
-
-                                 pp.id,
-
-                             };
-                      
-                    }
-
-                    if (columhead == "MATERIAL")
-                    {
-                        rs = from pp in dc.tbl_MKT_Stockends
-                             where pp.MATERIAL.Contains(valueseach)
-                             select new
-                             {
-                                 pp.ITEM_Code,
-                                 pp.SAP_CODE,
-                                 pp.MATERIAL,
-                                 pp.Description,
-                                 pp.UNIT,
-                                 Avaiable_stock = pp.END_STOCK,
-
-                                 pp.id,
-
-                             };
-                     
-                    }
-
-                    if (columhead == "Unit")
-                    {
-                        rs = from pp in dc.tbl_MKT_Stockends
-                             where pp.UNIT.Contains(valueseach)
-                             select new
-                             {
-                                 pp.ITEM_Code,
-                                 pp.SAP_CODE,
-                                 pp.MATERIAL,
-                                 pp.Description,
-                                 pp.UNIT,
-                                 Avaiable_stock = pp.END_STOCK,
-
-                                 pp.id,
-
-                             };
-
-                    }
-                    //  MessageBox.Show(columhead);
-                    if (rs != null)
-                    {
-                        View.Viewchooseiquery selectkq = new Viewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
-
-                        selectkq.ShowDialog();
-                    }
-                  
-                }
-
-            }
 
         }
 
@@ -1630,6 +1542,20 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void dataGridViewDetail_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewDetail_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+
+
+
         }
     }
 }

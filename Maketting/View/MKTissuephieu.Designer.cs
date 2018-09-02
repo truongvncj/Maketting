@@ -248,9 +248,11 @@
             this.dataGridViewDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
             this.dataGridViewDetail.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellValueChanged);
             this.dataGridViewDetail.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewTkCo_EditingControlShowing);
+            this.dataGridViewDetail.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_RowEnter);
             this.dataGridViewDetail.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewTkCo_RowsAdded);
             this.dataGridViewDetail.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridViewTkNo_RowsRemoved);
             this.dataGridViewDetail.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewTkCo_Paint);
+            this.dataGridViewDetail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDetail_KeyDown);
             this.dataGridViewDetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewDetail_KeyPress);
             this.dataGridViewDetail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDetail_KeyUp);
             // 

@@ -14,7 +14,7 @@ namespace Maketting.View
     public partial class Viewchooseiquery : Form
     {
 
-        public string Valuechoose { get; set; }
+    //    public string Valuechoose { get; set; }
         public string columhead { get; set; }
         public bool chon { get; set; }
         public int id { get; set; }
@@ -34,7 +34,7 @@ namespace Maketting.View
             //dt = tbl;
             this.dataGridView1.DataSource = rs;
 
-            Valuechoose = "";
+         //   Valuechoose = "";
             chon = false;
           
 

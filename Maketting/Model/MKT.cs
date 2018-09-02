@@ -19,15 +19,7 @@ namespace Maketting.Model
             DataTable dt = new DataTable();
 
 
-            //tbl_MKt_Listphieu pp = new tbl_MKt_Listphieu();
-            //pp.Description
-            //    pp.MateriaSAPcode
-            //    pp.Materiacode
-            //    pp.Issued
-
-            //   dt.Columns.Add(new DataColumn("Ngày_chứng_từ", typeof(DGV_DateTimePicker.DateTimePickerCell)));
-
-            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+             dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
@@ -35,15 +27,6 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
-
-            //Threahold
-            //      dt.Columns.Add(new DataColumn("Tk_Có", typeof(double)));
-            //   dt.Columns.Add(new DataColumn("Ký_hiêu", typeof(string)));
-            //  dt.Columns.Add(new DataColumn("Số_chứng_từ", typeof(int)));
-            //  dt.Columns.Add(new DataColumn("tkCohide", typeof(string))); //comnoxxon
-
-            // dt.Columns.Add(new DataColumn("ngayctuhide", typeof(DateTime))); //adding column for combobox
-
 
 
 
