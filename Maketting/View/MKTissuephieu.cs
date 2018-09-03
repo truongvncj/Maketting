@@ -1143,6 +1143,7 @@ namespace Maketting.View
                 string valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
                 IQueryable rs = null;
+               
                 if (columhead == "Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
@@ -1159,7 +1160,7 @@ namespace Maketting.View
                              pp.id,
 
                          };
-
+                   
                 }
 
                 if (columhead == "ITEM Code")
