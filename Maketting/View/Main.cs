@@ -3688,6 +3688,22 @@ namespace Maketting.View
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void storeAvaiableListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTPasswordchange change = new MKTPasswordchange();
+            change.ShowDialog();
+        }
+
+        private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
             if (!Username.getphanquyen())
             {
                 View.MKTNoouthourise view = new MKTNoouthourise();
@@ -3725,15 +3741,9 @@ namespace Maketting.View
             #endregion
         }
 
-        private void storeAvaiableListToolStripMenuItem_Click(object sender, EventArgs e)
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MKTPasswordchange change = new MKTPasswordchange();
-            change.ShowDialog();
         }
     }
 

@@ -1214,6 +1214,8 @@
       <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Count_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="UnitWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Stockend_Temp" Member="tbl_MKT_Stockend_Temps">

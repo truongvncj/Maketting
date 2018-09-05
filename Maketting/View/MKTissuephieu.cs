@@ -14,9 +14,9 @@ namespace Maketting.View
     public partial class MKTissuephieu : Form
     {
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
-        public int sophieuID { get; set; }
-        public string sophieuxuathangQC { get; set; }
-
+     //   public string sophieuID { get; set; }
+        public string sophieu { get; set; }
+        public string storelocation { get; set; }
 
         public class ComboboxItem
         {
@@ -122,8 +122,8 @@ namespace Maketting.View
            
 
             txtnguoiyeucau.Enabled = true;
+            txtnguoinhan.Enabled = true;
             txtdiachi.Enabled = true;
-            txtdiengiai.Enabled = true;
 
             btluu.Visible = true;
             btluu.Enabled = true;
@@ -133,10 +133,14 @@ namespace Maketting.View
 
             txtmucdich.Text = "";
             txtnguoiyeucau.Text = "";
+            txtnguoinhan.Text = "";
             txtdiachi.Text = "";
-            txtdiengiai.Text = "";
             txtnguoiyeucau.Text = Utils.getname();
-         
+
+            lbtel.Text = "";
+            lbweight.Text = "";
+            lbgatepassno.Text = "";
+            datepickngayphieu.Value = DateTime.Today;
 
             datepickngayphieu.Focus();
 
@@ -165,11 +169,11 @@ namespace Maketting.View
            
             cbkhohang.SelectedIndex = 0;
 
-            //string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
+           this. storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
 
-
-
+        
+           // datepickngayphieu.();
 
             #endregion
 
@@ -321,7 +325,7 @@ namespace Maketting.View
             {
                 // datepickngayphieu.
                 e.Handled = true;
-                txtnguoiyeucau.Focus();
+                txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -350,7 +354,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                txtdiachi.Focus();
+                txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -368,7 +372,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                txtdiengiai.Focus();
+                txtdiachi.Focus();
 
 
             }
@@ -379,7 +383,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                //     txtsotien.Focus();
+               txtmucdich.Focus();
 
 
 
@@ -814,8 +818,8 @@ namespace Maketting.View
 
 
             txtnguoiyeucau.Enabled = true;
+            txtnguoinhan.Enabled = true;
             txtdiachi.Enabled = true;
-            txtdiengiai.Enabled = true;
 
             btluu.Enabled = true;
 
@@ -851,7 +855,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtdiachi.Focus();
+                txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -870,7 +874,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtdiengiai.Focus();
+                txtdiachi.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -1172,7 +1176,7 @@ namespace Maketting.View
                 if (columhead == "Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.Description.Contains(valueseach)
+                         where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
                          select new
                          {
                              pp.ITEM_Code,
@@ -1191,7 +1195,7 @@ namespace Maketting.View
                 if (columhead == "ITEM Code")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.ITEM_Code.Contains(valueseach)
+                         where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
                          select new
                          {
                              pp.ITEM_Code,
@@ -1209,7 +1213,7 @@ namespace Maketting.View
                 if (columhead == "Sap Code")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.SAP_CODE.Contains(valueseach)
+                         where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
                          select new
                          {
                              pp.ITEM_Code,
@@ -1228,7 +1232,7 @@ namespace Maketting.View
                 if (columhead == "MATERIAL")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.MATERIAL.Contains(valueseach)
+                         where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
                          select new
                          {
                              pp.ITEM_Code,
@@ -1594,6 +1598,31 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void cbkhohang_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+        }
+
+        private void txtmucdich_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //  cbsophieu.
+                e.Handled = true;
+                dataGridViewDetail.Focus();
+
+                //    string valueinput = cb_customerka.Text;
+
+                //    string connection_string = Utils.getConnectionstr();
+                //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                //    string username = Utils.getusername();
+
+
+            }
+            
         }
     }
 }

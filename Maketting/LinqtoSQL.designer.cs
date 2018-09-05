@@ -26296,6 +26296,10 @@ namespace Maketting
 		
 		private System.Nullable<System.DateTime> _Count_date;
 		
+		private string _Store_code;
+		
+		private System.Nullable<double> _UnitWeight;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -26316,6 +26320,10 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnCount_dateChanging(System.Nullable<System.DateTime> value);
     partial void OnCount_dateChanged();
+    partial void OnStore_codeChanging(string value);
+    partial void OnStore_codeChanged();
+    partial void OnUnitWeightChanging(System.Nullable<double> value);
+    partial void OnUnitWeightChanged();
     #endregion
 		
 		public tbl_MKT_Stockend()
@@ -26479,6 +26487,46 @@ namespace Maketting
 					this._Count_date = value;
 					this.SendPropertyChanged("Count_date");
 					this.OnCount_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Store_code", DbType="NVarChar(10)")]
+		public string Store_code
+		{
+			get
+			{
+				return this._Store_code;
+			}
+			set
+			{
+				if ((this._Store_code != value))
+				{
+					this.OnStore_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Store_code = value;
+					this.SendPropertyChanged("Store_code");
+					this.OnStore_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitWeight", DbType="Float")]
+		public System.Nullable<double> UnitWeight
+		{
+			get
+			{
+				return this._UnitWeight;
+			}
+			set
+			{
+				if ((this._UnitWeight != value))
+				{
+					this.OnUnitWeightChanging(value);
+					this.SendPropertyChanging();
+					this._UnitWeight = value;
+					this.SendPropertyChanged("UnitWeight");
+					this.OnUnitWeightChanged();
 				}
 			}
 		}
