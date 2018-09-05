@@ -73,6 +73,31 @@ namespace Maketting.Model
 
         }
 
+        public static string getmaquyenkho()
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            string storeright = (string)(from pp in dc.tbl_Temps
+                                         select pp.storeright).FirstOrDefault();
+
+
+
+
+
+
+
+            return storeright;
+
+
+
+
+            //throw new NotImplementedException();
+        }
 
         //public static string getmacty()
         //{

@@ -288,10 +288,11 @@
             // 
             // cbkhohang
             // 
+            this.cbkhohang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbkhohang.FormattingEnabled = true;
             this.cbkhohang.Location = new System.Drawing.Point(928, 163);
             this.cbkhohang.Name = "cbkhohang";
-            this.cbkhohang.Size = new System.Drawing.Size(128, 21);
+            this.cbkhohang.Size = new System.Drawing.Size(269, 21);
             this.cbkhohang.TabIndex = 73;
             // 
             // label4

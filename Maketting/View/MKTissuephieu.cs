@@ -149,16 +149,21 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             string username = Utils.getusername();
-            string rightkho = Model.MKT.getmaquyenkho();
-          
-            foreach (var item2 in rs)
+            string rightkho = Model.Username.getmaquyenkho();
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where pp.storeright == rightkho
+                      select pp;
+            foreach (var item2 in rs1)
             {
                 ComboboxItem cb = new ComboboxItem();
-                cb.Value = item2.k.Trim();
-                cb.Text = item2.Code.Trim() + ": " + item2.Description.Trim() + "    || Example: " + item2.Example;
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim() ;
                 cbkhohang.Items.Add(cb);
                 //  CombomCollection.Add(cb);
             }
+           
+            cbkhohang.SelectedIndex = 0;
 
             //string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
@@ -265,12 +270,12 @@ namespace Maketting.View
 
             //string username = Utils.getusername();
 
+            cleartoblankphieu();
 
 
 
 
-
-            dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
+       //     dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
 
 
 
