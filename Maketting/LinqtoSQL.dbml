@@ -16,7 +16,6 @@
     <Type Name="tbl_Temp">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RegionCode" Type="System.String" DbType="NChar(225)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NChar(225)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NChar(225)" CanBeNull="true" />
       <Column Name="Userright" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -25,8 +24,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Phân_quyền" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Thiết_lập_tài_khoản" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Khohang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="storeright" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.KQKD200Dauky" Member="KQKD200Daukies">
@@ -1171,6 +1169,16 @@
       <Column Name="masothueKH" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="dienthoai" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
+    <Type Name="tbl_MKT_khoMKT">
+      <Column Name="tenkho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="makho" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="diachikho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="storeright" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieu" Member="tbl_MKt_Listphieus">

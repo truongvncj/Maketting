@@ -201,6 +201,9 @@ namespace Maketting
     partial void Inserttbl_MKT_khachhang(tbl_MKT_khachhang instance);
     partial void Updatetbl_MKT_khachhang(tbl_MKT_khachhang instance);
     partial void Deletetbl_MKT_khachhang(tbl_MKT_khachhang instance);
+    partial void Inserttbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
+    partial void Updatetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
+    partial void Deletetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
     partial void Inserttbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
     partial void Updatetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
     partial void Deletetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
@@ -716,6 +719,14 @@ namespace Maketting
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_MKT_khoMKT> tbl_MKT_khoMKTs
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_khoMKT>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_MKt_Listphieu> tbl_MKt_Listphieus
 		{
 			get
@@ -1029,8 +1040,6 @@ namespace Maketting
 		
 		private System.Nullable<int> _Version;
 		
-		private string _RegionCode;
-		
 		private string _Username;
 		
 		private string _Password;
@@ -1047,9 +1056,7 @@ namespace Maketting
 		
 		private bool _Thiết_lập_tài_khoản;
 		
-		private string _Macty;
-		
-		private string _Khohang;
+		private string _storeright;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1059,8 +1066,6 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnVersionChanging(System.Nullable<int> value);
     partial void OnVersionChanged();
-    partial void OnRegionCodeChanging(string value);
-    partial void OnRegionCodeChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
@@ -1077,10 +1082,8 @@ namespace Maketting
     partial void OnPhân_quyềnChanged();
     partial void OnThiết_lập_tài_khoảnChanging(bool value);
     partial void OnThiết_lập_tài_khoảnChanged();
-    partial void OnMactyChanging(string value);
-    partial void OnMactyChanged();
-    partial void OnKhohangChanging(string value);
-    partial void OnKhohangChanged();
+    partial void OnstorerightChanging(string value);
+    partial void OnstorerightChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1124,26 +1127,6 @@ namespace Maketting
 					this._Version = value;
 					this.SendPropertyChanged("Version");
 					this.OnVersionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegionCode", DbType="NChar(225)")]
-		public string RegionCode
-		{
-			get
-			{
-				return this._RegionCode;
-			}
-			set
-			{
-				if ((this._RegionCode != value))
-				{
-					this.OnRegionCodeChanging(value);
-					this.SendPropertyChanging();
-					this._RegionCode = value;
-					this.SendPropertyChanged("RegionCode");
-					this.OnRegionCodeChanged();
 				}
 			}
 		}
@@ -1308,42 +1291,22 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Macty", DbType="NVarChar(50)")]
-		public string Macty
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_storeright", DbType="NVarChar(10)")]
+		public string storeright
 		{
 			get
 			{
-				return this._Macty;
+				return this._storeright;
 			}
 			set
 			{
-				if ((this._Macty != value))
+				if ((this._storeright != value))
 				{
-					this.OnMactyChanging(value);
+					this.OnstorerightChanging(value);
 					this.SendPropertyChanging();
-					this._Macty = value;
-					this.SendPropertyChanged("Macty");
-					this.OnMactyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Khohang", DbType="NVarChar(50)")]
-		public string Khohang
-		{
-			get
-			{
-				return this._Khohang;
-			}
-			set
-			{
-				if ((this._Khohang != value))
-				{
-					this.OnKhohangChanging(value);
-					this.SendPropertyChanging();
-					this._Khohang = value;
-					this.SendPropertyChanged("Khohang");
-					this.OnKhohangChanged();
+					this._storeright = value;
+					this.SendPropertyChanged("storeright");
+					this.OnstorerightChanged();
 				}
 			}
 		}
@@ -25610,6 +25573,188 @@ namespace Maketting
 					this._ghichu = value;
 					this.SendPropertyChanged("ghichu");
 					this.OnghichuChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_khoMKT")]
+	public partial class tbl_MKT_khoMKT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _tenkho;
+		
+		private string _makho;
+		
+		private int _id;
+		
+		private string _diachikho;
+		
+		private string _ghichu;
+		
+		private string _storeright;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OntenkhoChanging(string value);
+    partial void OntenkhoChanged();
+    partial void OnmakhoChanging(string value);
+    partial void OnmakhoChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OndiachikhoChanging(string value);
+    partial void OndiachikhoChanged();
+    partial void OnghichuChanging(string value);
+    partial void OnghichuChanged();
+    partial void OnstorerightChanging(string value);
+    partial void OnstorerightChanged();
+    #endregion
+		
+		public tbl_MKT_khoMKT()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenkho", DbType="NVarChar(50)")]
+		public string tenkho
+		{
+			get
+			{
+				return this._tenkho;
+			}
+			set
+			{
+				if ((this._tenkho != value))
+				{
+					this.OntenkhoChanging(value);
+					this.SendPropertyChanging();
+					this._tenkho = value;
+					this.SendPropertyChanged("tenkho");
+					this.OntenkhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_makho", DbType="NVarChar(10)")]
+		public string makho
+		{
+			get
+			{
+				return this._makho;
+			}
+			set
+			{
+				if ((this._makho != value))
+				{
+					this.OnmakhoChanging(value);
+					this.SendPropertyChanging();
+					this._makho = value;
+					this.SendPropertyChanged("makho");
+					this.OnmakhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachikho", DbType="NVarChar(50)")]
+		public string diachikho
+		{
+			get
+			{
+				return this._diachikho;
+			}
+			set
+			{
+				if ((this._diachikho != value))
+				{
+					this.OndiachikhoChanging(value);
+					this.SendPropertyChanging();
+					this._diachikho = value;
+					this.SendPropertyChanged("diachikho");
+					this.OndiachikhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(50)")]
+		public string ghichu
+		{
+			get
+			{
+				return this._ghichu;
+			}
+			set
+			{
+				if ((this._ghichu != value))
+				{
+					this.OnghichuChanging(value);
+					this.SendPropertyChanging();
+					this._ghichu = value;
+					this.SendPropertyChanged("ghichu");
+					this.OnghichuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_storeright", DbType="NVarChar(10)")]
+		public string storeright
+		{
+			get
+			{
+				return this._storeright;
+			}
+			set
+			{
+				if ((this._storeright != value))
+				{
+					this.OnstorerightChanging(value);
+					this.SendPropertyChanging();
+					this._storeright = value;
+					this.SendPropertyChanged("storeright");
+					this.OnstorerightChanged();
 				}
 			}
 		}

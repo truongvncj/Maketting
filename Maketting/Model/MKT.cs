@@ -32,6 +32,10 @@ namespace Maketting.Model
 
 
             dataGridViewDetail.DataSource = dt;
+            dataGridViewDetail.Columns["Unit"].ReadOnly = true;
+            dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
+            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
             //DGV_DateTimePicker.DateTimePickerColumn col = new DGV_DateTimePicker.DateTimePickerColumn();
@@ -141,6 +145,35 @@ namespace Maketting.Model
 
 
             //  throw new NotImplementedException();
+        }
+
+        public static string getmaquyenkho()
+        {
+           
+
+            string username = Utils.getusername();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in db.tbl_Temps
+                      select tbl_Temp.Phân_quyền).FirstOrDefault();
+
+
+
+
+
+       
+
+
+
+            return "";
+
+
+
+
+            //throw new NotImplementedException();
         }
     }
 }

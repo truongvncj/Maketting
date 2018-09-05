@@ -47,9 +47,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbkhohang = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtmucdich = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -57,7 +59,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtdiengiai = new System.Windows.Forms.TextBox();
             this.txtdiachi = new System.Windows.Forms.TextBox();
-            this.txttennguoinhan = new System.Windows.Forms.TextBox();
+            this.txtnguoiyeucau = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -70,8 +72,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbkhohang = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -265,7 +265,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtmucdich);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label18);
@@ -273,7 +273,7 @@
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.txtdiengiai);
             this.panel1.Controls.Add(this.txtdiachi);
-            this.panel1.Controls.Add(this.txttennguoinhan);
+            this.panel1.Controls.Add(this.txtnguoiyeucau);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -285,6 +285,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 267);
             this.panel1.TabIndex = 65;
+            // 
+            // cbkhohang
+            // 
+            this.cbkhohang.FormattingEnabled = true;
+            this.cbkhohang.Location = new System.Drawing.Point(928, 163);
+            this.cbkhohang.Name = "cbkhohang";
+            this.cbkhohang.Size = new System.Drawing.Size(128, 21);
+            this.cbkhohang.TabIndex = 73;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(766, 165);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 18);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Store (Tại kho):";
             // 
             // label9
             // 
@@ -306,13 +324,13 @@
             this.label3.TabIndex = 70;
             this.label3.Text = "Tel No (Số điện thoại):";
             // 
-            // textBox1
+            // txtmucdich
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(230, 189);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(431, 24);
-            this.textBox1.TabIndex = 69;
+            this.txtmucdich.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmucdich.Location = new System.Drawing.Point(230, 189);
+            this.txtmucdich.Name = "txtmucdich";
+            this.txtmucdich.Size = new System.Drawing.Size(431, 24);
+            this.txtmucdich.TabIndex = 69;
             // 
             // label19
             // 
@@ -382,15 +400,15 @@
             this.txtdiachi.TabIndex = 22;
             this.txtdiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbdiachi_KeyPress);
             // 
-            // txttennguoinhan
+            // txtnguoiyeucau
             // 
-            this.txttennguoinhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttennguoinhan.Location = new System.Drawing.Point(230, 58);
-            this.txttennguoinhan.Name = "txttennguoinhan";
-            this.txttennguoinhan.Size = new System.Drawing.Size(271, 24);
-            this.txttennguoinhan.TabIndex = 21;
-            this.txttennguoinhan.Text = "LÊ THANH VÂN";
-            this.txttennguoinhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
+            this.txtnguoiyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnguoiyeucau.Location = new System.Drawing.Point(230, 58);
+            this.txtnguoiyeucau.Name = "txtnguoiyeucau";
+            this.txtnguoiyeucau.Size = new System.Drawing.Size(271, 24);
+            this.txtnguoiyeucau.TabIndex = 21;
+            this.txtnguoiyeucau.Text = "LÊ THANH VÂN";
+            this.txtnguoiyeucau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
             // 
             // label11
             // 
@@ -551,24 +569,6 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(766, 165);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 18);
-            this.label4.TabIndex = 72;
-            this.label4.Text = "Store (Tại kho):";
-            // 
-            // cbkhohang
-            // 
-            this.cbkhohang.FormattingEnabled = true;
-            this.cbkhohang.Location = new System.Drawing.Point(928, 163);
-            this.cbkhohang.Name = "cbkhohang";
-            this.cbkhohang.Size = new System.Drawing.Size(128, 21);
-            this.cbkhohang.TabIndex = 73;
-            // 
             // MKTissuephieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -613,7 +613,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtdiengiai;
         private System.Windows.Forms.TextBox txtdiachi;
-        private System.Windows.Forms.TextBox txttennguoinhan;
+        private System.Windows.Forms.TextBox txtnguoiyeucau;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -627,7 +627,7 @@
         private System.Windows.Forms.DataGridView dataGridViewListphieu;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtmucdich;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;

@@ -865,7 +865,7 @@ namespace Maketting.View
                 }
                 soquy.Ngayghiso = DateTime.Today;
                 soquy.Username = Utils.getusername();
-                soquy.macty = Model.Username.getmacty();
+        //        soquy.macty = Model.Username.getmacty();
                 soquy.Machungtu = "PC";
 
                 if (this.statusphieuchi == 1)// phieu thu mơi
@@ -1094,7 +1094,7 @@ namespace Maketting.View
                                 socai.Ngayctu = datepickngayphieu.Value;
                                 socai.Ngayghiso = DateTime.Today;
                                 socai.username = Utils.getusername();
-                                socai.macty = Model.Username.getmacty();
+                          //      socai.macty = Model.Username.getmacty();
                                 // ghi no tai kkhoan tien mat
 
                                 // ghi co/ no vao so cai tai khoan so cai
@@ -1372,12 +1372,12 @@ namespace Maketting.View
                 #region  insert vao rpt phieu thu
 
                 Rpt_PhieuThu pt = new Rpt_PhieuThu();
-                string macty = Model.Username.getmacty();
-                pt.tencongty = Model.Congty.getnamecongty(macty);
-                pt.diachicongty = Model.Congty.getdiachicongty(macty);
-                pt.masothue = Model.Congty.getmasothuecongty(macty);
-                pt.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
-                pt.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
+             //   string macty = Model.Username.getmacty();
+        //        pt.tencongty = Model.Congty.getnamecongty(macty);
+         //       pt.diachicongty = Model.Congty.getdiachicongty(macty);
+         //       pt.masothue = Model.Congty.getmasothuecongty(macty);
+           //     pt.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
+           //     pt.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
                 pt.sotienbangchu = phieuchi.sophieuthu;
                 pt.ngaychungtu = phieuchi.ngaychungtu;
                 pt.nguoinoptien = phieuchi.nguoinoptien;
@@ -1453,12 +1453,12 @@ namespace Maketting.View
             if (this.phieuchiid != 0)
             {
 
-                string macty = Model.Username.getmacty();
+             //   string macty = Model.Username.getmacty();
 
                 #region view load form
                 var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
                                 where tbl_SoQuy.id == this.phieuchiid
-                                && tbl_SoQuy.macty == macty
+                 //               && tbl_SoQuy.macty == macty
                                 select new
                                 {
 

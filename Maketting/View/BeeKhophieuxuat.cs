@@ -1056,13 +1056,13 @@ namespace Maketting.View
                 #region  insert vao rpt head
 
                 Rptphieuxuatkhohead pxk = new Rptphieuxuatkhohead();
-                string macty = Model.Username.getmacty();
+           //     string macty = Model.Username.getmacty();
 
-                pxk.tencongty = Model.Congty.getnamecongty(macty);
-                pxk.diachicongty = Model.Congty.getdiachicongty(macty);
-                pxk.masothue = Model.Congty.getmasothuecongty(macty);
-                pxk.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
-                pxk.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
+          //      pxk.tencongty = Model.Congty.getnamecongty(macty);
+         //       pxk.diachicongty = Model.Congty.getdiachicongty(macty);
+         //       pxk.masothue = Model.Congty.getmasothuecongty(macty);
+         //       pxk.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
+           //     pxk.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
                 pxk.phieuso = phieuxuat.phieuso;
                 pxk.ngaychungtu = phieuxuat.ngayphieuxuat;
                 pxk.nguoinhan = phieuxuat.nguoinhanhang;

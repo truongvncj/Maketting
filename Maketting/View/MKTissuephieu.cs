@@ -119,9 +119,9 @@ namespace Maketting.View
 
             #region  list black phiếu
             datepickngayphieu.Enabled = true;
+           
 
-
-            txttennguoinhan.Enabled = true;
+            txtnguoiyeucau.Enabled = true;
             txtdiachi.Enabled = true;
             txtdiengiai.Enabled = true;
 
@@ -131,19 +131,39 @@ namespace Maketting.View
 
             btsua.Enabled = false;
 
-
-            txttennguoinhan.Text = "";
+            txtmucdich.Text = "";
+            txtnguoiyeucau.Text = "";
             txtdiachi.Text = "";
             txtdiengiai.Text = "";
-
-
+            txtnguoiyeucau.Text = Utils.getname();
+         
 
             datepickngayphieu.Focus();
 
             dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
 
+            cbkhohang.Items.Clear();
 
-            //   dataGridViewTkNo = Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
+         //   List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            string username = Utils.getusername();
+            string rightkho = Model.MKT.getmaquyenkho();
+          
+            foreach (var item2 in rs)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.k.Trim();
+                cb.Text = item2.Code.Trim() + ": " + item2.Description.Trim() + "    || Example: " + item2.Example;
+                cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+
+            //string taikhoan = (cbtkco.SelectedItem as ComboboxItem).Value.ToString();
+            //this.matk = taikhoan;
+
+
 
 
             #endregion
@@ -277,7 +297,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txttennguoinhan.Focus();
+                txtnguoiyeucau.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -296,7 +316,7 @@ namespace Maketting.View
             {
                 // datepickngayphieu.
                 e.Handled = true;
-                txttennguoinhan.Focus();
+                txtnguoiyeucau.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -788,7 +808,7 @@ namespace Maketting.View
 
 
 
-            txttennguoinhan.Enabled = true;
+            txtnguoiyeucau.Enabled = true;
             txtdiachi.Enabled = true;
             txtdiengiai.Enabled = true;
 
@@ -807,7 +827,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txttennguoinhan.Focus();
+                txtnguoiyeucau.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -1219,26 +1239,26 @@ namespace Maketting.View
 
                 }
 
-                if (columhead == "Unit")
-                {
-                    rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.UNIT.Contains(valueseach)
-                         select new
-                         {
-                             pp.ITEM_Code,
-                             pp.SAP_CODE,
-                             pp.MATERIAL,
-                             pp.Description,
-                             pp.UNIT,
-                             Avaiable_stock = pp.END_STOCK,
+                //if (columhead == "Unit")
+                //{
+                //    rs = from pp in dc.tbl_MKT_Stockends
+                //         where pp.UNIT.Contains(valueseach)
+                //         select new
+                //         {
+                //             pp.ITEM_Code,
+                //             pp.SAP_CODE,
+                //             pp.MATERIAL,
+                //             pp.Description,
+                //             pp.UNIT,
+                //             Avaiable_stock = pp.END_STOCK,
 
-                             pp.id,
+                //             pp.id,
 
-                         };
+                //         };
 
-                }
+                //}
                 //  MessageBox.Show(columhead);
-                if (rs != null)
+                if (rs != null )
                 {
                     View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
                     selectkq.ShowDialog();

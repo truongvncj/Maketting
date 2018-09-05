@@ -1073,12 +1073,12 @@ namespace Maketting.View
                 #region  insert vao rpt phieu thu
 
                 Rptphieunhapkhohead pnk = new Rptphieunhapkhohead();
-                string macty = Model.Username.getmacty();
-                pnk.tencongty = Model.Congty.getnamecongty(macty);
-                pnk.diachicongty = Model.Congty.getdiachicongty(macty);
-                pnk.masothue = Model.Congty.getmasothuecongty(macty);
-                pnk.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
-                pnk.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
+           //     string macty = Model.Username.getmacty();
+          //      pnk.tencongty = Model.Congty.getnamecongty(macty);
+         //       pnk.diachicongty = Model.Congty.getdiachicongty(macty);
+          //      pnk.masothue = Model.Congty.getmasothuecongty(macty);
+         //       pnk.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
+         //       pnk.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
                 pnk.phieunhapso = phieunhap.phieuso;
                 pnk.ngaychungtu = phieunhap.ngayphieunhap;
                 pnk.nguoigiao = phieunhap.nguoigiao;

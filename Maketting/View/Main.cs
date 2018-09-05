@@ -65,7 +65,7 @@ namespace Maketting.View
             string username = Utils.getusername();
             lbusername.Text = username;
 
-            string tencty = Model.Username.getnamecty();
+       //     string tencty = Model.Username.getnamecty();
 
 
             panelmain.Controls.Clear();
