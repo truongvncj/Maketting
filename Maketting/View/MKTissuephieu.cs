@@ -17,6 +17,7 @@ namespace Maketting.View
                                              //   public string sophieuID { get; set; }
         public string sophieu { get; set; }
         public string storelocation { get; set; }
+        public string Username { get; set; }
 
         public class ComboboxItem
         {
@@ -29,11 +30,33 @@ namespace Maketting.View
             }
         }
 
+        public void cleartoblankDEtailphieu()
+        {
+
+            #region  list black phiếu
+       
+
+            dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
+
+          
+
+            #endregion
+
+
+        }
 
         public void addDEtailPhieuMKT(tbl_MKt_Listphieu PhieuMKT)
         {
 
 
+            //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+            //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
+            //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
 
 
 
@@ -44,17 +67,22 @@ namespace Maketting.View
 
             //---------------
 
-            //DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
+            DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
 
-            //DataRow drToAdd = dataTable.NewRow();
+            DataRow drToAdd = dataTable.NewRow();
 
-            ////    drToAdd["Tk_Có"] = socaitemp.TkCo;
-            //drToAdd["Code"] = PhieuMKT.Materiacode;
-            //drToAdd["Description"] = PhieuMKT.Description;
-            //drToAdd["Issue"] = PhieuMKT.Issued;
+            drToAdd["MATERIAL"] = PhieuMKT.Materiacode;
+            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
+            drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
+            drToAdd["Unit"] = PhieuMKT.Unit;
+            drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
 
 
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
 
+          //  dataGridViewDetail.DataSource = dataTable;
 
             ////      drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
             ////   drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
@@ -104,6 +132,8 @@ namespace Maketting.View
 
         }
 
+
+
         public void reloadseachview(string nguoinop, string diachi, string noidung)
         {
 
@@ -130,7 +160,7 @@ namespace Maketting.View
 
             txtnguoiyeucau.Enabled = true;
             txtnguoinhan.Enabled = true;
-       
+
 
             btluu.Visible = true;
             btluu.Enabled = true;
@@ -160,7 +190,10 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             string username = Utils.getusername();
+            this.Username = username;
             string rightkho = Model.Username.getmaquyenkho();
+
+            List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
                       where pp.storeright == rightkho
@@ -170,17 +203,24 @@ namespace Maketting.View
                 ComboboxItem cb = new ComboboxItem();
                 cb.Value = item2.makho.Trim();
                 cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim();
-                cbkhohang.Items.Add(cb);
+                itemstorecolect.Add(cb);
+
+              //  cbkhohang.Items.Add(cb);
                 //  CombomCollection.Add(cb);
             }
-
+            cbkhohang.DataSource = itemstorecolect;
             cbkhohang.SelectedIndex = 0;
 
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
 
 
-            // datepickngayphieu.();
+            Model.MKT.DeleteALLphieutamTMP();
+
+            this.sophieu = Model.MKT.getMKtNo();
+            lbgatepassno.Text = this.sophieu;
+
+
 
             #endregion
 
@@ -273,16 +313,11 @@ namespace Maketting.View
 
             this.main1 = Main;
 
-       
+
 
             this.statusphieu = 1; // tạo mới
 
             cleartoblankphieu();
-
-            Model.MKT.DeleteALLphieutamTMP();
-
-            this.sophieu = Model.MKT.getMKtNo();
-            lbgatepassno.Text = this.sophieu;
 
 
 
@@ -535,12 +570,12 @@ namespace Maketting.View
 
 
             #region  // check head
-            if (txtcustcode.Text =="")
+            if (txtcustcode.Text == "")
             {
                 MessageBox.Show("Pleae select a Benefitciary (Người nhận) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtnguoinhan.Focus();
                 checkhead = false;
-                return ;
+                return;
             }
 
             if (txtmact.Text == "")
@@ -550,9 +585,9 @@ namespace Maketting.View
                 checkhead = false;
                 return;
             }
-            
 
-         if (cbkhohang.Text == "")
+
+            if (cbkhohang.Text == "")
             {
                 MessageBox.Show("Pleae select a Location Wave House (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbkhohang.Focus();
@@ -563,6 +598,14 @@ namespace Maketting.View
 
 
             #region  //check detai từng dòng
+
+            if (dataGridViewDetail.RowCount == 1)
+            {
+                MessageBox.Show("Bạn chưa nhập chi tiết phiếu ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                checkdetail = false;
+                return;
+            }
             for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
             {
                 if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
@@ -582,22 +625,22 @@ namespace Maketting.View
                     if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value == DBNull.Value)
                     {
 
-                        MessageBox.Show("Please nhập số lượng xuất dòng : " + (idrow+1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please nhập số lượng xuất dòng : " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
                         checkdetail = false;
                         return;
                     }
 
-                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
+                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Avaiable_Quantity"].Value != DBNull.Value)
                     {
                         if ((float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value > (float)dataGridViewDetail.Rows[idrow].Cells["Avaiable_Quantity"].Value)
                         {
-                            MessageBox.Show("Please số lượng lớn hơn số avaiable, please check dòng:  " + (idrow+1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Please số lượng lớn hơn số avaiable, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
                             checkdetail = false;
                             return;
                         }
-                       
+
                     }
 
 
@@ -606,16 +649,115 @@ namespace Maketting.View
 
             }  //for
 
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             #endregion
 
             if (checkdetail && checkhead)
             {
 
+                #region // head 
+                //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+
+                var rs = (from pp in dc.tbl_MKt_Listphieuheads
+                          where pp.id.ToString() == this.sophieu
+
+                          select pp).FirstOrDefault();
+
+                if (rs != null)
+                {
+                    rs.Address = txtdiachi.Text;
+                    rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
+                    rs.Receiver_by = txtnguoinhan.Text;
+
+                    rs.Ngaytaophieu = datepickngayphieu.Value;
+                    rs.Purpose = txtmucdichname.Text;
+                    rs.Purposeid = txtmact.Text;
+                    rs.ShippingPoint = this.storelocation;
+                    rs.Requested_by = txtnguoiyeucau.Text;
+                    rs.Status = "CRT";
+                    rs.Gate_pass = this.sophieu;
+
+                    rs.Tel = lbtel.Text;
+                    rs.Username = this.Username;
+                    dc.SubmitChanges();
+
+                }
+
+
+                #endregion
+
+                #region // detail
+                for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+                {
+                    if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
+                    {
+                        tbl_MKt_Listphieu detailphieu = new tbl_MKt_Listphieu();
+
+                        detailphieu.Address = txtdiachi.Text;
+                        detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
+                        detailphieu.Receiver_by = txtnguoinhan.Text;
+
+                        detailphieu.Ngaytaophieu = datepickngayphieu.Value;
+                        detailphieu.Purpose = txtmucdichname.Text;
+                        detailphieu.Purposeid = txtmact.Text;
+                        detailphieu.ShippingPoint = this.storelocation;
+                        detailphieu.Requested_by = txtnguoiyeucau.Text;
+                        detailphieu.Status = "CRT";
+                        detailphieu.Tel = lbtel.Text;
+                        detailphieu.Username = this.Username;
+                        detailphieu.Gate_pass = this.sophieu;
+                        //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+                        //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+                        //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+                        //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+                        //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+                        //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
+                        //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
+                        {
+                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
+                        }
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
+                        {
+                            detailphieu.Materiacode = (string)dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value;
+                        }
+
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value != DBNull.Value)
+                        {
+
+                            detailphieu.MateriaSAPcode = (string)dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value;
+                        }
+                        if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
+                        {
+
+                            detailphieu.Issued = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+                        }
+                        if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
+                        {
+                            detailphieu.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+                        }
+                        if (dataGridViewDetail.Rows[idrow].Cells["Unit"].Value != DBNull.Value)
+                        {
+                            detailphieu.Unit = (string)dataGridViewDetail.Rows[idrow].Cells["Unit"].Value;
+                        }
+                        dc.tbl_MKt_Listphieus.InsertOnSubmit(detailphieu);
+                        dc.SubmitChanges();
 
 
 
+                    }
+                }
 
+                #endregion
+
+                MessageBox.Show("Phiếu " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cleartoblankphieu();
             }
 
 
@@ -793,6 +935,34 @@ namespace Maketting.View
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            try
+            {
+                this.sophieu = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Gate_pass"].Value;
+                this.storelocation = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Store"].Value;
+
+                //Date = pp.Ngaytaophieu,
+                //             pp.Gate_pass,
+                //             pp.Requested_by,
+                //             pp.Purpose,
+
+
+                //             pp.Receiver_by,
+                //             pp.Customer_SAP_Code,
+                //             pp.Address,
+                //             pp.Materiacode,
+                //             //  pp.MateriaSAPcode,
+                //             pp.Description,
+                //             pp.Issued,
+                //             Store = pp.ShippingPoint,
+                //             Created_by = pp.Username,
+                //             pp.id,
+            }
+            catch (Exception)
+            {
+
+                //     this.phieuchiid = 0;
+            }
+
 
             //List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
             //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
@@ -904,7 +1074,7 @@ namespace Maketting.View
 
             //        this.statusphieuchi = 3;// View
             // //       Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
-            ////        Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
+            //    Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
             //        btluu.Visible = false;
 
             //    }
@@ -933,11 +1103,12 @@ namespace Maketting.View
 
         private void tbxoa_Click(object sender, EventArgs e)
         {
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            bool kq = Model.MKT.Deletephieu(this.sophieu, this.storelocation);
+            if (kq)
+            {
+                MessageBox.Show("Delete " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-
+            }
 
 
 
@@ -1635,6 +1806,95 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            string sophieufind = "";
+            string storelocationfind = "";
+            string connection_string = Utils.getConnectionstr();
+         
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            try
+            {
+                sophieufind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
+                storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Store"].Value.ToString();
+                this.sophieu = sophieufind;
+                lbgatepassno.Text = this.sophieu;
+                this.storelocation = storelocationfind;// = ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //     this.phieuchiid = 0;
+            }
+
+            #region loaddead so phieu va location
+            #region // head 
+            //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+
+            var rs = (from pp in dc.tbl_MKt_Listphieuheads
+                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+
+                      select pp).FirstOrDefault();
+
+            if (rs != null)
+            {
+                this.sophieu = sophieufind;
+                txtdiachi.Text = rs.Address;
+                txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                txtnguoinhan.Text = rs.Receiver_by;// = 
+
+                datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
+                txtmucdichname.Text = rs.Purpose;//= ;
+                txtmact.Text = rs.Purposeid;//=;
+                this.storelocation = rs.ShippingPoint;// = ;
+
+
+              //  cbkhohang.Items
+                foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
+                {
+                    if (item.Value.ToString().Trim() == rs.ShippingPoint.Trim())
+                    {
+                        cbkhohang.SelectedItem = item;
+                    }
+                }
+
+                txtnguoiyeucau.Text = rs.Requested_by;// = ;
+                                                      //   rs.Status = "CRT";
+                lbgatepassno.Text = this.sophieu;
+
+                lbtel.Text = rs.Tel;// = ;
+                                    //  rs.Username = this.Username;
+                                    //   dc.SubmitChanges();
+              
+
+            }
+
+
+            #endregion
+
+
+            #endregion
+
+            #region load detail so phieu va loacation
+            var rs2 = from pp in dc.tbl_MKt_Listphieus
+                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                cleartoblankDEtailphieu();
+                foreach (var item in rs2)
+                {
+                    addDEtailPhieuMKT(item);
+                    //  xxx
+
+
+
+                }
+
+            }
+
+            #endregion
+
             tabControl1.SelectedTab = tabPage1;
         }
 
@@ -1713,6 +1973,8 @@ namespace Maketting.View
                              //  pp.MateriaSAPcode,
                              pp.Description,
                              pp.Issued,
+                             Store = pp.ShippingPoint,
+                             Created_by = pp.Username,
                              pp.id,
 
                          };

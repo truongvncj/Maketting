@@ -25848,6 +25848,14 @@ namespace Maketting
 		
 		private string _Username;
 		
+		private string _Purposeid;
+		
+		private string _Unit;
+		
+		private string _ShippingPoint;
+		
+		private string _Materialname;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -25892,6 +25900,14 @@ namespace Maketting
     partial void OnNgayhoanthanhChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
+    partial void OnPurposeidChanging(string value);
+    partial void OnPurposeidChanged();
+    partial void OnUnitChanging(string value);
+    partial void OnUnitChanged();
+    partial void OnShippingPointChanging(string value);
+    partial void OnShippingPointChanged();
+    partial void OnMaterialnameChanging(string value);
+    partial void OnMaterialnameChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -26299,6 +26315,86 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Purposeid", DbType="NVarChar(50)")]
+		public string Purposeid
+		{
+			get
+			{
+				return this._Purposeid;
+			}
+			set
+			{
+				if ((this._Purposeid != value))
+				{
+					this.OnPurposeidChanging(value);
+					this.SendPropertyChanging();
+					this._Purposeid = value;
+					this.SendPropertyChanged("Purposeid");
+					this.OnPurposeidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(50)")]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this.OnUnitChanging(value);
+					this.SendPropertyChanging();
+					this._Unit = value;
+					this.SendPropertyChanged("Unit");
+					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingPoint", DbType="NVarChar(50)")]
+		public string ShippingPoint
+		{
+			get
+			{
+				return this._ShippingPoint;
+			}
+			set
+			{
+				if ((this._ShippingPoint != value))
+				{
+					this.OnShippingPointChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingPoint = value;
+					this.SendPropertyChanged("ShippingPoint");
+					this.OnShippingPointChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(255)")]
+		public string Materialname
+		{
+			get
+			{
+				return this._Materialname;
+			}
+			set
+			{
+				if ((this._Materialname != value))
+				{
+					this.OnMaterialnameChanging(value);
+					this.SendPropertyChanging();
+					this._Materialname = value;
+					this.SendPropertyChanged("Materialname");
+					this.OnMaterialnameChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -26350,6 +26446,10 @@ namespace Maketting
 		
 		private string _Username;
 		
+		private string _Purposeid;
+		
+		private string _ShippingPoint;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -26378,6 +26478,10 @@ namespace Maketting
     partial void OnStatusChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
+    partial void OnPurposeidChanging(string value);
+    partial void OnPurposeidChanged();
+    partial void OnShippingPointChanging(string value);
+    partial void OnShippingPointChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -26621,6 +26725,46 @@ namespace Maketting
 					this._Username = value;
 					this.SendPropertyChanged("Username");
 					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Purposeid", DbType="NVarChar(50)")]
+		public string Purposeid
+		{
+			get
+			{
+				return this._Purposeid;
+			}
+			set
+			{
+				if ((this._Purposeid != value))
+				{
+					this.OnPurposeidChanging(value);
+					this.SendPropertyChanging();
+					this._Purposeid = value;
+					this.SendPropertyChanged("Purposeid");
+					this.OnPurposeidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingPoint", DbType="NVarChar(50)")]
+		public string ShippingPoint
+		{
+			get
+			{
+				return this._ShippingPoint;
+			}
+			set
+			{
+				if ((this._ShippingPoint != value))
+				{
+					this.OnShippingPointChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingPoint = value;
+					this.SendPropertyChanged("ShippingPoint");
+					this.OnShippingPointChanged();
 				}
 			}
 		}

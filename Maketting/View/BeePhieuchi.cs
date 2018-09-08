@@ -341,17 +341,6 @@ namespace Maketting.View
             #region load tk tmat
 
 
-            //            tien
-            //kho
-            //taisan
-            //nguonvon
-            //doanhthu
-            //chiphi
-            //xacdinhkqkd
-            //loinhuan
-            //phaithu
-            //phaichi
-            //tamung
             var rs2 = from tk in dc.tbl_dstaikhoans
                       where tk.loaitkid == "tien" // mã 8 là tiền mặt
                       select tk;
