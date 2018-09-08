@@ -14,7 +14,7 @@ namespace Maketting.View
     public partial class MKTissuephieu : Form
     {
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
-     //   public string sophieuID { get; set; }
+                                             //   public string sophieuID { get; set; }
         public string sophieu { get; set; }
         public string storelocation { get; set; }
 
@@ -119,11 +119,18 @@ namespace Maketting.View
 
             #region  list black phiếu
             datepickngayphieu.Enabled = true;
-           
+            txtmact.Text = "";
+            txtmact.Enabled = false;
+
+            txtcustcode.Text = "";
+            txtcustcode.Enabled = false;
+
+            txtdiachi.Text = "";
+            txtdiachi.Enabled = false;
 
             txtnguoiyeucau.Enabled = true;
             txtnguoinhan.Enabled = true;
-            txtdiachi.Enabled = true;
+       
 
             btluu.Visible = true;
             btluu.Enabled = true;
@@ -131,7 +138,7 @@ namespace Maketting.View
 
             btsua.Enabled = false;
 
-            txtmucdich.Text = "";
+            txtmucdichname.Text = "";
             txtnguoiyeucau.Text = "";
             txtnguoinhan.Text = "";
             txtdiachi.Text = "";
@@ -142,13 +149,13 @@ namespace Maketting.View
             lbgatepassno.Text = "";
             datepickngayphieu.Value = DateTime.Today;
 
-            datepickngayphieu.Focus();
+            txtnguoiyeucau.Focus();
 
             dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
 
             cbkhohang.Items.Clear();
 
-         //   List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
+            //   List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -162,18 +169,18 @@ namespace Maketting.View
             {
                 ComboboxItem cb = new ComboboxItem();
                 cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim() ;
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim();
                 cbkhohang.Items.Add(cb);
                 //  CombomCollection.Add(cb);
             }
-           
+
             cbkhohang.SelectedIndex = 0;
 
-           this. storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
 
-        
-           // datepickngayphieu.();
+
+            // datepickngayphieu.();
 
             #endregion
 
@@ -266,20 +273,16 @@ namespace Maketting.View
 
             this.main1 = Main;
 
+       
+
             this.statusphieu = 1; // tạo mới
-
-            //Model.Username used = new Model.Username();
-            //string connection_string = Utils.getConnectionstr();
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //string username = Utils.getusername();
 
             cleartoblankphieu();
 
+            Model.MKT.DeleteALLphieutamTMP();
 
-
-
-       //     dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
+            this.sophieu = Model.MKT.getMKtNo();
+            lbgatepassno.Text = this.sophieu;
 
 
 
@@ -372,7 +375,54 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                txtdiachi.Focus();
+                //  cbsophieu.
+                e.Handled = true;
+
+                string seachtext = txtmucdichname.Text;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKT_khachhangs
+                         where pp.tenKH.Contains(seachtext)
+                         select new
+                         {
+                             MÃ_KHÁCH_HÀNG = pp.maKH,
+                             TÊN_KHÁCH_HÀNG = pp.tenKH,
+                             ĐỊA_CHỈ = pp.diachiKH,
+                             ĐIỆN_THOẠI = pp.dienthoai,
+                             GHI_CHÚ = pp.ghichu,
+                             MÃ_SỐ_THUẾ = pp.masothueKH,
+
+
+
+                             pp.id,
+
+                         };
+
+                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT RECIPIENTS", "MKT");
+                selectkq.ShowDialog();
+                int id = selectkq.id;
+
+                var rs2 = (from pp in dc.tbl_MKT_khachhangs
+                           where pp.id == id
+                           select pp).FirstOrDefault();
+
+                if (rs2 != null)
+                {
+                    txtcustcode.Text = rs2.maKH;
+                    txtnguoinhan.Text = rs2.tenKH;
+                    txtdiachi.Text = rs2.diachiKH;
+                    lbtel.Text = rs2.dienthoai;
+
+
+
+                }
+
+
+
+
+
+                txtmucdichname.Focus();
 
 
             }
@@ -383,7 +433,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-               txtmucdich.Focus();
+                txtmucdichname.Focus();
 
 
 
@@ -480,10 +530,93 @@ namespace Maketting.View
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
 
+            bool checkdetail = true;
+            bool checkhead = true;
+
+
+            #region  // check head
+            if (txtcustcode.Text =="")
+            {
+                MessageBox.Show("Pleae select a Benefitciary (Người nhận) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtnguoinhan.Focus();
+                checkhead = false;
+                return ;
+            }
+
+            if (txtmact.Text == "")
+            {
+                MessageBox.Show("Pleae select a Purpose (Mục đích) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtmucdichname.Focus();
+                checkhead = false;
+                return;
+            }
+            
+
+         if (cbkhohang.Text == "")
+            {
+                MessageBox.Show("Pleae select a Location Wave House (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbkhohang.Focus();
+                checkhead = false;
+                return;
+            }
+            #endregion
+
+
+            #region  //check detai từng dòng
+            for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+            {
+                if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
+                {
+
+                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+                    //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
+                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+
+                    dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.White;
+
+                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value == DBNull.Value)
+                    {
+
+                        MessageBox.Show("Please nhập số lượng xuất dòng : " + (idrow+1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                        checkdetail = false;
+                        return;
+                    }
+
+                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
+                    {
+                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value > (float)dataGridViewDetail.Rows[idrow].Cells["Avaiable_Quantity"].Value)
+                        {
+                            MessageBox.Show("Please số lượng lớn hơn số avaiable, please check dòng:  " + (idrow+1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                            checkdetail = false;
+                            return;
+                        }
+                       
+                    }
+
+
+                }
+
+
+            }  //for
+
+
+            #endregion
+
+            if (checkdetail && checkhead)
+            {
 
 
 
 
+
+            }
 
 
         }
@@ -544,6 +677,12 @@ namespace Maketting.View
         {
 
             this.cleartoblankphieu();
+
+            Model.MKT.DeleteALLphieutamTMP();
+
+            this.sophieu = Model.MKT.getMKtNo();
+            lbgatepassno.Text = this.sophieu;
+
 
         }
 
@@ -1172,7 +1311,7 @@ namespace Maketting.View
                 string valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
                 IQueryable rs = null;
-               
+
                 if (columhead == "Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
@@ -1189,7 +1328,7 @@ namespace Maketting.View
                              pp.id,
 
                          };
-                   
+
                 }
 
                 if (columhead == "ITEM Code")
@@ -1267,7 +1406,7 @@ namespace Maketting.View
 
                 //}
                 //  MessageBox.Show(columhead);
-                if (rs != null )
+                if (rs != null)
                 {
                     View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
                     selectkq.ShowDialog();
@@ -1295,7 +1434,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
-                     
+
                     }
                     else
                     {
@@ -1611,18 +1750,69 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
+
+                string seachtext = txtmucdichname.Text;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKT_Mucdiches
+                         where pp.tenCT.Contains(seachtext)
+                         select new
+                         {
+                             MÃ_CHƯƠNG_TRÌNH = pp.macT,
+                             TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
+
+
+
+                             pp.id,
+
+                         };
+
+                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
+                selectkq.ShowDialog();
+                int id = selectkq.id;
+
+                var rs2 = (from pp in dc.tbl_MKT_Mucdiches
+                           where pp.id == id
+                           select pp).FirstOrDefault();
+
+                if (rs2 != null)
+                {
+
+                    txtmact.Text = rs2.macT;
+                    txtmucdichname.Text = rs2.tenCT;
+
+                }
+
+
+
+
+
+
+
                 dataGridViewDetail.Focus();
 
-                //    string valueinput = cb_customerka.Text;
-
-                //    string connection_string = Utils.getConnectionstr();
-                //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                //    string username = Utils.getusername();
-
-
             }
-            
+
+        }
+
+        private void btmucdich_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+        }
+
+        private void btcustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtmucdichname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

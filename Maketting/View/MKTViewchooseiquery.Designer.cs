@@ -65,6 +65,7 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
@@ -82,7 +83,7 @@
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // Viewchooseiquery
+            // MKTViewchooseiquery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -92,7 +93,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Viewchooseiquery";
+            this.Name = "MKTViewchooseiquery";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SELECT";
             this.panel1.ResumeLayout(false);

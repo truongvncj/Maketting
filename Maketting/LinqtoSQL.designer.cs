@@ -207,6 +207,12 @@ namespace Maketting
     partial void Inserttbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
     partial void Updatetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
     partial void Deletetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
+    partial void Inserttbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
+    partial void Updatetbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
+    partial void Deletetbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
+    partial void Inserttbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
+    partial void Updatetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
+    partial void Deletetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
     partial void Inserttbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Updatetbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Deletetbl_MKT_Stockend(tbl_MKT_Stockend instance);
@@ -732,6 +738,22 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKt_Listphieu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKt_Listphieuhead> tbl_MKt_Listphieuheads
+		{
+			get
+			{
+				return this.GetTable<tbl_MKt_Listphieuhead>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Mucdich> tbl_MKT_Mucdiches
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Mucdich>();
 			}
 		}
 		
@@ -25824,6 +25846,8 @@ namespace Maketting
 		
 		private System.Nullable<System.DateTime> _Ngayhoanthanh;
 		
+		private string _Username;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -25866,6 +25890,8 @@ namespace Maketting
     partial void OnStatusChanged();
     partial void OnNgayhoanthanhChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayhoanthanhChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -26249,6 +26275,486 @@ namespace Maketting
 					this._Ngayhoanthanh = value;
 					this.SendPropertyChanged("Ngayhoanthanh");
 					this.OnNgayhoanthanhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_Listphieuhead")]
+	public partial class tbl_MKt_Listphieuhead : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Gate_pass;
+		
+		private System.Nullable<System.DateTime> _Date_Received_Issued;
+		
+		private string _Requested_by;
+		
+		private System.Nullable<double> _Customer_SAP_Code;
+		
+		private string _Receiver_by;
+		
+		private string _Address;
+		
+		private string _Tel;
+		
+		private string _Purpose;
+		
+		private System.Nullable<System.DateTime> _Ngaytaophieu;
+		
+		private int _id;
+		
+		private string _Status;
+		
+		private string _Username;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGate_passChanging(string value);
+    partial void OnGate_passChanged();
+    partial void OnDate_Received_IssuedChanging(System.Nullable<System.DateTime> value);
+    partial void OnDate_Received_IssuedChanged();
+    partial void OnRequested_byChanging(string value);
+    partial void OnRequested_byChanged();
+    partial void OnCustomer_SAP_CodeChanging(System.Nullable<double> value);
+    partial void OnCustomer_SAP_CodeChanged();
+    partial void OnReceiver_byChanging(string value);
+    partial void OnReceiver_byChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnTelChanging(string value);
+    partial void OnTelChanged();
+    partial void OnPurposeChanging(string value);
+    partial void OnPurposeChanged();
+    partial void OnNgaytaophieuChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgaytaophieuChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    #endregion
+		
+		public tbl_MKt_Listphieuhead()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gate_pass", DbType="NVarChar(255)")]
+		public string Gate_pass
+		{
+			get
+			{
+				return this._Gate_pass;
+			}
+			set
+			{
+				if ((this._Gate_pass != value))
+				{
+					this.OnGate_passChanging(value);
+					this.SendPropertyChanging();
+					this._Gate_pass = value;
+					this.SendPropertyChanged("Gate_pass");
+					this.OnGate_passChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date_Received_Issued", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date_Received_Issued
+		{
+			get
+			{
+				return this._Date_Received_Issued;
+			}
+			set
+			{
+				if ((this._Date_Received_Issued != value))
+				{
+					this.OnDate_Received_IssuedChanging(value);
+					this.SendPropertyChanging();
+					this._Date_Received_Issued = value;
+					this.SendPropertyChanged("Date_Received_Issued");
+					this.OnDate_Received_IssuedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Requested_by", DbType="NVarChar(255)")]
+		public string Requested_by
+		{
+			get
+			{
+				return this._Requested_by;
+			}
+			set
+			{
+				if ((this._Requested_by != value))
+				{
+					this.OnRequested_byChanging(value);
+					this.SendPropertyChanging();
+					this._Requested_by = value;
+					this.SendPropertyChanged("Requested_by");
+					this.OnRequested_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_SAP_Code", DbType="Float")]
+		public System.Nullable<double> Customer_SAP_Code
+		{
+			get
+			{
+				return this._Customer_SAP_Code;
+			}
+			set
+			{
+				if ((this._Customer_SAP_Code != value))
+				{
+					this.OnCustomer_SAP_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_SAP_Code = value;
+					this.SendPropertyChanged("Customer_SAP_Code");
+					this.OnCustomer_SAP_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Receiver_by", DbType="NVarChar(255)")]
+		public string Receiver_by
+		{
+			get
+			{
+				return this._Receiver_by;
+			}
+			set
+			{
+				if ((this._Receiver_by != value))
+				{
+					this.OnReceiver_byChanging(value);
+					this.SendPropertyChanging();
+					this._Receiver_by = value;
+					this.SendPropertyChanged("Receiver_by");
+					this.OnReceiver_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="NVarChar(255)")]
+		public string Tel
+		{
+			get
+			{
+				return this._Tel;
+			}
+			set
+			{
+				if ((this._Tel != value))
+				{
+					this.OnTelChanging(value);
+					this.SendPropertyChanging();
+					this._Tel = value;
+					this.SendPropertyChanged("Tel");
+					this.OnTelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Purpose", DbType="NVarChar(255)")]
+		public string Purpose
+		{
+			get
+			{
+				return this._Purpose;
+			}
+			set
+			{
+				if ((this._Purpose != value))
+				{
+					this.OnPurposeChanging(value);
+					this.SendPropertyChanging();
+					this._Purpose = value;
+					this.SendPropertyChanged("Purpose");
+					this.OnPurposeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaytaophieu", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ngaytaophieu
+		{
+			get
+			{
+				return this._Ngaytaophieu;
+			}
+			set
+			{
+				if ((this._Ngaytaophieu != value))
+				{
+					this.OnNgaytaophieuChanging(value);
+					this.SendPropertyChanging();
+					this._Ngaytaophieu = value;
+					this.SendPropertyChanged("Ngaytaophieu");
+					this.OnNgaytaophieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Mucdich")]
+	public partial class tbl_MKT_Mucdich : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _macT;
+		
+		private string _tenCT;
+		
+		private int _id;
+		
+		private string _ghichu;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmacTChanging(string value);
+    partial void OnmacTChanged();
+    partial void OntenCTChanging(string value);
+    partial void OntenCTChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnghichuChanging(string value);
+    partial void OnghichuChanged();
+    #endregion
+		
+		public tbl_MKT_Mucdich()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_macT", DbType="NVarChar(50)")]
+		public string macT
+		{
+			get
+			{
+				return this._macT;
+			}
+			set
+			{
+				if ((this._macT != value))
+				{
+					this.OnmacTChanging(value);
+					this.SendPropertyChanging();
+					this._macT = value;
+					this.SendPropertyChanged("macT");
+					this.OnmacTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenCT", DbType="NVarChar(225)")]
+		public string tenCT
+		{
+			get
+			{
+				return this._tenCT;
+			}
+			set
+			{
+				if ((this._tenCT != value))
+				{
+					this.OntenCTChanging(value);
+					this.SendPropertyChanging();
+					this._tenCT = value;
+					this.SendPropertyChanged("tenCT");
+					this.OntenCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(225)")]
+		public string ghichu
+		{
+			get
+			{
+				return this._ghichu;
+			}
+			set
+			{
+				if ((this._ghichu != value))
+				{
+					this.OnghichuChanging(value);
+					this.SendPropertyChanging();
+					this._ghichu = value;
+					this.SendPropertyChanged("ghichu");
+					this.OnghichuChanged();
 				}
 			}
 		}

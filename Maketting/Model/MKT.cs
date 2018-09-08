@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Maketting.Model
 {
@@ -19,7 +20,7 @@ namespace Maketting.Model
             DataTable dt = new DataTable();
 
 
-             dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
@@ -147,7 +148,55 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
-      
+
+
+        public static void DeleteALLphieutamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_Listphieuheads
+                     where pp.Username == urs && pp.Status == "TMP"
+                     select pp;
+
+
+
+            dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+            dc.SubmitChanges();
+        }
+
+        public static string getMKtNo()
+        {
+            string connection_string = Utils.getConnectionstr();
+            string urs = Utils.getusername();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            tbl_MKt_Listphieuhead newtmp = new tbl_MKt_Listphieuhead();
+
+            newtmp.Username = urs;
+            newtmp.Status = "TMP";
+
+            dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newtmp);
+
+            dc.SubmitChanges();
+
+
+            var phieuid = (from p in dc.tbl_MKt_Listphieuheads
+                           where p.Status == "TMP" && p.Username == urs
+                           select p.id).FirstOrDefault();
+
+
+            return phieuid.ToString();
+
+
+
+
+            
+        }
 
     }
 }
