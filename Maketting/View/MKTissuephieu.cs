@@ -792,7 +792,7 @@ namespace Maketting.View
         private void button5_Click(object sender, EventArgs e)
         {
 
-         //   string username = Utils.getusername();
+            //   string username = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -830,15 +830,15 @@ namespace Maketting.View
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result    = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
                 headpx.dienthoai = rptMKThead.Tel;
                 headpx.mucdich = rptMKThead.Purpose;
                 headpx.Ngaythang = rptMKThead.Ngaytaophieu;
                 headpx.Nguoiyeucau = rptMKThead.Requested_by;
-             
-             
+
+
 
                 dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
                 dc.SubmitChanges();
@@ -846,131 +846,71 @@ namespace Maketting.View
             }
 
             var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
-                              where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
-                              select pp;
+                                 where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                                 select pp;
             int i = 0;
             foreach (var item in rptMKTdetailmk)
             {
                 i = i + 1;
-           
+
                 tbl_MKT_DetailRpt_Phieuissue detailpx = new tbl_MKT_DetailRpt_Phieuissue();
 
                 detailpx.stt = i.ToString();
                 detailpx.soluong = item.Issued;
                 detailpx.Username = this.Username;
-                 detailpx.tensanpham = item.;
+                detailpx.tensanpham = item.Materialname;
                 detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
-             
+
 
                 dc.tbl_MKT_DetailRpt_Phieuissues.InsertOnSubmit(detailpx);
                 dc.SubmitChanges();
 
             }
-            //var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
-            //                where tbl_SoQuy.id == this.phieuchiid
-            //                select new
-            //                {
-
-            //                    //     tencongty = Model.Congty.getnamecongty(),
-            //                    //     diachicongty = Model.Congty.getdiachicongty(),
-            //                    ////     masothue = Model.Congty.getmasothuecongty(),
-            //                    //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
-            //                    //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
-
-            //                    sophieuthu = tbl_SoQuy.Sophieu,
-            //                    ngaychungtu = tbl_SoQuy.Ngayctu,
-            //                    nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
-            //                    //    nguoilapphieu = Utils.getname(),
-            //                    diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
-            //                    lydothu = tbl_SoQuy.Diengiai,
-            //                    sotien = tbl_SoQuy.PsCo,
-            //                    //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
-            //                    sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
-            //                    //    username = Utils.getusername(),
-            //                    tkco = tbl_SoQuy.TKtienmat,
-            //                    tkno = tbl_SoQuy.TKdoiung,
-
-
-            //                }).FirstOrDefault();
-
-            //   this.dataGridViewListphieuthu.DataSource = phieuthu;
-
-            //#region  view reports payment request  
-
-            ////Control_ac ctrac = new Control_ac();
-
-            ////var rs1 = ctrac.KArptdataset1(dc);
-            ////var rs2 = ctrac.KArptdataset2(dc);
-
-
-
-            //if (phieuchi != null)
-            //{
-
-
-            //    #region  insert vao rpt phieu thu
-
-            //    Rpt_PhieuThu pt = new Rpt_PhieuThu();
-            //    string macty = Model.Username.getmacty();
-            //    pt.tencongty = Model.Congty.getnamecongty(macty);
-            //    pt.diachicongty = Model.Congty.getdiachicongty(macty);
-            //    pt.masothue = Model.Congty.getmasothuecongty(macty);
-            //    pt.tengiamdoc = Model.Congty.gettengiamdoccongty(macty);
-            //    pt.tenketoantruong = Model.Congty.gettenketoantruongcongty(macty);
-            //    pt.sotienbangchu = phieuchi.sophieuthu;
-            //    pt.ngaychungtu = phieuchi.ngaychungtu;
-            //    pt.nguoinoptien = phieuchi.nguoinoptien;
-            //    pt.nguoilapphieu = Utils.getname();
-            //    pt.diachinguoinop = phieuchi.diachinguoinop;
-            //    pt.lydothu = phieuchi.lydothu;
-            //    pt.sotien = phieuchi.sotien;
-            //    pt.sotienbangchu = Utils.ChuyenSo(decimal.Parse(phieuchi.sotien.ToString()));
-            //    pt.sochungtugoc = phieuchi.sochungtugoc;
-            //    pt.username = Utils.getusername();
-            //    pt.tkno = phieuchi.tkno;
-            //    pt.tkco = phieuchi.tkco;
-            //    pt.phieuthuso = phieuchi.sophieuthu;
-
-            //    dc.Rpt_PhieuThus.InsertOnSubmit(pt);
-            //    dc.SubmitChanges();
-            //    #endregion
-
+          
             var rshead = from pp in dc.tbl_MKT_headRpt_Phieuissues
                          where pp.Username == this.Username
-                             select new {
-                                
-                                 username = pp.Username,
-                                 Nguoiyeucau =pp.Nguoiyeucau,
-                                 Ngaythang =pp.Ngaythang,
-                                 Sophieu = pp.Sophieu,
-                                 Nguoinhancode = pp.Nguoinhancode,
-                                 Nguoinhanname = pp.Nguoinhanname,
-                                 Diachi = pp.Diachi,
-                                 mucdich = pp.mucdich,
+                         select new
+                         {
 
-                                 dienthoai = pp.dienthoai,
-                                 seri = pp.seri,
-                                 Barcode = pp.Barcode
+                          //   username = pp.Username,
+                             Nguoiyeucau = pp.Nguoiyeucau,
+                             Ngaythang = pp.Ngaythang,
+                             Sophieu = pp.Sophieu,
+                             Nguoinhancode = pp.Nguoinhancode,
+                             Nguoinhanname = pp.Nguoinhanname,
+                             Diachi = pp.Diachi,
+                             mucdich = pp.mucdich,
 
+                             dienthoai = pp.dienthoai,
+                             seri = pp.seri,
+                             Barcode = pp.Barcode
 
-                             };
-
-            var rsdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
-                         where pp.Username == this.Username
-                         orderby pp.stt
-                         select new {
-
-                             stt = pp.stt,
-                             tensanpham = pp.
-                           
-                             soluong
-                             username
-                             bangchu
 
                          };
-
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head
+
+            //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
+            //vx1.ShowDialog();
+            var rsdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
+                           where pp.Username == this.Username
+                           orderby pp.stt
+                           select new
+                           {
+
+                               stt = pp.stt,
+                               tensanpham = pp.tensanpham,
+
+                               soluong = pp.soluong,
+                            //   username = pp.Username,
+                               bangchu = pp.bangchu,
+
+                           };
+
+            //View.Viewtable vx = new Viewtable(rsdetail,dc,"test",100,"100");
+            //vx.ShowDialog();
+          
+           
             var dataset2 = ut.ToDataTable(dc, rsdetail); // detail
 
 

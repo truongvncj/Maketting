@@ -107,11 +107,6 @@
     <Compile Include="Control\Control_ac.cs" />
     <Compile Include="Control\DGV_DateTimePicker.cs" />
     <Compile Include="Control\ExportToExcel.cs" />
-    <Compile Include="LinqtoSQL.designer.cs">
-      <DependentUpon>LinqtoSQL.dbml</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="LinqtoSQL1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -34,7 +34,7 @@ namespace Maketting.View
             //   this.formcreatCtract = formcreatCtract;
 
 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BEEACCOUNT.Reports." + rptname + "";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Maketting.Reports." + rptname + "";
             // chọn báo cáo hiển thị
 
             // chọn data hiển thị
