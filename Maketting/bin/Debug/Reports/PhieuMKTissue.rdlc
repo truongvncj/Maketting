@@ -4826,7 +4826,7 @@
         </Field>
         <Field Name="Barcode">
           <DataField>Barcode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Maketting.View
 {
     public partial class MKTissuephieu : Form
@@ -824,13 +825,20 @@ namespace Maketting.View
                 headpx.Username = this.Username;
                 headpx.Sophieu = rptMKThead.Gate_pass;
                 headpx.Nguoinhanname = rptMKThead.Receiver_by;
-                headpx.Barcode = "1";
+                headpx.seri = this.storelocation + rptMKThead.Gate_pass;
+
+                BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
+                BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
+                //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
+                Byte[] result    = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
+
+                headpx.Barcode = result;
                 headpx.dienthoai = rptMKThead.Tel;
                 headpx.mucdich = rptMKThead.Purpose;
                 headpx.Ngaythang = rptMKThead.Ngaytaophieu;
                 headpx.Nguoiyeucau = rptMKThead.Requested_by;
-                headpx.seri = this.storelocation + rptMKThead.Gate_pass;
-                headpx.Barcode = "1";
+             
+             
 
                 dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
                 dc.SubmitChanges();
@@ -850,7 +858,7 @@ namespace Maketting.View
                 detailpx.stt = i.ToString();
                 detailpx.soluong = item.Issued;
                 detailpx.Username = this.Username;
-                //  detailpx.donvi = rptMKThead.Gate_pass;
+                 detailpx.tensanpham = item.;
                 detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
              
 
@@ -929,11 +937,37 @@ namespace Maketting.View
 
             var rshead = from pp in dc.tbl_MKT_headRpt_Phieuissues
                          where pp.Username == this.Username
-                             select pp;
+                             select new {
+                                
+                                 username = pp.Username,
+                                 Nguoiyeucau =pp.Nguoiyeucau,
+                                 Ngaythang =pp.Ngaythang,
+                                 Sophieu = pp.Sophieu,
+                                 Nguoinhancode = pp.Nguoinhancode,
+                                 Nguoinhanname = pp.Nguoinhanname,
+                                 Diachi = pp.Diachi,
+                                 mucdich = pp.mucdich,
+
+                                 dienthoai = pp.dienthoai,
+                                 seri = pp.seri,
+                                 Barcode = pp.Barcode
+
+
+                             };
 
             var rsdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
                          where pp.Username == this.Username
-                         select pp;
+                         orderby pp.stt
+                         select new {
+
+                             stt = pp.stt,
+                             tensanpham = pp.
+                           
+                             soluong
+                             username
+                             bangchu
+
+                         };
 
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head

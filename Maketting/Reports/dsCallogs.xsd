@@ -734,7 +734,7 @@
               <xs:element name="mucdich" msprop:Generator_ColumnVarNameInTable="columnmucdich" msprop:Generator_ColumnPropNameInRow="mucdich" msprop:Generator_ColumnPropNameInTable="mucdichColumn" msprop:Generator_UserColumnName="mucdich" type="xs:string" minOccurs="0" />
               <xs:element name="dienthoai" msprop:Generator_ColumnVarNameInTable="columndienthoai" msprop:Generator_ColumnPropNameInRow="dienthoai" msprop:Generator_ColumnPropNameInTable="dienthoaiColumn" msprop:Generator_UserColumnName="dienthoai" type="xs:string" minOccurs="0" />
               <xs:element name="seri" msprop:Generator_ColumnVarNameInTable="columnseri" msprop:Generator_ColumnPropNameInRow="seri" msprop:Generator_ColumnPropNameInTable="seriColumn" msprop:Generator_UserColumnName="seri" type="xs:string" minOccurs="0" />
-              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -743,7 +743,6 @@
             <xs:sequence>
               <xs:element name="stt" msprop:Generator_ColumnVarNameInTable="columnstt" msprop:Generator_ColumnPropNameInRow="stt" msprop:Generator_ColumnPropNameInTable="sttColumn" msprop:Generator_UserColumnName="stt" type="xs:string" minOccurs="0" />
               <xs:element name="tensanpham" msprop:Generator_ColumnVarNameInTable="columntensanpham" msprop:Generator_ColumnPropNameInRow="tensanpham" msprop:Generator_ColumnPropNameInTable="tensanphamColumn" msprop:Generator_UserColumnName="tensanpham" type="xs:string" minOccurs="0" />
-              <xs:element name="donvi" msprop:Generator_ColumnVarNameInTable="columndonvi" msprop:Generator_ColumnPropNameInRow="donvi" msprop:Generator_ColumnPropNameInTable="donviColumn" msprop:Generator_UserColumnName="donvi" type="xs:string" minOccurs="0" />
               <xs:element name="soluong" msdata:Caption="soluongyeucau" msprop:Generator_ColumnVarNameInTable="columnsoluong" msprop:Generator_ColumnPropNameInRow="soluong" msprop:Generator_ColumnPropNameInTable="soluongColumn" msprop:Generator_UserColumnName="soluong" type="xs:double" minOccurs="0" />
               <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username" type="xs:string" minOccurs="0" />
               <xs:element name="bangchu" msprop:Generator_ColumnVarNameInTable="columnbangchu" msprop:Generator_ColumnPropNameInRow="bangchu" msprop:Generator_ColumnPropNameInTable="bangchuColumn" msprop:Generator_UserColumnName="bangchu" type="xs:string" minOccurs="0" />

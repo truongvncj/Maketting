@@ -16155,7 +16155,7 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MKTphieuMKTheadRow AddMKTphieuMKTheadRow(string username, string Nguoiyeucau, System.DateTime Ngaythang, string Sophieu, string Nguoinhancode, string Nguoinhanname, string Diachi, string mucdich, string dienthoai, string seri, string Barcode) {
+            public MKTphieuMKTheadRow AddMKTphieuMKTheadRow(string username, string Nguoiyeucau, System.DateTime Ngaythang, string Sophieu, string Nguoinhancode, string Nguoinhanname, string Diachi, string mucdich, string dienthoai, string seri, byte[] Barcode) {
                 MKTphieuMKTheadRow rowMKTphieuMKTheadRow = ((MKTphieuMKTheadRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         username,
@@ -16227,7 +16227,7 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columndienthoai);
                 this.columnseri = new global::System.Data.DataColumn("seri", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseri);
-                this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBarcode);
             }
             
@@ -16366,8 +16366,6 @@ namespace Maketting.Reports {
             
             private global::System.Data.DataColumn columntensanpham;
             
-            private global::System.Data.DataColumn columndonvi;
-            
             private global::System.Data.DataColumn columnsoluong;
             
             private global::System.Data.DataColumn columnusername;
@@ -16420,14 +16418,6 @@ namespace Maketting.Reports {
             public global::System.Data.DataColumn tensanphamColumn {
                 get {
                     return this.columntensanpham;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn donviColumn {
-                get {
-                    return this.columndonvi;
                 }
             }
             
@@ -16492,12 +16482,11 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MKTPhieuxuatMKTdetailRow AddMKTPhieuxuatMKTdetailRow(string stt, string tensanpham, string donvi, double soluong, string username, string bangchu) {
+            public MKTPhieuxuatMKTdetailRow AddMKTPhieuxuatMKTdetailRow(string stt, string tensanpham, double soluong, string username, string bangchu) {
                 MKTPhieuxuatMKTdetailRow rowMKTPhieuxuatMKTdetailRow = ((MKTPhieuxuatMKTdetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         stt,
                         tensanpham,
-                        donvi,
                         soluong,
                         username,
                         bangchu};
@@ -16525,7 +16514,6 @@ namespace Maketting.Reports {
             internal void InitVars() {
                 this.columnstt = base.Columns["stt"];
                 this.columntensanpham = base.Columns["tensanpham"];
-                this.columndonvi = base.Columns["donvi"];
                 this.columnsoluong = base.Columns["soluong"];
                 this.columnusername = base.Columns["username"];
                 this.columnbangchu = base.Columns["bangchu"];
@@ -16538,8 +16526,6 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnstt);
                 this.columntensanpham = new global::System.Data.DataColumn("tensanpham", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntensanpham);
-                this.columndonvi = new global::System.Data.DataColumn("donvi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndonvi);
                 this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluong);
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
@@ -32431,10 +32417,10 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Barcode {
+            public byte[] Barcode {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTphieuMKThead.BarcodeColumn]));
+                        return ((byte[])(this[this.tableMKTphieuMKThead.BarcodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Barcode\' in table \'MKTphieuMKThead\' is DBNull.", e);
@@ -32626,22 +32612,6 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string donvi {
-                get {
-                    try {
-                        return ((string)(this[this.tableMKTPhieuxuatMKTdetail.donviColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'donvi\' in table \'MKTPhieuxuatMKTdetail\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableMKTPhieuxuatMKTdetail.donviColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public double soluong {
                 get {
                     try {
@@ -32710,18 +32680,6 @@ namespace Maketting.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettensanphamNull() {
                 this[this.tableMKTPhieuxuatMKTdetail.tensanphamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdonviNull() {
-                return this.IsNull(this.tableMKTPhieuxuatMKTdetail.donviColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdonviNull() {
-                this[this.tableMKTPhieuxuatMKTdetail.donviColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
