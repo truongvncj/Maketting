@@ -1393,7 +1393,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>ACKNOWLEDGE RECEIPT (KÝ NHẬN)</Value>
+                                      <Value>          ACKNOWLEDGE RECEIPT (KÝ NHẬN)</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -1409,9 +1409,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.97672in</Top>
-                              <Left>3.65533in</Left>
+                              <Left>2.9088in</Left>
                               <Height>0.24722in</Height>
-                              <Width>3.40629in</Width>
+                              <Width>4.15282in</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -1448,7 +1448,7 @@
                               <Top>0.97672in</Top>
                               <Left>0.03in</Left>
                               <Height>0.25in</Height>
-                              <Width>3.62533in</Width>
+                              <Width>2.8788in</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -1709,7 +1709,7 @@
                               <Top>1.22672in</Top>
                               <Left>0.02362in</Left>
                               <Height>1.41041in</Height>
-                              <Width>3.63171in</Width>
+                              <Width>2.87129in</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -1728,7 +1728,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Security                 Driver                           Receiver </Value>
+                                      <Value>   Security                             Driver                           Receiver </Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -1743,7 +1743,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>(Bảo vệ)                (Lái xe)                   (Người nhận tại NPP)</Value>
+                                      <Value>  (Bảo vệ)                            (Lái xe)                   (Người nhận tại NPP)</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -1758,9 +1758,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.22672in</Top>
-                              <Left>3.65533in</Left>
+                              <Left>2.89491in</Left>
                               <Height>1.41041in</Height>
-                              <Width>3.40629in</Width>
+                              <Width>4.16671in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -3629,7 +3629,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3771,9 +3770,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.97672in</Top>
-                              <Left>3.65533in</Left>
+                              <Left>2.79549in</Left>
                               <Height>0.24722in</Height>
-                              <Width>3.40629in</Width>
+                              <Width>4.26613in</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -3810,7 +3809,7 @@
                               <Top>0.97672in</Top>
                               <Left>0.03in</Left>
                               <Height>0.25in</Height>
-                              <Width>3.62533in</Width>
+                              <Width>2.76549in</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
@@ -4071,7 +4070,7 @@
                               <Top>1.22672in</Top>
                               <Left>0.02362in</Left>
                               <Height>1.41041in</Height>
-                              <Width>3.63171in</Width>
+                              <Width>2.77187in</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -4090,7 +4089,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Security                  Driver                           Receiver </Value>
+                                      <Value> Security                              Driver                                   Receiver </Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -4105,7 +4104,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>(Bảo vệ)                 (Lái xe)                   (Người nhận tại NPP)</Value>
+                                      <Value> (Bảo vệ)                              (Lái xe)                   (Người nhận tại NPP)</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
@@ -4120,9 +4119,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>1.22672in</Top>
-                              <Left>3.64375in</Left>
+                              <Left>2.79549in</Left>
                               <Height>1.41041in</Height>
-                              <Width>3.40629in</Width>
+                              <Width>4.25455in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
