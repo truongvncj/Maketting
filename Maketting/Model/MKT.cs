@@ -175,9 +175,15 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-         
+            var rs3 = (from pp in dc.tbl_MKt_Listphieuheads
+                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                      select pp.LoadNumber).FirstOrDefault();
 
-
+            if (rs3 != null)
+            {
+                MessageBox.Show("Note " + sophieu + " can not delete detail by load created !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
 
             var rs2 = from pp in dc.tbl_MKt_Listphieus

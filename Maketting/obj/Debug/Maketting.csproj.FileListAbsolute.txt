@@ -85,3 +85,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHkiemkeapproval.resou
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsackhachhang.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTdanhsachxe.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsachnhavantai.resources
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTissue.rdlc

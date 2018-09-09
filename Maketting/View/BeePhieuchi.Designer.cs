@@ -37,7 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btinphieu = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbXoa = new System.Windows.Forms.Button();
             this.btsua = new System.Windows.Forms.Button();
@@ -95,7 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.btinphieu);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.tbXoa);
             this.panel2.Controls.Add(this.btsua);
@@ -117,17 +117,17 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // btinphieu
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button5.Location = new System.Drawing.Point(362, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(64, 25);
-            this.button5.TabIndex = 56;
-            this.button5.TabStop = false;
-            this.button5.Text = "In phiếu";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btinphieu.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btinphieu.Location = new System.Drawing.Point(362, 12);
+            this.btinphieu.Name = "btinphieu";
+            this.btinphieu.Size = new System.Drawing.Size(64, 25);
+            this.btinphieu.TabIndex = 56;
+            this.btinphieu.TabStop = false;
+            this.btinphieu.Text = "In phiếu";
+            this.btinphieu.UseVisualStyleBackColor = true;
+            this.btinphieu.Click += new System.EventHandler(this.button5_Click);
             // 
             // pictureBox1
             // 
@@ -668,7 +668,7 @@
         private System.Windows.Forms.Button btsua;
         private System.Windows.Forms.Button btluu;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btinphieu;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;

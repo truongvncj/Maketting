@@ -1181,6 +1181,19 @@
       <Column Name="storeright" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_ListLoadhead" Member="tbl_MKt_ListLoadheads">
+    <Type Name="tbl_MKt_ListLoadhead">
+      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date_Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TransposterCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TransposterName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKt_Listphieu" Member="tbl_MKt_Listphieus">
     <Type Name="tbl_MKt_Listphieu">
       <Column Name="Gate_pass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -1225,6 +1238,7 @@
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Purposeid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Mucdich" Member="tbl_MKT_Mucdiches">
@@ -1377,6 +1391,31 @@
       <Column Name="cashadvandapproval1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="cashadvanapproval2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_headRpt_Phieuissue" Member="tbl_MKT_headRpt_Phieuissues">
+    <Type Name="tbl_MKT_headRpt_Phieuissue">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nguoiyeucau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ngaythang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sophieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nguoinhancode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Nguoinhanname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="mucdich" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="dienthoai" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
+    <Type Name="tbl_MKT_DetailRpt_Phieuissue">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
