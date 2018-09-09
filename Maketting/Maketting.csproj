@@ -159,6 +159,18 @@
     <Compile Include="View\BeeLCTT200dauky.Designer.cs">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTLoadcreated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTLoadcreated.Designer.cs">
+      <DependentUpon>MKTLoadcreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTVTDanhsacchuongtrinhMKT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTVTDanhsacchuongtrinhMKT.Designer.cs">
+      <DependentUpon>MKTVTDanhsacchuongtrinhMKT.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTWHkiemkeapproval.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,12 +200,6 @@
     </Compile>
     <Compile Include="View\MKTWHxuathang.Designer.cs">
       <DependentUpon>MKTWHxuathang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MKTLoadCreate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MKTLoadCreate.Designer.cs">
-      <DependentUpon>MKTLoadCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTissuephieu.cs">
       <SubType>Form</SubType>
@@ -549,6 +555,12 @@
     <EmbeddedResource Include="View\BeeLCTT200dauky.resx">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTLoadcreated.resx">
+      <DependentUpon>MKTLoadcreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTVTDanhsacchuongtrinhMKT.resx">
+      <DependentUpon>MKTVTDanhsacchuongtrinhMKT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHkiemkeapproval.resx">
       <DependentUpon>MKTWHkiemkeapproval.cs</DependentUpon>
     </EmbeddedResource>
@@ -563,9 +575,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHxuathang.resx">
       <DependentUpon>MKTWHxuathang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MKTLoadCreate.resx">
-      <DependentUpon>MKTLoadCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTissuephieu.resx">
       <DependentUpon>MKTissuephieu.cs</DependentUpon>

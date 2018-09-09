@@ -2056,6 +2056,17 @@ namespace Maketting.View
 
         private void btmucdich_Click(object sender, EventArgs e)
         {
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.DanhsachctMKT(dc);
+
+
+            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
+
+            viewtbl.Show();
 
 
 
@@ -2066,6 +2077,19 @@ namespace Maketting.View
         private void btcustomer_Click(object sender, EventArgs e)
         {
 
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.danhkhachhang(dc);
+            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH BENEFITCIARY (NGƯỜI NHẬN)", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+
+            viewtbl.Show();
+
+
+
+           
         }
 
         private void txtmucdichname_TextChanged(object sender, EventArgs e)

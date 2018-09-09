@@ -42,6 +42,7 @@
             this.ádfasdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hạchToánKếToánTổngHợpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,6 @@
             this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,6 +154,13 @@
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.hệThốngToolStripMenuItem.Text = "System";
             // 
+            // usersToolStripMenuItem1
+            // 
+            this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
+            this.usersToolStripMenuItem1.Text = "Users";
+            this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
+            // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
@@ -239,6 +246,7 @@
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Name = "danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem";
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Text = "Maketting Load Create";
+            this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Click += new System.EventHandler(this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem_Click);
             // 
             // tiềnMặtToolStripMenuItem
             // 
@@ -301,13 +309,6 @@
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
-            // 
-            // usersToolStripMenuItem1
-            // 
-            this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
-            this.usersToolStripMenuItem1.Text = "Users";
-            this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
             // Main
             // 

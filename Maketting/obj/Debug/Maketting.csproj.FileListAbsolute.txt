@@ -73,7 +73,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.exe
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.pdb
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHxuathang.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTLoadCreate.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTPasswordchange.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHkiemke.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTDanhsachkho.resources
@@ -86,3 +85,5 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsackhachhang.res
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTdanhsachxe.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsachnhavantai.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTissue.rdlc
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsacchuongtrinhMKT.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTLoadcreated.resources

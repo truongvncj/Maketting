@@ -222,6 +222,9 @@ namespace Maketting
     partial void Inserttbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
     partial void Updatetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
     partial void Deletetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
+    partial void Inserttbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
+    partial void Updatetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
+    partial void Deletetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
     partial void Inserttbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Updatetbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Deletetbl_MKT_Stockend(tbl_MKT_Stockend instance);
@@ -787,6 +790,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_Mucdich>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Nhacungungvantai> tbl_MKT_Nhacungungvantais
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Nhacungungvantai>();
 			}
 		}
 		
@@ -27718,6 +27729,188 @@ namespace Maketting
 					this._ghichu = value;
 					this.SendPropertyChanged("ghichu");
 					this.OnghichuChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Nhacungungvantai")]
+	public partial class tbl_MKT_Nhacungungvantai : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _tenNVT;
+		
+		private string _maNVT;
+		
+		private string _diachiNVT;
+		
+		private string _masothueNVT;
+		
+		private string _dienthoaiNVT;
+		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OntenNVTChanging(string value);
+    partial void OntenNVTChanged();
+    partial void OnmaNVTChanging(string value);
+    partial void OnmaNVTChanged();
+    partial void OndiachiNVTChanging(string value);
+    partial void OndiachiNVTChanged();
+    partial void OnmasothueNVTChanging(string value);
+    partial void OnmasothueNVTChanged();
+    partial void OndienthoaiNVTChanging(string value);
+    partial void OndienthoaiNVTChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public tbl_MKT_Nhacungungvantai()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenNVT", DbType="NVarChar(225)")]
+		public string tenNVT
+		{
+			get
+			{
+				return this._tenNVT;
+			}
+			set
+			{
+				if ((this._tenNVT != value))
+				{
+					this.OntenNVTChanging(value);
+					this.SendPropertyChanging();
+					this._tenNVT = value;
+					this.SendPropertyChanged("tenNVT");
+					this.OntenNVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maNVT", DbType="NVarChar(50)")]
+		public string maNVT
+		{
+			get
+			{
+				return this._maNVT;
+			}
+			set
+			{
+				if ((this._maNVT != value))
+				{
+					this.OnmaNVTChanging(value);
+					this.SendPropertyChanging();
+					this._maNVT = value;
+					this.SendPropertyChanged("maNVT");
+					this.OnmaNVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachiNVT", DbType="NVarChar(225)")]
+		public string diachiNVT
+		{
+			get
+			{
+				return this._diachiNVT;
+			}
+			set
+			{
+				if ((this._diachiNVT != value))
+				{
+					this.OndiachiNVTChanging(value);
+					this.SendPropertyChanging();
+					this._diachiNVT = value;
+					this.SendPropertyChanged("diachiNVT");
+					this.OndiachiNVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masothueNVT", DbType="NVarChar(225)")]
+		public string masothueNVT
+		{
+			get
+			{
+				return this._masothueNVT;
+			}
+			set
+			{
+				if ((this._masothueNVT != value))
+				{
+					this.OnmasothueNVTChanging(value);
+					this.SendPropertyChanging();
+					this._masothueNVT = value;
+					this.SendPropertyChanged("masothueNVT");
+					this.OnmasothueNVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dienthoaiNVT", DbType="NVarChar(225)")]
+		public string dienthoaiNVT
+		{
+			get
+			{
+				return this._dienthoaiNVT;
+			}
+			set
+			{
+				if ((this._dienthoaiNVT != value))
+				{
+					this.OndienthoaiNVTChanging(value);
+					this.SendPropertyChanging();
+					this._dienthoaiNVT = value;
+					this.SendPropertyChanged("dienthoaiNVT");
+					this.OndienthoaiNVTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}

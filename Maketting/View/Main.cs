@@ -3745,6 +3745,31 @@ namespace Maketting.View
         {
 
         }
+
+        private void danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+
+            #region//tao load
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTLoadcreated accsup = new MKTLoadcreated(this);
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
+
+
+
+        }
     }
 
 

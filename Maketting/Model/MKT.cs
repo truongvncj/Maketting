@@ -251,5 +251,70 @@ namespace Maketting.Model
 
         }
 
+
+        public static IQueryable danhkhachhang(LinqtoSQLDataContext dc)
+        {
+            // throw new NotImplementedException();
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_khachhangs
+                     orderby p.maKH
+                     select new
+                     {
+
+
+                         Mã_khách_hàng = p.maKH,
+                         Tên_khách_hàng = p.tenKH,
+                         Địa_chỉ = p.diachiKH,
+                         Điện_thoại = p.dienthoai,
+                         Ghi_chú = p.ghichu,
+                    
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+
+        }
+
+        public static IQueryable DanhsachctMKT(LinqtoSQLDataContext dc)
+        {
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_Mucdiches
+                     orderby p.macT
+                     select new
+                     {
+
+
+                         Mã_chương_trình = p.macT,
+                         Tên_chương_trình= p.tenCT,
+                         Ghi_chú = p.ghichu,
+                     
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+            
+
+            return rs;
+
+
+
+            //  throw new NotImplementedException();
+        }
     }
 }

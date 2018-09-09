@@ -313,6 +313,69 @@ namespace Maketting.View
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
 
+            #region  // viewcode ==13  la danh ct maketting
+
+
+            if (this.viewcode == 13)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.DanhsachctMKT(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+            #region  // viewcode ==12  la danh khách hàng
+
+
+            if (this.viewcode == 12)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsackhachhang p = new MKTVTDanhsackhachhang(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhkhachhang(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
 
             #region  // viewcode ==11  la danh gia theo tuyen
 
@@ -498,6 +561,96 @@ namespace Maketting.View
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+
+
+                  #region  // viewcode ==13 la danh CT MKT
+
+
+            if (this.viewcode == 13)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một chương trình !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.DanhsachctMKT(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+            #region  // viewcode ==12  la danh khách hàng
+
+
+            if (this.viewcode == 12)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một khách hàng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+           //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsackhachhang p = new MKTVTDanhsackhachhang(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhkhachhang(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
 
 
             #region  viewcode = 11 à  list gia theo tuyến
