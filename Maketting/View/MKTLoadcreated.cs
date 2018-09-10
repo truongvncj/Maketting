@@ -31,20 +31,6 @@ namespace Maketting.View
             }
         }
 
-        public void xcleartoblankDEtailphieu()
-        {
-
-            #region  list black phiếu
-
-
-            //         dataGridViewDetail = Model.MKT.Loadnewdetail(dataGridViewDetail);
-
-
-
-            #endregion
-
-
-        }
 
         public void addDEtailLoad(tbl_MKt_Listphieu PhieuMKT)
         {
@@ -704,7 +690,7 @@ namespace Maketting.View
                 #endregion
 
                 #region // detail
-                for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount - 1; idrow++)
+                for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount ; idrow++)
                 {
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value != DBNull.Value)
                     {
@@ -795,7 +781,7 @@ namespace Maketting.View
 
             Model.MKT.DeleteALLphieutamTMP();
 
-            this.soload = Model.MKT.getMKtNo();
+            this.soload = Model.MKT.getLoadNo();
             txtloadnumber.Text = this.soload;
 
 
@@ -1614,25 +1600,48 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string sophieufind = "";
-            string storelocationfind = "";
+
+
+            //var rs = from pp in dc.tbl_MKt_ListLoadheads
+            //         where pp.ShippingPoint == this.storelocation //pp.Status == "CRT" && 
+            //         select new
+            //         {
+            //             Date = pp.Date_Created,
+
+            //             pp.LoadNumber,
+            //             pp.ShippingPoint,
+
+
+            //             pp.Status,
+            //             pp.TransposterCode,
+            //             pp.TransposterName,
+
+            //             Created_by = pp.Username,
+            //             pp.id,
+
+            //         };
+
+
+            string shipmentfind = "";
+            string ShippingPointfind = "";
+
             string connection_string = Utils.getConnectionstr();
 
-            btluu.Enabled = false;
-            btsua.Enabled = true;
-            btmoi.Enabled = false;
+            //btluu.Enabled = false;
+            //btsua.Enabled = true;
+            //btmoi.Enabled = false;
 
-
+            
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             try
             {
-                sophieufind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
-                storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Store"].Value.ToString();
+                shipmentfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["LoadNumber"].Value.ToString();
+                ShippingPointfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
 
             }
-            catch (Exception ex)
+            catch (Exception  )
             {
-                MessageBox.Show(ex.ToString());
+            //    MessageBox.Show(ex.ToString());
                 //     this.phieuchiid = 0;
             }
 
@@ -1640,21 +1649,21 @@ namespace Maketting.View
             #region // head 
             //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
 
-            var rs = (from pp in dc.tbl_MKt_Listphieuheads
-                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+            var rs = (from pp in dc.tbl_MKt_ListLoadheads
+                      where pp.LoadNumber == shipmentfind && pp.ShippingPoint == ShippingPointfind
 
                       select pp).FirstOrDefault();
 
             if (rs != null)
             {
-                this.soload = sophieufind;
+                this.soload = shipmentfind;
                 txtloadnumber.Text = this.soload;
 
 
-                txtmaNVT.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
-                txttenNVT.Text = rs.Receiver_by;// = 
+                txtmaNVT.Text = rs.TransposterCode.ToString();// = double.Parse(txtcustcode.Text);
+                txttenNVT.Text = rs.TransposterName;// = 
 
-                datecreated.Value = (DateTime)rs.Ngaytaophieu;// = ;
+                datecreated.Value = (DateTime)rs.Date_Created;// = ;
 
                 this.storelocation = rs.ShippingPoint;// = ;
 
@@ -1670,7 +1679,7 @@ namespace Maketting.View
                     }
                 }
 
-                txtnguoitaoload.Text = rs.Requested_by;// = ;
+                txtnguoitaoload.Text = rs.Created_by;// = ;
                                                        //   rs.Status = "CRT";
                 txtloadnumber.Text = this.soload;
 
@@ -1684,10 +1693,13 @@ namespace Maketting.View
 
 
             #endregion
+            //     public void addDEtailLoad(tbl_MKt_Listphieu PhieuMKT)
+            //{
+       dataGridViewLoaddetail  =   Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
             #region load detail so phieu va loacation
             var rs2 = from pp in dc.tbl_MKt_Listphieus
-                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+                      where pp.ShipmentNumber == shipmentfind && pp.ShippingPoint == ShippingPointfind
 
                       select pp;
 
@@ -1696,8 +1708,7 @@ namespace Maketting.View
                 ///cleartoblankDEtailphieu();
                 foreach (var item in rs2)
                 {
-                    //        addDEtailPhieuMKT(item);
-                    //  xxx
+                    addDEtailLoad(item);
 
 
 
@@ -1769,7 +1780,7 @@ namespace Maketting.View
 
 
                 var rs = from pp in dc.tbl_MKt_ListLoadheads
-                         where pp.Status == "CRT" && pp.ShippingPoint == this.storelocation
+                         where pp.ShippingPoint == this.storelocation //pp.Status == "CRT" && 
                          select new
                          {
                              Date = pp.Date_Created,
