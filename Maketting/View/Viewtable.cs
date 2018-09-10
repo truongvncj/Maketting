@@ -312,6 +312,37 @@ namespace Maketting.View
 
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
+            #region  // viewcode ==14  la danh nha van tai MKT
+
+
+            if (this.viewcode == 14)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsachnhavantai p = new MKTVTDanhsachnhavantai(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
 
             #region  // viewcode ==13  la danh ct maketting
 
@@ -561,10 +592,53 @@ namespace Maketting.View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
 
 
-                  #region  // viewcode ==13 la danh CT MKT
+            #region  // viewcode ==14 la danh nha van tai MKt
+
+
+            if (this.viewcode == 14)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một chương trình !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsachnhavantai p = new MKTVTDanhsachnhavantai(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+            #region  // viewcode ==13 la danh CT MKT
 
 
             if (this.viewcode == 13)

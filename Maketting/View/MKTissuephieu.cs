@@ -562,7 +562,7 @@ namespace Maketting.View
 
             #region  //check detai từng dòng
 
-            if (dataGridViewDetail.RowCount == 1)
+            if (dataGridViewDetail.RowCount == 0)
             {
                 MessageBox.Show("Bạn chưa nhập chi tiết phiếu ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;

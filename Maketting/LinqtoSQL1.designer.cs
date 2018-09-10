@@ -249,6 +249,9 @@ namespace Maketting
     partial void Inserttbl_SoQuy(tbl_SoQuy instance);
     partial void Updatetbl_SoQuy(tbl_SoQuy instance);
     partial void Deletetbl_SoQuy(tbl_SoQuy instance);
+    partial void Inserttbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
+    partial void Updatetbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
+    partial void Deletetbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
@@ -864,6 +867,14 @@ namespace Maketting
 				return this.GetTable<tbl_SoQuy>();
 			}
 		}
+		
+		public System.Data.Linq.Table<tbl_MKt_ListLoadheadDetail> tbl_MKt_ListLoadheadDetails
+		{
+			get
+			{
+				return this.GetTable<tbl_MKt_ListLoadheadDetail>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CDKT200Dauky")]
@@ -1124,6 +1135,8 @@ namespace Maketting
 		
 		private string _storeright;
 		
+		private System.Nullable<bool> _Actived;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1150,6 +1163,8 @@ namespace Maketting
     partial void OnThiết_lập_tài_khoảnChanged();
     partial void OnstorerightChanging(string value);
     partial void OnstorerightChanged();
+    partial void OnActivedChanging(System.Nullable<bool> value);
+    partial void OnActivedChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1373,6 +1388,26 @@ namespace Maketting
 					this._storeright = value;
 					this.SendPropertyChanged("storeright");
 					this.OnstorerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Actived", DbType="Bit")]
+		public System.Nullable<bool> Actived
+		{
+			get
+			{
+				return this._Actived;
+			}
+			set
+			{
+				if ((this._Actived != value))
+				{
+					this.OnActivedChanging(value);
+					this.SendPropertyChanging();
+					this._Actived = value;
+					this.SendPropertyChanged("Actived");
+					this.OnActivedChanged();
 				}
 			}
 		}
@@ -26662,6 +26697,12 @@ namespace Maketting
 		
 		private string _Materialname;
 		
+		private string _Loadingby;
+		
+		private string _ShipmentNumber;
+		
+		private string _Shipmentby;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -26714,6 +26755,12 @@ namespace Maketting
     partial void OnShippingPointChanged();
     partial void OnMaterialnameChanging(string value);
     partial void OnMaterialnameChanged();
+    partial void OnLoadingbyChanging(string value);
+    partial void OnLoadingbyChanged();
+    partial void OnShipmentNumberChanging(string value);
+    partial void OnShipmentNumberChanged();
+    partial void OnShipmentbyChanging(string value);
+    partial void OnShipmentbyChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -27197,6 +27244,66 @@ namespace Maketting
 					this._Materialname = value;
 					this.SendPropertyChanged("Materialname");
 					this.OnMaterialnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loadingby", DbType="NVarChar(50)")]
+		public string Loadingby
+		{
+			get
+			{
+				return this._Loadingby;
+			}
+			set
+			{
+				if ((this._Loadingby != value))
+				{
+					this.OnLoadingbyChanging(value);
+					this.SendPropertyChanging();
+					this._Loadingby = value;
+					this.SendPropertyChanged("Loadingby");
+					this.OnLoadingbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipmentNumber", DbType="NVarChar(50)")]
+		public string ShipmentNumber
+		{
+			get
+			{
+				return this._ShipmentNumber;
+			}
+			set
+			{
+				if ((this._ShipmentNumber != value))
+				{
+					this.OnShipmentNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ShipmentNumber = value;
+					this.SendPropertyChanged("ShipmentNumber");
+					this.OnShipmentNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Shipmentby", DbType="NVarChar(50)")]
+		public string Shipmentby
+		{
+			get
+			{
+				return this._Shipmentby;
+			}
+			set
+			{
+				if ((this._Shipmentby != value))
+				{
+					this.OnShipmentbyChanging(value);
+					this.SendPropertyChanging();
+					this._Shipmentby = value;
+					this.SendPropertyChanged("Shipmentby");
+					this.OnShipmentbyChanged();
 				}
 			}
 		}
@@ -30903,6 +31010,236 @@ namespace Maketting
 					this._macty = value;
 					this.SendPropertyChanged("macty");
 					this.OnmactyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_ListLoadheadDetail")]
+	public partial class tbl_MKt_ListLoadheadDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LoadNumber;
+		
+		private int _id;
+		
+		private string _Status;
+		
+		private string _Username;
+		
+		private string _ShippingPoint;
+		
+		private string _Materiacode;
+		
+		private string _Materialname;
+		
+		private System.Nullable<double> _Issued;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLoadNumberChanging(string value);
+    partial void OnLoadNumberChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnShippingPointChanging(string value);
+    partial void OnShippingPointChanged();
+    partial void OnMateriacodeChanging(string value);
+    partial void OnMateriacodeChanged();
+    partial void OnMaterialnameChanging(string value);
+    partial void OnMaterialnameChanged();
+    partial void OnIssuedChanging(System.Nullable<double> value);
+    partial void OnIssuedChanged();
+    #endregion
+		
+		public tbl_MKt_ListLoadheadDetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadNumber", DbType="NVarChar(50)")]
+		public string LoadNumber
+		{
+			get
+			{
+				return this._LoadNumber;
+			}
+			set
+			{
+				if ((this._LoadNumber != value))
+				{
+					this.OnLoadNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LoadNumber = value;
+					this.SendPropertyChanged("LoadNumber");
+					this.OnLoadNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingPoint", DbType="NVarChar(50)")]
+		public string ShippingPoint
+		{
+			get
+			{
+				return this._ShippingPoint;
+			}
+			set
+			{
+				if ((this._ShippingPoint != value))
+				{
+					this.OnShippingPointChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingPoint = value;
+					this.SendPropertyChanged("ShippingPoint");
+					this.OnShippingPointChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materiacode", DbType="NVarChar(50)")]
+		public string Materiacode
+		{
+			get
+			{
+				return this._Materiacode;
+			}
+			set
+			{
+				if ((this._Materiacode != value))
+				{
+					this.OnMateriacodeChanging(value);
+					this.SendPropertyChanging();
+					this._Materiacode = value;
+					this.SendPropertyChanged("Materiacode");
+					this.OnMateriacodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(50)")]
+		public string Materialname
+		{
+			get
+			{
+				return this._Materialname;
+			}
+			set
+			{
+				if ((this._Materialname != value))
+				{
+					this.OnMaterialnameChanging(value);
+					this.SendPropertyChanging();
+					this._Materialname = value;
+					this.SendPropertyChanged("Materialname");
+					this.OnMaterialnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issued", DbType="Float")]
+		public System.Nullable<double> Issued
+		{
+			get
+			{
+				return this._Issued;
+			}
+			set
+			{
+				if ((this._Issued != value))
+				{
+					this.OnIssuedChanging(value);
+					this.SendPropertyChanging();
+					this._Issued = value;
+					this.SendPropertyChanged("Issued");
+					this.OnIssuedChanged();
 				}
 			}
 		}

@@ -66,7 +66,7 @@ namespace Maketting.View
 
 
 
-                var item = (from p in dc.tbl_NP_Nhacungungvantais
+                var item = (from p in dc.tbl_MKT_Nhacungungvantais
                             where p.id == id
                             select p).FirstOrDefault();
 
@@ -82,10 +82,7 @@ namespace Maketting.View
 
                     txtdiachi.Text = item.diachiNVT;//  p.masothue  
 
-              //      dienthoai.Text = item.sotaikhoannganhangNVT;//  p.ghichunganhnghe  
-
-                    ghichu.Text = item.diachinganhangNVT;
-
+           
 
 
 
@@ -181,14 +178,14 @@ namespace Maketting.View
 
 
 
-            var rs1 = (from p in dc.tbl_NP_Nhacungungvantais
+            var rs1 = (from p in dc.tbl_MKT_Nhacungungvantais
                        where p.id == this.id
                        select p).FirstOrDefault();
 
             if (rs1 != null)
             {
 
-                dc.tbl_NP_Nhacungungvantais.DeleteOnSubmit(rs1);
+                dc.tbl_MKT_Nhacungungvantais.DeleteOnSubmit(rs1);
                 dc.SubmitChanges();
                 this.Close();
 
@@ -223,13 +220,7 @@ namespace Maketting.View
             this.diachinvt = this.txtdiachi.Text;
             this.masothuenvt = txtmasothue.Text;
             this.dienthoai = txtdienthoai.Text;
-        //    this.tknganhangso = dienthoai.Text;
-            this.tknganhangdiachi = ghichu.Text;
-
-
-            //this.usertao = Utils.getusername();
-
-            //this.ngaytao = DateTime.Today;
+       
 
 
             if (maNVT == "")
@@ -250,7 +241,7 @@ namespace Maketting.View
 
 
                 //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_NP_Nhacungungvantais
+                var rs = (from p in db.tbl_MKT_Nhacungungvantais
                           where p.maNVT == maNVT
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
@@ -263,10 +254,7 @@ namespace Maketting.View
                     rs.diachiNVT = this.diachinvt;// = this.txtdiachi.Text;
                     rs.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
                     rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
-                    rs.sotaikhoannganhangNVT = this.tknganhangso;// = txttaikhoannganhangso.Text;
-                    rs.diachinganhangNVT = this.tknganhangdiachi;// = txtdiachitaikhoannganhang.Text;
-
-
+               
 
                     db.SubmitChanges();
                     this.Close();
@@ -301,9 +289,7 @@ namespace Maketting.View
             this.masothuenvt = txtmasothue.Text;
             this.dienthoai = txtdienthoai.Text;
          //   this.tknganhangso = dienthoai.Text;
-            this.tknganhangdiachi = ghichu.Text;
-
-
+       
 
             if (maNVT == "")
             {
@@ -315,21 +301,19 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-            tbl_NP_Nhacungungvantai p = new tbl_NP_Nhacungungvantai();
+            tbl_MKT_Nhacungungvantai p = new tbl_MKT_Nhacungungvantai();
 
             p.maNVT = this.maNVT;//= this.txtma.Text;
             p.tenNVT = this.tenNVT;//= this.txtten.Text;
             p.diachiNVT = this.diachinvt;// = this.txtdiachi.Text;
             p.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
             p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
-            p.sotaikhoannganhangNVT = this.tknganhangso;// = txttaikhoannganhangso.Text;
-            p.diachinganhangNVT = this.tknganhangdiachi;// = txtdiachitaikhoannganhang.Text;
+         
 
 
 
 
-
-            db.tbl_NP_Nhacungungvantais.InsertOnSubmit(p);
+            db.tbl_MKT_Nhacungungvantais.InsertOnSubmit(p);
             db.SubmitChanges();
             this.Close();
 

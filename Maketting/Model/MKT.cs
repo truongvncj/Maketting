@@ -148,7 +148,187 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static void restatusphieuLoadingtoCRT()
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            string urs = Utils.getusername();
 
+            var rs = from pp in dc.tbl_MKt_Listphieus
+                     where pp.Status == "LOADING" && pp.Username == urs
+
+                     select pp;
+
+            if (rs != null)
+            {
+                foreach (var item in rs)
+                {
+                    item.Status = "CRT";
+                    dc.SubmitChanges();
+
+                
+                }
+
+
+
+            }
+
+        }
+
+        public static IQueryable DanhsachPhieuMKTtoDLV(string storelocation)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKt_Listphieus
+                     where p.ShippingPoint == storelocation && p.Status == "CRT"
+                     orderby p.Gate_pass
+                     select new
+                     {
+
+
+                         Gate_pass = p.Gate_pass,
+                         Code_KH = p.Customer_SAP_Code,
+                         Địa_chỉ = p.Address,
+                         Điện_thoại = p.Description,
+
+                         p.Materiacode,
+                         p.Materialname,
+                         Số_lượng_xuất = p.Issued,
+                         p.Ngaytaophieu,
+                         p.Purpose,
+                         p.Receiver_by,
+                         p.Tel,
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+        public static DataGridView Getbankdetailload(DataGridView dataGridViewDetailload)
+        {
+
+
+            dataGridViewDetailload.DataSource = null;
+            #region datatable temp
+
+
+
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add(new DataColumn("Gate_pass", typeof(string)));
+            dt.Columns.Add(new DataColumn("Customer_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Receiver_by", typeof(string)));
+            dt.Columns.Add(new DataColumn("Address", typeof(string)));
+            dt.Columns.Add(new DataColumn("Materiacode", typeof(string)));
+            dt.Columns.Add(new DataColumn("Materialname", typeof(string)));
+            dt.Columns.Add(new DataColumn("Issued", typeof(string)));
+      
+            //drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
+            //drToAdd["Customer_Code"] = PhieuMKT.Customer_SAP_Code;
+            //drToAdd["Receiver_by"] = PhieuMKT.Receiver_by;
+            //drToAdd["Address"] = PhieuMKT.Address;
+            //drToAdd["Materiacode"] = PhieuMKT.Materiacode;
+            //drToAdd["Materialname"] = PhieuMKT.Materialname;
+            //drToAdd["Issued"] = PhieuMKT.Issued;
+
+
+
+
+            dataGridViewDetailload.DataSource = dt;
+
+
+            //dataGridViewDetail.Columns["Unit"].ReadOnly = true;
+            //dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            //dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
+            //dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+
+            //DGV_DateTimePicker.DateTimePickerColumn col = new DGV_DateTimePicker.DateTimePickerColumn();
+            //col.HeaderText = "Ngày chứng từ";
+            //col.Name = "Ngày_chứng_từ";
+            //col.DataPropertyName = "ngayctuhide";
+            //dataGridViewTkCo.Columns.Add(col);
+
+
+            //    dataGridViewTkCo.Columns.Remove("Tk_Có");
+
+            //#region  //    bindDataToDataGridViewComboPrograme(); Tk_Có
+            //string connection_string = Utils.getConnectionstr();
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            //DataGridViewComboBoxColumn cmbdgv = new DataGridViewComboBoxColumn();
+
+
+            //List<View.BeePhieuThu.ComboboxItem> CombomCollection = new List<View.BeePhieuThu.ComboboxItem>();
+            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
+            //         orderby tbl_dstaikhoan.matk
+            //         select tbl_dstaikhoan;
+            //foreach (var item in rs)
+            //{
+            //    View.BeePhieuThu.ComboboxItem cb = new View.BeePhieuThu.ComboboxItem();
+            //    cb.Value = item.matk.Trim();
+            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
+            //    CombomCollection.Add(cb);
+            //}
+
+            //cmbdgv.DataSource = CombomCollection;
+            //cmbdgv.HeaderText = "Tk_Có";
+            //cmbdgv.Name = "Tk_Có";
+            //cmbdgv.ValueMember = "Value";
+            //cmbdgv.DisplayMember = "Text";
+            //cmbdgv.Width = 100;
+            //cmbdgv.DropDownWidth = 300;
+            //cmbdgv.DataPropertyName = "tkCohide"; //Bound value to the datasource
+
+
+            //dataGridViewTkCo.Columns.Add(cmbdgv);
+
+
+
+
+
+            //#endregion binddata
+
+
+            //dataGridViewTkCo.Columns["tkCohide"].Visible = false;
+            ////     dataGridViewTkCo.Columns["ngayctuhide"].Visible = false;
+
+            //dataGridViewTkCo.Columns["Tk_Có"].DisplayIndex = 0;
+            //dataGridViewTkCo.Columns["Tk_Có"].Width = 100;
+            //dataGridViewTkCo.Columns["Tk_Có"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DisplayIndex = 1;
+            //dataGridViewTkCo.Columns["Mã_chi_tiết"].Width = 100;
+            //dataGridViewTkCo.Columns["Mã_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //dataGridViewTkCo.Columns["Mã_chi_tiết"].ReadOnly = true;
+            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
+
+            #endregion datatable temp
+
+
+            return dataGridViewDetailload;
+
+
+
+
+
+
+        }
 
         public static void DeleteALLphieutamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
         {
@@ -167,6 +347,58 @@ namespace Maketting.Model
             dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
             dc.SubmitChanges();
         }
+
+        public static void DeleteALLLoadtamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_ListLoadheads
+                     where pp.Username == urs && pp.Status == "TMP"
+                     select pp;
+
+
+
+            dc.tbl_MKt_ListLoadheads.DeleteAllOnSubmit(rs);
+            dc.SubmitChanges();
+        }
+
+
+        public static string getLoadNo()
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            string urs = Utils.getusername();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            tbl_MKt_ListLoadhead newtmp = new tbl_MKt_ListLoadhead();
+
+            newtmp.Username = urs;
+            newtmp.Status = "TMP";
+
+            dc.tbl_MKt_ListLoadheads.InsertOnSubmit(newtmp);
+
+            dc.SubmitChanges();
+
+
+            var phieuid = (from p in dc.tbl_MKt_ListLoadheads
+                           where p.Status == "TMP" && p.Username == urs
+                           select p.id).FirstOrDefault();
+
+
+            return phieuid.ToString();
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
+
         public static bool Deletephieu(string sophieu, string kho) // vd phieu thu nghiep vu là phieu thu: PT,
         {
             //   string urs = Utils.getusername();
@@ -176,8 +408,8 @@ namespace Maketting.Model
 
 
             var rs3 = (from pp in dc.tbl_MKt_Listphieuheads
-                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                      select pp.LoadNumber).FirstOrDefault();
+                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                       select pp.LoadNumber).FirstOrDefault();
 
             if (rs3 != null)
             {
@@ -269,7 +501,7 @@ namespace Maketting.Model
                          Địa_chỉ = p.diachiKH,
                          Điện_thoại = p.dienthoai,
                          Ghi_chú = p.ghichu,
-                    
+
                          ID = p.id,
                      };
 
@@ -299,22 +531,54 @@ namespace Maketting.Model
 
 
                          Mã_chương_trình = p.macT,
-                         Tên_chương_trình= p.tenCT,
+                         Tên_chương_trình = p.tenCT,
                          Ghi_chú = p.ghichu,
-                     
+
 
                          ID = p.id,
                      };
 
             //    grviewlisttk.DataSource = rs;
 
-            
+
 
             return rs;
 
 
 
             //  throw new NotImplementedException();
+        }
+
+        public static IQueryable DanhsachnhavantaiMKT(LinqtoSQLDataContext dc)
+        {
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_Nhacungungvantais
+                     orderby p.maNVT
+                     select new
+                     {
+
+
+                         Mã_nhà_vận_tải = p.maNVT,
+                         Tên_nhà_vận_tải = p.tenNVT,
+                         Địa_chỉ = p.diachiNVT,
+                         Điện_thoại = p.dienthoaiNVT,
+                         Mã_số_thuế = p.masothueNVT,
+
+
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+            return rs;
+
+
+            //throw new NotImplementedException();
         }
     }
 }

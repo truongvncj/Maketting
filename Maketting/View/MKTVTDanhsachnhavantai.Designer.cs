@@ -34,10 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtmasothue = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ghichu = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-      //      this.dienthoai = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtdiachi = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btupdate = new System.Windows.Forms.Button();
@@ -56,10 +52,6 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtmasothue);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.ghichu);
-            this.panel1.Controls.Add(this.label1);
-        //    this.panel1.Controls.Add(this.dienthoai);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtdiachi);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btupdate);
@@ -71,7 +63,7 @@
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 356);
+            this.panel1.Size = new System.Drawing.Size(556, 244);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -115,41 +107,6 @@
             this.label2.TabIndex = 79;
             this.label2.Text = "Mã số thuế";
             // 
-            // ghichu
-            // 
-            this.ghichu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ghichu.Location = new System.Drawing.Point(173, 270);
-            this.ghichu.Name = "ghichu";
-            this.ghichu.Size = new System.Drawing.Size(365, 20);
-            this.ghichu.TabIndex = 76;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 270);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Tại ngân hàng";
-            // 
-            // dienthoai
-            // 
-              // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 234);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 20);
-            this.label5.TabIndex = 75;
-            this.label5.Text = "Tài khoản ngân hàng số";
-            // 
             // txtdiachi
             // 
             this.txtdiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,7 +134,7 @@
             this.btupdate.BackColor = System.Drawing.Color.Transparent;
             this.btupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btupdate.ForeColor = System.Drawing.Color.Red;
-            this.btupdate.Location = new System.Drawing.Point(325, 332);
+            this.btupdate.Location = new System.Drawing.Point(325, 220);
             this.btupdate.Name = "btupdate";
             this.btupdate.Size = new System.Drawing.Size(94, 21);
             this.btupdate.TabIndex = 6;
@@ -191,7 +148,7 @@
             this.btxoa.BackColor = System.Drawing.Color.Transparent;
             this.btxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btxoa.ForeColor = System.Drawing.Color.Red;
-            this.btxoa.Location = new System.Drawing.Point(188, 332);
+            this.btxoa.Location = new System.Drawing.Point(188, 220);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(94, 21);
             this.btxoa.TabIndex = 6;
@@ -205,7 +162,7 @@
             this.btnew.BackColor = System.Drawing.Color.Transparent;
             this.btnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnew.ForeColor = System.Drawing.Color.Red;
-            this.btnew.Location = new System.Drawing.Point(436, 332);
+            this.btnew.Location = new System.Drawing.Point(436, 220);
             this.btnew.Name = "btnew";
             this.btnew.Size = new System.Drawing.Size(94, 21);
             this.btnew.TabIndex = 8;
@@ -260,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 362);
+            this.ClientSize = new System.Drawing.Size(565, 251);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -287,12 +244,8 @@
         private System.Windows.Forms.Button btxoa;
         private System.Windows.Forms.TextBox txtdiachi;
         private System.Windows.Forms.Label label11;
-    
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmasothue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ghichu;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtdienthoai;
         private System.Windows.Forms.Label label3;
     }
