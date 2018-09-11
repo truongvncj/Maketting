@@ -305,9 +305,7 @@ namespace Maketting.View
 
             Model.MKT.DeleteALLLoadtamTMP();
 
-            this.soload = Model.MKT.getLoadNo();
-            txtloadnumber.Text = this.soload;
-
+          
             dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
@@ -593,7 +591,7 @@ namespace Maketting.View
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
-            btluu.Enabled = false;
+        
             bool checkdetail = true;
             bool checkhead = true;
             string connection_string = Utils.getConnectionstr();
@@ -662,7 +660,7 @@ namespace Maketting.View
 
                 #region // head 
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
-
+                btluu.Enabled = false;
                 var rs = (from pp in dc.tbl_MKt_ListLoadheads
                           where pp.id.ToString() == this.soload// && pp.Status == "TMP"
 
@@ -679,7 +677,7 @@ namespace Maketting.View
                     rs.Created_by = txtnguoitaoload.Text;
                     rs.Status = "CRT";
                     rs.LoadNumber = this.soload;
-
+                    rs.Truckno = txttrucno.Text;
 
                     rs.Username = this.Username;
                     dc.SubmitChanges();
@@ -715,7 +713,7 @@ namespace Maketting.View
                 #endregion
 
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cleartoblankphieu();
+              //  cleartoblankphieu();
             }
 
 
@@ -795,72 +793,44 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rptMKT = from pp in dc.tb
-                         where pp.Username == this.Username
+            var rptMKT = from pp in dc.tbl_MKT_LoadHeadRpts
+                         where pp.username == this.Username
                          select pp;
 
-            dc.tbl_MKT_headRpt_Phieuissues.DeleteAllOnSubmit(rptMKT);
+            dc.tbl_MKT_LoadHeadRpts.DeleteAllOnSubmit(rptMKT);
             dc.SubmitChanges();
 
 
-            var rptMKTdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
+            var rptMKTdetail = from pp in dc.tbl_MKT_LoaddetailRpts
                                where pp.Username == this.Username
                                select pp;
 
-            dc.tbl_MKT_DetailRpt_Phieuissues.DeleteAllOnSubmit(rptMKTdetail);
+            dc.tbl_MKT_LoaddetailRpts.DeleteAllOnSubmit(rptMKTdetail);
             dc.SubmitChanges();
 
-            var rptMKThead = (from pp in dc.tbl_MKt_Listphieuheads
-                              where pp.Gate_pass == this.soload && pp.ShippingPoint == this.storelocation
-                              select pp).FirstOrDefault();
 
-            if (rptMKThead != null)
+            string gatepasslist = "";
+            var rptMKTdetailmk1 = from pp in dc.tbl_MKt_Listphieus
+                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+                                  group pp by pp.Gate_pass into gg
+                                  select gg;
+            int dem = 0;
+            foreach (var item in rptMKTdetailmk1)
             {
-                tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
-
-                headpx.Diachi = rptMKThead.Address;
-                headpx.Nguoinhancode = rptMKThead.Customer_SAP_Code.ToString();
-                headpx.Username = this.Username;
-                headpx.Sophieu = rptMKThead.Gate_pass;
-                headpx.Nguoinhanname = rptMKThead.Receiver_by;
-                headpx.seri = this.storelocation + rptMKThead.Gate_pass;
-
-                BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
-                BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
-                //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
-
-                headpx.Barcode = result;
-                headpx.dienthoai = rptMKThead.Tel;
-                headpx.mucdich = rptMKThead.Purpose;
-                headpx.Ngaythang = rptMKThead.Ngaytaophieu;
-                headpx.Nguoiyeucau = rptMKThead.Requested_by;
-
-
-
-                dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
-                dc.SubmitChanges();
-
+                dem = dem + 1;
+                if (dem ==1)
+                {
+                    gatepasslist = gatepasslist + item.Key;
+                }
+                if (dem >1)
+                {
+                    gatepasslist = gatepasslist +", " + item.Key;
+                }
+              
             }
 
-            //    //var q3 = (from tblEDLP in dc.tblEDLPs
-            //    //          group tblEDLP by tblEDLP.Invoice_Doc_Nr into OD//Tương đương GROUP BY trong SQL
-            //    //          orderby OD.Key
-            //    //          where !(from tblVat in dc.tblVats
-            //    //                  select tblVat.SAP_Invoice_Number).Contains(OD.Key)
 
-            //    //          select new
-            //    //          {
-            //    //              Document_Number = OD.Key,
-            //    //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
-            //    //              Value_Count = OD.Sum(m => m.Cond_Value)
-
-
-
-
-            //    //          });
-
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+                var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  group pp by pp.Materiacode into gg
                                  select new
@@ -892,25 +862,80 @@ namespace Maketting.View
 
             }
 
-            var rshead = from pp in dc.tbl_MKT_headRpt_Phieuissues
-                         where pp.Username == this.Username
+
+
+
+
+
+
+
+            var rptMKThead = (from pp in dc.tbl_MKt_ListLoadheads
+                              where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                              select pp).FirstOrDefault();
+
+            if (rptMKThead != null)
+            {
+                tbl_MKT_LoadHeadRpt headpx = new tbl_MKT_LoadHeadRpt();
+
+                headpx.codetransporter = rptMKThead.TransposterCode;
+                headpx.gatepasslist = gatepasslist;
+                headpx.username = this.Username;
+                headpx.Loadnumber = rptMKThead.LoadNumber;
+                headpx.nametransporter = rptMKThead.TransposterName;
+                headpx.seri = this.storelocation + rptMKThead.LoadNumber;
+
+                BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
+                BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
+                //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.LoadNumber), 1, true), typeof(Byte[]));
+
+                headpx.Barcode = result;
+                headpx.Ngaythang = rptMKThead.Date_Created;
+                headpx.shippingpoint = rptMKThead.ShippingPoint;
+           
+                headpx.Truckno = rptMKThead.Truckno;
+
+
+
+                dc.tbl_MKT_LoadHeadRpts.InsertOnSubmit(headpx);
+                dc.SubmitChanges();
+
+            }
+
+            //    //var q3 = (from tblEDLP in dc.tblEDLPs
+            //    //          group tblEDLP by tblEDLP.Invoice_Doc_Nr into OD//Tương đương GROUP BY trong SQL
+            //    //          orderby OD.Key
+            //    //          where !(from tblVat in dc.tblVats
+            //    //                  select tblVat.SAP_Invoice_Number).Contains(OD.Key)
+
+            //    //          select new
+            //    //          {
+            //    //              Document_Number = OD.Key,
+            //    //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
+            //    //              Value_Count = OD.Sum(m => m.Cond_Value)
+
+
+
+
+            //    //          });
+
+       
+            var rshead = from pp in dc.tbl_MKT_LoadHeadRpts
+                         where pp.username == this.Username
                          select new
                          {
-
-                             //   username = pp.Username,
-                             Nguoiyeucau = pp.Nguoiyeucau,
+                             Loadcreatebby = pp.Loadcreatebby,
+                             codetransporter = pp.codetransporter,
+                             shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
-                             Sophieu = pp.Sophieu,
-                             Nguoinhancode = pp.Nguoinhancode,
-                             Nguoinhanname = pp.Nguoinhanname,
-                             Diachi = pp.Diachi,
-                             mucdich = pp.mucdich,
-
-                             dienthoai = pp.dienthoai,
+                             Loadnumber = pp.Loadnumber,
+                             nametransporter = pp.nametransporter,
+                             Truckno = pp.Truckno,
+                             gatepasslist =pp.gatepasslist,
                              seri = pp.seri,
-                             Barcode = pp.Barcode
+                             Barcode = pp.Barcode,
 
-
+                           
                          };
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head
