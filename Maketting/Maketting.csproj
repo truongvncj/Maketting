@@ -143,11 +143,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCallogs.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\dsCallogs1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsCallogs.xsd</DependentUpon>
-    </Compile>
     <Compile Include="shared\Constants.cs" />
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
@@ -513,6 +508,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKLoad.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PhieuMKlistMKTbyLoad.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTissue.rdlc">
