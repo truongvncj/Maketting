@@ -795,7 +795,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rptMKT = from pp in dc.tbl_MKT_headRpt_Phieuissues
+            var rptMKT = from pp in dc.tb
                          where pp.Username == this.Username
                          select pp;
 

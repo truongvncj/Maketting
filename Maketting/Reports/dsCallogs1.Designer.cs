@@ -17056,21 +17056,21 @@ namespace Maketting.Reports {
             
             private global::System.Data.DataColumn columnusername;
             
-            private global::System.Data.DataColumn columnNguoiyeucau;
+            private global::System.Data.DataColumn columnLoadnumber;
             
             private global::System.Data.DataColumn columnNgaythang;
             
-            private global::System.Data.DataColumn columnSophieu;
+            private global::System.Data.DataColumn columnshippingpoint;
             
-            private global::System.Data.DataColumn columnNguoinhancode;
+            private global::System.Data.DataColumn columnLoadcreatebby;
             
-            private global::System.Data.DataColumn columnNguoinhanname;
+            private global::System.Data.DataColumn columncodetransporter;
             
-            private global::System.Data.DataColumn columnDiachi;
+            private global::System.Data.DataColumn columnnametransporter;
             
-            private global::System.Data.DataColumn columnmucdich;
+            private global::System.Data.DataColumn columnTruckno;
             
-            private global::System.Data.DataColumn columndienthoai;
+            private global::System.Data.DataColumn columngatepasslist;
             
             private global::System.Data.DataColumn columnseri;
             
@@ -17119,9 +17119,9 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NguoiyeucauColumn {
+            public global::System.Data.DataColumn LoadnumberColumn {
                 get {
-                    return this.columnNguoiyeucau;
+                    return this.columnLoadnumber;
                 }
             }
             
@@ -17135,49 +17135,49 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SophieuColumn {
+            public global::System.Data.DataColumn shippingpointColumn {
                 get {
-                    return this.columnSophieu;
+                    return this.columnshippingpoint;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NguoinhancodeColumn {
+            public global::System.Data.DataColumn LoadcreatebbyColumn {
                 get {
-                    return this.columnNguoinhancode;
+                    return this.columnLoadcreatebby;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NguoinhannameColumn {
+            public global::System.Data.DataColumn codetransporterColumn {
                 get {
-                    return this.columnNguoinhanname;
+                    return this.columncodetransporter;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DiachiColumn {
+            public global::System.Data.DataColumn nametransporterColumn {
                 get {
-                    return this.columnDiachi;
+                    return this.columnnametransporter;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn mucdichColumn {
+            public global::System.Data.DataColumn TrucknoColumn {
                 get {
-                    return this.columnmucdich;
+                    return this.columnTruckno;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn dienthoaiColumn {
+            public global::System.Data.DataColumn gatepasslistColumn {
                 get {
-                    return this.columndienthoai;
+                    return this.columngatepasslist;
                 }
             }
             
@@ -17234,18 +17234,18 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MKTloadHeadrptRow AddMKTloadHeadrptRow(string username, string Nguoiyeucau, System.DateTime Ngaythang, string Sophieu, string Nguoinhancode, string Nguoinhanname, string Diachi, string mucdich, string dienthoai, string seri, byte[] Barcode) {
+            public MKTloadHeadrptRow AddMKTloadHeadrptRow(string username, string Loadnumber, System.DateTime Ngaythang, string shippingpoint, string Loadcreatebby, string codetransporter, string nametransporter, string Truckno, string gatepasslist, string seri, byte[] Barcode) {
                 MKTloadHeadrptRow rowMKTloadHeadrptRow = ((MKTloadHeadrptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         username,
-                        Nguoiyeucau,
+                        Loadnumber,
                         Ngaythang,
-                        Sophieu,
-                        Nguoinhancode,
-                        Nguoinhanname,
-                        Diachi,
-                        mucdich,
-                        dienthoai,
+                        shippingpoint,
+                        Loadcreatebby,
+                        codetransporter,
+                        nametransporter,
+                        Truckno,
+                        gatepasslist,
                         seri,
                         Barcode};
                 rowMKTloadHeadrptRow.ItemArray = columnValuesArray;
@@ -17271,14 +17271,14 @@ namespace Maketting.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnusername = base.Columns["username"];
-                this.columnNguoiyeucau = base.Columns["Nguoiyeucau"];
+                this.columnLoadnumber = base.Columns["Loadnumber"];
                 this.columnNgaythang = base.Columns["Ngaythang"];
-                this.columnSophieu = base.Columns["Sophieu"];
-                this.columnNguoinhancode = base.Columns["Nguoinhancode"];
-                this.columnNguoinhanname = base.Columns["Nguoinhanname"];
-                this.columnDiachi = base.Columns["Diachi"];
-                this.columnmucdich = base.Columns["mucdich"];
-                this.columndienthoai = base.Columns["dienthoai"];
+                this.columnshippingpoint = base.Columns["shippingpoint"];
+                this.columnLoadcreatebby = base.Columns["Loadcreatebby"];
+                this.columncodetransporter = base.Columns["codetransporter"];
+                this.columnnametransporter = base.Columns["nametransporter"];
+                this.columnTruckno = base.Columns["Truckno"];
+                this.columngatepasslist = base.Columns["gatepasslist"];
                 this.columnseri = base.Columns["seri"];
                 this.columnBarcode = base.Columns["Barcode"];
             }
@@ -17288,26 +17288,33 @@ namespace Maketting.Reports {
             private void InitClass() {
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusername);
-                this.columnNguoiyeucau = new global::System.Data.DataColumn("Nguoiyeucau", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNguoiyeucau);
+                this.columnLoadnumber = new global::System.Data.DataColumn("Loadnumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLoadnumber);
                 this.columnNgaythang = new global::System.Data.DataColumn("Ngaythang", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNgaythang);
-                this.columnSophieu = new global::System.Data.DataColumn("Sophieu", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSophieu);
-                this.columnNguoinhancode = new global::System.Data.DataColumn("Nguoinhancode", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNguoinhancode);
-                this.columnNguoinhanname = new global::System.Data.DataColumn("Nguoinhanname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNguoinhanname);
-                this.columnDiachi = new global::System.Data.DataColumn("Diachi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDiachi);
-                this.columnmucdich = new global::System.Data.DataColumn("mucdich", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmucdich);
-                this.columndienthoai = new global::System.Data.DataColumn("dienthoai", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndienthoai);
+                this.columnshippingpoint = new global::System.Data.DataColumn("shippingpoint", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnshippingpoint);
+                this.columnLoadcreatebby = new global::System.Data.DataColumn("Loadcreatebby", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLoadcreatebby);
+                this.columncodetransporter = new global::System.Data.DataColumn("codetransporter", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodetransporter);
+                this.columnnametransporter = new global::System.Data.DataColumn("nametransporter", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnametransporter);
+                this.columnTruckno = new global::System.Data.DataColumn("Truckno", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTruckno);
+                this.columngatepasslist = new global::System.Data.DataColumn("gatepasslist", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngatepasslist);
                 this.columnseri = new global::System.Data.DataColumn("seri", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnseri);
                 this.columnBarcode = new global::System.Data.DataColumn("Barcode", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBarcode);
+                this.columnLoadnumber.Caption = "Nguoiyeucau";
+                this.columnshippingpoint.Caption = "Sophieu";
+                this.columnLoadcreatebby.Caption = "Nguoinhancode";
+                this.columncodetransporter.Caption = "Nguoinhanname";
+                this.columnnametransporter.Caption = "Diachi";
+                this.columnTruckno.Caption = "mucdich";
+                this.columngatepasslist.Caption = "dienthoai";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33709,17 +33716,17 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nguoiyeucau {
+            public string Loadnumber {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.NguoiyeucauColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.LoadnumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nguoiyeucau\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Loadnumber\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.NguoiyeucauColumn] = value;
+                    this[this.tableMKTloadHeadrpt.LoadnumberColumn] = value;
                 }
             }
             
@@ -33741,97 +33748,97 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Sophieu {
+            public string shippingpoint {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.SophieuColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.shippingpointColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sophieu\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'shippingpoint\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.SophieuColumn] = value;
+                    this[this.tableMKTloadHeadrpt.shippingpointColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nguoinhancode {
+            public string Loadcreatebby {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.NguoinhancodeColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.LoadcreatebbyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nguoinhancode\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Loadcreatebby\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.NguoinhancodeColumn] = value;
+                    this[this.tableMKTloadHeadrpt.LoadcreatebbyColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Nguoinhanname {
+            public string codetransporter {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.NguoinhannameColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.codetransporterColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nguoinhanname\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'codetransporter\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.NguoinhannameColumn] = value;
+                    this[this.tableMKTloadHeadrpt.codetransporterColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Diachi {
+            public string nametransporter {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.DiachiColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.nametransporterColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Diachi\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nametransporter\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.DiachiColumn] = value;
+                    this[this.tableMKTloadHeadrpt.nametransporterColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string mucdich {
+            public string Truckno {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.mucdichColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.TrucknoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'mucdich\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Truckno\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.mucdichColumn] = value;
+                    this[this.tableMKTloadHeadrpt.TrucknoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string dienthoai {
+            public string gatepasslist {
                 get {
                     try {
-                        return ((string)(this[this.tableMKTloadHeadrpt.dienthoaiColumn]));
+                        return ((string)(this[this.tableMKTloadHeadrpt.gatepasslistColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'dienthoai\' in table \'MKTloadHeadrpt\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'gatepasslist\' in table \'MKTloadHeadrpt\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMKTloadHeadrpt.dienthoaiColumn] = value;
+                    this[this.tableMKTloadHeadrpt.gatepasslistColumn] = value;
                 }
             }
             
@@ -33881,14 +33888,14 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNguoiyeucauNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.NguoiyeucauColumn);
+            public bool IsLoadnumberNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.LoadnumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNguoiyeucauNull() {
-                this[this.tableMKTloadHeadrpt.NguoiyeucauColumn] = global::System.Convert.DBNull;
+            public void SetLoadnumberNull() {
+                this[this.tableMKTloadHeadrpt.LoadnumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33905,74 +33912,74 @@ namespace Maketting.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSophieuNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.SophieuColumn);
+            public bool IsshippingpointNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.shippingpointColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSophieuNull() {
-                this[this.tableMKTloadHeadrpt.SophieuColumn] = global::System.Convert.DBNull;
+            public void SetshippingpointNull() {
+                this[this.tableMKTloadHeadrpt.shippingpointColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNguoinhancodeNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.NguoinhancodeColumn);
+            public bool IsLoadcreatebbyNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.LoadcreatebbyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNguoinhancodeNull() {
-                this[this.tableMKTloadHeadrpt.NguoinhancodeColumn] = global::System.Convert.DBNull;
+            public void SetLoadcreatebbyNull() {
+                this[this.tableMKTloadHeadrpt.LoadcreatebbyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNguoinhannameNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.NguoinhannameColumn);
+            public bool IscodetransporterNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.codetransporterColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNguoinhannameNull() {
-                this[this.tableMKTloadHeadrpt.NguoinhannameColumn] = global::System.Convert.DBNull;
+            public void SetcodetransporterNull() {
+                this[this.tableMKTloadHeadrpt.codetransporterColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDiachiNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.DiachiColumn);
+            public bool IsnametransporterNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.nametransporterColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDiachiNull() {
-                this[this.tableMKTloadHeadrpt.DiachiColumn] = global::System.Convert.DBNull;
+            public void SetnametransporterNull() {
+                this[this.tableMKTloadHeadrpt.nametransporterColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsmucdichNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.mucdichColumn);
+            public bool IsTrucknoNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.TrucknoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetmucdichNull() {
-                this[this.tableMKTloadHeadrpt.mucdichColumn] = global::System.Convert.DBNull;
+            public void SetTrucknoNull() {
+                this[this.tableMKTloadHeadrpt.TrucknoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdienthoaiNull() {
-                return this.IsNull(this.tableMKTloadHeadrpt.dienthoaiColumn);
+            public bool IsgatepasslistNull() {
+                return this.IsNull(this.tableMKTloadHeadrpt.gatepasslistColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdienthoaiNull() {
-                this[this.tableMKTloadHeadrpt.dienthoaiColumn] = global::System.Convert.DBNull;
+            public void SetgatepasslistNull() {
+                this[this.tableMKTloadHeadrpt.gatepasslistColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

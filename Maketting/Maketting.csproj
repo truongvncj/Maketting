@@ -143,6 +143,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCallogs.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\dsCallogs1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCallogs.xsd</DependentUpon>
+    </Compile>
     <Compile Include="shared\Constants.cs" />
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
@@ -766,7 +771,7 @@
     <None Include="Reports\dsCallogs.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsCallogs.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsCallogs1.Designer.cs</LastGenOutput>
     </None>
     <None Include="Reports\dsCallogs.xss">
       <DependentUpon>dsCallogs.xsd</DependentUpon>

@@ -312,7 +312,7 @@
                           <Sizing>FitProportional</Sizing>
                           <Top>0.26779cm</Top>
                           <Left>0.08506cm</Left>
-                          <Height>1.22096cm</Height>
+                          <Height>1.07599cm</Height>
                           <Width>3.62625cm</Width>
                           <ZIndex>8</ZIndex>
                           <Style>
@@ -357,43 +357,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <Textbox Name="Textbox73">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value> (PREMIUMS AUTHORIZATION)</Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Normal</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>0.33251in</Top>
-                          <Left>2.1552in</Left>
-                          <Height>0.19792in</Height>
-                          <Width>2.38085in</Width>
-                          <ZIndex>10</ZIndex>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
                         <Textbox Name="Textbox99">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -416,11 +379,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>0.5721in</Top>
-                          <Left>1.61614in</Left>
+                          <Top>0.33113in</Top>
+                          <Left>1.63003in</Left>
                           <Height>0.19792in</Height>
                           <Width>3.48543in</Width>
-                          <ZIndex>11</ZIndex>
+                          <ZIndex>10</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -457,7 +420,7 @@
                           <Left>1.42023in</Left>
                           <Height>0.30902in</Height>
                           <Width>4.59661in</Width>
-                          <ZIndex>12</ZIndex>
+                          <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -494,7 +457,7 @@
                           <Left>5.8323in</Left>
                           <Height>0.20974in</Height>
                           <Width>1.45959in</Width>
-                          <ZIndex>13</ZIndex>
+                          <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -530,7 +493,7 @@
                           <Left>1.20801in</Left>
                           <Height>0.25in</Height>
                           <Width>1.42259in</Width>
-                          <ZIndex>14</ZIndex>
+                          <ZIndex>13</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -547,7 +510,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Truckno</Value>
+                                  <Value>=Fields!Truckno.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -565,7 +528,7 @@
                           <Left>2.73984in</Left>
                           <Height>0.23612in</Height>
                           <Width>2.14689in</Width>
-                          <ZIndex>15</ZIndex>
+                          <ZIndex>14</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -617,7 +580,7 @@
                           <Left>0.12411in</Left>
                           <Height>0.37853in</Height>
                           <Width>1.53918in</Width>
-                          <ZIndex>16</ZIndex>
+                          <ZIndex>15</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -635,7 +598,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>gatepasslist</Value>
+                                  <Value>=Fields!gatepasslist.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -653,7 +616,7 @@
                           <Left>1.74153in</Left>
                           <Height>0.37715in</Height>
                           <Width>5.56215in</Width>
-                          <ZIndex>17</ZIndex>
+                          <ZIndex>16</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -670,7 +633,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>shippingpoint</Value>
+                                  <Value>=Fields!shippingpoint.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -688,7 +651,7 @@
                           <Left>3.09321in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.16851in</Width>
-                          <ZIndex>18</ZIndex>
+                          <ZIndex>17</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -723,7 +686,7 @@
                           <Left>2.1552in</Left>
                           <Height>0.23612in</Height>
                           <Width>0.91023in</Width>
-                          <ZIndex>19</ZIndex>
+                          <ZIndex>18</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -741,7 +704,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Loadnumber</Value>
+                                  <Value>=Fields!Loadnumber.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -759,7 +722,7 @@
                           <Left>3.06543in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.19629in</Width>
-                          <ZIndex>20</ZIndex>
+                          <ZIndex>19</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -776,10 +739,10 @@
                           <MIMEType>image/bmp</MIMEType>
                           <Sizing>FitProportional</Sizing>
                           <Top>0.87807cm</Top>
-                          <Left>13.06382cm</Left>
+                          <Left>13.0991cm</Left>
                           <Height>1.06066cm</Height>
                           <Width>5.5228cm</Width>
-                          <ZIndex>21</ZIndex>
+                          <ZIndex>20</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -793,7 +756,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>code</Value>
+                                  <Value>=Fields!codetransporter.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -810,7 +773,7 @@
                           <Left>1.20801in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.37717in</Width>
-                          <ZIndex>22</ZIndex>
+                          <ZIndex>21</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -827,7 +790,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>name</Value>
+                                  <Value>=Fields!nametransporter.Value</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -844,7 +807,7 @@
                           <Left>2.73984in</Left>
                           <Height>0.23612in</Height>
                           <Width>4.56594in</Width>
-                          <ZIndex>23</ZIndex>
+                          <ZIndex>22</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -1709,7 +1672,7 @@
         <Top>8.9797cm</Top>
         <Left>0.53757cm</Left>
         <Height>2.05045cm</Height>
-        <Width>18.20616cm</Width>
+        <Width>18.20617cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1778,36 +1741,36 @@
           <DataField>username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Nguoiyeucau">
-          <DataField>Nguoiyeucau</DataField>
+        <Field Name="Loadnumber">
+          <DataField>Loadnumber</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Ngaythang">
           <DataField>Ngaythang</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Sophieu">
-          <DataField>Sophieu</DataField>
+        <Field Name="shippingpoint">
+          <DataField>shippingpoint</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Nguoinhancode">
-          <DataField>Nguoinhancode</DataField>
+        <Field Name="Loadcreatebby">
+          <DataField>Loadcreatebby</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Nguoinhanname">
-          <DataField>Nguoinhanname</DataField>
+        <Field Name="codetransporter">
+          <DataField>codetransporter</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Diachi">
-          <DataField>Diachi</DataField>
+        <Field Name="nametransporter">
+          <DataField>nametransporter</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="mucdich">
-          <DataField>mucdich</DataField>
+        <Field Name="Truckno">
+          <DataField>Truckno</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="dienthoai">
-          <DataField>dienthoai</DataField>
+        <Field Name="gatepasslist">
+          <DataField>gatepasslist</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="seri">
@@ -1822,7 +1785,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
         <rd:SchemaPath>D:\GitHub\Maketting\Maketting\Reports\dsCallogs.xsd</rd:SchemaPath>
-        <rd:TableName>MKTphieuMKThead</rd:TableName>
+        <rd:TableName>MKTloadHeadrpt</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
