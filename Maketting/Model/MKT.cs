@@ -166,7 +166,7 @@ namespace Maketting.Model
                     item.Status = "CRT";
                     dc.SubmitChanges();
 
-                
+
                 }
 
 
@@ -237,7 +237,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Materiacode", typeof(string)));
             dt.Columns.Add(new DataColumn("Materialname", typeof(string)));
             dt.Columns.Add(new DataColumn("Issued", typeof(string)));
-      
+
             //drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
             //drToAdd["Customer_Code"] = PhieuMKT.Customer_SAP_Code;
             //drToAdd["Receiver_by"] = PhieuMKT.Receiver_by;
@@ -342,10 +342,13 @@ namespace Maketting.Model
                      where pp.Username == urs && pp.Status == "TMP"
                      select pp;
 
+            if (rs.Count() > 0)
+            {
 
+                dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
 
-            dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
-            dc.SubmitChanges();
+            }
         }
 
         public static void DeleteALLLoadtamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
@@ -360,10 +363,13 @@ namespace Maketting.Model
                      where pp.Username == urs && pp.Status == "TMP"
                      select pp;
 
+            if (rs.Count() > 0)
+            {
+                dc.tbl_MKt_ListLoadheads.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+            }
 
 
-            dc.tbl_MKt_ListLoadheads.DeleteAllOnSubmit(rs);
-            dc.SubmitChanges();
         }
 
 
@@ -579,6 +585,58 @@ namespace Maketting.Model
 
 
             //throw new NotImplementedException();
+        }
+
+        public static bool Deletephieuload(string soload, string storelocation)
+        {
+            // deleead head
+
+            bool kq = false;
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_ListLoadheads
+                     where pp.LoadNumber == soload && pp.ShippingPoint == storelocation
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                    item.Created_by = "";
+                    item.Status = "TMP";
+                    dc.SubmitChanges();
+                }
+              
+                kq = true;
+            }
+
+
+            // upload detail
+
+
+            var rs2 = from pp in dc.tbl_MKt_Listphieus
+                      where pp.ShipmentNumber == soload && pp.ShippingPoint == storelocation
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                foreach (var item in rs2)
+                {
+                    item.ShipmentNumber = "";
+                    item.Shipmentby = "";
+                    item.Status = "CRT";
+                    dc.SubmitChanges();
+
+
+                }
+            }
+
+            return kq;
+            // throw new NotImplementedException();
         }
     }
 }

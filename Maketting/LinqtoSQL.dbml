@@ -1221,6 +1221,18 @@
       <Column Name="TransposterName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_ListLoadheadDetail" Member="tbl_MKt_ListLoadheadDetails">
+    <Type Name="tbl_MKt_ListLoadheadDetail">
+      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKt_Listphieu" Member="tbl_MKt_Listphieus">
     <Type Name="tbl_MKt_Listphieu">
       <Column Name="Gate_pass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -1269,6 +1281,17 @@
       <Column Name="Purposeid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">
+    <Type Name="tbl_MKT_LoaddetailRpt">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="materialcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Mucdich" Member="tbl_MKT_Mucdiches">
@@ -1431,18 +1454,6 @@
       <Column Name="cashadvandapproval1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="cashadvanapproval2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKt_ListLoadheadDetail" Member="tbl_MKt_ListLoadheadDetails">
-    <Type Name="tbl_MKt_ListLoadheadDetail">
-      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
