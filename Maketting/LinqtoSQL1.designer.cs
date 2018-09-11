@@ -225,9 +225,6 @@ namespace Maketting
     partial void Inserttbl_MKT_LoaddetailRpt(tbl_MKT_LoaddetailRpt instance);
     partial void Updatetbl_MKT_LoaddetailRpt(tbl_MKT_LoaddetailRpt instance);
     partial void Deletetbl_MKT_LoaddetailRpt(tbl_MKT_LoaddetailRpt instance);
-    partial void Inserttbl_MKT_LoadHeadRpt(tbl_MKT_LoadHeadRpt instance);
-    partial void Updatetbl_MKT_LoadHeadRpt(tbl_MKT_LoadHeadRpt instance);
-    partial void Deletetbl_MKT_LoadHeadRpt(tbl_MKT_LoadHeadRpt instance);
     partial void Inserttbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
     partial void Updatetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
     partial void Deletetbl_MKT_Mucdich(tbl_MKT_Mucdich instance);
@@ -807,14 +804,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_LoaddetailRpt>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_LoadHeadRpt> tbl_MKT_LoadHeadRpts
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_LoadHeadRpt>();
 			}
 		}
 		
@@ -26435,8 +26424,6 @@ namespace Maketting
 		
 		private string _TransposterName;
 		
-		private string _Truckno;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -26459,8 +26446,6 @@ namespace Maketting
     partial void OnTransposterCodeChanged();
     partial void OnTransposterNameChanging(string value);
     partial void OnTransposterNameChanged();
-    partial void OnTrucknoChanging(string value);
-    partial void OnTrucknoChanged();
     #endregion
 		
 		public tbl_MKt_ListLoadhead()
@@ -26644,26 +26629,6 @@ namespace Maketting
 					this._TransposterName = value;
 					this.SendPropertyChanged("TransposterName");
 					this.OnTransposterNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truckno", DbType="NVarChar(255)")]
-		public string Truckno
-		{
-			get
-			{
-				return this._Truckno;
-			}
-			set
-			{
-				if ((this._Truckno != value))
-				{
-					this.OnTrucknoChanging(value);
-					this.SendPropertyChanging();
-					this._Truckno = value;
-					this.SendPropertyChanged("Truckno");
-					this.OnTrucknoChanged();
 				}
 			}
 		}
@@ -28184,332 +28149,6 @@ namespace Maketting
 					this._tensanpham = value;
 					this.SendPropertyChanged("tensanpham");
 					this.OntensanphamChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_LoadHeadRpt")]
-	public partial class tbl_MKT_LoadHeadRpt : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _username;
-		
-		private string _Loadnumber;
-		
-		private System.Nullable<System.DateTime> _Ngaythang;
-		
-		private string _shippingpoint;
-		
-		private string _Loadcreatebby;
-		
-		private string _codetransporter;
-		
-		private string _nametransporter;
-		
-		private string _Truckno;
-		
-		private string _gatepasslist;
-		
-		private string _seri;
-		
-		private int _id;
-		
-		private System.Data.Linq.Binary _Barcode;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnLoadnumberChanging(string value);
-    partial void OnLoadnumberChanged();
-    partial void OnNgaythangChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgaythangChanged();
-    partial void OnshippingpointChanging(string value);
-    partial void OnshippingpointChanged();
-    partial void OnLoadcreatebbyChanging(string value);
-    partial void OnLoadcreatebbyChanged();
-    partial void OncodetransporterChanging(string value);
-    partial void OncodetransporterChanged();
-    partial void OnnametransporterChanging(string value);
-    partial void OnnametransporterChanged();
-    partial void OnTrucknoChanging(string value);
-    partial void OnTrucknoChanged();
-    partial void OngatepasslistChanging(string value);
-    partial void OngatepasslistChanged();
-    partial void OnseriChanging(string value);
-    partial void OnseriChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnBarcodeChanging(System.Data.Linq.Binary value);
-    partial void OnBarcodeChanged();
-    #endregion
-		
-		public tbl_MKT_LoadHeadRpt()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loadnumber", DbType="NVarChar(50)")]
-		public string Loadnumber
-		{
-			get
-			{
-				return this._Loadnumber;
-			}
-			set
-			{
-				if ((this._Loadnumber != value))
-				{
-					this.OnLoadnumberChanging(value);
-					this.SendPropertyChanging();
-					this._Loadnumber = value;
-					this.SendPropertyChanged("Loadnumber");
-					this.OnLoadnumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaythang", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Ngaythang
-		{
-			get
-			{
-				return this._Ngaythang;
-			}
-			set
-			{
-				if ((this._Ngaythang != value))
-				{
-					this.OnNgaythangChanging(value);
-					this.SendPropertyChanging();
-					this._Ngaythang = value;
-					this.SendPropertyChanged("Ngaythang");
-					this.OnNgaythangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shippingpoint", DbType="NVarChar(50)")]
-		public string shippingpoint
-		{
-			get
-			{
-				return this._shippingpoint;
-			}
-			set
-			{
-				if ((this._shippingpoint != value))
-				{
-					this.OnshippingpointChanging(value);
-					this.SendPropertyChanging();
-					this._shippingpoint = value;
-					this.SendPropertyChanged("shippingpoint");
-					this.OnshippingpointChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loadcreatebby", DbType="NVarChar(255)")]
-		public string Loadcreatebby
-		{
-			get
-			{
-				return this._Loadcreatebby;
-			}
-			set
-			{
-				if ((this._Loadcreatebby != value))
-				{
-					this.OnLoadcreatebbyChanging(value);
-					this.SendPropertyChanging();
-					this._Loadcreatebby = value;
-					this.SendPropertyChanged("Loadcreatebby");
-					this.OnLoadcreatebbyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codetransporter", DbType="NVarChar(255)")]
-		public string codetransporter
-		{
-			get
-			{
-				return this._codetransporter;
-			}
-			set
-			{
-				if ((this._codetransporter != value))
-				{
-					this.OncodetransporterChanging(value);
-					this.SendPropertyChanging();
-					this._codetransporter = value;
-					this.SendPropertyChanged("codetransporter");
-					this.OncodetransporterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nametransporter", DbType="NVarChar(255)")]
-		public string nametransporter
-		{
-			get
-			{
-				return this._nametransporter;
-			}
-			set
-			{
-				if ((this._nametransporter != value))
-				{
-					this.OnnametransporterChanging(value);
-					this.SendPropertyChanging();
-					this._nametransporter = value;
-					this.SendPropertyChanged("nametransporter");
-					this.OnnametransporterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truckno", DbType="NVarChar(255)")]
-		public string Truckno
-		{
-			get
-			{
-				return this._Truckno;
-			}
-			set
-			{
-				if ((this._Truckno != value))
-				{
-					this.OnTrucknoChanging(value);
-					this.SendPropertyChanging();
-					this._Truckno = value;
-					this.SendPropertyChanged("Truckno");
-					this.OnTrucknoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gatepasslist", DbType="NVarChar(255)")]
-		public string gatepasslist
-		{
-			get
-			{
-				return this._gatepasslist;
-			}
-			set
-			{
-				if ((this._gatepasslist != value))
-				{
-					this.OngatepasslistChanging(value);
-					this.SendPropertyChanging();
-					this._gatepasslist = value;
-					this.SendPropertyChanged("gatepasslist");
-					this.OngatepasslistChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_seri", DbType="NVarChar(255)")]
-		public string seri
-		{
-			get
-			{
-				return this._seri;
-			}
-			set
-			{
-				if ((this._seri != value))
-				{
-					this.OnseriChanging(value);
-					this.SendPropertyChanging();
-					this._seri = value;
-					this.SendPropertyChanged("seri");
-					this.OnseriChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Barcode", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Barcode
-		{
-			get
-			{
-				return this._Barcode;
-			}
-			set
-			{
-				if ((this._Barcode != value))
-				{
-					this.OnBarcodeChanging(value);
-					this.SendPropertyChanging();
-					this._Barcode = value;
-					this.SendPropertyChanged("Barcode");
-					this.OnBarcodeChanged();
 				}
 			}
 		}
