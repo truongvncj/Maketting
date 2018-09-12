@@ -2305,6 +2305,69 @@ namespace Maketting.View
 
             //#endregion view reports payment request  // 
         }
+
+        private void txtseachgate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+
+                txtseachaddress.Text = "";
+                txtseachcode.Text = "";
+                //       txtseachgate.Text
+                //  this.storelocation
+                //    dataGridViewDetail
+
+                Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+
+
+            }
+
+
+
+
+            }
+
+        private void txtseachcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+
+                txtseachaddress.Text = "";
+          //      txtseachcode.Text = "";
+                txtseachgate.Text = "";
+                //  this.storelocation
+                //    dataGridViewDetail
+
+                Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+
+
+            }
+
+        }
+
+        private void txtseachaddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+
+
+           //     txtseachaddress.Text = "";
+                 txtseachcode.Text = "";
+                txtseachgate.Text = "";
+                //  this.storelocation
+                //    dataGridViewDetail
+
+                Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+
+
+            }
+
+        }
     }
 
 }

@@ -78,6 +78,12 @@ namespace Maketting.View
             accsup.Show();
 
 
+            this.clearpannel();
+
+
+        //    View.MKTLoadcreated accsup = new MKTLoadcreated(this);
+            this.clearpannelload(accsup);
+
 
 
         }
@@ -3767,6 +3773,54 @@ namespace Maketting.View
             #endregion
 
 
+
+
+        }
+
+        private void nhậpKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOAD NUMBER ");
+            pxk.ShowDialog();
+
+            string Loadnumber = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+              
+
+
+                #region//tao load
+                //if (name == "tmphieuthu")
+                //{
+
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this);
+                this.clearpannelload(xuatkho);
+                // this.Close();
+                #endregion
+
+
+
+            }
+
+
+
+        }
+
+        private void xuấtĐồToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT PO NUMBER ");
+            pxk.ShowDialog();
+
+            string POnumber = pxk.valuetext;
 
 
         }

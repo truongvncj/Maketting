@@ -159,6 +159,12 @@
     <Compile Include="View\BeeLCTT200dauky.Designer.cs">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTWHxuathang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHxuathang.Designer.cs">
+      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTLoadcreated.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,12 +200,6 @@
     </Compile>
     <Compile Include="View\beektth.Designer.cs">
       <DependentUpon>beektth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MKTWHxuathang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MKTWHxuathang.Designer.cs">
-      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTissuephieu.cs">
       <SubType>Form</SubType>
@@ -465,11 +465,11 @@
     <Compile Include="View\MKTServersetup.Designer.cs">
       <DependentUpon>MKTServersetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\valueinput.cs">
+    <Compile Include="View\MKTvalueinput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\valueinput.Designer.cs">
-      <DependentUpon>valueinput.cs</DependentUpon>
+    <Compile Include="View\MKTvalueinput.Designer.cs">
+      <DependentUpon>MKTvalueinput.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeInputchange.cs">
       <SubType>Form</SubType>
@@ -564,6 +564,9 @@
     <EmbeddedResource Include="View\BeeLCTT200dauky.resx">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHxuathang.resx">
+      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTLoadcreated.resx">
       <DependentUpon>MKTLoadcreated.cs</DependentUpon>
     </EmbeddedResource>
@@ -581,9 +584,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\beektth.resx">
       <DependentUpon>beektth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MKTWHxuathang.resx">
-      <DependentUpon>MKTWHxuathang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTissuephieu.resx">
       <DependentUpon>MKTissuephieu.cs</DependentUpon>
@@ -718,8 +718,8 @@
     <EmbeddedResource Include="View\MKTServersetup.resx">
       <DependentUpon>MKTServersetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\valueinput.resx">
-      <DependentUpon>valueinput.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTvalueinput.resx">
+      <DependentUpon>MKTvalueinput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeInputchange.resx">
       <DependentUpon>BeeInputchange.cs</DependentUpon>

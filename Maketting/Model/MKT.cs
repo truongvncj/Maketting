@@ -638,5 +638,51 @@ namespace Maketting.Model
             return kq;
             // throw new NotImplementedException();
         }
+    //    Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+
+        public static void DanhsachPhieuMKTtoDLVseach(string storelocation, DataGridView dataGridViewDetail, string txtseachaddress, string txtseachcode, string txtseachgate)
+        {
+
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKt_Listphieus
+                     where p.ShippingPoint == storelocation && p.Status == "CRT"
+                     && p.Address.Contains(txtseachaddress)
+                             && p.Customer_SAP_Code.ToString().Contains(txtseachcode)
+                               && (p.ShippingPoint + p.Gate_pass).Contains(txtseachgate)
+                        
+
+                     orderby p.Gate_pass
+                     select new
+                     {
+
+
+                         Gate_pass = p.Gate_pass,
+                         Code_KH = p.Customer_SAP_Code,
+                         Địa_chỉ = p.Address,
+                         Điện_thoại = p.Description,
+
+                         p.Materiacode,
+                         p.Materialname,
+                         Số_lượng_xuất = p.Issued,
+                         p.Ngaytaophieu,
+                         p.Purpose,
+                         p.Receiver_by,
+                         p.Tel,
+
+                         ID = p.id,
+                     };
+
+            dataGridViewDetail.DataSource = rs;
+
+
+
+
+            // throw new NotImplementedException();
+        }
     }
 }

@@ -60,7 +60,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Login.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.PrintLetterOption.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.KASeachcontract.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Seachcode.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.valueinput.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeInputchange.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Reportsview.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Viewtable.resources
@@ -90,3 +89,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTLoadcreated.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKLoad.rdlc
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTlistbyLoad.rdlc
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\SubRPTPhieuMKTlistbyLoad.rdlc
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTvalueinput.resources
