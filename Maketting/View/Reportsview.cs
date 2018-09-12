@@ -15,6 +15,7 @@ namespace Maketting.View
     {
         public DataTable tbl2 { get; set; }
         public DataTable tbl1 { get; set; }
+        public string rptname { get; set; }
         //     public int BatchNo { get; set; }
 
         //  public int subid { get; set; }
@@ -27,7 +28,7 @@ namespace Maketting.View
 
             this.tbl2 = tbl2;
             this.tbl1 = tbl1;
-
+            this.rptname = rptname;
             //        this.BatchNo = BatchNo;
             //    this.subid = subid;
             //       this.contractno = contractno;
@@ -121,14 +122,21 @@ namespace Maketting.View
 
         private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
         {
-             var phieunhapso = e.Parameters["phieuid"].Values.First();
-            //   var subSource = ((List<Cus>)mainSource.Value).Single(o => o.OrderID == orderId).Suppliers;
-
             if (tbl2 != null)
             {
                 e.DataSources.Add(new ReportDataSource("DataSet2", tbl2));
 
             }
+
+            if (rptname == "PhieuMKTlistbyLoad.rdlc")
+            {
+                var Sophieu = e.Parameters["Sophieu"].Values;
+                //   var subSource = ((List<Cus>)mainSource.Value).Single(o => o.OrderID == orderId).Suppliers;
+
+               
+            }
+
+          
             //var custGroupid = double.Parse(e.Parameters["custGroupid"].Values.First());
             // //  var subSource = ((List<Cus>)mainSource.Value).Single(o => o.OrderID == orderId).Suppliers;
 

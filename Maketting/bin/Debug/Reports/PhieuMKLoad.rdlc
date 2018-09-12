@@ -310,7 +310,7 @@
                           <Source>Embedded</Source>
                           <Value>CocacolaMKT</Value>
                           <Sizing>FitProportional</Sizing>
-                          <Top>0.79219cm</Top>
+                          <Top>0cm</Top>
                           <Left>0.08506cm</Left>
                           <Height>1.07599cm</Height>
                           <Width>3.83792cm</Width>
@@ -520,7 +520,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -608,7 +610,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -772,7 +776,7 @@
                           <Top>2.26596in</Top>
                           <Left>1.23999in</Left>
                           <Height>0.23612in</Height>
-                          <Width>1.05425in</Width>
+                          <Width>0.48332in</Width>
                           <ZIndex>21</ZIndex>
                           <Style>
                             <Border>
@@ -799,14 +803,16 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>2.27503in</Top>
-                          <Left>2.36369in</Left>
+                          <Left>1.79275in</Left>
                           <Height>0.23612in</Height>
-                          <Width>4.96018in</Width>
+                          <Width>5.53112in</Width>
                           <ZIndex>22</ZIndex>
                           <Style>
                             <Border>
@@ -826,7 +832,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

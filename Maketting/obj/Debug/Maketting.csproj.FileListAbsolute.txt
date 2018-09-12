@@ -88,3 +88,5 @@ D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTissue.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsacchuongtrinhMKT.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTLoadcreated.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKLoad.rdlc
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTlistbyLoad.rdlc
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\SubRPTPhieuMKTlistbyLoad.rdlc
