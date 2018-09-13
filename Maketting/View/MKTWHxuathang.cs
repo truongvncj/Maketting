@@ -21,6 +21,7 @@ namespace Maketting.View
         public string soload { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
+        public string Createdby { get; set; }
 
         public class ComboboxItem
         {
@@ -65,7 +66,7 @@ namespace Maketting.View
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Real_issue", typeof(float)));
-             
+
 
                 dataGridViewLoaddetail.DataSource = dataTable;
 
@@ -192,6 +193,7 @@ namespace Maketting.View
             this.main1 = Main;
 
             this.Username = Utils.getusername();
+            this.Createdby = Utils.getname();
             this.Loadnumberserri = Loadnumberserri;
             txtnguoixuathang.Text = "";
 
@@ -427,7 +429,7 @@ namespace Maketting.View
 
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value != DBNull.Value)
                 {
-                   
+
                     float xuat = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
                     float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
                     if (yeucau != xuat)
@@ -505,13 +507,9 @@ namespace Maketting.View
 
                         dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieuxuat);
                         dc.SubmitChanges();
-                        //            Maketting_load = pp.LoadNumber,
-                        //             Shipping_Point = pp.ShippingPoint,
-                        //             Material_code = pp.Materiacode,
-                        //             Material_name = pp.Materialname,
-                        //             Requested_issue = pp.Issued,
-                        //        //     Real_issue = 0,
 
+
+                        Model.MKT.giamtrukhokhixuathang(phieuxuat);
 
                     }
                 }
@@ -600,11 +598,11 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rptMKT = from pp in dc.tbl_MKT_LoadHeadRpts
+            var rptMKT = from pp in dc.tbl_MKT_WHissueHeadRpts
                          where pp.username == this.Username
                          select pp;
 
-            dc.tbl_MKT_LoadHeadRpts.DeleteAllOnSubmit(rptMKT);
+            dc.tbl_MKT_WHissueHeadRpts.DeleteAllOnSubmit(rptMKT);
             dc.SubmitChanges();
 
 
@@ -616,58 +614,58 @@ namespace Maketting.View
             dc.SubmitChanges();
 
 
-            string gatepasslist = "";
-            var rptMKTdetailmk1 = from pp in dc.tbl_MKt_Listphieus
-                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
-                                  group pp by pp.Gate_pass into gg
-                                  select gg;
-            int dem = 0;
-            foreach (var item in rptMKTdetailmk1)
-            {
-                dem = dem + 1;
-                if (dem == 1)
-                {
-                    gatepasslist = gatepasslist + item.Key;
-                }
-                if (dem > 1)
-                {
-                    gatepasslist = gatepasslist + ", " + item.Key;
-                }
+            //string gatepasslist = "";
+            //var rptMKTdetailmk1 = from pp in dc.tbl_MKt_Listphieus
+            //                      where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+            //                      group pp by pp.Gate_pass into gg
+            //                      select gg;
+            //int dem = 0;
+            //foreach (var item in rptMKTdetailmk1)
+            //{
+            //    dem = dem + 1;
+            //    if (dem == 1)
+            //    {
+            //        gatepasslist = gatepasslist + item.Key;
+            //    }
+            //    if (dem > 1)
+            //    {
+            //        gatepasslist = gatepasslist + ", " + item.Key;
+            //    }
 
-            }
-
-
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
-                                 where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
-                                 group pp by pp.Materiacode into gg
-                                 select new
-                                 {
-                                     Issued = gg.Sum(m => m.Issued),
-                                     Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
-                                     Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+            //}
 
 
-
-                                 };
-            int i = 0;
-            foreach (var item in rptMKTdetailmk)
-            {
-                i = i + 1;
-
-                tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
-
-                detailpx.stt = i.ToString();
-                detailpx.soluong = item.Issued;
-                detailpx.Username = this.Username;
-                detailpx.materialcode = item.Materiacode;
-                detailpx.tensanpham = item.Materialname;
-                detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+            //var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+            //                     where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+            //                     group pp by pp.Materiacode into gg
+            //                     select new
+            //                     {
+            //                         Issued = gg.Sum(m => m.Issued),
+            //                         Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+            //                         Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
 
 
-                dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                dc.SubmitChanges();
 
-            }
+            //                     };
+            //int i = 0;
+            //foreach (var item in rptMKTdetailmk)
+            //{
+            //    i = i + 1;
+
+            //    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+
+            //    detailpx.stt = i.ToString();
+            //    detailpx.soluong = item.Issued;
+            //    detailpx.Username = this.Username;
+            //    detailpx.materialcode = item.Materiacode;
+            //    detailpx.tensanpham = item.Materialname;
+            //    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+
+
+            //    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+            //    dc.SubmitChanges();
+
+            //}
 
 
 
@@ -682,14 +680,14 @@ namespace Maketting.View
 
             if (rptMKThead != null)
             {
-                tbl_MKT_LoadHeadRpt headpx = new tbl_MKT_LoadHeadRpt();
+                tbl_MKT_WHissueHeadRpt headpx = new tbl_MKT_WHissueHeadRpt();
 
-                headpx.codetransporter = rptMKThead.TransposterCode;
-                headpx.gatepasslist = gatepasslist;
+                headpx.Subid = this.subID.ToString();
+
                 headpx.username = this.Username;
                 headpx.Loadnumber = rptMKThead.LoadNumber;
-                headpx.nametransporter = rptMKThead.TransposterName;
-                headpx.seri = this.storelocation + rptMKThead.LoadNumber;
+                //    headpx.nametransporter = rptMKThead.TransposterName;
+                headpx.seri = this.storelocation + rptMKThead.LoadNumber + "-" + this.subID;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
@@ -700,11 +698,11 @@ namespace Maketting.View
                 headpx.Ngaythang = rptMKThead.Date_Created;
                 headpx.shippingpoint = rptMKThead.ShippingPoint;
 
-                headpx.Truckno = rptMKThead.Truckno;
+                headpx.Storeman = this.Createdby;
 
 
 
-                dc.tbl_MKT_LoadHeadRpts.InsertOnSubmit(headpx);
+                dc.tbl_MKT_WHissueHeadRpts.InsertOnSubmit(headpx);
                 dc.SubmitChanges();
 
             }
@@ -727,18 +725,19 @@ namespace Maketting.View
             //    //          });
 
 
-            var rshead = from pp in dc.tbl_MKT_LoadHeadRpts
+            var rshead = from pp in dc.tbl_MKT_WHissueHeadRpts
                          where pp.username == this.Username
                          select new
                          {
-                             Loadcreatebby = pp.Loadcreatebby,
-                             codetransporter = pp.codetransporter,
+                             Storeman = pp.Storeman,
+                             Subid =    pp.Subid,
+                             //     codetransporter = pp.codetransporter,
                              shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
                              Loadnumber = pp.Loadnumber,
-                             nametransporter = pp.nametransporter,
-                             Truckno = pp.Truckno,
-                             gatepasslist = pp.gatepasslist,
+                             //      nametransporter = pp.nametransporter,
+                             //       Truckno = pp.Truckno,
+                             //     gatepasslist = pp.gatepasslist,
                              seri = pp.seri,
                              Barcode = pp.Barcode,
 
@@ -749,7 +748,52 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
-            var rsdetail = from pp in dc.tbl_MKT_LoaddetailRpts
+          
+            var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == this.Loadnumberserri && pp.IssueIDsub == this.subID
+                           orderby pp.Materiacode
+                           select new
+                           {
+
+                               // stt = stt +1,
+                               Materiacode = pp.Materiacode,
+                               Materialname = pp.Materialname,
+                               soluong = pp.Issued,
+                               //   username = pp.Username,
+                            
+
+                           };
+            if (rsdetail.Count()>0)
+            {
+                int stt = 0;
+                foreach (var item in rsdetail)
+                {
+
+
+                    stt = stt + 1;
+
+                        tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+
+                        detailpx.stt = stt.ToString();
+                        detailpx.soluong = item.soluong;
+                        detailpx.Username = this.Username;
+                        detailpx.materialcode = item.Materiacode;
+                        detailpx.tensanpham = item.Materialname;
+                        detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+
+
+                        dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                        dc.SubmitChanges();
+
+                 
+
+
+
+                }
+
+            }
+
+            var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
                            where pp.Username == this.Username
                            orderby pp.stt
                            select new
@@ -764,14 +808,11 @@ namespace Maketting.View
 
                            };
 
-            //View.Viewtable vx = new Viewtable(rsdetail,dc,"test",100,"100");
-            //vx.ShowDialog();
+
+            var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail
 
 
-            var dataset2 = ut.ToDataTable(dc, rsdetail); // detail
-
-
-            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKLoad.rdlc");
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKWHphieuxuat.rdlc");
             rpt.ShowDialog();
 
             //}

@@ -38,6 +38,9 @@
             this.lbusername = new System.Windows.Forms.Label();
             this.lb_user = new System.Windows.Forms.Label();
             this.panelmain = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dfasfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ádfasdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -60,13 +63,10 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Storerpt = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelmain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -122,6 +122,33 @@
             this.panelmain.Name = "panelmain";
             this.panelmain.Size = new System.Drawing.Size(1327, 611);
             this.panelmain.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(583, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Loadissue make";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(451, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "TRừ realcount";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(367, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "TRừ avaiable kho ";
             // 
             // dfasfToolStripMenuItem
             // 
@@ -223,6 +250,7 @@
             this.storeAvaiableReportsToolStripMenuItem.Name = "storeAvaiableReportsToolStripMenuItem";
             this.storeAvaiableReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.storeAvaiableReportsToolStripMenuItem.Text = "Store avaiable reports";
+            this.storeAvaiableReportsToolStripMenuItem.Click += new System.EventHandler(this.storeAvaiableReportsToolStripMenuItem_Click);
             // 
             // loadCreateToolStripMenuItem
             // 
@@ -285,23 +313,25 @@
             // khoToolStripMenuItem
             // 
             this.khoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem,
+            this.Storerpt,
             this.statusGatepassReportsToolStripMenuItem});
             this.khoToolStripMenuItem.Name = "khoToolStripMenuItem";
             this.khoToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.khoToolStripMenuItem.Text = "Reports";
             // 
-            // báoCáoTrạngTháiPhiếuMKTToolStripMenuItem
+            // Storerpt
             // 
-            this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem.Name = "báoCáoTrạngTháiPhiếuMKTToolStripMenuItem";
-            this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
-            this.báoCáoTrạngTháiPhiếuMKTToolStripMenuItem.Text = "Store Avaiable Reports";
+            this.Storerpt.Name = "Storerpt";
+            this.Storerpt.Size = new System.Drawing.Size(237, 24);
+            this.Storerpt.Text = "Store Avaiable Reports";
+            this.Storerpt.Click += new System.EventHandler(this.Storerpt_Click);
             // 
             // statusGatepassReportsToolStripMenuItem
             // 
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
+            this.statusGatepassReportsToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsToolStripMenuItem_Click);
             // 
             // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
@@ -318,33 +348,6 @@
             this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
             this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "TRừ avaiable kho ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(451, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "TRừ realcount";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(583, 153);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Loadissue make";
             // 
             // Main
             // 
@@ -390,7 +393,7 @@
         private ToolStripMenuItem tiềnMặtToolStripMenuItem;
         private ToolStripMenuItem nhậpKhoToolStripMenuItem;
         private ToolStripMenuItem xuấtĐồToolStripMenuItem;
-        private ToolStripMenuItem báoCáoTrạngTháiPhiếuMKTToolStripMenuItem;
+        private ToolStripMenuItem Storerpt;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem inputPOToolStripMenuItem;
         private ToolStripMenuItem uploadPOToolStripMenuItem;

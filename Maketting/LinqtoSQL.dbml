@@ -1340,7 +1340,6 @@
       <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Count_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="UnitWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
@@ -1355,6 +1354,35 @@
       <Column Name="Avaiable_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Count_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_WHissueHeadRpt" Member="tbl_MKT_WHissueHeadRpts">
+    <Type Name="tbl_MKT_WHissueHeadRpt">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Loadnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ngaythang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Storeman" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Subid" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="shippingpoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_WHstoreissue" Member="tbl_MKt_WHstoreissues">
+    <Type Name="tbl_MKt_WHstoreissue">
+      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_NP_danhsachxe" Member="tbl_NP_danhsachxes">
@@ -1473,22 +1501,6 @@
       <Column Name="cashadvandapproval1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="cashadvanapproval2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKt_WHstoreissue" Member="tbl_MKt_WHstoreissues">
-    <Type Name="tbl_MKt_WHstoreissue">
-      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IssueBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

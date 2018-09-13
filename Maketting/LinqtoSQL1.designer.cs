@@ -240,6 +240,12 @@ namespace Maketting
     partial void Inserttbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
     partial void Updatetbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
     partial void Deletetbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
+    partial void Inserttbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
+    partial void Updatetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
+    partial void Deletetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
+    partial void Inserttbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
+    partial void Updatetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
+    partial void Deletetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Inserttbl_NP_danhsachxe(tbl_NP_danhsachxe instance);
     partial void Updatetbl_NP_danhsachxe(tbl_NP_danhsachxe instance);
     partial void Deletetbl_NP_danhsachxe(tbl_NP_danhsachxe instance);
@@ -258,9 +264,6 @@ namespace Maketting
     partial void Inserttbl_SoQuy(tbl_SoQuy instance);
     partial void Updatetbl_SoQuy(tbl_SoQuy instance);
     partial void Deletetbl_SoQuy(tbl_SoQuy instance);
-    partial void Inserttbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
-    partial void Updatetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
-    partial void Deletetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
@@ -853,6 +856,22 @@ namespace Maketting
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_MKT_WHissueHeadRpt> tbl_MKT_WHissueHeadRpts
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_WHissueHeadRpt>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKt_WHstoreissue> tbl_MKt_WHstoreissues
+		{
+			get
+			{
+				return this.GetTable<tbl_MKt_WHstoreissue>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_NP_danhsachxe> tbl_NP_danhsachxes
 		{
 			get
@@ -898,14 +917,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_SoQuy>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKt_WHstoreissue> tbl_MKt_WHstoreissues
-		{
-			get
-			{
-				return this.GetTable<tbl_MKt_WHstoreissue>();
 			}
 		}
 	}
@@ -28930,8 +28941,6 @@ namespace Maketting
 		
 		private int _id;
 		
-		private System.Nullable<System.DateTime> _Count_date;
-		
 		private string _Store_code;
 		
 		private System.Nullable<double> _UnitWeight;
@@ -28954,8 +28963,6 @@ namespace Maketting
     partial void OnEND_STOCKChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnCount_dateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCount_dateChanged();
     partial void OnStore_codeChanging(string value);
     partial void OnStore_codeChanged();
     partial void OnUnitWeightChanging(System.Nullable<double> value);
@@ -29103,26 +29110,6 @@ namespace Maketting
 					this._id = value;
 					this.SendPropertyChanged("id");
 					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Count_date
-		{
-			get
-			{
-				return this._Count_date;
-			}
-			set
-			{
-				if ((this._Count_date != value))
-				{
-					this.OnCount_dateChanging(value);
-					this.SendPropertyChanging();
-					this._Count_date = value;
-					this.SendPropertyChanged("Count_date");
-					this.OnCount_dateChanged();
 				}
 			}
 		}
@@ -29393,6 +29380,586 @@ namespace Maketting
 					this._Count_date = value;
 					this.SendPropertyChanged("Count_date");
 					this.OnCount_dateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_WHissueHeadRpt")]
+	public partial class tbl_MKT_WHissueHeadRpt : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _username;
+		
+		private string _Loadnumber;
+		
+		private System.Nullable<System.DateTime> _Ngaythang;
+		
+		private string _Storeman;
+		
+		private string _Subid;
+		
+		private string _seri;
+		
+		private int _id;
+		
+		private System.Data.Linq.Binary _Barcode;
+		
+		private string _shippingpoint;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnLoadnumberChanging(string value);
+    partial void OnLoadnumberChanged();
+    partial void OnNgaythangChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgaythangChanged();
+    partial void OnStoremanChanging(string value);
+    partial void OnStoremanChanged();
+    partial void OnSubidChanging(string value);
+    partial void OnSubidChanged();
+    partial void OnseriChanging(string value);
+    partial void OnseriChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnBarcodeChanging(System.Data.Linq.Binary value);
+    partial void OnBarcodeChanged();
+    partial void OnshippingpointChanging(string value);
+    partial void OnshippingpointChanged();
+    #endregion
+		
+		public tbl_MKT_WHissueHeadRpt()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loadnumber", DbType="NVarChar(50)")]
+		public string Loadnumber
+		{
+			get
+			{
+				return this._Loadnumber;
+			}
+			set
+			{
+				if ((this._Loadnumber != value))
+				{
+					this.OnLoadnumberChanging(value);
+					this.SendPropertyChanging();
+					this._Loadnumber = value;
+					this.SendPropertyChanged("Loadnumber");
+					this.OnLoadnumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaythang", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ngaythang
+		{
+			get
+			{
+				return this._Ngaythang;
+			}
+			set
+			{
+				if ((this._Ngaythang != value))
+				{
+					this.OnNgaythangChanging(value);
+					this.SendPropertyChanging();
+					this._Ngaythang = value;
+					this.SendPropertyChanged("Ngaythang");
+					this.OnNgaythangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Storeman", DbType="NVarChar(255)")]
+		public string Storeman
+		{
+			get
+			{
+				return this._Storeman;
+			}
+			set
+			{
+				if ((this._Storeman != value))
+				{
+					this.OnStoremanChanging(value);
+					this.SendPropertyChanging();
+					this._Storeman = value;
+					this.SendPropertyChanged("Storeman");
+					this.OnStoremanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Subid", DbType="NVarChar(255)")]
+		public string Subid
+		{
+			get
+			{
+				return this._Subid;
+			}
+			set
+			{
+				if ((this._Subid != value))
+				{
+					this.OnSubidChanging(value);
+					this.SendPropertyChanging();
+					this._Subid = value;
+					this.SendPropertyChanged("Subid");
+					this.OnSubidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_seri", DbType="NVarChar(255)")]
+		public string seri
+		{
+			get
+			{
+				return this._seri;
+			}
+			set
+			{
+				if ((this._seri != value))
+				{
+					this.OnseriChanging(value);
+					this.SendPropertyChanging();
+					this._seri = value;
+					this.SendPropertyChanged("seri");
+					this.OnseriChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Barcode", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Barcode
+		{
+			get
+			{
+				return this._Barcode;
+			}
+			set
+			{
+				if ((this._Barcode != value))
+				{
+					this.OnBarcodeChanging(value);
+					this.SendPropertyChanging();
+					this._Barcode = value;
+					this.SendPropertyChanged("Barcode");
+					this.OnBarcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shippingpoint", DbType="NVarChar(50)")]
+		public string shippingpoint
+		{
+			get
+			{
+				return this._shippingpoint;
+			}
+			set
+			{
+				if ((this._shippingpoint != value))
+				{
+					this.OnshippingpointChanging(value);
+					this.SendPropertyChanging();
+					this._shippingpoint = value;
+					this.SendPropertyChanged("shippingpoint");
+					this.OnshippingpointChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_WHstoreissue")]
+	public partial class tbl_MKt_WHstoreissue : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _LoadNumber;
+		
+		private int _id;
+		
+		private string _Status;
+		
+		private string _Username;
+		
+		private string _ShippingPoint;
+		
+		private string _Materiacode;
+		
+		private string _Materialname;
+		
+		private System.Nullable<System.DateTime> _IssueDate;
+		
+		private System.Nullable<double> _Issued;
+		
+		private string _Serriload;
+		
+		private string _IssueBy;
+		
+		private System.Nullable<int> _IssueIDsub;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLoadNumberChanging(string value);
+    partial void OnLoadNumberChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnShippingPointChanging(string value);
+    partial void OnShippingPointChanged();
+    partial void OnMateriacodeChanging(string value);
+    partial void OnMateriacodeChanged();
+    partial void OnMaterialnameChanging(string value);
+    partial void OnMaterialnameChanged();
+    partial void OnIssueDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnIssueDateChanged();
+    partial void OnIssuedChanging(System.Nullable<double> value);
+    partial void OnIssuedChanged();
+    partial void OnSerriloadChanging(string value);
+    partial void OnSerriloadChanged();
+    partial void OnIssueByChanging(string value);
+    partial void OnIssueByChanged();
+    partial void OnIssueIDsubChanging(System.Nullable<int> value);
+    partial void OnIssueIDsubChanged();
+    #endregion
+		
+		public tbl_MKt_WHstoreissue()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadNumber", DbType="NVarChar(50)")]
+		public string LoadNumber
+		{
+			get
+			{
+				return this._LoadNumber;
+			}
+			set
+			{
+				if ((this._LoadNumber != value))
+				{
+					this.OnLoadNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LoadNumber = value;
+					this.SendPropertyChanged("LoadNumber");
+					this.OnLoadNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingPoint", DbType="NVarChar(50)")]
+		public string ShippingPoint
+		{
+			get
+			{
+				return this._ShippingPoint;
+			}
+			set
+			{
+				if ((this._ShippingPoint != value))
+				{
+					this.OnShippingPointChanging(value);
+					this.SendPropertyChanging();
+					this._ShippingPoint = value;
+					this.SendPropertyChanged("ShippingPoint");
+					this.OnShippingPointChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materiacode", DbType="NVarChar(50)")]
+		public string Materiacode
+		{
+			get
+			{
+				return this._Materiacode;
+			}
+			set
+			{
+				if ((this._Materiacode != value))
+				{
+					this.OnMateriacodeChanging(value);
+					this.SendPropertyChanging();
+					this._Materiacode = value;
+					this.SendPropertyChanged("Materiacode");
+					this.OnMateriacodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(50)")]
+		public string Materialname
+		{
+			get
+			{
+				return this._Materialname;
+			}
+			set
+			{
+				if ((this._Materialname != value))
+				{
+					this.OnMaterialnameChanging(value);
+					this.SendPropertyChanging();
+					this._Materialname = value;
+					this.SendPropertyChanged("Materialname");
+					this.OnMaterialnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> IssueDate
+		{
+			get
+			{
+				return this._IssueDate;
+			}
+			set
+			{
+				if ((this._IssueDate != value))
+				{
+					this.OnIssueDateChanging(value);
+					this.SendPropertyChanging();
+					this._IssueDate = value;
+					this.SendPropertyChanged("IssueDate");
+					this.OnIssueDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issued", DbType="Float")]
+		public System.Nullable<double> Issued
+		{
+			get
+			{
+				return this._Issued;
+			}
+			set
+			{
+				if ((this._Issued != value))
+				{
+					this.OnIssuedChanging(value);
+					this.SendPropertyChanging();
+					this._Issued = value;
+					this.SendPropertyChanged("Issued");
+					this.OnIssuedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serriload", DbType="NVarChar(50)")]
+		public string Serriload
+		{
+			get
+			{
+				return this._Serriload;
+			}
+			set
+			{
+				if ((this._Serriload != value))
+				{
+					this.OnSerriloadChanging(value);
+					this.SendPropertyChanging();
+					this._Serriload = value;
+					this.SendPropertyChanged("Serriload");
+					this.OnSerriloadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueBy", DbType="NVarChar(50)")]
+		public string IssueBy
+		{
+			get
+			{
+				return this._IssueBy;
+			}
+			set
+			{
+				if ((this._IssueBy != value))
+				{
+					this.OnIssueByChanging(value);
+					this.SendPropertyChanging();
+					this._IssueBy = value;
+					this.SendPropertyChanged("IssueBy");
+					this.OnIssueByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueIDsub", DbType="Int")]
+		public System.Nullable<int> IssueIDsub
+		{
+			get
+			{
+				return this._IssueIDsub;
+			}
+			set
+			{
+				if ((this._IssueIDsub != value))
+				{
+					this.OnIssueIDsubChanging(value);
+					this.SendPropertyChanging();
+					this._IssueIDsub = value;
+					this.SendPropertyChanged("IssueIDsub");
+					this.OnIssueIDsubChanged();
 				}
 			}
 		}
@@ -31877,332 +32444,6 @@ namespace Maketting
 					this._macty = value;
 					this.SendPropertyChanged("macty");
 					this.OnmactyChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_WHstoreissue")]
-	public partial class tbl_MKt_WHstoreissue : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _LoadNumber;
-		
-		private int _id;
-		
-		private string _Status;
-		
-		private string _Username;
-		
-		private string _ShippingPoint;
-		
-		private string _Materiacode;
-		
-		private string _Materialname;
-		
-		private System.Nullable<System.DateTime> _IssueDate;
-		
-		private System.Nullable<double> _Issued;
-		
-		private string _Serriload;
-		
-		private string _IssueBy;
-		
-		private System.Nullable<int> _IssueIDsub;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLoadNumberChanging(string value);
-    partial void OnLoadNumberChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnShippingPointChanging(string value);
-    partial void OnShippingPointChanged();
-    partial void OnMateriacodeChanging(string value);
-    partial void OnMateriacodeChanged();
-    partial void OnMaterialnameChanging(string value);
-    partial void OnMaterialnameChanged();
-    partial void OnIssueDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnIssueDateChanged();
-    partial void OnIssuedChanging(System.Nullable<double> value);
-    partial void OnIssuedChanged();
-    partial void OnSerriloadChanging(string value);
-    partial void OnSerriloadChanged();
-    partial void OnIssueByChanging(string value);
-    partial void OnIssueByChanged();
-    partial void OnIssueIDsubChanging(System.Nullable<int> value);
-    partial void OnIssueIDsubChanged();
-    #endregion
-		
-		public tbl_MKt_WHstoreissue()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoadNumber", DbType="NVarChar(50)")]
-		public string LoadNumber
-		{
-			get
-			{
-				return this._LoadNumber;
-			}
-			set
-			{
-				if ((this._LoadNumber != value))
-				{
-					this.OnLoadNumberChanging(value);
-					this.SendPropertyChanging();
-					this._LoadNumber = value;
-					this.SendPropertyChanged("LoadNumber");
-					this.OnLoadNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippingPoint", DbType="NVarChar(50)")]
-		public string ShippingPoint
-		{
-			get
-			{
-				return this._ShippingPoint;
-			}
-			set
-			{
-				if ((this._ShippingPoint != value))
-				{
-					this.OnShippingPointChanging(value);
-					this.SendPropertyChanging();
-					this._ShippingPoint = value;
-					this.SendPropertyChanged("ShippingPoint");
-					this.OnShippingPointChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materiacode", DbType="NVarChar(50)")]
-		public string Materiacode
-		{
-			get
-			{
-				return this._Materiacode;
-			}
-			set
-			{
-				if ((this._Materiacode != value))
-				{
-					this.OnMateriacodeChanging(value);
-					this.SendPropertyChanging();
-					this._Materiacode = value;
-					this.SendPropertyChanged("Materiacode");
-					this.OnMateriacodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(50)")]
-		public string Materialname
-		{
-			get
-			{
-				return this._Materialname;
-			}
-			set
-			{
-				if ((this._Materialname != value))
-				{
-					this.OnMaterialnameChanging(value);
-					this.SendPropertyChanging();
-					this._Materialname = value;
-					this.SendPropertyChanged("Materialname");
-					this.OnMaterialnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> IssueDate
-		{
-			get
-			{
-				return this._IssueDate;
-			}
-			set
-			{
-				if ((this._IssueDate != value))
-				{
-					this.OnIssueDateChanging(value);
-					this.SendPropertyChanging();
-					this._IssueDate = value;
-					this.SendPropertyChanged("IssueDate");
-					this.OnIssueDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issued", DbType="Float")]
-		public System.Nullable<double> Issued
-		{
-			get
-			{
-				return this._Issued;
-			}
-			set
-			{
-				if ((this._Issued != value))
-				{
-					this.OnIssuedChanging(value);
-					this.SendPropertyChanging();
-					this._Issued = value;
-					this.SendPropertyChanged("Issued");
-					this.OnIssuedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serriload", DbType="NVarChar(50)")]
-		public string Serriload
-		{
-			get
-			{
-				return this._Serriload;
-			}
-			set
-			{
-				if ((this._Serriload != value))
-				{
-					this.OnSerriloadChanging(value);
-					this.SendPropertyChanging();
-					this._Serriload = value;
-					this.SendPropertyChanged("Serriload");
-					this.OnSerriloadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueBy", DbType="NVarChar(50)")]
-		public string IssueBy
-		{
-			get
-			{
-				return this._IssueBy;
-			}
-			set
-			{
-				if ((this._IssueBy != value))
-				{
-					this.OnIssueByChanging(value);
-					this.SendPropertyChanging();
-					this._IssueBy = value;
-					this.SendPropertyChanged("IssueBy");
-					this.OnIssueByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueIDsub", DbType="Int")]
-		public System.Nullable<int> IssueIDsub
-		{
-			get
-			{
-				return this._IssueIDsub;
-			}
-			set
-			{
-				if ((this._IssueIDsub != value))
-				{
-					this.OnIssueIDsubChanging(value);
-					this.SendPropertyChanging();
-					this._IssueIDsub = value;
-					this.SendPropertyChanged("IssueIDsub");
-					this.OnIssueIDsubChanged();
 				}
 			}
 		}

@@ -525,6 +525,37 @@ namespace Maketting.Model
 
         }
 
+     //   tbl_MKt_WHstoreissue
+        public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemxuat.Materiacode
+                     select p;
+
+            if (rs.Count()>0)
+            {
+                foreach (var item in rs)
+                {
+                    item.END_STOCK = item.END_STOCK - itemxuat.Issued;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+
         public static IQueryable DanhsachctMKT(LinqtoSQLDataContext dc)
         {
 

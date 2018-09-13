@@ -3620,44 +3620,59 @@ namespace Maketting.View
 
         private void báoCáoPhiếuMKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+                var rs = from p in db.tbl_MKt_Listphieus
+                         where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
+                         orderby p.Gate_pass
+                         select new
+                         {
+                             p.Gate_pass,
+                             p.Status,
+                             p.ShippingPoint,
+                             p.ShipmentNumber,
+                            
+                             p.Requested_by,
+                             Date_MKT_Phiếu = p.Ngaytaophieu,
+                             p.Customer_SAP_Code,
+                             p.Receiver_by,
+                             p.Address,
+                             Số_lượng_yêu_cầu = p.Issued,
+                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                            // Số_lượng_còn_lại = p.Soluongconlai,
+                             p.Materiacode,
+                             p.MateriaSAPcode,
+                             p.Description,
+                             
 
 
 
-            string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-         
-            var rs = from p in db.tbl_MKt_Listphieus
-                     orderby p.Gate_pass
-                     select new
-                     {
-                         p.Gate_pass,
-                         p.Requested_by,
-                         Date_MKT_Phiếu = p.Ngaytaophieu,
-                         p.Customer_SAP_Code,
-                         p.Receiver_by,
-                         p.Address,
-                         Số_lượng_yêu_cầu = p.Issued,
-                         Số_lượng_thực_xuất = p.Soluongdaxuat,
-                         Số_lượng_còn_lại = p.Soluongconlai,
-                         p.Materiacode,
-                         p.MateriaSAPcode,
-                         p.Description,
+                         //    ID = p.id,
+                         };
 
 
 
 
+                Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
-                         ID = p.id,
-                     };
-
-
+                viewtbl.ShowDialog();
 
 
-            Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
-
-            viewtbl.ShowDialog();
+            }
 
 
 
@@ -3808,6 +3823,20 @@ namespace Maketting.View
                 }
 
 
+                var rs6 = (from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == Loadnumberserri
+
+
+                           select pp).FirstOrDefault();
+                if (rs6 != null)
+                {
+                    MessageBox.Show("Phiếu đã xuất hàng rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
 
 
 
@@ -3842,6 +3871,99 @@ namespace Maketting.View
             pxk.ShowDialog();
 
             string POnumber = pxk.valuetext;
+
+
+        }
+
+        private void Storerpt_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs5 = from pp in dc.tbl_MKT_Stockends
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 100, "STORERPT");
+            tbl.ShowDialog();
+
+
+        }
+
+        private void storeAvaiableReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs5 = from pp in dc.tbl_MKT_Stockends
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 100, "STORERPT");
+            tbl.ShowDialog();
+
+        }
+
+        private void statusGatepassReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+
+                var rs = from p in db.tbl_MKt_Listphieus
+                         where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
+                         orderby p.Gate_pass
+                         select new
+                         {
+                             p.Gate_pass,
+                             p.Status,
+                             p.ShippingPoint,
+                             p.ShipmentNumber,
+
+                             p.Requested_by,
+                             Date_MKT_Phiếu = p.Ngaytaophieu,
+                             p.Customer_SAP_Code,
+                             p.Receiver_by,
+                             p.Address,
+                             Số_lượng_yêu_cầu = p.Issued,
+                             //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                             // Số_lượng_còn_lại = p.Soluongconlai,
+                             p.Materiacode,
+                             p.MateriaSAPcode,
+                             p.Description,
+
+
+
+
+
+
+                             //    ID = p.id,
+                         };
+
+
+
+
+                Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+
+
 
 
         }
