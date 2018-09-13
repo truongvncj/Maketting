@@ -610,7 +610,7 @@ namespace Maketting.Model
                     item.Status = "TMP";
                     dc.SubmitChanges();
                 }
-              
+
                 kq = true;
             }
 
@@ -635,10 +635,30 @@ namespace Maketting.Model
                 }
             }
 
+
+
+
+            // tbl_MKt_ListLoadheadDetail
+
+
+            var rs3 = from pp in dc.tbl_MKt_ListLoadheadDetails
+                      where pp.LoadNumber == soload && pp.ShippingPoint == storelocation
+                      select pp;
+
+            if (rs3.Count() > 0)
+            {
+
+                dc.tbl_MKt_ListLoadheadDetails.DeleteAllOnSubmit(rs3);
+
+                dc.SubmitChanges();
+
+
+            }
+
             return kq;
             // throw new NotImplementedException();
         }
-    //    Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+        //    Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
 
         public static void DanhsachPhieuMKTtoDLVseach(string storelocation, DataGridView dataGridViewDetail, string txtseachaddress, string txtseachcode, string txtseachgate)
         {
@@ -654,7 +674,7 @@ namespace Maketting.Model
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.ToString().Contains(txtseachcode)
                                && (p.ShippingPoint + p.Gate_pass).Contains(txtseachgate)
-                        
+
 
                      orderby p.Gate_pass
                      select new

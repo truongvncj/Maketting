@@ -3783,12 +3783,33 @@ namespace Maketting.View
             MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOAD NUMBER ");
             pxk.ShowDialog();
 
-            string Loadnumber = pxk.valuetext;
+            string Loadnumberserri = pxk.valuetext;
             bool kq = pxk.kq;
 
             if (true)
             {
-              
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+                           where pp.Serriload == Loadnumberserri
+                       
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                
+                    return;
+
+                }
+
+
+
+
 
 
                 #region//tao load
@@ -3801,7 +3822,7 @@ namespace Maketting.View
                 this.clearpannel();
 
 
-                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this);
+                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this, Loadnumberserri );
                 this.clearpannelload(xuatkho);
                 // this.Close();
                 #endregion

@@ -739,6 +739,51 @@ namespace Maketting.View
 
                 #endregion
 
+                #region  update tbl_MKt_ListLoadheadDetail
+             
+
+                var rs4 = from pp in dc.tbl_MKt_Listphieus
+                          where pp.ShipmentNumber == this.soload
+                          && pp.ShippingPoint == this.storelocation
+                          group pp by pp.Materiacode into gg
+
+                                select new
+                                {
+                                    Issued = gg.Sum(m => m.Issued),
+                                    Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                                    Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+
+
+
+                                };
+             //   int i = 0;
+                foreach (var item in rs4)
+                {
+                 //   i = i + 1;
+
+                    tbl_MKt_ListLoadheadDetail loaddetail = new tbl_MKt_ListLoadheadDetail();
+
+                    //   loaddetail.stt = i.ToString();
+                    loaddetail.LoadNumber = this.soload;
+                    loaddetail.Username = this.Username;
+                    loaddetail.Materiacode = item.Materiacode;
+                    loaddetail.Materialname = item.Materialname;
+                    // loaddetail.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+                    loaddetail.Serriload = this.storelocation+this.soload;
+                    loaddetail.ShippingPoint = this.storelocation;
+                    loaddetail.Issued = item.Issued;
+                    loaddetail.Status = "CRT";
+
+                    dc.tbl_MKt_ListLoadheadDetails.InsertOnSubmit(loaddetail);
+                    dc.SubmitChanges();
+
+                }
+
+
+
+
+                #endregion
+
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
               //  cleartoblankphieu();
             }

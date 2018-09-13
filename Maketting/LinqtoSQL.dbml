@@ -1233,6 +1233,7 @@
       <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieu" Member="tbl_MKt_Listphieus">
@@ -1472,6 +1473,22 @@
       <Column Name="cashadvandapproval1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="cashadvanapproval2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_WHstoreissue" Member="tbl_MKt_WHstoreissues">
+    <Type Name="tbl_MKt_WHstoreissue">
+      <Column Name="LoadNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
