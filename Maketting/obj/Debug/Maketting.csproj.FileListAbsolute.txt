@@ -76,7 +76,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTCaculating.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNoouthourise.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewchooseiquery.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTServersetup.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHkiemkeapproval.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsackhachhang.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTdanhsachxe.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsachnhavantai.resources
@@ -91,3 +90,4 @@ D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKWHphieuxuat.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdatetodate.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcount.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectinput.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewchooseiqueryloadtomain.resources

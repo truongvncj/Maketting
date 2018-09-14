@@ -28949,6 +28949,10 @@ namespace Maketting
 		
 		private string _Createdby;
 		
+		private System.Nullable<double> _CountQuantity;
+		
+		private bool _Aproved;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -28975,6 +28979,10 @@ namespace Maketting
     partial void OnIdsubChanged();
     partial void OnCreatedbyChanging(string value);
     partial void OnCreatedbyChanged();
+    partial void OnCountQuantityChanging(System.Nullable<double> value);
+    partial void OnCountQuantityChanged();
+    partial void OnAprovedChanging(bool value);
+    partial void OnAprovedChanged();
     #endregion
 		
 		public tbl_MKT_Stockcount()
@@ -29198,6 +29206,46 @@ namespace Maketting
 					this._Createdby = value;
 					this.SendPropertyChanged("Createdby");
 					this.OnCreatedbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountQuantity", DbType="Float")]
+		public System.Nullable<double> CountQuantity
+		{
+			get
+			{
+				return this._CountQuantity;
+			}
+			set
+			{
+				if ((this._CountQuantity != value))
+				{
+					this.OnCountQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._CountQuantity = value;
+					this.SendPropertyChanged("CountQuantity");
+					this.OnCountQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aproved", DbType="Bit NOT NULL")]
+		public bool Aproved
+		{
+			get
+			{
+				return this._Aproved;
+			}
+			set
+			{
+				if ((this._Aproved != value))
+				{
+					this.OnAprovedChanging(value);
+					this.SendPropertyChanging();
+					this._Aproved = value;
+					this.SendPropertyChanged("Aproved");
+					this.OnAprovedChanged();
 				}
 			}
 		}

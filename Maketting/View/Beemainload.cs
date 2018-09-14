@@ -1212,12 +1212,12 @@ namespace Maketting.View
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)
         {
-            this.pictureBox2.BorderStyle = BorderStyle.FixedSingle;
+        //    this.pictureBox2.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void pictureBox2_MouseLeave(object sender, EventArgs e)
         {
-            this.pictureBox2.BorderStyle = BorderStyle.None;
+          //  this.pictureBox2.BorderStyle = BorderStyle.None;
         }
 
         private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
@@ -1271,7 +1271,7 @@ namespace Maketting.View
 
         private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
         {
-            this.pictureBox2.BorderStyle = BorderStyle.None;
+          //  this.pictureBox2.BorderStyle = BorderStyle.None;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -1286,7 +1286,7 @@ namespace Maketting.View
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            this.pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+         //   this.pictureBox2.BorderStyle = BorderStyle.Fixed3D;
         }
     }
 }

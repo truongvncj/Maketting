@@ -19,6 +19,8 @@ namespace Maketting.View
         public string Username { get; set; }
         public string Createdby { get; set; }
         public int idsub { get; set; }
+        LinqtoSQLDataContext datacontext { get; set; }
+        IQueryable  Iquyery { get; set; }
 
         public class ComboboxItem
         {
@@ -48,7 +50,7 @@ namespace Maketting.View
                          Material_name = pp.MATERIAL,
                          Description = pp.Description,
                          UNIT = pp.UNIT,
-                        // Requested_issue = pp.END_STOCK,
+                         END_STOCK = pp.END_STOCK,
                           //     Real_issue = 0,
 
                      };
@@ -80,7 +82,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Description"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["UNIT"].ReadOnly = true;
-
+                dataGridViewLoaddetail.Columns["END_STOCK"].ReadOnly = true;
 
 
                 dataGridViewLoaddetail.Columns["Store"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
@@ -89,7 +91,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Description"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["UNIT"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-
+              //  dataGridViewLoaddetail.Columns["END_STOCK"].Visible = false;
 
             }
 
@@ -233,10 +235,10 @@ namespace Maketting.View
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            // main1.clearpannel();
-            //View.Beemainload main = new Beemainload(main1);
+            main1.clearpannel();
+            View.Beemainload main = new Beemainload(main1);
 
-            //main1.clearpannelload(main);
+            main1.clearpannelload(main);
         }
 
         private void comboBox8_KeyPress(object sender, KeyPressEventArgs e)
@@ -502,7 +504,9 @@ namespace Maketting.View
                         }
                         
                       
-                        countstock.END_STOCK = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Count_Quantity"].Value;
+                        countstock.CountQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Count_Quantity"].Value;
+
+                        countstock.END_STOCK = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["END_STOCK"].Value.ToString());
                         //   countstock.Status = "CRT";
 
 
@@ -1749,6 +1753,33 @@ namespace Maketting.View
             }
 
             // Next
+
+
+        }
+
+        private void bt_exporttoex_Click(object sender, EventArgs e)
+        {
+            Control_ac ctrex = new Control_ac();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            string urs = Utils.getusername();
+
+            var rs = from pp in dc.tbl_MKT_Stockends
+                     where pp.Store_code == this.storelocation
+                     select new
+                     {
+                         Store = pp.Store_code,
+                         SAP_CODE = pp.SAP_CODE,
+                         ITEM_Code = pp.ITEM_Code,
+                         Material_name = pp.MATERIAL,
+                         Description = pp.Description,
+                         UNIT = pp.UNIT,
+                      //   END_STOCK = pp.END_STOCK,
+                         //     Real_issue = 0,
+
+                     };
+
+            ctrex.exportexceldatagridtofile(rs, dc, "STOCK COUNT  "+ datecreated.Value.ToShortDateString());
 
 
         }

@@ -420,10 +420,10 @@ namespace Maketting.View
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            // main1.clearpannel();
-            //View.Beemainload main = new Beemainload(main1);
+            main1.clearpannel();
+            View.Beemainload main = new Beemainload(main1);
 
-            //main1.clearpannelload(main);
+            main1.clearpannelload(main);
         }
 
         private void comboBox8_KeyPress(object sender, KeyPressEventArgs e)
