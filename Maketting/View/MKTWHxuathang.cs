@@ -511,6 +511,8 @@ namespace Maketting.View
 
                         Model.MKT.giamtrukhokhixuathang(phieuxuat);
 
+                   
+
                     }
                 }
 
@@ -518,7 +520,25 @@ namespace Maketting.View
 
 
                 MessageBox.Show("StoreIssue:  " + this.Loadnumberserri.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //  cleartoblankphieu();
+
+                var phieuMKT = (from pp in dc.tbl_MKt_Listphieus
+                                where pp.ShipmentNumber == this.soload
+                                && pp.ShippingPoint == this.storelocation
+                                select pp);
+
+
+
+                if (phieuMKT.Count()>0)
+                {
+                    foreach (var item in phieuMKT)
+                    {
+                        item.Status = "Delivering";
+                        dc.SubmitChanges();
+                    }
+                }
+
+
+
             }
 
 
