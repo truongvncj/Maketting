@@ -28953,6 +28953,14 @@ namespace Maketting
 		
 		private bool _Aproved;
 		
+		private string _Status;
+		
+		private string _Aprovedby;
+		
+		private System.Nullable<System.DateTime> _AprovedDate;
+		
+		private System.Nullable<double> _ActualEndatAproval;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -28983,6 +28991,14 @@ namespace Maketting
     partial void OnCountQuantityChanged();
     partial void OnAprovedChanging(bool value);
     partial void OnAprovedChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnAprovedbyChanging(string value);
+    partial void OnAprovedbyChanged();
+    partial void OnAprovedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnAprovedDateChanged();
+    partial void OnActualEndatAprovalChanging(System.Nullable<double> value);
+    partial void OnActualEndatAprovalChanged();
     #endregion
 		
 		public tbl_MKT_Stockcount()
@@ -29246,6 +29262,86 @@ namespace Maketting
 					this._Aproved = value;
 					this.SendPropertyChanged("Aproved");
 					this.OnAprovedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aprovedby", DbType="NVarChar(50)")]
+		public string Aprovedby
+		{
+			get
+			{
+				return this._Aprovedby;
+			}
+			set
+			{
+				if ((this._Aprovedby != value))
+				{
+					this.OnAprovedbyChanging(value);
+					this.SendPropertyChanging();
+					this._Aprovedby = value;
+					this.SendPropertyChanged("Aprovedby");
+					this.OnAprovedbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AprovedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> AprovedDate
+		{
+			get
+			{
+				return this._AprovedDate;
+			}
+			set
+			{
+				if ((this._AprovedDate != value))
+				{
+					this.OnAprovedDateChanging(value);
+					this.SendPropertyChanging();
+					this._AprovedDate = value;
+					this.SendPropertyChanged("AprovedDate");
+					this.OnAprovedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActualEndatAproval", DbType="Float")]
+		public System.Nullable<double> ActualEndatAproval
+		{
+			get
+			{
+				return this._ActualEndatAproval;
+			}
+			set
+			{
+				if ((this._ActualEndatAproval != value))
+				{
+					this.OnActualEndatAprovalChanging(value);
+					this.SendPropertyChanging();
+					this._ActualEndatAproval = value;
+					this.SendPropertyChanged("ActualEndatAproval");
+					this.OnActualEndatAprovalChanged();
 				}
 			}
 		}

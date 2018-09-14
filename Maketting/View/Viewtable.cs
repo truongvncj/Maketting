@@ -487,17 +487,17 @@ namespace Maketting.View
             #endregion
 
 
-            #region  // viewcode ==4  lA DANH SACH  kho hàng
+            #region  // viewcode ==4  lA DANH SACH  maketing
             if (this.viewcode == 4)
             {
 
                 Model.Khohang.themmoikhohang();
 
+                var rs1 = Model.MKT.danhsachkhoMKT(dc);
 
+             //   var rs = Model.Khohang.Danhsachkho(this.db);
 
-                var rs = Model.Khohang.Danhsachkho(this.db);
-
-                dataGridView1.DataSource = rs;
+                dataGridView1.DataSource = rs1;
 
 
 
@@ -955,9 +955,9 @@ namespace Maketting.View
 
 
 
-                var rs = Model.Khohang.Danhsachkho(this.db);
+                var rs1 = Model.MKT.danhsachkhoMKT(dc);
 
-                dataGridView1.DataSource = rs;
+                dataGridView1.DataSource = rs1;
 
 
 
@@ -1445,7 +1445,7 @@ namespace Maketting.View
 
 
 
-                var rs = Model.Khohang.Danhsachkho(this.db);
+                var rs =  Model.MKT.danhsachkhoMKT(dc);
 
                 dataGridView1.DataSource = rs;
 

@@ -62,8 +62,8 @@ namespace Maketting.View
 
 
 
-                var item = (from p in dc.tbl_khohangs
-                         where p.id == idkho
+                var item = (from p in dc.tbl_MKT_khoMKTs
+                            where p.id == idkho
                          select p).FirstOrDefault();
 
                 if (item != null)
@@ -172,14 +172,14 @@ namespace Maketting.View
 
 
 
-            var rs1 = (from p in dc.tbl_khohangs
+            var rs1 = (from p in dc.tbl_MKT_khoMKTs
                        where p.id == this.id
                        select p).FirstOrDefault();
 
             if (rs1 != null)
             {
 
-                dc.tbl_khohangs.DeleteOnSubmit(rs1);
+                dc.tbl_MKT_khoMKTs.DeleteOnSubmit(rs1);
                 dc.SubmitChanges();
                 this.Close();
 
@@ -229,7 +229,7 @@ namespace Maketting.View
 
 
                 //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_khohangs
+                var rs = (from p in db.tbl_MKT_khoMKTs
                           where p.makho == makho
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
@@ -292,7 +292,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-            tbl_khohang p = new tbl_khohang();
+            tbl_MKT_khoMKT p = new tbl_MKT_khoMKT();
 
 
             p.makho = this.makho;// = this.txtmaNCC.Text;
@@ -304,7 +304,7 @@ namespace Maketting.View
             p.ghichu = this.ghichu;// this.txtNganhnghe.Text;
       
          
-            db.tbl_khohangs.InsertOnSubmit(p);
+            db.tbl_MKT_khoMKTs.InsertOnSubmit(p);
             db.SubmitChanges();
             this.Close();
 

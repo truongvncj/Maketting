@@ -91,3 +91,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdatetodate.resourc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcount.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectinput.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewchooseiqueryloadtomain.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcountaproval.resources

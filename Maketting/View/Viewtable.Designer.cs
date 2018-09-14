@@ -323,7 +323,7 @@ namespace Maketting.View
             this.KeyPreview = true;
             this.Name = "Viewtable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Data View";
+            this.Text = "View";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Viewtable_FormClosed);
             this.panel1.ResumeLayout(false);

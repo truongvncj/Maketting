@@ -87,34 +87,34 @@ namespace Maketting.View
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
           
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (dataGridView1.RowCount > 0)
-                {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    if (dataGridView1.RowCount > 0)
+            //    {
 
 
 
 
-                    if (this.dataGridView1.CurrentCell.RowIndex >= 0)
-                    {
+            //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+            //        {
 
-                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value != DBNull.Value)
-                        {
-                            this.id = int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
+            //            if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value != DBNull.Value)
+            //            {
+            //                this.id = int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
 
-                        }
-
-
-                        chon = true;
-
-                        this.Close();
-                    }
-
-                }
+            //            }
 
 
+            //            chon = true;
 
-            }
+            //            this.Close();
+            //        }
+
+            //    }
+
+
+
+            //}
 
         }
 
@@ -150,6 +150,44 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+
+
+
+
+                if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                {
+
+                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value != DBNull.Value)
+                    {
+                        this.id = int.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString());
+
+                    }
+
+
+                    chon = true;
+
+                    this.Close();
+                    //  viewapprobal balance
+
+                    this.Close();
+                    main1.clearpannel();
+
+                    View.MKTWHcountaproval main = new MKTWHcountaproval(main1, this.id);
+
+                    main1.clearpannelload(main);
+
+
+
+                    //
+                }
+
+            }
         }
     }
 }

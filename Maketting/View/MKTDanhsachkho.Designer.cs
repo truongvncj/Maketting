@@ -202,7 +202,7 @@
             this.MinimizeBox = false;
             this.Name = "MKTDanhsachkho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kho hàng";
+            this.Text = "Kho Maketting";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

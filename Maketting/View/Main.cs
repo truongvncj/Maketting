@@ -4159,6 +4159,7 @@ namespace Maketting.View
 
                 var rs1 = from pp in dc.tbl_MKT_Stockcounts
                           where pp.Store_code ==storelocation
+                          && pp.Aproved ==false
                           group pp by new
                           {
                               pp.CountingDate,
@@ -4175,13 +4176,16 @@ namespace Maketting.View
                               //   Counting_times = gg.Select(m => m.Idsub).FirstOrDefault(),
                               Createdby = gg.Select(m => m.Createdby).FirstOrDefault(),
                               Aproval_Status = gg.Select(m => m.Aproved).FirstOrDefault(),
+                              Status = gg.Select(m => m.Status).FirstOrDefault(),
+                              Aproval_By = gg.Select(m => m.Aprovedby).FirstOrDefault(),
+
                               id = gg.Select(m => m.id).FirstOrDefault(),
 
                           };
 
 
                 this.clearpannel();
-
+      //          MKTWHcountaproval
 
                 View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT LIST WITH APROVAL STATUS ", "Counting_times");
                 this.clearpannelload(approvaldemkho);
@@ -4192,6 +4196,20 @@ namespace Maketting.View
 
             }
 
+
+        }
+
+        private void storeManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.danhsachkhoMKT(dc);
+            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
+
+            viewtbl.ShowDialog();
 
         }
     }

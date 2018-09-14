@@ -171,6 +171,12 @@
     <Compile Include="View\MKTViewchooseiqueryloadtomain.Designer.cs">
       <DependentUpon>MKTViewchooseiqueryloadtomain.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTWHcountaproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHcountaproval.Designer.cs">
+      <DependentUpon>MKTWHcountaproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTWHcount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -572,6 +578,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTViewchooseiqueryloadtomain.resx">
       <DependentUpon>MKTViewchooseiqueryloadtomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHcountaproval.resx">
+      <DependentUpon>MKTWHcountaproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHcount.resx">
       <DependentUpon>MKTWHcount.cs</DependentUpon>

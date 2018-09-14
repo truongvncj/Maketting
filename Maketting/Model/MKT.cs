@@ -525,7 +525,7 @@ namespace Maketting.Model
 
         }
 
-     //   tbl_MKt_WHstoreissue
+        //   tbl_MKt_WHstoreissue
         public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
         {
 
@@ -537,7 +537,7 @@ namespace Maketting.Model
                      where p.ITEM_Code == itemxuat.Materiacode
                      select p;
 
-            if (rs.Count()>0)
+            if (rs.Count() > 0)
             {
                 foreach (var item in rs)
                 {
@@ -734,6 +734,39 @@ namespace Maketting.Model
 
 
             // throw new NotImplementedException();
+        }
+
+        public static IQueryable danhsachkhoMKT(LinqtoSQLDataContext dc)
+        {
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_khoMKTs
+                     orderby p.makho
+                     select new
+                     {
+
+
+                         Mã_kho = p.makho,
+                         Tên_kho = p.tenkho,
+                         Địa_chỉ = p.diachikho,
+
+                         Ghi_chú = p.ghichu,
+
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+            return rs;
+
+
+
+
+
+            //  throw new NotImplementedException();
         }
     }
 }
