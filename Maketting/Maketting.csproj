@@ -165,6 +165,12 @@
     <Compile Include="View\MKTFromdatetodate.Designer.cs">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTWHcount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHcount.Designer.cs">
+      <DependentUpon>MKTWHcount.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTWHxuathang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,12 +194,6 @@
     </Compile>
     <Compile Include="View\MKTWHkiemkeapproval.Designer.cs">
       <DependentUpon>MKTWHkiemkeapproval.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MKTWHkiemke.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MKTWHkiemke.Designer.cs">
-      <DependentUpon>MKTWHkiemke.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BeeBCKQKD200updatechotso.cs">
       <SubType>Form</SubType>
@@ -387,11 +387,11 @@
     <Compile Include="View\MKTPasswordchange.Designer.cs">
       <DependentUpon>MKTPasswordchange.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\beeselectinput.cs">
+    <Compile Include="View\MKTselectinput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\beeselectinput.Designer.cs">
-      <DependentUpon>beeselectinput.cs</DependentUpon>
+    <Compile Include="View\MKTselectinput.Designer.cs">
+      <DependentUpon>MKTselectinput.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTViewchooseiquery.cs">
       <SubType>Form</SubType>
@@ -570,6 +570,9 @@
     <EmbeddedResource Include="View\MKTFromdatetodate.resx">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHcount.resx">
+      <DependentUpon>MKTWHcount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHxuathang.resx">
       <DependentUpon>MKTWHxuathang.cs</DependentUpon>
     </EmbeddedResource>
@@ -581,9 +584,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHkiemkeapproval.resx">
       <DependentUpon>MKTWHkiemkeapproval.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MKTWHkiemke.resx">
-      <DependentUpon>MKTWHkiemke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BeeBCKQKD200updatechotso.resx">
       <DependentUpon>BeeBCKQKD200updatechotso.cs</DependentUpon>
@@ -682,8 +682,8 @@
     <EmbeddedResource Include="View\MKTPasswordchange.resx">
       <DependentUpon>MKTPasswordchange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\beeselectinput.resx">
-      <DependentUpon>beeselectinput.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTselectinput.resx">
+      <DependentUpon>MKTselectinput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTViewchooseiquery.resx">
       <DependentUpon>MKTViewchooseiquery.cs</DependentUpon>

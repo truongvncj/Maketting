@@ -160,7 +160,7 @@
             this.cbtkno.Name = "cbtkno";
             this.cbtkno.Size = new System.Drawing.Size(207, 26);
             this.cbtkno.TabIndex = 8;
-            this.cbtkno.SelectionChangeCommitted += new System.EventHandler(this.cbtkno_SelectionChangeCommitted);
+      //      this.cbtkno.SelectionChangeCommitted += new System.EventHandler(this.cbtkno_SelectionChangeCommitted);
             this.cbtkno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtkno_KeyPress);
             // 
             // txtsotien
@@ -560,8 +560,8 @@
             this.dataGridViewTkCo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTkCo.Size = new System.Drawing.Size(1059, 228);
             this.dataGridViewTkCo.TabIndex = 3;
-            this.dataGridViewTkCo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
-            this.dataGridViewTkCo.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
+        //    this.dataGridViewTkCo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
+       //     this.dataGridViewTkCo.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
             this.dataGridViewTkCo.CellErrorTextChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellErrorTextChanged);
             this.dataGridViewTkCo.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellValueChanged);
             this.dataGridViewTkCo.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewTkCo_DataError_1);

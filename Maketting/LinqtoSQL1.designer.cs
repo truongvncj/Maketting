@@ -234,12 +234,12 @@ namespace Maketting
     partial void Inserttbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
     partial void Updatetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
     partial void Deletetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
+    partial void Inserttbl_MKT_Stockcount(tbl_MKT_Stockcount instance);
+    partial void Updatetbl_MKT_Stockcount(tbl_MKT_Stockcount instance);
+    partial void Deletetbl_MKT_Stockcount(tbl_MKT_Stockcount instance);
     partial void Inserttbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Updatetbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Deletetbl_MKT_Stockend(tbl_MKT_Stockend instance);
-    partial void Inserttbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
-    partial void Updatetbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
-    partial void Deletetbl_MKT_Stockend_Temp(tbl_MKT_Stockend_Temp instance);
     partial void Inserttbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
     partial void Updatetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
     partial void Deletetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
@@ -840,19 +840,19 @@ namespace Maketting
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_MKT_Stockcount> tbl_MKT_Stockcounts
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Stockcount>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_MKT_Stockend> tbl_MKT_Stockends
 		{
 			get
 			{
 				return this.GetTable<tbl_MKT_Stockend>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_Stockend_Temp> tbl_MKT_Stockend_Temps
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_Stockend_Temp>();
 			}
 		}
 		
@@ -28921,6 +28921,308 @@ namespace Maketting
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Stockcount")]
+	public partial class tbl_MKT_Stockcount : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _SAP_CODE;
+		
+		private string _ITEM_Code;
+		
+		private string _MATERIAL;
+		
+		private string _Description;
+		
+		private string _UNIT;
+		
+		private System.Nullable<double> _END_STOCK;
+		
+		private string _Store_code;
+		
+		private System.Nullable<System.DateTime> _CountingDate;
+		
+		private int _id;
+		
+		private System.Nullable<int> _Idsub;
+		
+		private string _Createdby;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSAP_CODEChanging(string value);
+    partial void OnSAP_CODEChanged();
+    partial void OnITEM_CodeChanging(string value);
+    partial void OnITEM_CodeChanged();
+    partial void OnMATERIALChanging(string value);
+    partial void OnMATERIALChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnUNITChanging(string value);
+    partial void OnUNITChanged();
+    partial void OnEND_STOCKChanging(System.Nullable<double> value);
+    partial void OnEND_STOCKChanged();
+    partial void OnStore_codeChanging(string value);
+    partial void OnStore_codeChanged();
+    partial void OnCountingDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCountingDateChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnIdsubChanging(System.Nullable<int> value);
+    partial void OnIdsubChanged();
+    partial void OnCreatedbyChanging(string value);
+    partial void OnCreatedbyChanged();
+    #endregion
+		
+		public tbl_MKT_Stockcount()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAP_CODE", DbType="NVarChar(255)")]
+		public string SAP_CODE
+		{
+			get
+			{
+				return this._SAP_CODE;
+			}
+			set
+			{
+				if ((this._SAP_CODE != value))
+				{
+					this.OnSAP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SAP_CODE = value;
+					this.SendPropertyChanged("SAP_CODE");
+					this.OnSAP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITEM_Code", DbType="NVarChar(255)")]
+		public string ITEM_Code
+		{
+			get
+			{
+				return this._ITEM_Code;
+			}
+			set
+			{
+				if ((this._ITEM_Code != value))
+				{
+					this.OnITEM_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._ITEM_Code = value;
+					this.SendPropertyChanged("ITEM_Code");
+					this.OnITEM_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATERIAL", DbType="NVarChar(255)")]
+		public string MATERIAL
+		{
+			get
+			{
+				return this._MATERIAL;
+			}
+			set
+			{
+				if ((this._MATERIAL != value))
+				{
+					this.OnMATERIALChanging(value);
+					this.SendPropertyChanging();
+					this._MATERIAL = value;
+					this.SendPropertyChanged("MATERIAL");
+					this.OnMATERIALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT", DbType="NVarChar(255)")]
+		public string UNIT
+		{
+			get
+			{
+				return this._UNIT;
+			}
+			set
+			{
+				if ((this._UNIT != value))
+				{
+					this.OnUNITChanging(value);
+					this.SendPropertyChanging();
+					this._UNIT = value;
+					this.SendPropertyChanged("UNIT");
+					this.OnUNITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_STOCK", DbType="Float")]
+		public System.Nullable<double> END_STOCK
+		{
+			get
+			{
+				return this._END_STOCK;
+			}
+			set
+			{
+				if ((this._END_STOCK != value))
+				{
+					this.OnEND_STOCKChanging(value);
+					this.SendPropertyChanging();
+					this._END_STOCK = value;
+					this.SendPropertyChanged("END_STOCK");
+					this.OnEND_STOCKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Store_code", DbType="NVarChar(10)")]
+		public string Store_code
+		{
+			get
+			{
+				return this._Store_code;
+			}
+			set
+			{
+				if ((this._Store_code != value))
+				{
+					this.OnStore_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Store_code = value;
+					this.SendPropertyChanged("Store_code");
+					this.OnStore_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountingDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CountingDate
+		{
+			get
+			{
+				return this._CountingDate;
+			}
+			set
+			{
+				if ((this._CountingDate != value))
+				{
+					this.OnCountingDateChanging(value);
+					this.SendPropertyChanging();
+					this._CountingDate = value;
+					this.SendPropertyChanged("CountingDate");
+					this.OnCountingDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idsub", DbType="Int")]
+		public System.Nullable<int> Idsub
+		{
+			get
+			{
+				return this._Idsub;
+			}
+			set
+			{
+				if ((this._Idsub != value))
+				{
+					this.OnIdsubChanging(value);
+					this.SendPropertyChanging();
+					this._Idsub = value;
+					this.SendPropertyChanged("Idsub");
+					this.OnIdsubChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Createdby", DbType="NVarChar(50)")]
+		public string Createdby
+		{
+			get
+			{
+				return this._Createdby;
+			}
+			set
+			{
+				if ((this._Createdby != value))
+				{
+					this.OnCreatedbyChanging(value);
+					this.SendPropertyChanging();
+					this._Createdby = value;
+					this.SendPropertyChanged("Createdby");
+					this.OnCreatedbyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Stockend")]
 	public partial class tbl_MKT_Stockend : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -28943,8 +29245,6 @@ namespace Maketting
 		
 		private string _Store_code;
 		
-		private System.Nullable<double> _UnitWeight;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -28965,8 +29265,6 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnStore_codeChanging(string value);
     partial void OnStore_codeChanged();
-    partial void OnUnitWeightChanging(System.Nullable<double> value);
-    partial void OnUnitWeightChanged();
     #endregion
 		
 		public tbl_MKT_Stockend()
@@ -29130,256 +29428,6 @@ namespace Maketting
 					this._Store_code = value;
 					this.SendPropertyChanged("Store_code");
 					this.OnStore_codeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitWeight", DbType="Float")]
-		public System.Nullable<double> UnitWeight
-		{
-			get
-			{
-				return this._UnitWeight;
-			}
-			set
-			{
-				if ((this._UnitWeight != value))
-				{
-					this.OnUnitWeightChanging(value);
-					this.SendPropertyChanging();
-					this._UnitWeight = value;
-					this.SendPropertyChanged("UnitWeight");
-					this.OnUnitWeightChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Stockend_Temp")]
-	public partial class tbl_MKT_Stockend_Temp : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _SAP_CODE;
-		
-		private string _ITEM_Code;
-		
-		private string _MATERIAL;
-		
-		private string _Description;
-		
-		private string _UNIT;
-		
-		private System.Nullable<double> _Avaiable_STOCK;
-		
-		private int _id;
-		
-		private System.Nullable<System.DateTime> _Count_date;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSAP_CODEChanging(string value);
-    partial void OnSAP_CODEChanged();
-    partial void OnITEM_CodeChanging(string value);
-    partial void OnITEM_CodeChanged();
-    partial void OnMATERIALChanging(string value);
-    partial void OnMATERIALChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnUNITChanging(string value);
-    partial void OnUNITChanged();
-    partial void OnAvaiable_STOCKChanging(System.Nullable<double> value);
-    partial void OnAvaiable_STOCKChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnCount_dateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCount_dateChanged();
-    #endregion
-		
-		public tbl_MKT_Stockend_Temp()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAP_CODE", DbType="NVarChar(255)")]
-		public string SAP_CODE
-		{
-			get
-			{
-				return this._SAP_CODE;
-			}
-			set
-			{
-				if ((this._SAP_CODE != value))
-				{
-					this.OnSAP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SAP_CODE = value;
-					this.SendPropertyChanged("SAP_CODE");
-					this.OnSAP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITEM_Code", DbType="NVarChar(255)")]
-		public string ITEM_Code
-		{
-			get
-			{
-				return this._ITEM_Code;
-			}
-			set
-			{
-				if ((this._ITEM_Code != value))
-				{
-					this.OnITEM_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._ITEM_Code = value;
-					this.SendPropertyChanged("ITEM_Code");
-					this.OnITEM_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATERIAL", DbType="NVarChar(255)")]
-		public string MATERIAL
-		{
-			get
-			{
-				return this._MATERIAL;
-			}
-			set
-			{
-				if ((this._MATERIAL != value))
-				{
-					this.OnMATERIALChanging(value);
-					this.SendPropertyChanging();
-					this._MATERIAL = value;
-					this.SendPropertyChanged("MATERIAL");
-					this.OnMATERIALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT", DbType="NVarChar(255)")]
-		public string UNIT
-		{
-			get
-			{
-				return this._UNIT;
-			}
-			set
-			{
-				if ((this._UNIT != value))
-				{
-					this.OnUNITChanging(value);
-					this.SendPropertyChanging();
-					this._UNIT = value;
-					this.SendPropertyChanged("UNIT");
-					this.OnUNITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avaiable_STOCK", DbType="Float")]
-		public System.Nullable<double> Avaiable_STOCK
-		{
-			get
-			{
-				return this._Avaiable_STOCK;
-			}
-			set
-			{
-				if ((this._Avaiable_STOCK != value))
-				{
-					this.OnAvaiable_STOCKChanging(value);
-					this.SendPropertyChanging();
-					this._Avaiable_STOCK = value;
-					this.SendPropertyChanged("Avaiable_STOCK");
-					this.OnAvaiable_STOCKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Count_date
-		{
-			get
-			{
-				return this._Count_date;
-			}
-			set
-			{
-				if ((this._Count_date != value))
-				{
-					this.OnCount_dateChanging(value);
-					this.SendPropertyChanging();
-					this._Count_date = value;
-					this.SendPropertyChanged("Count_date");
-					this.OnCount_dateChanged();
 				}
 			}
 		}

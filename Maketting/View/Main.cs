@@ -29,7 +29,7 @@ namespace Maketting.View
         public void messagetext(string message, Color colornen)
         {
             //messageinfor.Text = message;
-          //  messageinfor.BackColor = colornen;
+            //  messageinfor.BackColor = colornen;
 
         }
 
@@ -65,7 +65,7 @@ namespace Maketting.View
             string username = Utils.getusername();
             lbusername.Text = username;
 
-       //     string tencty = Model.Username.getnamecty();
+            //     string tencty = Model.Username.getnamecty();
 
 
             panelmain.Controls.Clear();
@@ -81,7 +81,7 @@ namespace Maketting.View
             this.clearpannel();
 
 
-        //    View.MKTLoadcreated accsup = new MKTLoadcreated(this);
+            //    View.MKTLoadcreated accsup = new MKTLoadcreated(this);
             this.clearpannelload(accsup);
 
 
@@ -2974,7 +2974,7 @@ namespace Maketting.View
 
         private void thôngTínDoanhNghiệpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void danhSáchLoạiTàiKhoảnToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -3098,12 +3098,7 @@ namespace Maketting.View
 
         private void nhậpSốĐầuKỳCĐKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            #region//xem nhập số dư dầu bckqkd
-
-            Model.Soketoan.xemvaupdauCDKT200();
-
-
-            #endregion
+           
         }
 
         private void bảngCĐKTToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3643,25 +3638,25 @@ namespace Maketting.View
                              p.Status,
                              p.ShippingPoint,
                              p.ShipmentNumber,
-                            
+
                              p.Requested_by,
                              Date_MKT_Phiếu = p.Ngaytaophieu,
                              p.Customer_SAP_Code,
                              p.Receiver_by,
                              p.Address,
                              Số_lượng_yêu_cầu = p.Issued,
-                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
-                            // Số_lượng_còn_lại = p.Soluongconlai,
+                             //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                             // Số_lượng_còn_lại = p.Soluongconlai,
                              p.Materiacode,
                              p.MateriaSAPcode,
                              p.Description,
-                             
 
 
 
 
 
-                         //    ID = p.id,
+
+                             //    ID = p.id,
                          };
 
 
@@ -3698,7 +3693,7 @@ namespace Maketting.View
 
             View.MKTissuephieu accsup = new MKTissuephieu(this);
             this.clearpannelload(accsup);
-           // this.Close();
+            // this.Close();
             #endregion
 
 
@@ -3769,7 +3764,7 @@ namespace Maketting.View
 
         private void danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
 
             #region//tao load
@@ -3810,14 +3805,14 @@ namespace Maketting.View
 
                 var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
                            where pp.Serriload == Loadnumberserri
-                       
+
 
                            select pp).FirstOrDefault();
                 if (rs5 == null)
                 {
                     MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                
+
                     return;
 
                 }
@@ -3851,7 +3846,7 @@ namespace Maketting.View
                 this.clearpannel();
 
 
-                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this, Loadnumberserri );
+                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this, Loadnumberserri);
                 this.clearpannelload(xuatkho);
                 // this.Close();
                 #endregion
@@ -3965,6 +3960,66 @@ namespace Maketting.View
 
 
 
+
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where pp.storeright == rightkho
+                      select pp;
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                #region//tao load
+                //if (name == "tmphieuthu")
+                //{
+
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+
+
+                this.clearpannel();
+
+
+                View.MKTWHcount demkho = new MKTWHcount(this, storelocation);
+                this.clearpannelload(demkho);
+                // this.Close();
+                #endregion
+
+            }
 
         }
     }

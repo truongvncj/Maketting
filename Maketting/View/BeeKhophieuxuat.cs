@@ -905,7 +905,7 @@ namespace Maketting.View
             if (detail.loaichitiet == true) // là co theo doi chi tiết
             {
 
-                List<beeselectinput.ComboboxItem> listcb = new List<beeselectinput.ComboboxItem>();
+                List<MKTselectinput.ComboboxItem> listcb = new List<MKTselectinput.ComboboxItem>();
                 var rs = from tbl_machitiettk in db.tbl_machitiettks
                          where tbl_machitiettk.matk.Trim() == taikhoan.Trim()
                          orderby tbl_machitiettk.machitiet
@@ -916,7 +916,7 @@ namespace Maketting.View
 
                     foreach (var item2 in rs)
                     {
-                        beeselectinput.ComboboxItem cb = new beeselectinput.ComboboxItem();
+                        MKTselectinput.ComboboxItem cb = new MKTselectinput.ComboboxItem();
                         cb.Value = item2.machitiet.ToString().Trim();
                         cb.Text = item2.tenchitiet; //item2.machitiet.ToString().Trim() + ": " +
                         listcb.Add(cb);
@@ -947,7 +947,7 @@ namespace Maketting.View
                         //   sheaching.Show();
 
 
-                        View.beeselectinput selecdetail = new beeselectinput("Chọn chi tiết tài khoản ", listcb);
+                        View.MKTselectinput selecdetail = new MKTselectinput("Chọn chi tiết tài khoản ", listcb);
 
                         selecdetail.ShowDialog();
                         bool chon = selecdetail.kq;
@@ -2351,7 +2351,7 @@ namespace Maketting.View
             if (detail.loaichitiet == true) // là co theo doi chi tiết
             {
 
-                List<beeselectinput.ComboboxItem> listcb = new List<beeselectinput.ComboboxItem>();
+                List<MKTselectinput.ComboboxItem> listcb = new List<MKTselectinput.ComboboxItem>();
                 var rs = from tbl_machitiettk in db.tbl_machitiettks
                          where tbl_machitiettk.matk.Trim() == taikhoan.Trim()
                          orderby tbl_machitiettk.machitiet
@@ -2362,7 +2362,7 @@ namespace Maketting.View
 
                     foreach (var item2 in rs)
                     {
-                        beeselectinput.ComboboxItem cb = new beeselectinput.ComboboxItem();
+                        MKTselectinput.ComboboxItem cb = new MKTselectinput.ComboboxItem();
                         cb.Value = item2.machitiet.ToString().Trim();
                         cb.Text = item2.tenchitiet; //item2.machitiet.ToString().Trim() + ": " +
                         listcb.Add(cb);
@@ -2393,7 +2393,7 @@ namespace Maketting.View
                         //   sheaching.Show();
 
 
-                        View.beeselectinput selecdetail = new beeselectinput("Chọn chi tiết tài khoản ", listcb);
+                        View.MKTselectinput selecdetail = new MKTselectinput("Chọn chi tiết tài khoản ", listcb);
 
                         selecdetail.ShowDialog();
                         bool chon = selecdetail.kq;

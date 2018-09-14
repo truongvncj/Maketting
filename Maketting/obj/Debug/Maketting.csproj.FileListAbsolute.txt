@@ -48,7 +48,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeCreatenewaccount.resou
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeSeachtwofield.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Beeselecttk.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Beeyearsellect.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.beeselectinput.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Viewdatatable.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Beekyketoan.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.kareportsform.resources
@@ -72,7 +71,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.pdb
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHxuathang.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTPasswordchange.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHkiemke.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTDanhsachkho.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTCaculating.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNoouthourise.resources
@@ -91,3 +89,5 @@ D:\GitHub\Maketting\Maketting\bin\Debug\Reports\SubRPTPhieuMKTlistbyLoad.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTvalueinput.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKWHphieuxuat.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdatetodate.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcount.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectinput.resources
