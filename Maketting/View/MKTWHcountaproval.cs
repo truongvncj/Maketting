@@ -230,15 +230,15 @@ namespace Maketting.View
             this.Username = Utils.getusername();
             //    this.Createdby = Utils.getname();
             //      this.Loadnumberserri = Loadnumberserri;
-            txtapprovalby.Text = "";
+            txtnguoinhan.Text = "";
 
 
-            txtapprovalby.Text = Utils.getname();
+            txtnguoinhan.Text = Utils.getname();
 
 
 
 
-            datecreated.Value = DateTime.Today;
+            dateupdate.Value = DateTime.Today;
 
             loaddetailinventoryforapproval();
             //  loaddetailNewinventory();
@@ -275,7 +275,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtapprovalby.Focus();
+                txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -371,7 +371,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                datecreated.Focus();
+                dateupdate.Focus();
                 //  datepickngayphieu
                 //    string valueinput = cb_customerka.Text;
 
@@ -686,12 +686,12 @@ namespace Maketting.View
             //btluu.Enabled = true;
 
 
-            datecreated.Enabled = true;
+            dateupdate.Enabled = true;
 
 
 
 
-            txtapprovalby.Enabled = true;
+            txtnguoinhan.Enabled = true;
 
 
             //    btluu.Enabled = true;
@@ -709,7 +709,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtapprovalby.Focus();
+                txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -1672,7 +1672,7 @@ namespace Maketting.View
 
             //         };
 
-            ctrex.exportexceldatagridtofile(this.rs, this.datacontext, "STOCK COUNT FOR APROVAL " + datecreated.Value.ToShortDateString());
+            ctrex.exportexceldatagridtofile(this.rs, this.datacontext, "STOCK COUNT FOR APROVAL " + dateupdate.Value.ToShortDateString());
 
 
         }
@@ -1698,7 +1698,7 @@ namespace Maketting.View
                 {
 
                     item.Aproved = true;
-                    item.Aprovedby = txtapprovalby.Text;
+                    item.Aprovedby = txtnguoinhan.Text;
                     item.AprovedDate = DateTime.Today;
                     item.Status = "Aproved";
                     item.ActualEndatAproval = (from pp in dc.tbl_MKT_Stockends
@@ -1796,7 +1796,7 @@ namespace Maketting.View
                 {
 
                     item.Aproved = true;
-                    item.Aprovedby = txtapprovalby.Text;
+                    item.Aprovedby = txtnguoinhan.Text;
                     item.AprovedDate = DateTime.Today;
                     item.Status = "Reject";
                     dc.SubmitChanges();

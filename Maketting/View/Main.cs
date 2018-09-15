@@ -3836,7 +3836,7 @@ namespace Maketting.View
 
 
 
-                #region//tao load
+                #region// xuất hagf
                 //if (name == "tmphieuthu")
                 //{
 
@@ -4210,6 +4210,102 @@ namespace Maketting.View
             Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
 
             viewtbl.ShowDialog();
+
+        }
+
+        private void goodReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("INPUT LOADSERRI HAVE RETURN ");
+            pxk.ShowDialog();
+
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+                           where pp.Serriload == Loadnumberserri
+
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+
+                var rs6 = (from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == Loadnumberserri
+
+
+                           select pp).FirstOrDefault();
+                if (rs6 != null)
+                {
+                    MessageBox.Show("Phiếu đã xuất hàng rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+
+
+
+
+                #region// xuất hagf
+                //if (name == "tmphieuthu")
+                //{
+
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTNhaphangreturn xuatkho = new MKTNhaphangreturn(this, Loadnumberserri);
+                this.clearpannelload(xuatkho);
+                // this.Close();
+                #endregion
+
+
+
+            }
+
+
+
+
+        }
+
+        private void tậpHợpPhiếuMKTTrảVềToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+
+            #region//tmphieuthu
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTupdateMKTcompleted accsup = new MKTupdateMKTcompleted(this);
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
 
         }
     }

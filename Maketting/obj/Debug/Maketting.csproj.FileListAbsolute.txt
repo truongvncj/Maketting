@@ -92,3 +92,5 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcount.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectinput.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewchooseiqueryloadtomain.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcountaproval.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangreturn.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTupdateMKTcompleted.resources
