@@ -740,7 +740,7 @@ namespace Maketting.View
                 #endregion
 
                 #region  update tbl_MKt_ListLoadheadDetail
-             
+           //     btluu.Enabled = false;
 
                 var rs4 = from pp in dc.tbl_MKt_Listphieus
                           where pp.ShipmentNumber == this.soload
@@ -853,7 +853,7 @@ namespace Maketting.View
 
             this.soload = Model.MKT.getLoadNo();
             txtloadnumber.Text = this.soload;
-
+            btluu.Enabled = true;
 
         }
 

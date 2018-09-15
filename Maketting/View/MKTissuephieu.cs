@@ -218,10 +218,7 @@ namespace Maketting.View
 
             Model.MKT.DeleteALLphieutamTMP();
 
-            this.sophieu = Model.MKT.getMKtNo();
-            lbgatepassno.Text = this.sophieu;
-
-
+          
 
             #endregion
 
@@ -319,6 +316,9 @@ namespace Maketting.View
             this.statusphieu = 1; // tạo mới
 
             cleartoblankphieu();
+            this.sophieu = Model.MKT.getMKtNo();
+            lbgatepassno.Text = this.sophieu;
+
 
 
 
@@ -620,6 +620,7 @@ namespace Maketting.View
 
                 #region // head 
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+                btluu.Enabled = false;
 
                 var rs = (from pp in dc.tbl_MKt_Listphieuheads
                           where pp.id.ToString() == this.sophieu && pp.Status == "TMP"
@@ -785,7 +786,7 @@ namespace Maketting.View
 
             this.sophieu = Model.MKT.getMKtNo();
             lbgatepassno.Text = this.sophieu;
-
+            btluu.Enabled = true;
 
         }
 

@@ -347,7 +347,7 @@ namespace Maketting.Model
 
                 dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
-
+              //  dc.Connection.Close();
             }
         }
 
