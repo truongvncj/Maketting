@@ -197,7 +197,9 @@ namespace Maketting.View
             List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
+                      where   ( from   gg in dc.tbl_MKT_StoreRights 
+                                          where gg.storeright == rightkho
+                                          select gg.makho).Contains(pp.makho)
                       select pp;
             foreach (var item2 in rs1)
             {

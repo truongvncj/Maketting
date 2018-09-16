@@ -443,6 +443,16 @@ namespace Maketting.View
                         return;
                     }
 
+                    if (xuat < 0)
+                    {
+                        dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Style.BackColor = System.Drawing.Color.Orange;
+
+
+                        MessageBox.Show("Số lượng hàng  xuất phải lớn hơn hoặc bằng 0, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        checkdetail = false;
+
+                        return;
+                    }
 
 
 

@@ -58,7 +58,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.kaPriodpicker.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Login.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.KASeachcontract.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Seachcode.resources
-D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.BeeInputchange.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Reportsview.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Viewtable.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.Main.resources
@@ -94,3 +93,8 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewchooseiqueryloadto
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHcountaproval.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangreturn.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTupdateMKTcompleted.resources
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTcompleted.rdlc
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTInputchange.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTDanhkhoRight.resources
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKWHphieunhaphangreturn.rdlc
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTPOmake.resources

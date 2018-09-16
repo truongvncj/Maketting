@@ -793,6 +793,15 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="MKTcopletedcover" msprop:Generator_TableClassName="MKTcopletedcoverDataTable" msprop:Generator_TableVarName="tableMKTcopletedcover" msprop:Generator_RowChangedName="MKTcopletedcoverRowChanged" msprop:Generator_TablePropName="MKTcopletedcover" msprop:Generator_RowDeletingName="MKTcopletedcoverRowDeleting" msprop:Generator_RowChangingName="MKTcopletedcoverRowChanging" msprop:Generator_RowEvHandlerName="MKTcopletedcoverRowChangeEventHandler" msprop:Generator_RowDeletedName="MKTcopletedcoverRowDeleted" msprop:Generator_RowClassName="MKTcopletedcoverRow" msprop:Generator_UserTableName="MKTcopletedcover" msprop:Generator_RowEvArgName="MKTcopletedcoverRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Gate_pass" msprop:Generator_ColumnVarNameInTable="columnGate_pass" msprop:Generator_ColumnPropNameInRow="Gate_pass" msprop:Generator_ColumnPropNameInTable="Gate_passColumn" msprop:Generator_UserColumnName="Gate_pass" type="xs:string" minOccurs="0" />
+              <xs:element name="Shipping_Point" msprop:Generator_ColumnVarNameInTable="columnShipping_Point" msprop:Generator_ColumnPropNameInRow="Shipping_Point" msprop:Generator_ColumnPropNameInTable="Shipping_PointColumn" msprop:Generator_UserColumnName="Shipping_Point" type="xs:string" minOccurs="0" />
+              <xs:element name="Maketting_load" msprop:Generator_ColumnVarNameInTable="columnMaketting_load" msprop:Generator_ColumnPropNameInRow="Maketting_load" msprop:Generator_ColumnPropNameInTable="Maketting_loadColumn" msprop:Generator_UserColumnName="Maketting_load" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

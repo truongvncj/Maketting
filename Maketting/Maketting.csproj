@@ -159,11 +159,23 @@
     <Compile Include="View\BeeLCTT200dauky.Designer.cs">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTDanhkhoRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTDanhkhoRight.Designer.cs">
+      <DependentUpon>MKTDanhkhoRight.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTFromdatetodate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\MKTFromdatetodate.Designer.cs">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTPOmake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTPOmake.Designer.cs">
+      <DependentUpon>MKTPOmake.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTViewchooseiqueryloadtomain.cs">
       <SubType>Form</SubType>
@@ -489,11 +501,11 @@
     <Compile Include="View\MKTvalueinput.Designer.cs">
       <DependentUpon>MKTvalueinput.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BeeInputchange.cs">
+    <Compile Include="View\MKTInputchange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BeeInputchange.Designer.cs">
-      <DependentUpon>BeeInputchange.cs</DependentUpon>
+    <Compile Include="View\MKTInputchange.Designer.cs">
+      <DependentUpon>MKTInputchange.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
@@ -523,6 +535,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Phieuketoanth.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PhieuMKTcompleted.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PhieuMKWHphieunhaphangreturn.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKWHphieuxuat.rdlc">
@@ -585,8 +603,14 @@
     <EmbeddedResource Include="View\BeeLCTT200dauky.resx">
       <DependentUpon>BeeLCTT200dauky.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTDanhkhoRight.resx">
+      <DependentUpon>MKTDanhkhoRight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTFromdatetodate.resx">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTPOmake.resx">
+      <DependentUpon>MKTPOmake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTViewchooseiqueryloadtomain.resx">
       <DependentUpon>MKTViewchooseiqueryloadtomain.cs</DependentUpon>
@@ -751,8 +775,8 @@
     <EmbeddedResource Include="View\MKTvalueinput.resx">
       <DependentUpon>MKTvalueinput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BeeInputchange.resx">
-      <DependentUpon>BeeInputchange.cs</DependentUpon>
+    <EmbeddedResource Include="View\MKTInputchange.resx">
+      <DependentUpon>MKTInputchange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Reportsview.resx">
       <DependentUpon>Reportsview.cs</DependentUpon>

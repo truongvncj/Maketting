@@ -265,7 +265,7 @@ namespace Maketting.View
             txtnguoitaoload.Text = Utils.getname();
 
 
-            txtloadnumber.Text = "";
+       //     txtloadnumber.Text = "";
             datecreated.Value = DateTime.Today;
 
             txtnguoitaoload.Focus();
@@ -279,27 +279,7 @@ namespace Maketting.View
 
             string username = Utils.getusername();
             this.Username = username;
-            string rightkho = Model.Username.getmaquyenkho();
-
-            List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
-
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
-                      select pp;
-            foreach (var item2 in rs1)
-            {
-                ComboboxItem cb = new ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim();
-                itemstorecolect.Add(cb);
-
-                //  cbkhohang.Items.Add(cb);
-                //  CombomCollection.Add(cb);
-            }
-            cbkhohang.DataSource = itemstorecolect;
-            cbkhohang.SelectedIndex = 0;
-
-            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+         
             //this.matk = taikhoan;
 
 
@@ -406,6 +386,31 @@ namespace Maketting.View
             Model.MKT.restatusphieuLoadingtoCRT();
 
             cleartoblankphieu();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+         //   string username = Utils.getusername();
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
+                      select pp;
+            foreach (var item2 in rs1)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim();
+                itemstorecolect.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbkhohang.DataSource = itemstorecolect;
+            cbkhohang.SelectedIndex = 0;
+            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
 
 
             this.soload = Model.MKT.getLoadNo();
@@ -1955,9 +1960,40 @@ namespace Maketting.View
 
         private void cbkhohang_SelectedValueChanged(object sender, EventArgs e)
         {
+            //   this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
 
-            cleartoblankphieu();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            string username = Utils.getusername();
+
+            var rs = from pp in dc.tbl_MKt_Listphieus
+                     where pp.Username == username && pp.Status == "LOADING"
+                    && pp.ShippingPoint ==this.storelocation
+
+                     select pp;
+
+            if (rs != null)
+            {
+                foreach (var item in rs)
+                {
+               //     item.Username = Username;
+                    item.Status = "CRT";
+                    dc.SubmitChanges();
+
+               //     addDEtailLoad(item);
+                }
+
+
+
+            }
+
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
+
+
 
 
         }
@@ -2124,6 +2160,7 @@ namespace Maketting.View
             {
                 foreach (var item in rs)
                 {
+                    item.Username = Username;
                     item.Status = "LOADING";
                     dc.SubmitChanges();
 

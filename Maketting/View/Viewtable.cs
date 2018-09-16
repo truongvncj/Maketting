@@ -312,6 +312,39 @@ namespace Maketting.View
 
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
+          
+            #region  // viewcode ==15  storeright
+
+
+            if (this.viewcode == 15)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTDanhkhoRight p = new MKTDanhkhoRight(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+              //  var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+                var rs = Model.MKT.danhsachkhoMKTRight(this.db);
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
             #region  // viewcode ==14  la danh nha van tai MKT
 
 
@@ -592,6 +625,49 @@ namespace Maketting.View
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            #region  // viewcode ==15 la dannhóm quen kho
+
+
+            if (this.viewcode == 15)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTDanhkhoRight p = new MKTDanhkhoRight(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhsachkhoMKTRight(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
 
 
             #region  // viewcode ==14 la danh nha van tai MKt

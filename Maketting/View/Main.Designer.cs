@@ -45,10 +45,12 @@
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hạchToánKếToánTổngHợpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadCreateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +58,8 @@
             this.nhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtĐồToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,10 +67,6 @@
             this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Storerpt = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -185,6 +185,14 @@
             this.hạchToánKếToánTổngHợpToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.hạchToánKếToánTổngHợpToolStripMenuItem.Text = "Maketting";
             // 
+            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
+            // 
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
+            // 
             // tậpHợpPhiếuMKTTrảVềToolStripMenuItem
             // 
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Name = "tậpHợpPhiếuMKTTrảVềToolStripMenuItem";
@@ -202,11 +210,20 @@
             this.inputPOToolStripMenuItem.Name = "inputPOToolStripMenuItem";
             this.inputPOToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.inputPOToolStripMenuItem.Text = "Input PO ";
+            this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
+            // 
+            // báoCáoPhiếuMKTToolStripMenuItem
+            // 
+            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
+            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
             // 
             // storeAvaiableReportsToolStripMenuItem
             // 
@@ -257,13 +274,25 @@
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
             this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.xuấtĐồToolStripMenuItem.Text = "Good Recieved";
+            this.xuấtĐồToolStripMenuItem.Text = "Good Reciept ";
             this.xuấtĐồToolStripMenuItem.Click += new System.EventHandler(this.xuấtĐồToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(253, 6);
+            // 
+            // goodReturnToolStripMenuItem
+            // 
+            this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
+            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.goodReturnToolStripMenuItem.Text = "Good Return ";
+            this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(253, 6);
             // 
             // inventoryToolStripMenuItem
             // 
@@ -313,34 +342,6 @@
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
             this.statusGatepassReportsToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsToolStripMenuItem_Click);
-            // 
-            // goodReturnToolStripMenuItem
-            // 
-            this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
-            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.goodReturnToolStripMenuItem.Text = "Good Return";
-            this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(253, 6);
-            // 
-            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
-            // 
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
-            // 
-            // báoCáoPhiếuMKTToolStripMenuItem
-            // 
-            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
-            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
             // 
             // Main
             // 

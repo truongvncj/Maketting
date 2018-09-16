@@ -13,7 +13,7 @@ namespace Maketting.View
     {
         public Viewtable Fromviewable;
 
-        public BeeInputchange Fromeditable;
+        public MKTInputchange Fromeditable;
         public string tablename;
         public Seachcode(Viewtable Fromviewable, string tablename)
         {
@@ -27,7 +27,7 @@ namespace Maketting.View
         }
 
 
-        public Seachcode(BeeInputchange Fromeditable, string tablename)
+        public Seachcode(MKTInputchange Fromeditable, string tablename)
         {
 
 

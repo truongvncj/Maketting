@@ -176,7 +176,7 @@ namespace Maketting.View
             this.Pl_endview.ForeColor = System.Drawing.Color.Black;
             this.Pl_endview.Location = new System.Drawing.Point(154, 461);
             this.Pl_endview.Name = "Pl_endview";
-            this.Pl_endview.Size = new System.Drawing.Size(852, 19);
+            this.Pl_endview.Size = new System.Drawing.Size(885, 19);
             this.Pl_endview.TabIndex = 1;
             // 
             // lb_uc

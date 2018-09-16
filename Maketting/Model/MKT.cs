@@ -347,7 +347,7 @@ namespace Maketting.Model
 
                 dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
-              //  dc.Connection.Close();
+                //  dc.Connection.Close();
             }
         }
 
@@ -457,6 +457,33 @@ namespace Maketting.Model
             }
 
             return true;
+        }
+
+        public static void tangkhokhinhaphang(tbl_MKt_WHstoreissue itemnhap)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemnhap.Materiacode
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                    item.END_STOCK = item.END_STOCK + itemnhap.ReturnQuantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+
+
+
+
+            //  throw new NotImplementedException();
         }
 
         public static string getMKtNo()
@@ -767,6 +794,26 @@ namespace Maketting.Model
 
 
             //  throw new NotImplementedException();
+        }
+
+        public static IQueryable danhsachkhoMKTRight(LinqtoSQLDataContext db)
+        {
+
+
+            LinqtoSQLDataContext dc = db;
+
+            var rs = from pp in dc.tbl_MKT_StoreRights
+                     select new
+                     {
+                         Store_code = pp.makho,
+                         Store_Right_Group = pp.storeright,
+                         ID = pp.id,
+
+                     };
+
+            return rs;
+
+            //   throw new NotImplementedException();
         }
     }
 }

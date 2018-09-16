@@ -2715,7 +2715,7 @@ namespace Maketting.View
 
             var typeff = typeof(tbl_Socai);
 
-            BeeInputchange inputcdata = new BeeInputchange("", "DANH SÁCH TÀI KHOẢN ", dc, "tbl_Socai", "tbl_Socai", typeff, typeff, "id", "id", "");
+            MKTInputchange inputcdata = new MKTInputchange("", "DANH SÁCH TÀI KHOẢN ", dc, "tbl_Socai", "tbl_Socai", typeff, typeff, "id", "id", "");
             inputcdata.TopLevel = false;
             inputcdata.AutoScroll = true;
 
@@ -3636,6 +3636,7 @@ namespace Maketting.View
                          {
                              p.Gate_pass,
                              p.Status,
+                        
                              p.ShippingPoint,
                              p.ShipmentNumber,
 
@@ -3735,7 +3736,7 @@ namespace Maketting.View
 
             var typeff = typeof(tbl_Temp);
 
-            BeeInputchange inputcdata = new BeeInputchange("", "Thiết lập và phân quyền người dùng", dc, "tbl_Temp", "tbl_Temp", typeff, typeff, "id", "id", "");
+            MKTInputchange inputcdata = new MKTInputchange("", "Thiết lập và phân quyền người dùng", dc, "tbl_Temp", "tbl_Temp", typeff, typeff, "id", "id", "");
             inputcdata.TopLevel = false;
             inputcdata.AutoScroll = true;
 
@@ -3790,9 +3791,9 @@ namespace Maketting.View
         private void nhậpKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //phiếu xuất kho
-            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOAD NUMBER ");
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
             pxk.ShowDialog();
-
+            
             string Loadnumberserri = pxk.valuetext;
             bool kq = pxk.kq;
 
@@ -3866,6 +3867,11 @@ namespace Maketting.View
             pxk.ShowDialog();
 
             string POnumber = pxk.valuetext;
+
+
+
+
+
 
 
         }
@@ -4216,9 +4222,9 @@ namespace Maketting.View
         private void goodReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //phiếu xuất kho
-            MKTvalueinput pxk = new MKTvalueinput("INPUT LOADSERRI HAVE RETURN ");
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
             pxk.ShowDialog();
-
+            //c
             string Loadnumberserri = pxk.valuetext;
             bool kq = pxk.kq;
 
@@ -4249,16 +4255,29 @@ namespace Maketting.View
 
 
                            select pp).FirstOrDefault();
-                if (rs6 != null)
+                if (rs6 == null)
                 {
-                    MessageBox.Show("Phiếu đã xuất hàng rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
                     return;
 
                 }
 
+                var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == Loadnumberserri
+                           && pp.ReturnQuantity >0
 
+
+                           select pp).FirstOrDefault();
+                if (rs7 != null)
+                {
+                    MessageBox.Show("Phiếu đã nhập hàng về rồi, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
 
 
 
@@ -4305,6 +4324,34 @@ namespace Maketting.View
             this.clearpannelload(accsup);
             // this.Close();
             #endregion
+
+
+        }
+
+        private void inputPOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //       MKTPOmake
+
+
+            #region//MKTPOmake
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTPOmake accsup = new MKTPOmake(this);
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
+
+
+
+
 
 
         }

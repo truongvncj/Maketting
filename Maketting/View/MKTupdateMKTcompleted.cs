@@ -201,7 +201,8 @@ namespace Maketting.View
             txtupdateby.Text = Utils.getname();
 
 
-            //  txtloadseri.Text = Loadnumberserri;
+            btsave.Enabled = true;
+            btinphieu.Enabled = false;
 
 
 
@@ -1900,6 +1901,19 @@ namespace Maketting.View
 
         private void dataGridViewLoaddetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            DataTable dataTable = (DataTable)dataGridViewLoaddetail.DataSource;
+            int i = e.RowIndex;
+
+            //for (int i = 0; i < dataTable.Rows.Count; i++)
+            //{
+            //    if ((string)dataTable.Rows[i]["Gate_pass"] == PhieuMKT.Gate_pass)
+            //    {
+            dataTable.Rows.RemoveAt(i);
+            //    }
+            //}
+            dataTable.AcceptChanges();
+
             //string gatepassfind = "";
 
             //string connection_string = Utils.getConnectionstr();
@@ -2183,10 +2197,11 @@ namespace Maketting.View
                     foreach (var item in rs)
                     {
                         addDEtailPhieuMKT(item);
+                       
                     }
 
 
-
+                    txtmktseri.Text = "";
                 }
                 else
                 {
@@ -2197,6 +2212,129 @@ namespace Maketting.View
 
             }
         }
+
+        private void btinphieu_Click(object sender, EventArgs e)
+        {
+
+
+
+            //dt.Columns.Add(new DataColumn("Gate_pass", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Shipping_Point", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Customer_code", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Customer_name", typeof(string)));
+
+            //dt.Columns.Add(new DataColumn("Maketting_Status", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Maketting_load", typeof(float)));
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+            //---------------
+
+            DataTable dataset2 = (DataTable)dataGridViewLoaddetail.DataSource;
+
+
+
+            //       PhieuMKTcompleted  dataset2
+
+            Reportsview rpt = new Reportsview(null, dataset2, "PhieuMKTcompleted.rdlc");
+            rpt.ShowDialog();
+
+          //  x
+
+
+
+
+
+        }
+
+        private void btsave_Click(object sender, EventArgs e)
+        {
+
+            //dt.Columns.Add(new DataColumn("Gate_pass", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Shipping_Point", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Customer_code", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Customer_name", typeof(string)));
+
+            //dt.Columns.Add(new DataColumn("Maketting_Status", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Maketting_load", typeof(float)));
+
+            #region save
+
+
+            for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
+            {
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value != DBNull.Value)
+                {
+
+                    string Gate_pass = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value;
+                    string Shipping_Point = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Shipping_Point"].Value;
+
+                    string connection_string = Utils.getConnectionstr();
+                    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    var rs = from pp in dc.tbl_MKt_Listphieuheads
+                             where pp.ShippingPoint == Shipping_Point && pp.Gate_pass == Gate_pass
+                             select pp;
+                    if (rs.Count() > 0)
+                    {
+                        foreach (var item in rs)
+                        {
+                            if (item.Status == "Delivering")
+                            {
+                                item.Status = "completed";
+                            }
+
+                            item.completed = true;
+                            item.Date_Received_Issued = dateupdate.Value;
+                            item.completedby = txtupdateby.Text;
+
+                            dc.SubmitChanges();
+
+                        }
+                    }
+
+                    #region detai
+
+
+                    var rs2 = from pp in dc.tbl_MKt_Listphieus
+                              where pp.ShippingPoint == Shipping_Point && pp.Gate_pass == Gate_pass
+                              select pp;
+                    if (rs.Count() > 0)
+                    {
+                        foreach (var item in rs2)
+                        {
+
+                            item.Status = "completed";
+
+                            dc.SubmitChanges();
+
+                        }
+                    }
+
+                    #endregion
+
+
+
+                }
+            } // for
+
+
+            #endregion 
+
+            btsave.Enabled = false;
+            btinphieu.Enabled = true;
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //  clearbankdetail();
+
+
+        }
+
     }
 
 }

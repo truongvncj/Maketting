@@ -4,6 +4,11 @@
 
     partial class DataSet1
     {
+        partial class MKTcopletedcoverDataTable
+        {
+
+        }
+
         partial class MKTloaddetailDataTable
         {
         }

@@ -240,6 +240,9 @@ namespace Maketting
     partial void Inserttbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Updatetbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Deletetbl_MKT_Stockend(tbl_MKT_Stockend instance);
+    partial void Inserttbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
+    partial void Updatetbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
+    partial void Deletetbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
     partial void Inserttbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
     partial void Updatetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
     partial void Deletetbl_MKT_WHissueHeadRpt(tbl_MKT_WHissueHeadRpt instance);
@@ -853,6 +856,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_Stockend>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_StoreRight> tbl_MKT_StoreRights
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_StoreRight>();
 			}
 		}
 		
@@ -27711,6 +27722,10 @@ namespace Maketting
 		
 		private string _LoadNumber;
 		
+		private bool _completed;
+		
+		private string _completedby;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -27745,6 +27760,10 @@ namespace Maketting
     partial void OnShippingPointChanged();
     partial void OnLoadNumberChanging(string value);
     partial void OnLoadNumberChanged();
+    partial void OncompletedChanging(bool value);
+    partial void OncompletedChanged();
+    partial void OncompletedbyChanging(string value);
+    partial void OncompletedbyChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -28048,6 +28067,46 @@ namespace Maketting
 					this._LoadNumber = value;
 					this.SendPropertyChanged("LoadNumber");
 					this.OnLoadNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_completed", DbType="Bit NOT NULL")]
+		public bool completed
+		{
+			get
+			{
+				return this._completed;
+			}
+			set
+			{
+				if ((this._completed != value))
+				{
+					this.OncompletedChanging(value);
+					this.SendPropertyChanging();
+					this._completed = value;
+					this.SendPropertyChanged("completed");
+					this.OncompletedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_completedby", DbType="NVarChar(50)")]
+		public string completedby
+		{
+			get
+			{
+				return this._completedby;
+			}
+			set
+			{
+				if ((this._completedby != value))
+				{
+					this.OncompletedbyChanging(value);
+					this.SendPropertyChanging();
+					this._completedby = value;
+					this.SendPropertyChanged("completedby");
+					this.OncompletedbyChanged();
 				}
 			}
 		}
@@ -29597,6 +29656,116 @@ namespace Maketting
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_StoreRight")]
+	public partial class tbl_MKT_StoreRight : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _makho;
+		
+		private string _storeright;
+		
+		private int _id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmakhoChanging(string value);
+    partial void OnmakhoChanged();
+    partial void OnstorerightChanging(string value);
+    partial void OnstorerightChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    #endregion
+		
+		public tbl_MKT_StoreRight()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_makho", DbType="NVarChar(10)")]
+		public string makho
+		{
+			get
+			{
+				return this._makho;
+			}
+			set
+			{
+				if ((this._makho != value))
+				{
+					this.OnmakhoChanging(value);
+					this.SendPropertyChanging();
+					this._makho = value;
+					this.SendPropertyChanged("makho");
+					this.OnmakhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_storeright", DbType="NVarChar(10)")]
+		public string storeright
+		{
+			get
+			{
+				return this._storeright;
+			}
+			set
+			{
+				if ((this._storeright != value))
+				{
+					this.OnstorerightChanging(value);
+					this.SendPropertyChanging();
+					this._storeright = value;
+					this.SendPropertyChanged("storeright");
+					this.OnstorerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_WHissueHeadRpt")]
 	public partial class tbl_MKT_WHissueHeadRpt : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -29881,6 +30050,10 @@ namespace Maketting
 		
 		private System.Nullable<int> _IssueIDsub;
 		
+		private System.Nullable<double> _ReturnQuantity;
+		
+		private string _Returnby;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -29909,6 +30082,10 @@ namespace Maketting
     partial void OnIssueByChanged();
     partial void OnIssueIDsubChanging(System.Nullable<int> value);
     partial void OnIssueIDsubChanged();
+    partial void OnReturnQuantityChanging(System.Nullable<double> value);
+    partial void OnReturnQuantityChanged();
+    partial void OnReturnbyChanging(string value);
+    partial void OnReturnbyChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -30152,6 +30329,46 @@ namespace Maketting
 					this._IssueIDsub = value;
 					this.SendPropertyChanged("IssueIDsub");
 					this.OnIssueIDsubChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnQuantity", DbType="Float")]
+		public System.Nullable<double> ReturnQuantity
+		{
+			get
+			{
+				return this._ReturnQuantity;
+			}
+			set
+			{
+				if ((this._ReturnQuantity != value))
+				{
+					this.OnReturnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._ReturnQuantity = value;
+					this.SendPropertyChanged("ReturnQuantity");
+					this.OnReturnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnby", DbType="NVarChar(50)")]
+		public string Returnby
+		{
+			get
+			{
+				return this._Returnby;
+			}
+			set
+			{
+				if ((this._Returnby != value))
+				{
+					this.OnReturnbyChanging(value);
+					this.SendPropertyChanging();
+					this._Returnby = value;
+					this.SendPropertyChanged("Returnby");
+					this.OnReturnbyChanged();
 				}
 			}
 		}
