@@ -115,7 +115,7 @@ namespace Maketting.View
 
         //    lbtel.Text = "";
          //   lbweight.Text = "";
-            lbgatepassno.Text = "";
+            lbPonumber.Text = "";
             datepickngayphieu.Value = DateTime.Today;
 
             txtnguoiyeucau.Focus();
@@ -156,7 +156,7 @@ namespace Maketting.View
             //this.matk = taikhoan;
 
 
-            Model.MKT.DeleteALLphieuPOtamTMP();
+         //   Model.MKT.DeleteALLphieuPOtamTMP();
 
           
 
@@ -257,7 +257,7 @@ namespace Maketting.View
 
             cleartoblankPOphieu();
             this.PONumber = Model.MKT.getPOnumberNo();
-            lbgatepassno.Text = this.PONumber;
+            lbPonumber.Text = this.PONumber;
 
 
 
@@ -704,7 +704,7 @@ namespace Maketting.View
             Model.MKT.DeleteALLphieutamTMP();
 
             this.PONumber = Model.MKT.getMKtNo();
-            lbgatepassno.Text = this.PONumber;
+            lbPonumber.Text = this.PONumber;
             btluu.Enabled = true;
 
         }
@@ -1513,10 +1513,10 @@ namespace Maketting.View
             string storelocationfind = "";
             string connection_string = Utils.getConnectionstr();
 
-            btluu.Enabled = false;
+            btluu.Enabled = true;
             btsua.Enabled = true;
-            btmoi.Enabled = false;
-
+            btmoi.Enabled = true;
+         
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             try
@@ -1538,21 +1538,23 @@ namespace Maketting.View
             #region loaddead so phieu va location
             #region // head 
             //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+            cleartoblankPOphieu();
+
 
             var rs = (from pp in dc.tbl_MKt_POheads
                       where pp.PONumber == POnumberfind && pp.StoreLocation == storelocationfind
 
                       select pp).FirstOrDefault();
-
+        
             if (rs != null)
             {
                 this.PONumber = POnumberfind;
-                lbgatepassno.Text = this.PONumber;
-
-         //       txtdiachi.Text = rs.Address;
-        //        txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
-        //        txtnguoinhan.Text = rs.Receiver_by;// = 
-//
+                lbPonumber.Text = POnumberfind;
+              //  MessageBox.Show(POnumberfind);
+                //       txtdiachi.Text = rs.Address;
+                //        txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                //        txtnguoinhan.Text = rs.Receiver_by;// = 
+                //
                 datepickngayphieu.Value = (DateTime)rs.DatePo;// = ;
          //       txtmucdichname.Text = rs.Purpose;//= ;
          //       txtmact.Text = rs.Purposeid;//=;
@@ -1572,7 +1574,7 @@ namespace Maketting.View
 
                 txtnguoiyeucau.Text = rs.Created_by;// = ;
                                                       //   rs.Status = "CRT";
-                lbgatepassno.Text = this.PONumber;
+             //   lbPonumber.Text = this.PONumber;
 
           //      lbtel.Text = rs.Tel;// = ;
                                     //  rs.Username = this.Username;
@@ -1595,7 +1597,7 @@ namespace Maketting.View
 
             if (rs2.Count() > 0)
             {
-                cleartoblankPOphieu();
+              
                 foreach (var item in rs2)
                 {
                     addDEtailPOPhieuMKT(item);
@@ -1816,6 +1818,11 @@ namespace Maketting.View
             if (kq)
             {
                 MessageBox.Show("Delete " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Can not deleted: " + this.PONumber.ToString() + " ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
 
