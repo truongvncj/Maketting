@@ -98,3 +98,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTInputchange.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTDanhkhoRight.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKWHphieunhaphangreturn.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTPOmake.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangtheoPo.resources

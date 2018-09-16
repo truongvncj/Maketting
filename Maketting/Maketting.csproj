@@ -171,6 +171,12 @@
     <Compile Include="View\MKTFromdatetodate.Designer.cs">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTNhaphangtheoPo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTNhaphangtheoPo.Designer.cs">
+      <DependentUpon>MKTNhaphangtheoPo.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTPOmake.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -608,6 +614,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTFromdatetodate.resx">
       <DependentUpon>MKTFromdatetodate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTNhaphangtheoPo.resx">
+      <DependentUpon>MKTNhaphangtheoPo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTPOmake.resx">
       <DependentUpon>MKTPOmake.cs</DependentUpon>

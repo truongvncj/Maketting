@@ -148,7 +148,7 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
-        public static void DeleteALLphieuPOtamTMP()
+        public static void DeleteALLphieuDetailPOtamTMP()
         {
 
             string urs = Utils.getusername();
@@ -157,14 +157,14 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var rs = from pp in dc.tbl_MKt_POheads
-                     where pp.Username == urs && pp.Status == "TMP"
+            var rs = from pp in dc.tbl_MKt_POdetail_TMPs
+                     where pp.Username == urs && pp.StatusPO == "TMP"
                      select pp;
 
             if (rs.Count() > 0)
             {
 
-                dc.tbl_MKt_POheads.DeleteAllOnSubmit(rs);
+                dc.tbl_MKt_POdetail_TMPs.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
                 //  dc.Connection.Close();
             }
@@ -550,7 +550,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK + itemnhap.ReturnQuantity;
+                    item.END_STOCK = item.END_STOCK + itemnhap.RecieptQuantity;
                     dc.SubmitChanges();
                 }
 

@@ -721,7 +721,7 @@ namespace Maketting.View
                 #endregion
 
                 MessageBox.Show("Phiếu " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cleartoblankphieu();
+            //    cleartoblankphieu();
             }
 
 

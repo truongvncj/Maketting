@@ -51,7 +51,7 @@ namespace Maketting.View
 
 
 
-       
+
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -97,25 +97,25 @@ namespace Maketting.View
 
             #region  list black phiếu
             datepickngayphieu.Enabled = true;
-        
-            txtnguoiyeucau.Enabled = true;
-            
 
-            btluu.Visible = true;
-            btluu.Enabled = true;
+            txtnguoiyeucau.Enabled = true;
+
+
+            //    btluu.Visible = true;
+            //    btluu.Enabled = true;
             //    cbtaikhoanco.Enabled = true;
 
-            btsua.Enabled = false;
+            //      btsua.Enabled = false;
 
-        //    txtmucdichname.Text = "";
+            //    txtmucdichname.Text = "";
             txtnguoiyeucau.Text = "";
-       //     txtnguoinhan.Text = "";
-       //     txtdiachi.Text = "";
+            //     txtnguoinhan.Text = "";
+            //     txtdiachi.Text = "";
             txtnguoiyeucau.Text = Utils.getname();
 
-        //    lbtel.Text = "";
-         //   lbweight.Text = "";
-            lbPonumber.Text = "";
+            //    lbtel.Text = "";
+            //   lbweight.Text = "";
+            txtSapPO.Text = "";
             datepickngayphieu.Value = DateTime.Today;
 
             txtnguoiyeucau.Focus();
@@ -135,9 +135,9 @@ namespace Maketting.View
             List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where   ( from   gg in dc.tbl_MKT_StoreRights 
-                                          where gg.storeright == rightkho
-                                          select gg.makho).Contains(pp.makho)
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
                       select pp;
             foreach (var item2 in rs1)
             {
@@ -156,9 +156,9 @@ namespace Maketting.View
             //this.matk = taikhoan;
 
 
-         //   Model.MKT.DeleteALLphieuPOtamTMP();
+            //   Model.MKT.DeleteALLphieuPOtamTMP();
 
-          
+
 
             #endregion
 
@@ -251,13 +251,13 @@ namespace Maketting.View
 
             this.main1 = Main;
 
-
+            Model.MKT.DeleteALLphieuDetailPOtamTMP();
 
             this.statusphieu = 1; // tạo mới
 
             cleartoblankPOphieu();
-            this.PONumber = Model.MKT.getPOnumberNo();
-            lbPonumber.Text = this.PONumber;
+            //      this.PONumber = Model.MKT.getPOnumberNo();
+            txtSapPO.Text = "";
 
 
 
@@ -304,7 +304,7 @@ namespace Maketting.View
             {
                 // datepickngayphieu.
                 e.Handled = true;
-          //      txtnguoinhan.Focus();
+                //      txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -333,7 +333,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-             ///   txtnguoinhan.Focus();
+                ///   txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -356,7 +356,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-             //   txtmucdichname.Focus();
+                //   txtmucdichname.Focus();
 
 
 
@@ -473,7 +473,7 @@ namespace Maketting.View
 
 
             #region  // check head
-       
+
 
 
             if (cbkhohang.Text == "")
@@ -520,9 +520,9 @@ namespace Maketting.View
                         return;
                     }
 
-                    if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value )
+                    if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                     {
-                        if ((float)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value <= 0 )
+                        if ((float)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value <= 0)
                         {
                             MessageBox.Show("Please số lượng lớn 0, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
@@ -548,55 +548,53 @@ namespace Maketting.View
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
                 btluu.Enabled = false;
 
-                var rs = (from pp in dc.tbl_MKt_POheads
-                          where pp.id.ToString() == this.PONumber && pp.Status == "TMP"
-
-                          select pp).FirstOrDefault();
-
-                if (rs != null)
-                {
+                tbl_MKt_POhead ponew = new tbl_MKt_POhead();
                 //    rs.Address = txtdiachi.Text;
                 //    rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                 //    rs.Receiver_by = txtnguoinhan.Text;
 
-                    rs.DatePo = datepickngayphieu.Value;
+                ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
-               //     rs.Purposeid = txtmact.Text;
-                    rs.StoreLocation = this.storelocation;
-                    rs.Created_by = txtnguoiyeucau.Text;
-                    rs.Status = "CRT";
-                    rs.PONumber = this.PONumber;
+                //     rs.Purposeid = txtmact.Text;
+                ponew.StoreLocation = this.storelocation;
+                ponew.Created_by = txtnguoiyeucau.Text;
+                ponew.Status = "CRT";
+                ponew.PONumber = this.PONumber;
 
-              //      rs.Tel = lbtel.Text;
-                    rs.Username = this.Username;
-                    dc.SubmitChanges();
+                //      rs.Tel = lbtel.Text;
+                ponew.Username = this.Username;
+                dc.tbl_MKt_POheads.InsertOnSubmit(ponew);
+                dc.SubmitChanges();
 
-                }
+
 
 
                 #endregion
 
-                #region // detail
+                #region // detail [tbl_MKt_POdetail_TMP]
+
+                Model.MKT.DeleteALLphieuDetailPOtamTMP();// để xóa và ghi tậm
+
                 for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
                 {
                     if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                     {
-                        tbl_MKt_POdetail detailphieu = new tbl_MKt_POdetail();
+                        tbl_MKt_POdetail_TMP detailphieu = new tbl_MKt_POdetail_TMP();
 
-                 //       detailphieu.Address = txtdiachi.Text;
-                 //       detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
-                     //   detailphieu.Receiver_by = txtnguoinhan.Text;
+                        //       detailphieu.Address = txtdiachi.Text;
+                        //       detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
+                        //   detailphieu.Receiver_by = txtnguoinhan.Text;
 
-                        detailphieu.DatePO = datepickngayphieu.Value;
-                     //   detailphieu.Purpose = txtmucdichname.Text;
-                     //   detailphieu.Purposeid = txtmact.Text;
+                    //    detailphieu.d = datepickngayphieu.Value;
+                        //   detailphieu.Purpose = txtmucdichname.Text;
+                        //   detailphieu.Purposeid = txtmact.Text;
                         detailphieu.Storelocation = this.storelocation;
-                     //   detailphieu. = txtnguoiyeucau.Text;
-                        detailphieu.StatusPO = "CRT";
-                   //     detailphieu.Tel = lbtel.Text;
+                        //   detailphieu. = txtnguoiyeucau.Text;
+                        detailphieu.StatusPO = "TMP";
+                        //     detailphieu.Tel = lbtel.Text;
                         detailphieu.Username = this.Username;
                         detailphieu.POnumber = this.PONumber;
-                      
+
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
                         {
@@ -616,7 +614,7 @@ namespace Maketting.View
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                         {
-                           
+
                             detailphieu.QuantityOrder = (float)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value;
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
@@ -627,7 +625,7 @@ namespace Maketting.View
                         {
                             detailphieu.Unit = (string)dataGridViewDetail.Rows[idrow].Cells["Unit"].Value;
                         }
-                        dc.tbl_MKt_POdetails.InsertOnSubmit(detailphieu);
+                        dc.tbl_MKt_POdetail_TMPs.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
 
 
@@ -636,6 +634,89 @@ namespace Maketting.View
                 }
 
                 #endregion
+
+                #region// Group and create PO
+
+
+                var rs6 = (from pp in dc.tbl_MKt_POdetail_TMPs
+                           where pp.id.ToString() == this.PONumber && pp.StatusPO != "TMP"
+                           group pp by pp.MateriaItemcode into gg
+                           select new {
+                               MateriaItemcode =gg.Key,
+                               QuantityOrder = gg.Sum(m => m.QuantityOrder),
+                               Description =   gg.Select(m => m.Description).FirstOrDefault(),
+                               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+                               MateriaSAPcode = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+                               POnumber = gg.Select(m => m.POnumber).FirstOrDefault(),
+                          //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
+                               Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
+                               Unit = gg.Select(m => m.Unit).FirstOrDefault(),
+                               Username = gg.Select(m => m.Username).FirstOrDefault(),
+                           //    Description = gg.Select(m => m.Description).FirstOrDefault(),
+
+
+
+                           });
+
+                if (rs6.Count()>0)
+                {
+
+                    foreach (var item in rs6)
+                    {
+
+                        tbl_MKt_POdetail detailPO = new tbl_MKt_POdetail();
+
+                        detailPO.MateriaItemcode = item.MateriaItemcode;
+                        detailPO.Description = item.Description;
+                        detailPO.Materialname = item.Materialname;
+                        detailPO.MateriaSAPcode = item.MateriaSAPcode;
+                        detailPO.POnumber = item.POnumber;
+                        detailPO.QuantityOrder = item.QuantityOrder;
+                        detailPO.Storelocation = item.Storelocation;
+                        detailPO.Unit = item.Unit;
+                        detailPO.Username = item.Username;
+                        detailPO.StatusPO = "CRT";
+
+                   //     detailPO.Username = item.Username;
+                   //     detailPO.Username = item.Username;
+                   //     detailPO.Username = item.Username;
+
+                        dc.tbl_MKt_POdetails.InsertOnSubmit(detailPO);
+                        dc.SubmitChanges();
+
+
+
+                    //    tbl_MKt_WHstoreissue detailStoreinput = new tbl_MKt_WHstoreissue();
+
+                    //    detailStoreinput.Materiacode = item.MateriaItemcode;
+                    ////    detailStoreinput.d = item.Description;
+                    //    detailStoreinput.Materialname = item.Materialname;
+                    //   // detailStoreinput. = item.MateriaSAPcode;
+                    //    detailStoreinput.POnumber = item.POnumber;
+                    //    detailStoreinput. = item.QuantityOrder;
+                    //    detailStoreinput.ShippingPoint = item.Storelocation;
+                    //    detailStoreinput.u = item.Unit;
+                    //    detailStoreinput.Username = item.Username;
+                    //    detailStoreinput.StatusPO = "CRT";
+
+                    //    //     detailPO.Username = item.Username;
+                    //    //     detailPO.Username = item.Username;
+                    //    //     detailPO.Username = item.Username;
+
+                    //    dc.tbl_MKt_WHstoreissues.InsertOnSubmit(detailStoreinput);
+                    //    dc.SubmitChanges();
+                        ////    Document_Number = OD.Key,
+                        //    //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
+                        //    //              Value_Count = OD.Sum(m => m.Cond_Value)
+
+
+                    }
+
+                }
+
+
+                #endregion // Group and create PO
+
 
                 MessageBox.Show("Phiếu " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cleartoblankPOphieu();
@@ -703,13 +784,13 @@ namespace Maketting.View
 
             Model.MKT.DeleteALLphieutamTMP();
 
-            this.PONumber = Model.MKT.getMKtNo();
-            lbPonumber.Text = this.PONumber;
+            //  this.PONumber = Model.MKT.getMKtNo();
+            txtSapPO.Text = "";
             btluu.Enabled = true;
 
         }
 
-    
+
         private void dataGridViewListphieuthu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -903,8 +984,8 @@ namespace Maketting.View
 
 
             txtnguoiyeucau.Enabled = true;
-        //    txtnguoinhan.Enabled = true;
-       //     txtdiachi.Enabled = true;
+            //    txtnguoinhan.Enabled = true;
+            //     txtdiachi.Enabled = true;
 
             btluu.Enabled = true;
 
@@ -940,7 +1021,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-            //    txtnguoinhan.Focus();
+                //    txtnguoinhan.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -959,7 +1040,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-           //     txtdiachi.Focus();
+                //     txtdiachi.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -1269,7 +1350,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                        //     Avaiable_stock = pp.END_STOCK,
+                             //     Avaiable_stock = pp.END_STOCK,
 
                              pp.id,
 
@@ -1288,7 +1369,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                           //  Avaiable_stock = pp.END_STOCK,
+                             //  Avaiable_stock = pp.END_STOCK,
 
                              pp.id,
 
@@ -1306,7 +1387,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                         //    Avaiable_stock = pp.END_STOCK,
+                             //    Avaiable_stock = pp.END_STOCK,
 
                              pp.id,
 
@@ -1325,7 +1406,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                          //   Avaiable_stock = pp.END_STOCK,
+                             //   Avaiable_stock = pp.END_STOCK,
 
                              pp.id,
 
@@ -1378,7 +1459,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
-                     ///   dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
+                        ///   dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
 
                     }
@@ -1388,7 +1469,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
-                     //   dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
+                        //   dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
 
                     }
@@ -1513,18 +1594,18 @@ namespace Maketting.View
             string storelocationfind = "";
             string connection_string = Utils.getConnectionstr();
 
-            btluu.Enabled = true;
+            btluu.Enabled = false;
             btsua.Enabled = true;
             btmoi.Enabled = true;
-         
+
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             try
             {
-             //   xx
+                //   xx
 
 
-             //   xxx
+                //   xxx
                 POnumberfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["PONumber"].Value.ToString();
                 storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["StoreLocation"].Value.ToString();
 
@@ -1545,19 +1626,19 @@ namespace Maketting.View
                       where pp.PONumber == POnumberfind && pp.StoreLocation == storelocationfind
 
                       select pp).FirstOrDefault();
-        
+
             if (rs != null)
             {
                 this.PONumber = POnumberfind;
-                lbPonumber.Text = POnumberfind;
-              //  MessageBox.Show(POnumberfind);
+                txtSapPO.Text = POnumberfind;
+                //  MessageBox.Show(POnumberfind);
                 //       txtdiachi.Text = rs.Address;
                 //        txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
                 //        txtnguoinhan.Text = rs.Receiver_by;// = 
                 //
                 datepickngayphieu.Value = (DateTime)rs.DatePo;// = ;
-         //       txtmucdichname.Text = rs.Purpose;//= ;
-         //       txtmact.Text = rs.Purposeid;//=;
+                                                              //       txtmucdichname.Text = rs.Purpose;//= ;
+                                                              //       txtmact.Text = rs.Purposeid;//=;
                 this.storelocation = rs.StoreLocation;// = ;
 
 
@@ -1573,12 +1654,12 @@ namespace Maketting.View
                 }
 
                 txtnguoiyeucau.Text = rs.Created_by;// = ;
-                                                      //   rs.Status = "CRT";
-             //   lbPonumber.Text = this.PONumber;
+                                                    //   rs.Status = "CRT";
+                                                    //   lbPonumber.Text = this.PONumber;
 
-          //      lbtel.Text = rs.Tel;// = ;
-                                    //  rs.Username = this.Username;
-                                    //   dc.SubmitChanges();
+                //      lbtel.Text = rs.Tel;// = ;
+                //  rs.Username = this.Username;
+                //   dc.SubmitChanges();
 
 
             }
@@ -1597,7 +1678,7 @@ namespace Maketting.View
 
             if (rs2.Count() > 0)
             {
-              
+
                 foreach (var item in rs2)
                 {
                     addDEtailPOPhieuMKT(item);
@@ -1684,7 +1765,7 @@ namespace Maketting.View
 
                              pp.Status,
                              pp.Username,
-                          
+
                              pp.id,
 
                          };
@@ -1724,12 +1805,12 @@ namespace Maketting.View
                 //  cbsophieu.
                 e.Handled = true;
 
-         //       string seachtext = txtmucdichname.Text;
+                //       string seachtext = txtmucdichname.Text;
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKT_Mucdiches
-                     //    where pp.tenCT.Contains(seachtext)
+                             //    where pp.tenCT.Contains(seachtext)
                          select new
                          {
                              MÃ_CHƯƠNG_TRÌNH = pp.macT,
@@ -1752,9 +1833,9 @@ namespace Maketting.View
                 if (rs2 != null)
                 {
 
-          //          txtmact.Text = rs2.macT;
-        //           txtmucdichname.Text = rs2.tenCT;
-///
+                    //          txtmact.Text = rs2.macT;
+                    //           txtmucdichname.Text = rs2.tenCT;
+                    ///
                 }
 
 
@@ -1804,7 +1885,7 @@ namespace Maketting.View
 
 
 
-           
+
         }
 
         private void txtmucdichname_TextChanged(object sender, EventArgs e)
@@ -1818,7 +1899,7 @@ namespace Maketting.View
             if (kq)
             {
                 MessageBox.Show("Delete " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                cleartoblankPOphieu();
             }
             else
             {
@@ -1835,12 +1916,12 @@ namespace Maketting.View
                 e.Handled = true;
                 //  cbsophieu.
 
-             //   string seachtext = txtnguoinhan.Text;
+                //   string seachtext = txtnguoinhan.Text;
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKT_khachhangs
-                    //     where pp.tenKH.Contains(seachtext)
+                             //     where pp.tenKH.Contains(seachtext)
                          select new
                          {
                              MÃ_KHÁCH_HÀNG = pp.maKH,
@@ -1866,10 +1947,10 @@ namespace Maketting.View
 
                 if (rs2 != null)
                 {
-             //       txtcustcode.Text = rs2.maKH;
-             //       txtnguoinhan.Text = rs2.tenKH;
-             //       txtdiachi.Text = rs2.diachiKH;
-            //        lbtel.Text = rs2.dienthoai;
+                    //       txtcustcode.Text = rs2.maKH;
+                    //       txtnguoinhan.Text = rs2.tenKH;
+                    //       txtdiachi.Text = rs2.diachiKH;
+                    //        lbtel.Text = rs2.dienthoai;
 
 
 
@@ -1879,7 +1960,7 @@ namespace Maketting.View
 
 
 
-            //    txtmucdichname.Focus();
+                //    txtmucdichname.Focus();
 
 
             }

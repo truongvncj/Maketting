@@ -48,7 +48,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbkhohang = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbPonumber = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtnguoiyeucau = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
+            this.txtSapPO = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -180,9 +180,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridViewDetail);
-            this.panel4.Location = new System.Drawing.Point(0, 161);
+            this.panel4.Location = new System.Drawing.Point(0, 190);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1266, 371);
+            this.panel4.Size = new System.Drawing.Size(1266, 342);
             this.panel4.TabIndex = 67;
             // 
             // dataGridViewDetail
@@ -219,7 +219,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 353);
+            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 324);
             this.dataGridViewDetail.TabIndex = 3;
             this.dataGridViewDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellContentClick);
             this.dataGridViewDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
@@ -236,9 +236,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtSapPO);
             this.panel1.Controls.Add(this.cbkhohang);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lbPonumber);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.txtnguoiyeucau);
             this.panel1.Controls.Add(this.label11);
@@ -247,7 +247,7 @@
             this.panel1.Controls.Add(this.datepickngayphieu);
             this.panel1.Location = new System.Drawing.Point(-4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1270, 152);
+            this.panel1.Size = new System.Drawing.Size(1270, 181);
             this.panel1.TabIndex = 65;
             // 
             // cbkhohang
@@ -271,16 +271,6 @@
             this.label4.TabIndex = 72;
             this.label4.Text = "Store (Tại kho):";
             // 
-            // lbPonumber
-            // 
-            this.lbPonumber.AutoSize = true;
-            this.lbPonumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPonumber.Location = new System.Drawing.Point(927, 91);
-            this.lbPonumber.Name = "lbPonumber";
-            this.lbPonumber.Size = new System.Drawing.Size(81, 18);
-            this.lbPonumber.TabIndex = 65;
-            this.lbPonumber.Text = "HNI001135";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -294,7 +284,7 @@
             // txtnguoiyeucau
             // 
             this.txtnguoiyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoiyeucau.Location = new System.Drawing.Point(230, 58);
+            this.txtnguoiyeucau.Location = new System.Drawing.Point(230, 64);
             this.txtnguoiyeucau.Name = "txtnguoiyeucau";
             this.txtnguoiyeucau.Size = new System.Drawing.Size(271, 24);
             this.txtnguoiyeucau.TabIndex = 21;
@@ -305,17 +295,17 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(765, 91);
+            this.label11.Location = new System.Drawing.Point(12, 140);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 18);
+            this.label11.Size = new System.Drawing.Size(128, 18);
             this.label11.TabIndex = 19;
-            this.label11.Text = "PO Number :";
+            this.label11.Text = "SAP PO Number :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 64);
+            this.label5.Location = new System.Drawing.Point(12, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 18);
             this.label5.TabIndex = 7;
@@ -325,7 +315,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(12, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 2;
@@ -337,7 +327,7 @@
             this.datepickngayphieu.CustomFormat = "dd.MM.yyyy";
             this.datepickngayphieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datepickngayphieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datepickngayphieu.Location = new System.Drawing.Point(230, 91);
+            this.datepickngayphieu.Location = new System.Drawing.Point(230, 100);
             this.datepickngayphieu.Name = "datepickngayphieu";
             this.datepickngayphieu.Size = new System.Drawing.Size(119, 24);
             this.datepickngayphieu.TabIndex = 0;
@@ -430,6 +420,15 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
+            // txtSapPO
+            // 
+            this.txtSapPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSapPO.Location = new System.Drawing.Point(230, 134);
+            this.txtSapPO.Name = "txtSapPO";
+            this.txtSapPO.Size = new System.Drawing.Size(271, 24);
+            this.txtSapPO.TabIndex = 74;
+            this.txtSapPO.Text = "PO number";
+            // 
             // MKTPOmake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,11 +478,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DataGridView dataGridViewListphieu;
-        private System.Windows.Forms.Label lbPonumber;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbkhohang;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btxoa;
+        private System.Windows.Forms.TextBox txtSapPO;
     }
 }

@@ -511,8 +511,8 @@ namespace Maketting.View
                         {
                             foreach (var item in rs)
                             {
-                                item.ReturnQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
-                                item.Returnby = txtnguoixuathang.Text;
+                                item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
+                                item.Recieptby = txtnguoixuathang.Text;
 
                                 Model.MKT.tangkhokhinhaphang(item);
 
@@ -733,7 +733,7 @@ namespace Maketting.View
                                // stt = stt +1,
                                Materiacode = pp.Materiacode,
                                Materialname = pp.Materialname,
-                               soluong = pp.ReturnQuantity,
+                               soluong = pp.RecieptQuantity,
                                //   username = pp.Username,
                             
 

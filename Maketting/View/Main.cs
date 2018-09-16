@@ -3867,8 +3867,27 @@ namespace Maketting.View
             pxk.ShowDialog();
 
             string POnumber = pxk.valuetext;
+            bool kq = pxk.kq;
+            if (kq)
+            {
+
+                #region// nhập hagf
+                //if (name == "tmphieuthu")
+                //{
+                // MKTNhaphangtheoPo
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
 
 
+                View.MKTNhaphangtheoPo nhaphang = new MKTNhaphangtheoPo(this, POnumber);
+                this.clearpannelload(nhaphang);
+                // this.Close();
+                #endregion
+
+
+            }
 
 
 
@@ -4266,7 +4285,7 @@ namespace Maketting.View
 
                 var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == Loadnumberserri
-                           && pp.ReturnQuantity >0
+                           && pp.RecieptQuantity >0
 
 
                            select pp).FirstOrDefault();
@@ -4284,7 +4303,7 @@ namespace Maketting.View
                 #region// xuất hagf
                 //if (name == "tmphieuthu")
                 //{
-
+               // MKTNhaphangtheoPo
                 //  Main.clearpannel();
                 //   Formload.
                 // clearpannel();

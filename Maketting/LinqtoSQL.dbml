@@ -1344,8 +1344,8 @@
       <Column Name="QuantityOrder" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DatePO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="QuantityReciepted" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="QuantityBalance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RecieptedQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BalanceQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -1429,8 +1429,9 @@
       <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IssueBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ReturnQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Returnby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_NP_danhsachxe" Member="tbl_NP_danhsachxes">
@@ -1549,6 +1550,21 @@
       <Column Name="cashadvandapproval1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="cashadvanapproval2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="macty" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_POdetail_TMP" Member="tbl_MKt_POdetail_TMPs">
+    <Type Name="tbl_MKt_POdetail_TMP">
+      <Column Name="POnumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaSAPcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QuantityOrder" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
