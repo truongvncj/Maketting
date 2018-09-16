@@ -35,67 +35,65 @@ namespace Maketting.View
         }
 
 
-        public void loaddetailMKTupdate()
+        public void clearbankdetail()
         {
+
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add(new DataColumn("Gate_pass", typeof(string)));
+            dt.Columns.Add(new DataColumn("Shipping_Point", typeof(string)));
+            dt.Columns.Add(new DataColumn("Customer_code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Customer_name", typeof(string)));
+
+            dt.Columns.Add(new DataColumn("Maketting_Status", typeof(string)));
+            dt.Columns.Add(new DataColumn("Maketting_load", typeof(float)));
+
+
+
+            dataGridViewLoaddetail.DataSource = dt;
+            //  dataGridViewLoaddetail.Columns["Unit"].ReadOnly = true;
+            //  dataGridViewLoaddetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            //      dataGridViewLoaddetail.Columns["Avaiable_Quantity"].ReadOnly = true;
+            //      dataGridViewLoaddetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+
+
+
+        }
+
+        public void addDEtailPhieuMKT(tbl_MKt_Listphieuhead PhieuMKT)
+        {
+
+
+
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            string urs = Utils.getusername();
-
-            var rs = from pp in dc.tbl_MKt_Listphieuheads
-                     where pp.ShippingPoint + pp.Gate_pass == this.Maketting_Seri
-                     select new
-                     {
-                         Gate_pass = pp.Gate_pass,
-                         Shipping_Point = pp.ShippingPoint,
-                         Customer_code = pp.Customer_SAP_Code,
-                         Customer_name = pp.Receiver_by,
-                         Maketting_Status = pp.Status,
-                         Maketting_load = pp.LoadNumber,
-                         //     Real_issue = 0,
 
 
 
-                     };
+            //---------------
 
-            if (rs.Count() > 0)
+            DataTable dataTable = (DataTable)dataGridViewLoaddetail.DataSource;
+
+            DataRow drToAdd = dataTable.NewRow();
+
+            drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
+            drToAdd["Shipping_Point"] = PhieuMKT.ShippingPoint;
+            drToAdd["Customer_code"] = PhieuMKT.Customer_SAP_Code;
+            drToAdd["Customer_name"] = PhieuMKT.Requested_by;
+            drToAdd["Maketting_Status"] = PhieuMKT.Status;
+            if (PhieuMKT.LoadNumber != null)
             {
-                //  dataGridViewLoaddetail.DataSource = rs;
-
-                this.Maketting_Seri = rs.FirstOrDefault().Maketting_load;
-                this.storelocation = rs.FirstOrDefault().Shipping_Point;
-
-                Utils ut = new Utils();
-                DataTable dataTable = ut.ToDataTable(dc, rs);
-                //    dataTable.Columns.Add(new DataColumn("Maketting_Seri", typeof(string)));
-
-
-                dataGridViewLoaddetail.DataSource = dataTable;
-
-
-
-                //  dataGridViewLoaddetail.Columns["Maketting_Seri"].ReadOnly = true;
-
-                //dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
-                //dataGridViewLoaddetail.Columns["Material_code"].ReadOnly = true;
-                //dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-                //dataGridViewLoaddetail.Columns["Requested_issue"].ReadOnly = true;
-                //dataGridViewLoaddetail.Columns["Maketting_load"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //dataGridViewLoaddetail.Columns["Material_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //dataGridViewLoaddetail.Columns["Requested_issue"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-
-
+                drToAdd["Maketting_load"] = PhieuMKT.LoadNumber;
             }
 
 
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DisplayIndex = 1;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].Width = 100;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].ReadOnly = true;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
 
-
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
 
 
 
@@ -198,7 +196,7 @@ namespace Maketting.View
             //       this.Loadnumberserri = Loadnumberserri;
             txtupdateby.Text = "";
             txtmktseri.Text = "";
-         
+
 
             txtupdateby.Text = Utils.getname();
 
@@ -210,10 +208,10 @@ namespace Maketting.View
             dateupdate.Value = DateTime.Today;
 
 
-            loaddetailMKTupdate();
+            clearbankdetail();
 
             //    btluu.Enabled = true;
-         //   btinphieu.Enabled = false;
+            //   btinphieu.Enabled = false;
 
             txtmktseri.Focus();
 
@@ -2159,6 +2157,45 @@ namespace Maketting.View
             // Next
 
 
+        }
+
+        private void txtmktseri_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            //   addDEtailPhieuMKT
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                //  cbsophieu.
+
+                string seachtext = txtmktseri.Text;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKt_Listphieuheads
+                         where (pp.ShippingPoint + pp.Gate_pass) == seachtext
+                         select pp;
+
+                if (rs.Count() == 1)
+
+                {
+
+                    foreach (var item in rs)
+                    {
+                        addDEtailPhieuMKT(item);
+                    }
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("please try again !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+
+            }
         }
     }
 

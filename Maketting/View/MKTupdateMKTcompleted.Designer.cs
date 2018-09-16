@@ -170,6 +170,7 @@
             this.txtmktseri.Name = "txtmktseri";
             this.txtmktseri.Size = new System.Drawing.Size(239, 29);
             this.txtmktseri.TabIndex = 69;
+            this.txtmktseri.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmktseri_KeyPress);
             // 
             // label19
             // 
