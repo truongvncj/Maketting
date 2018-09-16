@@ -148,6 +148,83 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static void DeleteALLphieuPOtamTMP()
+        {
+
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_POheads
+                     where pp.Username == urs && pp.Status == "TMP"
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKt_POheads.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+
+
+
+            // throw new NotImplementedException();
+        }
+
+        public static DataGridView LoadnewdetailPO(DataGridView dataGridViewDetail)
+        {
+
+
+
+
+            dataGridViewDetail.DataSource = null;
+            #region datatable temp
+
+
+
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+            dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+            dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
+            //     dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+
+
+
+
+            dataGridViewDetail.DataSource = dt;
+            dataGridViewDetail.Columns["Unit"].ReadOnly = true;
+            dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            //  dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
+            //   dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+
+
+
+
+
+
+            #endregion datatable temp
+
+
+            return dataGridViewDetail;
+
+
+
+
+
+            // throw new NotImplementedException();
+        }
+
         public static void restatusphieuLoadingtoCRT()
         {
             string connection_string = Utils.getConnectionstr();
@@ -515,6 +592,35 @@ namespace Maketting.Model
 
 
         }
+        public static string getPOnumberNo()
+        {
+            string connection_string = Utils.getConnectionstr();
+            string urs = Utils.getusername();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            tbl_MKt_POhead newtmp = new tbl_MKt_POhead();
+
+            newtmp.Username = urs;
+            newtmp.Status = "TMP";
+
+            dc.tbl_MKt_POheads.InsertOnSubmit(newtmp);
+
+            dc.SubmitChanges();
+
+
+            var phieuid = (from p in dc.tbl_MKt_POheads
+                           where p.Status == "TMP" && p.Username == urs
+                           select p.id).FirstOrDefault();
+
+
+            return phieuid.ToString();
+
+
+
+
+
+        }
 
 
         public static IQueryable danhkhachhang(LinqtoSQLDataContext dc)
@@ -814,6 +920,57 @@ namespace Maketting.Model
             return rs;
 
             //   throw new NotImplementedException();
+        }
+
+        public static bool DeletePurchase(string pONumber, string storelocation)
+        {
+            // deleead head
+
+            bool kq = false;
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_POheads
+                     where pp.PONumber == pONumber && pp.StoreLocation == storelocation
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKt_POheads.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+
+                kq = true;
+            }
+
+
+            // upload detail
+
+
+            var rs2 = from pp in dc.tbl_MKt_POdetails
+                      where pp.POnumber == pONumber && pp.Storelocation == storelocation
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                foreach (var item in rs2)
+                {
+                    dc.tbl_MKt_POdetails.DeleteAllOnSubmit(rs2);
+                    dc.SubmitChanges();
+
+
+                }
+            }
+
+
+
+            return kq;
+
+
+            // throw new NotImplementedException();
         }
     }
 }

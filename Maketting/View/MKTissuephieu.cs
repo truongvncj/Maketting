@@ -2003,6 +2003,8 @@ namespace Maketting.View
         private void cbkhohang_SelectedValueChanged(object sender, EventArgs e)
         {
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+
+            cleartoblankDEtailphieu();
         }
 
         private void txtmucdich_KeyPress(object sender, KeyPressEventArgs e)

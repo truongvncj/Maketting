@@ -1333,6 +1333,35 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_POdetail" Member="tbl_MKt_POdetails">
+    <Type Name="tbl_MKt_POdetail">
+      <Column Name="POnumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaSAPcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QuantityOrder" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DatePO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuantityReciepted" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityBalance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_POhead" Member="tbl_MKt_POheads">
+    <Type Name="tbl_MKt_POhead">
+      <Column Name="PONumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DatePo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StoreLocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_Stockcount" Member="tbl_MKT_Stockcounts">
     <Type Name="tbl_MKT_Stockcount">
       <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
