@@ -420,17 +420,7 @@ namespace Maketting.View
             }
         }
 
-        public static void ghisoQuy(tbl_SoQuy soquy)
-        {
-
-            //      string connection_string = Utils.getConnectionstr();
-
-            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //  dc.tbl_SoQuys.InsertOnSubmit(soquy);
-            //       dc.SubmitChanges();
-
-        }
+     
 
 
         private void dataGridViewListphieuthu_Paint(object sender, PaintEventArgs e)

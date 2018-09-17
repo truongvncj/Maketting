@@ -935,6 +935,7 @@ namespace Maketting.Model
 
             var rs = from pp in dc.tbl_MKt_POheads
                      where pp.PONumber == pONumber && pp.StoreLocation == storelocation
+                     && pp.Status =="CRT"
                      select pp;
 
             if (rs.Count() > 0)
@@ -945,7 +946,12 @@ namespace Maketting.Model
 
                 kq = true;
             }
+            else
+            {
+                MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                return kq;
+            }
 
             // upload detail
 

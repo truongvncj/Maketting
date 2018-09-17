@@ -485,32 +485,7 @@ namespace Maketting.View
 
         }
 
-        private void button15_Click(object sender, EventArgs e)
-        {
-
-
-            Beekyketoan makepriod = new Beekyketoan();
-
-            makepriod.ShowDialog();
-
-
-
-
-            string connection_string = Utils.getConnectionstr();
-            //    string urs = Utils.getusername();
-            //  var db = new LinqtoSQLDataContext(connection_string);
-            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-            //    tbl_karegion
-
-            //    var typeff = typeof(tbl_Kapriod);
-            //     VInputchange inputcdata = new VInputchange("", "LIST PRIOD", db, "tbl_Kapriod", "tbl_Kapriod", typeff, typeff, "id", "id", "");
-            // inputcdata.Show();
-
-
-
-
-        }
-
+   
         private void button16_Click(object sender, EventArgs e)
         {
 
@@ -917,27 +892,7 @@ namespace Maketting.View
 
         }
 
-        private void button27_Click(object sender, EventArgs e)
-        {
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            //var rs1 = from dschitiet in dc.tbl_machitiettks
-            //          select new
-            //          {
-            //              Mã_tài_khoản = dschitiet.matk,
-            //              Tên_tài_khoản_chi_tiết = dschitiet.tenchitiet,
-            //              Mã_chi_tiết = dschitiet.machitiet,
-            //              ID = dschitiet.id
-            //          };
-
-            var rs1 = Model.Danhsachtkchitiet.danhsachtaikhoanchitiet(dc);
-
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH MÃ CHI TIẾT TÀI KHOẢN", 2, "tk");// view code 2 mo so chi tiet tai khoan
-            viewtbl.Show();
-
-        }
-
+   
         private void button41_Click(object sender, EventArgs e)
         {
 
@@ -954,39 +909,8 @@ namespace Maketting.View
 
         }
 
-        private void btdanhsachnhavantai_Click(object sender, EventArgs e)
-        {
-            //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachNVT(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NHÀ VẬN TẢI", 8, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-
-
-
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachxe(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH XE", 9, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-
-
-
-
-
-        }
-
+      
+    
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -1066,43 +990,8 @@ namespace Maketting.View
 
         }
 
-        private void button4_Click_3(object sender, EventArgs e)
-        {
-
-            #region//bcsonhatkychung
-            //if (name == "bcsonhatkychung")
-            //{
-
-            Model.Soketoan.baocaokqkd();
-
-            //  }
-            #endregion
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button10_Click_2(object sender, EventArgs e)
-        {
-            Model.Soketoan.xemvaupdatekqkd200();
-        }
-
-        private void button14_Click_1(object sender, EventArgs e)
-        {
-
-            #region//bccan doi ke toan
-            //if (name == "bcsonhatkychung")
-            //{
-
-            Model.Soketoan.baocaocandoiketoantt200lientuc();
-
-            //  }
-            #endregion
-        }
-
+       
+     
         private void tiềnMặtToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -1148,18 +1037,7 @@ namespace Maketting.View
 
         }
 
-        private void bảnCấnĐốiTàiKhoảnPhátSinhToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            #region//bcbangcandoitaikhoan
-
-
-            Model.Soketoan.bangcandoiphatsinhtaikhoan();
-
-
-            #endregion
-
-        }
-
+   
         private void sổChiTiếtTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -1237,28 +1115,8 @@ namespace Maketting.View
             this.pictureBox1.BorderStyle = BorderStyle.None;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            //    string connection_string = Utils.getConnectionstr();
-
-            //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //   var rs1 = Model.Nhacungcap.danhsachNVT(dc);
-            //    Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NHÀ VẬN TẢI", 8, "tk");// mã 8 là danh sach nha nha van tai
-            //   Viewtable viewtbl = new
-            View.beektth viewtbl = new beektth(this.main1);
-
-            viewtbl.Show();
-
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            View.bedieuvan viewtbl = new bedieuvan(this.main1);
-
-            viewtbl.Show();
-        }
-
+    
+   
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
       

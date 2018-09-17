@@ -45,7 +45,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1121, 502);
+            this.panel1.Size = new System.Drawing.Size(1121, 543);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -61,7 +61,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(4, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1110, 467);
+            this.dataGridView1.Size = new System.Drawing.Size(1110, 508);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 509);
+            this.ClientSize = new System.Drawing.Size(1126, 550);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

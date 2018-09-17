@@ -18,7 +18,7 @@ namespace Maketting.View
 
         public int subID { get; set; }
         public string POnumber { get; set; }
-       // public string soload { get; set; }
+        // public string soload { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
@@ -51,11 +51,11 @@ namespace Maketting.View
                          Material_SAP_code = pp.MateriaSAPcode,
                          Materia_Item_code = pp.MateriaItemcode,
                          Material_name = pp.Materialname,
-                         Order_Quantity =   pp.QuantityOrder,
-                         Reciepted_Quantity =  pp.RecieptedQuantity,
+                         Order_Quantity = pp.QuantityOrder,
+                         Reciepted_Quantity = pp.RecieptedQuantity,
                          //     Real_issue = 0,
 
-                      
+
 
                      };
 
@@ -63,7 +63,7 @@ namespace Maketting.View
             {
                 //  dataGridViewLoaddetail.DataSource = rs;
 
-           //     this.soload = rs.FirstOrDefault().Maketting_load;
+                //     this.soload = rs.FirstOrDefault().Maketting_load;
                 this.storelocation = rs.FirstOrDefault().Shipping_Point;
 
                 Utils ut = new Utils();
@@ -72,14 +72,14 @@ namespace Maketting.View
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
-           
+
                 dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["PO_number"].ReadOnly = true;
 
                 dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Materia_Item_code"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true; 
+                dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
 
@@ -205,14 +205,14 @@ namespace Maketting.View
 
             this.Username = Utils.getusername();
             this.Createdby = Utils.getname();
-           this.POnumber = POnumber;
+            this.POnumber = POnumber;
             txtnguoinhanhang.Text = "";
 
 
             txtnguoinhanhang.Text = Utils.getname();
 
 
-          txtPonumber.Text = POnumber;
+            txtPonumber.Text = POnumber;
 
 
 
@@ -395,17 +395,7 @@ namespace Maketting.View
             }
         }
 
-        public static void ghisoQuy(tbl_SoQuy soquy)
-        {
-
-            //      string connection_string = Utils.getConnectionstr();
-
-            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //  dc.tbl_SoQuys.InsertOnSubmit(soquy);
-            //       dc.SubmitChanges();
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
@@ -515,8 +505,9 @@ namespace Maketting.View
                 }
                 this.subID = IssueIDsub;
 
-                xx
+                //   xx
 
+                string username = Utils.getusername();
 
                 for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
                 {
@@ -524,29 +515,79 @@ namespace Maketting.View
                     {
                         int idfind = (int)dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value;
 
-                        var rs = from pp in dc.tbl_MKt_WHstoreissues
+                        var rs = from pp in dc.tbl_MKt_POdetails
                                  where pp.id == idfind
                                  select pp;
 
-                        if (rs.Count()>0)
+                        if (rs.Count() > 0)
                         {
                             foreach (var item in rs)
                             {
-                                //item.IssueIDsub = IssueIDsub;
-                                item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-                                item.Recieptby = txtnguoinhanhang.Text;
-
-                                Model.MKT.tangkhokhinhaphang(item);
-
+                                item.StatusPO = "IN";
+                                item.RecieptedQuantity = item.RecieptedQuantity + (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                                item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
                                 dc.SubmitChanges();
+
+
+                                tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
+
+
+                                newreciepts.IssueIDsub = IssueIDsub;
+                                newreciepts.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                                newreciepts.Recieptby = txtnguoinhanhang.Text;
+                                newreciepts.Materiacode = item.MateriaItemcode;
+                                newreciepts.Materialname = item.Materialname;
+                                newreciepts.POnumber = item.POnumber;
+                                newreciepts.ShippingPoint = item.Storelocation;
+                      //          newreciepts.Serriload
+
+                                //  newreciepts.Status=""
+                                newreciepts.Username = username;
+
+
+                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(newreciepts);
+                                dc.SubmitChanges();
+
+
+                                var headpo = (from pp in dc.tbl_MKt_POheads
+                                              where pp.PONumber == this.POnumber
+                                              select pp);
+                                if (headpo.Count()>0)
+                                {
+                                    foreach (var item2 in headpo)
+                                    {
+                                        item2.Status = "IN";
+                                        dc.SubmitChanges();
+                                    }
+                                }
+                         
+
+                                Model.MKT.tangkhokhinhaphang(newreciepts);
+
+
+
+
+
+
+
+
+                          
+
+
+
+
+
+
+
+
                             }
                         }
 
 
 
-                    
 
-                   
+
+
 
                     }
                 }
@@ -669,10 +710,10 @@ namespace Maketting.View
             dc.SubmitChanges();
 
 
-            
 
-            var rptMKThead = (from pp in dc.tbl_MKt_ListLoadheads
-                         //     where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+
+            var rptMKThead = (from pp in dc.tbl_MKt_POheads
+                                     where pp.PONumber == this.POnumber //&& pp.ShippingPoint == this.storelocation
                               select pp).FirstOrDefault();
 
             if (rptMKThead != null)
@@ -682,18 +723,18 @@ namespace Maketting.View
                 headpx.Subid = this.subID.ToString();
 
                 headpx.username = this.Username;
-                headpx.Loadnumber = rptMKThead.LoadNumber;
+                headpx.Loadnumber = rptMKThead.PONumber;
                 //    headpx.nametransporter = rptMKThead.TransposterName;
-                headpx.seri = this.storelocation + rptMKThead.LoadNumber;
+                headpx.seri = this.storelocation + rptMKThead.PONumber+"-"+this.subID;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.LoadNumber), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.PONumber), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
-                headpx.Ngaythang = rptMKThead.Date_Created;
-                headpx.shippingpoint = rptMKThead.ShippingPoint;
+                headpx.Ngaythang = rptMKThead.DatePo;
+                headpx.shippingpoint = rptMKThead.StoreLocation;
 
                 headpx.Storeman = this.Createdby;
 
@@ -727,7 +768,7 @@ namespace Maketting.View
                          select new
                          {
                              Storeman = pp.Storeman,
-                             Subid =    pp.Subid,
+                             Subid = pp.Subid,
                              //     codetransporter = pp.codetransporter,
                              shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
@@ -745,9 +786,11 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
-          
+
             var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
-                       //    where pp.Serriload == this.Loadnumberserri
+                                  where pp.POnumber == this.POnumber
+                                  && pp.IssueIDsub == this.subID
+                                  && pp.RecieptQuantity >0
                            orderby pp.Materiacode
                            select new
                            {
@@ -757,10 +800,10 @@ namespace Maketting.View
                                Materialname = pp.Materialname,
                                soluong = pp.RecieptQuantity,
                                //   username = pp.Username,
-                            
+
 
                            };
-            if (rsdetail.Count()>0)
+            if (rsdetail.Count() > 0)
             {
                 int stt = 0;
                 foreach (var item in rsdetail)
@@ -769,20 +812,20 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                        tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
 
-                        detailpx.stt = stt.ToString();
-                        detailpx.soluong = item.soluong;
-                        detailpx.Username = this.Username;
-                        detailpx.materialcode = item.Materiacode;
-                        detailpx.tensanpham = item.Materialname;
-                        detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+                    detailpx.stt = stt.ToString();
+                    detailpx.soluong = item.soluong;
+                    detailpx.Username = this.Username;
+                    detailpx.materialcode = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
 
 
-                        dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                        dc.SubmitChanges();
+                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
 
-                 
+
 
 
 
@@ -791,25 +834,25 @@ namespace Maketting.View
             }
 
             var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
-                           where pp.Username == this.Username
-                           orderby pp.stt
-                           select new
-                           {
+                            where pp.Username == this.Username
+                            orderby pp.stt
+                            select new
+                            {
 
-                               stt = pp.stt,
-                               tensanpham = pp.tensanpham,
-                               materialcode = pp.materialcode,
-                               soluong = pp.soluong,
-                               //   username = pp.Username,
-                               bangchu = pp.bangchu,
+                                stt = pp.stt,
+                                tensanpham = pp.tensanpham,
+                                materialcode = pp.materialcode,
+                                soluong = pp.soluong,
+                                //   username = pp.Username,
+                                bangchu = pp.bangchu,
 
-                           };
+                            };
 
 
             var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail
 
 
-            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKWHphieunhaphangreturn.rdlc");
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKWHnhapkhoMKT.rdlc");
             rpt.ShowDialog();
 
             //}
@@ -1785,7 +1828,7 @@ namespace Maketting.View
 
         private void btxoa_Click(object sender, EventArgs e)
         {
-         //   bool kq = Model.MKT.Deletephieuload(this.soload, this.storelocation);
+            //   bool kq = Model.MKT.Deletephieuload(this.soload, this.storelocation);
             Model.MKT.restatusphieuLoadingtoCRT();
 
             //  Model.MKT.DeleteALLphieutamTMP();
@@ -1795,10 +1838,10 @@ namespace Maketting.View
 
 
 
-        
-                MessageBox.Show("Delete " + this.POnumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-          
+            MessageBox.Show("Delete " + this.POnumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
 
         }
 
@@ -1952,7 +1995,7 @@ namespace Maketting.View
             dc.SubmitChanges();
 
             var rptMKThead = from pp in dc.tbl_MKt_Listphieuheads
-                         //    where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                                 //    where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
                              select pp;
 
             if (rptMKThead.Count() > 0)
@@ -1992,7 +2035,7 @@ namespace Maketting.View
 
 
             var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
-                            //     where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+                                     //     where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  orderby pp.Gate_pass
                                  select pp;
             int i = 0;

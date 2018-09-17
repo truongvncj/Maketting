@@ -438,17 +438,7 @@ namespace Maketting.View
             }
         }
 
-        public static void ghisoQuy(tbl_SoQuy soquy)
-        {
-
-            //      string connection_string = Utils.getConnectionstr();
-
-            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //  dc.tbl_SoQuys.InsertOnSubmit(soquy);
-            //       dc.SubmitChanges();
-
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
@@ -459,7 +449,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs5 = (from pp in dc.tbl_MKt_POheads
-                       where pp.id.ToString() == this.PONumber && pp.Status != "TMP"
+                       where pp.PONumber == txtSapPO.Text //&& pp.Status != "TMP"
 
                        select pp).FirstOrDefault();
             if (rs5 != null)
@@ -559,8 +549,8 @@ namespace Maketting.View
                 ponew.StoreLocation = this.storelocation;
                 ponew.Created_by = txtnguoiyeucau.Text;
                 ponew.Status = "CRT";
-                ponew.PONumber = this.PONumber;
-
+                ponew.PONumber = txtSapPO.Text;
+                this.PONumber = txtSapPO.Text;
                 //      rs.Tel = lbtel.Text;
                 ponew.Username = this.Username;
                 dc.tbl_MKt_POheads.InsertOnSubmit(ponew);
@@ -585,7 +575,7 @@ namespace Maketting.View
                         //       detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                         //   detailphieu.Receiver_by = txtnguoinhan.Text;
 
-                    //    detailphieu.d = datepickngayphieu.Value;
+                        //    detailphieu.d = datepickngayphieu.Value;
                         //   detailphieu.Purpose = txtmucdichname.Text;
                         //   detailphieu.Purposeid = txtmact.Text;
                         detailphieu.Storelocation = this.storelocation;
@@ -639,26 +629,27 @@ namespace Maketting.View
 
 
                 var rs6 = (from pp in dc.tbl_MKt_POdetail_TMPs
-                           where pp.id.ToString() == this.PONumber && pp.StatusPO != "TMP"
+                           where pp.POnumber == this.PONumber// && pp.StatusPO != "TMP"
                            group pp by pp.MateriaItemcode into gg
-                           select new {
-                               MateriaItemcode =gg.Key,
+                           select new
+                           {
+                               MateriaItemcode = gg.Key,
                                QuantityOrder = gg.Sum(m => m.QuantityOrder),
-                               Description =   gg.Select(m => m.Description).FirstOrDefault(),
+                               Description = gg.Select(m => m.Description).FirstOrDefault(),
                                Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
                                MateriaSAPcode = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                                POnumber = gg.Select(m => m.POnumber).FirstOrDefault(),
-                          //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
+                               //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
                                Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
-                           //    Description = gg.Select(m => m.Description).FirstOrDefault(),
+                               //    Description = gg.Select(m => m.Description).FirstOrDefault(),
 
 
 
                            });
 
-                if (rs6.Count()>0)
+                if (rs6.Count() > 0)
                 {
 
                     foreach (var item in rs6)
@@ -676,38 +667,16 @@ namespace Maketting.View
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
-
-                   //     detailPO.Username = item.Username;
-                   //     detailPO.Username = item.Username;
-                   //     detailPO.Username = item.Username;
+                        //  this.PONumber = 
+                        //     detailPO.Username = item.Username;
+                        //     detailPO.Username = item.Username;
+                        //     detailPO.Username = item.Username;
 
                         dc.tbl_MKt_POdetails.InsertOnSubmit(detailPO);
                         dc.SubmitChanges();
 
 
 
-                    //    tbl_MKt_WHstoreissue detailStoreinput = new tbl_MKt_WHstoreissue();
-
-                    //    detailStoreinput.Materiacode = item.MateriaItemcode;
-                    ////    detailStoreinput.d = item.Description;
-                    //    detailStoreinput.Materialname = item.Materialname;
-                    //   // detailStoreinput. = item.MateriaSAPcode;
-                    //    detailStoreinput.POnumber = item.POnumber;
-                    //    detailStoreinput. = item.QuantityOrder;
-                    //    detailStoreinput.ShippingPoint = item.Storelocation;
-                    //    detailStoreinput.u = item.Unit;
-                    //    detailStoreinput.Username = item.Username;
-                    //    detailStoreinput.StatusPO = "CRT";
-
-                    //    //     detailPO.Username = item.Username;
-                    //    //     detailPO.Username = item.Username;
-                    //    //     detailPO.Username = item.Username;
-
-                    //    dc.tbl_MKt_WHstoreissues.InsertOnSubmit(detailStoreinput);
-                    //    dc.SubmitChanges();
-                        ////    Document_Number = OD.Key,
-                        //    //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
-                        //    //              Value_Count = OD.Sum(m => m.Cond_Value)
 
 
                     }
@@ -782,7 +751,7 @@ namespace Maketting.View
 
             this.cleartoblankPOphieu();
 
-            Model.MKT.DeleteALLphieutamTMP();
+            //     Model.MKT.DeleteALLphieutamTMP();
 
             //  this.PONumber = Model.MKT.getMKtNo();
             txtSapPO.Text = "";
@@ -1435,7 +1404,7 @@ namespace Maketting.View
                 //  MessageBox.Show(columhead);
                 if (rs != null)
                 {
-                    View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", columhead);
+                    View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", "Sanpham");
                     selectkq.ShowDialog();
                     int id = selectkq.id;
 
@@ -1968,6 +1937,35 @@ namespace Maketting.View
 
         private void btinphieu_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btaddnew_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (Model.Username.getaddNewProductRight())
+            {
+
+                View.MKTsanphammoi p = new MKTsanphammoi(3, -1, this.storelocation);  // 3 là thêm ới
+
+                p.ShowDialog();
+            }
+            else
+            {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
+
+            };
+
+
+
+
+
+
+
+
 
         }
     }

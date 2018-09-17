@@ -61,7 +61,7 @@ namespace Maketting.Model
 
 
             int rs = (int)(from tbl_Temp in dc.tbl_Temps
-                             select tbl_Temp.Version).FirstOrDefault();
+                           select tbl_Temp.Version).FirstOrDefault();
 
 
 
@@ -147,7 +147,7 @@ namespace Maketting.Model
         //}
 
 
-        public static bool getphanquyen()
+        public static bool getsystemright()
         {
 
 
@@ -158,21 +158,217 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
-                             select tbl_Temp.Phân_quyền).FirstOrDefault();
+                      select tbl_Temp.System).FirstOrDefault();
 
 
 
 
-       
-                return (bool)rs;
-         
+
+            return (bool)rs;
+
 
 
 
 
         }
 
+        public static bool getMakettingright()
+        {
 
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.MakettingRight).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+        public static bool getWareHouseRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.WareHouseRight).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getLoadRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.LoadRight).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getReportsRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.ReportsRight).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getInventoryRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.Inventory).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+        public static bool getInventoryAprrovalRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.InventoryAprroval).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getStoreLocationmanageRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.StoreLocationmanage).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getaddNewProductRight()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      select tbl_Temp.addNewProduct).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
 
     }
 

@@ -15,7 +15,7 @@ namespace Maketting.View
     {
 
     //    public string Valuechoose { get; set; }
-        public string columhead { get; set; }
+        public string maphanhanh { get; set; }
         public bool chon { get; set; }
         public int id { get; set; }
 
@@ -24,19 +24,20 @@ namespace Maketting.View
 
 
         //  IQueryable rs, LinqtoSQLDataContext d
-        public MKTViewchooseiquery(IQueryable rs, LinqtoSQLDataContext dc, string fornname, string columhead)
+        public MKTViewchooseiquery(IQueryable rs, LinqtoSQLDataContext dc, string fornname, string maphanhanh)
         {
             InitializeComponent();
 
             label7.Text = fornname;
-            this.columhead = columhead;
+            this.maphanhanh = maphanhanh;
             //System.Data.DataTable dt = new System.Data.DataTable();
             //dt = tbl;
             this.dataGridView1.DataSource = rs;
             dataGridView1.Columns["id"].Visible = false;
             //   Valuechoose = "";
             chon = false;
-          
+
+
 
         }
 
@@ -136,6 +137,23 @@ namespace Maketting.View
             }
 
             // Next
+        }
+
+        private void btaddnew_Click(object sender, EventArgs e)
+        {
+
+            //Sanpham
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }

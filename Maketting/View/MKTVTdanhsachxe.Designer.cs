@@ -253,7 +253,7 @@
             this.btupdate.TabIndex = 6;
             this.btupdate.Text = "Cập nhật";
             this.btupdate.UseVisualStyleBackColor = false;
-            this.btupdate.Click += new System.EventHandler(this.btupdate_Click);
+        //    this.btupdate.Click += new System.EventHandler(this.btupdate_Click);
             // 
             // btxoa
             // 
@@ -267,7 +267,7 @@
             this.btxoa.TabIndex = 6;
             this.btxoa.Text = "Xóa";
             this.btxoa.UseVisualStyleBackColor = false;
-            this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
+         //   this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
             // btnew
             // 
@@ -281,7 +281,7 @@
             this.btnew.TabIndex = 8;
             this.btnew.Text = "Tạo mới";
             this.btnew.UseVisualStyleBackColor = false;
-            this.btnew.Click += new System.EventHandler(this.btnew_Click);
+         //   this.btnew.Click += new System.EventHandler(this.btnew_Click);
             // 
             // NPdanhsachxe
             // 

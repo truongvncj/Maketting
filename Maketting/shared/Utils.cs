@@ -315,27 +315,29 @@ namespace Maketting
 
 
 
-        public static int getrightnumber()
-        {
-            string username = Utils.getusername();
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //public static int getrightnumber()
+        //{
+        //    string username = Utils.getusername();
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = (from tbl_Temp in dc.tbl_Temps
-                      where tbl_Temp.Username == username
+        //    var rs = (from tbl_Temp in dc.tbl_Temps
+        //              where tbl_Temp.Username == username
 
-                      select tbl_Temp.Userright).FirstOrDefault();
-            if (rs == null)
-            {
-                return 0;
-            }
-            else
-            {
+        //              select tbl_Temp.Userright).FirstOrDefault();
+        //    if (rs == null)
+        //    {
+        //        return 0;
+        //    }
+        //    else
+        //    {
 
-                return rs.Value;
-            }
+        //        return rs.Value;
+        //    }
 
-        }
+        //}
+
+
         public static string getname()
         {
             string username = Utils.getusername();

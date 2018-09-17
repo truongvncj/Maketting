@@ -65,6 +65,17 @@ namespace Maketting.View
             string username = Utils.getusername();
             lbusername.Text = username;
 
+
+            Menusystem.Enabled = Model.Username.getsystemright();
+            Menuload.Enabled = Model.Username.getLoadRight();
+            MenuMaketting.Enabled = Model.Username.getMakettingright();
+            Menureports.Enabled = Model.Username.getReportsRight();
+            Menuwavehouse.Enabled = Model.Username.getWareHouseRight();
+
+
+
+
+
             //     string tencty = Model.Username.getnamecty();
 
 
@@ -2482,81 +2493,8 @@ namespace Maketting.View
             //}
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            // savolume update
-
-            //  KaSalesupLoad
-            //     kaPriodpicker
-
-
-            FormCollection fc = System.Windows.Forms.Application.OpenForms;
-
-            bool kq = false;
-            foreach (Form frm in fc)
-            {
-                ///  KAcontractlisting
-                ///    if (frm.Text == "CreatenewContract")
-                if (frm.Text == "KaSalesupLoad")
-                {
-                    kq = true;
-                    frm.Focus();
-
-                }
-            }
-
-            if (!kq)
-            {
-
-
-
-
-                View.Kasalesuploadandreports KaSalesupLoad = new View.Kasalesuploadandreports();
-
-
-                KaSalesupLoad.Show();
-            }
-
-
-
-
-
-        }
-
         private void iNPUTPERIODDEPOSITAMOUNTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-            //         kareportsform
-
-
-            FormCollection fc = System.Windows.Forms.Application.OpenForms;
-
-            bool kq = false;
-            foreach (Form frm in fc)
-            {
-                if (frm.Text == "Reports")
-                {
-                    kq = true;
-                    frm.Focus();
-
-                }
-            }
-
-            if (!kq)
-            {
-
-                View.kareportsform kareportsform = new View.kareportsform();
-
-
-                kareportsform.Show();
-            }
-
-
 
         }
 
@@ -2618,19 +2556,6 @@ namespace Maketting.View
             this.Close();
         }
 
-        private void configMasterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //    panelmain.Controls.Clear();  //PosmCreateTK
-
-
-            View.Beestorereciept KAmasterinput = new View.Beestorereciept();
-
-            KAmasterinput.TopLevel = false;
-            KAmasterinput.AutoScroll = true;
-            panelmain.Controls.Add(KAmasterinput);
-            KAmasterinput.Show();
-
-        }
 
         private void usersSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2670,59 +2595,7 @@ namespace Maketting.View
 
         }
 
-        private void danhSachTaiKhoanToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            //var typeffmain = typeof(tbl_KaCustomer);
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            var rstk = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-
-
-                       select new
-
-                       {
-                           matk = tbl_dstaikhoan.matk,
-
-                           tentk = tbl_dstaikhoan.tentk,
-
-
-                       };
-
-
-            Viewtable viewtbl = new Viewtable(rstk, dc, "DANH SÁCH TÀI KHOẢN", 3, "tk");// view code 1 la can viet them lenh
-
-            viewtbl.Show();
-
-
-
-
-
-        }
-
-        private void sưaDanhSachTaiKhoanToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string connection_string = Utils.getConnectionstr();
-            //    panelmain.Controls.Clear();
-            //  var db = new LinqtoSQLDataContext(connection_string);
-            //    LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var typeff = typeof(tbl_Socai);
-
-            MKTInputchange inputcdata = new MKTInputchange("", "DANH SÁCH TÀI KHOẢN ", dc, "tbl_Socai", "tbl_Socai", typeff, typeff, "id", "id", "");
-            inputcdata.TopLevel = false;
-            inputcdata.AutoScroll = true;
-
-            panelmain.Controls.Add(inputcdata);
-            inputcdata.Show();
-
-        }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
@@ -2773,26 +2646,26 @@ namespace Maketting.View
 
         private void báoCáoNhậpXuấtTồnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Soketoan.socaitaikhoan();
+            //  Model.Soketoan.socaitaikhoan();
 
         }
 
         private void inputMinuteTransferPOSMTicketToMKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Soketoan.soQuy();
+            // Model.Soketoan.soQuy();
 
         }
 
         private void báoCáoGiaoHàngHàngTrênĐườngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Soketoan.sochitiettaikhoan();
+            //  Model.Soketoan.sochitiettaikhoan();
         }
 
         private void sôNhâtKyToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
 
-            Model.Soketoan.sonhatkychung();
+            //    Model.Soketoan.sonhatkychung();
 
 
 
@@ -2800,13 +2673,13 @@ namespace Maketting.View
 
         private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
-            Model.Soketoan.sotonghoptaikhoanchitiet();
+            //  Model.Soketoan.sotonghoptaikhoanchitiet();
         }
 
         private void banCânĐôiTaiKhoanPhatSinhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Model.Soketoan.bangcandoiphatsinhtaikhoan();
-        }
+            //   Model.Soketoan.bangcandoiphatsinhtaikhoan();
+        }//
 
         private void pHẦNHÀNHKẾTOÁNToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -2851,7 +2724,7 @@ namespace Maketting.View
             #region  // bcsocai
 
 
-            Model.Soketoan.socaitaikhoan();
+            //  Model.Soketoan.socaitaikhoan();
 
             #endregion
 
@@ -2862,7 +2735,7 @@ namespace Maketting.View
             #region// bcsotonghop
 
 
-            Model.Soketoan.sotonghoptaikhoanchitiet();
+            //  Model.Soketoan.sotonghoptaikhoanchitiet();
 
 
 
@@ -2878,7 +2751,7 @@ namespace Maketting.View
             #region//bcsochitiet
 
 
-            Model.Soketoan.sochitiettaikhoan();
+            //   Model.Soketoan.sochitiettaikhoan();
 
 
             #endregion
@@ -2890,7 +2763,7 @@ namespace Maketting.View
             #region//bcsonhatkychung
 
 
-            Model.Soketoan.sonhatkychung();
+            //  Model.Soketoan.sonhatkychung();
 
 
             #endregion
@@ -2902,7 +2775,7 @@ namespace Maketting.View
             #region//soquy
 
 
-            Model.Soketoan.soQuy();
+            //   Model.Soketoan.soQuy();
 
 
             #endregion
@@ -2983,36 +2856,6 @@ namespace Maketting.View
 
         private void danhSáchLoạiTàiKhoảnToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            #region//dsloaitk
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs8 = Model.loaitaikhoanketoan.danhsachloaitaikhoan(dc);
-            Viewtable viewtblrs8 = new Viewtable(rs8, dc, "DANH SÁCH LOẠI TÀI KHOẢN", 1, "tk");// danh sach loại tài khoản kế toán
-
-            viewtblrs8.Show();
-
-
-            #endregion
-
-        }
-
-        private void danhSáchTàiKhoảnKếToánToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            #region//dstaikhoanketoan
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs = Model.Taikhoanketoan.danhsachtaikhoan(dc);
-            Viewtable viewtblrs55 = new Viewtable(rs, dc, "DANH SÁCH TÀI KHOẢN KẾ TOÁN", 0, "tk");// view code 0 la danh sach tai khoan ke toan
-
-            viewtblrs55.Show();
-
-            #endregion
 
 
         }
@@ -3022,23 +2865,6 @@ namespace Maketting.View
 
         }
 
-        private void mởSổTheoDõiChiTiếtTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            #region//sochitiet
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Danhsachtkchitiet.danhsachtaikhoanchitiet(dc);
-
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH MÃ CHI TIẾT TÀI KHOẢN", 2, "tk");// view code 2 mo so chi tiet tai khoan
-            viewtbl.Show();
-
-
-
-            #endregion
-
-        }
 
         private void báoCáoNhậpXuấtTồnKhoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -3047,7 +2873,7 @@ namespace Maketting.View
             #region//bcxuatnhapton
 
 
-            Model.Soketoan.sotonghopbaocaonhapxuatton();
+            //   Model.Soketoan.sotonghopbaocaonhapxuatton();
 
             #endregion
 
@@ -3074,7 +2900,7 @@ namespace Maketting.View
             #region//xem báo cóa ckqkd
 
 
-            Model.Soketoan.baocaokqkd();
+            //  Model.Soketoan.baocaokqkd();
 
             #endregion
 
@@ -3083,13 +2909,6 @@ namespace Maketting.View
         private void nhậpSốĐầuKỳKQKDToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-
-            #region//xem nhập số dư dầu bckqkd
-
-            Model.Soketoan.xemvaupdatekqkd200();
-
-
-            #endregion
 
 
 
@@ -3109,7 +2928,7 @@ namespace Maketting.View
             //if (name == "bcsonhatkychung")
             //{
 
-            Model.Soketoan.baocaocandoiketoantt200lientuc();
+            //   Model.Soketoan.baocaocandoiketoantt200lientuc();
 
             //  }
             #endregion
@@ -3125,7 +2944,7 @@ namespace Maketting.View
             //if (name == "bcsonhatkychung")
             //{
 
-            Model.Soketoan.Bangcandoiphatsinhketoantt200lientuc();
+            //   Model.Soketoan.Bangcandoiphatsinhketoantt200lientuc();
 
             //  }
             #endregion
@@ -3140,7 +2959,7 @@ namespace Maketting.View
             //if (name == "bcsonhatkychung")
             //{
 
-            Model.Soketoan.baocaoluuchuyentiente();
+            //   Model.Soketoan.baocaoluuchuyentiente();
 
             //  }
             #endregion
@@ -3152,7 +2971,7 @@ namespace Maketting.View
         {
 
 
-            Model.Soketoan.nhapsodudaukylctt();
+            //  Model.Soketoan.nhapsodudaukylctt();
 
 
 
@@ -3162,35 +2981,12 @@ namespace Maketting.View
         private void danhSáchNhàXeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            #region//dsxenp
-
-            //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachNVT(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NHÀ VẬN TẢI", 8, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
-
-
-            #endregion
 
 
         }
 
         private void danhSáchXeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachxe(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH XE", 9, "tk");// mã 8 là danh sach nha nha van tai
-
-            viewtbl.Show();
 
 
 
@@ -3248,38 +3044,9 @@ namespace Maketting.View
         private void danhSáchNhàCungCấpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            #region//dsnhacungcap
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachNhacungcap(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NHÀ CUNG CẤP", 5, "tk");// mã 5 là danh sach nha cung cap
-
-            viewtbl.Show();
-
-
-            #endregion
 
         }
 
-        private void đăngKýTàiKhoảnTheoDõiChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            #region//dstaikhoanketoan
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs = Model.Taikhoanketoan.danhsachtaikhoandangkychitiet(dc);
-            Viewtable viewtblrs55 = new Viewtable(rs, dc, "DANH SÁCH TÀI KHOẢN KẾ TOÁN ĐĂNG KÝ THEO DÕI CHI TIẾT", 114, "tk");// view code 114 la dang ký tài khoản kế toán
-
-            viewtblrs55.Show();
-
-            #endregion
-
-        }
 
         private void sổCânĐốiTàiKhoảnPhátSinhToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3288,7 +3055,7 @@ namespace Maketting.View
             //if (name == "bcsonhatkychung")
             //{
 
-            Model.Soketoan.bangcandoiphatsinhtaikhoan();
+            ///  Model.Soketoan.bangcandoiphatsinhtaikhoan();
 
             //  }
             #endregion
@@ -3348,119 +3115,8 @@ namespace Maketting.View
 
         }
 
-        private void bútToánTổngHợpToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-            #region//btoanth
 
 
-
-            clearpannel();
-
-
-            View.BeeButtoantonghop buttoantonghop = new BeeButtoantonghop(this);
-            clearpannelload(buttoantonghop);
-
-
-
-            #endregion
-
-        }
-
-        private void danhSáchKhoToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            #region//khodskho
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs5 = Model.Khohang.Danhsachkho(dc);
-            Viewtable viewtbl66 = new Viewtable(rs5, dc, "DANH SÁCH KHO HÀNG", 4, "tk");// mã 4 là danh sách kho
-
-            viewtbl66.Show();
-
-            //  }
-            #endregion
-
-        }
-
-        private void danhSáchNhómSảnPhẩmToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            #region//khonhomsanpham
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs6 = Model.Khohang.danhsachnhomsanpham(dc);
-            Viewtable viewtbl2 = new Viewtable(rs6, dc, "DANH SÁCH NHÓM SẢN PHẨM", 6, "tk");// mã 6 là danh sách nhóm sản phẩm
-
-            viewtbl2.Show();
-
-            #endregion
-        }
-
-        private void danhSáchSảnPhẩmToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-            #region//khodssanpham
-
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs7 = Model.Khohang.danhsachsanpham(dc);
-            Viewtable viewtb77l = new Viewtable(rs7, dc, "DANH SÁCH SẢN PHẨM", 7, "tk");// mã 7 là danh sách nhóm sản phẩm
-
-            viewtb77l.Show();
-
-
-
-
-            #endregion
-
-        }
-
-        private void phiếuNhậpKhoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-            #region// khophieunhap
-
-
-            clearpannel();
-
-
-            View.BeeKhophieunhap accsup = new BeeKhophieunhap(this);
-            clearpannelload(accsup);
-
-
-            #endregion
-
-        }
-
-        private void phiếuXuấtKhoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-            #region//khophieuxuat
-
-            //  Main.clearpannel();
-
-            clearpannel();
-
-
-            View.BeeKhophieuxuat accsup = new BeeKhophieuxuat(this);
-            clearpannelload(accsup);
-            //    accsup.TopLevel = false;
-            //  accsup.AutoScroll = true;
-            //    panelmain.Controls.Add(accsup);
-            //    accsup.Show();
-
-
-            #endregion
-
-        }
 
         private void báoCáoNhậpXuấtTồnToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -3468,7 +3124,7 @@ namespace Maketting.View
             #region//bcxuatnhapton
 
 
-            Model.Soketoan.sotonghopbaocaonhapxuatton();
+            //   Model.Soketoan.sotonghopbaocaonhapxuatton();
 
             #endregion
 
@@ -3479,11 +3135,7 @@ namespace Maketting.View
 
         }
 
-        private void mởKỳKếToánToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            View.Beekyketoan view = new Beekyketoan();
-            view.ShowDialog();
-        }
+
 
         private void phiếuTínhGiáVàXácNhậnSảnPhẩmHoànThànhToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3511,7 +3163,7 @@ namespace Maketting.View
             #region//soquy
 
 
-            Model.Soketoan.soQuy();
+            //   Model.Soketoan.soQuy();
 
 
             #endregion
@@ -3529,60 +3181,14 @@ namespace Maketting.View
             #region//soquy
 
 
-            Model.Soketoan.soQuy();
+            //    Model.Soketoan.soQuy();
 
 
             #endregion
 
         }
 
-        private void toolStripMenuItem15_Click(object sender, EventArgs e)
-        {
-            #region//tmphieuthu
-            //if (name == "tmphieuthu")
-            //{
 
-            //  Main.clearpannel();
-            //   Formload.
-            // clearpannel();
-            clearpannel();
-
-
-            View.BeePhieuThu accsup = new BeePhieuThu(this);
-            clearpannelload(accsup);
-            //    accsup.TopLevel = false;
-            //  accsup.AutoScroll = true;
-            //    panelmain.Controls.Add(accsup);
-            //    accsup.Show();
-
-            //   }
-            #endregion
-
-        }
-
-        private void toolStripMenuItem16_Click(object sender, EventArgs e)
-        {
-
-            #region//tmphieuchi
-
-
-            //  Main.clearpannel();
-
-            clearpannel();
-
-
-            View.BeePhieuchi accsup = new BeePhieuchi(this);
-            clearpannelload(accsup);
-            //    accsup.TopLevel = false;
-            //  accsup.AutoScroll = true;
-            //    panelmain.Controls.Add(accsup);
-            //    accsup.Show();
-
-
-            #endregion
-
-
-        }
 
         private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
         {
@@ -3591,15 +3197,7 @@ namespace Maketting.View
 
         private void danhSáchNhàCungỨngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            var rs1 = Model.Nhacungcap.danhsachNhacungcap(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NHÀ CUNG CẤP", 5, "tk");// mã 5 là danh sach nha nha ccaaps
-
-            viewtbl.Show();
 
         }
 
@@ -3636,7 +3234,7 @@ namespace Maketting.View
                          {
                              p.Gate_pass,
                              p.Status,
-                        
+
                              p.ShippingPoint,
                              p.ShipmentNumber,
 
@@ -3714,14 +3312,13 @@ namespace Maketting.View
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTPasswordchange change = new MKTPasswordchange();
-            change.ShowDialog();
+
         }
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            if (!Username.getphanquyen())
+            if (!Username.getsystemright())
             {
                 View.MKTNoouthourise view = new MKTNoouthourise();
                 view.ShowDialog();
@@ -3793,7 +3390,7 @@ namespace Maketting.View
             //phiếu xuất kho
             MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
             pxk.ShowDialog();
-            
+
             string Loadnumberserri = pxk.valuetext;
             bool kq = pxk.kq;
 
@@ -3914,8 +3511,11 @@ namespace Maketting.View
             ///
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
                       select pp;
+
             foreach (var item2 in rs1)
 
 
@@ -3975,7 +3575,9 @@ namespace Maketting.View
             ///
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
                       select pp;
             foreach (var item2 in rs1)
 
@@ -4082,159 +3684,203 @@ namespace Maketting.View
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            ///
-            string username = Utils.getusername();
-            string rightkho = Model.Username.getmaquyenkho();
-
-            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
-
-
-            ///
-
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
-                      select pp;
-            foreach (var item2 in rs1)
-
-
+            if (Model.Username.getInventoryRight())
             {
-                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
+                List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                ///
+                string username = Utils.getusername();
+                string rightkho = Model.Username.getmaquyenkho();
+
+                //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+                ///
+
+                var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                          where pp.storeright == rightkho
+                          select pp;
+                foreach (var item2 in rs1)
+
+
+                {
+                    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                    cb.Value = item2.makho.Trim();
+                    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                    CombomCollection.Add(cb);
+                }
+
+
+                MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+                choosesl.ShowDialog();
+
+                string storelocation = choosesl.value;
+                bool kq = choosesl.kq;
+                if (kq)
+                {
+
+                    #region//tao load
+                    //if (name == "tmphieuthu")
+                    //{
+
+                    //  Main.clearpannel();
+                    //   Formload.
+                    // clearpannel();
+
+
+                    this.clearpannel();
+
+
+                    View.MKTWHcount demkho = new MKTWHcount(this, storelocation);
+                    this.clearpannelload(demkho);
+                    // this.Close();
+                    #endregion
+
+                }
+
+
             }
-
-
-            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
-            choosesl.ShowDialog();
-
-            string storelocation = choosesl.value;
-            bool kq = choosesl.kq;
-            if (kq)
+            else
             {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
 
-                #region//tao load
-                //if (name == "tmphieuthu")
-                //{
+            };
 
-                //  Main.clearpannel();
-                //   Formload.
-                // clearpannel();
-
-
-                this.clearpannel();
-
-
-                View.MKTWHcount demkho = new MKTWHcount(this, storelocation);
-                this.clearpannelload(demkho);
-                // this.Close();
-                #endregion
-
-            }
 
         }
 
         private void inventoryApprovalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //  MKTViewchooseiquery
-            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            ///
-            string username = Utils.getusername();
-            string rightkho = Model.Username.getmaquyenkho();
-
-            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
-
-
-            ///
-
-            var rs2 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
-                      select pp;
-            foreach (var item2 in rs2)
-
-
+            if (Model.Username.getInventoryAprrovalRight())
             {
-                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
+
+
+
+                //  MKTViewchooseiquery
+                List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                ///
+                string username = Utils.getusername();
+                string rightkho = Model.Username.getmaquyenkho();
+
+                //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+                ///
+
+                var rs2 = from pp in dc.tbl_MKT_khoMKTs
+                          where pp.storeright == rightkho
+                          select pp;
+                foreach (var item2 in rs2)
+
+
+                {
+                    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                    cb.Value = item2.makho.Trim();
+                    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                    CombomCollection.Add(cb);
+                }
+
+
+                MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+                choosesl.ShowDialog();
+
+                string storelocation = choosesl.value;
+                bool kq = choosesl.kq;
+                if (kq)
+                {
+                    #region// view
+                    //    string connection_string = Utils.getConnectionstr();
+
+                    //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    var rs1 = from pp in dc.tbl_MKT_Stockcounts
+                              where pp.Store_code == storelocation
+                              && pp.Aproved == false
+                              group pp by new
+                              {
+                                  pp.CountingDate,
+                                  pp.Idsub
+                              } into gg
+                              select new
+                              {
+                                  Store = gg.Select(m => m.Store_code).FirstOrDefault(),
+                                  Counting_Date = gg.Key.CountingDate,
+                                  Counting_times = gg.Key.Idsub,
+
+                                  //                Issued = gg.Sum(m => m.Issued),
+                                  //                         Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                                  //   Counting_times = gg.Select(m => m.Idsub).FirstOrDefault(),
+                                  Createdby = gg.Select(m => m.Createdby).FirstOrDefault(),
+                                  Aproval_Status = gg.Select(m => m.Aproved).FirstOrDefault(),
+                                  Status = gg.Select(m => m.Status).FirstOrDefault(),
+                                  Aproval_By = gg.Select(m => m.Aprovedby).FirstOrDefault(),
+
+                                  id = gg.Select(m => m.id).FirstOrDefault(),
+
+                              };
+
+
+                    this.clearpannel();
+                    //          MKTWHcountaproval
+
+                    View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT LIST WITH APROVAL STATUS ", "Counting_times");
+                    this.clearpannelload(approvaldemkho);
+                    // this.Close();
+                    #endregion
+
+
+
+                }
+
             }
-
-
-            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
-            choosesl.ShowDialog();
-
-            string storelocation = choosesl.value;
-            bool kq = choosesl.kq;
-            if (kq)
+            else
             {
-                #region// view
-                //    string connection_string = Utils.getConnectionstr();
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
 
-                //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs1 = from pp in dc.tbl_MKT_Stockcounts
-                          where pp.Store_code ==storelocation
-                          && pp.Aproved ==false
-                          group pp by new
-                          {
-                              pp.CountingDate,
-                              pp.Idsub
-                          } into gg
-                          select new
-                          {
-                              Store = gg.Select(m => m.Store_code).FirstOrDefault(),
-                              Counting_Date = gg.Key.CountingDate,
-                              Counting_times = gg.Key.Idsub,
-
-                              //                Issued = gg.Sum(m => m.Issued),
-                              //                         Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
-                              //   Counting_times = gg.Select(m => m.Idsub).FirstOrDefault(),
-                              Createdby = gg.Select(m => m.Createdby).FirstOrDefault(),
-                              Aproval_Status = gg.Select(m => m.Aproved).FirstOrDefault(),
-                              Status = gg.Select(m => m.Status).FirstOrDefault(),
-                              Aproval_By = gg.Select(m => m.Aprovedby).FirstOrDefault(),
-
-                              id = gg.Select(m => m.id).FirstOrDefault(),
-
-                          };
+            };
 
 
-                this.clearpannel();
-      //          MKTWHcountaproval
-
-                View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT LIST WITH APROVAL STATUS ", "Counting_times");
-                this.clearpannelload(approvaldemkho);
-                // this.Close();
-                #endregion
-
-
-
-            }
 
 
         }
 
         private void storeManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            if (Model.Username.getStoreLocationmanageRight())
+            {
 
-            var rs1 = Model.MKT.danhsachkhoMKT(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
 
-            viewtbl.ShowDialog();
+
+                //    NPDanhsachnhavantai
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs1 = Model.MKT.danhsachkhoMKT(dc);
+                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
+
+                viewtbl.ShowDialog();
+            }
+            else
+            {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
+
+            };
+
+
+
 
         }
 
@@ -4285,7 +3931,7 @@ namespace Maketting.View
 
                 var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == Loadnumberserri
-                           && pp.RecieptQuantity >0
+                           && pp.RecieptQuantity > 0
 
 
                            select pp).FirstOrDefault();
@@ -4303,7 +3949,7 @@ namespace Maketting.View
                 #region// xuất hagf
                 //if (name == "tmphieuthu")
                 //{
-               // MKTNhaphangtheoPo
+                // MKTNhaphangtheoPo
                 //  Main.clearpannel();
                 //   Formload.
                 // clearpannel();
@@ -4326,7 +3972,7 @@ namespace Maketting.View
 
         private void tậpHợpPhiếuMKTTrảVềToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
 
             #region//tmphieuthu
@@ -4371,6 +4017,70 @@ namespace Maketting.View
 
 
 
+
+
+        }
+
+        private void changePasswordToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MKTPasswordchange change = new MKTPasswordchange();
+            change.ShowDialog();
+        }
+
+        private void uploadBeginStoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("SELECT STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+
+
+                Model.StoreMKT stor = new StoreMKT();
+                stor.InputBeginstorefuction(storelocation);
+
+
+
+
+            }
 
 
         }

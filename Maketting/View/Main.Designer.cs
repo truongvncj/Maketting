@@ -41,10 +41,9 @@
             this.dfasfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ádfasdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hạchToánKếToánTổngHợpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -52,9 +51,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadCreateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiềnMặtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtĐồToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -64,9 +63,12 @@
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.storeManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menureports = new System.Windows.Forms.ToolStripMenuItem();
             this.Storerpt = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadBeginStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -137,43 +139,37 @@
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hệThốngToolStripMenuItem,
-            this.hạchToánKếToánTổngHợpToolStripMenuItem,
-            this.loadCreateToolStripMenuItem,
-            this.tiềnMặtToolStripMenuItem,
-            this.khoToolStripMenuItem});
+            this.Menusystem,
+            this.MenuMaketting,
+            this.Menuload,
+            this.Menuwavehouse,
+            this.Menureports,
+            this.passwordToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 28);
             this.menuStrip1.TabIndex = 56;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // hệThốngToolStripMenuItem
+            // Menusystem
             // 
-            this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menusystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem1,
-            this.changePasswordToolStripMenuItem});
-            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.hệThốngToolStripMenuItem.Text = "System";
+            this.uploadBeginStoreToolStripMenuItem});
+            this.Menusystem.Name = "Menusystem";
+            this.Menusystem.Size = new System.Drawing.Size(68, 24);
+            this.Menusystem.Text = "System";
             // 
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
-            this.usersToolStripMenuItem1.Text = "Users Admin";
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
+            this.usersToolStripMenuItem1.Text = "Admin users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
-            // changePasswordToolStripMenuItem
+            // MenuMaketting
             // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.changePasswordToolStripMenuItem.Text = "Change password";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // hạchToánKếToánTổngHợpToolStripMenuItem
-            // 
-            this.hạchToánKếToánTổngHợpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuMaketting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem,
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem,
             this.toolStripSeparator2,
@@ -181,9 +177,9 @@
             this.toolStripSeparator1,
             this.báoCáoPhiếuMKTToolStripMenuItem,
             this.storeAvaiableReportsToolStripMenuItem});
-            this.hạchToánKếToánTổngHợpToolStripMenuItem.Name = "hạchToánKếToánTổngHợpToolStripMenuItem";
-            this.hạchToánKếToánTổngHợpToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
-            this.hạchToánKếToánTổngHợpToolStripMenuItem.Text = "Maketting";
+            this.MenuMaketting.Name = "MenuMaketting";
+            this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
+            this.MenuMaketting.Text = "Maketting";
             // 
             // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
@@ -232,13 +228,13 @@
             this.storeAvaiableReportsToolStripMenuItem.Text = "Store avaiable reports";
             this.storeAvaiableReportsToolStripMenuItem.Click += new System.EventHandler(this.storeAvaiableReportsToolStripMenuItem_Click);
             // 
-            // loadCreateToolStripMenuItem
+            // Menuload
             // 
-            this.loadCreateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menuload.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem});
-            this.loadCreateToolStripMenuItem.Name = "loadCreateToolStripMenuItem";
-            this.loadCreateToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
-            this.loadCreateToolStripMenuItem.Text = "Load Create";
+            this.Menuload.Name = "Menuload";
+            this.Menuload.Size = new System.Drawing.Size(101, 24);
+            this.Menuload.Text = "Load Create";
             // 
             // danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem
             // 
@@ -247,9 +243,9 @@
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Text = "Maketting Load Create";
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Click += new System.EventHandler(this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem_Click);
             // 
-            // tiềnMặtToolStripMenuItem
+            // Menuwavehouse
             // 
-            this.tiềnMặtToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menuwavehouse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nhậpKhoToolStripMenuItem,
             this.xuấtĐồToolStripMenuItem,
             this.toolStripSeparator3,
@@ -259,75 +255,75 @@
             this.inventoryApprovalToolStripMenuItem,
             this.toolStripSeparator4,
             this.storeManageToolStripMenuItem});
-            this.tiềnMặtToolStripMenuItem.Name = "tiềnMặtToolStripMenuItem";
-            this.tiềnMặtToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
-            this.tiềnMặtToolStripMenuItem.Text = "Ware House";
+            this.Menuwavehouse.Name = "Menuwavehouse";
+            this.Menuwavehouse.Size = new System.Drawing.Size(101, 24);
+            this.Menuwavehouse.Text = "Ware House";
             // 
             // nhậpKhoToolStripMenuItem
             // 
             this.nhậpKhoToolStripMenuItem.Name = "nhậpKhoToolStripMenuItem";
-            this.nhậpKhoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.nhậpKhoToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.nhậpKhoToolStripMenuItem.Text = "Good Issue ";
             this.nhậpKhoToolStripMenuItem.Click += new System.EventHandler(this.nhậpKhoToolStripMenuItem_Click);
             // 
             // xuấtĐồToolStripMenuItem
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
-            this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.xuấtĐồToolStripMenuItem.Text = "Good Reciept ";
             this.xuấtĐồToolStripMenuItem.Click += new System.EventHandler(this.xuấtĐồToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(253, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(229, 6);
             // 
             // goodReturnToolStripMenuItem
             // 
             this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
-            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.goodReturnToolStripMenuItem.Text = "Good Return ";
             this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(253, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(229, 6);
             // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // inventoryApprovalToolStripMenuItem
             // 
             this.inventoryApprovalToolStripMenuItem.Name = "inventoryApprovalToolStripMenuItem";
-            this.inventoryApprovalToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.inventoryApprovalToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
             this.inventoryApprovalToolStripMenuItem.Text = "Inventory Approval";
             this.inventoryApprovalToolStripMenuItem.Click += new System.EventHandler(this.inventoryApprovalToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(253, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
             // 
             // storeManageToolStripMenuItem
             // 
             this.storeManageToolStripMenuItem.Name = "storeManageToolStripMenuItem";
-            this.storeManageToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.storeManageToolStripMenuItem.Text = "Manage Shipping Location";
+            this.storeManageToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.storeManageToolStripMenuItem.Text = "Manage Store Location";
             this.storeManageToolStripMenuItem.Click += new System.EventHandler(this.storeManageToolStripMenuItem_Click);
             // 
-            // khoToolStripMenuItem
+            // Menureports
             // 
-            this.khoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Menureports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Storerpt,
             this.statusGatepassReportsToolStripMenuItem});
-            this.khoToolStripMenuItem.Name = "khoToolStripMenuItem";
-            this.khoToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.khoToolStripMenuItem.Text = "Reports";
+            this.Menureports.Name = "Menureports";
+            this.Menureports.Size = new System.Drawing.Size(72, 24);
+            this.Menureports.Text = "Reports";
             // 
             // Storerpt
             // 
@@ -342,6 +338,28 @@
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
             this.statusGatepassReportsToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsToolStripMenuItem_Click);
+            // 
+            // passwordToolStripMenuItem
+            // 
+            this.passwordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem1});
+            this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
+            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.passwordToolStripMenuItem.Text = "Password";
+            // 
+            // changePasswordToolStripMenuItem1
+            // 
+            this.changePasswordToolStripMenuItem1.Name = "changePasswordToolStripMenuItem1";
+            this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
+            this.changePasswordToolStripMenuItem1.Text = "Change password";
+            this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            // 
+            // uploadBeginStoreToolStripMenuItem
+            // 
+            this.uploadBeginStoreToolStripMenuItem.Name = "uploadBeginStoreToolStripMenuItem";
+            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.uploadBeginStoreToolStripMenuItem.Text = "Upload Begin Store";
+            this.uploadBeginStoreToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -374,15 +392,15 @@
         private ToolStripMenuItem ádfasdfToolStripMenuItem;
         private Panel panelmain;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem hệThốngToolStripMenuItem;
-        private ToolStripMenuItem khoToolStripMenuItem;
-        private ToolStripMenuItem hạchToánKếToánTổngHợpToolStripMenuItem;
+        private ToolStripMenuItem Menusystem;
+        private ToolStripMenuItem Menureports;
+        private ToolStripMenuItem MenuMaketting;
         private ToolStripMenuItem lậpPhiếuXuấtĐồMKTToolStripMenuItem;
         private ToolStripMenuItem báoCáoPhiếuMKTToolStripMenuItem;
         private ToolStripMenuItem tậpHợpPhiếuMKTTrảVềToolStripMenuItem;
-        private ToolStripMenuItem loadCreateToolStripMenuItem;
+        private ToolStripMenuItem Menuload;
         private ToolStripMenuItem danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem;
-        private ToolStripMenuItem tiềnMặtToolStripMenuItem;
+        private ToolStripMenuItem Menuwavehouse;
         private ToolStripMenuItem nhậpKhoToolStripMenuItem;
         private ToolStripMenuItem xuấtĐồToolStripMenuItem;
         private ToolStripMenuItem Storerpt;
@@ -393,13 +411,15 @@
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem inventoryToolStripMenuItem;
         private ToolStripMenuItem statusGatepassReportsToolStripMenuItem;
-        private ToolStripMenuItem changePasswordToolStripMenuItem;
         private ToolStripMenuItem inventoryApprovalToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem storeManageToolStripMenuItem;
         private ToolStripMenuItem goodReturnToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem passwordToolStripMenuItem;
+        private ToolStripMenuItem changePasswordToolStripMenuItem1;
+        private ToolStripMenuItem uploadBeginStoreToolStripMenuItem;
     }
 }
 
