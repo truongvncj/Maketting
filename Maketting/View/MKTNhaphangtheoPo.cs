@@ -504,16 +504,19 @@ namespace Maketting.View
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
                 btluu.Enabled = false;
                 btinphieu.Enabled = true;
-                //    int IssueIDsub = 1;
-                //int subId = (int)(from pp in dc.tbl_MKt_WHstoreissues
-                //                  where pp.Serriload == this.Loadnumberserri
-                //                  select pp.IssueIDsub).Max().GetValueOrDefault(0);
+                int IssueIDsub = 1;
+                int subId = (int)(from pp in dc.tbl_MKt_WHstoreissues
+                                  where pp.POnumber == this.POnumber
+                                  select pp.IssueIDsub).Max().GetValueOrDefault(0);
 
-                //if (subId > 0)
-                //{
-                //    IssueIDsub = subId + 1;
-                //}
-                //this.subID = IssueIDsub;
+                if (subId > 0)
+                {
+                    IssueIDsub = subId + 1;
+                }
+                this.subID = IssueIDsub;
+
+                xx
+
 
                 for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
                 {
@@ -529,7 +532,7 @@ namespace Maketting.View
                         {
                             foreach (var item in rs)
                             {
-                                
+                                //item.IssueIDsub = IssueIDsub;
                                 item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
                                 item.Recieptby = txtnguoinhanhang.Text;
 
