@@ -1893,12 +1893,12 @@ namespace Maketting.View
                              //     where pp.tenKH.Contains(seachtext)
                          select new
                          {
-                             MÃ_KHÁCH_HÀNG = pp.maKH,
-                             TÊN_KHÁCH_HÀNG = pp.tenKH,
-                             ĐỊA_CHỈ = pp.diachiKH,
-                             ĐIỆN_THOẠI = pp.dienthoai,
-                             GHI_CHÚ = pp.ghichu,
-                             MÃ_SỐ_THUẾ = pp.masothueKH,
+                             MÃ_KHÁCH_HÀNG = pp.Customer_code,
+                             TÊN_KHÁCH_HÀNG = pp.Customer_name,
+                             ĐỊA_CHỈ = pp.Address,
+                             ĐIỆN_THOẠI = pp.Tel,
+                             GHI_CHÚ = pp.Note,
+                             ID = pp.idCust,
 
 
 

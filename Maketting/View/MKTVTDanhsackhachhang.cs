@@ -58,7 +58,7 @@ namespace Maketting.View
                 this.btnew.Visible = false;
                 //  this.txtmaNCC.Text = makhachhang;
 
-                txtma.Enabled = false;
+                txtidma.Enabled = false;
 
 
                 string connection_string = Utils.getConnectionstr();
@@ -74,17 +74,17 @@ namespace Maketting.View
                 {
 
 
-                    txtma.Text = item.maKH;
-                    txtten.Text = item.tenKH;
+                    txtidma.Text = item.idCust;
+                    txtten.Text = item.Customer_name;
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
-                    txtmakhachhang.Text = item.masothueKH;
+                    txtmakhachhang.Text = item.Customer_code;
 
-                    txtdiachi.Text = item.diachiKH;//  p.masothue  
+                    txtdiachi.Text = item.Address;//  p.masothue  
 
-                    txttaikhoannganhangso.Text = item.dienthoai;//  p.ghichunganhnghe  
+                    txttel.Text = item.Tel;//  p.ghichunganhnghe  
 
-                    txtdiachitaikhoannganhang.Text = item.ghichu;
+                    txtnote.Text = item.Note;
 
 
 
@@ -218,23 +218,20 @@ namespace Maketting.View
 
 
 
-            this.maID = this.txtma.Text;
+            this.maID = this.txtidma.Text;
+            this.MaKH = txtmakhachhang.Text;
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
-            this.MaKH = txtmakhachhang.Text;
-            //   this.dienthoai = txtdienthoai.Text;
-            this.dienthoai = txttaikhoannganhangso.Text;
-            this.ghichu = txtdiachitaikhoannganhang.Text;
+            this.dienthoai = txttel.Text;
+            this.ghichu = txtnote.Text;
 
 
-            //this.usertao = Utils.getusername();
-
-            //this.ngaytao = DateTime.Today;
+          
 
 
             if (maID == "")
             {
-                MessageBox.Show("Bạn chưa có mã nhà cung cấp", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa có mã khách hàng", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -251,20 +248,20 @@ namespace Maketting.View
 
                 //    MeasureItemEventArgs.re
                 var rs = (from p in db.tbl_MKT_khachhangs
-                          where p.maKH == maID
+                          where p.idCust == maID
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
 
 
                 if (rs != null)
                 {
-                    rs.maKH = this.maID;//= this.txtma.Text;
-                    rs.tenKH = this.tenKH;//= this.txtten.Text;
-                    rs.diachiKH = this.diachiKH;// = this.txtdiachi.Text;
-                    rs.masothueKH = this.MaKH;// = txtmasothue.Text;
+                    rs.idCust = this.maID;//= this.txtma.Text;
+                    rs.Customer_name = this.tenKH;//= this.txtten.Text;
+                    rs.Address = this.diachiKH;// = this.txtdiachi.Text;
+                    rs.Customer_code = this.MaKH;// = txtmasothue.Text;
                                                     //      rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
-                    rs.dienthoai = this.dienthoai;// = txttaikhoannganhangso.Text;
-                    rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
+                    rs.Tel = this.dienthoai;// = txttaikhoannganhangso.Text;
+                    rs.Note = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 
 
 
@@ -295,13 +292,13 @@ namespace Maketting.View
         {
 
 
-            this.maID = this.txtma.Text;
+            this.maID = this.txtidma.Text;
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
             this.MaKH = txtmakhachhang.Text;
             //   this.dienthoai = txtdienthoai.Text;
-            this.dienthoai = txttaikhoannganhangso.Text;
-            this.ghichu = txtdiachitaikhoannganhang.Text;
+            this.dienthoai = txttel.Text;
+            this.ghichu = txtnote.Text;
 
 
 
@@ -317,13 +314,13 @@ namespace Maketting.View
 
             tbl_MKT_khachhang p = new tbl_MKT_khachhang();
 
-            p.maKH = this.maID;//= this.txtma.Text;
-            p.tenKH = this.tenKH;//= this.txtten.Text;
-            p.diachiKH = this.diachiKH;// = this.txtdiachi.Text;
-            p.masothueKH = this.MaKH;// = txtmasothue.Text;
+            p.idCust = this.maID;//= this.txtma.Text;
+            p.Customer_name = this.tenKH;//= this.txtten.Text;
+            p.Address = this.diachiKH;// = this.txtdiachi.Text;
+            p.Customer_code = this.MaKH;// = txtmasothue.Text;
                                            //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
-            p.dienthoai = this.dienthoai;// = txttaikhoannganhangso.Text;
-            p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
+            p.Tel = this.dienthoai;// = txttaikhoannganhangso.Text;
+            p.Note = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 
 
 
@@ -374,7 +371,7 @@ namespace Maketting.View
             {
 
 
-                txttaikhoannganhangso.Focus();
+                txttel.Focus();
 
 
             }
@@ -388,7 +385,7 @@ namespace Maketting.View
             {
 
 
-                txtma.Focus();
+                txtidma.Focus();
 
 
             }
@@ -429,7 +426,7 @@ namespace Maketting.View
             {
 
 
-                txtma.Focus();
+                txtidma.Focus();
 
 
             }
@@ -441,7 +438,7 @@ namespace Maketting.View
             {
 
 
-                txttaikhoannganhangso.Focus();
+                txttel.Focus();
 
 
             }
@@ -453,7 +450,7 @@ namespace Maketting.View
             {
 
 
-                txtdiachitaikhoannganhang.Focus();
+                txtnote.Focus();
 
 
             }
@@ -465,7 +462,7 @@ namespace Maketting.View
             {
 
 
-                txtma.Focus();
+                txtidma.Focus();
 
 
             }

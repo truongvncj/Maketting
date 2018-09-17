@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MKTing" Class="LinqtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=HAN-L-3PFF7H2;Initial Catalog=MKTing;Integrated Security=True" SettingsObjectName="Maketting.Properties.Settings" SettingsPropertyName="MKTingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
+    <Type Name="tbl_MKT_DetailRpt_Phieuissue">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sophieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_Temp" Member="tbl_Temps">
     <Type Name="tbl_Temp">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -17,17 +28,6 @@
       <Column Name="InventoryAprroval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="StoreLocationmanage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="addNewProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
-    <Type Name="tbl_MKT_DetailRpt_Phieuissue">
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Sophieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_headRpt_Phieuissue" Member="tbl_MKT_headRpt_Phieuissues">
@@ -48,13 +48,13 @@
   </Table>
   <Table Name="dbo.tbl_MKT_khachhang" Member="tbl_MKT_khachhangs">
     <Type Name="tbl_MKT_khachhang">
-      <Column Name="maKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="tenKH" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Customer_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customer_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="diachiKH" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="masothueKH" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="dienthoai" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="idCust" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">

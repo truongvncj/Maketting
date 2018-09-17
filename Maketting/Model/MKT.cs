@@ -630,16 +630,16 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_khachhangs
-                     orderby p.maKH
+                     orderby p.Customer_code
                      select new
                      {
 
 
-                         Mã_khách_hàng = p.maKH,
-                         Tên_khách_hàng = p.tenKH,
-                         Địa_chỉ = p.diachiKH,
-                         Điện_thoại = p.dienthoai,
-                         Ghi_chú = p.ghichu,
+                         Mã_khách_hàng = p.Customer_code,
+                         Tên_khách_hàng = p.Customer_name,
+                         Địa_chỉ = p.Address,
+                         Điện_thoại = p.Tel,
+                         Ghi_chú = p.Note,
 
                          ID = p.id,
                      };

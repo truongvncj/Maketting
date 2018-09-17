@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTVTDanhsackhachhang));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtmakhachhang = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtdiachitaikhoannganhang = new System.Windows.Forms.TextBox();
+            this.txtnote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txttaikhoannganhangso = new System.Windows.Forms.TextBox();
+            this.txttel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtdiachi = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btupdate = new System.Windows.Forms.Button();
             this.btxoa = new System.Windows.Forms.Button();
             this.btnew = new System.Windows.Forms.Button();
-            this.txtma = new System.Windows.Forms.TextBox();
+            this.txtidma = new System.Windows.Forms.TextBox();
             this.txtten = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,16 +53,16 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtmakhachhang);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtdiachitaikhoannganhang);
+            this.panel1.Controls.Add(this.txtnote);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txttaikhoannganhangso);
+            this.panel1.Controls.Add(this.txttel);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtdiachi);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btupdate);
             this.panel1.Controls.Add(this.btxoa);
             this.panel1.Controls.Add(this.btnew);
-            this.panel1.Controls.Add(this.txtma);
+            this.panel1.Controls.Add(this.txtidma);
             this.panel1.Controls.Add(this.txtten);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
@@ -70,6 +70,18 @@
             this.panel1.Size = new System.Drawing.Size(556, 285);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 20);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Mã khách hàng";
             // 
             // txtmakhachhang
             // 
@@ -92,14 +104,14 @@
             this.label2.TabIndex = 79;
             this.label2.Text = "ID";
             // 
-            // txtdiachitaikhoannganhang
+            // txtnote
             // 
-            this.txtdiachitaikhoannganhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdiachitaikhoannganhang.Location = new System.Drawing.Point(173, 210);
-            this.txtdiachitaikhoannganhang.Name = "txtdiachitaikhoannganhang";
-            this.txtdiachitaikhoannganhang.Size = new System.Drawing.Size(365, 20);
-            this.txtdiachitaikhoannganhang.TabIndex = 76;
-            this.txtdiachitaikhoannganhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdiachitaikhoannganhang_KeyPress);
+            this.txtnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnote.Location = new System.Drawing.Point(173, 210);
+            this.txtnote.Name = "txtnote";
+            this.txtnote.Size = new System.Drawing.Size(365, 20);
+            this.txtnote.TabIndex = 76;
+            this.txtnote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdiachitaikhoannganhang_KeyPress);
             // 
             // label1
             // 
@@ -113,14 +125,14 @@
             this.label1.TabIndex = 77;
             this.label1.Text = "Ghi chú";
             // 
-            // txttaikhoannganhangso
+            // txttel
             // 
-            this.txttaikhoannganhangso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttaikhoannganhangso.Location = new System.Drawing.Point(172, 174);
-            this.txttaikhoannganhangso.Name = "txttaikhoannganhangso";
-            this.txttaikhoannganhangso.Size = new System.Drawing.Size(366, 20);
-            this.txttaikhoannganhangso.TabIndex = 74;
-            this.txttaikhoannganhangso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttaikhoannganhangso_KeyPress);
+            this.txttel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttel.Location = new System.Drawing.Point(172, 174);
+            this.txttel.Name = "txttel";
+            this.txttel.Size = new System.Drawing.Size(366, 20);
+            this.txttel.TabIndex = 74;
+            this.txttel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttaikhoannganhangso_KeyPress);
             // 
             // label5
             // 
@@ -197,15 +209,15 @@
             this.btnew.UseVisualStyleBackColor = false;
             this.btnew.Click += new System.EventHandler(this.btnew_Click);
             // 
-            // txtma
+            // txtidma
             // 
-            this.txtma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtma.Location = new System.Drawing.Point(171, 25);
-            this.txtma.Name = "txtma";
-            this.txtma.Size = new System.Drawing.Size(131, 20);
-            this.txtma.TabIndex = 1;
-            this.txtma.TextChanged += new System.EventHandler(this.txtmakho_TextChanged);
-            this.txtma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustcode_KeyPress);
+            this.txtidma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidma.Location = new System.Drawing.Point(171, 25);
+            this.txtidma.Name = "txtidma";
+            this.txtidma.Size = new System.Drawing.Size(131, 20);
+            this.txtidma.TabIndex = 1;
+            this.txtidma.TextChanged += new System.EventHandler(this.txtmakho_TextChanged);
+            this.txtidma.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustcode_KeyPress);
             // 
             // txtten
             // 
@@ -227,18 +239,6 @@
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
             this.label21.Text = "Tên khách hàng";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 20);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "Mã khách hàng";
             // 
             // MKTVTDanhsackhachhang
             // 
@@ -262,7 +262,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtma;
+        private System.Windows.Forms.TextBox txtidma;
         private System.Windows.Forms.TextBox txtten;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnew;
@@ -270,11 +270,11 @@
         private System.Windows.Forms.Button btxoa;
         private System.Windows.Forms.TextBox txtdiachi;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txttaikhoannganhangso;
+        private System.Windows.Forms.TextBox txttel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtmakhachhang;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtdiachitaikhoannganhang;
+        private System.Windows.Forms.TextBox txtnote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
     }
