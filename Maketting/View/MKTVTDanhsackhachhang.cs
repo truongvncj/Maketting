@@ -16,12 +16,12 @@ namespace Maketting.View
     {
         // public View.CreatenewContract contractnew;
         public int id { get; set; }
-        public string maKH { get; set; }
+        public string maID { get; set; }
         public string tenKH { get; set; }
 
         public string diachiKH { get; set; }
 
-        public string masothueKH { get; set; }
+        public string MaKH { get; set; }
 
         //      public string dienthoai { get; set; }
         public string dienthoai { get; set; }
@@ -78,7 +78,7 @@ namespace Maketting.View
                     txtten.Text = item.tenKH;
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
-                    txtmasothue.Text = item.masothueKH;
+                    txtmakhachhang.Text = item.masothueKH;
 
                     txtdiachi.Text = item.diachiKH;//  p.masothue  
 
@@ -218,10 +218,10 @@ namespace Maketting.View
 
 
 
-            this.maKH = this.txtma.Text;
+            this.maID = this.txtma.Text;
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
-            this.masothueKH = txtmasothue.Text;
+            this.MaKH = txtmakhachhang.Text;
             //   this.dienthoai = txtdienthoai.Text;
             this.dienthoai = txttaikhoannganhangso.Text;
             this.ghichu = txtdiachitaikhoannganhang.Text;
@@ -232,7 +232,7 @@ namespace Maketting.View
             //this.ngaytao = DateTime.Today;
 
 
-            if (maKH == "")
+            if (maID == "")
             {
                 MessageBox.Show("Bạn chưa có mã nhà cung cấp", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -240,7 +240,7 @@ namespace Maketting.View
 
 
 
-            if (maKH != "")
+            if (maID != "")
             {
                 chon = true;
                 string connection_string = Utils.getConnectionstr();
@@ -251,17 +251,17 @@ namespace Maketting.View
 
                 //    MeasureItemEventArgs.re
                 var rs = (from p in db.tbl_MKT_khachhangs
-                          where p.maKH == maKH
+                          where p.maKH == maID
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
 
 
                 if (rs != null)
                 {
-                    rs.maKH = this.maKH;//= this.txtma.Text;
+                    rs.maKH = this.maID;//= this.txtma.Text;
                     rs.tenKH = this.tenKH;//= this.txtten.Text;
                     rs.diachiKH = this.diachiKH;// = this.txtdiachi.Text;
-                    rs.masothueKH = this.masothueKH;// = txtmasothue.Text;
+                    rs.masothueKH = this.MaKH;// = txtmasothue.Text;
                                                     //      rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
                     rs.dienthoai = this.dienthoai;// = txttaikhoannganhangso.Text;
                     rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
@@ -295,17 +295,17 @@ namespace Maketting.View
         {
 
 
-            this.maKH = this.txtma.Text;
+            this.maID = this.txtma.Text;
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
-            this.masothueKH = txtmasothue.Text;
+            this.MaKH = txtmakhachhang.Text;
             //   this.dienthoai = txtdienthoai.Text;
             this.dienthoai = txttaikhoannganhangso.Text;
             this.ghichu = txtdiachitaikhoannganhang.Text;
 
 
 
-            if (maKH == "")
+            if (maID == "")
             {
                 MessageBox.Show("Bạn chưa có mã nhà cung cấp", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -317,10 +317,10 @@ namespace Maketting.View
 
             tbl_MKT_khachhang p = new tbl_MKT_khachhang();
 
-            p.maKH = this.maKH;//= this.txtma.Text;
+            p.maKH = this.maID;//= this.txtma.Text;
             p.tenKH = this.tenKH;//= this.txtten.Text;
             p.diachiKH = this.diachiKH;// = this.txtdiachi.Text;
-            p.masothueKH = this.masothueKH;// = txtmasothue.Text;
+            p.masothueKH = this.MaKH;// = txtmasothue.Text;
                                            //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
             p.dienthoai = this.dienthoai;// = txttaikhoannganhangso.Text;
             p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
@@ -417,7 +417,7 @@ namespace Maketting.View
             {
 
 
-                txtmasothue.Focus();
+                txtmakhachhang.Focus();
 
 
             }

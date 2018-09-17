@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTVTDanhsackhachhang));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtmasothue = new System.Windows.Forms.TextBox();
+            this.txtmakhachhang = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtdiachitaikhoannganhang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,14 +43,15 @@
             this.btnew = new System.Windows.Forms.Button();
             this.txtma = new System.Windows.Forms.TextBox();
             this.txtten = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtmasothue);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtmakhachhang);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtdiachitaikhoannganhang);
             this.panel1.Controls.Add(this.label1);
@@ -63,7 +64,6 @@
             this.panel1.Controls.Add(this.btnew);
             this.panel1.Controls.Add(this.txtma);
             this.panel1.Controls.Add(this.txtten);
-            this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
@@ -71,14 +71,14 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txtmasothue
+            // txtmakhachhang
             // 
-            this.txtmasothue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmasothue.Location = new System.Drawing.Point(171, 132);
-            this.txtmasothue.Name = "txtmasothue";
-            this.txtmasothue.Size = new System.Drawing.Size(368, 20);
-            this.txtmasothue.TabIndex = 78;
-            this.txtmasothue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmasothue_KeyPress);
+            this.txtmakhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmakhachhang.Location = new System.Drawing.Point(171, 68);
+            this.txtmakhachhang.Name = "txtmakhachhang";
+            this.txtmakhachhang.Size = new System.Drawing.Size(131, 20);
+            this.txtmakhachhang.TabIndex = 78;
+            this.txtmakhachhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmasothue_KeyPress);
             // 
             // label2
             // 
@@ -86,11 +86,11 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 132);
+            this.label2.Location = new System.Drawing.Point(16, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 79;
-            this.label2.Text = "Mã số thuế";
+            this.label2.Text = "ID";
             // 
             // txtdiachitaikhoannganhang
             // 
@@ -137,7 +137,7 @@
             // txtdiachi
             // 
             this.txtdiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdiachi.Location = new System.Drawing.Point(170, 98);
+            this.txtdiachi.Location = new System.Drawing.Point(172, 141);
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(368, 20);
             this.txtdiachi.TabIndex = 67;
@@ -149,7 +149,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 98);
+            this.label11.Location = new System.Drawing.Point(16, 141);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 68;
@@ -210,23 +210,11 @@
             // txtten
             // 
             this.txtten.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtten.Location = new System.Drawing.Point(172, 61);
+            this.txtten.Location = new System.Drawing.Point(171, 104);
             this.txtten.Name = "txtten";
-            this.txtten.Size = new System.Drawing.Size(366, 20);
+            this.txtten.Size = new System.Drawing.Size(369, 20);
             this.txtten.TabIndex = 2;
             this.txtten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttenkho_KeyPress);
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(14, 26);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(126, 16);
-            this.label20.TabIndex = 50;
-            this.label20.Text = "Mã khách hàng";
             // 
             // label21
             // 
@@ -234,11 +222,23 @@
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label21.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(14, 61);
+            this.label21.Location = new System.Drawing.Point(16, 104);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
             this.label21.Text = "Tên khách hàng";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 20);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Mã khách hàng";
             // 
             // MKTVTDanhsackhachhang
             // 
@@ -252,7 +252,7 @@
             this.MinimizeBox = false;
             this.Name = "MKTVTDanhsackhachhang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Khách hàng vận tải";
+            this.Text = "Khách hàng";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -264,7 +264,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtma;
         private System.Windows.Forms.TextBox txtten;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnew;
         private System.Windows.Forms.Button btupdate;
@@ -273,9 +272,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txttaikhoannganhangso;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtmasothue;
+        private System.Windows.Forms.TextBox txtmakhachhang;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtdiachitaikhoannganhang;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

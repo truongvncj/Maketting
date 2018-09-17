@@ -2,7 +2,6 @@ D:\GitHub\Maketting\BeeAccounting\bin\Debug\Maketting.exe.config
 D:\GitHub\Maketting\Maketting\bin\Debug\Maketting.exe.config
 D:\GitHub\Maketting\Maketting\bin\Debug\Maketting.exe
 D:\GitHub\Maketting\Maketting\bin\Debug\Maketting.pdb
-D:\GitHub\Maketting\Maketting\bin\Debug\DocumentFormat.OpenXml.dll
 D:\GitHub\Maketting\Maketting\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\GitHub\Maketting\Maketting\bin\Debug\stdole.dll
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.csprojResolveAssemblyReference.cache
