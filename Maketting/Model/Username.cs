@@ -54,13 +54,14 @@ namespace Maketting.Model
 
         public static int getVersion()
         {
-
+            string Name = Utils.getusername();
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             int rs = (int)(from tbl_Temp in dc.tbl_Temps
+                           where tbl_Temp.Username == Name
                            select tbl_Temp.Version).FirstOrDefault();
 
 
@@ -76,13 +77,14 @@ namespace Maketting.Model
         public static string getmaquyenkho()
         {
 
-
+            string Name = Utils.getusername();
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             string storeright = (string)(from pp in dc.tbl_Temps
+                                         where pp.Username == Name
                                          select pp.storeright).FirstOrDefault();
 
 
@@ -150,7 +152,7 @@ namespace Maketting.Model
         public static bool getsystemright()
         {
 
-
+            string Name = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
 
@@ -158,6 +160,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.System).FirstOrDefault();
 
 
@@ -175,7 +178,7 @@ namespace Maketting.Model
         public static bool getMakettingright()
         {
 
-
+            string Name = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
 
@@ -183,6 +186,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.MakettingRight).FirstOrDefault();
 
 
@@ -199,7 +203,7 @@ namespace Maketting.Model
         public static bool getWareHouseRight()
         {
 
-
+            string Name = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
 
@@ -207,6 +211,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.WareHouseRight).FirstOrDefault();
 
 
@@ -224,7 +229,7 @@ namespace Maketting.Model
         public static bool getLoadRight()
         {
 
-
+            string Name = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
 
@@ -232,6 +237,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.LoadRight).FirstOrDefault();
 
 
@@ -250,13 +256,14 @@ namespace Maketting.Model
         {
 
 
-
+            string Name = Utils.getusername();
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.ReportsRight).FirstOrDefault();
 
 
@@ -279,9 +286,10 @@ namespace Maketting.Model
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+            string Name = Utils.getusername();
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.Inventory).FirstOrDefault();
 
 
@@ -304,8 +312,10 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+            string Name = Utils.getusername();
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.InventoryAprroval).FirstOrDefault();
 
 
@@ -323,6 +333,7 @@ namespace Maketting.Model
         public static bool getStoreLocationmanageRight()
         {
 
+            string Name = Utils.getusername();
 
 
             string connection_string = Utils.getConnectionstr();
@@ -331,6 +342,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.StoreLocationmanage).FirstOrDefault();
 
 
@@ -348,6 +360,7 @@ namespace Maketting.Model
         public static bool getaddNewProductRight()
         {
 
+            string Name = Utils.getusername();
 
 
             string connection_string = Utils.getConnectionstr();
@@ -356,6 +369,7 @@ namespace Maketting.Model
 
 
             var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
                       select tbl_Temp.addNewProduct).FirstOrDefault();
 
 

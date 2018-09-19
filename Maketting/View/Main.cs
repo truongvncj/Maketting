@@ -65,7 +65,7 @@ namespace Maketting.View
             string username = Utils.getusername();
             lbusername.Text = username;
 
-            if (Model.Username.getsystemright()== true )
+            if (Model.Username.getsystemright() == true)
             {
                 Menusystem.Enabled = true;
             }
@@ -111,7 +111,7 @@ namespace Maketting.View
             {
                 Menuwavehouse.Enabled = false;
             }
-         
+
 
 
 
@@ -3264,45 +3264,12 @@ namespace Maketting.View
             if (kq) // nueeus có chọn
             {
                 string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-
-                var rs = from p in db.tbl_MKt_Listphieus
-                         where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
-                         orderby p.Gate_pass
-                         select new
-                         {
-                             p.Gate_pass,
-                             p.Status,
-
-                             p.ShippingPoint,
-                             p.ShipmentNumber,
-
-                             p.Requested_by,
-                             Date_MKT_Phiếu = p.Ngaytaophieu,
-                             p.Customer_SAP_Code,
-                             p.Receiver_by,
-                             p.Address,
-                             Số_lượng_yêu_cầu = p.Issued,
-                             //   Số_lượng_thực_xuất = p.Soluongdaxuat,
-                             // Số_lượng_còn_lại = p.Soluongconlai,
-                             p.Materiacode,
-                             p.MateriaSAPcode,
-                             p.Description,
+                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatus(dc, fromdate, todate);
 
 
-
-
-
-
-                             //    ID = p.id,
-                         };
-
-
-
-
-                Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -3310,13 +3277,13 @@ namespace Maketting.View
             }
 
 
-
-
-
-
-
-
         }
+
+
+        
+
+
+
 
         private void lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3672,44 +3639,12 @@ namespace Maketting.View
             if (kq) // nueeus có chọn
             {
                 string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-
-                var rs = from p in db.tbl_MKt_Listphieus
-                         where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
-                         orderby p.Gate_pass
-                         select new
-                         {
-                             p.Gate_pass,
-                             p.Status,
-                             p.ShippingPoint,
-                             p.ShipmentNumber,
-
-                             p.Requested_by,
-                             Date_MKT_Phiếu = p.Ngaytaophieu,
-                             p.Customer_SAP_Code,
-                             p.Receiver_by,
-                             p.Address,
-                             Số_lượng_yêu_cầu = p.Issued,
-                             //   Số_lượng_thực_xuất = p.Soluongdaxuat,
-                             // Số_lượng_còn_lại = p.Soluongconlai,
-                             p.Materiacode,
-                             p.MateriaSAPcode,
-                             p.Description,
+                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatus(dc, fromdate, todate);
 
 
-
-
-
-
-                             //    ID = p.id,
-                         };
-
-
-
-
-                Viewtable viewtbl = new Viewtable(rs, db, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 

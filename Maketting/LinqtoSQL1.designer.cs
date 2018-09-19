@@ -2204,6 +2204,10 @@ namespace Maketting
 		
 		private string _Shipmentby;
 		
+		private string _Tranposterby;
+		
+		private string _Truck;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2262,6 +2266,10 @@ namespace Maketting
     partial void OnShipmentNumberChanged();
     partial void OnShipmentbyChanging(string value);
     partial void OnShipmentbyChanged();
+    partial void OnTranposterbyChanging(string value);
+    partial void OnTranposterbyChanged();
+    partial void OnTruckChanging(string value);
+    partial void OnTruckChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -2809,6 +2817,46 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tranposterby", DbType="NVarChar(50)")]
+		public string Tranposterby
+		{
+			get
+			{
+				return this._Tranposterby;
+			}
+			set
+			{
+				if ((this._Tranposterby != value))
+				{
+					this.OnTranposterbyChanging(value);
+					this.SendPropertyChanging();
+					this._Tranposterby = value;
+					this.SendPropertyChanged("Tranposterby");
+					this.OnTranposterbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truck", DbType="NVarChar(50)")]
+		public string Truck
+		{
+			get
+			{
+				return this._Truck;
+			}
+			set
+			{
+				if ((this._Truck != value))
+				{
+					this.OnTruckChanging(value);
+					this.SendPropertyChanging();
+					this._Truck = value;
+					this.SendPropertyChanged("Truck");
+					this.OnTruckChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2870,6 +2918,10 @@ namespace Maketting
 		
 		private string _completedby;
 		
+		private string _Tranposterby;
+		
+		private string _Truck;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2908,6 +2960,10 @@ namespace Maketting
     partial void OncompletedChanged();
     partial void OncompletedbyChanging(string value);
     partial void OncompletedbyChanged();
+    partial void OnTranposterbyChanging(string value);
+    partial void OnTranposterbyChanged();
+    partial void OnTruckChanging(string value);
+    partial void OnTruckChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -3251,6 +3307,46 @@ namespace Maketting
 					this._completedby = value;
 					this.SendPropertyChanged("completedby");
 					this.OncompletedbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tranposterby", DbType="NVarChar(50)")]
+		public string Tranposterby
+		{
+			get
+			{
+				return this._Tranposterby;
+			}
+			set
+			{
+				if ((this._Tranposterby != value))
+				{
+					this.OnTranposterbyChanging(value);
+					this.SendPropertyChanging();
+					this._Tranposterby = value;
+					this.SendPropertyChanged("Tranposterby");
+					this.OnTranposterbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truck", DbType="NVarChar(50)")]
+		public string Truck
+		{
+			get
+			{
+				return this._Truck;
+			}
+			set
+			{
+				if ((this._Truck != value))
+				{
+					this.OnTruckChanging(value);
+					this.SendPropertyChanging();
+					this._Truck = value;
+					this.SendPropertyChanged("Truck");
+					this.OnTruckChanged();
 				}
 			}
 		}

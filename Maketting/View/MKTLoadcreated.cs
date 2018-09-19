@@ -697,6 +697,9 @@ namespace Maketting.View
                         foreach (var item in rs3)
                         {
                             item.Status = "Shipping";
+                            item.Tranposterby = txttenNVT.Text;
+                            item.Truck = txttrucno.Text;
+
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
                             dc.SubmitChanges();
@@ -716,7 +719,8 @@ namespace Maketting.View
                         {
                             item.LoadNumber = this.soload;
                             item.Status = "Shipping";
-                        
+                            item.Tranposterby = txttenNVT.Text;
+                            item.Truck = txttrucno.Text;
 
 
                             dc.SubmitChanges();

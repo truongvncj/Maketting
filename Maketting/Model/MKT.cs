@@ -294,6 +294,59 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+
+        public static IQueryable DanhsachPhieuMKTandstatus(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieus
+                     where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         p.Gate_pass,
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+
+                         p.Requested_by,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+                         Số_lượng_yêu_cầu = p.Issued,
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         p.Description,
+                         p.Tranposterby,
+                         p.Truck,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+
+
+
+
+
         public static DataGridView Getbankdetailload(DataGridView dataGridViewDetailload)
         {
 
@@ -935,7 +988,7 @@ namespace Maketting.Model
 
             var rs = from pp in dc.tbl_MKt_POheads
                      where pp.PONumber == pONumber && pp.StoreLocation == storelocation
-                     && pp.Status =="CRT"
+                     && pp.Status == "CRT"
                      select pp;
 
             if (rs.Count() > 0)
