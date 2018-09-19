@@ -43,6 +43,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadBeginStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +69,6 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadBeginStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -166,6 +166,13 @@
             this.usersToolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
             this.usersToolStripMenuItem1.Text = "Admin users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
+            // 
+            // uploadBeginStoreToolStripMenuItem
+            // 
+            this.uploadBeginStoreToolStripMenuItem.Name = "uploadBeginStoreToolStripMenuItem";
+            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.uploadBeginStoreToolStripMenuItem.Text = "Upload Begin Store";
+            this.uploadBeginStoreToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem_Click);
             // 
             // MenuMaketting
             // 
@@ -353,13 +360,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // uploadBeginStoreToolStripMenuItem
-            // 
-            this.uploadBeginStoreToolStripMenuItem.Name = "uploadBeginStoreToolStripMenuItem";
-            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.uploadBeginStoreToolStripMenuItem.Text = "Upload Begin Store";
-            this.uploadBeginStoreToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem_Click);
             // 
             // Main
             // 
