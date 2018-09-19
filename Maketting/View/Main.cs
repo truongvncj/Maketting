@@ -65,12 +65,53 @@ namespace Maketting.View
             string username = Utils.getusername();
             lbusername.Text = username;
 
+            if (Model.Username.getsystemright()== true )
+            {
+                Menusystem.Enabled = true;
+            }
+            else
+            {
+                Menusystem.Enabled = false;
+            };
 
-            Menusystem.Enabled = Model.Username.getsystemright();
-            Menuload.Enabled = Model.Username.getLoadRight();
-            MenuMaketting.Enabled = Model.Username.getMakettingright();
-            Menureports.Enabled = Model.Username.getReportsRight();
-            Menuwavehouse.Enabled = Model.Username.getWareHouseRight();
+            if (Model.Username.getLoadRight() == true)
+            {
+                Menuload.Enabled = true;
+            }
+            else
+            {
+                Menuload.Enabled = false;
+            }
+
+
+            if (Model.Username.getMakettingright() == true)
+            {
+                MenuMaketting.Enabled = true;
+            }
+            else
+            {
+                MenuMaketting.Enabled = false;
+            }
+
+
+            if (Model.Username.getReportsRight() == true)
+            {
+                Menureports.Enabled = true;
+            }
+            else
+            {
+                Menureports.Enabled = false;
+            }
+
+            if (Model.Username.getWareHouseRight() == true)
+            {
+                Menuwavehouse.Enabled = true;
+            }
+            else
+            {
+                Menuwavehouse.Enabled = false;
+            }
+         
 
 
 
