@@ -101,52 +101,33 @@ namespace Maketting.Model
             //throw new NotImplementedException();
         }
 
-        //public static string getmacty()
-        //{
-        //    string Username = Utils.getusername();
+        public static string getuseRegion()
+        {
 
-        //    string connection_string = Utils.getConnectionstr();
+            string Name = Utils.getusername();
+            string connection_string = Utils.getConnectionstr();
 
-        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-        //    string rs = (from tbl_Temp in dc.tbl_Temps
-        //                   where tbl_Temp.Username == Username
-        //                   select tbl_Temp.Macty).FirstOrDefault();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-
-
-
-        //    return rs;
-
-
-
-        //}
-
-
-        //public static string getnamecty()
-        //{
-        // //   string macty = getmacty();
-
-        //    string connection_string = Utils.getConnectionstr();
-
-        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-        //    string rs = (from p in dc.tbl_congties
-        //                 where p.macty == macty
-        //                 select p.tencongty).FirstOrDefault();
+            string storeright = (string)(from pp in dc.tbl_Temps
+                                         where pp.Username == Name
+                                         select pp.Region).FirstOrDefault();
 
 
 
 
 
-        //    return rs;
+
+
+            return storeright;
 
 
 
-        //}
+
+            //throw new NotImplementedException();
+        }
+
 
 
         public static bool getsystemright()

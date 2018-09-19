@@ -510,6 +510,8 @@ namespace Maketting
 		
 		private System.Nullable<int> _Version;
 		
+		private string _Region;
+		
 		private string _Username;
 		
 		private string _Password;
@@ -544,6 +546,8 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnVersionChanging(System.Nullable<int> value);
     partial void OnVersionChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
     partial void OnPasswordChanging(string value);
@@ -613,6 +617,26 @@ namespace Maketting
 					this._Version = value;
 					this.SendPropertyChanged("Version");
 					this.OnVersionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
 				}
 			}
 		}
@@ -2208,6 +2232,8 @@ namespace Maketting
 		
 		private string _Truck;
 		
+		private string _Region;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2270,6 +2296,8 @@ namespace Maketting
     partial void OnTranposterbyChanged();
     partial void OnTruckChanging(string value);
     partial void OnTruckChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
     #endregion
 		
 		public tbl_MKt_Listphieu()
@@ -2857,6 +2885,26 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2922,6 +2970,8 @@ namespace Maketting
 		
 		private string _Truck;
 		
+		private string _Region;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2964,6 +3014,8 @@ namespace Maketting
     partial void OnTranposterbyChanged();
     partial void OnTruckChanging(string value);
     partial void OnTruckChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -3347,6 +3399,26 @@ namespace Maketting
 					this._Truck = value;
 					this.SendPropertyChanged("Truck");
 					this.OnTruckChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
 				}
 			}
 		}
@@ -4254,6 +4326,12 @@ namespace Maketting
 		
 		private double _RecieptedQuantity;
 		
+		private string _IOcode;
+		
+		private string _IOname;
+		
+		private System.Nullable<double> _Unit_Price;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4286,6 +4364,12 @@ namespace Maketting
     partial void OnStatusPOChanged();
     partial void OnRecieptedQuantityChanging(double value);
     partial void OnRecieptedQuantityChanged();
+    partial void OnIOcodeChanging(string value);
+    partial void OnIOcodeChanged();
+    partial void OnIOnameChanging(string value);
+    partial void OnIOnameChanged();
+    partial void OnUnit_PriceChanging(System.Nullable<double> value);
+    partial void OnUnit_PriceChanged();
     #endregion
 		
 		public tbl_MKt_POdetail()
@@ -4573,6 +4657,66 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOcode", DbType="NVarChar(50)")]
+		public string IOcode
+		{
+			get
+			{
+				return this._IOcode;
+			}
+			set
+			{
+				if ((this._IOcode != value))
+				{
+					this.OnIOcodeChanging(value);
+					this.SendPropertyChanging();
+					this._IOcode = value;
+					this.SendPropertyChanged("IOcode");
+					this.OnIOcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOname", DbType="NVarChar(50)")]
+		public string IOname
+		{
+			get
+			{
+				return this._IOname;
+			}
+			set
+			{
+				if ((this._IOname != value))
+				{
+					this.OnIOnameChanging(value);
+					this.SendPropertyChanging();
+					this._IOname = value;
+					this.SendPropertyChanged("IOname");
+					this.OnIOnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit_Price", DbType="Float")]
+		public System.Nullable<double> Unit_Price
+		{
+			get
+			{
+				return this._Unit_Price;
+			}
+			set
+			{
+				if ((this._Unit_Price != value))
+				{
+					this.OnUnit_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._Unit_Price = value;
+					this.SendPropertyChanged("Unit_Price");
+					this.OnUnit_PriceChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4622,6 +4766,12 @@ namespace Maketting
 		
 		private string _StatusPO;
 		
+		private string _IOcode;
+		
+		private string _IOname;
+		
+		private System.Nullable<double> _Unit_Price;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4648,6 +4798,12 @@ namespace Maketting
     partial void OnStorelocationChanged();
     partial void OnStatusPOChanging(string value);
     partial void OnStatusPOChanged();
+    partial void OnIOcodeChanging(string value);
+    partial void OnIOcodeChanged();
+    partial void OnIOnameChanging(string value);
+    partial void OnIOnameChanged();
+    partial void OnUnit_PriceChanging(System.Nullable<double> value);
+    partial void OnUnit_PriceChanged();
     #endregion
 		
 		public tbl_MKt_POdetail_TMP()
@@ -4875,6 +5031,66 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOcode", DbType="NVarChar(50)")]
+		public string IOcode
+		{
+			get
+			{
+				return this._IOcode;
+			}
+			set
+			{
+				if ((this._IOcode != value))
+				{
+					this.OnIOcodeChanging(value);
+					this.SendPropertyChanging();
+					this._IOcode = value;
+					this.SendPropertyChanged("IOcode");
+					this.OnIOcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOname", DbType="NVarChar(50)")]
+		public string IOname
+		{
+			get
+			{
+				return this._IOname;
+			}
+			set
+			{
+				if ((this._IOname != value))
+				{
+					this.OnIOnameChanging(value);
+					this.SendPropertyChanging();
+					this._IOname = value;
+					this.SendPropertyChanged("IOname");
+					this.OnIOnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit_Price", DbType="Float")]
+		public System.Nullable<double> Unit_Price
+		{
+			get
+			{
+				return this._Unit_Price;
+			}
+			set
+			{
+				if ((this._Unit_Price != value))
+				{
+					this.OnUnit_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._Unit_Price = value;
+					this.SendPropertyChanged("Unit_Price");
+					this.OnUnit_PriceChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4916,6 +5132,10 @@ namespace Maketting
 		
 		private string _StoreLocation;
 		
+		private string _IOcode;
+		
+		private string _IOname;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4934,6 +5154,10 @@ namespace Maketting
     partial void OnUsernameChanged();
     partial void OnStoreLocationChanging(string value);
     partial void OnStoreLocationChanged();
+    partial void OnIOcodeChanging(string value);
+    partial void OnIOcodeChanged();
+    partial void OnIOnameChanging(string value);
+    partial void OnIOnameChanged();
     #endregion
 		
 		public tbl_MKt_POhead()
@@ -5077,6 +5301,46 @@ namespace Maketting
 					this._StoreLocation = value;
 					this.SendPropertyChanged("StoreLocation");
 					this.OnStoreLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOcode", DbType="NVarChar(50)")]
+		public string IOcode
+		{
+			get
+			{
+				return this._IOcode;
+			}
+			set
+			{
+				if ((this._IOcode != value))
+				{
+					this.OnIOcodeChanging(value);
+					this.SendPropertyChanging();
+					this._IOcode = value;
+					this.SendPropertyChanged("IOcode");
+					this.OnIOcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOname", DbType="NVarChar(50)")]
+		public string IOname
+		{
+			get
+			{
+				return this._IOname;
+			}
+			set
+			{
+				if ((this._IOname != value))
+				{
+					this.OnIOnameChanging(value);
+					this.SendPropertyChanging();
+					this._IOname = value;
+					this.SendPropertyChanged("IOname");
+					this.OnIOnameChanged();
 				}
 			}
 		}

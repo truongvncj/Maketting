@@ -46,7 +46,7 @@ namespace Maketting.View
 
         }
 
-        public void addDEtailPOPhieuMKT(tbl_MKt_POdetail PhieuMKT)
+        public void addDEtailPOPhieuMKT(tbl_MKt_POdetail Ponumber)
         {
 
 
@@ -64,14 +64,15 @@ namespace Maketting.View
 
             DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
-            drToAdd["Description"] = PhieuMKT.Description;
-            drToAdd["ITEM_Code"] = PhieuMKT.MateriaItemcode;
-            drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
-            drToAdd["Unit"] = PhieuMKT.Unit;
-            drToAdd["PO_Quantity"] = PhieuMKT.QuantityOrder;
+            drToAdd["MATERIAL"] = Ponumber.Materialname;
+            drToAdd["Description"] = Ponumber.Description;
+            drToAdd["ITEM_Code"] = Ponumber.MateriaItemcode;
+            drToAdd["Sap_Code"] = Ponumber.MateriaSAPcode;
+            drToAdd["Unit"] = Ponumber.Unit;
+            drToAdd["PO_Quantity"] = Ponumber.QuantityOrder;
+            drToAdd["Unit_Price"] = Ponumber.Unit_Price;
 
-
+            //     Unit_Price
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
@@ -473,6 +474,15 @@ namespace Maketting.View
                 checkhead = false;
                 return;
             }
+
+
+            if (txtmucdichname.Text == "")
+            {
+                MessageBox.Show("Pleae input a IO !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbkhohang.Focus();
+                checkhead = false;
+                return;
+            }
             #endregion
 
 
@@ -500,6 +510,17 @@ namespace Maketting.View
                     //dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
 
                     dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Style.BackColor = System.Drawing.Color.White;
+                    dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Style.BackColor = System.Drawing.Color.White;
+
+                    if (dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value == DBNull.Value)
+                    {
+
+                        MessageBox.Show("Please nhập Unit Price: " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Style.BackColor = System.Drawing.Color.Orange;
+                        checkdetail = false;
+                        return;
+                    }
+
 
                     if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value == DBNull.Value)
                     {
@@ -509,6 +530,7 @@ namespace Maketting.View
                         checkdetail = false;
                         return;
                     }
+
 
                     if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                     {
@@ -522,6 +544,17 @@ namespace Maketting.View
 
                     }
 
+                    if (dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value != DBNull.Value)
+                    {
+                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value <= 0)
+                        {
+                            MessageBox.Show("Please check unit price, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Style.BackColor = System.Drawing.Color.Orange;
+                            checkdetail = false;
+                            return;
+                        }
+
+                    }
 
                 }
 
@@ -542,7 +575,8 @@ namespace Maketting.View
                 //    rs.Address = txtdiachi.Text;
                 //    rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                 //    rs.Receiver_by = txtnguoinhan.Text;
-
+                ponew.IOcode = txtmact.Text;
+                ponew.IOname = txtmucdichname.Text;
                 ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
                 //     rs.Purposeid = txtmact.Text;
@@ -575,9 +609,8 @@ namespace Maketting.View
                         //       detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                         //   detailphieu.Receiver_by = txtnguoinhan.Text;
 
-                        //    detailphieu.d = datepickngayphieu.Value;
-                        //   detailphieu.Purpose = txtmucdichname.Text;
-                        //   detailphieu.Purposeid = txtmact.Text;
+                        detailphieu.IOcode = txtmact.Text;
+                        detailphieu.IOname = txtmucdichname.Text;
                         detailphieu.Storelocation = this.storelocation;
                         //   detailphieu. = txtnguoiyeucau.Text;
                         detailphieu.StatusPO = "TMP";
@@ -615,6 +648,11 @@ namespace Maketting.View
                         {
                             detailphieu.Unit = (string)dataGridViewDetail.Rows[idrow].Cells["Unit"].Value;
                         }
+                        if (dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value != DBNull.Value)
+                        {
+                            detailphieu.Unit_Price = (float)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value;
+                        }
+
                         dc.tbl_MKt_POdetail_TMPs.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
 
@@ -643,7 +681,7 @@ namespace Maketting.View
                                Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
-                               //    Description = gg.Select(m => m.Description).FirstOrDefault(),
+                               Unit_price = gg.Sum(m => m.Unit_Price)/ gg.Sum(m => m.QuantityOrder),
 
 
 
@@ -656,7 +694,7 @@ namespace Maketting.View
                     {
 
                         tbl_MKt_POdetail detailPO = new tbl_MKt_POdetail();
-
+                        detailPO.Unit_Price = item.Unit_price;
                         detailPO.MateriaItemcode = item.MateriaItemcode;
                         detailPO.Description = item.Description;
                         detailPO.Materialname = item.Materialname;
@@ -1769,53 +1807,6 @@ namespace Maketting.View
 
         private void txtmucdich_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                //  cbsophieu.
-                e.Handled = true;
-
-                //       string seachtext = txtmucdichname.Text;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs = from pp in dc.tbl_MKT_Mucdiches
-                             //    where pp.tenCT.Contains(seachtext)
-                         select new
-                         {
-                             MÃ_CHƯƠNG_TRÌNH = pp.macT,
-                             TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
-
-
-
-                             pp.id,
-
-                         };
-
-                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
-                selectkq.ShowDialog();
-                int id = selectkq.id;
-
-                var rs2 = (from pp in dc.tbl_MKT_Mucdiches
-                           where pp.id == id
-                           select pp).FirstOrDefault();
-
-                if (rs2 != null)
-                {
-
-                    //          txtmact.Text = rs2.macT;
-                    //           txtmucdichname.Text = rs2.tenCT;
-                    ///
-                }
-
-
-
-
-
-
-
-                dataGridViewDetail.Focus();
-
-            }
 
         }
 
@@ -1854,11 +1845,6 @@ namespace Maketting.View
 
 
 
-
-        }
-
-        private void txtmucdichname_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -1967,6 +1953,74 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void btmucdich_Click_1(object sender, EventArgs e)
+        {
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.DanhsachctMKT(dc);
+
+
+            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
+
+            viewtbl.Show();
+
+
+        }
+
+        private void txtmucdichname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //  cbsophieu.
+                e.Handled = true;
+
+                string seachtext = txtmucdichname.Text;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKT_Mucdiches
+                         where pp.tenCT.Contains(seachtext)
+                         select new
+                         {
+                             MÃ_CHƯƠNG_TRÌNH = pp.macT,
+                             TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
+
+
+
+                             pp.id,
+
+                         };
+
+                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
+                selectkq.ShowDialog();
+                int id = selectkq.id;
+
+                var rs2 = (from pp in dc.tbl_MKT_Mucdiches
+                           where pp.id == id
+                           select pp).FirstOrDefault();
+
+                if (rs2 != null)
+                {
+
+                    txtmact.Text = rs2.macT;
+                    txtmucdichname.Text = rs2.tenCT;
+
+                }
+
+
+
+
+
+
+
+                dataGridViewDetail.Focus();
+
+            }
         }
     }
 }

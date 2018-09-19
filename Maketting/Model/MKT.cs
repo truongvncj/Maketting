@@ -196,6 +196,7 @@ namespace Maketting.Model
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Unit_Price", typeof(float)));
             //     dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
 
 
@@ -304,6 +305,7 @@ namespace Maketting.Model
                      orderby p.Gate_pass
                      select new
                      {
+                         p.Region,
                          p.Gate_pass,
                          p.Status,
                          p.ShippingPoint,
@@ -1001,7 +1003,7 @@ namespace Maketting.Model
             }
             else
             {
-                MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return kq;
             }

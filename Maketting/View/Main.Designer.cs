@@ -277,7 +277,7 @@
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
             this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.xuấtĐồToolStripMenuItem.Text = "Good Reciept ";
+            this.xuấtĐồToolStripMenuItem.Text = "Good Receipt ";
             this.xuấtĐồToolStripMenuItem.Click += new System.EventHandler(this.xuấtĐồToolStripMenuItem_Click);
             // 
             // toolStripSeparator3

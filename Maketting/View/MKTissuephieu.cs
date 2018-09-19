@@ -621,6 +621,7 @@ namespace Maketting.View
 
                 if (rs != null)
                 {
+                    rs.Region = Model.Username.getuseRegion();
                     rs.Address = txtdiachi.Text;
                     rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                     rs.Receiver_by = txtnguoinhan.Text;
@@ -662,6 +663,7 @@ namespace Maketting.View
                         detailphieu.Tel = lbtel.Text;
                         detailphieu.Username = this.Username;
                         detailphieu.Gate_pass = this.sophieu;
+                        detailphieu.Region = Model.Username.getuseRegion();
                         //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
                         //dt.Columns.Add(new DataColumn("Description", typeof(string)));
                         //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
@@ -1950,6 +1952,7 @@ namespace Maketting.View
                          select new
                          {
                              Date = pp.Ngaytaophieu,
+                             pp.Region,
                              pp.Gate_pass,
                              pp.Requested_by,
                              pp.Purpose,
