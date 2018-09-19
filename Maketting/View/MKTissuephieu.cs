@@ -785,7 +785,8 @@ namespace Maketting.View
         private void button5_Click(object sender, EventArgs e)
         {
 
-            //   string username = Utils.getusername();
+            string username = Utils.getusername();
+            this.Username = username;
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
