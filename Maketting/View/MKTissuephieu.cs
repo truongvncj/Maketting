@@ -821,12 +821,12 @@ namespace Maketting.View
                 headpx.Username = this.Username;
                 headpx.Sophieu = rptMKThead.Gate_pass;
                 headpx.Nguoinhanname = rptMKThead.Receiver_by;
-                headpx.seri = this.storelocation + rptMKThead.Gate_pass;
+                headpx.seri = rptMKThead.Region+this.storelocation + rptMKThead.Gate_pass;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(rptMKThead.Region+this.storelocation + rptMKThead.Gate_pass), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
                 headpx.dienthoai = rptMKThead.Tel;
@@ -2134,13 +2134,15 @@ namespace Maketting.View
                              MÃ_KHÁCH_HÀNG = pp.Customer_code,
                              TÊN_KHÁCH_HÀNG = pp.Customer_name,
                              ĐỊA_CHỈ = pp.Address,
+                             QUẬN = pp.District,
+                             TỈNH_THÀNH_PHỐ = pp.Province,
                              ĐIỆN_THOẠI = pp.Tel,
                              GHI_CHÚ = pp.Note,
-                             ID= pp.idCust,
 
 
 
-                             pp.id,
+
+                             ID =    pp.id,
 
                          };
 
@@ -2156,9 +2158,9 @@ namespace Maketting.View
                 {
                     txtcustcode.Text = rs2.Customer_code;
                     txtnguoinhan.Text = rs2.Customer_name;
-                    txtdiachi.Text = rs2.Address;
+                    txtdiachi.Text = rs2.Address +" ,"+ rs2.District+" ,"+ rs2.Province;
                     lbtel.Text = rs2.Tel;
-
+             
 
 
                 }

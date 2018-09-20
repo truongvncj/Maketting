@@ -21,11 +21,11 @@ namespace Maketting.View
 
         public string diachinvt { get; set; }
 
-        public string masothuenvt { get; set; }
+     //   public string masothuenvt { get; set; }
 
         public string dienthoai { get; set; }
-        public string tknganhangso { get; set; }
-        public string tknganhangdiachi { get; set; }
+     //   public string tknganhangso { get; set; }
+    //    public string tknganhangdiachi { get; set; }
 
         public bool chon { get; set; }
 
@@ -78,7 +78,7 @@ namespace Maketting.View
                     txtten.Text = item.tenNVT;
 
                     txtdienthoai.Text = item.dienthoaiNVT;
-                    txtmasothue.Text = item.masothueNVT;
+                    //txtmasothue.Text = item.masothueNVT;
 
                     txtdiachi.Text = item.diachiNVT;//  p.masothue  
 
@@ -218,7 +218,7 @@ namespace Maketting.View
             this.maNVT = this.txtma.Text;
             this.tenNVT = this.txtten.Text;
             this.diachinvt = this.txtdiachi.Text;
-            this.masothuenvt = txtmasothue.Text;
+      //      this.masothuenvt = txtmasothue.Text;
             this.dienthoai = txtdienthoai.Text;
        
 
@@ -252,7 +252,7 @@ namespace Maketting.View
                     rs.maNVT = this.maNVT;//= this.txtma.Text;
                     rs.tenNVT = this.tenNVT;//= this.txtten.Text;
                     rs.diachiNVT = this.diachinvt;// = this.txtdiachi.Text;
-                    rs.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
+           //         rs.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
                     rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
                
 
@@ -286,7 +286,7 @@ namespace Maketting.View
             this.maNVT = this.txtma.Text;
             this.tenNVT = this.txtten.Text;
             this.diachinvt = this.txtdiachi.Text;
-            this.masothuenvt = txtmasothue.Text;
+        //    this.masothuenvt = txtmasothue.Text;
             this.dienthoai = txtdienthoai.Text;
          //   this.tknganhangso = dienthoai.Text;
        
@@ -306,7 +306,7 @@ namespace Maketting.View
             p.maNVT = this.maNVT;//= this.txtma.Text;
             p.tenNVT = this.tenNVT;//= this.txtten.Text;
             p.diachiNVT = this.diachinvt;// = this.txtdiachi.Text;
-            p.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
+     //       p.masothueNVT = this.masothuenvt;// = txtmasothue.Text;
             p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
          
 
@@ -401,7 +401,7 @@ namespace Maketting.View
             {
 
 
-         //       dienthoai.Focus();
+               txtdienthoai.Focus();
 
 
             }
@@ -417,6 +417,19 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void txtdienthoai_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txtma.Focus();
+
+
+            }
+
         }
     }
 

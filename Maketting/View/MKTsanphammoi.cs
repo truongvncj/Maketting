@@ -127,7 +127,7 @@ namespace Maketting.View
             {
 
 
-                txttensanpham.Focus();
+                txtsapcode.Focus();
 
 
             }
@@ -372,7 +372,7 @@ namespace Maketting.View
 
         private void txtmakho_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
 
@@ -396,7 +396,7 @@ namespace Maketting.View
             {
 
 
-                txtsapcode.Focus();
+                txtdescription.Focus();
 
 
             }
@@ -410,7 +410,7 @@ namespace Maketting.View
             {
 
 
-          //      txtdonvi.Focus();
+                txttensanpham.Focus();
 
 
             }
@@ -485,6 +485,32 @@ namespace Maketting.View
 
             }
 
+        }
+
+        private void txtdescription_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txtunit.Focus();
+
+
+            }
+        }
+
+        private void txtunit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txtitemcode.Focus();
+
+
+            }
         }
     }
 

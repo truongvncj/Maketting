@@ -16,10 +16,15 @@ namespace Maketting.View
     {
         // public View.CreatenewContract contractnew;
         public int id { get; set; }
-        public string maID { get; set; }
-        public string tenKH { get; set; }
 
+        public string tenKH { get; set; }
+        //      txtquan.Text = item.District;
+        //                 txttinh.Text = item.Province;
         public string diachiKH { get; set; }
+
+        public string tinhthanhpho { get; set; }
+        public string quanhuyen { get; set; }
+
 
         public string MaKH { get; set; }
 
@@ -58,7 +63,7 @@ namespace Maketting.View
                 this.btnew.Visible = false;
                 //  this.txtmaNCC.Text = makhachhang;
 
-                txtidma.Enabled = false;
+                //     txtidma.Enabled = false;
 
 
                 string connection_string = Utils.getConnectionstr();
@@ -74,8 +79,10 @@ namespace Maketting.View
                 {
 
 
-                    txtidma.Text = item.idCust;
+                    //      txtidma.Text = item.idCust;
                     txtten.Text = item.Customer_name;
+                    txtquan.Text = item.District;
+                    txttinh.Text = item.Province;
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
                     txtmakhachhang.Text = item.Customer_code;
@@ -202,76 +209,99 @@ namespace Maketting.View
 
         private void btupdate_Click(object sender, EventArgs e)
         {
-            //
+            if (txtten.Text == "")
+            {
+                MessageBox.Show("Pleae input the mane !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtten.Focus();
 
-            //txtma.Text = item.maNVT;
-            //txtten.Text = item.tenNVT;
+                return;
+            }
+            if (txtdiachi.Text == "")
+            {
+                MessageBox.Show("Pleae input the Address !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtdiachi.Focus();
 
-            //txtdienthoai.Text = item.dienthoaiNVT;
-            //txtmasothue.Text = item.masothueNVT;
+                return;
+            }
+            if (txttinh.Text == "")
+            {
+                MessageBox.Show("Pleae input the Province (Tỉnh/ Thành Phố) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttinh.Focus();
 
-            //txtdiachi.Text = item.diachiNVT;//  p.masothue  
+                return;
+            }
+            if (txtquan.Text == "")
+            {
+                MessageBox.Show("Pleae input the District (Quận / Huyện)!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtquan.Focus();
 
-            //txttaikhoannganhangso.Text = item.sotaikhoannganhangNVT;//  p.ghichunganhnghe  
+                return;
+            }
+            if (txtmakhachhang.Text == "")
+            {
+                MessageBox.Show("Pleae input the Customer Code", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtmakhachhang.Focus();
 
-            //txtdiachitaikhoannganhang.Text = item.diachinganhangNVT;
-
-
-
-            this.maID = this.txtidma.Text;
+                return;
+            }
             this.MaKH = txtmakhachhang.Text;
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
             this.dienthoai = txttel.Text;
             this.ghichu = txtnote.Text;
+            this.quanhuyen = txtquan.Text;
+            this.tinhthanhpho = txttinh.Text;
 
 
-          
 
 
-            if (maID == "")
+
+            //if (maID == "")
+            //{
+            //    MessageBox.Show("Bạn chưa có mã khách hàng", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+
+
+
+            //if (maID != "")
+            //{
+            chon = true;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            //   tbl_dstaikhoan tk = new tbl_dstaikhoan();
+
+
+            //    MeasureItemEventArgs.re
+            var rs = (from p in db.tbl_MKT_khachhangs
+                      where p.id == this.id
+                      //  orderby tbl_dstaikhoan.matk
+                      select p).FirstOrDefault();
+
+
+            if (rs != null)
             {
-                MessageBox.Show("Bạn chưa có mã khách hàng", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                //   rs.idCust = this.maID;//= this.txtma.Text;
+                rs.Customer_name = this.tenKH;//= this.txtten.Text;
+                rs.Address = this.diachiKH;// = this.txtdiachi.Text;
+                rs.Customer_code = this.MaKH;// = txtmasothue.Text;
+                                             //      rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
+                rs.Tel = this.dienthoai;// = txttaikhoannganhangso.Text;
+                rs.Note = this.ghichu;// = txtdiachitaikhoannganhang.Text;
+
+                rs.District = this.quanhuyen;// = txtquan.Text;
+                rs.Province = this.tinhthanhpho;// = txttinh.Text;
+
+
+
+                db.SubmitChanges();
+                this.Close();
             }
 
 
 
-            if (maID != "")
-            {
-                chon = true;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-                //   tbl_dstaikhoan tk = new tbl_dstaikhoan();
-
-
-                //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_MKT_khachhangs
-                          where p.idCust == maID
-                          //  orderby tbl_dstaikhoan.matk
-                          select p).FirstOrDefault();
-
-
-                if (rs != null)
-                {
-                    rs.idCust = this.maID;//= this.txtma.Text;
-                    rs.Customer_name = this.tenKH;//= this.txtten.Text;
-                    rs.Address = this.diachiKH;// = this.txtdiachi.Text;
-                    rs.Customer_code = this.MaKH;// = txtmasothue.Text;
-                                                    //      rs.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
-                    rs.Tel = this.dienthoai;// = txttaikhoannganhangso.Text;
-                    rs.Note = this.ghichu;// = txtdiachitaikhoannganhang.Text;
-
-
-
-                    db.SubmitChanges();
-                    this.Close();
-                }
-
-
-
-            }
+            //    }
 
 
 
@@ -291,22 +321,54 @@ namespace Maketting.View
         private void btnew_Click(object sender, EventArgs e)
         {
 
+            if (txtten.Text == "")
+            {
+                MessageBox.Show("Pleae input the mane !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtten.Focus();
+             
+                return;
+            }
+            if (txtdiachi.Text == "")
+            {
+                MessageBox.Show("Pleae input the Address !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtdiachi.Focus();
 
-            this.maID = this.txtidma.Text;
+                return;
+            }
+            if (txttinh.Text == "")
+            {
+                MessageBox.Show("Pleae input the Province (Tỉnh/ Thành Phố) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttinh.Focus();
+
+                return;
+            }
+            if (txtquan.Text == "")
+            {
+                MessageBox.Show("Pleae input the District (Quận / Huyện)!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtquan.Focus();
+
+                return;
+            }
+            if (txtmakhachhang.Text == "")
+            {
+                MessageBox.Show("Pleae input the Customer Code", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtmakhachhang.Focus();
+
+                return;
+            }
+
+
             this.tenKH = this.txtten.Text;
             this.diachiKH = this.txtdiachi.Text;
             this.MaKH = txtmakhachhang.Text;
-            //   this.dienthoai = txtdienthoai.Text;
+            this.tinhthanhpho = txttinh.Text;
+            this.quanhuyen = txtquan.Text;
+
             this.dienthoai = txttel.Text;
             this.ghichu = txtnote.Text;
 
 
 
-            if (maID == "")
-            {
-                MessageBox.Show("Bạn chưa có mã nhà cung cấp", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             chon = true;
             string connection_string = Utils.getConnectionstr();
@@ -314,15 +376,15 @@ namespace Maketting.View
 
             tbl_MKT_khachhang p = new tbl_MKT_khachhang();
 
-            p.idCust = this.maID;//= this.txtma.Text;
+            //       p.idCust = this.maID;//= this.txtma.Text;
             p.Customer_name = this.tenKH;//= this.txtten.Text;
             p.Address = this.diachiKH;// = this.txtdiachi.Text;
             p.Customer_code = this.MaKH;// = txtmasothue.Text;
-                                           //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
+                                        //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
             p.Tel = this.dienthoai;// = txttaikhoannganhangso.Text;
             p.Note = this.ghichu;// = txtdiachitaikhoannganhang.Text;
-
-
+            p.District = this.quanhuyen;// = txtdiachitaikhoannganhang.Text;
+            p.Province = this.tinhthanhpho;// = txtdiachitaikhoannganhang.Text;
 
 
 
@@ -381,14 +443,14 @@ namespace Maketting.View
 
         private void txttennganhang_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
+            //if (e.KeyChar == (char)Keys.Enter)
+            //{
 
 
-                txtidma.Focus();
+            //    txtidma.Focus();
 
 
-            }
+            //}
         }
 
         private void txtmakho_TextChanged(object sender, EventArgs e)
@@ -414,7 +476,7 @@ namespace Maketting.View
             {
 
 
-                txtmakhachhang.Focus();
+                txtquan.Focus();
 
 
             }
@@ -422,14 +484,14 @@ namespace Maketting.View
 
         private void txtghichu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
+            //if (e.KeyChar == (char)Keys.Enter)
+            //{
 
 
-                txtidma.Focus();
+            //    txtidma.Focus();
 
 
-            }
+            //}
         }
 
         private void txtmasothue_KeyPress(object sender, KeyPressEventArgs e)
@@ -438,7 +500,7 @@ namespace Maketting.View
             {
 
 
-                txttel.Focus();
+                txtten.Focus();
 
 
             }
@@ -462,10 +524,38 @@ namespace Maketting.View
             {
 
 
-                txtidma.Focus();
+                txtmakhachhang.Focus();
 
 
             }
+        }
+
+        private void txtquan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txttinh.Focus();
+
+
+            }
+
+        }
+
+        private void txttinh_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txttel.Focus();
+
+
+            }
+
         }
     }
 

@@ -82,7 +82,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 75;
-            this.label5.Text = "Ghi chú";
+            this.label5.Text = "Note";
             // 
             // txtdiachi
             // 
@@ -103,7 +103,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 68;
-            this.label11.Text = "Địa chỉ";
+            this.label11.Text = "Address";
             // 
             // btupdate
             // 
@@ -176,7 +176,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(126, 16);
             this.label20.TabIndex = 50;
-            this.label20.Text = "Mã kho";
+            this.label20.Text = "Store Code";
             // 
             // label21
             // 
@@ -188,7 +188,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
-            this.label21.Text = "Tên kho";
+            this.label21.Text = "Store Name";
             // 
             // MKTDanhsachkho
             // 
@@ -202,7 +202,7 @@
             this.MinimizeBox = false;
             this.Name = "MKTDanhsachkho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kho Maketting";
+            this.Text = "Shipping Point Manage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

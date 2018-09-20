@@ -371,7 +371,7 @@ namespace Maketting.View
             {
 
 
-            //    txtdiachi.Focus();
+           txtmakho.Focus();
 
 
             }

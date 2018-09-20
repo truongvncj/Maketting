@@ -230,12 +230,6 @@
     <Compile Include="View\MKTVTDanhsackhachhang.Designer.cs">
       <DependentUpon>MKTVTDanhsackhachhang.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MKTVTdanhsachxe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MKTVTdanhsachxe.Designer.cs">
-      <DependentUpon>MKTVTdanhsachxe.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\MKTVTDanhsachnhavantai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,9 +404,6 @@
     <EmbeddedResource Include="View\MKTVTDanhsackhachhang.resx">
       <DependentUpon>MKTVTDanhsackhachhang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MKTVTdanhsachxe.resx">
-      <DependentUpon>MKTVTdanhsachxe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTVTDanhsachnhavantai.resx">
       <DependentUpon>MKTVTDanhsachnhavantai.cs</DependentUpon>
     </EmbeddedResource>
@@ -535,6 +526,7 @@
   <ItemGroup>
     <Content Include="giphyipg_Pb0_3.ico" />
     <Content Include="marketing_3111733_960_720_vus_4.ico" />
+    <None Include="Resources\anh-phao-hoa4.gif" />
     <None Include="Resources\Binhminhbeach.gif" />
     <None Include="Resources\Binhminh2.gif" />
     <None Include="Resources\Binhminh1.gif" />

@@ -1882,13 +1882,12 @@ namespace Maketting.View
                              MÃ_KHÁCH_HÀNG = pp.Customer_code,
                              TÊN_KHÁCH_HÀNG = pp.Customer_name,
                              ĐỊA_CHỈ = pp.Address,
+                             QUẬN_HUYỆN = pp.District,
+                             TỈNH_THÀNH_PHỐ = pp.Province,
                              ĐIỆN_THOẠI = pp.Tel,
                              GHI_CHÚ = pp.Note,
-                             ID = pp.idCust,
 
-
-
-                             pp.id,
+                             ID = pp.id,
 
                          };
 

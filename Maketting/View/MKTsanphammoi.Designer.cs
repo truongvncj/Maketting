@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTsanphammoi));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtstorelocation = new System.Windows.Forms.TextBox();
+            this.txtunit = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtdescription = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtsapcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,11 +45,6 @@
             this.txttensanpham = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtdescription = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtunit = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtstorelocation = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,56 @@
             this.panel1.Size = new System.Drawing.Size(578, 265);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtstorelocation
+            // 
+            this.txtstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstorelocation.Location = new System.Drawing.Point(176, 180);
+            this.txtstorelocation.Name = "txtstorelocation";
+            this.txtstorelocation.Size = new System.Drawing.Size(130, 20);
+            this.txtstorelocation.TabIndex = 77;
+            // 
+            // txtunit
+            // 
+            this.txtunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtunit.Location = new System.Drawing.Point(176, 150);
+            this.txtunit.Name = "txtunit";
+            this.txtunit.Size = new System.Drawing.Size(130, 20);
+            this.txtunit.TabIndex = 75;
+            this.txtunit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtunit_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 20);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "UNIT";
+            // 
+            // txtdescription
+            // 
+            this.txtdescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdescription.Location = new System.Drawing.Point(176, 116);
+            this.txtdescription.Name = "txtdescription";
+            this.txtdescription.Size = new System.Drawing.Size(368, 20);
+            this.txtdescription.TabIndex = 73;
+            this.txtdescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdescription_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "Description";
             // 
             // label9
             // 
@@ -188,54 +238,6 @@
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
             this.label21.Text = "MATERIAL NAME";
-            // 
-            // txtdescription
-            // 
-            this.txtdescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdescription.Location = new System.Drawing.Point(176, 116);
-            this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(368, 20);
-            this.txtdescription.TabIndex = 73;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 74;
-            this.label2.Text = "Description";
-            // 
-            // txtunit
-            // 
-            this.txtunit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtunit.Location = new System.Drawing.Point(176, 150);
-            this.txtunit.Name = "txtunit";
-            this.txtunit.Size = new System.Drawing.Size(130, 20);
-            this.txtunit.TabIndex = 75;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 20);
-            this.label3.TabIndex = 76;
-            this.label3.Text = "UNIT";
-            // 
-            // txtstorelocation
-            // 
-            this.txtstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstorelocation.Location = new System.Drawing.Point(176, 180);
-            this.txtstorelocation.Name = "txtstorelocation";
-            this.txtstorelocation.Size = new System.Drawing.Size(130, 20);
-            this.txtstorelocation.TabIndex = 77;
             // 
             // MKTsanphammoi
             // 

@@ -256,8 +256,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>1.39031in</Top>
-                          <Left>2.0311in</Left>
+                          <Top>1.43059in</Top>
+                          <Left>0.72644in</Left>
                           <Height>0.25in</Height>
                           <Width>1.06631in</Width>
                           <ZIndex>6</ZIndex>
@@ -401,7 +401,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>PHIẾU ĐIỀU XE XUẤT HÀNG QUẢNG CÁO</Value>
+                                  <Value>LOADMANIFEST OF POSM/GIFT ISSUE</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>Times New Roman</FontFamily>
@@ -417,9 +417,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>0.80495in</Top>
-                          <Left>1.45221in</Left>
+                          <Left>0.11904in</Left>
                           <Height>0.30902in</Height>
-                          <Width>4.59661in</Width>
+                          <Width>4.98186in</Width>
                           <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
@@ -651,8 +651,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>1.39031in</Top>
-                          <Left>3.12519in</Left>
+                          <Top>1.46809in</Top>
+                          <Left>1.82053in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.16851in</Width>
                           <ZIndex>17</ZIndex>
@@ -686,8 +686,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>1.14175in</Top>
-                          <Left>2.0311in</Left>
+                          <Top>1.16953in</Top>
+                          <Left>0.72644in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.06631in</Width>
                           <ZIndex>18</ZIndex>
@@ -722,8 +722,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>1.14175in</Top>
-                          <Left>3.09741in</Left>
+                          <Top>1.16953in</Top>
+                          <Left>1.79275in</Left>
                           <Height>0.23612in</Height>
                           <Width>1.19629in</Width>
                           <ZIndex>19</ZIndex>
@@ -742,9 +742,9 @@
                           <Value>=Fields!Barcode.Value</Value>
                           <MIMEType>image/bmp</MIMEType>
                           <Sizing>FitProportional</Sizing>
-                          <Top>0.8428cm</Top>
+                          <Top>1.18676cm</Top>
                           <Left>13.18033cm</Left>
-                          <Height>1.06066cm</Height>
+                          <Height>3.08193cm</Height>
                           <Width>5.4223cm</Width>
                           <ZIndex>20</ZIndex>
                           <Style>

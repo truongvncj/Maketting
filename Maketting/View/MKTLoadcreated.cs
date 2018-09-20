@@ -19,6 +19,10 @@ namespace Maketting.View
         public string soload { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
+        public IQueryable rs { get; set; }
+        public LinqtoSQLDataContext dc { get; set; }
+
+
 
         public class ComboboxItem
         {
@@ -2264,12 +2268,12 @@ namespace Maketting.View
                 headpx.Username = this.Username;
                 headpx.Sophieu = item.Gate_pass;
                 headpx.Nguoinhanname = item.Receiver_by;
-                headpx.seri = this.storelocation + item.Gate_pass;
+                headpx.seri = item.Region+this.storelocation + item.Gate_pass;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(item.Region+this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
                 headpx.dienthoai = item.Tel;
@@ -2434,6 +2438,51 @@ namespace Maketting.View
 
 
             }
+
+        }
+
+        private void bt_exporttoex_Click(object sender, EventArgs e)
+        {
+            Control_ac ctrex = new Control_ac();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            string seachaddress = txtseachaddress.Text;
+            string seachcode = txtseachcode.Text;
+            string seachgate = txtseachgate.Text;
+
+            var rs = from p in dc.tbl_MKt_Listphieus
+                     where p.ShippingPoint == storelocation && p.Status == "CRT"
+                     && p.Address.Contains(seachaddress)
+                             && p.Customer_SAP_Code.ToString().Contains(seachcode)
+                               && (p.ShippingPoint + p.Gate_pass).Contains(seachgate)
+
+
+                     orderby p.Gate_pass
+                     select new
+                     {
+
+
+                         Gate_pass = p.Gate_pass,
+                         Code_KH = p.Customer_SAP_Code,
+                         Địa_chỉ = p.Address,
+                         Điện_thoại = p.Description,
+
+                         p.Materiacode,
+                         p.Materialname,
+                         Số_lượng_xuất = p.Issued,
+                         p.Ngaytaophieu,
+                         p.Purpose,
+                         p.Receiver_by,
+                         p.Tel,
+
+                         ID = p.id,
+                     };
+
+        
+
+
+            ctrex.exportexceldatagridtofile(rs, dc, this.Text);
 
         }
     }

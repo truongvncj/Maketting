@@ -693,6 +693,8 @@ namespace Maketting.Model
                          Mã_khách_hàng = p.Customer_code,
                          Tên_khách_hàng = p.Customer_name,
                          Địa_chỉ = p.Address,
+                         Quận = p.District,
+                         Tỉnh_Thành_Phố = p.Province,
                          Điện_thoại = p.Tel,
                          Ghi_chú = p.Note,
 
@@ -789,7 +791,7 @@ namespace Maketting.Model
                          Tên_nhà_vận_tải = p.tenNVT,
                          Địa_chỉ = p.diachiNVT,
                          Điện_thoại = p.dienthoaiNVT,
-                         Mã_số_thuế = p.masothueNVT,
+                     //    Mã_số_thuế = p.masothueNVT,
 
 
 

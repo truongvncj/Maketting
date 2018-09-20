@@ -521,10 +521,10 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>0.79306in</Top>
-                          <Left>1.78216in</Left>
+                          <Top>0.82084in</Top>
+                          <Left>1.65677in</Left>
                           <Height>0.24652in</Height>
-                          <Width>3.10586in</Width>
+                          <Width>3.01211in</Width>
                           <ZIndex>14</ZIndex>
                           <Style>
                             <Border>
@@ -1177,9 +1177,9 @@
                           <MIMEType>image/bmp</MIMEType>
                           <Sizing>FitProportional</Sizing>
                           <Top>2.01437cm</Top>
-                          <Left>12.71cm</Left>
-                          <Height>1.94437cm</Height>
-                          <Width>5.80496cm</Width>
+                          <Left>11.90981cm</Left>
+                          <Height>2.15756cm</Height>
+                          <Width>6.60515cm</Width>
                           <ZIndex>33</ZIndex>
                           <Style>
                             <Border>
@@ -1685,6 +1685,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -2279,9 +2280,9 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Top>0.79306in</Top>
-                          <Left>1.78216in</Left>
+                          <Left>1.46086in</Left>
                           <Height>0.24652in</Height>
-                          <Width>3.10586in</Width>
+                          <Width>3.01049in</Width>
                           <ZIndex>14</ZIndex>
                           <Style>
                             <Border>
@@ -2934,9 +2935,9 @@
                           <MIMEType>image/bmp</MIMEType>
                           <Sizing>FitProportional</Sizing>
                           <Top>2.01437cm</Top>
-                          <Left>12.71cm</Left>
-                          <Height>1.94437cm</Height>
-                          <Width>5.80496cm</Width>
+                          <Left>11.90981cm</Left>
+                          <Height>2.08701cm</Height>
+                          <Width>6.60515cm</Width>
                           <ZIndex>33</ZIndex>
                           <Style>
                             <Border>

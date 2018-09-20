@@ -1286,8 +1286,6 @@ namespace Maketting
 		
 		private string _Address;
 		
-		private string _idCust;
-		
 		private string _Tel;
 		
 		private string _Note;
@@ -1295,8 +1293,6 @@ namespace Maketting
 		private string _Province;
 		
 		private string _District;
-		
-		private string _Commune;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1310,8 +1306,6 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
-    partial void OnidCustChanging(string value);
-    partial void OnidCustChanged();
     partial void OnTelChanging(string value);
     partial void OnTelChanged();
     partial void OnNoteChanging(string value);
@@ -1320,8 +1314,6 @@ namespace Maketting
     partial void OnProvinceChanged();
     partial void OnDistrictChanging(string value);
     partial void OnDistrictChanged();
-    partial void OnCommuneChanging(string value);
-    partial void OnCommuneChanged();
     #endregion
 		
 		public tbl_MKT_khachhang()
@@ -1409,26 +1401,6 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCust", DbType="NVarChar(225)")]
-		public string idCust
-		{
-			get
-			{
-				return this._idCust;
-			}
-			set
-			{
-				if ((this._idCust != value))
-				{
-					this.OnidCustChanging(value);
-					this.SendPropertyChanging();
-					this._idCust = value;
-					this.SendPropertyChanged("idCust");
-					this.OnidCustChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="NVarChar(225)")]
 		public string Tel
 		{
@@ -1505,26 +1477,6 @@ namespace Maketting
 					this._District = value;
 					this.SendPropertyChanged("District");
 					this.OnDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commune", DbType="NVarChar(50)")]
-		public string Commune
-		{
-			get
-			{
-				return this._Commune;
-			}
-			set
-			{
-				if ((this._Commune != value))
-				{
-					this.OnCommuneChanging(value);
-					this.SendPropertyChanging();
-					this._Commune = value;
-					this.SendPropertyChanged("Commune");
-					this.OnCommuneChanged();
 				}
 			}
 		}
@@ -2183,7 +2135,7 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(255)")]
 		public string Materialname
 		{
 			get

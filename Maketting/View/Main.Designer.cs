@@ -49,7 +49,6 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iOButgetDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +70,9 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferOUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -184,7 +186,6 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem,
             this.toolStripSeparator2,
             this.inputPOToolStripMenuItem,
-            this.iOButgetDeviceToolStripMenuItem,
             this.toolStripSeparator1,
             this.báoCáoPhiếuMKTToolStripMenuItem,
             this.storeAvaiableReportsToolStripMenuItem,
@@ -219,12 +220,6 @@
             this.inputPOToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.inputPOToolStripMenuItem.Text = "Input PO ";
             this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
-            // 
-            // iOButgetDeviceToolStripMenuItem
-            // 
-            this.iOButgetDeviceToolStripMenuItem.Name = "iOButgetDeviceToolStripMenuItem";
-            this.iOButgetDeviceToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.iOButgetDeviceToolStripMenuItem.Text = "IO Budget Control";
             // 
             // toolStripSeparator1
             // 
@@ -275,6 +270,9 @@
             this.toolStripSeparator3,
             this.goodReturnToolStripMenuItem,
             this.toolStripSeparator5,
+            this.transferOUtToolStripMenuItem,
+            this.transferInToolStripMenuItem,
+            this.toolStripSeparator6,
             this.inventoryToolStripMenuItem,
             this.inventoryApprovalToolStripMenuItem,
             this.toolStripSeparator4,
@@ -286,58 +284,58 @@
             // nhậpKhoToolStripMenuItem
             // 
             this.nhậpKhoToolStripMenuItem.Name = "nhậpKhoToolStripMenuItem";
-            this.nhậpKhoToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.nhậpKhoToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.nhậpKhoToolStripMenuItem.Text = "Good Issue ";
             this.nhậpKhoToolStripMenuItem.Click += new System.EventHandler(this.nhậpKhoToolStripMenuItem_Click);
             // 
             // xuấtĐồToolStripMenuItem
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
-            this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.xuấtĐồToolStripMenuItem.Text = "Good Receipt ";
             this.xuấtĐồToolStripMenuItem.Click += new System.EventHandler(this.xuấtĐồToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
             // 
             // goodReturnToolStripMenuItem
             // 
             this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
-            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.goodReturnToolStripMenuItem.Text = "Good Return ";
             this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
             // 
             // inventoryToolStripMenuItem
             // 
             this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.inventoryToolStripMenuItem.Text = "Inventory";
             this.inventoryToolStripMenuItem.Click += new System.EventHandler(this.inventoryToolStripMenuItem_Click);
             // 
             // inventoryApprovalToolStripMenuItem
             // 
             this.inventoryApprovalToolStripMenuItem.Name = "inventoryApprovalToolStripMenuItem";
-            this.inventoryApprovalToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.inventoryApprovalToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.inventoryApprovalToolStripMenuItem.Text = "Inventory Approval";
             this.inventoryApprovalToolStripMenuItem.Click += new System.EventHandler(this.inventoryApprovalToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
             // 
             // storeManageToolStripMenuItem
             // 
             this.storeManageToolStripMenuItem.Name = "storeManageToolStripMenuItem";
-            this.storeManageToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.storeManageToolStripMenuItem.Text = "Manage Store Location";
+            this.storeManageToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.storeManageToolStripMenuItem.Text = "Shipping Point";
             this.storeManageToolStripMenuItem.Click += new System.EventHandler(this.storeManageToolStripMenuItem_Click);
             // 
             // Menureports
@@ -377,6 +375,23 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            // 
+            // transferOUtToolStripMenuItem
+            // 
+            this.transferOUtToolStripMenuItem.Name = "transferOUtToolStripMenuItem";
+            this.transferOUtToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.transferOUtToolStripMenuItem.Text = "Transfer out";
+            // 
+            // transferInToolStripMenuItem
+            // 
+            this.transferInToolStripMenuItem.Name = "transferInToolStripMenuItem";
+            this.transferInToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.transferInToolStripMenuItem.Text = "Transfer in";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(201, 6);
             // 
             // Main
             // 
@@ -437,8 +452,10 @@
         private ToolStripMenuItem passwordToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem1;
         private ToolStripMenuItem uploadBeginStoreToolStripMenuItem;
-        private ToolStripMenuItem iOButgetDeviceToolStripMenuItem;
         private ToolStripMenuItem iOButgetReportsToolStripMenuItem;
+        private ToolStripMenuItem transferOUtToolStripMenuItem;
+        private ToolStripMenuItem transferInToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator6;
     }
 }
 

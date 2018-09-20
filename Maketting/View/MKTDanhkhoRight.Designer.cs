@@ -126,7 +126,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(126, 16);
             this.label20.TabIndex = 50;
-            this.label20.Text = "Mã kho";
+            this.label20.Text = "Store Code";
             // 
             // label21
             // 
@@ -138,7 +138,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
-            this.label21.Text = "Store Right Group";
+            this.label21.Text = "Store Group";
             // 
             // MKTDanhkhoRight
             // 

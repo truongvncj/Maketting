@@ -54,12 +54,10 @@
       <Column Name="Customer_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="idCust" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="Tel" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="Province" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Commune" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
@@ -94,7 +92,7 @@
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ShippingPoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Materiacode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Materialname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Issued" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Serriload" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>

@@ -32,9 +32,9 @@
             this.fromdatepicker = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.todatepicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.todatepicker = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,26 @@
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(31, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "To Date";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "From Date";
+            // 
             // todatepicker
             // 
             this.todatepicker.CustomFormat = "dd/MM/yyyy";
@@ -85,26 +105,6 @@
             this.todatepicker.Size = new System.Drawing.Size(116, 23);
             this.todatepicker.TabIndex = 2;
             this.todatepicker.Value = new System.DateTime(2016, 3, 6, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Từ ngày:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Đến ngày:";
             // 
             // MKTFromdatetodate
             // 

@@ -32,8 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtdienthoai = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtmasothue = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtdiachi = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btupdate = new System.Windows.Forms.Button();
@@ -50,8 +48,6 @@
             // 
             this.panel1.Controls.Add(this.txtdienthoai);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtmasothue);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtdiachi);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btupdate);
@@ -63,17 +59,18 @@
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 244);
+            this.panel1.Size = new System.Drawing.Size(556, 208);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtdienthoai
             // 
             this.txtdienthoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdienthoai.Location = new System.Drawing.Point(171, 171);
+            this.txtdienthoai.Location = new System.Drawing.Point(171, 137);
             this.txtdienthoai.Name = "txtdienthoai";
             this.txtdienthoai.Size = new System.Drawing.Size(367, 20);
             this.txtdienthoai.TabIndex = 80;
+            this.txtdienthoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdienthoai_KeyPress_1);
             // 
             // label3
             // 
@@ -81,31 +78,11 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 171);
+            this.label3.Location = new System.Drawing.Point(14, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 20);
             this.label3.TabIndex = 81;
             this.label3.Text = "Điện thoại";
-            // 
-            // txtmasothue
-            // 
-            this.txtmasothue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmasothue.Location = new System.Drawing.Point(171, 132);
-            this.txtmasothue.Name = "txtmasothue";
-            this.txtmasothue.Size = new System.Drawing.Size(368, 20);
-            this.txtmasothue.TabIndex = 78;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 79;
-            this.label2.Text = "Mã số thuế";
             // 
             // txtdiachi
             // 
@@ -134,7 +111,7 @@
             this.btupdate.BackColor = System.Drawing.Color.Transparent;
             this.btupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btupdate.ForeColor = System.Drawing.Color.Red;
-            this.btupdate.Location = new System.Drawing.Point(325, 220);
+            this.btupdate.Location = new System.Drawing.Point(325, 184);
             this.btupdate.Name = "btupdate";
             this.btupdate.Size = new System.Drawing.Size(94, 21);
             this.btupdate.TabIndex = 6;
@@ -148,7 +125,7 @@
             this.btxoa.BackColor = System.Drawing.Color.Transparent;
             this.btxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btxoa.ForeColor = System.Drawing.Color.Red;
-            this.btxoa.Location = new System.Drawing.Point(188, 220);
+            this.btxoa.Location = new System.Drawing.Point(188, 184);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(94, 21);
             this.btxoa.TabIndex = 6;
@@ -162,7 +139,7 @@
             this.btnew.BackColor = System.Drawing.Color.Transparent;
             this.btnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnew.ForeColor = System.Drawing.Color.Red;
-            this.btnew.Location = new System.Drawing.Point(436, 220);
+            this.btnew.Location = new System.Drawing.Point(436, 184);
             this.btnew.Name = "btnew";
             this.btnew.Size = new System.Drawing.Size(94, 21);
             this.btnew.TabIndex = 8;
@@ -217,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 251);
+            this.ClientSize = new System.Drawing.Size(565, 218);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -225,7 +202,7 @@
             this.MinimizeBox = false;
             this.Name = "MKTVTDanhsachnhavantai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhà cung ứng vận tải";
+            this.Text = "Transporters";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -244,8 +221,6 @@
         private System.Windows.Forms.Button btxoa;
         private System.Windows.Forms.TextBox txtdiachi;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtmasothue;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtdienthoai;
         private System.Windows.Forms.Label label3;
     }
