@@ -538,6 +538,8 @@ namespace Maketting
 		
 		private bool _addNewProduct;
 		
+		private bool _IOprogamecreatRight;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -574,6 +576,8 @@ namespace Maketting
     partial void OnStoreLocationmanageChanged();
     partial void OnaddNewProductChanging(bool value);
     partial void OnaddNewProductChanged();
+    partial void OnIOprogamecreatRightChanging(bool value);
+    partial void OnIOprogamecreatRightChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -897,6 +901,26 @@ namespace Maketting
 					this._addNewProduct = value;
 					this.SendPropertyChanged("addNewProduct");
 					this.OnaddNewProductChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOprogamecreatRight", DbType="Bit NOT NULL")]
+		public bool IOprogamecreatRight
+		{
+			get
+			{
+				return this._IOprogamecreatRight;
+			}
+			set
+			{
+				if ((this._IOprogamecreatRight != value))
+				{
+					this.OnIOprogamecreatRightChanging(value);
+					this.SendPropertyChanging();
+					this._IOprogamecreatRight = value;
+					this.SendPropertyChanged("IOprogamecreatRight");
+					this.OnIOprogamecreatRightChanged();
 				}
 			}
 		}

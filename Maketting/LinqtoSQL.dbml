@@ -29,6 +29,7 @@
       <Column Name="InventoryAprroval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="StoreLocationmanage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="addNewProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IOprogamecreatRight" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_headRpt_Phieuissue" Member="tbl_MKT_headRpt_Phieuissues">

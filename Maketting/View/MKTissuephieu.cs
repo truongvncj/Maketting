@@ -2055,8 +2055,10 @@ namespace Maketting.View
 
         private void btmucdich_Click(object sender, EventArgs e)
         {
-            //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
+            if (Model.Username.getIOcreateRight() == true)
+            {
+
+                string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -2066,6 +2068,13 @@ namespace Maketting.View
             Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
 
             viewtbl.Show();
+
+            }
+            else
+            {
+                View.MKTNoouthourise noquyen = new MKTNoouthourise();
+                noquyen.ShowDialog();
+            };
 
 
 

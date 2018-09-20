@@ -439,7 +439,7 @@ namespace Maketting.View
             }
         }
 
-      
+
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
@@ -681,7 +681,7 @@ namespace Maketting.View
                                Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
-                               Unit_price = gg.Sum(m => m.Unit_Price)/ gg.Sum(m => m.QuantityOrder),
+                               Unit_price = gg.Sum(m => m.Unit_Price) / gg.Sum(m => m.QuantityOrder),
 
 
 
@@ -1957,17 +1957,30 @@ namespace Maketting.View
 
         private void btmucdich_Click_1(object sender, EventArgs e)
         {
+            //  getIOcreateRight
             //    NPDanhsachnhavantai
-            string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            if (Model.Username.getIOcreateRight() == true)
+            {
+                string connection_string = Utils.getConnectionstr();
 
-            var rs1 = Model.MKT.DanhsachctMKT(dc);
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs1 = Model.MKT.DanhsachctMKT(dc);
 
 
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
+                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
 
-            viewtbl.Show();
+                viewtbl.Show();
+            }
+            else
+            {
+                View.MKTNoouthourise noquyen = new MKTNoouthourise();
+                noquyen.ShowDialog();
+            }
+
+            ;
+
 
 
         }

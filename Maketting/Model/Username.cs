@@ -181,6 +181,7 @@ namespace Maketting.Model
 
 
         }
+
         public static bool getWareHouseRight()
         {
 
@@ -206,6 +207,35 @@ namespace Maketting.Model
 
 
         }
+
+
+        public static bool getIOcreateRight()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.IOprogamecreatRight).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
 
         public static bool getLoadRight()
         {
