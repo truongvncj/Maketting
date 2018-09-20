@@ -49,9 +49,11 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iOButgetDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iOButgetReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,8 +71,6 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.iOButgetDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iOButgetReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +116,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelmain.AutoScroll = true;
+            this.panelmain.AutoSize = true;
             this.panelmain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelmain.Location = new System.Drawing.Point(6, 0);
@@ -219,6 +220,12 @@
             this.inputPOToolStripMenuItem.Text = "Input PO ";
             this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
             // 
+            // iOButgetDeviceToolStripMenuItem
+            // 
+            this.iOButgetDeviceToolStripMenuItem.Name = "iOButgetDeviceToolStripMenuItem";
+            this.iOButgetDeviceToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.iOButgetDeviceToolStripMenuItem.Text = "IO Budget Control";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -238,6 +245,12 @@
             this.storeAvaiableReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.storeAvaiableReportsToolStripMenuItem.Text = "Store avaiable reports";
             this.storeAvaiableReportsToolStripMenuItem.Click += new System.EventHandler(this.storeAvaiableReportsToolStripMenuItem_Click);
+            // 
+            // iOButgetReportsToolStripMenuItem
+            // 
+            this.iOButgetReportsToolStripMenuItem.Name = "iOButgetReportsToolStripMenuItem";
+            this.iOButgetReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.iOButgetReportsToolStripMenuItem.Text = "IO Budget Reports ";
             // 
             // Menuload
             // 
@@ -364,18 +377,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // iOButgetDeviceToolStripMenuItem
-            // 
-            this.iOButgetDeviceToolStripMenuItem.Name = "iOButgetDeviceToolStripMenuItem";
-            this.iOButgetDeviceToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.iOButgetDeviceToolStripMenuItem.Text = "IO Budget Control";
-            // 
-            // iOButgetReportsToolStripMenuItem
-            // 
-            this.iOButgetReportsToolStripMenuItem.Name = "iOButgetReportsToolStripMenuItem";
-            this.iOButgetReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.iOButgetReportsToolStripMenuItem.Text = "IO Budget Reports ";
             // 
             // Main
             // 

@@ -1292,6 +1292,12 @@ namespace Maketting
 		
 		private string _Note;
 		
+		private string _Province;
+		
+		private string _District;
+		
+		private string _Commune;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1310,6 +1316,12 @@ namespace Maketting
     partial void OnTelChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
+    partial void OnProvinceChanging(string value);
+    partial void OnProvinceChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnCommuneChanging(string value);
+    partial void OnCommuneChanged();
     #endregion
 		
 		public tbl_MKT_khachhang()
@@ -1453,6 +1465,66 @@ namespace Maketting
 					this._Note = value;
 					this.SendPropertyChanged("Note");
 					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Province", DbType="NVarChar(50)")]
+		public string Province
+		{
+			get
+			{
+				return this._Province;
+			}
+			set
+			{
+				if ((this._Province != value))
+				{
+					this.OnProvinceChanging(value);
+					this.SendPropertyChanging();
+					this._Province = value;
+					this.SendPropertyChanged("Province");
+					this.OnProvinceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(50)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commune", DbType="NVarChar(50)")]
+		public string Commune
+		{
+			get
+			{
+				return this._Commune;
+			}
+			set
+			{
+				if ((this._Commune != value))
+				{
+					this.OnCommuneChanging(value);
+					this.SendPropertyChanging();
+					this._Commune = value;
+					this.SendPropertyChanged("Commune");
+					this.OnCommuneChanged();
 				}
 			}
 		}
@@ -2992,8 +3064,6 @@ namespace Maketting
 		
 		private string _Tranposterby;
 		
-		private string _Truck;
-		
 		private string _Region;
 		
     #region Extensibility Method Definitions
@@ -3036,8 +3106,6 @@ namespace Maketting
     partial void OncompletedbyChanged();
     partial void OnTranposterbyChanging(string value);
     partial void OnTranposterbyChanged();
-    partial void OnTruckChanging(string value);
-    partial void OnTruckChanged();
     partial void OnRegionChanging(string value);
     partial void OnRegionChanged();
     #endregion
@@ -3407,26 +3475,6 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truck", DbType="NVarChar(50)")]
-		public string Truck
-		{
-			get
-			{
-				return this._Truck;
-			}
-			set
-			{
-				if ((this._Truck != value))
-				{
-					this.OnTruckChanging(value);
-					this.SendPropertyChanging();
-					this._Truck = value;
-					this.SendPropertyChanged("Truck");
-					this.OnTruckChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
 		public string Region
 		{
@@ -3694,8 +3742,6 @@ namespace Maketting
 		
 		private string _nametransporter;
 		
-		private string _Truckno;
-		
 		private string _gatepasslist;
 		
 		private string _seri;
@@ -3722,8 +3768,6 @@ namespace Maketting
     partial void OncodetransporterChanged();
     partial void OnnametransporterChanging(string value);
     partial void OnnametransporterChanged();
-    partial void OnTrucknoChanging(string value);
-    partial void OnTrucknoChanged();
     partial void OngatepasslistChanging(string value);
     partial void OngatepasslistChanged();
     partial void OnseriChanging(string value);
@@ -3875,26 +3919,6 @@ namespace Maketting
 					this._nametransporter = value;
 					this.SendPropertyChanged("nametransporter");
 					this.OnnametransporterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Truckno", DbType="NVarChar(255)")]
-		public string Truckno
-		{
-			get
-			{
-				return this._Truckno;
-			}
-			set
-			{
-				if ((this._Truckno != value))
-				{
-					this.OnTrucknoChanging(value);
-					this.SendPropertyChanging();
-					this._Truckno = value;
-					this.SendPropertyChanged("Truckno");
-					this.OnTrucknoChanged();
 				}
 			}
 		}

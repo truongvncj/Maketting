@@ -246,7 +246,7 @@ namespace Maketting.View
 
             txtmaNVT.Text = "";
             txtmaNVT.Enabled = false;
-            txttrucno.Text = "";
+            //txttrucno.Text = "";
 
             txtnguoitaoload.Enabled = true;
             txttenNVT.Enabled = true;
@@ -617,13 +617,6 @@ namespace Maketting.View
             }
 
 
-            if (txttrucno.Text == "")
-            {
-                MessageBox.Show("Pleae input truck no  !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txttrucno.Focus();
-                checkhead = false;
-                return;
-            }
 
 
             if (cbkhohang.Text == "")
@@ -675,7 +668,7 @@ namespace Maketting.View
                     rs.Created_by = txtnguoitaoload.Text;
                     rs.Status = "CRT";
                     rs.LoadNumber = this.soload;
-                    rs.Truckno = txttrucno.Text;
+                 
 
                     rs.Username = this.Username;
                     dc.SubmitChanges();
@@ -698,8 +691,7 @@ namespace Maketting.View
                         {
                             item.Status = "Shipping";
                             item.Tranposterby = txttenNVT.Text;
-                            item.Truck = txttrucno.Text;
-
+                          
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
                             dc.SubmitChanges();
@@ -720,7 +712,7 @@ namespace Maketting.View
                             item.LoadNumber = this.soload;
                             item.Status = "Shipping";
                             item.Tranposterby = txttenNVT.Text;
-                            item.Truck = txttrucno.Text;
+                         
 
 
                             dc.SubmitChanges();
@@ -964,7 +956,7 @@ namespace Maketting.View
                 headpx.Ngaythang = rptMKThead.Date_Created;
                 headpx.shippingpoint = rptMKThead.ShippingPoint;
            
-                headpx.Truckno = rptMKThead.Truckno;
+             //   headpx.Truckno = rptMKThead.Truckno;
 
 
 
@@ -1001,7 +993,7 @@ namespace Maketting.View
                              Ngaythang = pp.Ngaythang,
                              Loadnumber = pp.Loadnumber,
                              nametransporter = pp.nametransporter,
-                             Truckno = pp.Truckno,
+                        //     Truckno = pp.Truckno,
                              gatepasslist =pp.gatepasslist,
                              seri = pp.seri,
                              Barcode = pp.Barcode,
@@ -2110,7 +2102,7 @@ namespace Maketting.View
 
 
 
-                txttrucno.Focus();
+              
 
 
             }

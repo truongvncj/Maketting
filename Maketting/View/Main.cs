@@ -50,6 +50,9 @@ namespace Maketting.View
 
             Formload.TopLevel = false;
             Formload.AutoScroll = true;
+            //Formload.WindowState = FormWindowState.Maximized;
+            //Formload.StartPosition = FormStartPosition.CenterScreen;
+
             panelmain.Controls.Add(Formload);
             Formload.Show();
 
@@ -119,6 +122,7 @@ namespace Maketting.View
 
             //     string tencty = Model.Username.getnamecty();
 
+         //   panelmain.Size = win
 
             panelmain.Controls.Clear();
 
@@ -127,6 +131,8 @@ namespace Maketting.View
             accsup.TopLevel = false;
             accsup.AutoScroll = true;
             panelmain.Controls.Add(accsup);
+         
+
             accsup.Show();
 
 
@@ -135,7 +141,6 @@ namespace Maketting.View
 
             //    View.MKTLoadcreated accsup = new MKTLoadcreated(this);
             this.clearpannelload(accsup);
-
 
 
         }

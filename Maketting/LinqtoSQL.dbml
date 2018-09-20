@@ -57,6 +57,9 @@
       <Column Name="idCust" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="Tel" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Province" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Commune" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
@@ -150,7 +153,6 @@
       <Column Name="completed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="completedby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Tranposterby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Truck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
@@ -174,7 +176,6 @@
       <Column Name="Loadcreatebby" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="codetransporter" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="nametransporter" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Truckno" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="gatepasslist" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

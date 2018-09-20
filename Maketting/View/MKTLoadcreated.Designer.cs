@@ -64,8 +64,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txttrucno = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtmaNVT = new System.Windows.Forms.TextBox();
             this.btnewNVT = new System.Windows.Forms.Button();
             this.cbkhohang = new System.Windows.Forms.ComboBox();
@@ -111,7 +109,7 @@
             this.panel2.Controls.Add(this.btluu);
             this.panel2.Location = new System.Drawing.Point(4, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1280, 40);
+            this.panel2.Size = new System.Drawing.Size(1210, 40);
             this.panel2.TabIndex = 1;
             // 
             // button1
@@ -169,7 +167,7 @@
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1195, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(1125, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(63, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +206,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 52);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1280, 565);
+            this.tabControl1.Size = new System.Drawing.Size(1212, 565);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -225,7 +223,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1272, 539);
+            this.tabPage1.Size = new System.Drawing.Size(1204, 539);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Nhập liệu";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -236,7 +234,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Blue;
-            this.label16.Location = new System.Drawing.Point(862, 307);
+            this.label16.Location = new System.Drawing.Point(862, 291);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(179, 16);
             this.label16.TabIndex = 88;
@@ -257,7 +255,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 306);
+            this.label9.Location = new System.Drawing.Point(6, 290);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(107, 20);
             this.label9.TabIndex = 71;
@@ -267,7 +265,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(661, 306);
+            this.label7.Location = new System.Drawing.Point(661, 290);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 20);
             this.label7.TabIndex = 70;
@@ -299,7 +297,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewLoaddetail.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewLoaddetail.Location = new System.Drawing.Point(665, 329);
+            this.dataGridViewLoaddetail.Location = new System.Drawing.Point(616, 313);
             this.dataGridViewLoaddetail.Name = "dataGridViewLoaddetail";
             this.dataGridViewLoaddetail.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -310,7 +308,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewLoaddetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewLoaddetail.Size = new System.Drawing.Size(602, 199);
+            this.dataGridViewLoaddetail.Size = new System.Drawing.Size(582, 199);
             this.dataGridViewLoaddetail.TabIndex = 69;
             this.dataGridViewLoaddetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaddetail_CellContentClick);
             this.dataGridViewLoaddetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaddetail_CellDoubleClick);
@@ -340,7 +338,7 @@
             this.panel4.Controls.Add(this.dataGridViewDetail);
             this.panel4.Location = new System.Drawing.Point(6, 25);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1260, 278);
+            this.panel4.Size = new System.Drawing.Size(1192, 258);
             this.panel4.TabIndex = 67;
             // 
             // label14
@@ -447,7 +445,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewDetail.Size = new System.Drawing.Size(1253, 242);
+            this.dataGridViewDetail.Size = new System.Drawing.Size(1185, 224);
             this.dataGridViewDetail.TabIndex = 3;
             this.dataGridViewDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellContentClick);
             this.dataGridViewDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellDoubleClick);
@@ -465,8 +463,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txttrucno);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtmaNVT);
             this.panel1.Controls.Add(this.btnewNVT);
             this.panel1.Controls.Add(this.cbkhohang);
@@ -480,29 +476,10 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.datecreated);
-            this.panel1.Location = new System.Drawing.Point(6, 329);
+            this.panel1.Location = new System.Drawing.Point(6, 313);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(653, 199);
+            this.panel1.Size = new System.Drawing.Size(604, 199);
             this.panel1.TabIndex = 65;
-            // 
-            // txttrucno
-            // 
-            this.txttrucno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttrucno.Location = new System.Drawing.Point(125, 154);
-            this.txttrucno.Name = "txttrucno";
-            this.txttrucno.Size = new System.Drawing.Size(119, 24);
-            this.txttrucno.TabIndex = 78;
-            this.txttrucno.Text = "29c -77668";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 160);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 18);
-            this.label8.TabIndex = 77;
-            this.label8.Text = "Truck No.";
             // 
             // txtmaNVT
             // 
@@ -517,7 +494,7 @@
             // 
             this.btnewNVT.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnewNVT.ForeColor = System.Drawing.Color.Red;
-            this.btnewNVT.Location = new System.Drawing.Point(541, 124);
+            this.btnewNVT.Location = new System.Drawing.Point(457, 126);
             this.btnewNVT.Name = "btnewNVT";
             this.btnewNVT.Size = new System.Drawing.Size(91, 25);
             this.btnewNVT.TabIndex = 58;
@@ -560,7 +537,7 @@
             // 
             this.txtloadnumber.AutoSize = true;
             this.txtloadnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtloadnumber.Location = new System.Drawing.Point(548, 39);
+            this.txtloadnumber.Location = new System.Drawing.Point(519, 39);
             this.txtloadnumber.Name = "txtloadnumber";
             this.txtloadnumber.Size = new System.Drawing.Size(81, 18);
             this.txtloadnumber.TabIndex = 65;
@@ -571,7 +548,7 @@
             this.txttenNVT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttenNVT.Location = new System.Drawing.Point(248, 125);
             this.txttenNVT.Name = "txttenNVT";
-            this.txttenNVT.Size = new System.Drawing.Size(287, 24);
+            this.txttenNVT.Size = new System.Drawing.Size(203, 24);
             this.txttenNVT.TabIndex = 22;
             this.txttenNVT.Text = "Luu Hải Anh";
             this.txttenNVT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnguoinhan_KeyPress);
@@ -590,7 +567,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(437, 39);
+            this.label11.Location = new System.Drawing.Point(415, 34);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 18);
             this.label11.TabIndex = 19;
@@ -729,7 +706,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 618);
+            this.ClientSize = new System.Drawing.Size(1225, 627);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -791,8 +768,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridViewLoaddetail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txttrucno;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtseachaddress;
