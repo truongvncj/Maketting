@@ -140,6 +140,12 @@
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
     <Compile Include="shared\StringExtensions.cs" />
+    <Compile Include="View\MKTWHtransferout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHtransferout.Designer.cs">
+      <DependentUpon>MKTWHtransferout.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTsanphammoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTissue.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHtransferout.resx">
+      <DependentUpon>MKTWHtransferout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTsanphammoi.resx">
       <DependentUpon>MKTsanphammoi.cs</DependentUpon>

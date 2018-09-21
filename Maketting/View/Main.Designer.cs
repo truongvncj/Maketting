@@ -88,7 +88,7 @@
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Location = new System.Drawing.Point(6, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1336, 640);
+            this.panel1.Size = new System.Drawing.Size(1336, 630);
             this.panel1.TabIndex = 20;
             // 
             // lbusername
@@ -96,7 +96,7 @@
             this.lbusername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbusername.AutoSize = true;
             this.lbusername.ForeColor = System.Drawing.Color.Red;
-            this.lbusername.Location = new System.Drawing.Point(38, 618);
+            this.lbusername.Location = new System.Drawing.Point(41, 617);
             this.lbusername.Name = "lbusername";
             this.lbusername.Size = new System.Drawing.Size(35, 13);
             this.lbusername.TabIndex = 24;
@@ -106,7 +106,7 @@
             // 
             this.lb_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lb_user.AutoSize = true;
-            this.lb_user.Location = new System.Drawing.Point(3, 618);
+            this.lb_user.Location = new System.Drawing.Point(6, 617);
             this.lb_user.Name = "lb_user";
             this.lb_user.Size = new System.Drawing.Size(29, 13);
             this.lb_user.TabIndex = 23;
@@ -119,11 +119,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelmain.AutoScroll = true;
             this.panelmain.AutoSize = true;
-            this.panelmain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelmain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelmain.Location = new System.Drawing.Point(6, 0);
             this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1327, 611);
+            this.panelmain.Size = new System.Drawing.Size(1327, 603);
             this.panelmain.TabIndex = 7;
             // 
             // dfasfToolStripMenuItem
@@ -301,6 +301,7 @@
             this.transferOUtToolStripMenuItem.Name = "transferOUtToolStripMenuItem";
             this.transferOUtToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
             this.transferOUtToolStripMenuItem.Text = "Transfer out";
+            this.transferOUtToolStripMenuItem.Click += new System.EventHandler(this.transferOUtToolStripMenuItem_Click);
             // 
             // transferInToolStripMenuItem
             // 

@@ -122,31 +122,22 @@ namespace Maketting.View
 
             //     string tencty = Model.Username.getnamecty();
 
-         //   panelmain.Size = win
+            //   panelmain.Size = win
 
-        panelmain.Controls.Clear();
+            panelmain.Controls.Clear();
 
             View.Beemainload accsup = new Beemainload(this);
-
-      //      accsup.TopLevel = false;
-      //      accsup.AutoScroll = true;
-  
-      //panelmain.Controls.Add(accsup);
-
-      
             accsup.Show();
+            accsup.TopLevel = false;
+            //   accsup.AutoScroll = true;
+
+            panelmain.Controls.Add(accsup);
 
 
-        this.clearpannel();
-          this.clearpannelload(accsup);
 
 
 
-          ////  this.Close();
-          //  clearpannel();
-          //  View.Beemainload main = new Beemainload(this);
 
-          //  clearpannelload(main);
 
 
         }
@@ -3291,7 +3282,7 @@ namespace Maketting.View
         }
 
 
-        
+
 
 
 
@@ -4068,6 +4059,26 @@ namespace Maketting.View
 
 
             }
+
+
+        }
+
+        private void transferOUtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+            this.clearpannel();
+
+
+            View.MKTWHtransferout storout = new MKTWHtransferout(this);
+            this.clearpannelload(storout);
+
+
+
 
 
         }
