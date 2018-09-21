@@ -124,20 +124,20 @@ namespace Maketting.View
 
          //   panelmain.Size = win
 
-            panelmain.Controls.Clear();
+        panelmain.Controls.Clear();
 
             View.Beemainload accsup = new Beemainload(this);
 
-            accsup.TopLevel = false;
-            accsup.AutoScroll = true;
-      //      panelmain.Size = 
-      panelmain.Controls.Add(accsup);
+      //      accsup.TopLevel = false;
+      //      accsup.AutoScroll = true;
+  
+      //panelmain.Controls.Add(accsup);
 
       
             accsup.Show();
 
 
-          this.clearpannel();
+        this.clearpannel();
           this.clearpannelload(accsup);
 
 
