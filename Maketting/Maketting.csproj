@@ -526,6 +526,7 @@
   <ItemGroup>
     <Content Include="giphyipg_Pb0_3.ico" />
     <Content Include="marketing_3111733_960_720_vus_4.ico" />
+    <None Include="Resources\rgb.vn_kisaigoncocacola_4.gif" />
     <None Include="Resources\anh-phao-hoa4.gif" />
     <None Include="Resources\Binhminhbeach.gif" />
     <None Include="Resources\Binhminh2.gif" />

@@ -130,17 +130,23 @@ namespace Maketting.View
 
             accsup.TopLevel = false;
             accsup.AutoScroll = true;
-            panelmain.Controls.Add(accsup);
-         
+      //      panelmain.Size = 
+      panelmain.Controls.Add(accsup);
 
+      
             accsup.Show();
 
 
-            this.clearpannel();
+          this.clearpannel();
+          this.clearpannelload(accsup);
 
 
-            //    View.MKTLoadcreated accsup = new MKTLoadcreated(this);
-            this.clearpannelload(accsup);
+
+          ////  this.Close();
+          //  clearpannel();
+          //  View.Beemainload main = new Beemainload(this);
+
+          //  clearpannelload(main);
 
 
         }
