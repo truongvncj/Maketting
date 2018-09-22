@@ -196,7 +196,7 @@ namespace Maketting
                                 }
                             }
                         }
-                    //    rs += (rs == "" ? " " : ", ") + ch[n[i]];// đọc số
+                        //    rs += (rs == "" ? " " : ", ") + ch[n[i]];// đọc số
                         rs += (rs == "" ? " " : " ") + ch[n[i]];// đọc số
                         rs += " " + (i % 3 == 0 ? u[i] : u[i % 3]);// đọc đơn vị
                     }
@@ -273,42 +273,37 @@ namespace Maketting
         public static string getusername()
         {
             String current = System.IO.Directory.GetCurrentDirectory();
-
+            string st4;
             string fileName = current + "\\String.txt";
-            const Int32 BufferSize = 128;
 
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+            Model.SercurityFucntion bm = new Model.SercurityFucntion();
+            byte[] buffer = bm.ReadBytesfromfile(fileName);
+            string line2 = bm.dencryptedtextdo(buffer);
+
+
+            string[] parts = line2.Split(';');
+
+
+
+
+            if (parts.Count() >= 4)
             {
-                string line;
-                string st4;
-                while ((line = streamReader.ReadLine()) != null)
-
-                {
-                    string[] parts = line.Split(';');
-                    if (parts.Count() >= 4)
-                    {
-                        st4 = parts[4].Trim();
-                    }
-                    else
-                    {
-                        st4 = "";
-                    }
-                    //       string st1 = parts[0].Trim();
-                    //       string st2 = parts[1].Trim();
-                    //  string st3 = parts[2].Trim();
-
-
-                    string username = st4;
-                    return username;
-
-
-
-                }
-
-                return "";
-
+                st4 = parts[4].Trim();
             }
+            else
+            {
+                st4 = "";
+            }
+            //       string st1 = parts[0].Trim();
+            //       string st2 = parts[1].Trim();
+            //  string st3 = parts[2].Trim();
+
+
+            string username = st4;
+            return username;
+
+
+
 
         }
 
@@ -368,34 +363,25 @@ namespace Maketting
             String current = System.IO.Directory.GetCurrentDirectory();
 
             string fileName = current + "\\String.txt";
-            string connection_string = "";
-            const Int32 BufferSize = 128;
 
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-
-                {
-                    string[] parts = line.Split(';');
-
-                    string st1 = parts[0].Trim();
-                    string st2 = parts[1].Trim();
-                    string st3 = parts[2].Trim();
-                    string st4 = parts[3].Trim();
-                    // chua8923_BEE  BEE
-                    connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4+"; User Id =" + st2 + "; Password =" + st3).Trim();
-                    return connection_string;
+            Model.SercurityFucntion bm = new Model.SercurityFucntion();
+            byte[] buffer = bm.ReadBytesfromfile(fileName);
+            string line2 = bm.dencryptedtextdo(buffer);
 
 
 
-                }
+            string[] parts = line2.Split(';');
 
-                return "";
+            string st1 = parts[0].Trim();
+            string st2 = parts[1].Trim();
+            string st3 = parts[2].Trim();
+            string st4 = parts[3].Trim();
+            // chua8923_BEE  BEE
+            string connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
+            return connection_string;
 
 
-            }
+
 
         }
 
@@ -1063,7 +1049,7 @@ namespace Maketting
             finally
             {
                 GC.Collect();
-             
+
                 GC.WaitForPendingFinalizers();
 
 

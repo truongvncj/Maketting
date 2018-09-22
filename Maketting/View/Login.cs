@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-
+using System.Security.Cryptography;
 
 
 namespace Maketting.View
@@ -30,48 +30,46 @@ namespace Maketting.View
             //
             String current = System.IO.Directory.GetCurrentDirectory();
 
-            string fileName = current + "\\String.txt";
+            string fileName = current + "\\String.dat";
             string connection_string = "";
             string st1 = "";
             string st2 = "";
             string st3 = "";
             string st4 = "";
-        //    string st5 = "";
+          
 
-  
 
-            //        string st4 = "";
-            const Int32 BufferSize = 128;
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+            Model.SercurityFucntion bm = new Model.SercurityFucntion();
+            byte[] buffer =   bm.ReadBytesfromfile(fileName);
+
+         
+            string line2 = bm.dencryptedtextdo(buffer);
+            if (line2== "")
             {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
+                MessageBox.Show("Lost connection !", "Connection !", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                {
-                    string[] parts = line.Split(';');
-
-                    st1 = parts[0].Trim();
-                    st2 = parts[1].Trim();
-                    st3 = parts[2].Trim();
-                    st4 = parts[3].Trim();
-                 //   st5 = parts[4].Trim();
-                   // }
-                  
-
-
-                    //   if (st4 =="cn") tam thoi thay server  = chua8923_BEE  còn mặc định là BEE
-                    //   {
-                    connection_string = ("Data Source =" + st1 + "; Initial Catalog =" + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
-                    //    }
-                    // /
-                    //       connection_string = "Data Source = DESKTOP-8D4F853\\SQLEXPRESS; Initial Catalog = BEEACCOUNT; User Id = SA; Password = 123123";
-
-                    //        HAN - L - 3PFF7H2; SA; Tienmat102$; BEE; tr1
-
-
-                }
+                return;
             }
+
+
+            string[] parts = line2.Split(';');
+
+            st1 = parts[0].Trim();
+            st2 = parts[1].Trim();
+            st3 = parts[2].Trim();
+            st4 = parts[3].Trim();
+            //   st5 = parts[4].Trim();
+            // }
+
+
+
+            //   if (st4 =="cn") tam thoi thay server  = chua8923_BEE  còn mặc định là BEE
+            //   {
+            connection_string = ("Data Source =" + st1 + "; Initial Catalog =" + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
+            //    }
+
+
+
 
             if (textBox1.Text != "" & textBox2.Text != "")
             {
@@ -106,23 +104,13 @@ namespace Maketting.View
                         ////        HAN - L - 3PFF7H2; SA; Tienmat102$; BEE; tr1
 
 
-                        string s1 = st1 + ";" + st2 + ";" + st3 + ";" +st4+";"+ textBox1.Text;
+                        string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + textBox1.Text;
 
-                        using (StreamWriter sw = new StreamWriter(fileName))
-                        {
+                        Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+                        byte[] s2 = bm2.encryptedtextdo(s1);
+                        bool kq =     bm2.ByteArrayToFile(fileName,s2);
 
-                            try
-                            {
-                                sw.WriteLine(s1);
-                            }
-                            catch (Exception)
-                            {
-
-                                //  MessageBox.Show("Không ghi được, file server lost !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-
-
-                        }
+                       
                         #endregion
 
 

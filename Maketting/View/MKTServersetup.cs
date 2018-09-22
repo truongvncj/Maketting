@@ -22,37 +22,30 @@ namespace Maketting.View
 
             String current = System.IO.Directory.GetCurrentDirectory();
 
-            string fileName = current + "\\String.txt";
+            string fileName = current + "\\String.dat";
 
             if (textBox1.Text != "" && textBox3.Text != "" && textBox2.Text != "")
             {
 
 
                 //   string[] names = new string[] { "Zara Ali", "Nuha Ali" };
-                string s = textBox1.Text + ";" + textBox3.Text + ";" + textBox2.Text+";"+ textBox4.Text;
-            
-            using (StreamWriter sw = new StreamWriter(fileName))
-            {
+                string s = textBox1.Text + ";" + textBox3.Text + ";" + textBox2.Text + ";" + textBox4.Text;
 
-                    try
-                    {
-                        sw.WriteLine(s);
-                    }
-                    catch (Exception)
-                    {
 
-                        MessageBox.Show("Không ghi được, file server lost !","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                   
-            }
-                this.Close();  
-            //  MessageBox.Show(s);
+
+                Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+                byte[] s2 = bm2.encryptedtextdo(s);
+                bool kq = bm2.ByteArrayToFile(fileName, s2);
+
+
+                this.Close();
+                //  MessageBox.Show(s);
             }
         }
 
         private void Serversetup_Deactivate(object sender, EventArgs e)
         {
-        //    this.Close();
+            //    this.Close();
         }
     }
 }

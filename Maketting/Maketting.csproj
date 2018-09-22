@@ -112,6 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LinqtoSQL.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\SercurityFucntion.cs" />
     <Compile Include="Model\StoreMKT.cs" />
     <Compile Include="Model\Khohang.cs" />
     <Compile Include="Model\MKT.cs" />
