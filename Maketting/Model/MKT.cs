@@ -148,6 +148,56 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static DataGridView LoadnewdetailTRANSfer(DataGridView dataGridViewDetail)
+        {
+
+            //drToAdd["MATERIAL"] = itemdetail.Materialname;
+            //drToAdd["Description"] = itemdetail.Description;
+            //drToAdd["ITEM_Code"] = itemdetail.MateriaItemcode;
+            //drToAdd["Sap_Code"] = itemdetail.MateriaSAPcode;
+            //drToAdd["Unit"] = itemdetail.Unit;
+            //drToAdd["Quantity"] = itemdetail.Quantity;
+         
+            dataGridViewDetail.DataSource = null;
+            #region datatable temp
+
+
+
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+            dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+            dt.Columns.Add(new DataColumn("Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+
+
+
+
+            dataGridViewDetail.DataSource = dt;
+            dataGridViewDetail.Columns["Unit"].ReadOnly = true;
+            dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
+            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+
+
+
+            #endregion datatable temp
+
+
+            return dataGridViewDetail;
+
+
+
+            //  throw new NotImplementedException();
+        }
+
         public static void DeleteALLphieuDetailPOtamTMP()
         {
 
@@ -165,6 +215,66 @@ namespace Maketting.Model
             {
 
                 dc.tbl_MKt_POdetail_TMPs.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+
+
+
+            // throw new NotImplementedException();
+        }
+
+        public static string getNewTransferNumber()
+        {
+            string connection_string = Utils.getConnectionstr();
+            string urs = Utils.getusername();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            tbl_MKt_TransferoutHEAD newtmp = new tbl_MKt_TransferoutHEAD();
+
+            newtmp.Username = urs;
+            newtmp.Status = "TMP";
+
+            dc.tbl_MKt_TransferoutHEADs.InsertOnSubmit(newtmp);
+
+            dc.SubmitChanges();
+
+
+            var phieuid = (from p in dc.tbl_MKt_TransferoutHEADs
+                           where p.Status == "TMP" && p.Username == urs
+                           select p.id).FirstOrDefault();
+
+
+            return phieuid.ToString();
+
+
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+        public static void DeleteALLphieuDetailTransfertamTMP()
+        {
+
+
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_Transferoutdetails
+                     where pp.Username == urs && pp.Status == "TMP"
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKt_Transferoutdetails.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
                 //  dc.Connection.Close();
             }

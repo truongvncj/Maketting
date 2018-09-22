@@ -281,6 +281,7 @@
       <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StoreRight" Member="tbl_MKT_StoreRights">
@@ -320,6 +321,38 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_Transferoutdetail" Member="tbl_MKt_Transferoutdetails">
+    <Type Name="tbl_MKt_Transferoutdetail">
+      <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaSAPcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Transfer_OUT_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Transfer_IN_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_OUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AvaiableQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_TransferoutHEAD" Member="tbl_MKt_TransferoutHEADs">
+    <Type Name="tbl_MKt_TransferoutHEAD">
+      <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Transfer_OUT_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Transfer_IN_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_OUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
