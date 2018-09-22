@@ -267,14 +267,14 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var rs = from pp in dc.tbl_MKt_Transferoutdetails
+            var rs = from pp in dc.tbl_MKt_TransferoutdetailTMPs
                      where pp.Username == urs && pp.Status == "TMP"
                      select pp;
 
             if (rs.Count() > 0)
             {
 
-                dc.tbl_MKt_Transferoutdetails.DeleteAllOnSubmit(rs);
+                dc.tbl_MKt_TransferoutdetailTMPs.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
                 //  dc.Connection.Close();
             }
@@ -588,6 +588,27 @@ namespace Maketting.Model
             {
 
                 dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+        }
+
+        public static void DeleteALLTransferphieutamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_TransferoutHEADs
+                     where pp.Username == urs && pp.Status == "TMP"
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKt_TransferoutHEADs.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
                 //  dc.Connection.Close();
             }
@@ -1145,5 +1166,68 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
+
+
+        public static bool DeleteTransfernumber(string Tranfernumber, string Store_OUT)
+        {
+            // deleead head
+
+            bool kq = false;
+            string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_TransferoutHEADs
+                     where pp.Tranfernumber == Tranfernumber && pp.Store_OUT == Store_OUT
+                     && pp.Status == "CRT"
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKt_TransferoutHEADs.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+
+                kq = true;
+            }
+            else
+            {
+                //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return kq;
+            }
+
+            // upload detail
+
+
+            var rs2 = from pp in dc.tbl_MKt_Transferoutdetails
+                      where pp.Tranfernumber == Tranfernumber && pp.Store_OUT == Store_OUT
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                foreach (var item in rs2)
+                {
+                    dc.tbl_MKt_Transferoutdetails.DeleteAllOnSubmit(rs2);
+                    dc.SubmitChanges();
+
+
+                }
+            }
+
+
+
+            return kq;
+
+
+            // throw new NotImplementedException();
+        }
+
+
+
+
+
     }
 }

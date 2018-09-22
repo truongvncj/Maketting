@@ -272,12 +272,13 @@ namespace Maketting.View
             this.main1 = Main;
 
             Model.MKT.DeleteALLphieuDetailTransfertamTMP();
+            Model.MKT.DeleteALLTransferphieutamTMP();
 
             this.statusphieu = 1; // tạo mới
 
             cleartoblankPOphieu();
             this.Transfernumber = Model.MKT.getNewTransferNumber();
-            //txtSapPO.Text = "";
+            txttrasfernumber.Text = this.Transfernumber;
 
 
 
@@ -468,7 +469,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs5 = (from pp in dc.tbl_MKt_Transferoutdetails
+            var rs5 = (from pp in dc.tbl_MKt_TransferoutHEADs
                        where pp.Tranfernumber == this.Transfernumber //&& pp.Status != "TMP"
 
                        select pp).FirstOrDefault();
@@ -591,7 +592,7 @@ namespace Maketting.View
                 {
                     if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                     {
-                        tbl_MKt_Transferoutdetail detailphieu = new tbl_MKt_Transferoutdetail();
+                        tbl_MKt_TransferoutdetailTMP detailphieu = new tbl_MKt_TransferoutdetailTMP();
 
                         //drToAdd["MATERIAL"] = itemdetail.Materialname;
                         //drToAdd["Description"] = itemdetail.Description;
@@ -640,7 +641,7 @@ namespace Maketting.View
                         }
 
 
-                        dc.tbl_MKt_Transferoutdetails.InsertOnSubmit(detailphieu);
+                        dc.tbl_MKt_TransferoutdetailTMPs.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
 
 
@@ -653,7 +654,7 @@ namespace Maketting.View
                 #region// Group and create PO
 
 
-                var rs6 = (from pp in dc.tbl_MKt_Transferoutdetails
+                var rs6 = (from pp in dc.tbl_MKt_TransferoutdetailTMPs
                            where pp.Tranfernumber == this.Transfernumber// && pp.StatusPO != "TMP"
                            group pp by pp.MateriaItemcode into gg
                            select new
@@ -775,11 +776,11 @@ namespace Maketting.View
         {
 
             this.cleartoblankPOphieu();
+            Model.MKT.DeleteALLTransferphieutamTMP();
+            Model.MKT.DeleteALLphieuDetailTransfertamTMP();
 
-            //     Model.MKT.DeleteALLphieutamTMP();
-
-            //  this.PONumber = Model.MKT.getMKtNo();
-            //       txtSapPO.Text = "";
+            this.Transfernumber = Model.MKT.getNewTransferNumber();
+            txttrasfernumber.Text = this.Transfernumber;
             btluu.Enabled = true;
 
         }
@@ -1649,9 +1650,17 @@ namespace Maketting.View
                     }
                 }
 
+                foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohangin.DataSource)
+                {
+                    if (item.Value.ToString().Trim() == rs.Store_IN.Trim())
+                    {
+                        cbkhohangin.SelectedItem = item;
+                    }
+                }
+
                 txtnguoiyeucau.Text = rs.Created_by;// = ;
                                                     //   rs.Status = "CRT";
-                                                    //   lbPonumber.Text = this.PONumber;
+                txttrasfernumber.Text = this.Transfernumber;
 
                 //      lbtel.Text = rs.Tel;// = ;
                 //  rs.Username = this.Username;
@@ -1753,15 +1762,17 @@ namespace Maketting.View
                          where pp.Status != "TMP"
                          select new
                          {
-                             Date = pp.Transfer_OUT_Date,
+                           
                              pp.Tranfernumber,
                              pp.Created_by,
                              pp.Store_OUT,
-
-
+                             pp.Transfer_OUT_Date,
+                             pp.Store_IN,
+                             pp.Transfer_IN_Date,
+                            
                              pp.Status,
                              pp.Username,
-
+                           
                              pp.id,
 
                          };
@@ -1839,7 +1850,7 @@ namespace Maketting.View
 
         private void btxoa_Click(object sender, EventArgs e)
         {
-            bool kq = Model.MKT.DeletePurchase(this.Transfernumber, this.storelocationOUT);
+            bool kq = Model.MKT.DeleteTransfernumber(this.Transfernumber, this.storelocationOUT);
             if (kq)
             {
                 MessageBox.Show("Delete " + this.Transfernumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
