@@ -15,6 +15,7 @@ using System.Data.Linq;
 using System.Text.RegularExpressions;
 using System.Data.OleDb;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace Maketting
 {
@@ -275,10 +276,18 @@ namespace Maketting
             String current = System.IO.Directory.GetCurrentDirectory();
             string st4;
             string fileName = current + "\\String.txt";
-
+            string username = "";
             Model.SercurityFucntion bm = new Model.SercurityFucntion();
-            byte[] buffer = bm.ReadBytesfromfile(fileName);
-            string line2 = bm.dencryptedtextdo(buffer);
+
+
+
+
+            Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+            string line = bm2.Readtextfromfile(fileName);
+            string line2 = bm2.Decryption(line);
+
+
+
 
 
             string[] parts = line2.Split(';');
@@ -299,9 +308,8 @@ namespace Maketting
             //  string st3 = parts[2].Trim();
 
 
-            string username = st4;
+            username = st4;
             return username;
-
 
 
 
@@ -362,11 +370,19 @@ namespace Maketting
         {
             String current = System.IO.Directory.GetCurrentDirectory();
 
+
             string fileName = current + "\\String.txt";
 
-            Model.SercurityFucntion bm = new Model.SercurityFucntion();
-            byte[] buffer = bm.ReadBytesfromfile(fileName);
-            string line2 = bm.dencryptedtextdo(buffer);
+
+
+            Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+            string line = bm2.Readtextfromfile(fileName);
+            string line2 = bm2.Decryption(line);
+
+
+
+
+
 
 
 

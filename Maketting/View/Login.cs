@@ -30,26 +30,25 @@ namespace Maketting.View
             //
             String current = System.IO.Directory.GetCurrentDirectory();
 
-            string fileName = current + "\\String.dat";
+            string fileName = current + "\\String.txt";
             string connection_string = "";
             string st1 = "";
             string st2 = "";
             string st3 = "";
             string st4 = "";
-          
 
 
-            Model.SercurityFucntion bm = new Model.SercurityFucntion();
-            byte[] buffer =   bm.ReadBytesfromfile(fileName);
 
-         
-            string line2 = bm.dencryptedtextdo(buffer);
-            if (line2== "")
-            {
-                MessageBox.Show("Lost connection !", "Connection !", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return;
-            }
+
+
+            Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
+            string line = bm2.Readtextfromfile(fileName);
+            string line2 = bm2.Decryption(line);
+
+
+
+
 
 
             string[] parts = line2.Split(';');
@@ -58,15 +57,14 @@ namespace Maketting.View
             st2 = parts[1].Trim();
             st3 = parts[2].Trim();
             st4 = parts[3].Trim();
-            //   st5 = parts[4].Trim();
-            // }
 
 
 
-            //   if (st4 =="cn") tam thoi thay server  = chua8923_BEE  còn mặc định là BEE
+            //   if (st4 =="cn")
             //   {
-            connection_string = ("Data Source =" + st1 + "; Initial Catalog =" + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
+            connection_string = ("Data Source =" + st1 + "; Initial Catalog = " + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
             //    }
+            // /
 
 
 
@@ -106,11 +104,11 @@ namespace Maketting.View
 
                         string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + textBox1.Text;
 
-                        Model.SercurityFucntion bm2 = new Model.SercurityFucntion();
-                        byte[] s2 = bm2.encryptedtextdo(s1);
-                        bool kq =     bm2.ByteArrayToFile(fileName,s2);
+                        Model.SercurityFucntion bm = new Model.SercurityFucntion();
+                        string s2 = bm.Encryption(s1);
 
-                       
+                        bm.WritestringtoFile(fileName, s2);
+
                         #endregion
 
 

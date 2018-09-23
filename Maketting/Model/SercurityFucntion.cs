@@ -15,119 +15,109 @@ namespace Maketting.Model
     {
         UnicodeEncoding ByteConverter = new UnicodeEncoding();
         RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
-  //      byte[] plaintext;
-     //   byte[] encryptedtext;
 
-        public  bool ByteArrayToFile(string fileName, byte[] byteArray)
+
+        //      byte[] plaintext;
+        //   byte[] encryptedtext;
+
+        public void WritestringtoFile(string fileName, string texttofile)
+
         {
-            using (FileStream
-            fileStream = new FileStream(fileName, FileMode.Create))
+
+            using (StreamWriter sw = new StreamWriter(fileName))
             {
-                // Write the data to the file, byte by byte.
-                for (int i = 0; i < byteArray.Length; i++)
+
+                try
                 {
-                    fileStream.WriteByte(byteArray[i]);
+                    sw.WriteLine(texttofile);
+                }
+                catch (Exception)
+                {
+
+                    //  MessageBox.Show("Không ghi được, file server lost !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                // Set the stream position to the beginning of the file.
-                fileStream.Seek(0, SeekOrigin.Begin);
 
-                // Read and verify the data.
-                for (int i = 0; i < fileStream.Length; i++)
+            }
+
+
+
+
+        }
+
+
+        public string Readtextfromfile(string fileName)
+        {
+            const Int32 BufferSize = 128;
+            string line="";
+            using (var fileStream = File.OpenRead(fileName))
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+            {
+               
+                while ((line = streamReader.ReadLine()) != null)
                 {
-                    if (byteArray[i] != fileStream.ReadByte())
-                    {
-                        MessageBox.Show("Error to write file");
-                        return false;
-                    }
+
+                    return line;
                 }
-                return true;
             }
-        }
 
-        public byte[] ReadBytesfromfile(string fileName)
-        {
-
-            byte[] buffer = null;
-            using (FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read))
-            {
-                buffer = new byte[fs.Length];
-                fs.Read(buffer, 0, (int)fs.Length);
-            }
-            return buffer;
-
-
+            return line;
         }
 
 
 
-        public byte[] encryptedtextdo(string inputextforencrypt)
+
+
+        public string Encryption(string strText)
         {
-            byte[] plaintext = ByteConverter.GetBytes(inputextforencrypt);
-            //   MessageBox.Show(inputextforencrypt);
-            byte[] encryptedtext = Encryption(plaintext, RSA.ExportParameters(false), false);
-            //  string returnstring = ByteConverter.GetString(encryptedtext);
-            //    MessageBox.Show(inputextforencrypt);
+            var publicKey = "<RSAKeyValue><Modulus>21wEnTU+mcD2w0Lfo1Gv4rtcSWsQJQTNa6gio05AOkV/Er9w3Y13Ddo5wGtjJ19402S71HUeN0vbKILLJdRSES5MHSdJPSVrOqdrll/vLXxDxWs/U0UT1c8u6k/Ogx9hTtZxYwoeYqdhDblof3E75d9n2F0Zvf6iTb4cI7j6fMs=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>";
 
-         
+            var testData = Encoding.UTF8.GetBytes(strText);
 
-            return encryptedtext;
-        }
-
-        public string dencryptedtextdo(byte[] encryptedtextforde)
-        {
-           
-
-            byte[] decryptedtex = Decryption(encryptedtextforde, RSA.ExportParameters(true), false);
-            if (decryptedtex != null)
+            using (var rsa = new RSACryptoServiceProvider(1024))
             {
-                string returnstring = ByteConverter.GetString(decryptedtex);
-                return returnstring;
-            }
-            else
-            {
-                return "";
-            }
-          
-         //   MessageBox.Show(returnstring);
-           
-
-        }
-
-        static public byte[] Encryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
-        {
-            try
-            {
-                byte[] encryptedData;
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                try
                 {
-                    RSA.ImportParameters(RSAKey); encryptedData = RSA.Encrypt(Data, DoOAEPPadding);
+                    // client encrypting data with public key issued by server                    
+                    rsa.FromXmlString(publicKey.ToString());
+
+                    var encryptedData = rsa.Encrypt(testData, true);
+
+                    var base64Encrypted = Convert.ToBase64String(encryptedData);
+
+                    return base64Encrypted;
                 }
-                return encryptedData;
-            }
-            catch (CryptographicException e)
-            {
-            //    MessageBox.Show(e.Message);
-                return null;
+                finally
+                {
+                    rsa.PersistKeyInCsp = false;
+                }
             }
         }
 
-        static public byte[] Decryption(byte[] Data, RSAParameters RSAKey, bool DoOAEPPadding)
+        public string Decryption(string strText)
         {
-            try
+            var privateKey = "<RSAKeyValue><Modulus>21wEnTU+mcD2w0Lfo1Gv4rtcSWsQJQTNa6gio05AOkV/Er9w3Y13Ddo5wGtjJ19402S71HUeN0vbKILLJdRSES5MHSdJPSVrOqdrll/vLXxDxWs/U0UT1c8u6k/Ogx9hTtZxYwoeYqdhDblof3E75d9n2F0Zvf6iTb4cI7j6fMs=</Modulus><Exponent>AQAB</Exponent><P>/aULPE6jd5IkwtWXmReyMUhmI/nfwfkQSyl7tsg2PKdpcxk4mpPZUdEQhHQLvE84w2DhTyYkPHCtq/mMKE3MHw==</P><Q>3WV46X9Arg2l9cxb67KVlNVXyCqc/w+LWt/tbhLJvV2xCF/0rWKPsBJ9MC6cquaqNPxWWEav8RAVbmmGrJt51Q==</Q><DP>8TuZFgBMpBoQcGUoS2goB4st6aVq1FcG0hVgHhUI0GMAfYFNPmbDV3cY2IBt8Oj/uYJYhyhlaj5YTqmGTYbATQ==</DP><DQ>FIoVbZQgrAUYIHWVEYi/187zFd7eMct/Yi7kGBImJStMATrluDAspGkStCWe4zwDDmdam1XzfKnBUzz3AYxrAQ==</DQ><InverseQ>QPU3Tmt8nznSgYZ+5jUo9E0SfjiTu435ihANiHqqjasaUNvOHKumqzuBZ8NRtkUhS6dsOEb8A2ODvy7KswUxyA==</InverseQ><D>cgoRoAUpSVfHMdYXW9nA3dfX75dIamZnwPtFHq80ttagbIe4ToYYCcyUz5NElhiNQSESgS5uCgNWqWXt5PnPu4XmCXx6utco1UVH8HGLahzbAnSy6Cj3iUIQ7Gj+9gQ7PkC434HTtHazmxVgIR5l56ZjoQ8yGNCPZnsdYEmhJWk=</D></RSAKeyValue>";
+
+            var testData = Encoding.UTF8.GetBytes(strText);
+
+            using (var rsa = new RSACryptoServiceProvider(1024))
             {
-                byte[] decryptedData;
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                try
                 {
-                    RSA.ImportParameters(RSAKey);
-                    decryptedData = RSA.Decrypt(Data, DoOAEPPadding);
+                    var base64Encrypted = strText;
+
+                    // server decrypting data with private key                    
+                    rsa.FromXmlString(privateKey);
+
+                    var resultBytes = Convert.FromBase64String(base64Encrypted);
+                    var decryptedBytes = rsa.Decrypt(resultBytes, true);
+                    var decryptedData = Encoding.UTF8.GetString(decryptedBytes);
+                    return decryptedData.ToString();
                 }
-                return decryptedData;
-            }
-            catch (CryptographicException e)
-            {
-               //    MessageBox.Show(e.Message);
-                return null;
+                finally
+                {
+                    rsa.PersistKeyInCsp = false;
+                }
             }
         }
 
