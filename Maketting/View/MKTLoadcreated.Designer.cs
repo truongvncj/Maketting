@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTLoadcreated));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,12 +38,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTLoadcreated));
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btxoa = new System.Windows.Forms.Button();
             this.btmoi = new System.Windows.Forms.Button();
             this.btinphieu = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btsua = new System.Windows.Forms.Button();
             this.btluu = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -54,6 +55,7 @@
             this.dataGridViewLoaddetail = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.bt_exporttoex = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtseachcode = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,9 +83,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bt_exporttoex = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoaddetail)).BeginInit();
@@ -93,7 +94,6 @@
             this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListphieu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -118,10 +118,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Location = new System.Drawing.Point(451, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 25);
+            this.button1.Size = new System.Drawing.Size(86, 25);
             this.button1.TabIndex = 59;
             this.button1.TabStop = false;
-            this.button1.Text = "In Gatepass";
+            this.button1.Text = "Print Gatepass";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -134,7 +134,7 @@
             this.btxoa.Size = new System.Drawing.Size(71, 25);
             this.btxoa.TabIndex = 58;
             this.btxoa.TabStop = false;
-            this.btxoa.Text = "Xóa";
+            this.btxoa.Text = "Delete";
             this.btxoa.UseVisualStyleBackColor = true;
             this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
@@ -146,7 +146,7 @@
             this.btmoi.Size = new System.Drawing.Size(66, 25);
             this.btmoi.TabIndex = 57;
             this.btmoi.TabStop = false;
-            this.btmoi.Text = "Mới";
+            this.btmoi.Text = "New";
             this.btmoi.UseVisualStyleBackColor = true;
             this.btmoi.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -158,9 +158,23 @@
             this.btinphieu.Size = new System.Drawing.Size(70, 25);
             this.btinphieu.TabIndex = 56;
             this.btinphieu.TabStop = false;
-            this.btinphieu.Text = "In load";
+            this.btinphieu.Text = "Print Load";
             this.btinphieu.UseVisualStyleBackColor = true;
             this.btinphieu.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1125, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 33);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 55;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btsua
             // 
@@ -170,7 +184,7 @@
             this.btsua.Size = new System.Drawing.Size(77, 25);
             this.btsua.TabIndex = 1;
             this.btsua.TabStop = false;
-            this.btsua.Text = "Sửa (F2)";
+            this.btsua.Text = "Change";
             this.btsua.UseVisualStyleBackColor = true;
             this.btsua.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -182,7 +196,7 @@
             this.btluu.Size = new System.Drawing.Size(68, 25);
             this.btluu.TabIndex = 0;
             this.btluu.TabStop = false;
-            this.btluu.Text = "Lưu (Ctrl -S)";
+            this.btluu.Text = "Save";
             this.btluu.UseVisualStyleBackColor = true;
             this.btluu.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -328,6 +342,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1192, 258);
             this.panel4.TabIndex = 67;
+            // 
+            // bt_exporttoex
+            // 
+            this.bt_exporttoex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_exporttoex.Location = new System.Drawing.Point(1080, 2);
+            this.bt_exporttoex.Name = "bt_exporttoex";
+            this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.bt_exporttoex.Size = new System.Drawing.Size(87, 23);
+            this.bt_exporttoex.TabIndex = 89;
+            this.bt_exporttoex.Text = "Export to Excel";
+            this.bt_exporttoex.UseVisualStyleBackColor = true;
+            this.bt_exporttoex.Click += new System.EventHandler(this.bt_exporttoex_Click);
             // 
             // label14
             // 
@@ -691,32 +717,6 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(1125, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 55;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // bt_exporttoex
-            // 
-            this.bt_exporttoex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_exporttoex.Location = new System.Drawing.Point(1080, 2);
-            this.bt_exporttoex.Name = "bt_exporttoex";
-            this.bt_exporttoex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.bt_exporttoex.Size = new System.Drawing.Size(87, 23);
-            this.bt_exporttoex.TabIndex = 89;
-            this.bt_exporttoex.Text = "Export to Excel";
-            this.bt_exporttoex.UseVisualStyleBackColor = true;
-            this.bt_exporttoex.Click += new System.EventHandler(this.bt_exporttoex_Click);
-            // 
             // MKTLoadcreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,6 +731,7 @@
             this.Text = "BeePhieuThu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -744,7 +745,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListphieu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

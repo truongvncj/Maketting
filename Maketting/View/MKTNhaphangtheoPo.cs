@@ -562,7 +562,7 @@ namespace Maketting.View
                                 }
                          
 
-                                Model.MKT.tangkhokhinhaphang(newreciepts);
+                                Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
 
 
 

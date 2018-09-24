@@ -76,10 +76,10 @@
             this.btinphieu.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btinphieu.Location = new System.Drawing.Point(113, 7);
             this.btinphieu.Name = "btinphieu";
-            this.btinphieu.Size = new System.Drawing.Size(77, 25);
+            this.btinphieu.Size = new System.Drawing.Size(94, 25);
             this.btinphieu.TabIndex = 56;
             this.btinphieu.TabStop = false;
-            this.btinphieu.Text = "In phiếu nhập";
+            this.btinphieu.Text = "Print receipt";
             this.btinphieu.UseVisualStyleBackColor = true;
             this.btinphieu.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -105,7 +105,7 @@
             this.btluu.Size = new System.Drawing.Size(71, 25);
             this.btluu.TabIndex = 0;
             this.btluu.TabStop = false;
-            this.btluu.Text = "Lưu (Ctrl -S)";
+            this.btluu.Text = "Save";
             this.btluu.UseVisualStyleBackColor = true;
             this.btluu.Click += new System.EventHandler(this.button1_Click);
             // 

@@ -718,7 +718,7 @@ namespace Maketting.Model
             return true;
         }
 
-        public static void tangkhokhinhaphang(tbl_MKt_WHstoreissue itemnhap)
+        public static void tangkhokhinhaphang(tbl_MKt_WHstoreissue itemnhap, string storecode)
         {
 
             string connection_string = Utils.getConnectionstr();
@@ -726,6 +726,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKT_Stockends
                      where p.ITEM_Code == itemnhap.Materiacode
+                             && p.Store_code == storecode
                      select p;
 
             if (rs.Count() > 0)
@@ -733,6 +734,64 @@ namespace Maketting.Model
                 foreach (var item in rs)
                 {
                     item.END_STOCK = item.END_STOCK + itemnhap.RecieptQuantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+        public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout, string storecode)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemout.MateriaItemcode 
+                     && p.Store_code == storecode
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemout.Quantity;
+                    item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) + itemout.Quantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+        public static void tranferoutrequestdelete(tbl_MKt_Transferoutdetail itemout, string storecode)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemout.MateriaItemcode
+                          && p.Store_code == storecode
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                    item.END_STOCK = item.END_STOCK + itemout.Quantity;
+                    item.TransferingOUT = item.TransferingOUT - itemout.Quantity;
                     dc.SubmitChanges();
                 }
 
@@ -1206,7 +1265,8 @@ namespace Maketting.Model
             {
                 foreach (var item in rs2)
                 {
-                    dc.tbl_MKt_Transferoutdetails.DeleteAllOnSubmit(rs2);
+                    Model.MKT.tranferoutrequestdelete(item, Store_OUT);
+                    dc.tbl_MKt_Transferoutdetails.DeleteOnSubmit(item);
                     dc.SubmitChanges();
 
 

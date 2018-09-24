@@ -648,7 +648,7 @@ namespace Maketting.View
                         dc.tbl_MKt_TransferoutdetailTMPs.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
 
-
+                     
 
                     }
                 }
@@ -706,7 +706,7 @@ namespace Maketting.View
                         dc.SubmitChanges();
 
 
-
+                        Model.MKT.tranferoutrequestmakechange(DetailTransfer, item.Store_OUT);
 
 
                     }
