@@ -268,11 +268,15 @@ namespace Maketting.View
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
 
+            string urs = Utils.getusername();
+            this.Username = urs;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             this.main1 = Main;
 
             Model.MKT.DeleteALLphieuDetailTransfertamTMP();
-            Model.MKT.DeleteALLTransferphieutamTMP();
+            Model.MKT.DeleteALLTransferphieutamTMP(dc, Username);
 
             this.statusphieu = 1; // tạo mới
 
@@ -775,8 +779,16 @@ namespace Maketting.View
         private void button6_Click(object sender, EventArgs e)
         {
 
-            this.cleartoblankPOphieu();
-            Model.MKT.DeleteALLTransferphieutamTMP();
+         
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+          
+
+            Model.MKT.DeleteALLphieuDetailTransfertamTMP();
+            Model.MKT.DeleteALLTransferphieutamTMP(dc, this.Username);
+
+          
             Model.MKT.DeleteALLphieuDetailTransfertamTMP();
 
             this.Transfernumber = Model.MKT.getNewTransferNumber();
@@ -1762,17 +1774,17 @@ namespace Maketting.View
                          where pp.Status != "TMP"
                          select new
                          {
-                           
+
                              pp.Tranfernumber,
                              pp.Created_by,
                              pp.Store_OUT,
                              pp.Transfer_OUT_Date,
                              pp.Store_IN,
                              pp.Transfer_IN_Date,
-                            
+
                              pp.Status,
                              pp.Username,
-                           
+
                              pp.id,
 
                          };

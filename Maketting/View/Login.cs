@@ -94,13 +94,7 @@ namespace Maketting.View
                     {
 
                         #region ghi vao data pass, user, connectstring
-                        //connection_string = ("Data Source =" + st1 + "; Initial Catalog =" + st4 + "; User Id =" + st2 + "; Password =" + st3).Trim();
-                        ////    }
-                        //// /
-                        ////       connection_string = "Data Source = DESKTOP-8D4F853\\SQLEXPRESS; Initial Catalog = BEEACCOUNT; User Id = SA; Password = 123123";
-
-                        ////        HAN - L - 3PFF7H2; SA; Tienmat102$; BEE; tr1
-
+                       
 
                         string s1 = st1 + ";" + st2 + ";" + st3 + ";" + st4 + ";" + textBox1.Text;
 
@@ -133,22 +127,6 @@ namespace Maketting.View
                         }
 
 
-
-
-                        #region// read file xml và sửa app. config
-
-                        /// connection_string = connection_string + "111";
-                        //LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-                        //var rs = from tblCustomer in db.tblCustomers
-                        //         select tblCustomer;
-
-                        //if (rs!= null)
-                        //{
-                        //    MessageBox.Show(rs.Count().ToString() + "   ok");
-                        //}
-                        ////   string conString = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
-                        #endregion//read file xml và sửa app. config
 
 
                     }

@@ -593,13 +593,9 @@ namespace Maketting.Model
             }
         }
 
-        public static void DeleteALLTransferphieutamTMP() // vd phieu thu nghiep vu là phieu thu: PT,
+        public static void DeleteALLTransferphieutamTMP(LinqtoSQLDataContext dc , string urs) // vd phieu thu nghiep vu là phieu thu: PT,
         {
-            string urs = Utils.getusername();
-
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+         
 
             var rs = from pp in dc.tbl_MKt_TransferoutHEADs
                      where pp.Username == urs && pp.Status == "TMP"
