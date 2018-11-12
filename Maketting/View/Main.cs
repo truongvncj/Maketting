@@ -4082,6 +4082,46 @@ namespace Maketting.View
 
 
         }
+
+        private void transferInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT TRANSFER OUT NUMBER ");
+            pxk.ShowDialog();
+
+            string Transfernumber = pxk.valuetext;
+            bool kq = pxk.kq;
+            if (kq)
+            {
+
+                #region// nhập hagf
+                //if (name == "tmphieuthu")
+                //{
+                // MKTNhaphangtheoPo
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTTransferin nhaphang = new MKTTransferin(this, Transfernumber);
+                this.clearpannelload(nhaphang);
+
+
+                // this.Close();
+                #endregion
+
+
+            }
+
+
+
+
+
+
+
+        }
     }
 
 

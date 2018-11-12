@@ -52,3 +52,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangtheoPo.resourc
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKWHnhapkhoMKT.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTsanphammoi.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHtransferout.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTTransferin.resources

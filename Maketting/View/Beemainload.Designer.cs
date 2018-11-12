@@ -41,9 +41,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1132, 520);
+            this.panel1.Size = new System.Drawing.Size(1155, 571);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
@@ -54,10 +54,10 @@
             this.pictureBox1.ErrorImage = global::Maketting.Properties.Resources.vintage_coca_cola_pinup_girls;
             this.pictureBox1.Image = global::Maketting.Properties.Resources.vintage_coca_cola_pinup_girls;
             this.pictureBox1.InitialImage = global::Maketting.Properties.Resources.vintage_coca_cola_pinup_girls;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1132, 520);
+            this.pictureBox1.Size = new System.Drawing.Size(1155, 546);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -66,7 +66,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1156, 544);
+            this.ClientSize = new System.Drawing.Size(1156, 570);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -76,7 +76,7 @@
             this.Name = "Beemainload";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Deactivate += new System.EventHandler(this.KAmasterinput_Deactivate);

@@ -671,6 +671,7 @@ namespace Maketting.View
                                Tranfernumber = gg.Select(m => m.Tranfernumber).FirstOrDefault(),
                                //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
                                Store_OUT = gg.Select(m => m.Store_OUT).FirstOrDefault(),
+                               Store_IN = gg.Select(m => m.Store_IN).FirstOrDefault(),
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
                                //     Unit_price = gg.Sum(m => m.Unit_Price) / gg.Sum(m => m.QuantityOrder),
@@ -694,6 +695,8 @@ namespace Maketting.View
                         DetailTransfer.Tranfernumber = item.Tranfernumber;
                         DetailTransfer.Quantity = item.Quantity;
                         DetailTransfer.Store_OUT = item.Store_OUT;
+                        DetailTransfer.Store_IN = item.Store_IN;
+
                         DetailTransfer.Unit = item.Unit;
                         DetailTransfer.Username = item.Username;
                         DetailTransfer.Status = "CRT";

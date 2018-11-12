@@ -291,6 +291,24 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_TransferINdetail" Member="tbl_MKt_TransferINdetails">
+    <Type Name="tbl_MKt_TransferINdetail">
+      <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaSAPcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Materialname" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Transfer_OUT_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Transfer_IN_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_OUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Reciepted_Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKt_Transferoutdetail" Member="tbl_MKt_Transferoutdetails">
     <Type Name="tbl_MKt_Transferoutdetail">
       <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -308,7 +326,7 @@
       <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="AvaiableQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="QuantityInConfirm" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Reciepted_Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_TransferoutdetailTMP" Member="tbl_MKt_TransferoutdetailTMPs">

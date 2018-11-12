@@ -87,6 +87,9 @@ namespace Maketting
     partial void Inserttbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
     partial void Updatetbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
     partial void Deletetbl_MKT_StoreRight(tbl_MKT_StoreRight instance);
+    partial void Inserttbl_MKt_TransferINdetail(tbl_MKt_TransferINdetail instance);
+    partial void Updatetbl_MKt_TransferINdetail(tbl_MKt_TransferINdetail instance);
+    partial void Deletetbl_MKt_TransferINdetail(tbl_MKt_TransferINdetail instance);
     partial void Inserttbl_MKt_Transferoutdetail(tbl_MKt_Transferoutdetail instance);
     partial void Updatetbl_MKt_Transferoutdetail(tbl_MKt_Transferoutdetail instance);
     partial void Deletetbl_MKt_Transferoutdetail(tbl_MKt_Transferoutdetail instance);
@@ -283,6 +286,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_StoreRight>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKt_TransferINdetail> tbl_MKt_TransferINdetails
+		{
+			get
+			{
+				return this.GetTable<tbl_MKt_TransferINdetail>();
 			}
 		}
 		
@@ -6209,6 +6220,380 @@ namespace Maketting
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_TransferINdetail")]
+	public partial class tbl_MKt_TransferINdetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Tranfernumber;
+		
+		private string _MateriaSAPcode;
+		
+		private string _MateriaItemcode;
+		
+		private string _Materialname;
+		
+		private string _Description;
+		
+		private string _Unit;
+		
+		private System.Nullable<System.DateTime> _Transfer_OUT_Date;
+		
+		private System.Nullable<System.DateTime> _Transfer_IN_Date;
+		
+		private int _id;
+		
+		private string _Username;
+		
+		private string _Store_OUT;
+		
+		private string _Store_IN;
+		
+		private System.Nullable<double> _Reciepted_Quantity;
+		
+		private System.Nullable<int> _IssueIDsub;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTranfernumberChanging(string value);
+    partial void OnTranfernumberChanged();
+    partial void OnMateriaSAPcodeChanging(string value);
+    partial void OnMateriaSAPcodeChanged();
+    partial void OnMateriaItemcodeChanging(string value);
+    partial void OnMateriaItemcodeChanged();
+    partial void OnMaterialnameChanging(string value);
+    partial void OnMaterialnameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnUnitChanging(string value);
+    partial void OnUnitChanged();
+    partial void OnTransfer_OUT_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTransfer_OUT_DateChanged();
+    partial void OnTransfer_IN_DateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTransfer_IN_DateChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnStore_OUTChanging(string value);
+    partial void OnStore_OUTChanged();
+    partial void OnStore_INChanging(string value);
+    partial void OnStore_INChanged();
+    partial void OnReciepted_QuantityChanging(System.Nullable<double> value);
+    partial void OnReciepted_QuantityChanged();
+    partial void OnIssueIDsubChanging(System.Nullable<int> value);
+    partial void OnIssueIDsubChanged();
+    #endregion
+		
+		public tbl_MKt_TransferINdetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tranfernumber", DbType="NVarChar(255)")]
+		public string Tranfernumber
+		{
+			get
+			{
+				return this._Tranfernumber;
+			}
+			set
+			{
+				if ((this._Tranfernumber != value))
+				{
+					this.OnTranfernumberChanging(value);
+					this.SendPropertyChanging();
+					this._Tranfernumber = value;
+					this.SendPropertyChanged("Tranfernumber");
+					this.OnTranfernumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MateriaSAPcode", DbType="NVarChar(255)")]
+		public string MateriaSAPcode
+		{
+			get
+			{
+				return this._MateriaSAPcode;
+			}
+			set
+			{
+				if ((this._MateriaSAPcode != value))
+				{
+					this.OnMateriaSAPcodeChanging(value);
+					this.SendPropertyChanging();
+					this._MateriaSAPcode = value;
+					this.SendPropertyChanged("MateriaSAPcode");
+					this.OnMateriaSAPcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MateriaItemcode", DbType="NVarChar(255)")]
+		public string MateriaItemcode
+		{
+			get
+			{
+				return this._MateriaItemcode;
+			}
+			set
+			{
+				if ((this._MateriaItemcode != value))
+				{
+					this.OnMateriaItemcodeChanging(value);
+					this.SendPropertyChanging();
+					this._MateriaItemcode = value;
+					this.SendPropertyChanged("MateriaItemcode");
+					this.OnMateriaItemcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Materialname", DbType="NVarChar(255)")]
+		public string Materialname
+		{
+			get
+			{
+				return this._Materialname;
+			}
+			set
+			{
+				if ((this._Materialname != value))
+				{
+					this.OnMaterialnameChanging(value);
+					this.SendPropertyChanging();
+					this._Materialname = value;
+					this.SendPropertyChanged("Materialname");
+					this.OnMaterialnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(50)")]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this.OnUnitChanging(value);
+					this.SendPropertyChanging();
+					this._Unit = value;
+					this.SendPropertyChanged("Unit");
+					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Transfer_OUT_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Transfer_OUT_Date
+		{
+			get
+			{
+				return this._Transfer_OUT_Date;
+			}
+			set
+			{
+				if ((this._Transfer_OUT_Date != value))
+				{
+					this.OnTransfer_OUT_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Transfer_OUT_Date = value;
+					this.SendPropertyChanged("Transfer_OUT_Date");
+					this.OnTransfer_OUT_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Transfer_IN_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Transfer_IN_Date
+		{
+			get
+			{
+				return this._Transfer_IN_Date;
+			}
+			set
+			{
+				if ((this._Transfer_IN_Date != value))
+				{
+					this.OnTransfer_IN_DateChanging(value);
+					this.SendPropertyChanging();
+					this._Transfer_IN_Date = value;
+					this.SendPropertyChanged("Transfer_IN_Date");
+					this.OnTransfer_IN_DateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Store_OUT", DbType="NVarChar(50)")]
+		public string Store_OUT
+		{
+			get
+			{
+				return this._Store_OUT;
+			}
+			set
+			{
+				if ((this._Store_OUT != value))
+				{
+					this.OnStore_OUTChanging(value);
+					this.SendPropertyChanging();
+					this._Store_OUT = value;
+					this.SendPropertyChanged("Store_OUT");
+					this.OnStore_OUTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Store_IN", DbType="NVarChar(50)")]
+		public string Store_IN
+		{
+			get
+			{
+				return this._Store_IN;
+			}
+			set
+			{
+				if ((this._Store_IN != value))
+				{
+					this.OnStore_INChanging(value);
+					this.SendPropertyChanging();
+					this._Store_IN = value;
+					this.SendPropertyChanged("Store_IN");
+					this.OnStore_INChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reciepted_Quantity", DbType="Float")]
+		public System.Nullable<double> Reciepted_Quantity
+		{
+			get
+			{
+				return this._Reciepted_Quantity;
+			}
+			set
+			{
+				if ((this._Reciepted_Quantity != value))
+				{
+					this.OnReciepted_QuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Reciepted_Quantity = value;
+					this.SendPropertyChanged("Reciepted_Quantity");
+					this.OnReciepted_QuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueIDsub", DbType="Int")]
+		public System.Nullable<int> IssueIDsub
+		{
+			get
+			{
+				return this._IssueIDsub;
+			}
+			set
+			{
+				if ((this._IssueIDsub != value))
+				{
+					this.OnIssueIDsubChanging(value);
+					this.SendPropertyChanging();
+					this._IssueIDsub = value;
+					this.SendPropertyChanged("IssueIDsub");
+					this.OnIssueIDsubChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_Transferoutdetail")]
 	public partial class tbl_MKt_Transferoutdetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6245,7 +6630,7 @@ namespace Maketting
 		
 		private System.Nullable<double> _AvaiableQuantity;
 		
-		private System.Nullable<double> _QuantityInConfirm;
+		private System.Nullable<double> _Reciepted_Quantity;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -6281,8 +6666,8 @@ namespace Maketting
     partial void OnStatusChanged();
     partial void OnAvaiableQuantityChanging(System.Nullable<double> value);
     partial void OnAvaiableQuantityChanged();
-    partial void OnQuantityInConfirmChanging(System.Nullable<double> value);
-    partial void OnQuantityInConfirmChanged();
+    partial void OnReciepted_QuantityChanging(System.Nullable<double> value);
+    partial void OnReciepted_QuantityChanged();
     #endregion
 		
 		public tbl_MKt_Transferoutdetail()
@@ -6590,22 +6975,22 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityInConfirm", DbType="Float")]
-		public System.Nullable<double> QuantityInConfirm
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reciepted_Quantity", DbType="Float")]
+		public System.Nullable<double> Reciepted_Quantity
 		{
 			get
 			{
-				return this._QuantityInConfirm;
+				return this._Reciepted_Quantity;
 			}
 			set
 			{
-				if ((this._QuantityInConfirm != value))
+				if ((this._Reciepted_Quantity != value))
 				{
-					this.OnQuantityInConfirmChanging(value);
+					this.OnReciepted_QuantityChanging(value);
 					this.SendPropertyChanging();
-					this._QuantityInConfirm = value;
-					this.SendPropertyChanged("QuantityInConfirm");
-					this.OnQuantityInConfirmChanged();
+					this._Reciepted_Quantity = value;
+					this.SendPropertyChanged("Reciepted_Quantity");
+					this.OnReciepted_QuantityChanged();
 				}
 			}
 		}

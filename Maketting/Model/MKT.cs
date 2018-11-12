@@ -775,6 +775,51 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static void tranferinmakechange(tbl_MKt_TransferINdetail itemIN)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemIN.MateriaItemcode
+                     && p.Store_code == itemIN.Store_OUT
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+               //     item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemIN.Quantity;
+                    item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+
+            var rs2 = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemIN.MateriaItemcode
+                     && p.Store_code == itemIN.Store_IN
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                      item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemIN.Reciepted_Quantity;
+                 //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+
         public static void tranferoutrequestdelete(tbl_MKt_Transferoutdetail itemout, string storecode)
         {
 
