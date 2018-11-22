@@ -214,9 +214,8 @@
       <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="RecieptedQuantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Unit_Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POdetail_TMP" Member="tbl_MKt_POdetail_TMPs">

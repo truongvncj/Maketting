@@ -63,7 +63,9 @@ namespace Maketting.View
             DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
 
             DataRow drToAdd = dataTable.NewRow();
+         //   dt.Columns.Add(new DataColumn("Region", typeof(string)));
 
+            drToAdd["Region"] = Ponumber.Region;
             drToAdd["MATERIAL"] = Ponumber.Materialname;
             drToAdd["Description"] = Ponumber.Description;
             drToAdd["ITEM_Code"] = Ponumber.MateriaItemcode;
@@ -476,13 +478,13 @@ namespace Maketting.View
             }
 
 
-            if (txtmucdichname.Text == "")
-            {
-                MessageBox.Show("Pleae input a IO !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cbkhohang.Focus();
-                checkhead = false;
-                return;
-            }
+            //if (txtmucdichname.Text == "")
+            //{
+            //    MessageBox.Show("Pleae input a IO !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    cbkhohang.Focus();
+            //    checkhead = false;
+            //    return;
+            //}
             #endregion
 
 
@@ -500,7 +502,7 @@ namespace Maketting.View
                 if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                 {
 
-
+                    //     drToAdd["Region"] = Ponumber.Region;
                     //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
                     //dt.Columns.Add(new DataColumn("Description", typeof(string)));
                     //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
@@ -508,6 +510,7 @@ namespace Maketting.View
 
                     //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
                     //dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
+                    dataGridViewDetail.Rows[idrow].Cells["Region"].Style.BackColor = System.Drawing.Color.White;
 
                     dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Style.BackColor = System.Drawing.Color.White;
                     dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Style.BackColor = System.Drawing.Color.White;
@@ -531,6 +534,14 @@ namespace Maketting.View
                         return;
                     }
 
+                    if (dataGridViewDetail.Rows[idrow].Cells["Region"].Value == DBNull.Value)
+                    {
+
+                        MessageBox.Show("Please nhập Region tại dòng " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        dataGridViewDetail.Rows[idrow].Cells["Region"].Style.BackColor = System.Drawing.Color.Orange;
+                        checkdetail = false;
+                        return;
+                    }
 
                     if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                     {
@@ -575,8 +586,8 @@ namespace Maketting.View
                 //    rs.Address = txtdiachi.Text;
                 //    rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                 //    rs.Receiver_by = txtnguoinhan.Text;
-                ponew.IOcode = txtmact.Text;
-                ponew.IOname = txtmucdichname.Text;
+                //ponew.IOcode = txtmact.Text;
+                //ponew.IOname = txtmucdichname.Text;
                 ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
                 //     rs.Purposeid = txtmact.Text;
@@ -609,8 +620,8 @@ namespace Maketting.View
                         //       detailphieu.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                         //   detailphieu.Receiver_by = txtnguoinhan.Text;
 
-                        detailphieu.IOcode = txtmact.Text;
-                        detailphieu.IOname = txtmucdichname.Text;
+                        //detailphieu.IOcode = txtmact.Text;
+                        //detailphieu.IOname = txtmucdichname.Text;
                         detailphieu.Storelocation = this.storelocation;
                         //   detailphieu. = txtnguoiyeucau.Text;
                         detailphieu.StatusPO = "TMP";
@@ -618,6 +629,12 @@ namespace Maketting.View
                         detailphieu.Username = this.Username;
                         detailphieu.POnumber = this.PONumber;
 
+                        //   Region
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["Region"].Value != DBNull.Value)
+                        {
+                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["Region"].Value;
+                        }
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
                         {
@@ -681,6 +698,7 @@ namespace Maketting.View
                                Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
+
                                Unit_price = gg.Sum(m => m.Unit_Price) / gg.Sum(m => m.QuantityOrder),
 
 
@@ -1956,83 +1974,87 @@ namespace Maketting.View
 
         private void btmucdich_Click_1(object sender, EventArgs e)
         {
-            //  getIOcreateRight
-            //    NPDanhsachnhavantai
+          
 
-            if (Model.Username.getIOcreateRight() == true)
-            {
-                string connection_string = Utils.getConnectionstr();
+            //if (Model.Username.getIOcreateRight() == true)
+            //{
+            //    string connection_string = Utils.getConnectionstr();
 
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs1 = Model.MKT.DanhsachctMKT(dc);
+            //    var rs1 = Model.MKT.DanhsachctMKT(dc);
 
 
-                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
+            //    Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
 
-                viewtbl.Show();
-            }
-            else
-            {
-                View.MKTNoouthourise noquyen = new MKTNoouthourise();
-                noquyen.ShowDialog();
-            }
+            //    viewtbl.Show();
+            //}
+            //else
+            //{
+            //    View.MKTNoouthourise noquyen = new MKTNoouthourise();
+            //    noquyen.ShowDialog();
+            //}
 
-            ;
+            //;
 
 
 
         }
 
-        private void txtmucdichname_KeyPress(object sender, KeyPressEventArgs e)
+        //private void txtmucdichname_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //   // if (e.KeyChar == (char)Keys.Enter)
+        //   // {
+        //   //     //  cbsophieu.
+        //   //     e.Handled = true;
+
+        //   ////     string seachtext = txtmucdichname.Text;
+        //   //     string connection_string = Utils.getConnectionstr();
+        //   //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+        //   //     var rs = from pp in dc.tbl_MKT_Mucdiches
+        //   //              where pp.tenCT.Contains(seachtext)
+        //   //              select new
+        //   //              {
+        //   //                  MÃ_CHƯƠNG_TRÌNH = pp.macT,
+        //   //                  TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
+
+
+
+        //   //                  pp.id,
+
+        //   //              };
+
+        //   //     View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
+        //   //     selectkq.ShowDialog();
+        //   //     int id = selectkq.id;
+
+        //        //var rs2 = (from pp in dc.tbl_MKT_Mucdiches
+        //        //           where pp.id == id
+        //        //           select pp).FirstOrDefault();
+
+        //        //if (rs2 != null)
+        //        //{
+
+        //        //    txtmact.Text = rs2.macT;
+        //        //    txtmucdichname.Text = rs2.tenCT;
+
+        //        //}
+
+
+
+
+
+
+
+        //        dataGridViewDetail.Focus();
+
+        //    }
+        //}
+
+        private void txtmucdichname_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                //  cbsophieu.
-                e.Handled = true;
 
-                string seachtext = txtmucdichname.Text;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs = from pp in dc.tbl_MKT_Mucdiches
-                         where pp.tenCT.Contains(seachtext)
-                         select new
-                         {
-                             MÃ_CHƯƠNG_TRÌNH = pp.macT,
-                             TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
-
-
-
-                             pp.id,
-
-                         };
-
-                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
-                selectkq.ShowDialog();
-                int id = selectkq.id;
-
-                var rs2 = (from pp in dc.tbl_MKT_Mucdiches
-                           where pp.id == id
-                           select pp).FirstOrDefault();
-
-                if (rs2 != null)
-                {
-
-                    txtmact.Text = rs2.macT;
-                    txtmucdichname.Text = rs2.tenCT;
-
-                }
-
-
-
-
-
-
-
-                dataGridViewDetail.Focus();
-
-            }
         }
     }
 }

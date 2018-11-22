@@ -46,10 +46,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtmact = new System.Windows.Forms.TextBox();
-            this.btmucdich = new System.Windows.Forms.Button();
-            this.txtmucdichname = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btaddnew = new System.Windows.Forms.Button();
             this.txtSapPO = new System.Windows.Forms.TextBox();
             this.cbkhohang = new System.Windows.Forms.ComboBox();
@@ -185,9 +181,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridViewDetail);
-            this.panel4.Location = new System.Drawing.Point(0, 237);
+            this.panel4.Location = new System.Drawing.Point(0, 181);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1266, 295);
+            this.panel4.Size = new System.Drawing.Size(1266, 351);
             this.panel4.TabIndex = 67;
             // 
             // dataGridViewDetail
@@ -224,7 +220,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 277);
+            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 333);
             this.dataGridViewDetail.TabIndex = 3;
             this.dataGridViewDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellContentClick);
             this.dataGridViewDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
@@ -241,10 +237,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtmact);
-            this.panel1.Controls.Add(this.btmucdich);
-            this.panel1.Controls.Add(this.txtmucdichname);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.btaddnew);
             this.panel1.Controls.Add(this.txtSapPO);
             this.panel1.Controls.Add(this.cbkhohang);
@@ -257,53 +249,12 @@
             this.panel1.Controls.Add(this.datepickngayphieu);
             this.panel1.Location = new System.Drawing.Point(-4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1270, 228);
+            this.panel1.Size = new System.Drawing.Size(1270, 172);
             this.panel1.TabIndex = 65;
-            // 
-            // txtmact
-            // 
-            this.txtmact.Enabled = false;
-            this.txtmact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmact.Location = new System.Drawing.Point(177, 179);
-            this.txtmact.Name = "txtmact";
-            this.txtmact.Size = new System.Drawing.Size(119, 24);
-            this.txtmact.TabIndex = 79;
-            // 
-            // btmucdich
-            // 
-            this.btmucdich.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btmucdich.ForeColor = System.Drawing.Color.Red;
-            this.btmucdich.Location = new System.Drawing.Point(579, 179);
-            this.btmucdich.Name = "btmucdich";
-            this.btmucdich.Size = new System.Drawing.Size(91, 25);
-            this.btmucdich.TabIndex = 78;
-            this.btmucdich.TabStop = false;
-            this.btmucdich.Text = "New Purpose";
-            this.btmucdich.UseVisualStyleBackColor = true;
-            this.btmucdich.Click += new System.EventHandler(this.btmucdich_Click_1);
-            // 
-            // txtmucdichname
-            // 
-            this.txtmucdichname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmucdichname.Location = new System.Drawing.Point(302, 179);
-            this.txtmucdichname.Name = "txtmucdichname";
-            this.txtmucdichname.Size = new System.Drawing.Size(271, 24);
-            this.txtmucdichname.TabIndex = 77;
-            this.txtmucdichname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmucdichname_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 182);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 18);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "IO program";
             // 
             // btaddnew
             // 
-            this.btaddnew.Location = new System.Drawing.Point(1078, 179);
+            this.btaddnew.Location = new System.Drawing.Point(1088, 140);
             this.btaddnew.Name = "btaddnew";
             this.btaddnew.Size = new System.Drawing.Size(119, 25);
             this.btaddnew.TabIndex = 75;
@@ -546,9 +497,5 @@
         private System.Windows.Forms.Button btxoa;
         private System.Windows.Forms.TextBox txtSapPO;
         private System.Windows.Forms.Button btaddnew;
-        private System.Windows.Forms.TextBox txtmact;
-        private System.Windows.Forms.Button btmucdich;
-        private System.Windows.Forms.TextBox txtmucdichname;
-        private System.Windows.Forms.Label label8;
     }
 }

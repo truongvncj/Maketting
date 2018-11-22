@@ -298,7 +298,7 @@ namespace Maketting.Model
 
             DataTable dt = new DataTable();
 
-
+            dt.Columns.Add(new DataColumn("Region", typeof(string)));
             dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
