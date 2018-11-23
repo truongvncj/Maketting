@@ -699,7 +699,7 @@ namespace Maketting.View
                                Unit = gg.Select(m => m.Unit).FirstOrDefault(),
                                Username = gg.Select(m => m.Username).FirstOrDefault(),
 
-                               Unit_price = gg.Sum(m => m.Unit_Price) / gg.Sum(m => m.QuantityOrder),
+                               Unit_price = gg.Sum(m => m.Unit_Price* m.QuantityOrder) / gg.Sum(m => m.QuantityOrder),
 
 
 
