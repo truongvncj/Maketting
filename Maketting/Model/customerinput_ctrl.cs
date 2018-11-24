@@ -54,168 +54,8 @@ namespace Maketting.Model
 
         }
 
-        private void importsexcel2(object obj)
-        {
-            string connection_string = Utils.getConnectionstr();
-            var db = new LinqtoSQLDataContext(connection_string);
 
-            db.ExecuteCommand("DELETE FROM tbl_KaCustomer");
-            //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-            db.SubmitChanges();
-
-
-            datainportF inf = (datainportF)obj;
-            string filename = inf.filename;
-
-            string connectionString = "";
-            if (filename.Contains(".xlsx") || filename.Contains(".XLSX"))
-            {
-                connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filename + ";" + "Extended Properties=Excel 12.0;";
-            }
-            else
-            {
-                connectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source= " + filename + ";" + "Extended Properties=Excel 8.0;";
-            }
-            //---------------fill data
-
-            System.Data.DataTable sourceData = new System.Data.DataTable();
-            using (OleDbConnection conn =
-                                   new OleDbConnection(connectionString))
-            {
-                try
-                {
-
-                    conn.Open();
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.ToString(), "Thông báo lỗi Fill", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                // Get the data from the source table as a SqlDataReader.
-
-                //  Customer	Vendor	SalesOrg	FullName	TradingName	Street	District	City	Telephone1	Telephone2	FaxNumber	VATregistrationNo	Indirect	CustomerGroup	SALORG_CTR
-
-                OleDbCommand command = new OleDbCommand(
-                                        @"SELECT Customer, 
-                                    SalesOrg, 
-FullName, 
-TradingName ,
-  Street,
-District,
-City ,    Telephone1,  VATregistrationNo, Indirect, 
-    SALORG_CTR  FROM [Sheet1$]
-
-                                     WHERE  (Customer IS NOT NULL)", conn);
-
-
-                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
-                try
-                {
-                    adapter.Fill(sourceData);
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.ToString(), "Thông báo lỗi Fill", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-                conn.Close();
-            }
-
-            ///     Utils util = new Utils();
-            string destConnString = Utils.getConnectionstr();
-            //      sourceData.Columns.Add("SapCode");
-            //        sourceData.Columns["SapCode"].DefaultValue = true;
-            //---------------fill data
-
-
-            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
-            {
-
-                //            @"SELECT BU, CCDescription,
-                //                                CConsumption, CentralOrBlk, CHN ,
-                //                               City, CreatedOn, CTDescription ,
-                //                               Customer, District, FullNameN ,
-                //                               KAGROUP, KANAME, KeyAcc ,
-                //                               OrBlk, PaymentTerms, PriceList ,
-                //  ReconciliationAcct, Region, SalesDistrict ,
-                //  SalesOrg, Street, Telephone1 ,
-                //  UPDDAT, VATregistrationNo  FROM [Sheet1$]
-                //  
-                //  	Vendor			Telephone2	FaxNumber				
-                bulkCopy.BulkCopyTimeout = 0;
-                bulkCopy.DestinationTableName = "tbl_PosCustomer";
-                // Write from the source to the destination.
-                bulkCopy.ColumnMappings.Add("Customer", "Customer");
-                bulkCopy.ColumnMappings.Add("SalesOrg", "Region");
-                bulkCopy.ColumnMappings.Add("FullName", "FullNameN");
-                bulkCopy.ColumnMappings.Add("TradingName", "KANAME");
-                bulkCopy.ColumnMappings.Add("Street", "Street");
-                bulkCopy.ColumnMappings.Add("District", "District");
-                bulkCopy.ColumnMappings.Add("City", "City");
-                bulkCopy.ColumnMappings.Add("Telephone1", "Telephone1");
-                bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
-
-                //    bulkCopy.ColumnMappings.Add("CustomerGroup", "CustomerGroup");
-
-                bulkCopy.ColumnMappings.Add("Indirect", "indirectCode");
-                bulkCopy.ColumnMappings.Add("SALORG_CTR", "SALORG_CTR");
-
-
-
-
-                //bulkCopy.ColumnMappings.Add("BU", "BU");
-                //bulkCopy.ColumnMappings.Add("CCDescription", "CCDescription");
-                //bulkCopy.ColumnMappings.Add("CConsumption", "CConsumption");
-                //bulkCopy.ColumnMappings.Add("CentralOrBlk", "CentralOrBlk");
-                //bulkCopy.ColumnMappings.Add("CHN", "CHN");
-
-
-                //bulkCopy.ColumnMappings.Add("CreatedOn", "CreatedOn");
-                //bulkCopy.ColumnMappings.Add("CTDescription", "CTDescription");
-
-
-
-                //bulkCopy.ColumnMappings.Add("KAGROUP", "KAGROUP");
-
-                //bulkCopy.ColumnMappings.Add("KeyAcc", "KeyAcc");
-                //bulkCopy.ColumnMappings.Add("OrBlk", "OrBlk");
-                //bulkCopy.ColumnMappings.Add("PaymentTerms", "PaymentTerms");
-                //bulkCopy.ColumnMappings.Add("PriceList", "PriceList");
-
-                //bulkCopy.ColumnMappings.Add("ReconciliationAcct", "ReconciliationAcct");
-
-                //bulkCopy.ColumnMappings.Add("SalesDistrict", "SalesDistrict");
-
-
-
-                //bulkCopy.ColumnMappings.Add("UPDDAT", "UPDDAT");
-
-
-
-
-                try
-                {
-                    bulkCopy.WriteToServer(sourceData);
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.ToString(), "Thông báo lỗi !", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Thread.CurrentThread.Abort();
-                }
-
-            }
-
-
-            //   Thread.CurrentThread.Abort();
-
-        }
-
-
-        public void importsexceltoPricingcheck(object obj)
+        public void importCustomersoldtolist(object obj)
         {
 
 
@@ -235,7 +75,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            dc.ExecuteCommand("DELETE FROM tbl_ka_prCustomer");
+            dc.ExecuteCommand("DELETE FROM tbl_MKT_Soldtocode");
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.CommandTimeout = 0;
             dc.SubmitChanges();
@@ -251,56 +91,51 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
             System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
-            batable.Columns.Add("Customer", typeof(double));
+
+
+            batable.Columns.Add("Customer", typeof(string));
+            batable.Columns.Add("FullNameN", typeof(string));
+            batable.Columns.Add("Telephone1", typeof(string));
+            //batable.Columns.Add("Note", typeof(string));
+
+            batable.Columns.Add("District", typeof(string));
             batable.Columns.Add("SalesOrg", typeof(string));
-            batable.Columns.Add("Name", typeof(string));
-            batable.Columns.Add("House", typeof(string));
-
             batable.Columns.Add("Street", typeof(string));
+
             batable.Columns.Add("City", typeof(string));
-            batable.Columns.Add("Telephone", typeof(string));
+            batable.Columns.Add("Region", typeof(string));
+            batable.Columns.Add("PaymentTerms", typeof(string));
 
-            batable.Columns.Add("Salesoff", typeof(string));
-            batable.Columns.Add("Plant", typeof(string));
-            batable.Columns.Add("Termpayment", typeof(string));
-
-            batable.Columns.Add("Pricelist", typeof(string));
-            batable.Columns.Add("KeyAccount", typeof(double));
-            batable.Columns.Add("SalesDist", typeof(string));
+            batable.Columns.Add("PriceList", typeof(string));
+            batable.Columns.Add("KeyAcc", typeof(double));
+            batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("Createdon", typeof(DateTime));
             batable.Columns.Add("Createby", typeof(string));
-            batable.Columns.Add("VATregistno", typeof(string));
-            batable.Columns.Add("orderblock", typeof(string));
-            batable.Columns.Add("salesblock", typeof(string));
-
-
+            batable.Columns.Add("VATregistrationNo", typeof(string));
+         
 
 
 
 
             int Customerid = 0;
-            int Salesogid = 0;
-            int Nameid = 0;
-            int Houseid = 0;
+            int FullNameNid = 0;
+            int Telephone1id = 0;
+         
+            int Districtid = 0;
+            int SalesOrgid = 0;
             int Streetid = 0;
             int Cityid = 0;
-            int telephoneid = 0;
-            int salesofficeid = 0;
 
-            int Deliveringid = 0;
+            int Regionid = 0;
 
-            int Termsid = 0;
+            int PaymentTermsid = 0;
 
-            int Priceid = 0;
+            int PriceListid = 0;
 
-            int Keyid = 0;
-            int Salesdistid = 0;
-            int Createdonid = 0;
-            int Createdbyid = 0;
-            int VATid = 0;
-            int orderblockid = 0;
-            int salesblockid = 0;
-
+            int KeyAccid = 0;
+            int SalesDistrictid = 0;
+            int VATregistrationNoid = 0;
+        
 
        //     View.Viewdatatable vi1 = new View.Viewdatatable(sourceData, "Test");
 
@@ -326,106 +161,88 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
                             headindex = rowid;
                         }
 
-                        if (value.Trim().Contains("Sales Organization") && headindex == rowid)
+                        if (value.Trim().Contains("FullNameN") && headindex == rowid)
                         {
 
-                          Salesogid = columid;
+                            FullNameNid = columid;
                       //    headindex = 0;
 
                         }
 
 
-                        if (value.Trim().Contains("Name 1") && headindex == rowid)
+                        if (value.Trim().Contains("Telephone1") && headindex == rowid)
                         {
 
-                            Nameid = columid;
+                            Telephone1id = columid;
                          //   headindex = 0;
 
 
 
                         }
 
-
-                        if (value.Trim().Contains("House num & Street") &&  headindex == rowid)
+                        if (value.Trim().Contains("SalesDistrict") && headindex == rowid)
                         {
-                            Houseid = columid;
+                            SalesDistrictid = columid;
+
+                        }
+
+                        if (value.Trim().Contains("District") && headindex == rowid )
+                        {
+
+                            if (columid != SalesDistrictid)
+                            {
+                                Districtid = columid;
+                            }
+                          
                            
                         }
-                        if (value.Trim().Contains( "Street 4" ) && headindex == rowid)
+
+                        if (value.Trim().Contains("SalesOrg") && headindex == rowid)
+                        {
+                            SalesOrgid = columid;
+                           
+                        }
+
+                        if (value.Trim().Contains("Street") && headindex == rowid)
                         {
                             Streetid = columid;
-                           
-                        }
-
-                        if (value.Trim().Contains( "City") && headindex == rowid)
-                        {
-                            Cityid = columid;
-                           
-                        }
-
-                        if (value.Trim().Contains( "Telephone 1" )&& headindex == rowid)
-                        {
-                            telephoneid = columid;
                            // headindex = 0;
                         }
 
-                        if (value.Trim().Contains(  "Sales Office" )&& headindex == rowid)
+                        if (value.Trim().Contains("City") && headindex == rowid)
                         {
-                            salesofficeid = columid;
+                            Cityid = columid;
                             
                         }
 
-                        if (value.Trim().Contains( "Delivering Plant" )&& headindex == rowid)
+                        if (value.Trim().Contains("Region") && headindex == rowid)
                         {
-                            Deliveringid = columid;
+                            Regionid = columid;
                           
                         }
-                        if (value.Trim().Contains( "Terms of Payment" )&& headindex == 0)
+                        if (value.Trim().Contains("PaymentTerms") && headindex == rowid)
                         {
-                            Termsid = columid;
-                            headindex = 0;
+                            PaymentTermsid = columid;
+                         
                         }
-                        if (value.Trim().Contains( "Price List") && headindex == rowid)
+                        if (value.Trim().Contains("PriceList") && headindex == rowid)
                         {
-                            Priceid = columid;
+                            PriceListid = columid;
                           
                         }
-                        if (value.Trim().Contains( "Key Account No") && headindex == rowid)
+                        if (value.Trim().Contains("KeyAcc") && headindex == rowid)
                         {
-                            Keyid = columid;
+                            KeyAccid = columid;
                            
                         }
-                        if (value.Trim().Contains( "Sales district" )&& headindex == rowid)
+                      
+                        if (value.Trim().Contains("VATregistrationNo") && headindex == rowid)
                         {
-                            Salesdistid = columid;
-                           
-                        }
-                        if (value.Trim().Contains( "Created on" )&& headindex == rowid)
-                        {
-                            Createdonid = columid;
+                            VATregistrationNoid = columid;
                             
-                        }
-                        if (value.Trim().Contains( "Created by" )&& headindex == rowid)
-                        {
-                            Createdbyid = columid;
-                          
-                        }
-                        if (value.Trim().Contains( "VAT Registration No" )&& headindex == rowid)
-                        {
-                            VATid = columid;
-                            
-                        }
-                        if (value.Trim().Contains( "Central order block" )&& headindex == rowid)
-                        {
-                            orderblockid = columid;
-                          
                         }
 
-                        if (value.Trim().Contains( "Order block for sales area" )&& headindex == rowid)
-                        {
-                            salesblockid = columid;
-                           
-                        }
+                        
 
                         #endregion
 
@@ -445,39 +262,37 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
                   string customer = sourceData.Rows[rowixd][Customerid].ToString();
                 if ( customer != "" && Utils.IsValidnumber(customer))
                 {
-                  
-           
+
+
+                    
+
                     DataRow dr = batable.NewRow();
-                    dr["Customer"] = double.Parse(sourceData.Rows[rowixd][Customerid].ToString());
-                    dr["SalesOrg"] = sourceData.Rows[rowixd][Salesogid].ToString().Trim();
-                      dr["Name"] = sourceData.Rows[rowixd][Nameid].ToString().Trim();
-                    dr["House"] = sourceData.Rows[rowixd][Houseid].ToString().Trim();
+                    dr["Customer"] = sourceData.Rows[rowixd][Customerid].ToString().Trim();
+                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Trim();
+                      dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Trim();
+                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Trim();
+                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Trim();
                     dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Trim();
                     dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Trim();
-                    dr["Telephone"] = sourceData.Rows[rowixd][telephoneid].ToString().Trim();
 
-                    dr["Salesoff"] = sourceData.Rows[rowixd][salesofficeid].ToString().Trim();
+                    dr["Region"] = sourceData.Rows[rowixd][Regionid].ToString().Trim();
 
-                    dr["Plant"] = sourceData.Rows[rowixd][Deliveringid].ToString().Trim();
+                    dr["PaymentTerms"] = sourceData.Rows[rowixd][PaymentTermsid].ToString().Trim();
 
-                    dr["Termpayment"] = sourceData.Rows[rowixd][Termsid].ToString().Trim();
+                    dr["PriceList"] = sourceData.Rows[rowixd][PriceListid].ToString().Trim();
 
-                    dr["Pricelist"] = sourceData.Rows[rowixd][Priceid].ToString().Trim();
+                    dr["KeyAcc"] = sourceData.Rows[rowixd][KeyAccid].ToString().Trim();
 
-                    dr["KeyAccount"] = double.Parse(sourceData.Rows[rowixd][Keyid].ToString());//.Trim();
+                    dr["SalesDistrict"] = sourceData.Rows[rowixd][SalesDistrictid].ToString().Trim();
 
-                    dr["SalesDist"] = sourceData.Rows[rowixd][Salesdistid].ToString().Trim();
+                    dr["VATregistrationNo"] = sourceData.Rows[rowixd][VATregistrationNoid].ToString().Trim();
 
-                    dr["Createby"] = sourceData.Rows[rowixd][Createdbyid].ToString().Trim();
-
-                    dr["VATregistno"] = sourceData.Rows[rowixd][VATid].ToString().Trim();
-
-                    dr["orderblock"] = sourceData.Rows[rowixd][orderblockid].ToString().Trim();
-
-                    dr["salesblock"] = sourceData.Rows[rowixd][salesblockid].ToString().Trim();
-
+            
              
-                    dr["Createdon"] = Utils.chageExceldatetoData(sourceData.Rows[rowixd][Createdonid].ToString());// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
+                    dr["Createdon"] =  DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
+                    dr["Createby"] = Model.Username.getUsername();
+
+
 
                     batable.Rows.Add(dr);
 
@@ -501,35 +316,33 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
             {
 
+             
 
-                bulkCopy.DestinationTableName = "tbl_ka_prCustomer";
+
+                bulkCopy.DestinationTableName = "tbl_MKT_Soldtocode";
                 // Write from the source to the destination.
                 bulkCopy.BulkCopyTimeout = 0;
 
                 bulkCopy.ColumnMappings.Add("Customer", "Customer");
 
-                bulkCopy.ColumnMappings.Add("SalesOrg", "SalesOrg");
-                bulkCopy.ColumnMappings.Add("Name", "Name");
-                bulkCopy.ColumnMappings.Add("House", "House");
+                bulkCopy.ColumnMappings.Add("FullNameN", "FullNameN");
+                bulkCopy.ColumnMappings.Add("Telephone1", "Telephone1");
+                bulkCopy.ColumnMappings.Add("District", "District");
 
+                bulkCopy.ColumnMappings.Add("SalesOrg", "SalesOrg");
                 bulkCopy.ColumnMappings.Add("Street", "Street");
                 bulkCopy.ColumnMappings.Add("City", "City");
-                bulkCopy.ColumnMappings.Add("Telephone", "Telephone");
            
-                bulkCopy.ColumnMappings.Add("Salesoff", "SalesOff");
-                bulkCopy.ColumnMappings.Add("Plant", "Plant");
-                bulkCopy.ColumnMappings.Add("Termpayment", "TermPayment");
-                bulkCopy.ColumnMappings.Add("Pricelist", "PriceList");
+                bulkCopy.ColumnMappings.Add("Region", "Region");
+                bulkCopy.ColumnMappings.Add("PaymentTerms", "PaymentTerms");
+                bulkCopy.ColumnMappings.Add("PriceList", "PriceList");
+                bulkCopy.ColumnMappings.Add("KeyAcc", "KeyAcc");
 
-                bulkCopy.ColumnMappings.Add("KeyAccount", "KeyAccount");
-                bulkCopy.ColumnMappings.Add("SalesDist", "Salesdistrict");
+                bulkCopy.ColumnMappings.Add("SalesDistrict", "SalesDistrict");
                 bulkCopy.ColumnMappings.Add("Createdon", "Createdon");
-                bulkCopy.ColumnMappings.Add("Createby", "Createdby");
-                bulkCopy.ColumnMappings.Add("VATregistno", "VATRegistration");
-                bulkCopy.ColumnMappings.Add("orderblock", "blockOrder");
-                bulkCopy.ColumnMappings.Add("salesblock", "blockArea");
-             
-             
+                bulkCopy.ColumnMappings.Add("Createby", "Createby");
+                bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
+            
 
 
                 try
@@ -586,55 +399,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
 
         }
 
-        public void customerinput()
-        {
 
-
-            //   CultureInfo provider = CultureInfo.InvariantCulture;
-
-
-            OpenFileDialog theDialog = new OpenFileDialog();
-            theDialog.Title = "Open Excel File Customer excel data !";
-            theDialog.Filter = "Excel files|*.xlsx; *.xls";
-            theDialog.InitialDirectory = @"C:\";
-            if (theDialog.ShowDialog() == DialogResult.OK)
-            {
-
-                //  AutoResetEvent autoEvent = new AutoResetEvent(false); //join
-
-
-
-                string filename = theDialog.FileName.ToString();
-                Thread t1 = new Thread(importsexcel2);
-                t1.IsBackground = true;
-                t1.Start(new datainportF() { filename = filename });
-
-                View.MKTCaculating wat = new View.MKTCaculating();
-                Thread t2 = new Thread(showwait);
-                t2.Start(new datashowwait() { wat = wat });
-
-
-                t1.Join();
-                if (t1.ThreadState != ThreadState.Running)
-                {
-
-                    // t2.Abort();
-
-                    wat.Invoke(wat.myDelegate);
-
-
-
-                }
-
-
-
-            }
-
-
-
-
-
-        }
         public void customerinputpriceingupdate()
         {
 
@@ -654,7 +419,7 @@ City ,    Telephone1,  VATregistrationNo, Indirect,
 
 
                 string filename = theDialog.FileName.ToString();
-                Thread t1 = new Thread(importsexceltoPricingcheck);
+                Thread t1 = new Thread(importCustomersoldtolist);
                 t1.IsBackground = true;
                 t1.Start(new datainportF() { filename = filename });
 

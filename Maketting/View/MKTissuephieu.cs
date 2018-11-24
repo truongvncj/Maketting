@@ -2091,7 +2091,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs1 = Model.MKT.danhkhachhang(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH BENEFITCIARY (NGƯỜI NHẬN)", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NGƯỜI NHẬN ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
 
@@ -2127,16 +2127,16 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs = from pp in dc.tbl_MKT_khachhangs
-                         where pp.Customer_name.Contains(seachtext)
+                var rs = from pp in dc.tbl_MKT_Soldtocodes
+                         where pp.FullNameN.Contains(seachtext)
                          select new
                          {
-                             MÃ_KHÁCH_HÀNG = pp.Customer_code,
-                             TÊN_KHÁCH_HÀNG = pp.Customer_name,
-                             ĐỊA_CHỈ = pp.Address,
+                             MÃ_KHÁCH_HÀNG = pp.Customer,
+                             TÊN_KHÁCH_HÀNG = pp.FullNameN,
+                             ĐỊA_CHỈ = pp.Street+" "+ pp.District +" "+pp.City,
                              QUẬN = pp.District,
-                             TỈNH_THÀNH_PHỐ = pp.Province,
-                             ĐIỆN_THOẠI = pp.Tel,
+                             TỈNH_THÀNH_PHỐ = pp.City,
+                             ĐIỆN_THOẠI = pp.Telephone1,
                              GHI_CHÚ = pp.Note,
 
 
@@ -2150,16 +2150,16 @@ namespace Maketting.View
                 selectkq.ShowDialog();
                 int id = selectkq.id;
 
-                var rs2 = (from pp in dc.tbl_MKT_khachhangs
+                var rs2 = (from pp in dc.tbl_MKT_Soldtocodes
                            where pp.id == id
                            select pp).FirstOrDefault();
 
                 if (rs2 != null)
                 {
-                    txtcustcode.Text = rs2.Customer_code;
-                    txtnguoinhan.Text = rs2.Customer_name;
-                    txtdiachi.Text = rs2.Address +" ,"+ rs2.District+" ,"+ rs2.Province;
-                    lbtel.Text = rs2.Tel;
+                    txtcustcode.Text = rs2.Customer;
+                    txtnguoinhan.Text = rs2.FullNameN;
+                    txtdiachi.Text = rs2.Street +" ,"+ rs2.District+" ,"+ rs2.City;
+                    lbtel.Text = rs2.Telephone1;
              
 
 

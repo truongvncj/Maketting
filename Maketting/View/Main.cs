@@ -4122,6 +4122,24 @@ namespace Maketting.View
 
 
         }
+
+        private void uploadCustomerListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
+
+
+            inpoutctm.customerinputpriceingupdate();
+
+
+
+
+
+
+        }
     }
 
 

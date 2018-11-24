@@ -1893,16 +1893,16 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs = from pp in dc.tbl_MKT_khachhangs
+                var rs = from pp in dc.tbl_MKT_Soldtocodes
                              //     where pp.tenKH.Contains(seachtext)
                          select new
                          {
-                             MÃ_KHÁCH_HÀNG = pp.Customer_code,
-                             TÊN_KHÁCH_HÀNG = pp.Customer_name,
-                             ĐỊA_CHỈ = pp.Address,
+                             MÃ_KHÁCH_HÀNG = pp.Customer,
+                             TÊN_KHÁCH_HÀNG = pp.FullNameN,
+                             ĐỊA_CHỈ = pp.Street +" "+pp.District +" "+pp.City,
                              QUẬN_HUYỆN = pp.District,
-                             TỈNH_THÀNH_PHỐ = pp.Province,
-                             ĐIỆN_THOẠI = pp.Tel,
+                             TỈNH_THÀNH_PHỐ = pp.City,
+                             ĐIỆN_THOẠI = pp.Telephone1,
                              GHI_CHÚ = pp.Note,
 
                              ID = pp.id,
@@ -1913,7 +1913,7 @@ namespace Maketting.View
                 selectkq.ShowDialog();
                 int id = selectkq.id;
 
-                var rs2 = (from pp in dc.tbl_MKT_khachhangs
+                var rs2 = (from pp in dc.tbl_MKT_Soldtocodes
                            where pp.id == id
                            select pp).FirstOrDefault();
 

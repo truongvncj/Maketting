@@ -30,56 +30,64 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTVTDanhsackhachhang));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txttinh = new System.Windows.Forms.ComboBox();
+            this.txtcity = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtquan = new System.Windows.Forms.TextBox();
+            this.txtdistrict = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtmakhachhang = new System.Windows.Forms.TextBox();
+            this.txtcustomercode = new System.Windows.Forms.TextBox();
             this.txtnote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txttel = new System.Windows.Forms.TextBox();
+            this.txttelephone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtdiachi = new System.Windows.Forms.TextBox();
+            this.txtstreet = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btupdate = new System.Windows.Forms.Button();
             this.btxoa = new System.Windows.Forms.Button();
             this.btnew = new System.Windows.Forms.Button();
-            this.txtten = new System.Windows.Forms.TextBox();
+            this.txtname = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtRegion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSalesOrg = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txttinh);
+            this.panel1.Controls.Add(this.txtRegion);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.txtSalesOrg);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.txtcity);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtquan);
+            this.panel1.Controls.Add(this.txtdistrict);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtmakhachhang);
+            this.panel1.Controls.Add(this.txtcustomercode);
             this.panel1.Controls.Add(this.txtnote);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txttel);
+            this.panel1.Controls.Add(this.txttelephone);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtdiachi);
+            this.panel1.Controls.Add(this.txtstreet);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btupdate);
             this.panel1.Controls.Add(this.btxoa);
             this.panel1.Controls.Add(this.btnew);
-            this.panel1.Controls.Add(this.txtten);
+            this.panel1.Controls.Add(this.txtname);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 312);
+            this.panel1.Size = new System.Drawing.Size(556, 405);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txttinh
+            // txtcity
             // 
-            this.txttinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txttinh.FormattingEnabled = true;
-            this.txttinh.Items.AddRange(new object[] {
+            this.txtcity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtcity.FormattingEnabled = true;
+            this.txtcity.Items.AddRange(new object[] {
             "An Giang",
             "Bà Rịa-Vũng Tàu",
             "Bạc Liêu",
@@ -144,11 +152,11 @@
             "Vĩnh Long",
             "Vĩnh Phúc",
             "Yên Bái"});
-            this.txttinh.Location = new System.Drawing.Point(161, 157);
-            this.txttinh.Name = "txttinh";
-            this.txttinh.Size = new System.Drawing.Size(149, 21);
-            this.txttinh.TabIndex = 85;
-            this.txttinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttinh_KeyPress);
+            this.txtcity.Location = new System.Drawing.Point(161, 157);
+            this.txtcity.Name = "txtcity";
+            this.txtcity.Size = new System.Drawing.Size(149, 21);
+            this.txtcity.TabIndex = 85;
+            this.txtcity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttinh_KeyPress);
             // 
             // label4
             // 
@@ -160,16 +168,16 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 20);
             this.label4.TabIndex = 84;
-            this.label4.Text = "Tỉnh/ Thành Phố";
+            this.label4.Text = "City";
             // 
-            // txtquan
+            // txtdistrict
             // 
-            this.txtquan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtquan.Location = new System.Drawing.Point(163, 118);
-            this.txtquan.Name = "txtquan";
-            this.txtquan.Size = new System.Drawing.Size(147, 20);
-            this.txtquan.TabIndex = 81;
-            this.txtquan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtquan_KeyPress);
+            this.txtdistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdistrict.Location = new System.Drawing.Point(163, 118);
+            this.txtdistrict.Name = "txtdistrict";
+            this.txtdistrict.Size = new System.Drawing.Size(147, 20);
+            this.txtdistrict.TabIndex = 81;
+            this.txtdistrict.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtquan_KeyPress);
             // 
             // label2
             // 
@@ -181,7 +189,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 82;
-            this.label2.Text = "Quận/ Huyện";
+            this.label2.Text = "District";
             // 
             // label3
             // 
@@ -193,16 +201,16 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 20);
             this.label3.TabIndex = 80;
-            this.label3.Text = "Mã khách hàng";
+            this.label3.Text = "Customer code";
             // 
-            // txtmakhachhang
+            // txtcustomercode
             // 
-            this.txtmakhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmakhachhang.Location = new System.Drawing.Point(162, 6);
-            this.txtmakhachhang.Name = "txtmakhachhang";
-            this.txtmakhachhang.Size = new System.Drawing.Size(131, 20);
-            this.txtmakhachhang.TabIndex = 78;
-            this.txtmakhachhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmasothue_KeyPress);
+            this.txtcustomercode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcustomercode.Location = new System.Drawing.Point(162, 6);
+            this.txtcustomercode.Name = "txtcustomercode";
+            this.txtcustomercode.Size = new System.Drawing.Size(131, 20);
+            this.txtcustomercode.TabIndex = 78;
+            this.txtcustomercode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtmasothue_KeyPress);
             // 
             // txtnote
             // 
@@ -223,16 +231,16 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 77;
-            this.label1.Text = "Ghi chú";
+            this.label1.Text = "Note";
             // 
-            // txttel
+            // txttelephone
             // 
-            this.txttel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttel.Location = new System.Drawing.Point(164, 200);
-            this.txttel.Name = "txttel";
-            this.txttel.Size = new System.Drawing.Size(366, 20);
-            this.txttel.TabIndex = 74;
-            this.txttel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttaikhoannganhangso_KeyPress);
+            this.txttelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelephone.Location = new System.Drawing.Point(164, 200);
+            this.txttelephone.Name = "txttelephone";
+            this.txttelephone.Size = new System.Drawing.Size(366, 20);
+            this.txttelephone.TabIndex = 74;
+            this.txttelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttaikhoannganhangso_KeyPress);
             // 
             // label5
             // 
@@ -244,16 +252,16 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 75;
-            this.label5.Text = "Điện thoại";
+            this.label5.Text = "Telephone";
             // 
-            // txtdiachi
+            // txtstreet
             // 
-            this.txtdiachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdiachi.Location = new System.Drawing.Point(163, 79);
-            this.txtdiachi.Name = "txtdiachi";
-            this.txtdiachi.Size = new System.Drawing.Size(368, 20);
-            this.txtdiachi.TabIndex = 67;
-            this.txtdiachi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdiachi_KeyPress);
+            this.txtstreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstreet.Location = new System.Drawing.Point(163, 79);
+            this.txtstreet.Name = "txtstreet";
+            this.txtstreet.Size = new System.Drawing.Size(368, 20);
+            this.txtstreet.TabIndex = 67;
+            this.txtstreet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdiachi_KeyPress);
             // 
             // label11
             // 
@@ -265,7 +273,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 20);
             this.label11.TabIndex = 68;
-            this.label11.Text = "Địa chỉ";
+            this.label11.Text = "Street";
             // 
             // btupdate
             // 
@@ -273,7 +281,7 @@
             this.btupdate.BackColor = System.Drawing.Color.Transparent;
             this.btupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btupdate.ForeColor = System.Drawing.Color.Red;
-            this.btupdate.Location = new System.Drawing.Point(288, 281);
+            this.btupdate.Location = new System.Drawing.Point(288, 374);
             this.btupdate.Name = "btupdate";
             this.btupdate.Size = new System.Drawing.Size(94, 21);
             this.btupdate.TabIndex = 6;
@@ -287,7 +295,7 @@
             this.btxoa.BackColor = System.Drawing.Color.Transparent;
             this.btxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btxoa.ForeColor = System.Drawing.Color.Red;
-            this.btxoa.Location = new System.Drawing.Point(161, 281);
+            this.btxoa.Location = new System.Drawing.Point(161, 374);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(94, 21);
             this.btxoa.TabIndex = 6;
@@ -301,7 +309,7 @@
             this.btnew.BackColor = System.Drawing.Color.Transparent;
             this.btnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnew.ForeColor = System.Drawing.Color.Red;
-            this.btnew.Location = new System.Drawing.Point(409, 281);
+            this.btnew.Location = new System.Drawing.Point(409, 374);
             this.btnew.Name = "btnew";
             this.btnew.Size = new System.Drawing.Size(94, 21);
             this.btnew.TabIndex = 8;
@@ -309,14 +317,14 @@
             this.btnew.UseVisualStyleBackColor = false;
             this.btnew.Click += new System.EventHandler(this.btnew_Click);
             // 
-            // txtten
+            // txtname
             // 
-            this.txtten.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtten.Location = new System.Drawing.Point(162, 42);
-            this.txtten.Name = "txtten";
-            this.txtten.Size = new System.Drawing.Size(369, 20);
-            this.txtten.TabIndex = 2;
-            this.txtten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttenkho_KeyPress);
+            this.txtname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(162, 42);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(369, 20);
+            this.txtname.TabIndex = 2;
+            this.txtname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttenkho_KeyPress);
             // 
             // label21
             // 
@@ -328,13 +336,53 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
-            this.label21.Text = "Tên khách hàng";
+            this.label21.Text = "Customer Name";
+            // 
+            // txtRegion
+            // 
+            this.txtRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegion.Location = new System.Drawing.Point(162, 317);
+            this.txtRegion.Name = "txtRegion";
+            this.txtRegion.Size = new System.Drawing.Size(366, 20);
+            this.txtRegion.TabIndex = 88;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 317);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 20);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Region";
+            // 
+            // txtSalesOrg
+            // 
+            this.txtSalesOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalesOrg.Location = new System.Drawing.Point(163, 276);
+            this.txtSalesOrg.Name = "txtSalesOrg";
+            this.txtSalesOrg.Size = new System.Drawing.Size(366, 20);
+            this.txtSalesOrg.TabIndex = 86;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 276);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 20);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "SalesOrg";
             // 
             // MKTVTDanhsackhachhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 321);
+            this.ClientSize = new System.Drawing.Size(565, 444);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -352,22 +400,26 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtten;
+        private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnew;
         private System.Windows.Forms.Button btupdate;
         private System.Windows.Forms.Button btxoa;
-        private System.Windows.Forms.TextBox txtdiachi;
+        private System.Windows.Forms.TextBox txtstreet;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txttel;
+        private System.Windows.Forms.TextBox txttelephone;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtmakhachhang;
+        private System.Windows.Forms.TextBox txtcustomercode;
         private System.Windows.Forms.TextBox txtnote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox txttinh;
+        private System.Windows.Forms.ComboBox txtcity;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtquan;
+        private System.Windows.Forms.TextBox txtdistrict;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRegion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSalesOrg;
+        private System.Windows.Forms.Label label7;
     }
 }

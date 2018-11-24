@@ -41,11 +41,12 @@ namespace Maketting.Model
 
         public Boolean btaddnewItem { get; set; }
 
-        public Username()
+        public static string getUsername()
         {
 
             string Name = Utils.getusername();
 
+            return Name;
 
 
 

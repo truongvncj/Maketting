@@ -39,9 +39,6 @@ namespace Maketting
     partial void Inserttbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
     partial void Updatetbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
     partial void Deletetbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
-    partial void Inserttbl_MKT_khachhang(tbl_MKT_khachhang instance);
-    partial void Updatetbl_MKT_khachhang(tbl_MKT_khachhang instance);
-    partial void Deletetbl_MKT_khachhang(tbl_MKT_khachhang instance);
     partial void Inserttbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
     partial void Updatetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
     partial void Deletetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
@@ -105,6 +102,9 @@ namespace Maketting
     partial void Inserttbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Updatetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Deletetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
+    partial void Inserttbl_MKT_Soldtocode(tbl_MKT_Soldtocode instance);
+    partial void Updatetbl_MKT_Soldtocode(tbl_MKT_Soldtocode instance);
+    partial void Deletetbl_MKT_Soldtocode(tbl_MKT_Soldtocode instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
@@ -158,14 +158,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_headRpt_Phieuissue>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_khachhang> tbl_MKT_khachhangs
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_khachhang>();
 			}
 		}
 		
@@ -334,6 +326,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKt_WHstoreissue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Soldtocode> tbl_MKT_Soldtocodes
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Soldtocode>();
 			}
 		}
 	}
@@ -1291,236 +1291,6 @@ namespace Maketting
 					this._Barcode = value;
 					this.SendPropertyChanged("Barcode");
 					this.OnBarcodeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_khachhang")]
-	public partial class tbl_MKT_khachhang : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Customer_code;
-		
-		private string _Customer_name;
-		
-		private int _id;
-		
-		private string _Address;
-		
-		private string _Tel;
-		
-		private string _Note;
-		
-		private string _Province;
-		
-		private string _District;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCustomer_codeChanging(string value);
-    partial void OnCustomer_codeChanged();
-    partial void OnCustomer_nameChanging(string value);
-    partial void OnCustomer_nameChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnTelChanging(string value);
-    partial void OnTelChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnProvinceChanging(string value);
-    partial void OnProvinceChanged();
-    partial void OnDistrictChanging(string value);
-    partial void OnDistrictChanged();
-    #endregion
-		
-		public tbl_MKT_khachhang()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_code", DbType="NVarChar(50)")]
-		public string Customer_code
-		{
-			get
-			{
-				return this._Customer_code;
-			}
-			set
-			{
-				if ((this._Customer_code != value))
-				{
-					this.OnCustomer_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_code = value;
-					this.SendPropertyChanged("Customer_code");
-					this.OnCustomer_codeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_name", DbType="NVarChar(225)")]
-		public string Customer_name
-		{
-			get
-			{
-				return this._Customer_name;
-			}
-			set
-			{
-				if ((this._Customer_name != value))
-				{
-					this.OnCustomer_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_name = value;
-					this.SendPropertyChanged("Customer_name");
-					this.OnCustomer_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(225)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="NVarChar(225)")]
-		public string Tel
-		{
-			get
-			{
-				return this._Tel;
-			}
-			set
-			{
-				if ((this._Tel != value))
-				{
-					this.OnTelChanging(value);
-					this.SendPropertyChanging();
-					this._Tel = value;
-					this.SendPropertyChanged("Tel");
-					this.OnTelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(225)")]
-		public string Note
-		{
-			get
-			{
-				return this._Note;
-			}
-			set
-			{
-				if ((this._Note != value))
-				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Province", DbType="NVarChar(50)")]
-		public string Province
-		{
-			get
-			{
-				return this._Province;
-			}
-			set
-			{
-				if ((this._Province != value))
-				{
-					this.OnProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._Province = value;
-					this.SendPropertyChanged("Province");
-					this.OnProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(50)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this.OnDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._District = value;
-					this.SendPropertyChanged("District");
-					this.OnDistrictChanged();
 				}
 			}
 		}
@@ -8295,6 +8065,404 @@ namespace Maketting
 					this._POnumber = value;
 					this.SendPropertyChanged("POnumber");
 					this.OnPOnumberChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Soldtocode")]
+	public partial class tbl_MKT_Soldtocode : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Customer;
+		
+		private string _FullNameN;
+		
+		private int _id;
+		
+		private string _Telephone1;
+		
+		private string _Note;
+		
+		private string _District;
+		
+		private string _SalesOrg;
+		
+		private string _Street;
+		
+		private string _City;
+		
+		private string _Region;
+		
+		private string _PaymentTerms;
+		
+		private string _PriceList;
+		
+		private string _KeyAcc;
+		
+		private string _SalesDistrict;
+		
+		private string _VATregistrationNo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomerChanging(string value);
+    partial void OnCustomerChanged();
+    partial void OnFullNameNChanging(string value);
+    partial void OnFullNameNChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnTelephone1Changing(string value);
+    partial void OnTelephone1Changed();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnSalesOrgChanging(string value);
+    partial void OnSalesOrgChanged();
+    partial void OnStreetChanging(string value);
+    partial void OnStreetChanged();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnPaymentTermsChanging(string value);
+    partial void OnPaymentTermsChanged();
+    partial void OnPriceListChanging(string value);
+    partial void OnPriceListChanged();
+    partial void OnKeyAccChanging(string value);
+    partial void OnKeyAccChanged();
+    partial void OnSalesDistrictChanging(string value);
+    partial void OnSalesDistrictChanged();
+    partial void OnVATregistrationNoChanging(string value);
+    partial void OnVATregistrationNoChanged();
+    #endregion
+		
+		public tbl_MKT_Soldtocode()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer", DbType="NVarChar(50)")]
+		public string Customer
+		{
+			get
+			{
+				return this._Customer;
+			}
+			set
+			{
+				if ((this._Customer != value))
+				{
+					this.OnCustomerChanging(value);
+					this.SendPropertyChanging();
+					this._Customer = value;
+					this.SendPropertyChanged("Customer");
+					this.OnCustomerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullNameN", DbType="NVarChar(225)")]
+		public string FullNameN
+		{
+			get
+			{
+				return this._FullNameN;
+			}
+			set
+			{
+				if ((this._FullNameN != value))
+				{
+					this.OnFullNameNChanging(value);
+					this.SendPropertyChanging();
+					this._FullNameN = value;
+					this.SendPropertyChanged("FullNameN");
+					this.OnFullNameNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone1", DbType="NVarChar(225)")]
+		public string Telephone1
+		{
+			get
+			{
+				return this._Telephone1;
+			}
+			set
+			{
+				if ((this._Telephone1 != value))
+				{
+					this.OnTelephone1Changing(value);
+					this.SendPropertyChanging();
+					this._Telephone1 = value;
+					this.SendPropertyChanged("Telephone1");
+					this.OnTelephone1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(225)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(50)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesOrg", DbType="NVarChar(50)")]
+		public string SalesOrg
+		{
+			get
+			{
+				return this._SalesOrg;
+			}
+			set
+			{
+				if ((this._SalesOrg != value))
+				{
+					this.OnSalesOrgChanging(value);
+					this.SendPropertyChanging();
+					this._SalesOrg = value;
+					this.SendPropertyChanged("SalesOrg");
+					this.OnSalesOrgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="NVarChar(50)")]
+		public string Street
+		{
+			get
+			{
+				return this._Street;
+			}
+			set
+			{
+				if ((this._Street != value))
+				{
+					this.OnStreetChanging(value);
+					this.SendPropertyChanging();
+					this._Street = value;
+					this.SendPropertyChanged("Street");
+					this.OnStreetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50)")]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentTerms", DbType="NVarChar(50)")]
+		public string PaymentTerms
+		{
+			get
+			{
+				return this._PaymentTerms;
+			}
+			set
+			{
+				if ((this._PaymentTerms != value))
+				{
+					this.OnPaymentTermsChanging(value);
+					this.SendPropertyChanging();
+					this._PaymentTerms = value;
+					this.SendPropertyChanged("PaymentTerms");
+					this.OnPaymentTermsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceList", DbType="NVarChar(50)")]
+		public string PriceList
+		{
+			get
+			{
+				return this._PriceList;
+			}
+			set
+			{
+				if ((this._PriceList != value))
+				{
+					this.OnPriceListChanging(value);
+					this.SendPropertyChanging();
+					this._PriceList = value;
+					this.SendPropertyChanged("PriceList");
+					this.OnPriceListChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KeyAcc", DbType="NVarChar(50)")]
+		public string KeyAcc
+		{
+			get
+			{
+				return this._KeyAcc;
+			}
+			set
+			{
+				if ((this._KeyAcc != value))
+				{
+					this.OnKeyAccChanging(value);
+					this.SendPropertyChanging();
+					this._KeyAcc = value;
+					this.SendPropertyChanged("KeyAcc");
+					this.OnKeyAccChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesDistrict", DbType="NVarChar(50)")]
+		public string SalesDistrict
+		{
+			get
+			{
+				return this._SalesDistrict;
+			}
+			set
+			{
+				if ((this._SalesDistrict != value))
+				{
+					this.OnSalesDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._SalesDistrict = value;
+					this.SendPropertyChanged("SalesDistrict");
+					this.OnSalesDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VATregistrationNo", DbType="NVarChar(50)")]
+		public string VATregistrationNo
+		{
+			get
+			{
+				return this._VATregistrationNo;
+			}
+			set
+			{
+				if ((this._VATregistrationNo != value))
+				{
+					this.OnVATregistrationNoChanging(value);
+					this.SendPropertyChanging();
+					this._VATregistrationNo = value;
+					this.SendPropertyChanged("VATregistrationNo");
+					this.OnVATregistrationNoChanged();
 				}
 			}
 		}

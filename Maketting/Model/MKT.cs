@@ -915,19 +915,21 @@ namespace Maketting.Model
 
 
             LinqtoSQLDataContext db = dc;
-            var rs = from p in db.tbl_MKT_khachhangs
-                     orderby p.Customer_code
+            var rs = from p in db.tbl_MKT_Soldtocodes
+                     orderby p.Customer
                      select new
                      {
 
-
-                         Mã_khách_hàng = p.Customer_code,
-                         Tên_khách_hàng = p.Customer_name,
-                         Địa_chỉ = p.Address,
-                         Quận = p.District,
-                         Tỉnh_Thành_Phố = p.Province,
-                         Điện_thoại = p.Tel,
-                         Ghi_chú = p.Note,
+                         SalesOrg = p.SalesOrg,
+                         Region = p.Region,
+                         Customer = p.Customer,
+                         FullName = p.FullNameN,
+                         Street = p.Street ,
+                         District = p.District,
+                         City = p.City,
+                         Telephone = p.Telephone1,
+                         Note = p.Note,
+                       
 
                          ID = p.id,
                      };

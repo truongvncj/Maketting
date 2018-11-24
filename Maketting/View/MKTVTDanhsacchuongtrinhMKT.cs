@@ -172,14 +172,14 @@ namespace Maketting.View
 
 
 
-            var rs1 = (from p in dc.tbl_MKT_khachhangs
+            var rs1 = (from p in dc.tbl_MKT_Soldtocodes
                        where p.id == this.id
                        select p).FirstOrDefault();
 
             if (rs1 != null)
             {
 
-                dc.tbl_MKT_khachhangs.DeleteOnSubmit(rs1);
+                dc.tbl_MKT_Soldtocodes.DeleteOnSubmit(rs1);
                 dc.SubmitChanges();
                 this.Close();
 

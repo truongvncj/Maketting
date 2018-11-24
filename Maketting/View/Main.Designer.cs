@@ -35,9 +35,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelmain = new System.Windows.Forms.Panel();
             this.lbusername = new System.Windows.Forms.Label();
             this.lb_user = new System.Windows.Forms.Label();
-            this.panelmain = new System.Windows.Forms.Panel();
             this.dfasfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ádfasdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -45,10 +45,12 @@
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadBeginStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOButgetReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +73,8 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadCustomerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +90,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1336, 612);
             this.panel1.TabIndex = 20;
+            // 
+            // panelmain
+            // 
+            this.panelmain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelmain.AutoScroll = true;
+            this.panelmain.AutoSize = true;
+            this.panelmain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelmain.Location = new System.Drawing.Point(6, 4);
+            this.panelmain.Name = "panelmain";
+            this.panelmain.Size = new System.Drawing.Size(1327, 605);
+            this.panelmain.TabIndex = 7;
             // 
             // lbusername
             // 
@@ -109,20 +125,6 @@
             this.lb_user.Size = new System.Drawing.Size(29, 13);
             this.lb_user.TabIndex = 23;
             this.lb_user.Text = "User";
-            // 
-            // panelmain
-            // 
-            this.panelmain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelmain.AutoScroll = true;
-            this.panelmain.AutoSize = true;
-            this.panelmain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelmain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelmain.Location = new System.Drawing.Point(6, 4);
-            this.panelmain.Name = "panelmain";
-            this.panelmain.Size = new System.Drawing.Size(1327, 605);
-            this.panelmain.TabIndex = 7;
             // 
             // dfasfToolStripMenuItem
             // 
@@ -147,7 +149,8 @@
             this.Menuload,
             this.Menuwavehouse,
             this.Menureports,
-            this.passwordToolStripMenuItem});
+            this.passwordToolStripMenuItem,
+            this.masterDataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 28);
@@ -192,6 +195,14 @@
             this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
             this.MenuMaketting.Text = "Maketting";
             // 
+            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
+            // 
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
+            // 
             // tậpHợpPhiếuMKTTrảVềToolStripMenuItem
             // 
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Name = "tậpHợpPhiếuMKTTrảVềToolStripMenuItem";
@@ -215,6 +226,14 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
+            // 
+            // báoCáoPhiếuMKTToolStripMenuItem
+            // 
+            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
+            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
             // 
             // storeAvaiableReportsToolStripMenuItem
             // 
@@ -377,21 +396,20 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
+            // masterDataToolStripMenuItem
             // 
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
+            this.masterDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadCustomerListToolStripMenuItem});
+            this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
+            this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.masterDataToolStripMenuItem.Text = "Master data";
             // 
-            // báoCáoPhiếuMKTToolStripMenuItem
+            // uploadCustomerListToolStripMenuItem
             // 
-            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
-            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
+            this.uploadCustomerListToolStripMenuItem.Name = "uploadCustomerListToolStripMenuItem";
+            this.uploadCustomerListToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
+            this.uploadCustomerListToolStripMenuItem.Text = "Upload Customer list";
+            this.uploadCustomerListToolStripMenuItem.Click += new System.EventHandler(this.uploadCustomerListToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -458,6 +476,8 @@
         private ToolStripMenuItem transferOUtToolStripMenuItem;
         private ToolStripMenuItem transferInToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem masterDataToolStripMenuItem;
+        private ToolStripMenuItem uploadCustomerListToolStripMenuItem;
     }
 }
 

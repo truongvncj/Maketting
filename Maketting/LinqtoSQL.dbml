@@ -48,18 +48,6 @@
       <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_MKT_khachhang" Member="tbl_MKT_khachhangs">
-    <Type Name="tbl_MKT_khachhang">
-      <Column Name="Customer_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Customer_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Tel" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Province" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
     <Type Name="tbl_MKT_khoMKT">
       <Column Name="tenkho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -391,6 +379,25 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Soldtocode" Member="tbl_MKT_Soldtocodes">
+    <Type Name="tbl_MKT_Soldtocode">
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullNameN" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Telephone1" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceList" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KeyAcc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesDistrict" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VATregistrationNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
