@@ -73,8 +73,7 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadCustomerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadCustomerListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -149,8 +148,7 @@
             this.Menuload,
             this.Menuwavehouse,
             this.Menureports,
-            this.passwordToolStripMenuItem,
-            this.masterDataToolStripMenuItem});
+            this.passwordToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 28);
@@ -161,7 +159,8 @@
             // 
             this.Menusystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem1,
-            this.uploadBeginStoreToolStripMenuItem});
+            this.uploadBeginStoreToolStripMenuItem,
+            this.uploadCustomerListToolStripMenuItem1});
             this.Menusystem.Name = "Menusystem";
             this.Menusystem.Size = new System.Drawing.Size(68, 24);
             this.Menusystem.Text = "System";
@@ -169,14 +168,14 @@
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
             this.usersToolStripMenuItem1.Text = "Admin users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
             // uploadBeginStoreToolStripMenuItem
             // 
             this.uploadBeginStoreToolStripMenuItem.Name = "uploadBeginStoreToolStripMenuItem";
-            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.uploadBeginStoreToolStripMenuItem.Text = "Upload Begin Store";
             this.uploadBeginStoreToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem_Click);
             // 
@@ -396,20 +395,12 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // masterDataToolStripMenuItem
+            // uploadCustomerListToolStripMenuItem1
             // 
-            this.masterDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uploadCustomerListToolStripMenuItem});
-            this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
-            this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
-            this.masterDataToolStripMenuItem.Text = "Master data";
-            // 
-            // uploadCustomerListToolStripMenuItem
-            // 
-            this.uploadCustomerListToolStripMenuItem.Name = "uploadCustomerListToolStripMenuItem";
-            this.uploadCustomerListToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.uploadCustomerListToolStripMenuItem.Text = "Upload Customer list";
-            this.uploadCustomerListToolStripMenuItem.Click += new System.EventHandler(this.uploadCustomerListToolStripMenuItem_Click);
+            this.uploadCustomerListToolStripMenuItem1.Name = "uploadCustomerListToolStripMenuItem1";
+            this.uploadCustomerListToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
+            this.uploadCustomerListToolStripMenuItem1.Text = "Upload Customer list";
+            this.uploadCustomerListToolStripMenuItem1.Click += new System.EventHandler(this.uploadCustomerListToolStripMenuItem1_Click);
             // 
             // Main
             // 
@@ -476,8 +467,7 @@
         private ToolStripMenuItem transferOUtToolStripMenuItem;
         private ToolStripMenuItem transferInToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator6;
-        private ToolStripMenuItem masterDataToolStripMenuItem;
-        private ToolStripMenuItem uploadCustomerListToolStripMenuItem;
+        private ToolStripMenuItem uploadCustomerListToolStripMenuItem1;
     }
 }
 
