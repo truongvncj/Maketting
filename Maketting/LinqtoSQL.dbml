@@ -237,6 +237,28 @@
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKT_Soldtocode" Member="tbl_MKT_Soldtocodes">
+    <Type Name="tbl_MKT_Soldtocode">
+      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FullNameN" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Telephone1" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesOrg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceList" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KeyAcc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SalesDistrict" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VATregistrationNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Createdon" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Createby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ShiptoCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_Stockcount" Member="tbl_MKT_Stockcounts">
     <Type Name="tbl_MKT_Stockcount">
       <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -379,25 +401,6 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Soldtocode" Member="tbl_MKT_Soldtocodes">
-    <Type Name="tbl_MKT_Soldtocode">
-      <Column Name="Customer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FullNameN" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Telephone1" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SalesOrg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PaymentTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PriceList" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="KeyAcc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SalesDistrict" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="VATregistrationNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
