@@ -90,6 +90,8 @@ namespace Maketting.View
                     cmd.Parameters.AddWithValue("@Username", textBox1.Text);
                     cmd.Parameters.AddWithValue("@Password", textBox2.Text);
                     int result = (int)cmd.ExecuteScalar();
+
+
                     if (result > 0)
                     {
 
