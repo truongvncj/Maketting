@@ -645,7 +645,7 @@ namespace Maketting.View
 
                     rs.Receiver_by = txtnguoinhan.Text;
                     rs.ShiptoName = txtShiptoname.Text;
-
+                    rs.Note = txtNote.Text;
 
                     rs.Ngaytaophieu = datepickngayphieu.Value;
                     rs.Purpose = txtmucdichname.Text;
@@ -1848,8 +1848,14 @@ namespace Maketting.View
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
+                txtshiptoaddress.Text = rs.ShiptoAddress;
+
                 txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                txtShiptoCode.Text = rs.ShiptoCode.ToString();
+
+
                 txtnguoinhan.Text = rs.Receiver_by;// = 
+                txtShiptoname.Text = rs.ShiptoName;
 
                 datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
                 txtmucdichname.Text = rs.Purpose;//= ;
@@ -1857,6 +1863,7 @@ namespace Maketting.View
                 this.storelocation = rs.ShippingPoint;// = ;
 
 
+                txtNote.Text = rs.Note;
 
 
                 //  cbkhohang.Items
