@@ -48,9 +48,9 @@ namespace Maketting
     partial void Inserttbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
     partial void Updatetbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
     partial void Deletetbl_MKt_ListLoadheadDetail(tbl_MKt_ListLoadheadDetail instance);
-    partial void Inserttbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
-    partial void Updatetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
-    partial void Deletetbl_MKt_Listphieu(tbl_MKt_Listphieu instance);
+    partial void Inserttbl_MKt_Listphieudetail(tbl_MKt_Listphieudetail instance);
+    partial void Updatetbl_MKt_Listphieudetail(tbl_MKt_Listphieudetail instance);
+    partial void Deletetbl_MKt_Listphieudetail(tbl_MKt_Listphieudetail instance);
     partial void Inserttbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
     partial void Updatetbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
     partial void Deletetbl_MKt_Listphieuhead(tbl_MKt_Listphieuhead instance);
@@ -185,11 +185,11 @@ namespace Maketting
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_MKt_Listphieu> tbl_MKt_Listphieus
+		public System.Data.Linq.Table<tbl_MKt_Listphieudetail> tbl_MKt_Listphieudetails
 		{
 			get
 			{
-				return this.GetTable<tbl_MKt_Listphieu>();
+				return this.GetTable<tbl_MKt_Listphieudetail>();
 			}
 		}
 		
@@ -2030,8 +2030,8 @@ namespace Maketting
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_Listphieu")]
-	public partial class tbl_MKt_Listphieu : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKt_Listphieudetail")]
+	public partial class tbl_MKt_Listphieudetail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2162,7 +2162,7 @@ namespace Maketting
     partial void OnRegionChanged();
     #endregion
 		
-		public tbl_MKt_Listphieu()
+		public tbl_MKt_Listphieudetail()
 		{
 			OnCreated();
 		}
@@ -2832,6 +2832,14 @@ namespace Maketting
 		
 		private string _Region;
 		
+		private System.Nullable<double> _ShiptoCode;
+		
+		private string _ShiptoName;
+		
+		private string _ShiptoAddress;
+		
+		private string _Note;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2874,6 +2882,14 @@ namespace Maketting
     partial void OnTranposterbyChanged();
     partial void OnRegionChanging(string value);
     partial void OnRegionChanged();
+    partial void OnShiptoCodeChanging(System.Nullable<double> value);
+    partial void OnShiptoCodeChanged();
+    partial void OnShiptoNameChanging(string value);
+    partial void OnShiptoNameChanged();
+    partial void OnShiptoAddressChanging(string value);
+    partial void OnShiptoAddressChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -3257,6 +3273,86 @@ namespace Maketting
 					this._Region = value;
 					this.SendPropertyChanged("Region");
 					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiptoCode", DbType="Float")]
+		public System.Nullable<double> ShiptoCode
+		{
+			get
+			{
+				return this._ShiptoCode;
+			}
+			set
+			{
+				if ((this._ShiptoCode != value))
+				{
+					this.OnShiptoCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ShiptoCode = value;
+					this.SendPropertyChanged("ShiptoCode");
+					this.OnShiptoCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiptoName", DbType="NVarChar(255)")]
+		public string ShiptoName
+		{
+			get
+			{
+				return this._ShiptoName;
+			}
+			set
+			{
+				if ((this._ShiptoName != value))
+				{
+					this.OnShiptoNameChanging(value);
+					this.SendPropertyChanging();
+					this._ShiptoName = value;
+					this.SendPropertyChanged("ShiptoName");
+					this.OnShiptoNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiptoAddress", DbType="NVarChar(255)")]
+		public string ShiptoAddress
+		{
+			get
+			{
+				return this._ShiptoAddress;
+			}
+			set
+			{
+				if ((this._ShiptoAddress != value))
+				{
+					this.OnShiptoAddressChanging(value);
+					this.SendPropertyChanging();
+					this._ShiptoAddress = value;
+					this.SendPropertyChanged("ShiptoAddress");
+					this.OnShiptoAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(255)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
 				}
 			}
 		}

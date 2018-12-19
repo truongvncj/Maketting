@@ -1958,7 +1958,7 @@ namespace Maketting.View
 
 
 
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  orderby pp.Gate_pass
                                  select pp;

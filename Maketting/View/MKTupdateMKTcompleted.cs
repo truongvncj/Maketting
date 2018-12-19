@@ -2018,7 +2018,7 @@ namespace Maketting.View
 
 
 
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
                                      //    where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  orderby pp.Gate_pass
                                  select pp;
@@ -2290,7 +2290,7 @@ namespace Maketting.View
                     #region detai
 
 
-                    var rs2 = from pp in dc.tbl_MKt_Listphieus
+                    var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                               where pp.ShippingPoint == Shipping_Point && pp.Gate_pass == Gate_pass
                               select pp;
                     if (rs.Count() > 0)

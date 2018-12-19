@@ -342,7 +342,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
 
-            var rs = from pp in dc.tbl_MKt_Listphieus
+            var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Status == "LOADING" && pp.Username == urs
 
                      select pp;
@@ -368,7 +368,7 @@ namespace Maketting.Model
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = from p in dc.tbl_MKt_Listphieus
+            var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                      orderby p.Gate_pass
                      select new
@@ -410,7 +410,7 @@ namespace Maketting.Model
         {
 
 
-            var rs = from p in dc.tbl_MKt_Listphieus
+            var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
                      orderby p.Gate_pass
                      select new
@@ -683,14 +683,14 @@ namespace Maketting.Model
             }
 
 
-            var rs2 = from pp in dc.tbl_MKt_Listphieus
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
                       select pp;
 
 
             if (rs2.Count() > 0)
             {
-                dc.tbl_MKt_Listphieus.DeleteAllOnSubmit(rs2);
+                dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
                 dc.SubmitChanges();
 
             }
@@ -1072,7 +1072,7 @@ namespace Maketting.Model
             // upload detail
 
 
-            var rs2 = from pp in dc.tbl_MKt_Listphieus
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.ShipmentNumber == soload && pp.ShippingPoint == storelocation
                       select pp;
 
@@ -1123,7 +1123,7 @@ namespace Maketting.Model
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = from p in dc.tbl_MKt_Listphieus
+            var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.ToString().Contains(txtseachcode)

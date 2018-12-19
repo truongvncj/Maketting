@@ -521,7 +521,7 @@ namespace Maketting.View
 
                 MessageBox.Show("StoreIssue:  " + this.Loadnumberserri.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                var phieuMKT = (from pp in dc.tbl_MKt_Listphieus
+                var phieuMKT = (from pp in dc.tbl_MKt_Listphieudetails
                                 where pp.ShipmentNumber == this.soload
                                 && pp.ShippingPoint == this.storelocation
                                 select pp);
@@ -2015,7 +2015,7 @@ namespace Maketting.View
 
 
 
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  orderby pp.Gate_pass
                                  select pp;

@@ -36,7 +36,7 @@ namespace Maketting.View
         }
 
 
-        public void addDEtailLoad(tbl_MKt_Listphieu PhieuMKT)
+        public void addDEtailLoad(tbl_MKt_Listphieudetail PhieuMKT)
         {
 
 
@@ -123,7 +123,7 @@ namespace Maketting.View
 
         }
         //  RemoveDEtailLoad(item);
-        public void RemoveDEtailLoad(tbl_MKt_Listphieu PhieuMKT)
+        public void RemoveDEtailLoad(tbl_MKt_Listphieudetail PhieuMKT)
         {
 
 
@@ -687,7 +687,7 @@ namespace Maketting.View
                 {
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value != DBNull.Value)
                     {
-                        var rs3 = from pp in dc.tbl_MKt_Listphieus
+                        var rs3 = from pp in dc.tbl_MKt_Listphieudetails
                                   where pp.Gate_pass == (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value
                                   && pp.ShippingPoint == this.storelocation
                                   select pp;
@@ -737,7 +737,7 @@ namespace Maketting.View
                 #region  update tbl_MKt_ListLoadheadDetail
            //     btluu.Enabled = false;
 
-                var rs4 = from pp in dc.tbl_MKt_Listphieus
+                var rs4 = from pp in dc.tbl_MKt_Listphieudetails
                           where pp.ShipmentNumber == this.soload
                           && pp.ShippingPoint == this.storelocation
                           group pp by pp.Materiacode into gg
@@ -877,7 +877,7 @@ namespace Maketting.View
 
 
             string gatepasslist = "";
-            var rptMKTdetailmk1 = from pp in dc.tbl_MKt_Listphieus
+            var rptMKTdetailmk1 = from pp in dc.tbl_MKt_Listphieudetails
                                   where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                   group pp by pp.Gate_pass into gg
                                   select gg;
@@ -897,8 +897,8 @@ namespace Maketting.View
             }
 
 
-                var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
-                                 where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+                var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
+                                     where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  group pp by pp.Materiacode into gg
                                  select new
                                  {
@@ -1817,7 +1817,7 @@ namespace Maketting.View
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
             #region load detail so phieu va loacation
-            var rs2 = from pp in dc.tbl_MKt_Listphieus
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.ShipmentNumber == shipmentfind && pp.ShippingPoint == ShippingPointfind
 
                       select pp;
@@ -1959,7 +1959,7 @@ namespace Maketting.View
 
             string username = Utils.getusername();
 
-            var rs = from pp in dc.tbl_MKt_Listphieus
+            var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Username == username && pp.Status == "LOADING"
                     && pp.ShippingPoint ==this.storelocation
 
@@ -2141,7 +2141,7 @@ namespace Maketting.View
             //dt.Columns.Add(new DataColumn("Receiver_by", typeof(string)));
             //dt.Columns.Add(new DataColumn("Address", typeof(string)));
 
-            var rs = from pp in dc.tbl_MKt_Listphieus
+            var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Gate_pass == gatepassfind && pp.ShippingPoint == this.storelocation && pp.Status == "CRT"
 
                      select pp;
@@ -2201,7 +2201,7 @@ namespace Maketting.View
             //dt.Columns.Add(new DataColumn("Receiver_by", typeof(string)));
             //dt.Columns.Add(new DataColumn("Address", typeof(string)));
 
-            var rs = from pp in dc.tbl_MKt_Listphieus
+            var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Gate_pass == gatepassfind && pp.ShippingPoint == this.storelocation //&& pp.Status == "LOADING"
 
                      select pp;
@@ -2290,7 +2290,7 @@ namespace Maketting.View
 
 
 
-            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieus
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  orderby pp.Gate_pass
                                  select pp;
@@ -2451,7 +2451,7 @@ namespace Maketting.View
             string seachcode = txtseachcode.Text;
             string seachgate = txtseachgate.Text;
 
-            var rs = from p in dc.tbl_MKt_Listphieus
+            var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                      && p.Address.Contains(seachaddress)
                              && p.Customer_SAP_Code.ToString().Contains(seachcode)
