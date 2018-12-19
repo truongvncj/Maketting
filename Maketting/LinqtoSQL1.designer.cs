@@ -5164,6 +5164,10 @@ namespace Maketting
 		
 		private string _Customer;
 		
+		private string _ShiptoCode;
+		
+		private bool _Soldtype;
+		
 		private string _FullNameN;
 		
 		private int _id;
@@ -5196,14 +5200,16 @@ namespace Maketting
 		
 		private string _Createby;
 		
-		private string _ShiptoCode;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnCustomerChanging(string value);
     partial void OnCustomerChanged();
+    partial void OnShiptoCodeChanging(string value);
+    partial void OnShiptoCodeChanged();
+    partial void OnSoldtypeChanging(bool value);
+    partial void OnSoldtypeChanged();
     partial void OnFullNameNChanging(string value);
     partial void OnFullNameNChanged();
     partial void OnidChanging(int value);
@@ -5236,8 +5242,6 @@ namespace Maketting
     partial void OnCreatedonChanged();
     partial void OnCreatebyChanging(string value);
     partial void OnCreatebyChanged();
-    partial void OnShiptoCodeChanging(string value);
-    partial void OnShiptoCodeChanged();
     #endregion
 		
 		public tbl_MKT_Soldtocode()
@@ -5261,6 +5265,46 @@ namespace Maketting
 					this._Customer = value;
 					this.SendPropertyChanged("Customer");
 					this.OnCustomerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiptoCode", DbType="NVarChar(50)")]
+		public string ShiptoCode
+		{
+			get
+			{
+				return this._ShiptoCode;
+			}
+			set
+			{
+				if ((this._ShiptoCode != value))
+				{
+					this.OnShiptoCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ShiptoCode = value;
+					this.SendPropertyChanged("ShiptoCode");
+					this.OnShiptoCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Soldtype", DbType="Bit NOT NULL")]
+		public bool Soldtype
+		{
+			get
+			{
+				return this._Soldtype;
+			}
+			set
+			{
+				if ((this._Soldtype != value))
+				{
+					this.OnSoldtypeChanging(value);
+					this.SendPropertyChanging();
+					this._Soldtype = value;
+					this.SendPropertyChanged("Soldtype");
+					this.OnSoldtypeChanged();
 				}
 			}
 		}
@@ -5581,26 +5625,6 @@ namespace Maketting
 					this._Createby = value;
 					this.SendPropertyChanged("Createby");
 					this.OnCreatebyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiptoCode", DbType="NVarChar(50)")]
-		public string ShiptoCode
-		{
-			get
-			{
-				return this._ShiptoCode;
-			}
-			set
-			{
-				if ((this._ShiptoCode != value))
-				{
-					this.OnShiptoCodeChanging(value);
-					this.SendPropertyChanging();
-					this._ShiptoCode = value;
-					this.SendPropertyChanged("ShiptoCode");
-					this.OnShiptoCodeChanged();
 				}
 			}
 		}

@@ -156,8 +156,21 @@ namespace Maketting.View
             txtcustcode.Text = "";
             txtcustcode.Enabled = false;
 
+
             txtdiachi.Text = "";
             txtdiachi.Enabled = false;
+
+
+            txtShiptoCode.Text = "";
+            txtShiptoCode.Enabled = false;
+
+            txtShiptoname.Text = "";
+            txtShiptoname.Enabled = true;
+
+
+            txtshiptoaddress.Text = "";
+            txtshiptoaddress.Enabled = false;
+
 
             txtnguoiyeucau.Enabled = true;
             txtnguoinhan.Enabled = true;
@@ -2129,6 +2142,7 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
                          where pp.FullNameN.Contains(seachtext)
+                         && pp.Soldtype == true
                          select new
                          {
                              MÃ_KHÁCH_HÀNG = pp.Customer,
@@ -2160,7 +2174,13 @@ namespace Maketting.View
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street +" ,"+ rs2.District+" ,"+ rs2.City;
                     lbtel.Text = rs2.Telephone1;
-             
+
+
+                    txtShiptoCode.Text = rs2.ShiptoCode;
+
+                    txtShiptoname.Text = rs2.FullNameN;
+                    txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
+
 
 
                 }
@@ -2169,7 +2189,10 @@ namespace Maketting.View
 
 
 
-                txtmucdichname.Focus();
+
+
+
+                txtShiptoname.Focus();
 
 
             }

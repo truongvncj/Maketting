@@ -43,7 +43,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadBeginStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadBeginStoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +75,10 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadCustomerListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadShiptoCodeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewCustomerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -159,8 +164,7 @@
             // 
             this.Menusystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usersToolStripMenuItem1,
-            this.uploadBeginStoreToolStripMenuItem,
-            this.uploadCustomerListToolStripMenuItem1});
+            this.masterDataToolStripMenuItem});
             this.Menusystem.Name = "Menusystem";
             this.Menusystem.Size = new System.Drawing.Size(68, 24);
             this.Menusystem.Text = "System";
@@ -168,16 +172,36 @@
             // usersToolStripMenuItem1
             // 
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
+            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(159, 24);
             this.usersToolStripMenuItem1.Text = "Admin users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
             // 
-            // uploadBeginStoreToolStripMenuItem
+            // masterDataToolStripMenuItem
             // 
-            this.uploadBeginStoreToolStripMenuItem.Name = "uploadBeginStoreToolStripMenuItem";
-            this.uploadBeginStoreToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
-            this.uploadBeginStoreToolStripMenuItem.Text = "Upload Begin Store";
-            this.uploadBeginStoreToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem_Click);
+            this.masterDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uploadBeginStoreToolStripMenuItem1,
+            this.aToolStripMenuItem,
+            this.uploadShiptoCodeListToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.viewCustomerListToolStripMenuItem,
+            this.viewShiptoListToolStripMenuItem});
+            this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
+            this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.masterDataToolStripMenuItem.Text = "Master data";
+            // 
+            // aToolStripMenuItem
+            // 
+            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.aToolStripMenuItem.Text = "Upload customer list";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
+            // 
+            // uploadBeginStoreToolStripMenuItem1
+            // 
+            this.uploadBeginStoreToolStripMenuItem1.Name = "uploadBeginStoreToolStripMenuItem1";
+            this.uploadBeginStoreToolStripMenuItem1.Size = new System.Drawing.Size(232, 24);
+            this.uploadBeginStoreToolStripMenuItem1.Text = "Upload begin store";
+            this.uploadBeginStoreToolStripMenuItem1.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem1_Click);
             // 
             // MenuMaketting
             // 
@@ -395,12 +419,31 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // uploadCustomerListToolStripMenuItem1
+            // uploadShiptoCodeListToolStripMenuItem
             // 
-            this.uploadCustomerListToolStripMenuItem1.Name = "uploadCustomerListToolStripMenuItem1";
-            this.uploadCustomerListToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
-            this.uploadCustomerListToolStripMenuItem1.Text = "Upload Customer list";
-            this.uploadCustomerListToolStripMenuItem1.Click += new System.EventHandler(this.uploadCustomerListToolStripMenuItem1_Click);
+            this.uploadShiptoCodeListToolStripMenuItem.Name = "uploadShiptoCodeListToolStripMenuItem";
+            this.uploadShiptoCodeListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.uploadShiptoCodeListToolStripMenuItem.Text = "Upload shipto code list";
+            this.uploadShiptoCodeListToolStripMenuItem.Click += new System.EventHandler(this.uploadShiptoCodeListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(229, 6);
+            // 
+            // viewCustomerListToolStripMenuItem
+            // 
+            this.viewCustomerListToolStripMenuItem.Name = "viewCustomerListToolStripMenuItem";
+            this.viewCustomerListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.viewCustomerListToolStripMenuItem.Text = "View customer list";
+            this.viewCustomerListToolStripMenuItem.Click += new System.EventHandler(this.viewCustomerListToolStripMenuItem_Click);
+            // 
+            // viewShiptoListToolStripMenuItem
+            // 
+            this.viewShiptoListToolStripMenuItem.Name = "viewShiptoListToolStripMenuItem";
+            this.viewShiptoListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.viewShiptoListToolStripMenuItem.Text = "View shipto list";
+            this.viewShiptoListToolStripMenuItem.Click += new System.EventHandler(this.viewShiptoListToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -462,12 +505,17 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem passwordToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem1;
-        private ToolStripMenuItem uploadBeginStoreToolStripMenuItem;
         private ToolStripMenuItem iOButgetReportsToolStripMenuItem;
         private ToolStripMenuItem transferOUtToolStripMenuItem;
         private ToolStripMenuItem transferInToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator6;
-        private ToolStripMenuItem uploadCustomerListToolStripMenuItem1;
+        private ToolStripMenuItem masterDataToolStripMenuItem;
+        private ToolStripMenuItem aToolStripMenuItem;
+        private ToolStripMenuItem uploadBeginStoreToolStripMenuItem1;
+        private ToolStripMenuItem uploadShiptoCodeListToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator7;
+        private ToolStripMenuItem viewCustomerListToolStripMenuItem;
+        private ToolStripMenuItem viewShiptoListToolStripMenuItem;
     }
 }
 

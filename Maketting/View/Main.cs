@@ -4138,10 +4138,129 @@ namespace Maketting.View
         {
 
 
+           
+
+
+
+
+
+
+        }
+
+        private void uploadBeginStoreToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+
+
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("SELECT STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+
+
+                Model.StoreMKT stor = new StoreMKT();
+                stor.InputBeginstorefuction(storelocation);
+
+
+                MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
 
 
-            inpoutctm.customerinputpriceingupdate();
+            inpoutctm.customerinputcustomerlist();
+
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void uploadShiptoCodeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
+
+
+            inpoutctm.customerinputshiptocode();
+
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void viewCustomerListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Soldtocodes
+                      where pp.Soldtype == true
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 100, "STORERPT");
+            tbl.ShowDialog();
+
+
+
+        }
+
+        private void viewShiptoListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Soldtocodes
+               //       where pp.Soldtype == false
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 100, "STORERPT");
+            tbl.ShowDialog();
 
 
         }

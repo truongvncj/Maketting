@@ -389,6 +389,7 @@ namespace Maketting.View
 
 
             this.customername = this.txtname.Text;
+         
             this.street = this.txtstreet.Text;
             this.Customercode = txtcustomercode.Text;
             this.city = txtcity.Text;
@@ -413,7 +414,8 @@ namespace Maketting.View
             p.FullNameN = this.customername;//= this.txtten.Text;
             p.Street = this.street;// = this.txtdiachi.Text;
             p.Customer = this.Customercode;// = txtmasothue.Text;
-                                        //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
+            p.ShiptoCode = this.Customercode;// = txtmasothue.Text;
+                                           //   p.dienthoaiNVT = this.dienthoai;//= txtdienthoai.Text;
             p.Telephone1 = this.telephone;// = txttaikhoannganhangso.Text;
             p.Note = this.note;// = txtdiachitaikhoannganhang.Text;
             p.District = this.district;// = txtdiachitaikhoannganhang.Text;
@@ -421,7 +423,9 @@ namespace Maketting.View
 
             p.SalesOrg = this.SalesOrg;// = txtdiachitaikhoannganhang.Text;
             p.Region = this.Region;// = txtdiachitaikhoannganhang.Text;
-
+            p.Soldtype = true;
+            p.Createdon = DateTime.Today;
+            p.Createby = Model.Username.getUsername();
 
 
             db.tbl_MKT_Soldtocodes.InsertOnSubmit(p);
