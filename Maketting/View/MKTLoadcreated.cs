@@ -1836,7 +1836,7 @@ namespace Maketting.View
             }
 
             #endregion
-
+            btluu.Enabled = false;
             tabControl1.SelectedTab = tabPage1;
         }
 
@@ -2263,11 +2263,11 @@ namespace Maketting.View
                
                 tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
 
-                headpx.Diachi = item.Address;
-                headpx.Nguoinhancode = item.Customer_SAP_Code.ToString();
+                headpx.Diachi = item.ShiptoAddress;
+                headpx.Nguoinhancode = item.ShiptoCode.ToString();
                 headpx.Username = this.Username;
                 headpx.Sophieu = item.Gate_pass;
-                headpx.Nguoinhanname = item.Receiver_by;
+                headpx.Nguoinhanname = item.ShiptoName;
                 headpx.seri = item.Region+this.storelocation + item.Gate_pass;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();

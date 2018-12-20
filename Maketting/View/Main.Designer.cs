@@ -44,8 +44,12 @@
             this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadBeginStoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadShiptoCodeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewCustomerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,17 +72,13 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.storeManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menureports = new System.Windows.Forms.ToolStripMenuItem();
             this.Storerpt = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadShiptoCodeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewCustomerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.storeLocationManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -184,10 +184,19 @@
             this.uploadShiptoCodeListToolStripMenuItem,
             this.toolStripSeparator7,
             this.viewCustomerListToolStripMenuItem,
-            this.viewShiptoListToolStripMenuItem});
+            this.viewShiptoListToolStripMenuItem,
+            this.toolStripSeparator8,
+            this.storeLocationManageToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
+            // 
+            // uploadBeginStoreToolStripMenuItem1
+            // 
+            this.uploadBeginStoreToolStripMenuItem1.Name = "uploadBeginStoreToolStripMenuItem1";
+            this.uploadBeginStoreToolStripMenuItem1.Size = new System.Drawing.Size(232, 24);
+            this.uploadBeginStoreToolStripMenuItem1.Text = "Upload begin store";
+            this.uploadBeginStoreToolStripMenuItem1.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem1_Click);
             // 
             // aToolStripMenuItem
             // 
@@ -196,12 +205,31 @@
             this.aToolStripMenuItem.Text = "Upload customer list";
             this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
-            // uploadBeginStoreToolStripMenuItem1
+            // uploadShiptoCodeListToolStripMenuItem
             // 
-            this.uploadBeginStoreToolStripMenuItem1.Name = "uploadBeginStoreToolStripMenuItem1";
-            this.uploadBeginStoreToolStripMenuItem1.Size = new System.Drawing.Size(232, 24);
-            this.uploadBeginStoreToolStripMenuItem1.Text = "Upload begin store";
-            this.uploadBeginStoreToolStripMenuItem1.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem1_Click);
+            this.uploadShiptoCodeListToolStripMenuItem.Name = "uploadShiptoCodeListToolStripMenuItem";
+            this.uploadShiptoCodeListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.uploadShiptoCodeListToolStripMenuItem.Text = "Upload shipto code list";
+            this.uploadShiptoCodeListToolStripMenuItem.Click += new System.EventHandler(this.uploadShiptoCodeListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(229, 6);
+            // 
+            // viewCustomerListToolStripMenuItem
+            // 
+            this.viewCustomerListToolStripMenuItem.Name = "viewCustomerListToolStripMenuItem";
+            this.viewCustomerListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.viewCustomerListToolStripMenuItem.Text = "View customer list";
+            this.viewCustomerListToolStripMenuItem.Click += new System.EventHandler(this.viewCustomerListToolStripMenuItem_Click);
+            // 
+            // viewShiptoListToolStripMenuItem
+            // 
+            this.viewShiptoListToolStripMenuItem.Name = "viewShiptoListToolStripMenuItem";
+            this.viewShiptoListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.viewShiptoListToolStripMenuItem.Text = "View shipto list";
+            this.viewShiptoListToolStripMenuItem.Click += new System.EventHandler(this.viewShiptoListToolStripMenuItem_Click);
             // 
             // MenuMaketting
             // 
@@ -298,9 +326,7 @@
             this.transferInToolStripMenuItem,
             this.toolStripSeparator6,
             this.inventoryToolStripMenuItem,
-            this.inventoryApprovalToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.storeManageToolStripMenuItem});
+            this.inventoryApprovalToolStripMenuItem});
             this.Menuwavehouse.Name = "Menuwavehouse";
             this.Menuwavehouse.Size = new System.Drawing.Size(101, 24);
             this.Menuwavehouse.Text = "Ware House";
@@ -369,18 +395,6 @@
             this.inventoryApprovalToolStripMenuItem.Text = "Inventory Approval";
             this.inventoryApprovalToolStripMenuItem.Click += new System.EventHandler(this.inventoryApprovalToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
-            // 
-            // storeManageToolStripMenuItem
-            // 
-            this.storeManageToolStripMenuItem.Name = "storeManageToolStripMenuItem";
-            this.storeManageToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
-            this.storeManageToolStripMenuItem.Text = "Shipping Point";
-            this.storeManageToolStripMenuItem.Click += new System.EventHandler(this.storeManageToolStripMenuItem_Click);
-            // 
             // Menureports
             // 
             this.Menureports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -419,31 +433,17 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // uploadShiptoCodeListToolStripMenuItem
+            // toolStripSeparator8
             // 
-            this.uploadShiptoCodeListToolStripMenuItem.Name = "uploadShiptoCodeListToolStripMenuItem";
-            this.uploadShiptoCodeListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.uploadShiptoCodeListToolStripMenuItem.Text = "Upload shipto code list";
-            this.uploadShiptoCodeListToolStripMenuItem.Click += new System.EventHandler(this.uploadShiptoCodeListToolStripMenuItem_Click);
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(229, 6);
             // 
-            // toolStripSeparator7
+            // storeLocationManageToolStripMenuItem
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(229, 6);
-            // 
-            // viewCustomerListToolStripMenuItem
-            // 
-            this.viewCustomerListToolStripMenuItem.Name = "viewCustomerListToolStripMenuItem";
-            this.viewCustomerListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.viewCustomerListToolStripMenuItem.Text = "View customer list";
-            this.viewCustomerListToolStripMenuItem.Click += new System.EventHandler(this.viewCustomerListToolStripMenuItem_Click);
-            // 
-            // viewShiptoListToolStripMenuItem
-            // 
-            this.viewShiptoListToolStripMenuItem.Name = "viewShiptoListToolStripMenuItem";
-            this.viewShiptoListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.viewShiptoListToolStripMenuItem.Text = "View shipto list";
-            this.viewShiptoListToolStripMenuItem.Click += new System.EventHandler(this.viewShiptoListToolStripMenuItem_Click);
+            this.storeLocationManageToolStripMenuItem.Name = "storeLocationManageToolStripMenuItem";
+            this.storeLocationManageToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.storeLocationManageToolStripMenuItem.Text = "Store location manage";
+            this.storeLocationManageToolStripMenuItem.Click += new System.EventHandler(this.storeLocationManageToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -499,8 +499,6 @@
         private ToolStripMenuItem statusGatepassReportsToolStripMenuItem;
         private ToolStripMenuItem inventoryApprovalToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem1;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripMenuItem storeManageToolStripMenuItem;
         private ToolStripMenuItem goodReturnToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem passwordToolStripMenuItem;
@@ -516,6 +514,8 @@
         private ToolStripSeparator toolStripSeparator7;
         private ToolStripMenuItem viewCustomerListToolStripMenuItem;
         private ToolStripMenuItem viewShiptoListToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator8;
+        private ToolStripMenuItem storeLocationManageToolStripMenuItem;
     }
 }
 

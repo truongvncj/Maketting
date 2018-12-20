@@ -18,7 +18,8 @@ namespace Maketting.View
         public int id { get; set; }
         public string makho { get; set; }
         public string tenkho { get; set; }
-    
+        public string storeright { get; set; }
+
         public string diachi { get; set; }
       
         public string ghichu { get; set; }
@@ -45,7 +46,29 @@ namespace Maketting.View
 
             chon = false;
 
+            List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = from pp in dc.tbl_MKT_StoreRights
+                          //where (from gg in dc.tbl_MKT_StoreRights
+                          //       where gg.storeright == rightkho
+                          //       select gg.makho).Contains(pp.makho)
+                      group pp by pp.storeright into g
+                      select g;
+            foreach (var item2 in rs1)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Key.Trim();
+                cb.Text = item2.Key.Trim();
+                itemstorecolect.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            txtstoright.DataSource = itemstorecolect;
+            txtstoright.SelectedIndex = 0;
 
             this.id = idkho;
 
@@ -57,9 +80,7 @@ namespace Maketting.View
                 txtmakho.Enabled = false;
 
 
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+               
 
 
                 var item = (from p in dc.tbl_MKT_khoMKTs
@@ -72,7 +93,7 @@ namespace Maketting.View
 
                     txtmakho.Text = item.makho;
                     txttenkho.Text = item.tenkho;
-
+                    txtstoright.Text = item.storeright;
                  
                     txtdiachi.Text = item.diachikho;//  p.masothue  
                
@@ -95,6 +116,8 @@ namespace Maketting.View
                 this.btupdate.Visible = false;
                 this.btxoa.Visible = false;
 
+              
+              //  this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
 
 
 
@@ -205,7 +228,8 @@ namespace Maketting.View
             this.diachi = this.txtdiachi.Text;
       
             this.ghichu = this.txtghichu.Text;
-         
+            this.storeright = this.txtstoright.Text;
+
             //this.usertao = Utils.getusername();
 
             //this.ngaytao = DateTime.Today;
@@ -244,7 +268,8 @@ namespace Maketting.View
                     rs.diachikho= this.diachi;// this.txtMasothue.Text;
                  
                     rs.ghichu = this.ghichu;// this.txtNganhnghe.Text;
-             
+                    rs.storeright = this.storeright;// this.txtNganhnghe.Text;
+
 
                     db.SubmitChanges();
                     this.Close();
@@ -280,7 +305,7 @@ namespace Maketting.View
             this.diachi = this.txtdiachi.Text;
         
             this.ghichu = this.txtghichu.Text;
-      
+            this.storeright = this.txtstoright.Text;
 
             if (makho == "")
             {
@@ -300,7 +325,7 @@ namespace Maketting.View
 
         
             p.diachikho = this.diachi;// this.txtMasothue.Text;
-        
+            p.storeright = this.storeright;
             p.ghichu = this.ghichu;// this.txtNganhnghe.Text;
       
          

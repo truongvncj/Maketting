@@ -46,6 +46,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txttrasfernumber = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.cbkhohangin = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbkhohangout = new System.Windows.Forms.ComboBox();
@@ -60,8 +62,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txttrasfernumber = new System.Windows.Forms.Label();
+            this.btinphieu = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -79,6 +80,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btinphieu);
             this.panel2.Controls.Add(this.btxoa);
             this.panel2.Controls.Add(this.btmoi);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -253,6 +255,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 176);
             this.panel1.TabIndex = 65;
+            // 
+            // txttrasfernumber
+            // 
+            this.txttrasfernumber.AutoSize = true;
+            this.txttrasfernumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttrasfernumber.Location = new System.Drawing.Point(1032, 66);
+            this.txttrasfernumber.Name = "txttrasfernumber";
+            this.txttrasfernumber.Size = new System.Drawing.Size(32, 18);
+            this.txttrasfernumber.TabIndex = 83;
+            this.txttrasfernumber.Text = "001";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(881, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(145, 18);
+            this.label6.TabIndex = 82;
+            this.label6.Text = "Transferout Number:";
             // 
             // cbkhohangin
             // 
@@ -435,25 +457,16 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
-            // label6
+            // btinphieu
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(881, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 18);
-            this.label6.TabIndex = 82;
-            this.label6.Text = "Transferout Number:";
-            // 
-            // txttrasfernumber
-            // 
-            this.txttrasfernumber.AutoSize = true;
-            this.txttrasfernumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttrasfernumber.Location = new System.Drawing.Point(1032, 66);
-            this.txttrasfernumber.Name = "txttrasfernumber";
-            this.txttrasfernumber.Size = new System.Drawing.Size(32, 18);
-            this.txttrasfernumber.TabIndex = 83;
-            this.txttrasfernumber.Text = "001";
+            this.btinphieu.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btinphieu.Location = new System.Drawing.Point(373, 10);
+            this.btinphieu.Name = "btinphieu";
+            this.btinphieu.Size = new System.Drawing.Size(77, 25);
+            this.btinphieu.TabIndex = 59;
+            this.btinphieu.TabStop = false;
+            this.btinphieu.Text = "Print";
+            this.btinphieu.UseVisualStyleBackColor = true;
             // 
             // MKTWHtransferout
             // 
@@ -512,5 +525,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txttrasfernumber;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btinphieu;
     }
 }

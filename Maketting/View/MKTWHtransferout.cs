@@ -493,7 +493,23 @@ namespace Maketting.View
 
             if (cbkhohangout.Text == "")
             {
-                MessageBox.Show("Pleae select a Location Wave House (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pleae select a store to transfer out !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbkhohangout.Focus();
+                checkhead = false;
+                return;
+            }
+
+            if (cbkhohangin.Text == "")
+            {
+                MessageBox.Show("Pleae select a store to transfer int ! !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbkhohangout.Focus();
+                checkhead = false;
+                return;
+            }
+
+            if (cbkhohangin.Text == cbkhohangout.Text )
+            {
+                MessageBox.Show(" Transfer in Store must difference from transfer out store !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbkhohangout.Focus();
                 checkhead = false;
                 return;

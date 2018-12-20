@@ -369,7 +369,9 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
+                 from pp in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
+                   && p.Gate_pass == pp.Gate_pass
                      orderby p.Gate_pass
                      select new
                      {
@@ -377,8 +379,9 @@ namespace Maketting.Model
 
                          Gate_pass = p.Gate_pass,
                          Code_KH = p.Customer_SAP_Code,
-                         Địa_chỉ = p.Address,
-                         Điện_thoại = p.Description,
+                        Shipto_code =pp.ShiptoCode,
+                       Địa_chỉ = pp.ShiptoAddress,
+                        Điện_thoại = pp.Tel,
 
                          p.Materiacode,
                          p.Materialname,
@@ -386,7 +389,7 @@ namespace Maketting.Model
                          p.Ngaytaophieu,
                          p.Purpose,
                          p.Receiver_by,
-                         p.Tel,
+                        // p.Tel,
 
                          ID = p.id,
                      };
@@ -1208,12 +1211,13 @@ namespace Maketting.Model
 
 
 
-
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
+                     from pp in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
+                            && p.Gate_pass == pp.Gate_pass
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.ToString().Contains(txtseachcode)
                                && (p.ShippingPoint + p.Gate_pass).Contains(txtseachgate)
@@ -1226,8 +1230,9 @@ namespace Maketting.Model
 
                          Gate_pass = p.Gate_pass,
                          Code_KH = p.Customer_SAP_Code,
-                         Địa_chỉ = p.Address,
-                         Điện_thoại = p.Description,
+                         Shipto_code = pp.ShiptoCode,
+                         Địa_chỉ = pp.ShiptoAddress,
+                         Điện_thoại = pp.Tel,
 
                          p.Materiacode,
                          p.Materialname,
@@ -1235,7 +1240,7 @@ namespace Maketting.Model
                          p.Ngaytaophieu,
                          p.Purpose,
                          p.Receiver_by,
-                         p.Tel,
+                         // p.Tel,
 
                          ID = p.id,
                      };
@@ -1263,7 +1268,7 @@ namespace Maketting.Model
                          Địa_chỉ = p.diachikho,
 
                          Ghi_chú = p.ghichu,
-
+                         Nhóm =p.storeright,
 
                          ID = p.id,
                      };

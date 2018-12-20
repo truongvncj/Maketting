@@ -3835,28 +3835,7 @@ namespace Maketting.View
         private void storeManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (Model.Username.getStoreLocationmanageRight())
-            {
-
-
-
-                //    NPDanhsachnhavantai
-                string connection_string = Utils.getConnectionstr();
-
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs1 = Model.MKT.danhsachkhoMKT(dc);
-                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
-
-                viewtbl.ShowDialog();
-            }
-            else
-            {
-                View.MKTNoouthourise noright = new View.MKTNoouthourise();
-                noright.ShowDialog();
-
-            };
-
+        
 
 
 
@@ -4262,6 +4241,32 @@ namespace Maketting.View
             View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 100, "STORERPT");
             tbl.ShowDialog();
 
+
+        }
+
+        private void storeLocationManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Model.Username.getStoreLocationmanageRight())
+            {
+
+
+
+                //    NPDanhsachnhavantai
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs1 = Model.MKT.danhsachkhoMKT(dc);
+                Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH KHO MAKETTING ", 4, "MKT_kHOHANG");// mã 4 là danh sach KHO HÀNG
+
+                viewtbl.ShowDialog();
+            }
+            else
+            {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
+
+            };
 
         }
     }

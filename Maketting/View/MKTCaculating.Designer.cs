@@ -68,7 +68,7 @@
             this.pictureBox1.InitialImage = global::Maketting.Properties.Resources._04_example_800x600_v4__1_;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(175, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

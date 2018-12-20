@@ -837,11 +837,11 @@ namespace Maketting.View
             {
                 tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
 
-                headpx.Diachi = rptMKThead.Address;
-                headpx.Nguoinhancode = rptMKThead.Customer_SAP_Code.ToString();
+                headpx.Diachi = rptMKThead.ShiptoAddress;
+                headpx.Nguoinhancode = rptMKThead.ShiptoCode.ToString();
                 headpx.Username = this.Username;
                 headpx.Sophieu = rptMKThead.Gate_pass;
-                headpx.Nguoinhanname = rptMKThead.Receiver_by;
+                headpx.Nguoinhanname = rptMKThead.ShiptoName;
                 headpx.seri = rptMKThead.Region + this.storelocation + rptMKThead.Gate_pass;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
@@ -2201,7 +2201,7 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                    lbtel.Text = rs2.Telephone1;
+                   lbtel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
@@ -2272,7 +2272,7 @@ namespace Maketting.View
                     //txtcustcode.Text = rs2.Customer;
                     //txtnguoinhan.Text = rs2.FullNameN;
                     //txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                    //lbtel.Text = rs2.Telephone1;
+                    lbtel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
