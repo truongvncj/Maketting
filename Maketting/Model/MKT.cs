@@ -916,6 +916,7 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_Soldtocodes
+                     where p.Soldtype == true
                      orderby p.Customer
                      select new
                      {
@@ -948,6 +949,94 @@ namespace Maketting.Model
 
         }
 
+
+        public static IQueryable shiptolist(LinqtoSQLDataContext dc)
+        {
+            // throw new NotImplementedException();
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_Soldtocodes
+                 //    where p.Soldtype == fa
+                     orderby p.Customer
+                     select new
+                     {
+
+                         SalesOrg = p.SalesOrg,
+                         Region = p.Region,
+                         Customer = p.Customer,
+                         FullName = p.FullNameN,
+                         Street = p.Street,
+                         District = p.District,
+                         City = p.City,
+                         Telephone = p.Telephone1,
+                         Note = p.Note,
+
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+
+        }
+
+
+
+        public static IQueryable shiptolistbycustomer(LinqtoSQLDataContext dc, string customercode)
+        {
+
+
+            // throw new NotImplementedException();
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_Soldtocodes
+                           where p.Customer == customercode
+                     orderby p.Customer
+                     select new
+                     {
+
+                         SalesOrg = p.SalesOrg,
+                         Region = p.Region,
+                         Customer = p.Customer,
+                         FullName = p.FullNameN,
+                         Street = p.Street,
+                         District = p.District,
+                         City = p.City,
+                         Telephone = p.Telephone1,
+                         Note = p.Note,
+
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
         //   tbl_MKt_WHstoreissue
         public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
         {
@@ -1328,9 +1417,6 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-
-
-
-
+       
     }
 }

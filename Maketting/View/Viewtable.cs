@@ -440,9 +440,41 @@ namespace Maketting.View
 
             #endregion
 
+            #region  // viewcode ==16  la danh khách hàng shipto
 
-    
-         
+
+            if (this.viewcode == 16)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsacshipto p = new MKTVTDanhsacshipto(3, -1, makh);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+                var rs = Model.MKT.shiptolistbycustomer(this.db, makh);
+                //var rs = Model.MKT.shiptolist(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+
+
+
 
 
 

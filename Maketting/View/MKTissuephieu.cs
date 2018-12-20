@@ -641,7 +641,7 @@ namespace Maketting.View
                     rs.ShiptoAddress = txtshiptoaddress.Text;
 
                     rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
-                    rs.ShiptoCode  = double.Parse(txtShiptoCode.Text);
+                    rs.ShiptoCode = double.Parse(txtShiptoCode.Text);
 
                     rs.Receiver_by = txtnguoinhan.Text;
                     rs.ShiptoName = txtShiptoname.Text;
@@ -1475,16 +1475,24 @@ namespace Maketting.View
                 }
             }
 
-            if (!kq && e.RowIndex >= 0 && dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            if (!kq && e.RowIndex >= 0)
             {
-
+                string valueseach = "";
+                if (dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+                {
+                    valueseach = "";
+                }
+                else
+                {
+                    valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                }
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 string username = Utils.getusername();
 
                 string columhead = dataGridViewDetail.Columns[e.ColumnIndex].HeaderText.ToString();
-                string valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
 
                 IQueryable rs = null;
 
@@ -1988,9 +1996,9 @@ namespace Maketting.View
 
                              pp.Receiver_by,
                              Customer = pp.Customer_SAP_Code,
-                          //   pp.ShiptoCode,
-                           //  pp.ShiptoName,
-                         //    pp.ShiptoAddress,
+                             //   pp.ShiptoCode,
+                             //  pp.ShiptoName,
+                             //    pp.ShiptoAddress,
 
                              //     Customer = pp.Customer_SAP_Code,
                              pp.Address,
@@ -2124,7 +2132,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs1 = Model.MKT.danhkhachhang(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH NGƯỜI NHẬN ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
 
@@ -2230,9 +2238,10 @@ namespace Maketting.View
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
-                         where pp.FullNameN.Contains(seachtext)
+                         where pp.Customer == txtcustcode.Text
+                         // pp.FullNameN.Contains(seachtext)
                          // && pp.Soldtype == false
-                         && pp.Customer == txtcustcode.Text
+                      //  &&
                          select new
                          {
                              MÃ_KHÁCH_HÀNG = pp.ShiptoCode,
@@ -2296,6 +2305,21 @@ namespace Maketting.View
                 dataGridViewDetail.Focus();
 
             }
+
+        }
+
+        private void btnewShiptoCode_Click(object sender, EventArgs e)
+        {
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            string customercode = txtcustcode.Text;
+
+            var rs1 = Model.MKT.shiptolistbycustomer(dc, customercode);
+            Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 12 là danh sach khách hàng MKT
+
+            viewtbl.Show();
 
         }
     }
