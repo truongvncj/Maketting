@@ -440,22 +440,7 @@ namespace Maketting.View
 
             bool checkdetail = true;
 
-            //dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
-
-
-            //dataGridViewLoaddetail.DataSource = dataTable;
-
-            //dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["Tranfernumber"].ReadOnly = true;
-
-            //dataGridViewLoaddetail.Columns["From_Store"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["To_Store"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["Materia_Item_code"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-            //dataGridViewLoaddetail.Columns["TransferOut_Quantity"].ReadOnly = true;
-
-
+        
 
             #region // detail
             for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
