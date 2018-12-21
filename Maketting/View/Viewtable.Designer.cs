@@ -52,6 +52,7 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btaddto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -79,6 +80,7 @@ namespace Maketting.View
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btaddto);
             this.panel2.Controls.Add(this.bt_sua);
             this.panel2.Controls.Add(this.bt_exporttoex);
             this.panel2.Controls.Add(this.bt_themmoi);
@@ -310,8 +312,19 @@ namespace Maketting.View
             this.dataGridView1.VirtualMode = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-      //      this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
+            // 
+            // btaddto
+            // 
+            this.btaddto.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btaddto.Location = new System.Drawing.Point(1113, 3);
+            this.btaddto.Name = "btaddto";
+            this.btaddto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btaddto.Size = new System.Drawing.Size(87, 23);
+            this.btaddto.TabIndex = 6;
+            this.btaddto.Text = "Add to ";
+            this.btaddto.UseVisualStyleBackColor = true;
+            this.btaddto.Click += new System.EventHandler(this.btaddto_Click);
             // 
             // Viewtable
             // 
@@ -363,5 +376,6 @@ namespace Maketting.View
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button bt_sua;
         private System.Windows.Forms.Button bt_themmoi;
+        private System.Windows.Forms.Button btaddto;
     }
 }

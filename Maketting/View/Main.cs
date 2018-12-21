@@ -4269,6 +4269,84 @@ namespace Maketting.View
             };
 
         }
+
+        private void addNewProductListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where (from gg in dc.tbl_MKT_StoreRights
+                             where gg.storeright == rightkho
+                             select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("SELECT STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+
+
+                Model.StoreMKT stor = new StoreMKT();
+                stor.ADDnewproductlist(storelocation);
+
+
+
+
+
+                var rs5 = from pp in dc.tbl_MKT_StockendTMPs
+                          where pp.Username == username
+                          select pp;
+
+
+
+                View.Viewtable tbl = new Viewtable(rs5, dc, "NEW PRODUCT TO UPLOAD", 101, username);
+                tbl.ShowDialog();
+
+
+
+
+
+
+
+                //    MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+
+        }
+
+        private void iOButgetReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

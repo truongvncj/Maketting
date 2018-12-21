@@ -263,13 +263,20 @@ namespace Maketting.View
             //   gboxUnpaid.Visible = false; // an nhom field upaid
 
             this.formlabel.Text = fornname;
-
-            if (viewcode ==100)
+            btaddto.Visible = false;
+            if (viewcode == 100)
             {
                 bt_themmoi.Visible = false;
                 bt_sua.Visible = false;
-            }
 
+            }
+            if (viewcode == 101) // là them oi san pham
+            {
+                bt_themmoi.Visible = false;
+                bt_sua.Visible = false;
+                btaddto.Visible = true;
+
+            }
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
                                                                                                             //   this.Show();
@@ -312,7 +319,7 @@ namespace Maketting.View
 
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
-          
+
             #region  // viewcode ==15  storeright
 
 
@@ -332,7 +339,7 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-              //  var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+                //  var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
                 var rs = Model.MKT.danhsachkhoMKTRight(this.db);
                 dataGridView1.DataSource = rs;
 
@@ -486,7 +493,7 @@ namespace Maketting.View
 
                 var rs1 = Model.MKT.danhsachkhoMKT(dc);
 
-             //   var rs = Model.Khohang.Danhsachkho(this.db);
+                //   var rs = Model.Khohang.Danhsachkho(this.db);
 
                 dataGridView1.DataSource = rs1;
 
@@ -500,7 +507,7 @@ namespace Maketting.View
 
 
 
-           
+
 
 
 
@@ -681,7 +688,7 @@ namespace Maketting.View
                 }
 
 
-           //     string makh = valuesave;
+                //     string makh = valuesave;
 
 
 
@@ -711,7 +718,7 @@ namespace Maketting.View
 
 
 
-            
+
 
 
 
@@ -751,13 +758,13 @@ namespace Maketting.View
             }
             #endregion
 
-       
-
-            
 
 
 
-        
+
+
+
+
 
 
 
@@ -785,7 +792,94 @@ namespace Maketting.View
 
         }
 
+        private void btaddto_Click(object sender, EventArgs e)
+        {
+
+
+            #region      //    this.valuesave  là username của bảng temp
+
+
+
+
+            var rs5 = from pp in dc.tbl_MKT_StockendTMPs
+                      where pp.Username == valuesave
+                      select pp;
+
+            if (rs5.Count() > 0)
+            {
+
+                foreach (var item in rs5)
+                {
+
+                    // check có trùng mã code không
+
+                    var checkitemcode = from pp in dc.tbl_MKT_Stockends
+                                        where pp.ITEM_Code == item.ITEM_Code
+                                        && pp.Store_code == item.Store_code
+                                        select pp;
+
+                    var checksapcode = from pp in dc.tbl_MKT_Stockends
+                                       where pp.SAP_CODE == item.SAP_CODE
+                                          && pp.Store_code == item.Store_code
+                                       select pp;
+
+                    // neu ko trung thì xóa từ temp di và add to stornew
+
+                    if (checkitemcode.Count() == 0 && checksapcode.Count() == 0)
+                    {
+                        tbl_MKT_Stockend newproduct = new tbl_MKT_Stockend();
+
+                        newproduct.ITEM_Code = item.ITEM_Code;
+                        newproduct.MATERIAL = item.MATERIAL;
+
+                        newproduct.SAP_CODE = item.SAP_CODE;
+
+                        newproduct.Store_code = item.Store_code;
+
+                        newproduct.UNIT = item.UNIT;
+
+                        newproduct.END_STOCK = item.END_STOCK;
+
+                        newproduct.Description = item.Description;
+
+                        dc.tbl_MKT_Stockends.InsertOnSubmit(newproduct);
+                        dc.SubmitChanges();
+
+                        dc.tbl_MKT_StockendTMPs.DeleteOnSubmit(item);// delet tempitem
+                        dc.SubmitChanges();
+
+
+                    }
+
+                    
+
+                }
+                
+            }
+
+
+
+
+
+
+            #endregion
+
+
+            var rs6 = from pp in dc.tbl_MKT_StockendTMPs
+                      where pp.Username == valuesave
+                      select pp;
+
+
+            this.dataGridView1.DataSource = rs6;
+
+            if (rs6.Count() > 0)
+            {
+                MessageBox.Show("There are dublicate code can not add to Product list ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
         }
+    }
 
 
 
