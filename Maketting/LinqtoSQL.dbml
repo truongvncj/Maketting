@@ -117,6 +117,7 @@
       <Column Name="Tranposterby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Truck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Completed_by" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -144,6 +145,7 @@
       <Column Name="ShiptoName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="ShiptoAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">

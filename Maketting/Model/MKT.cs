@@ -157,7 +157,7 @@ namespace Maketting.Model
             //drToAdd["Sap_Code"] = itemdetail.MateriaSAPcode;
             //drToAdd["Unit"] = itemdetail.Unit;
             //drToAdd["Quantity"] = itemdetail.Quantity;
-         
+
             dataGridViewDetail.DataSource = null;
             #region datatable temp
 
@@ -369,7 +369,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
-                 from pp in dc.tbl_MKt_Listphieuheads
+                     from pp in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                    && p.Gate_pass == pp.Gate_pass
                      orderby p.Gate_pass
@@ -379,9 +379,9 @@ namespace Maketting.Model
 
                          Gate_pass = p.Gate_pass,
                          Code_KH = p.Customer_SAP_Code,
-                        Shipto_code =pp.ShiptoCode,
-                       Địa_chỉ = pp.ShiptoAddress,
-                        Điện_thoại = pp.Tel,
+                         Shipto_code = pp.ShiptoCode,
+                         Địa_chỉ = pp.ShiptoAddress,
+                         Điện_thoại = pp.Tel,
 
                          p.Materiacode,
                          p.Materialname,
@@ -389,7 +389,7 @@ namespace Maketting.Model
                          p.Ngaytaophieu,
                          p.Purpose,
                          p.Receiver_by,
-                        // p.Tel,
+                         // p.Tel,
 
                          ID = p.id,
                      };
@@ -418,8 +418,11 @@ namespace Maketting.Model
                      orderby p.Gate_pass
                      select new
                      {
+                         Created_date = p.Ngaytaophieu,
                          p.Region,
                          p.Gate_pass,
+                         p.Purpose,
+
                          p.Status,
                          p.ShippingPoint,
                          p.ShipmentNumber,
@@ -429,15 +432,22 @@ namespace Maketting.Model
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Address,
-                         Số_lượng_yêu_cầu = p.Issued,
+
                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
                          // Số_lượng_còn_lại = p.Soluongconlai,
                          p.Materiacode,
                          p.MateriaSAPcode,
                          p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
                          p.Tranposterby,
                          p.Truck,
-
+                         p.Loadingby,
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                      
+                       
+                      
 
 
 
@@ -596,9 +606,9 @@ namespace Maketting.Model
             }
         }
 
-        public static void DeleteALLTransferphieutamTMP(LinqtoSQLDataContext dc , string urs) // vd phieu thu nghiep vu là phieu thu: PT,
+        public static void DeleteALLTransferphieutamTMP(LinqtoSQLDataContext dc, string urs) // vd phieu thu nghiep vu là phieu thu: PT,
         {
-         
+
 
             var rs = from pp in dc.tbl_MKt_TransferoutHEADs
                      where pp.Username == urs && pp.Status == "TMP"
@@ -756,7 +766,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemout.MateriaItemcode 
+                     where p.ITEM_Code == itemout.MateriaItemcode
                      && p.Store_code == itemout.Store_OUT
                      select p;
 
@@ -793,7 +803,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-               //     item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemIN.Quantity;
+                    //     item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemIN.Quantity;
                     item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
                     dc.SubmitChanges();
                 }
@@ -802,16 +812,16 @@ namespace Maketting.Model
 
 
             var rs2 = from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemIN.MateriaItemcode
-                     && p.Store_code == itemIN.Store_IN
-                     select p;
+                      where p.ITEM_Code == itemIN.MateriaItemcode
+                      && p.Store_code == itemIN.Store_IN
+                      select p;
 
             if (rs2.Count() > 0)
             {
-                foreach (var item in rs)
+                foreach (var item in rs2)
                 {
-                      item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemIN.Reciepted_Quantity;
-                 //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemIN.Reciepted_Quantity;
+                    //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
                     dc.SubmitChanges();
                 }
 
@@ -822,6 +832,8 @@ namespace Maketting.Model
                 tbl_MKT_Stockend newproduct = new tbl_MKT_Stockend();
 
                 newproduct.Description = itemIN.Description;
+                newproduct.MATERIAL = itemIN.Materialname;
+
 
                 newproduct.END_STOCK = itemIN.Reciepted_Quantity;
 
@@ -955,12 +967,12 @@ namespace Maketting.Model
                          Region = p.Region,
                          Customer = p.Customer,
                          FullName = p.FullNameN,
-                         Street = p.Street ,
+                         Street = p.Street,
                          District = p.District,
                          City = p.City,
                          Telephone = p.Telephone1,
                          Note = p.Note,
-                       
+
 
                          ID = p.id,
                      };
@@ -987,7 +999,7 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_Soldtocodes
-                 //    where p.Soldtype == fa
+                         //    where p.Soldtype == fa
                      orderby p.Customer
                      select new
                      {
@@ -1031,7 +1043,7 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_Soldtocodes
-                           where p.Customer == customercode
+                     where p.Customer == customercode
                      orderby p.Customer
                      select new
                      {
@@ -1143,7 +1155,7 @@ namespace Maketting.Model
                          Tên_nhà_vận_tải = p.tenNVT,
                          Địa_chỉ = p.diachiNVT,
                          Điện_thoại = p.dienthoaiNVT,
-                     //    Mã_số_thuế = p.masothueNVT,
+                         //    Mã_số_thuế = p.masothueNVT,
 
 
 
@@ -1295,7 +1307,7 @@ namespace Maketting.Model
                          Địa_chỉ = p.diachikho,
 
                          Ghi_chú = p.ghichu,
-                         Nhóm =p.storeright,
+                         Nhóm = p.storeright,
 
                          ID = p.id,
                      };
@@ -1359,7 +1371,7 @@ namespace Maketting.Model
             }
             else
             {
-              //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return kq;
             }
@@ -1449,6 +1461,6 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-       
+
     }
 }

@@ -195,7 +195,7 @@ namespace Maketting.View
             this.Createdby = Utils.getname();
             //       this.Loadnumberserri = Loadnumberserri;
             txtupdateby.Text = "";
-            txtmktseri.Text = "";
+          
 
 
             txtupdateby.Text = Utils.getname();
@@ -213,9 +213,14 @@ namespace Maketting.View
 
             //    btluu.Enabled = true;
             //   btinphieu.Enabled = false;
+            tabControl1.Focus();
 
+            txtmktseri.TabIndex = 0;
+            txtmktseri.Text = "";
             txtmktseri.Focus();
 
+
+        //    txtmktseri
 
         }
 
@@ -2176,7 +2181,7 @@ namespace Maketting.View
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKt_Listphieuheads
-                         where (pp.ShippingPoint + pp.Gate_pass) == seachtext
+                         where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == seachtext
                          select pp;
 
                 if (rs.Count() == 1)
@@ -2185,8 +2190,16 @@ namespace Maketting.View
 
                     foreach (var item in rs)
                     {
-                        addDEtailPhieuMKT(item);
-                       
+                        if (item.Status == "Delivering")// 
+                        {
+                            addDEtailPhieuMKT(item);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please check, this POSM ticket status is : "+ item.Status, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
                     }
 
 
@@ -2194,7 +2207,7 @@ namespace Maketting.View
                 }
                 else
                 {
-                    MessageBox.Show("please try again !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please check, wrong POSM ticket !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
 
@@ -2280,7 +2293,9 @@ namespace Maketting.View
 
                             item.completed = true;
                             item.Date_Received_Issued = dateupdate.Value;
-                            item.completedby = txtupdateby.Text;
+                        //    item.completedby = txtupdateby.Text;
+                            item.completedby = this.Username;
+
 
                             dc.SubmitChanges();
 
@@ -2299,6 +2314,10 @@ namespace Maketting.View
                         {
 
                             item.Status = "completed";
+                            item.Date_Received_Issued = dateupdate.Value;
+                            //    item.completedby = txtupdateby.Text;
+                            item.Completed_by = this.Username;
+
 
                             dc.SubmitChanges();
 
@@ -2324,6 +2343,10 @@ namespace Maketting.View
 
         }
 
+        private void txtmktseri_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

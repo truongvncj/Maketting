@@ -265,11 +265,12 @@ namespace Maketting.View
 
             txtnguoitaoload.Text = "";
             txttenNVT.Text = "";
+            txttrucnumber.Text = "";
 
             txtnguoitaoload.Text = Utils.getname();
 
 
-       //     txtloadnumber.Text = "";
+            //     txtloadnumber.Text = "";
             datecreated.Value = DateTime.Today;
 
             txtnguoitaoload.Focus();
@@ -283,13 +284,13 @@ namespace Maketting.View
 
             string username = Utils.getusername();
             this.Username = username;
-         
+
             //this.matk = taikhoan;
 
 
             Model.MKT.DeleteALLLoadtamTMP();
 
-          
+
             dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
@@ -396,7 +397,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-         //   string username = Utils.getusername();
+            //   string username = Utils.getusername();
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
                       where (from gg in dc.tbl_MKT_StoreRights
                              where gg.storeright == rightkho
@@ -587,11 +588,11 @@ namespace Maketting.View
             }
         }
 
-     
+
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
-        
+
             bool checkdetail = true;
             bool checkhead = true;
             string connection_string = Utils.getConnectionstr();
@@ -623,6 +624,15 @@ namespace Maketting.View
 
 
 
+            if (txttrucnumber.Text == "")
+            {
+                MessageBox.Show("Pleae input truck number", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttrucnumber.Focus();
+                checkhead = false;
+                return;
+            }
+
+
             if (cbkhohang.Text == "")
             {
                 MessageBox.Show("Pleae select a Location Wave House (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -651,7 +661,7 @@ namespace Maketting.View
             if (checkdetail && checkhead)
             {
 
-        
+
 
                 #region // head 
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
@@ -667,12 +677,13 @@ namespace Maketting.View
                     rs.TransposterCode = txtmaNVT.Text;
                     rs.TransposterName = txttenNVT.Text;
                     rs.Date_Created = datecreated.Value;
+                    rs.Truckno = txttrucnumber.Text;
 
                     rs.ShippingPoint = this.storelocation;
                     rs.Created_by = txtnguoitaoload.Text;
                     rs.Status = "CRT";
                     rs.LoadNumber = this.soload;
-                 
+
 
                     rs.Username = this.Username;
                     dc.SubmitChanges();
@@ -695,9 +706,10 @@ namespace Maketting.View
                         {
                             item.Status = "Shipping";
                             item.Tranposterby = txttenNVT.Text;
-                          
+                            item.Truck = txttrucnumber.Text;
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
+                         
                             dc.SubmitChanges();
                         }
 
@@ -707,16 +719,16 @@ namespace Maketting.View
                         //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
                         //    btluu.Enabled = false;
                         var rs2 = from pp in dc.tbl_MKt_Listphieuheads
-                                   where pp.Gate_pass == (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value
-                                      && pp.ShippingPoint == this.storelocation
-                                   select pp;
+                                  where pp.Gate_pass == (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value
+                                     && pp.ShippingPoint == this.storelocation
+                                  select pp;
 
                         foreach (var item in rs2)
                         {
                             item.LoadNumber = this.soload;
                             item.Status = "Shipping";
                             item.Tranposterby = txttenNVT.Text;
-                         
+                            item.Trucknumber = txttrucnumber.Text;
 
 
                             dc.SubmitChanges();
@@ -735,26 +747,26 @@ namespace Maketting.View
                 #endregion
 
                 #region  update tbl_MKt_ListLoadheadDetail
-           //     btluu.Enabled = false;
+                //     btluu.Enabled = false;
 
                 var rs4 = from pp in dc.tbl_MKt_Listphieudetails
                           where pp.ShipmentNumber == this.soload
                           && pp.ShippingPoint == this.storelocation
                           group pp by pp.Materiacode into gg
 
-                                select new
-                                {
-                                    Issued = gg.Sum(m => m.Issued),
-                                    Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
-                                    Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+                          select new
+                          {
+                              Issued = gg.Sum(m => m.Issued),
+                              Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                              Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
 
 
 
-                                };
-             //   int i = 0;
+                          };
+                //   int i = 0;
                 foreach (var item in rs4)
                 {
-                 //   i = i + 1;
+                    //   i = i + 1;
 
                     tbl_MKt_ListLoadheadDetail loaddetail = new tbl_MKt_ListLoadheadDetail();
 
@@ -764,7 +776,7 @@ namespace Maketting.View
                     loaddetail.Materiacode = item.Materiacode;
                     loaddetail.Materialname = item.Materialname;
                     // loaddetail.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
-                    loaddetail.Serriload = this.storelocation+this.soload;
+                    loaddetail.Serriload = this.storelocation + this.soload;
                     loaddetail.ShippingPoint = this.storelocation;
                     loaddetail.Issued = item.Issued;
                     loaddetail.Status = "CRT";
@@ -780,7 +792,7 @@ namespace Maketting.View
                 #endregion
 
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-              //  cleartoblankphieu();
+                //  cleartoblankphieu();
             }
 
 
@@ -885,20 +897,20 @@ namespace Maketting.View
             foreach (var item in rptMKTdetailmk1)
             {
                 dem = dem + 1;
-                if (dem ==1)
+                if (dem == 1)
                 {
                     gatepasslist = gatepasslist + item.Key;
                 }
-                if (dem >1)
+                if (dem > 1)
                 {
-                    gatepasslist = gatepasslist +", " + item.Key;
+                    gatepasslist = gatepasslist + ", " + item.Key;
                 }
-              
+
             }
 
 
-                var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
-                                     where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
+                                 where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
                                  group pp by pp.Materiacode into gg
                                  select new
                                  {
@@ -959,8 +971,8 @@ namespace Maketting.View
                 headpx.Barcode = result;
                 headpx.Ngaythang = rptMKThead.Date_Created;
                 headpx.shippingpoint = rptMKThead.ShippingPoint;
-           
-             //   headpx.Truckno = rptMKThead.Truckno;
+
+                //   headpx.Truckno = rptMKThead.Truckno;
 
 
 
@@ -986,7 +998,7 @@ namespace Maketting.View
 
             //    //          });
 
-       
+
             var rshead = from pp in dc.tbl_MKT_LoadHeadRpts
                          where pp.username == this.Username
                          select new
@@ -997,12 +1009,12 @@ namespace Maketting.View
                              Ngaythang = pp.Ngaythang,
                              Loadnumber = pp.Loadnumber,
                              nametransporter = pp.nametransporter,
-                        //     Truckno = pp.Truckno,
-                             gatepasslist =pp.gatepasslist,
+                             //     Truckno = pp.Truckno,
+                             gatepasslist = pp.gatepasslist,
                              seri = pp.seri,
                              Barcode = pp.Barcode,
 
-                           
+
                          };
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head
@@ -1017,7 +1029,7 @@ namespace Maketting.View
 
                                stt = pp.stt,
                                tensanpham = pp.tensanpham,
-                               materialcode =pp.materialcode,
+                               materialcode = pp.materialcode,
                                soluong = pp.soluong,
                                //   username = pp.Username,
                                bangchu = pp.bangchu,
@@ -1961,7 +1973,7 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Username == username && pp.Status == "LOADING"
-                    && pp.ShippingPoint ==this.storelocation
+                    && pp.ShippingPoint == this.storelocation
 
                      select pp;
 
@@ -1969,11 +1981,11 @@ namespace Maketting.View
             {
                 foreach (var item in rs)
                 {
-               //     item.Username = Username;
+                    //     item.Username = Username;
                     item.Status = "CRT";
                     dc.SubmitChanges();
 
-               //     addDEtailLoad(item);
+                    //     addDEtailLoad(item);
                 }
 
 
@@ -2106,7 +2118,7 @@ namespace Maketting.View
 
 
 
-              
+
 
 
             }
@@ -2214,7 +2226,7 @@ namespace Maketting.View
                     item.Status = "CRT";
                     dc.SubmitChanges();
 
-                 
+
                 }
 
 
@@ -2252,7 +2264,7 @@ namespace Maketting.View
 
             var rptMKThead = from pp in dc.tbl_MKt_Listphieuheads
                              where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
-                              select pp;
+                             select pp;
 
             if (rptMKThead.Count() > 0)
             {
@@ -2260,31 +2272,31 @@ namespace Maketting.View
                 foreach (var item in rptMKThead)
                 {
 
-               
-                tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
 
-                headpx.Diachi = item.ShiptoAddress;
-                headpx.Nguoinhancode = item.ShiptoCode.ToString();
-                headpx.Username = this.Username;
-                headpx.Sophieu = item.Gate_pass;
-                headpx.Nguoinhanname = item.ShiptoName;
-                headpx.seri = item.Region+this.storelocation + item.Gate_pass;
+                    tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
 
-                BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
-                BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
-                //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(item.Region+this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
+                    headpx.Diachi = item.ShiptoAddress;
+                    headpx.Nguoinhancode = item.ShiptoCode.ToString();
+                    headpx.Username = this.Username;
+                    headpx.Sophieu = item.Gate_pass;
+                    headpx.Nguoinhanname = item.ShiptoName;
+                    headpx.seri = item.Region + this.storelocation + item.Gate_pass;
 
-                headpx.Barcode = result;
-                headpx.dienthoai = item.Tel;
-                headpx.mucdich = item.Purpose;
-                headpx.Ngaythang = item.Ngaytaophieu;
-                headpx.Nguoiyeucau = item.Requested_by;
+                    BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
+                    BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
+                    //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
+                    Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(item.Region + this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
+
+                    headpx.Barcode = result;
+                    headpx.dienthoai = item.Tel;
+                    headpx.mucdich = item.Purpose;
+                    headpx.Ngaythang = item.Ngaytaophieu;
+                    headpx.Nguoiyeucau = item.Requested_by;
 
 
 
-                dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
-                dc.SubmitChanges();
+                    dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
+                    dc.SubmitChanges();
                 }
             }
 
@@ -2306,7 +2318,7 @@ namespace Maketting.View
                 {
                     i = i + 1;
                 }
-               
+
 
                 tbl_MKT_DetailRpt_Phieuissue detailpx = new tbl_MKT_DetailRpt_Phieuissue();
 
@@ -2316,7 +2328,7 @@ namespace Maketting.View
                 detailpx.tensanpham = item.Materialname;
                 detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
                 detailpx.Sophieu = item.Gate_pass;
-                lastgatepass =  item.Gate_pass;
+                lastgatepass = item.Gate_pass;
                 dc.tbl_MKT_DetailRpt_Phieuissues.InsertOnSubmit(detailpx);
                 dc.SubmitChanges();
 
@@ -2399,7 +2411,7 @@ namespace Maketting.View
 
 
 
-            }
+        }
 
         private void txtseachcode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -2409,7 +2421,7 @@ namespace Maketting.View
 
 
                 txtseachaddress.Text = "";
-          //      txtseachcode.Text = "";
+                //      txtseachcode.Text = "";
                 txtseachgate.Text = "";
                 //  this.storelocation
                 //    dataGridViewDetail
@@ -2428,8 +2440,8 @@ namespace Maketting.View
                 e.Handled = true;
 
 
-           //     txtseachaddress.Text = "";
-                 txtseachcode.Text = "";
+                //     txtseachaddress.Text = "";
+                txtseachcode.Text = "";
                 txtseachgate.Text = "";
                 //  this.storelocation
                 //    dataGridViewDetail
@@ -2479,7 +2491,7 @@ namespace Maketting.View
                          ID = p.id,
                      };
 
-        
+
 
 
             ctrex.exportexceldatagridtofile(rs, dc, this.Text);

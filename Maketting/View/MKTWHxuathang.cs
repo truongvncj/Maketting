@@ -533,11 +533,29 @@ namespace Maketting.View
                     foreach (var item in phieuMKT)
                     {
                         item.Status = "Delivering";
+                        item.Loadingby = this.Username;
                         dc.SubmitChanges();
                     }
                 }
 
+                // head
 
+                var phieuMKThead = (from pp in dc.tbl_MKt_Listphieuheads
+                                where pp.LoadNumber == this.soload
+                                && pp.ShippingPoint == this.storelocation
+                                select pp);
+
+
+
+                if (phieuMKThead.Count() > 0)
+                {
+                    foreach (var item in phieuMKThead)
+                    {
+                        item.Status = "Delivering";
+                      //  item.c = this.Username;
+                        dc.SubmitChanges();
+                    }
+                }
 
             }
 

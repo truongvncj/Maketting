@@ -2107,6 +2107,8 @@ namespace Maketting
 		
 		private string _Region;
 		
+		private string _Completed_by;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2171,6 +2173,8 @@ namespace Maketting
     partial void OnTruckChanged();
     partial void OnRegionChanging(string value);
     partial void OnRegionChanged();
+    partial void OnCompleted_byChanging(string value);
+    partial void OnCompleted_byChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -2778,6 +2782,26 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Completed_by", DbType="NVarChar(50)")]
+		public string Completed_by
+		{
+			get
+			{
+				return this._Completed_by;
+			}
+			set
+			{
+				if ((this._Completed_by != value))
+				{
+					this.OnCompleted_byChanging(value);
+					this.SendPropertyChanging();
+					this._Completed_by = value;
+					this.SendPropertyChanged("Completed_by");
+					this.OnCompleted_byChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2851,6 +2875,8 @@ namespace Maketting
 		
 		private string _Note;
 		
+		private string _Trucknumber;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2901,6 +2927,8 @@ namespace Maketting
     partial void OnShiptoAddressChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
+    partial void OnTrucknumberChanging(string value);
+    partial void OnTrucknumberChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -3364,6 +3392,26 @@ namespace Maketting
 					this._Note = value;
 					this.SendPropertyChanged("Note");
 					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Trucknumber", DbType="NVarChar(255)")]
+		public string Trucknumber
+		{
+			get
+			{
+				return this._Trucknumber;
+			}
+			set
+			{
+				if ((this._Trucknumber != value))
+				{
+					this.OnTrucknumberChanging(value);
+					this.SendPropertyChanging();
+					this._Trucknumber = value;
+					this.SendPropertyChanged("Trucknumber");
+					this.OnTrucknumberChanged();
 				}
 			}
 		}
