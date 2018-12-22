@@ -2173,6 +2173,10 @@ namespace Maketting.View
                          && pp.Soldtype == true
                          select new
                          {
+                             pp.KeyAcc,
+                             pp.Region,
+                             pp.SalesOrg,
+                             pp.District,
                              MÃ_KHÁCH_HÀNG = pp.Customer,
                              TÊN_KHÁCH_HÀNG = pp.FullNameN,
                              ĐỊA_CHỈ = pp.Street + " " + pp.District + " " + pp.City,
