@@ -2174,6 +2174,7 @@ namespace Maketting.View
                          select new
                          {
                              pp.KeyAcc,
+                             pp.Chanel,
                              pp.Region,
                              pp.SalesOrg,
                              pp.District,

@@ -5307,6 +5307,8 @@ namespace Maketting
 		
 		private string _Createby;
 		
+		private string _Chanel;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5349,6 +5351,8 @@ namespace Maketting
     partial void OnCreatedonChanged();
     partial void OnCreatebyChanging(string value);
     partial void OnCreatebyChanged();
+    partial void OnChanelChanging(string value);
+    partial void OnChanelChanged();
     #endregion
 		
 		public tbl_MKT_Soldtocode()
@@ -5732,6 +5736,26 @@ namespace Maketting
 					this._Createby = value;
 					this.SendPropertyChanged("Createby");
 					this.OnCreatebyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel", DbType="NVarChar(50)")]
+		public string Chanel
+		{
+			get
+			{
+				return this._Chanel;
+			}
+			set
+			{
+				if ((this._Chanel != value))
+				{
+					this.OnChanelChanging(value);
+					this.SendPropertyChanging();
+					this._Chanel = value;
+					this.SendPropertyChanged("Chanel");
+					this.OnChanelChanged();
 				}
 			}
 		}
@@ -6227,6 +6251,8 @@ namespace Maketting
 		
 		private System.Nullable<double> _TransferingOUT;
 		
+		private System.Nullable<double> _Ordered;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -6249,6 +6275,8 @@ namespace Maketting
     partial void OnStore_codeChanged();
     partial void OnTransferingOUTChanging(System.Nullable<double> value);
     partial void OnTransferingOUTChanged();
+    partial void OnOrderedChanging(System.Nullable<double> value);
+    partial void OnOrderedChanged();
     #endregion
 		
 		public tbl_MKT_Stockend()
@@ -6432,6 +6460,26 @@ namespace Maketting
 					this._TransferingOUT = value;
 					this.SendPropertyChanged("TransferingOUT");
 					this.OnTransferingOUTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordered", DbType="Float")]
+		public System.Nullable<double> Ordered
+		{
+			get
+			{
+				return this._Ordered;
+			}
+			set
+			{
+				if ((this._Ordered != value))
+				{
+					this.OnOrderedChanging(value);
+					this.SendPropertyChanging();
+					this._Ordered = value;
+					this.SendPropertyChanged("Ordered");
+					this.OnOrderedChanged();
 				}
 			}
 		}

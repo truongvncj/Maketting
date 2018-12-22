@@ -108,7 +108,7 @@ namespace Maketting.Model
             batable.Columns.Add("City", typeof(string));
             batable.Columns.Add("Region", typeof(string));
             batable.Columns.Add("PaymentTerms", typeof(string));
-
+            batable.Columns.Add("Chanel", typeof(string));
             batable.Columns.Add("PriceList", typeof(string));
             batable.Columns.Add("KeyAcc", typeof(double));
             batable.Columns.Add("SalesDistrict", typeof(string));
@@ -121,6 +121,8 @@ namespace Maketting.Model
             //dr["[]"] = true;
 
 
+
+            int Chanelid = 0;
             int Customerid = 0;
             int FullNameNid = 0;
             int Telephone1id = 0;
@@ -181,6 +183,15 @@ namespace Maketting.Model
                          //   headindex = 0;
 
 
+
+                        }
+
+                        //
+
+                        
+                        if (value.Trim().Contains("Chanel") && headindex == rowid)
+                        {
+                            Chanelid = columid;
 
                         }
 
@@ -295,10 +306,11 @@ namespace Maketting.Model
                     dr["SalesDistrict"] = sourceData.Rows[rowixd][SalesDistrictid].ToString().Trim();
 
                     dr["VATregistrationNo"] = sourceData.Rows[rowixd][VATregistrationNoid].ToString().Trim();
+                    dr["Chanel"] = sourceData.Rows[rowixd][Chanelid].ToString().Trim();
 
-            
-             
-                    dr["Createdon"] =  DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
+                    
+
+                            dr["Createdon"] =  DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
                     dr["Createby"] = Model.Username.getUsername();
 
 
@@ -353,9 +365,11 @@ namespace Maketting.Model
                 bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
                 bulkCopy.ColumnMappings.Add("ShiptoCode", "ShiptoCode");
                 bulkCopy.ColumnMappings.Add("Soldtype", "Soldtype");
+                bulkCopy.ColumnMappings.Add("Chanel", "Chanel");
+
+                
 
 
-           
 
                 try
                 {

@@ -725,7 +725,7 @@ namespace Maketting.View
                         dc.SubmitChanges();
 
 
-                        Model.MKT.tranferoutrequestmakechange(DetailTransfer, item.Store_OUT);
+                        Model.MKT.tranferoutrequestmakechange(DetailTransfer);
 
 
                     }
@@ -737,6 +737,7 @@ namespace Maketting.View
 
 
                 MessageBox.Show("Phiếu " + this.Transfernumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 cleartoblankPOphieu();
             }
 

@@ -749,7 +749,7 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
-        public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout, string storecode)
+        public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout)
         {
 
             string connection_string = Utils.getConnectionstr();
@@ -757,7 +757,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKT_Stockends
                      where p.ITEM_Code == itemout.MateriaItemcode 
-                     && p.Store_code == storecode
+                     && p.Store_code == itemout.Store_OUT
                      select p;
 
             if (rs.Count() > 0)
@@ -806,7 +806,7 @@ namespace Maketting.Model
                      && p.Store_code == itemIN.Store_IN
                      select p;
 
-            if (rs.Count() > 0)
+            if (rs2.Count() > 0)
             {
                 foreach (var item in rs)
                 {
@@ -814,6 +814,33 @@ namespace Maketting.Model
                  //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
                     dc.SubmitChanges();
                 }
+
+            }
+            else
+            {
+
+                tbl_MKT_Stockend newproduct = new tbl_MKT_Stockend();
+
+                newproduct.Description = itemIN.Description;
+
+                newproduct.END_STOCK = itemIN.Reciepted_Quantity;
+
+                newproduct.ITEM_Code = itemIN.MateriaItemcode;
+
+                newproduct.SAP_CODE = itemIN.MateriaSAPcode;
+
+                newproduct.Store_code = itemIN.Store_IN;
+
+                newproduct.UNIT = itemIN.Unit;
+
+                newproduct.Ordered = 0;
+
+                newproduct.Description = itemIN.Description;
+
+
+
+                dc.tbl_MKT_Stockends.InsertOnSubmit(newproduct);
+                dc.SubmitChanges();
 
             }
 
