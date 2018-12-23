@@ -340,6 +340,23 @@
       <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_TransferinoutHEADrpt" Member="tbl_MKt_TransferinoutHEADrpts">
+    <Type Name="tbl_MKt_TransferinoutHEADrpt">
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Created_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Transfer_OUT_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Transfer_IN_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_OUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Subid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKt_Transferoutdetail" Member="tbl_MKt_Transferoutdetails">
     <Type Name="tbl_MKt_Transferoutdetail">
       <Column Name="Tranfernumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -358,6 +375,18 @@
       <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="AvaiableQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Reciepted_Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_Transferoutdetailrpt" Member="tbl_MKt_Transferoutdetailrpts">
+    <Type Name="tbl_MKt_Transferoutdetailrpt">
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="masanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="donvi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_TransferoutdetailTMP" Member="tbl_MKt_TransferoutdetailTMPs">
@@ -391,6 +420,7 @@
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Store_OUT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_WHissueHeadRpt" Member="tbl_MKT_WHissueHeadRpts">
@@ -423,6 +453,18 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKt_Transferindetailrpt" Member="tbl_MKt_Transferindetailrpts">
+    <Type Name="tbl_MKt_Transferindetailrpt">
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="masanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="donvi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

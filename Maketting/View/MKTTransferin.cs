@@ -735,53 +735,55 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rptMKT = from pp in dc.tbl_MKT_WHissueHeadRpts
+            var rptMKT = from pp in dc.tbl_MKt_TransferinoutHEADrpts
                          where pp.username == this.Username
                          select pp;
-
-            dc.tbl_MKT_WHissueHeadRpts.DeleteAllOnSubmit(rptMKT);
+            // xóa temp để làm báo cáo
+            dc.tbl_MKt_TransferinoutHEADrpts.DeleteAllOnSubmit(rptMKT);
             dc.SubmitChanges();
 
 
-            var rptMKTdetail = from pp in dc.tbl_MKT_LoaddetailRpts
-                               where pp.Username == this.Username
+            var rptMKTdetail = from pp in dc.tbl_MKt_Transferindetailrpts
+                               where pp.username == this.Username
                                select pp;
 
-            dc.tbl_MKT_LoaddetailRpts.DeleteAllOnSubmit(rptMKTdetail);
+            dc.tbl_MKt_Transferindetailrpts.DeleteAllOnSubmit(rptMKTdetail);
             dc.SubmitChanges();
 
 
+            // xóa temp để làm báo cáo
 
-
-            var rptMKThead = (from pp in dc.tbl_MKt_POheads
-                                     where pp.PONumber == this.TFnumber //&& pp.ShippingPoint == this.storelocation
+            var rptMKThead = (from pp in dc.tbl_MKt_TransferoutHEADs
+                              where pp.Tranfernumber == this.TFnumber //&& pp.ShippingPoint == this.storelocation
                               select pp).FirstOrDefault();
 
             if (rptMKThead != null)
             {
-                tbl_MKT_WHissueHeadRpt headpx = new tbl_MKT_WHissueHeadRpt();
+                tbl_MKt_TransferinoutHEADrpt headpx = new tbl_MKt_TransferinoutHEADrpt();
 
-                headpx.Subid = this.subID.ToString();
+                //    headpx.Subid = this.subID.ToString();
 
                 headpx.username = this.Username;
-                headpx.Loadnumber = rptMKThead.PONumber;
-                //    headpx.nametransporter = rptMKThead.TransposterName;
-                headpx.seri = this.txtTo_Store + rptMKThead.PONumber+"-"+this.subID;
+                headpx.Tranfernumber = rptMKThead.Tranfernumber;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.txtTo_Store + rptMKThead.PONumber), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(rptMKThead.Tranfernumber), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
-                headpx.Ngaythang = rptMKThead.DatePo;
-                headpx.shippingpoint = rptMKThead.StoreLocation;
+                headpx.Transfer_OUT_Date = rptMKThead.Transfer_OUT_Date;
+                headpx.Store_IN = rptMKThead.Store_IN;
+                headpx.Store_OUT = rptMKThead.Store_OUT;
+                headpx.Created_by = rptMKThead.Created_by;
+                headpx.Seri = rptMKThead.Tranfernumber;
+                headpx.Trucknumber = rptMKThead.Trucknumber;
 
-                headpx.Storeman = this.Createdby;
+                headpx.Subid = this.subID.ToString();
 
 
 
-                dc.tbl_MKT_WHissueHeadRpts.InsertOnSubmit(headpx);
+                dc.tbl_MKt_TransferinoutHEADrpts.InsertOnSubmit(headpx);
                 dc.SubmitChanges();
 
             }
@@ -804,43 +806,29 @@ namespace Maketting.View
             //    //          });
 
 
-            var rshead = from pp in dc.tbl_MKT_WHissueHeadRpts
+            var rshead = from pp in dc.tbl_MKt_TransferinoutHEADrpts
                          where pp.username == this.Username
-                         select new
-                         {
-                             Storeman = pp.Storeman,
-                             Subid = pp.Subid,
-                             //     codetransporter = pp.codetransporter,
-                             shippingpoint = pp.shippingpoint,
-                             Ngaythang = pp.Ngaythang,
-                             Loadnumber = pp.Loadnumber,
-                             //      nametransporter = pp.nametransporter,
-                             //       Truckno = pp.Truckno,
-                             //     gatepasslist = pp.gatepasslist,
-                             seri = pp.seri,
-                             Barcode = pp.Barcode,
+                         select pp;
 
-
-                         };
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
 
-            var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
-                                  where pp.POnumber == this.TFnumber
-                                  && pp.IssueIDsub == this.subID
-                                  && pp.RecieptQuantity >0
-                           orderby pp.Materiacode
+            var rsdetail = from pp in dc.tbl_MKt_TransferINdetails
+                           where pp.Tranfernumber == this.TFnumber
+                               && pp.IssueIDsub == this.subID
+                           //       && pp.RecieptQuantity > 0
+                           orderby pp.MateriaItemcode
                            select new
                            {
 
                                // stt = stt +1,
-                               Materiacode = pp.Materiacode,
+                               Materiacode = pp.MateriaItemcode,
                                Materialname = pp.Materialname,
-                               soluong = pp.RecieptQuantity,
-                               //   username = pp.Username,
+                               soluong = pp.Reciepted_Quantity,
+                               pp.Unit,
 
 
                            };
@@ -853,17 +841,18 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKt_Transferindetailrpt        detailpx = new tbl_MKt_Transferindetailrpt();
 
                     detailpx.stt = stt.ToString();
                     detailpx.soluong = item.soluong;
-                    detailpx.Username = this.Username;
-                    detailpx.materialcode = item.Materiacode;
+                    detailpx.donvi = item.Unit;
+                    detailpx.username = this.Username;
+                    detailpx.masanpham = item.Materiacode;
                     detailpx.tensanpham = item.Materialname;
                     detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
 
 
-                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.tbl_MKt_Transferindetailrpts.InsertOnSubmit(detailpx);
                     dc.SubmitChanges();
 
 
@@ -874,31 +863,23 @@ namespace Maketting.View
 
             }
 
-            var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
-                            where pp.Username == this.Username
+            var rsdetail3 = from pp in dc.tbl_MKt_Transferindetailrpts
+                            where pp.username == this.Username
                             orderby pp.stt
-                            select new
-                            {
-
-                                stt = pp.stt,
-                                tensanpham = pp.tensanpham,
-                                materialcode = pp.materialcode,
-                                soluong = pp.soluong,
-                                //   username = pp.Username,
-                                bangchu = pp.bangchu,
-
-                            };
+                            select pp;
 
 
             var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail
 
 
-            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKWHnhapkhoMKT.rdlc");
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "Phieutransferin.rdlc");
             rpt.ShowDialog();
 
             //}
 
             //#endregion view reports payment request  // 
+
+
 
         }
 

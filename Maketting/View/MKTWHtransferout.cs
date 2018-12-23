@@ -102,7 +102,7 @@ namespace Maketting.View
 
             txtnguoiyeucau.Enabled = true;
 
-
+            txttrucknumber.Text = "";
             //    btluu.Visible = true;
             //    btluu.Enabled = true;
             //    cbtaikhoanco.Enabled = true;
@@ -499,6 +499,8 @@ namespace Maketting.View
                 return;
             }
 
+
+           
             if (cbkhohangin.Text == "")
             {
                 MessageBox.Show("Pleae select a store to transfer int ! !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -515,7 +517,13 @@ namespace Maketting.View
                 return;
             }
 
-
+            if (txttrucknumber.Text == "")
+            {
+                MessageBox.Show("Pleae select input trucknumber !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttrucknumber.Focus();
+                checkhead = false;
+                return;
+            }
 
             #endregion
 
@@ -593,7 +601,7 @@ namespace Maketting.View
 
                 tranferhead.Created_by = txtnguoiyeucau.Text;
                 tranferhead.Status = "CRT";
-
+                tranferhead.Trucknumber = txttrucknumber.Text;
                 //      rs.Tel = lbtel.Text;
                 tranferhead.Username = this.Username;
                 dc.tbl_MKt_TransferoutHEADs.InsertOnSubmit(tranferhead);
@@ -1908,6 +1916,166 @@ namespace Maketting.View
         private void cbkhohangin_SelectedValueChanged(object sender, EventArgs e)
         {
             this.storelocationIN = (cbkhohangin.SelectedItem as ComboboxItem).Value.ToString();
+        }
+
+        private void btinphieu_Click_1(object sender, EventArgs e)
+        {
+            //   string username = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rptMKT = from pp in dc.tbl_MKt_TransferinoutHEADrpts
+                         where pp.username == this.Username
+                         select pp;
+            // xóa temp để làm báo cáo
+            dc.tbl_MKt_TransferinoutHEADrpts.DeleteAllOnSubmit(rptMKT);
+            dc.SubmitChanges();
+
+
+            var rptMKTdetail = from pp in dc.tbl_MKt_Transferoutdetailrpts
+                               where pp.username == this.Username
+                               select pp;
+
+            dc.tbl_MKt_Transferoutdetailrpts.DeleteAllOnSubmit(rptMKTdetail);
+            dc.SubmitChanges();
+
+
+            // xóa temp để làm báo cáo
+
+            var rptMKThead = (from pp in dc.tbl_MKt_TransferoutHEADs
+                              where pp.Tranfernumber == this.Transfernumber //&& pp.ShippingPoint == this.storelocation
+                              select pp).FirstOrDefault();
+
+            if (rptMKThead != null)
+            {
+                tbl_MKt_TransferinoutHEADrpt headpx = new tbl_MKt_TransferinoutHEADrpt();
+
+            //    headpx.Subid = this.subID.ToString();
+
+                headpx.username = this.Username;
+                headpx.Tranfernumber = rptMKThead.Tranfernumber;
+           
+                BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
+                BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
+                //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode( rptMKThead.Tranfernumber), 1, true), typeof(Byte[]));
+
+                headpx.Barcode = result;
+                headpx.Transfer_OUT_Date = rptMKThead.Transfer_OUT_Date;
+                headpx.Store_IN = rptMKThead.Store_IN;
+                headpx.Store_OUT = rptMKThead.Store_OUT;
+                headpx.Created_by = rptMKThead.Created_by;
+                headpx.Seri = rptMKThead.Tranfernumber;
+                headpx.Trucknumber = rptMKThead.Trucknumber;
+
+                //      headpx.Storeman = this.cre;
+
+
+
+                dc.tbl_MKt_TransferinoutHEADrpts.InsertOnSubmit(headpx);
+                dc.SubmitChanges();
+
+            }
+
+            //    //var q3 = (from tblEDLP in dc.tblEDLPs
+            //    //          group tblEDLP by tblEDLP.Invoice_Doc_Nr into OD//Tương đương GROUP BY trong SQL
+            //    //          orderby OD.Key
+            //    //          where !(from tblVat in dc.tblVats
+            //    //                  select tblVat.SAP_Invoice_Number).Contains(OD.Key)
+
+            //    //          select new
+            //    //          {
+            //    //              Document_Number = OD.Key,
+            //    //              Name = OD.Select(m => m.Cust_Name).FirstOrDefault(),
+            //    //              Value_Count = OD.Sum(m => m.Cond_Value)
+
+
+
+
+            //    //          });
+
+
+            var rshead = from pp in dc.tbl_MKt_TransferinoutHEADrpts
+                         where pp.username == this.Username
+                         select pp;
+
+            Utils ut = new Utils();
+            var dataset1 = ut.ToDataTable(dc, rshead); // head
+
+            //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
+            //vx1.ShowDialog();
+
+            var rsdetail = from pp in dc.tbl_MKt_Transferoutdetails
+                           where pp.Tranfernumber == this.Transfernumber
+                      //     && pp.IssueIDsub == this.subID
+                    //       && pp.RecieptQuantity > 0
+                           orderby pp.MateriaItemcode
+                           select new
+                           {
+
+                               // stt = stt +1,
+                               Materiacode = pp.MateriaItemcode,
+                               Materialname = pp.Materialname,
+                               soluong = pp.Quantity,
+                                 pp.Unit,
+
+
+                           };
+            if (rsdetail.Count() > 0)
+            {
+                int stt = 0;
+                foreach (var item in rsdetail)
+                {
+
+
+                    stt = stt + 1;
+
+                    tbl_MKt_Transferoutdetailrpt detailpx = new tbl_MKt_Transferoutdetailrpt();
+
+                    detailpx.stt = stt.ToString();
+                    detailpx.soluong = item.soluong;
+                    detailpx.donvi = item.Unit;
+                    detailpx.username = this.Username;
+                    detailpx.masanpham = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+
+
+                    dc.tbl_MKt_Transferoutdetailrpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
+
+
+
+
+
+                }
+
+            }
+
+            var rsdetail3 = from pp in dc.tbl_MKt_Transferoutdetailrpts
+                            where pp.username == this.Username
+                            orderby pp.stt
+                            select pp;
+
+
+            var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail
+
+
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "Phieutransferout.rdlc");
+            rpt.ShowDialog();
+
+            //}
+
+            //#endregion view reports payment request  // 
+
+
+
+
+
+
+
+
         }
     }
 }
