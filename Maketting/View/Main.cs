@@ -4347,6 +4347,54 @@ namespace Maketting.View
         {
 
         }
+
+        private void customerChanelListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_CustomerChanels
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
+            tbl.ShowDialog();
+        }
+
+        private void customerChannelManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_CustomerChanels
+                          //   where pp.Soldtype == true
+                      select pp;
+            
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
+            tbl.ShowDialog();
+
+
+        }
+
+        private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //    NPDanhsachnhavantai
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.danhkhachhang(dc);
+            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+
+            viewtbl.Show();
+
+        }
     }
 
 

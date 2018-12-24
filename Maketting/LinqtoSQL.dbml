@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MKTing" Class="LinqtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=HAN-L-3PFF7H2;Initial Catalog=MKTing;Integrated Security=True" SettingsObjectName="Maketting.Properties.Settings" SettingsPropertyName="MKTingConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
-    <Type Name="tbl_MKT_DetailRpt_Phieuissue">
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+  <Table Name="dbo.tbl_MKT_CustomerChanel" Member="tbl_MKT_CustomerChanels">
+    <Type Name="tbl_MKT_CustomerChanel">
+      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Sophieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Temp" Member="tbl_Temps">
@@ -30,6 +27,17 @@
       <Column Name="StoreLocationmanage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="addNewProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IOprogamecreatRight" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
+    <Type Name="tbl_MKT_DetailRpt_Phieuissue">
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sophieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_headRpt_Phieuissue" Member="tbl_MKT_headRpt_Phieuissues">
@@ -340,6 +348,18 @@
       <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKt_Transferindetailrpt" Member="tbl_MKt_Transferindetailrpts">
+    <Type Name="tbl_MKt_Transferindetailrpt">
+      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="masanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="donvi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKt_TransferinoutHEADrpt" Member="tbl_MKt_TransferinoutHEADrpts">
     <Type Name="tbl_MKt_TransferinoutHEADrpt">
       <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -453,18 +473,6 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKt_Transferindetailrpt" Member="tbl_MKt_Transferindetailrpts">
-    <Type Name="tbl_MKt_Transferindetailrpt">
-      <Column Name="stt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="soluong" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="tensanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="bangchu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="masanpham" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="donvi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

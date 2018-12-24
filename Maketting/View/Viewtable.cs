@@ -320,6 +320,76 @@ namespace Maketting.View
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
 
+            // view code = 16 channel list
+
+            #region  // viewcode ==17  channel list
+
+
+            if (this.viewcode == 17)
+            {
+
+
+         //       string makh = valuesave;
+
+
+
+
+
+
+                View.MKTCustomerchanellist p = new MKTCustomerchanellist(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+           
+                var rs = Model.MKT.danhsachcustomerChannel(this.db);
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+
+            #region  // viewcode ==16  la danh khách hàng shipto
+
+
+            if (this.viewcode == 16)
+            {
+
+
+                string makh = valuesave;
+
+
+
+
+
+
+                View.MKTVTDanhsacshipto p = new MKTVTDanhsacshipto(3, -1, makh);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+                var rs = Model.MKT.shiptolistbycustomer(this.db, makh);
+                //var rs = Model.MKT.shiptolist(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+
+
+
             #region  // viewcode ==15  storeright
 
 
@@ -447,38 +517,6 @@ namespace Maketting.View
 
             #endregion
 
-            #region  // viewcode ==16  la danh khách hàng shipto
-
-
-            if (this.viewcode == 16)
-            {
-
-
-                string makh = valuesave;
-
-
-
-
-
-
-                View.MKTVTDanhsacshipto p = new MKTVTDanhsacshipto(3, -1, makh);  // 3 là thêm ới
-
-                p.ShowDialog();
-
-                var rs = Model.MKT.shiptolistbycustomer(this.db, makh);
-                //var rs = Model.MKT.shiptolist(this.db);
-
-                dataGridView1.DataSource = rs;
-
-
-
-            }
-
-
-
-            #endregion
-
-
 
 
 
@@ -523,6 +561,51 @@ namespace Maketting.View
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+
+            #region  // viewcode ==17  la channel
+
+
+            if (this.viewcode == 17)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTCustomerchanellist p = new MKTCustomerchanellist(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhsachcustomerChannel(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
 
             #region  // viewcode ==15 la dannhóm quen kho
 

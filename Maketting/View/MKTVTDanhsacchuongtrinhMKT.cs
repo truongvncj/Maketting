@@ -366,7 +366,14 @@ namespace Maketting.View
 
         private void txttenkho_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txtghichu.Focus();
+
+
+            }
         }
 
         private void txtdiachi_KeyPress(object sender, KeyPressEventArgs e)

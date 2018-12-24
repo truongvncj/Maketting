@@ -151,7 +151,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(126, 16);
             this.label20.TabIndex = 50;
-            this.label20.Text = "Mã chương trình (IO)";
+            this.label20.Text = "Mã chương trình ";
             // 
             // label21
             // 

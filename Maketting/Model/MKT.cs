@@ -1325,6 +1325,28 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static IQueryable danhsachcustomerChannel(LinqtoSQLDataContext db)
+        {
+
+
+            LinqtoSQLDataContext dc = db;
+
+            var rs = from pp in dc.tbl_MKT_CustomerChanels
+                     select new
+                     {
+                         Chanel_code = pp.Chanel_code,
+                         Chanel_name = pp.Chanel_name,
+                         Note = pp.Note,
+                         ID = pp.id,
+
+                     };
+
+            return rs;
+
+            //   throw new NotImplementedException();
+        }
+
+
         public static IQueryable danhsachkhoMKTRight(LinqtoSQLDataContext db)
         {
 

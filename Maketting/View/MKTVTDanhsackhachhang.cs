@@ -36,7 +36,7 @@ namespace Maketting.View
         public string SalesOrg { get; set; }
         public string Region { get; set; }
 
-      
+      public string channel { get; set; }
 
 
         public class ComboboxItem
@@ -58,6 +58,33 @@ namespace Maketting.View
 
             chon = false;
 
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+
+
+            List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+            var channelll = from pp in dc.tbl_MKT_CustomerChanels
+                    
+                      select pp;
+            foreach (var item2 in channelll)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Chanel_code.Trim();
+                cb.Text = item2.Chanel_code.Trim() + ": " + item2.Chanel_name.Trim();
+                itemstorecolect.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbchannel.DataSource = itemstorecolect;
+            cbchannel.SelectedIndex = 0;
+
+
 
 
             this.id = id;
@@ -70,10 +97,6 @@ namespace Maketting.View
                 //     txtidma.Enabled = false;
 
 
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
 
                 var item = (from p in dc.tbl_MKT_Soldtocodes
                             where p.id == id
@@ -82,32 +105,28 @@ namespace Maketting.View
                 if (item != null)
                 {
 
-
-                    //      txtidma.Text = item.idCust;
                     txtname.Text = item.FullNameN;
                     txtdistrict.Text = item.District;
                     txtcity.Text = item.City;
-
-                    // txtdienthoai.Text = item.dienthoaiNVT;
                     txtcustomercode.Text = item.Customer;
 
                     txtstreet.Text = item.Street;
-
-
-
-
-
-                    txttelephone.Text = item.Telephone1;//  p.ghichunganhnghe  
-
+                    txttelephone.Text = item.Telephone1;
                     txtnote.Text = item.Note;
 
-                    txtRegion.Text = item.Region;//  p.ghichunganhnghe  
-
+                    txtRegion.Text = item.Region;
                     txtSalesOrg.Text = item.SalesOrg;
 
 
 
                 }
+
+
+
+
+
+
+
 
 
             }
@@ -241,6 +260,15 @@ namespace Maketting.View
 
                 return;
             }
+
+
+            if (cbchannel.Text == "")
+            {
+                MessageBox.Show("Pleae input the channel", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbchannel.Focus();
+
+                return;
+            }
             if (txtdistrict.Text == "")
             {
                 MessageBox.Show("Pleae input the District (Quận / Huyện)!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -280,21 +308,11 @@ namespace Maketting.View
             this.city = txtcity.Text;
             this.Region = txtRegion.Text;
             this.SalesOrg = txtSalesOrg.Text;
+            this.channel = cbchannel.Text;
 
 
 
 
-
-            //if (maID == "")
-            //{
-            //    MessageBox.Show("Bạn chưa có mã khách hàng", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-
-
-
-            //if (maID != "")
-            //{
             chon = true;
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
@@ -324,7 +342,7 @@ namespace Maketting.View
                 rs.SalesOrg = this.SalesOrg;
                 rs.Region = this.Region;
 
-
+                rs.Chanel = this.channel;
                 db.SubmitChanges();
                 this.Close();
             }
@@ -372,6 +390,15 @@ namespace Maketting.View
 
                 return;
             }
+
+            if (cbchannel.Text == "")
+            {
+                MessageBox.Show("Pleae input channel ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbchannel.Focus();
+
+                return;
+            }
+
             if (txtdistrict.Text == "")
             {
                 MessageBox.Show("Pleae input the District (Quận / Huyện)!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -401,7 +428,7 @@ namespace Maketting.View
             this.Region = txtSalesOrg.Text;
             this.SalesOrg = txtSalesOrg.Text;
 
-
+            this.channel = cbchannel.Text;
 
 
             chon = true;
@@ -426,7 +453,7 @@ namespace Maketting.View
             p.Soldtype = true;
             p.Createdon = DateTime.Today;
             p.Createby = Model.Username.getUsername();
-
+            p.Chanel = this.channel;// = txtdiachitaikhoannganhang.Text;
 
             db.tbl_MKT_Soldtocodes.InsertOnSubmit(p);
             db.SubmitChanges();

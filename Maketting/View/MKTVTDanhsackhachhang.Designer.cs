@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTVTDanhsackhachhang));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtRegion = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSalesOrg = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtcity = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtdistrict = new System.Windows.Forms.TextBox();
@@ -47,15 +51,15 @@
             this.btnew = new System.Windows.Forms.Button();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtRegion = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtSalesOrg = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.cbchannel = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbchannel);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtRegion);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtSalesOrg);
@@ -79,9 +83,49 @@
             this.panel1.Controls.Add(this.label21);
             this.panel1.Location = new System.Drawing.Point(5, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 405);
+            this.panel1.Size = new System.Drawing.Size(556, 429);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // txtRegion
+            // 
+            this.txtRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRegion.Location = new System.Drawing.Point(160, 353);
+            this.txtRegion.Name = "txtRegion";
+            this.txtRegion.Size = new System.Drawing.Size(366, 20);
+            this.txtRegion.TabIndex = 88;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 353);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 20);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Region";
+            // 
+            // txtSalesOrg
+            // 
+            this.txtSalesOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalesOrg.Location = new System.Drawing.Point(161, 312);
+            this.txtSalesOrg.Name = "txtSalesOrg";
+            this.txtSalesOrg.Size = new System.Drawing.Size(366, 20);
+            this.txtSalesOrg.TabIndex = 86;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 20);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "SalesOrg";
             // 
             // txtcity
             // 
@@ -215,7 +259,7 @@
             // txtnote
             // 
             this.txtnote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnote.Location = new System.Drawing.Point(163, 241);
+            this.txtnote.Location = new System.Drawing.Point(161, 277);
             this.txtnote.Name = "txtnote";
             this.txtnote.Size = new System.Drawing.Size(366, 20);
             this.txtnote.TabIndex = 76;
@@ -227,7 +271,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 241);
+            this.label1.Location = new System.Drawing.Point(6, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 77;
@@ -236,7 +280,7 @@
             // txttelephone
             // 
             this.txttelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelephone.Location = new System.Drawing.Point(164, 200);
+            this.txttelephone.Location = new System.Drawing.Point(161, 236);
             this.txttelephone.Name = "txttelephone";
             this.txttelephone.Size = new System.Drawing.Size(366, 20);
             this.txttelephone.TabIndex = 74;
@@ -248,7 +292,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 200);
+            this.label5.Location = new System.Drawing.Point(7, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 75;
@@ -281,7 +325,7 @@
             this.btupdate.BackColor = System.Drawing.Color.Transparent;
             this.btupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btupdate.ForeColor = System.Drawing.Color.Red;
-            this.btupdate.Location = new System.Drawing.Point(288, 374);
+            this.btupdate.Location = new System.Drawing.Point(288, 398);
             this.btupdate.Name = "btupdate";
             this.btupdate.Size = new System.Drawing.Size(94, 21);
             this.btupdate.TabIndex = 6;
@@ -295,7 +339,7 @@
             this.btxoa.BackColor = System.Drawing.Color.Transparent;
             this.btxoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btxoa.ForeColor = System.Drawing.Color.Red;
-            this.btxoa.Location = new System.Drawing.Point(161, 374);
+            this.btxoa.Location = new System.Drawing.Point(161, 398);
             this.btxoa.Name = "btxoa";
             this.btxoa.Size = new System.Drawing.Size(94, 21);
             this.btxoa.TabIndex = 6;
@@ -309,7 +353,7 @@
             this.btnew.BackColor = System.Drawing.Color.Transparent;
             this.btnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnew.ForeColor = System.Drawing.Color.Red;
-            this.btnew.Location = new System.Drawing.Point(409, 374);
+            this.btnew.Location = new System.Drawing.Point(409, 398);
             this.btnew.Name = "btnew";
             this.btnew.Size = new System.Drawing.Size(94, 21);
             this.btnew.TabIndex = 8;
@@ -338,45 +382,91 @@
             this.label21.TabIndex = 49;
             this.label21.Text = "Customer Name";
             // 
-            // txtRegion
+            // cbchannel
             // 
-            this.txtRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegion.Location = new System.Drawing.Point(162, 317);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(366, 20);
-            this.txtRegion.TabIndex = 88;
+            this.cbchannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbchannel.FormattingEnabled = true;
+            this.cbchannel.Items.AddRange(new object[] {
+            "An Giang",
+            "Bà Rịa-Vũng Tàu",
+            "Bạc Liêu",
+            "Bắc Kạn",
+            "Bắc Giang",
+            "Bắc Ninh",
+            "Bến Tre",
+            "Bình Dương",
+            "Bình Định",
+            "Bình Phước",
+            "Bình Thuận",
+            "Cà Mau",
+            "Cao Bằng",
+            "Cần Thơ",
+            "Đà Nẵng",
+            "Đắk Lắk",
+            "Đắk Nông",
+            "Điện Biên",
+            "Đồng Nai",
+            "Đồng Tháp",
+            "Gia Lai",
+            "Hà Giang",
+            "Hà Nam",
+            "Hà Nội",
+            "Hà Tây",
+            "Hà Tĩnh",
+            "Hải Dương",
+            "Hải Phòng",
+            "Hòa Bình",
+            "Hồ Chí Minh",
+            "Hậu Giang",
+            "Hưng Yên",
+            "Khánh Hòa",
+            "Kiên Giang",
+            "Kon Tum",
+            "Lai Châu",
+            "Lào Cai",
+            "Lạng Sơn",
+            "Lâm Đồng",
+            "Long An",
+            "Nam Định",
+            "Nghệ An",
+            "Ninh Bình",
+            "Ninh Thuận",
+            "Phú Thọ",
+            "Phú Yên",
+            "Quảng Bình",
+            "Quảng Nam",
+            "Quảng Ngãi",
+            "Quảng Ninh",
+            "Quảng Trị",
+            "Sóc Trăng",
+            "Sơn La",
+            "Tây Ninh",
+            "Thái Bình",
+            "Thái Nguyên",
+            "Thanh Hóa",
+            "Thừa Thiên - Huế",
+            "Tiền Giang",
+            "Trà Vinh",
+            "Tuyên Quang",
+            "Vĩnh Long",
+            "Vĩnh Phúc",
+            "Yên Bái"});
+            this.cbchannel.Location = new System.Drawing.Point(161, 195);
+            this.cbchannel.Name = "cbchannel";
+            this.cbchannel.Size = new System.Drawing.Size(149, 21);
+            this.cbchannel.TabIndex = 91;
             // 
-            // label6
+            // label8
             // 
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 317);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 20);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "Region";
-            // 
-            // txtSalesOrg
-            // 
-            this.txtSalesOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalesOrg.Location = new System.Drawing.Point(163, 276);
-            this.txtSalesOrg.Name = "txtSalesOrg";
-            this.txtSalesOrg.Size = new System.Drawing.Size(366, 20);
-            this.txtSalesOrg.TabIndex = 86;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 276);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 20);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "SalesOrg";
+            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 196);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 20);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Channel";
             // 
             // MKTVTDanhsackhachhang
             // 
@@ -421,5 +511,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSalesOrg;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbchannel;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -44,7 +44,9 @@
             this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewProductListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadBeginStoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadShiptoCodeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -53,12 +55,10 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.storeLocationManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,16 +73,20 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menureports = new System.Windows.Forms.ToolStripMenuItem();
             this.Storerpt = new System.Windows.Forms.ToolStripMenuItem();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewProductListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerChanelListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOBudgetSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.storeRegionControlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.customerChannelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storeDiviceByRegiomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -187,6 +191,8 @@
             this.addNewProductListToolStripMenuItem,
             this.uploadBeginStoreToolStripMenuItem1,
             this.toolStripSeparator4,
+            this.customerChanelListToolStripMenuItem,
+            this.editCustomerToolStripMenuItem,
             this.aToolStripMenuItem,
             this.uploadShiptoCodeListToolStripMenuItem,
             this.toolStripSeparator7,
@@ -198,12 +204,24 @@
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
             // 
+            // addNewProductListToolStripMenuItem
+            // 
+            this.addNewProductListToolStripMenuItem.Name = "addNewProductListToolStripMenuItem";
+            this.addNewProductListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.addNewProductListToolStripMenuItem.Text = "Add New Product list";
+            this.addNewProductListToolStripMenuItem.Click += new System.EventHandler(this.addNewProductListToolStripMenuItem_Click);
+            // 
             // uploadBeginStoreToolStripMenuItem1
             // 
             this.uploadBeginStoreToolStripMenuItem1.Name = "uploadBeginStoreToolStripMenuItem1";
             this.uploadBeginStoreToolStripMenuItem1.Size = new System.Drawing.Size(232, 24);
             this.uploadBeginStoreToolStripMenuItem1.Text = "Upload begin store";
             this.uploadBeginStoreToolStripMenuItem1.Click += new System.EventHandler(this.uploadBeginStoreToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
             // 
             // aToolStripMenuItem
             // 
@@ -259,18 +277,11 @@
             this.inputPOToolStripMenuItem,
             this.toolStripSeparator1,
             this.báoCáoPhiếuMKTToolStripMenuItem,
-            this.storeAvaiableReportsToolStripMenuItem});
+            this.storeAvaiableReportsToolStripMenuItem,
+            this.storeDiviceByRegiomToolStripMenuItem});
             this.MenuMaketting.Name = "MenuMaketting";
             this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
             this.MenuMaketting.Text = "Maketting";
-            // 
-            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
-            // 
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
             // 
             // tậpHợpPhiếuMKTTrảVềToolStripMenuItem
             // 
@@ -295,14 +306,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(262, 6);
-            // 
-            // báoCáoPhiếuMKTToolStripMenuItem
-            // 
-            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
-            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
             // 
             // storeAvaiableReportsToolStripMenuItem
             // 
@@ -407,6 +410,16 @@
             this.inventoryApprovalToolStripMenuItem.Text = "Inventory Approval";
             this.inventoryApprovalToolStripMenuItem.Click += new System.EventHandler(this.inventoryApprovalToolStripMenuItem_Click);
             // 
+            // salesToolStripMenuItem
+            // 
+            this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iOBudgetSetupToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.customerChannelManageToolStripMenuItem});
+            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
+            this.salesToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.salesToolStripMenuItem.Text = "Control";
+            // 
             // Menureports
             // 
             this.Menureports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -445,38 +458,59 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // addNewProductListToolStripMenuItem
+            // customerChanelListToolStripMenuItem
             // 
-            this.addNewProductListToolStripMenuItem.Name = "addNewProductListToolStripMenuItem";
-            this.addNewProductListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
-            this.addNewProductListToolStripMenuItem.Text = "Add New Product list";
-            this.addNewProductListToolStripMenuItem.Click += new System.EventHandler(this.addNewProductListToolStripMenuItem_Click);
+            this.customerChanelListToolStripMenuItem.Name = "customerChanelListToolStripMenuItem";
+            this.customerChanelListToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.customerChanelListToolStripMenuItem.Text = "Customer chanel ";
+            this.customerChanelListToolStripMenuItem.Click += new System.EventHandler(this.customerChanelListToolStripMenuItem_Click);
             // 
-            // toolStripSeparator4
+            // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(229, 6);
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
             // 
-            // salesToolStripMenuItem
+            // báoCáoPhiếuMKTToolStripMenuItem
             // 
-            this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.iOBudgetSetupToolStripMenuItem,
-            this.storeRegionControlToolStripMenuItem});
-            this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
-            this.salesToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-            this.salesToolStripMenuItem.Text = "Control";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
+            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass reports";
+            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
             // 
             // iOBudgetSetupToolStripMenuItem
             // 
             this.iOBudgetSetupToolStripMenuItem.Name = "iOBudgetSetupToolStripMenuItem";
-            this.iOBudgetSetupToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
-            this.iOBudgetSetupToolStripMenuItem.Text = "IO budget setup";
+            this.iOBudgetSetupToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
+            this.iOBudgetSetupToolStripMenuItem.Text = "IO budget manage";
             // 
-            // storeRegionControlToolStripMenuItem
+            // toolStripSeparator9
             // 
-            this.storeRegionControlToolStripMenuItem.Name = "storeRegionControlToolStripMenuItem";
-            this.storeRegionControlToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
-            this.storeRegionControlToolStripMenuItem.Text = "Store region device";
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(251, 6);
+            // 
+            // customerChannelManageToolStripMenuItem
+            // 
+            this.customerChannelManageToolStripMenuItem.Name = "customerChannelManageToolStripMenuItem";
+            this.customerChannelManageToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
+            this.customerChannelManageToolStripMenuItem.Text = "Customer channel manage";
+            this.customerChannelManageToolStripMenuItem.Click += new System.EventHandler(this.customerChannelManageToolStripMenuItem_Click);
+            // 
+            // storeDiviceByRegiomToolStripMenuItem
+            // 
+            this.storeDiviceByRegiomToolStripMenuItem.Name = "storeDiviceByRegiomToolStripMenuItem";
+            this.storeDiviceByRegiomToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.storeDiviceByRegiomToolStripMenuItem.Text = "Store device by regiom";
+            // 
+            // editCustomerToolStripMenuItem
+            // 
+            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
+            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(232, 24);
+            this.editCustomerToolStripMenuItem.Text = "Customer edit";
+            this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -551,8 +585,12 @@
         private ToolStripMenuItem addNewProductListToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem salesToolStripMenuItem;
+        private ToolStripMenuItem customerChanelListToolStripMenuItem;
         private ToolStripMenuItem iOBudgetSetupToolStripMenuItem;
-        private ToolStripMenuItem storeRegionControlToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator9;
+        private ToolStripMenuItem customerChannelManageToolStripMenuItem;
+        private ToolStripMenuItem storeDiviceByRegiomToolStripMenuItem;
+        private ToolStripMenuItem editCustomerToolStripMenuItem;
     }
 }
 

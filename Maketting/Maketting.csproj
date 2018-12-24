@@ -147,6 +147,12 @@
     <Compile Include="View\MKTTransferin.Designer.cs">
       <DependentUpon>MKTTransferin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTCustomerchanellist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTCustomerchanellist.Designer.cs">
+      <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTVTDanhsacshipto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTTransferin.resx">
       <DependentUpon>MKTTransferin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTCustomerchanellist.resx">
+      <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTVTDanhsacshipto.resx">
       <DependentUpon>MKTVTDanhsacshipto.cs</DependentUpon>
