@@ -4395,6 +4395,23 @@ namespace Maketting.View
             viewtbl.Show();
 
         }
+
+        private void iOBudgetSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_IO_IdentifyObjects
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Identify Progarme list", 13, "IO");
+            tbl.ShowDialog();
+
+        }
     }
 
 

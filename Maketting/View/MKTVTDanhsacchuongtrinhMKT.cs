@@ -61,7 +61,7 @@ namespace Maketting.View
 
 
 
-                var item = (from p in dc.tbl_MKT_Mucdiches
+                var item = (from p in dc.tbl_MKT_IO_IdentifyObjects
                             where p.id == id
                             select p).FirstOrDefault();
 
@@ -238,7 +238,7 @@ namespace Maketting.View
 
 
                 //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_MKT_Mucdiches
+                var rs = (from p in db.tbl_MKT_IO_IdentifyObjects
                           where p.macT == maCT
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
@@ -297,7 +297,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-            tbl_MKT_Mucdich p = new tbl_MKT_Mucdich();
+            tbl_MKT_IO_IdentifyObject p = new tbl_MKT_IO_IdentifyObject();
 
             p.macT = this.maCT;//= this.txtma.Text;
             p.tenCT = this.tenCT;//= this.txtten.Text;
@@ -308,7 +308,7 @@ namespace Maketting.View
 
 
 
-            db.tbl_MKT_Mucdiches.InsertOnSubmit(p);
+            db.tbl_MKT_IO_IdentifyObjects.InsertOnSubmit(p);
             db.SubmitChanges();
             this.Close();
 
@@ -370,7 +370,7 @@ namespace Maketting.View
             {
 
 
-                txtghichu.Focus();
+                cbregion.Focus();
 
 
             }
@@ -417,6 +417,30 @@ namespace Maketting.View
 
 
                 txtma.Focus();
+
+
+            }
+        }
+
+        private void cbregion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                cbsales_org.Focus();
+
+
+            }
+        }
+
+        private void cbsales_org_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+
+                txtghichu.Focus();
 
 
             }

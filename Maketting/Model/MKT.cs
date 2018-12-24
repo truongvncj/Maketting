@@ -7,6 +7,63 @@ namespace Maketting.Model
 {
     public class MKT
     {
+
+
+        public static bool checkIObudget(string sophieu, string kho) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            //   string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            //var rs3 = (from pp in dc.tbl_MKt_Listphieuheads
+            //           where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+            //           select pp.LoadNumber).FirstOrDefault();
+
+            //if (rs3 != null)
+            //{
+            //    MessageBox.Show("Note " + sophieu + " can not delete detail by load created !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+
+            //var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+            //          where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+            //          select pp;
+
+
+            //if (rs2.Count() > 0)
+            //{
+            //    dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
+            //    dc.SubmitChanges();
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            //var rs = from pp in dc.tbl_MKt_Listphieuheads
+            //         where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+            //         select pp;
+
+            //if (rs.Count() > 0)
+            //{
+            //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+            //    dc.SubmitChanges();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete head!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            return true;
+        }
+
+
         public static DataGridView Loadnewdetail(DataGridView dataGridViewDetail)
         {
 
@@ -1115,7 +1172,7 @@ namespace Maketting.Model
 
 
             LinqtoSQLDataContext db = dc;
-            var rs = from p in db.tbl_MKT_Mucdiches
+            var rs = from p in db.tbl_MKT_IO_IdentifyObjects
                      orderby p.macT
                      select new
                      {

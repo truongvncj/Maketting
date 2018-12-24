@@ -2053,7 +2053,7 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs = from pp in dc.tbl_MKT_Mucdiches
+                var rs = from pp in dc.tbl_MKT_IO_IdentifyObjects
                          where pp.tenCT.Contains(seachtext)
                          select new
                          {
@@ -2070,7 +2070,7 @@ namespace Maketting.View
                 selectkq.ShowDialog();
                 int id = selectkq.id;
 
-                var rs2 = (from pp in dc.tbl_MKT_Mucdiches
+                var rs2 = (from pp in dc.tbl_MKT_IO_IdentifyObjects
                            where pp.id == id
                            select pp).FirstOrDefault();
 
