@@ -57,3 +57,5 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsacshipto.resour
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\Phieutransferin.rdlc
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\Phieutransferout.rdlc
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTCustomerchanellist.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTRegionllist.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTSalesOrglist.resources

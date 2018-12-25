@@ -141,6 +141,18 @@
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
     <Compile Include="shared\StringExtensions.cs" />
+    <Compile Include="View\MKTSalesOrglist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTSalesOrglist.Designer.cs">
+      <DependentUpon>MKTSalesOrglist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTRegionllist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTRegionllist.Designer.cs">
+      <DependentUpon>MKTRegionllist.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTTransferin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTissue.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTSalesOrglist.resx">
+      <DependentUpon>MKTSalesOrglist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTRegionllist.resx">
+      <DependentUpon>MKTRegionllist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTTransferin.resx">
       <DependentUpon>MKTTransferin.cs</DependentUpon>

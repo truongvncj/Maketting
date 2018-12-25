@@ -4412,6 +4412,63 @@ namespace Maketting.View
             tbl.ShowDialog();
 
         }
+
+        private void channelListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_CustomerChanels
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
+            tbl.ShowDialog();
+
+        }
+
+        private void regionListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Regions
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Region list", 18, "Region");
+            tbl.ShowDialog();
+
+
+
+
+        }
+
+        private void salesOrgListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_SaleOrgs
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "SaleOrg list", 19, "SaleOrg");
+            tbl.ShowDialog();
+
+
+
+        }
     }
 
 

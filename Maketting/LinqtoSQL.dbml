@@ -56,6 +56,17 @@
       <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKT_IO_IdentifyObject" Member="tbl_MKT_IO_IdentifyObjects">
+    <Type Name="tbl_MKT_IO_IdentifyObject">
+      <Column Name="macT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tenCT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Sales_Org" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Channel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
     <Type Name="tbl_MKT_khoMKT">
       <Column Name="tenkho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -241,6 +252,20 @@
       <Column Name="StoreLocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Region" Member="tbl_MKT_Regions">
+    <Type Name="tbl_MKT_Region">
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_SaleOrg" Member="tbl_MKT_SaleOrgs">
+    <Type Name="tbl_MKT_SaleOrg">
+      <Column Name="SaleOrg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Soldtocode" Member="tbl_MKT_Soldtocodes">
@@ -465,16 +490,6 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_IO_IdentifyObject" Member="tbl_MKT_IO_IdentifyObjects">
-    <Type Name="tbl_MKT_IO_IdentifyObject">
-      <Column Name="macT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="tenCT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Sales_Org" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -1022,6 +1022,7 @@ namespace Maketting.Model
 
                          SalesOrg = p.SalesOrg,
                          Region = p.Region,
+                         p.Chanel,
                          Customer = p.Customer,
                          FullName = p.FullNameN,
                          Street = p.Street,
@@ -1029,7 +1030,8 @@ namespace Maketting.Model
                          City = p.City,
                          Telephone = p.Telephone1,
                          Note = p.Note,
-
+                         p.Createby,
+                         p.VATregistrationNo,
 
                          ID = p.id,
                      };
@@ -1381,6 +1383,50 @@ namespace Maketting.Model
 
             //  throw new NotImplementedException();
         }
+
+        public static IQueryable danhsachsalesorglist(LinqtoSQLDataContext db)
+        {
+
+
+            LinqtoSQLDataContext dc = db;
+
+            var rs = from pp in dc.tbl_MKT_SaleOrgs
+                     select new
+                     {
+                         SaleOrg = pp.SaleOrg,
+                         Note = pp.Note,
+
+                         ID = pp.id,
+
+                     };
+
+            return rs;
+
+            //   throw new NotImplementedException();
+        }
+
+
+        public static IQueryable danhsachregionlist(LinqtoSQLDataContext db)
+        {
+
+
+            LinqtoSQLDataContext dc = db;
+
+            var rs = from pp in dc.tbl_MKT_Regions
+                     select new
+                     {
+                         Region = pp.Region,
+                         Note = pp.Note,
+                       
+                         ID = pp.id,
+
+                     };
+
+            return rs;
+
+            //   throw new NotImplementedException();
+        }
+
 
         public static IQueryable danhsachcustomerChannel(LinqtoSQLDataContext db)
         {

@@ -320,7 +320,72 @@ namespace Maketting.View
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
 
-            // view code = 16 channel list
+
+            #region  // viewcode ==19  sales orge list
+
+
+            if (this.viewcode == 19)
+            {
+
+
+                //       string makh = valuesave;
+
+
+
+
+
+
+                View.MKTSalesOrglist p = new MKTSalesOrglist(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+
+                var rs = Model.MKT.danhsachsalesorglist(this.db);
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+
+            #region  // viewcode ==18  region list
+
+
+            if (this.viewcode == 18)
+            {
+
+
+                //       string makh = valuesave;
+
+
+
+
+
+
+                View.MKTRegionllist p = new MKTRegionllist(3, -1);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+
+
+                var rs = Model.MKT.danhsachregionlist(this.db);
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
 
             #region  // viewcode ==17  channel list
 
@@ -561,6 +626,93 @@ namespace Maketting.View
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            #region  // viewcode ==19  la sale org
+
+
+            if (this.viewcode == 19)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTSalesOrglist p = new MKTSalesOrglist(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhsachsalesorglist(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
+
+
+            #region  // viewcode ==18  la region
+
+
+            if (this.viewcode == 18)
+            {
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                //     string makh = valuesave;
+
+
+
+
+
+
+                View.MKTRegionllist p = new MKTRegionllist(4, idtk);  // 4 là là xóa sửa
+
+                p.ShowDialog();
+
+
+                var rs = Model.MKT.danhsachregionlist(this.db);
+
+                dataGridView1.DataSource = rs;
+
+
+
+            }
+
+
+
+            #endregion
 
 
             #region  // viewcode ==17  la channel
