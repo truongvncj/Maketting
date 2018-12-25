@@ -42,9 +42,6 @@ namespace Maketting
     partial void Inserttbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
     partial void Updatetbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
     partial void Deletetbl_MKT_headRpt_Phieuissue(tbl_MKT_headRpt_Phieuissue instance);
-    partial void Inserttbl_MKT_IO_IdentifyObject(tbl_MKT_IO_IdentifyObject instance);
-    partial void Updatetbl_MKT_IO_IdentifyObject(tbl_MKT_IO_IdentifyObject instance);
-    partial void Deletetbl_MKT_IO_IdentifyObject(tbl_MKT_IO_IdentifyObject instance);
     partial void Inserttbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
     partial void Updatetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
     partial void Deletetbl_MKT_khoMKT(tbl_MKT_khoMKT instance);
@@ -126,6 +123,12 @@ namespace Maketting
     partial void Inserttbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Updatetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Deletetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
+    partial void Inserttbl_MKT_IO_Programe(tbl_MKT_IO_Programe instance);
+    partial void Updatetbl_MKT_IO_Programe(tbl_MKT_IO_Programe instance);
+    partial void Deletetbl_MKT_IO_Programe(tbl_MKT_IO_Programe instance);
+    partial void Inserttbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
+    partial void Updatetbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
+    partial void Deletetbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
@@ -187,14 +190,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_headRpt_Phieuissue>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_IO_IdentifyObject> tbl_MKT_IO_IdentifyObjects
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_IO_IdentifyObject>();
 			}
 		}
 		
@@ -411,6 +406,22 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKt_WHstoreissue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_IO_Programe> tbl_MKT_IO_Programes
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_IO_Programe>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_CustomerChaneltmp> tbl_MKT_CustomerChaneltmps
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_CustomerChaneltmp>();
 			}
 		}
 	}
@@ -1502,212 +1513,6 @@ namespace Maketting
 					this._Barcode = value;
 					this.SendPropertyChanged("Barcode");
 					this.OnBarcodeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_IO_IdentifyObject")]
-	public partial class tbl_MKT_IO_IdentifyObject : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _macT;
-		
-		private string _tenCT;
-		
-		private int _id;
-		
-		private string _ghichu;
-		
-		private string _Sales_Org;
-		
-		private string _Region;
-		
-		private string _Channel;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmacTChanging(string value);
-    partial void OnmacTChanged();
-    partial void OntenCTChanging(string value);
-    partial void OntenCTChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnghichuChanging(string value);
-    partial void OnghichuChanged();
-    partial void OnSales_OrgChanging(string value);
-    partial void OnSales_OrgChanged();
-    partial void OnRegionChanging(string value);
-    partial void OnRegionChanged();
-    partial void OnChannelChanging(string value);
-    partial void OnChannelChanged();
-    #endregion
-		
-		public tbl_MKT_IO_IdentifyObject()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_macT", DbType="NVarChar(50)")]
-		public string macT
-		{
-			get
-			{
-				return this._macT;
-			}
-			set
-			{
-				if ((this._macT != value))
-				{
-					this.OnmacTChanging(value);
-					this.SendPropertyChanging();
-					this._macT = value;
-					this.SendPropertyChanged("macT");
-					this.OnmacTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenCT", DbType="NVarChar(225)")]
-		public string tenCT
-		{
-			get
-			{
-				return this._tenCT;
-			}
-			set
-			{
-				if ((this._tenCT != value))
-				{
-					this.OntenCTChanging(value);
-					this.SendPropertyChanging();
-					this._tenCT = value;
-					this.SendPropertyChanged("tenCT");
-					this.OntenCTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(225)")]
-		public string ghichu
-		{
-			get
-			{
-				return this._ghichu;
-			}
-			set
-			{
-				if ((this._ghichu != value))
-				{
-					this.OnghichuChanging(value);
-					this.SendPropertyChanging();
-					this._ghichu = value;
-					this.SendPropertyChanged("ghichu");
-					this.OnghichuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sales_Org", DbType="NVarChar(50)")]
-		public string Sales_Org
-		{
-			get
-			{
-				return this._Sales_Org;
-			}
-			set
-			{
-				if ((this._Sales_Org != value))
-				{
-					this.OnSales_OrgChanging(value);
-					this.SendPropertyChanging();
-					this._Sales_Org = value;
-					this.SendPropertyChanged("Sales_Org");
-					this.OnSales_OrgChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
-		public string Region
-		{
-			get
-			{
-				return this._Region;
-			}
-			set
-			{
-				if ((this._Region != value))
-				{
-					this.OnRegionChanging(value);
-					this.SendPropertyChanging();
-					this._Region = value;
-					this.SendPropertyChanged("Region");
-					this.OnRegionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Channel", DbType="NVarChar(50)")]
-		public string Channel
-		{
-			get
-			{
-				return this._Channel;
-			}
-			set
-			{
-				if ((this._Channel != value))
-				{
-					this.OnChannelChanging(value);
-					this.SendPropertyChanging();
-					this._Channel = value;
-					this.SendPropertyChanged("Channel");
-					this.OnChannelChanged();
 				}
 			}
 		}
@@ -10342,6 +10147,394 @@ namespace Maketting
 					this._POnumber = value;
 					this.SendPropertyChanged("POnumber");
 					this.OnPOnumberChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_IO_Programe")]
+	public partial class tbl_MKT_IO_Programe : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _macT;
+		
+		private string _tenCT;
+		
+		private int _id;
+		
+		private string _ghichu;
+		
+		private string _Sales_Org;
+		
+		private string _Region;
+		
+		private string _ChannelGroup;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmacTChanging(string value);
+    partial void OnmacTChanged();
+    partial void OntenCTChanging(string value);
+    partial void OntenCTChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnghichuChanging(string value);
+    partial void OnghichuChanged();
+    partial void OnSales_OrgChanging(string value);
+    partial void OnSales_OrgChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnChannelGroupChanging(string value);
+    partial void OnChannelGroupChanged();
+    #endregion
+		
+		public tbl_MKT_IO_Programe()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_macT", DbType="NVarChar(50)")]
+		public string macT
+		{
+			get
+			{
+				return this._macT;
+			}
+			set
+			{
+				if ((this._macT != value))
+				{
+					this.OnmacTChanging(value);
+					this.SendPropertyChanging();
+					this._macT = value;
+					this.SendPropertyChanged("macT");
+					this.OnmacTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tenCT", DbType="NVarChar(225)")]
+		public string tenCT
+		{
+			get
+			{
+				return this._tenCT;
+			}
+			set
+			{
+				if ((this._tenCT != value))
+				{
+					this.OntenCTChanging(value);
+					this.SendPropertyChanging();
+					this._tenCT = value;
+					this.SendPropertyChanged("tenCT");
+					this.OntenCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(225)")]
+		public string ghichu
+		{
+			get
+			{
+				return this._ghichu;
+			}
+			set
+			{
+				if ((this._ghichu != value))
+				{
+					this.OnghichuChanging(value);
+					this.SendPropertyChanging();
+					this._ghichu = value;
+					this.SendPropertyChanged("ghichu");
+					this.OnghichuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sales_Org", DbType="NVarChar(50)")]
+		public string Sales_Org
+		{
+			get
+			{
+				return this._Sales_Org;
+			}
+			set
+			{
+				if ((this._Sales_Org != value))
+				{
+					this.OnSales_OrgChanging(value);
+					this.SendPropertyChanging();
+					this._Sales_Org = value;
+					this.SendPropertyChanged("Sales_Org");
+					this.OnSales_OrgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChannelGroup", DbType="NVarChar(50)")]
+		public string ChannelGroup
+		{
+			get
+			{
+				return this._ChannelGroup;
+			}
+			set
+			{
+				if ((this._ChannelGroup != value))
+				{
+					this.OnChannelGroupChanging(value);
+					this.SendPropertyChanging();
+					this._ChannelGroup = value;
+					this.SendPropertyChanged("ChannelGroup");
+					this.OnChannelGroupChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_CustomerChaneltmp")]
+	public partial class tbl_MKT_CustomerChaneltmp : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Chanel_code;
+		
+		private string _Chanel_name;
+		
+		private string _Note;
+		
+		private bool _Select_channel;
+		
+		private int _ID;
+		
+		private string _username;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnChanel_codeChanging(string value);
+    partial void OnChanel_codeChanged();
+    partial void OnChanel_nameChanging(string value);
+    partial void OnChanel_nameChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnSelect_channelChanging(bool value);
+    partial void OnSelect_channelChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    #endregion
+		
+		public tbl_MKT_CustomerChaneltmp()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_code", DbType="NVarChar(50)")]
+		public string Chanel_code
+		{
+			get
+			{
+				return this._Chanel_code;
+			}
+			set
+			{
+				if ((this._Chanel_code != value))
+				{
+					this.OnChanel_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Chanel_code = value;
+					this.SendPropertyChanged("Chanel_code");
+					this.OnChanel_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_name", DbType="NVarChar(225)")]
+		public string Chanel_name
+		{
+			get
+			{
+				return this._Chanel_name;
+			}
+			set
+			{
+				if ((this._Chanel_name != value))
+				{
+					this.OnChanel_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Chanel_name = value;
+					this.SendPropertyChanged("Chanel_name");
+					this.OnChanel_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(225)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Select_channel", DbType="Bit NOT NULL")]
+		public bool Select_channel
+		{
+			get
+			{
+				return this._Select_channel;
+			}
+			set
+			{
+				if ((this._Select_channel != value))
+				{
+					this.OnSelect_channelChanging(value);
+					this.SendPropertyChanging();
+					this._Select_channel = value;
+					this.SendPropertyChanged("Select_channel");
+					this.OnSelect_channelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
 				}
 			}
 		}

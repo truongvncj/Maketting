@@ -19,7 +19,10 @@ namespace Maketting.View
         public string maCT { get; set; }
         public string tenCT { get; set; }
 
-     
+        public string region { get; set; }
+        public string salesorg { get; set; }
+        public string channelgroup { get; set; }
+
         public string ghichu { get; set; }
 
         public bool chon { get; set; }
@@ -41,8 +44,54 @@ namespace Maketting.View
         public MKTVTDanhsacchuongtrinhMKT(int lainghiepvu, int id) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
         {
             InitializeComponent();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             chon = false;
+
+            // list region
+            List<ComboboxItem> listRegion = new List<ComboboxItem>();
+
+            var regionlist = from pp in dc.tbl_MKT_Regions
+
+                             select pp;
+            foreach (var item2 in regionlist)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Region;
+                cb.Text = item2.Region + ": " + item2.Note.Trim();
+                listRegion.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbregion.DataSource = listRegion;
+            //  cbregion.SelectedIndex = 0;
+
+
+            //list saleorrge
+
+            //    cbSaleOrg
+
+            List<ComboboxItem> listSaleOrg = new List<ComboboxItem>();
+
+            var SaleOrglist = from pp in dc.tbl_MKT_SaleOrgs
+
+                              select pp;
+            foreach (var item2 in SaleOrglist)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.SaleOrg;
+                cb.Text = item2.SaleOrg + ": " + item2.Note.Trim();
+                listSaleOrg.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbsales_org.DataSource = listSaleOrg;
+            //   cbSaleOrg.SelectedIndex = 0;
+
+
 
 
 
@@ -56,12 +105,10 @@ namespace Maketting.View
                 txtma.Enabled = false;
 
 
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+               
 
 
-
-                var item = (from p in dc.tbl_MKT_IO_IdentifyObjects
+                var item = (from p in dc.tbl_MKT_IO_Programes
                             where p.id == id
                             select p).FirstOrDefault();
 
@@ -77,8 +124,9 @@ namespace Maketting.View
 
                     txtghichu.Text = item.ghichu;
 
-
-
+                    cbregion.Text = item.Region;// 
+                    cbsales_org.Text = item.Sales_Org;
+                    txtchannelgroup.Text = item.ChannelGroup;
 
                 }
 
@@ -193,31 +241,16 @@ namespace Maketting.View
 
         private void btupdate_Click(object sender, EventArgs e)
         {
-            //
-
-            //txtma.Text = item.maNVT;
-            //txtten.Text = item.tenNVT;
-
-            //txtdienthoai.Text = item.dienthoaiNVT;
-            //txtmasothue.Text = item.masothueNVT;
-
-            //txtdiachi.Text = item.diachiNVT;//  p.masothue  
-
-            //txttaikhoannganhangso.Text = item.sotaikhoannganhangNVT;//  p.ghichunganhnghe  
-
-            //txtdiachitaikhoannganhang.Text = item.diachinganhangNVT;
-
-
 
             this.maCT = this.txtma.Text;
             this.tenCT = this.txtten.Text;
-         
+
             this.ghichu = txtghichu.Text;
 
+            this.salesorg = (cbsales_org.SelectedItem as ComboboxItem).Value.ToString();
+            this.region = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
 
-            //this.usertao = Utils.getusername();
-
-            //this.ngaytao = DateTime.Today;
+            this.channelgroup = txtchannelgroup.Text;
 
 
             if (maCT == "")
@@ -225,6 +258,23 @@ namespace Maketting.View
                 MessageBox.Show("Bạn chưa có mã nhà chương trình", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (cbsales_org.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có mã sales Org", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cbregion.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có mã Region", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtchannelgroup.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có channel ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
 
 
@@ -238,7 +288,7 @@ namespace Maketting.View
 
 
                 //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_MKT_IO_IdentifyObjects
+                var rs = (from p in db.tbl_MKT_IO_Programes
                           where p.macT == maCT
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
@@ -250,7 +300,9 @@ namespace Maketting.View
                     rs.tenCT = this.tenCT;//= this.txtten.Text;
               
                     rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
-
+                    rs.Region = this.region;
+                    rs.Sales_Org = this.salesorg;
+                    rs.ChannelGroup = this.channelgroup;
 
 
                     db.SubmitChanges();
@@ -285,6 +337,10 @@ namespace Maketting.View
       
             this.ghichu = txtghichu.Text;
 
+            this.salesorg = (cbsales_org.SelectedItem as ComboboxItem).Value.ToString();
+            this.region = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
+
+            this.channelgroup = txtchannelgroup.Text;
 
 
             if (maCT == "")
@@ -292,12 +348,27 @@ namespace Maketting.View
                 MessageBox.Show("Bạn chưa có mã chương trình", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (cbsales_org.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có mã sales Org", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            if (cbregion.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có mã Region", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtchannelgroup.Text == "")
+            {
+                MessageBox.Show("Bạn chưa có channel ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             chon = true;
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
 
-            tbl_MKT_IO_IdentifyObject p = new tbl_MKT_IO_IdentifyObject();
+            tbl_MKT_IO_Programe p = new tbl_MKT_IO_Programe();
 
             p.macT = this.maCT;//= this.txtma.Text;
             p.tenCT = this.tenCT;//= this.txtten.Text;
@@ -305,10 +376,12 @@ namespace Maketting.View
             p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 
 
+            p.Region = this.region;
+            p.Sales_Org = this.salesorg;
+            p.ChannelGroup = this.channelgroup;
 
 
-
-            db.tbl_MKT_IO_IdentifyObjects.InsertOnSubmit(p);
+            db.tbl_MKT_IO_Programes.InsertOnSubmit(p);
             db.SubmitChanges();
             this.Close();
 
@@ -444,6 +517,13 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            View.MKTViewselectchannel accsup = new MKTViewselectchannel();
+            accsup.ShowDialog();
+            txtchannelgroup.Text = accsup.kqstring;
         }
     }
 

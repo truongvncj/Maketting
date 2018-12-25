@@ -4350,18 +4350,7 @@ namespace Maketting.View
 
         private void customerChanelListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs5 = from pp in dc.tbl_MKT_CustomerChanels
-                          //   where pp.Soldtype == true
-                      select pp;
-
-
-            View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
-            tbl.ShowDialog();
+         
         }
 
         private void customerChannelManageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4403,12 +4392,14 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var rs5 = from pp in dc.tbl_MKT_IO_IdentifyObjects
-                          //   where pp.Soldtype == true
-                      select pp;
+            //var rs5 = from pp in dc.tbl_MKT_IO_Programes
+                     
+            //          select pp;
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "Identify Progarme list", 13, "IO");
+            var rs5 = Model.MKT.DanhsachctMKT(dc);
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Progarme list", 13, "IO");
             tbl.ShowDialog();
 
         }

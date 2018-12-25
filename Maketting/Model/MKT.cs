@@ -478,6 +478,7 @@ namespace Maketting.Model
                          Created_date = p.Ngaytaophieu,
                          p.Region,
                          p.Gate_pass,
+                    IO =     p.Purposeid,
                          p.Purpose,
 
                          p.Status,
@@ -662,6 +663,29 @@ namespace Maketting.Model
                 //  dc.Connection.Close();
             }
         }
+
+
+        public static void DeleteALLChannelTMP(LinqtoSQLDataContext dc) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+       //     string connection_string = Utils.getConnectionstr();
+       //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKT_CustomerChaneltmps
+                     where pp.username == urs 
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKT_CustomerChaneltmps.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+        }
+
 
         public static void DeleteALLTransferphieutamTMP(LinqtoSQLDataContext dc, string urs) // vd phieu thu nghiep vu là phieu thu: PT,
         {
@@ -1174,16 +1198,21 @@ namespace Maketting.Model
 
 
             LinqtoSQLDataContext db = dc;
-            var rs = from p in db.tbl_MKT_IO_IdentifyObjects
+            var rs = from p in db.tbl_MKT_IO_Programes
                      orderby p.macT
                      select new
                      {
-
-
                          Mã_chương_trình = p.macT,
                          Tên_chương_trình = p.tenCT,
+                         p.Sales_Org,
+                         p.Region,
+                         p.ChannelGroup,
+                       
+                       
                          Ghi_chú = p.ghichu,
-
+                      
+                     
+                     
 
                          ID = p.id,
                      };

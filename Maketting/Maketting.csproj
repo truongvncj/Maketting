@@ -165,6 +165,12 @@
     <Compile Include="View\MKTCustomerchanellist.Designer.cs">
       <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTViewselectchannel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTViewselectchannel.Designer.cs">
+      <DependentUpon>MKTViewselectchannel.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTVTDanhsacshipto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTCustomerchanellist.resx">
       <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTViewselectchannel.resx">
+      <DependentUpon>MKTViewselectchannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTVTDanhsacshipto.resx">
       <DependentUpon>MKTVTDanhsacshipto.cs</DependentUpon>

@@ -349,9 +349,9 @@ namespace Maketting.View
             this.district = txtdistrict.Text;
             this.city = cbcity.Text;
             this.SaleRegion = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
-            this.SalesOrg = cbSaleOrg.Text;
-            this.channel = cbchannel.Text;
-          
+            this.SalesOrg =  (cbSaleOrg.SelectedItem as ComboboxItem).Value.ToString();
+            this.channel =  (cbchannel.SelectedItem as ComboboxItem).Value.ToString();
+
 
 
 
@@ -467,10 +467,10 @@ namespace Maketting.View
             this.telephone = txttelephone.Text;
             this.note = txtnote.Text;
 
-            this.SaleRegion = cbregion.Text;
-            this.SalesOrg = cbSaleOrg.Text;
+            this.SaleRegion = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
+            this.SalesOrg =  (cbSaleOrg.SelectedItem as ComboboxItem).Value.ToString();
 
-            this.channel = cbchannel.Text;
+            this.channel =  (cbchannel.SelectedItem as ComboboxItem).Value.ToString();
 
 
             chon = true;
