@@ -34,7 +34,7 @@ namespace Maketting.View
 
         public bool chon { get; set; }
         public string SalesOrg { get; set; }
-        public string Region { get; set; }
+        public string SaleRegion { get; set; }
 
       public string channel { get; set; }
 
@@ -64,7 +64,7 @@ namespace Maketting.View
 
 
 
-
+            // list channel
 
             List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
@@ -82,7 +82,49 @@ namespace Maketting.View
                 //  CombomCollection.Add(cb);
             }
             cbchannel.DataSource = itemstorecolect;
-            cbchannel.SelectedIndex = 0;
+        //    cbchannel.SelectedIndex = 0;
+
+            // list region
+            List<ComboboxItem> listRegion = new List<ComboboxItem>();
+
+            var regionlist = from pp in dc.tbl_MKT_Regions
+
+                            select pp;
+            foreach (var item2 in regionlist)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Region;
+                cb.Text = item2.Region +": " + item2.Note.Trim();
+                listRegion.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbregion.DataSource = listRegion;
+          //  cbregion.SelectedIndex = 0;
+
+
+            //list saleorrge
+
+        //    cbSaleOrg
+
+                    List<ComboboxItem> listSaleOrg = new List<ComboboxItem>();
+
+            var SaleOrglist = from pp in dc.tbl_MKT_SaleOrgs
+
+                             select pp;
+            foreach (var item2 in SaleOrglist)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.SaleOrg;
+                cb.Text = item2.SaleOrg + ": " + item2.Note.Trim();
+                listSaleOrg.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbSaleOrg.DataSource = listSaleOrg;
+         //   cbSaleOrg.SelectedIndex = 0;
 
 
 
@@ -107,16 +149,16 @@ namespace Maketting.View
 
                     txtname.Text = item.FullNameN;
                     txtdistrict.Text = item.District;
-                    txtcity.Text = item.City;
+                    cbcity.Text = item.City;
                     txtcustomercode.Text = item.Customer;
 
                     txtstreet.Text = item.Street;
                     txttelephone.Text = item.Telephone1;
                     txtnote.Text = item.Note;
 
-                    txtRegion.Text = item.Region;
-                    txtSalesOrg.Text = item.SalesOrg;
-
+                    cbregion.Text = item.Region;// 
+                    cbSaleOrg.Text = item.SalesOrg;
+                    cbchannel.Text = item.Chanel;
 
 
                 }
@@ -253,10 +295,10 @@ namespace Maketting.View
 
                 return;
             }
-            if (txtcity.Text == "")
+            if (cbcity.Text == "")
             {
                 MessageBox.Show("Pleae input the Province (Tỉnh/ Thành Phố) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtcity.Focus();
+                cbcity.Focus();
 
                 return;
             }
@@ -284,17 +326,17 @@ namespace Maketting.View
                 return;
             }
 
-            if (txtSalesOrg.Text == "")
+            if (cbSaleOrg.Text == "")
             {
                 MessageBox.Show("Pleae input the SalesOrg", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSalesOrg.Focus();
+                cbSaleOrg.Focus();
 
                 return;
             }
-            if (txtRegion.Text == "")
+            if (cbregion.Text == "")
             {
                 MessageBox.Show("Pleae input the Region", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRegion.Focus();
+                cbregion.Focus();
 
                 return;
             }
@@ -305,11 +347,11 @@ namespace Maketting.View
             this.telephone = txttelephone.Text;
             this.note = txtnote.Text;
             this.district = txtdistrict.Text;
-            this.city = txtcity.Text;
-            this.Region = txtRegion.Text;
-            this.SalesOrg = txtSalesOrg.Text;
+            this.city = cbcity.Text;
+            this.SaleRegion = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
+            this.SalesOrg = cbSaleOrg.Text;
             this.channel = cbchannel.Text;
-
+          
 
 
 
@@ -340,7 +382,7 @@ namespace Maketting.View
                 rs.District = this.district;// = txtquan.Text;
                 rs.City = this.city;// = txttinh.Text;
                 rs.SalesOrg = this.SalesOrg;
-                rs.Region = this.Region;
+                rs.Region = this.SaleRegion;
 
                 rs.Chanel = this.channel;
                 db.SubmitChanges();
@@ -383,10 +425,10 @@ namespace Maketting.View
 
                 return;
             }
-            if (txtcity.Text == "")
+            if (cbcity.Text == "")
             {
                 MessageBox.Show("Pleae input the Province (Tỉnh/ Thành Phố) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtcity.Focus();
+                cbcity.Focus();
 
                 return;
             }
@@ -419,14 +461,14 @@ namespace Maketting.View
          
             this.street = this.txtstreet.Text;
             this.Customercode = txtcustomercode.Text;
-            this.city = txtcity.Text;
+            this.city = cbcity.Text;
             this.district = txtdistrict.Text;
 
             this.telephone = txttelephone.Text;
             this.note = txtnote.Text;
 
-            this.Region = txtSalesOrg.Text;
-            this.SalesOrg = txtSalesOrg.Text;
+            this.SaleRegion = cbregion.Text;
+            this.SalesOrg = cbSaleOrg.Text;
 
             this.channel = cbchannel.Text;
 
@@ -449,7 +491,7 @@ namespace Maketting.View
             p.City = this.city;// = txtdiachitaikhoannganhang.Text;
 
             p.SalesOrg = this.SalesOrg;// = txtdiachitaikhoannganhang.Text;
-            p.Region = this.Region;// = txtdiachitaikhoannganhang.Text;
+            p.Region = this.SaleRegion;// = txtdiachitaikhoannganhang.Text;
             p.Soldtype = true;
             p.Createdon = DateTime.Today;
             p.Createby = Model.Username.getUsername();
@@ -604,7 +646,7 @@ namespace Maketting.View
             {
 
 
-                txtcity.Focus();
+                cbcity.Focus();
 
 
             }

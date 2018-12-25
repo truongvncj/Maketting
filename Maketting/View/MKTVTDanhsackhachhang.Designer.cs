@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTVTDanhsackhachhang));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtRegion = new System.Windows.Forms.TextBox();
+            this.cbchannel = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtSalesOrg = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtcity = new System.Windows.Forms.ComboBox();
+            this.cbcity = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtdistrict = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,20 +51,20 @@
             this.btnew = new System.Windows.Forms.Button();
             this.txtname = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.cbchannel = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.cbregion = new System.Windows.Forms.ComboBox();
+            this.cbSaleOrg = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbSaleOrg);
+            this.panel1.Controls.Add(this.cbregion);
             this.panel1.Controls.Add(this.cbchannel);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtRegion);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtSalesOrg);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtcity);
+            this.panel1.Controls.Add(this.cbcity);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtdistrict);
             this.panel1.Controls.Add(this.label2);
@@ -87,51 +87,11 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txtRegion
+            // cbchannel
             // 
-            this.txtRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRegion.Location = new System.Drawing.Point(160, 353);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(366, 20);
-            this.txtRegion.TabIndex = 88;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(5, 353);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 20);
-            this.label6.TabIndex = 89;
-            this.label6.Text = "Region";
-            // 
-            // txtSalesOrg
-            // 
-            this.txtSalesOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalesOrg.Location = new System.Drawing.Point(161, 312);
-            this.txtSalesOrg.Name = "txtSalesOrg";
-            this.txtSalesOrg.Size = new System.Drawing.Size(366, 20);
-            this.txtSalesOrg.TabIndex = 86;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 312);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 20);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "SalesOrg";
-            // 
-            // txtcity
-            // 
-            this.txtcity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtcity.FormattingEnabled = true;
-            this.txtcity.Items.AddRange(new object[] {
+            this.cbchannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbchannel.FormattingEnabled = true;
+            this.cbchannel.Items.AddRange(new object[] {
             "An Giang",
             "Bà Rịa-Vũng Tàu",
             "Bạc Liêu",
@@ -196,11 +156,121 @@
             "Vĩnh Long",
             "Vĩnh Phúc",
             "Yên Bái"});
-            this.txtcity.Location = new System.Drawing.Point(161, 157);
-            this.txtcity.Name = "txtcity";
-            this.txtcity.Size = new System.Drawing.Size(149, 21);
-            this.txtcity.TabIndex = 85;
-            this.txtcity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttinh_KeyPress);
+            this.cbchannel.Location = new System.Drawing.Point(161, 195);
+            this.cbchannel.Name = "cbchannel";
+            this.cbchannel.Size = new System.Drawing.Size(149, 21);
+            this.cbchannel.TabIndex = 91;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 196);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 20);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Channel";
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(5, 353);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 20);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "Region";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 20);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "SalesOrg";
+            // 
+            // cbcity
+            // 
+            this.cbcity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbcity.FormattingEnabled = true;
+            this.cbcity.Items.AddRange(new object[] {
+            "An Giang",
+            "Bà Rịa-Vũng Tàu",
+            "Bạc Liêu",
+            "Bắc Kạn",
+            "Bắc Giang",
+            "Bắc Ninh",
+            "Bến Tre",
+            "Bình Dương",
+            "Bình Định",
+            "Bình Phước",
+            "Bình Thuận",
+            "Cà Mau",
+            "Cao Bằng",
+            "Cần Thơ",
+            "Đà Nẵng",
+            "Đắk Lắk",
+            "Đắk Nông",
+            "Điện Biên",
+            "Đồng Nai",
+            "Đồng Tháp",
+            "Gia Lai",
+            "Hà Giang",
+            "Hà Nam",
+            "Hà Nội",
+            "Hà Tây",
+            "Hà Tĩnh",
+            "Hải Dương",
+            "Hải Phòng",
+            "Hòa Bình",
+            "Hồ Chí Minh",
+            "Hậu Giang",
+            "Hưng Yên",
+            "Khánh Hòa",
+            "Kiên Giang",
+            "Kon Tum",
+            "Lai Châu",
+            "Lào Cai",
+            "Lạng Sơn",
+            "Lâm Đồng",
+            "Long An",
+            "Nam Định",
+            "Nghệ An",
+            "Ninh Bình",
+            "Ninh Thuận",
+            "Phú Thọ",
+            "Phú Yên",
+            "Quảng Bình",
+            "Quảng Nam",
+            "Quảng Ngãi",
+            "Quảng Ninh",
+            "Quảng Trị",
+            "Sóc Trăng",
+            "Sơn La",
+            "Tây Ninh",
+            "Thái Bình",
+            "Thái Nguyên",
+            "Thanh Hóa",
+            "Thừa Thiên - Huế",
+            "Tiền Giang",
+            "Trà Vinh",
+            "Tuyên Quang",
+            "Vĩnh Long",
+            "Vĩnh Phúc",
+            "Yên Bái"});
+            this.cbcity.Location = new System.Drawing.Point(161, 157);
+            this.cbcity.Name = "cbcity";
+            this.cbcity.Size = new System.Drawing.Size(149, 21);
+            this.cbcity.TabIndex = 85;
+            this.cbcity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttinh_KeyPress);
             // 
             // label4
             // 
@@ -382,11 +452,11 @@
             this.label21.TabIndex = 49;
             this.label21.Text = "Customer Name";
             // 
-            // cbchannel
+            // cbregion
             // 
-            this.cbchannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbchannel.FormattingEnabled = true;
-            this.cbchannel.Items.AddRange(new object[] {
+            this.cbregion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbregion.FormattingEnabled = true;
+            this.cbregion.Items.AddRange(new object[] {
             "An Giang",
             "Bà Rịa-Vũng Tàu",
             "Bạc Liêu",
@@ -451,22 +521,84 @@
             "Vĩnh Long",
             "Vĩnh Phúc",
             "Yên Bái"});
-            this.cbchannel.Location = new System.Drawing.Point(161, 195);
-            this.cbchannel.Name = "cbchannel";
-            this.cbchannel.Size = new System.Drawing.Size(149, 21);
-            this.cbchannel.TabIndex = 91;
+            this.cbregion.Location = new System.Drawing.Point(161, 351);
+            this.cbregion.Name = "cbregion";
+            this.cbregion.Size = new System.Drawing.Size(149, 21);
+            this.cbregion.TabIndex = 92;
             // 
-            // label8
+            // cbSaleOrg
             // 
-            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 196);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 20);
-            this.label8.TabIndex = 90;
-            this.label8.Text = "Channel";
+            this.cbSaleOrg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSaleOrg.FormattingEnabled = true;
+            this.cbSaleOrg.Items.AddRange(new object[] {
+            "An Giang",
+            "Bà Rịa-Vũng Tàu",
+            "Bạc Liêu",
+            "Bắc Kạn",
+            "Bắc Giang",
+            "Bắc Ninh",
+            "Bến Tre",
+            "Bình Dương",
+            "Bình Định",
+            "Bình Phước",
+            "Bình Thuận",
+            "Cà Mau",
+            "Cao Bằng",
+            "Cần Thơ",
+            "Đà Nẵng",
+            "Đắk Lắk",
+            "Đắk Nông",
+            "Điện Biên",
+            "Đồng Nai",
+            "Đồng Tháp",
+            "Gia Lai",
+            "Hà Giang",
+            "Hà Nam",
+            "Hà Nội",
+            "Hà Tây",
+            "Hà Tĩnh",
+            "Hải Dương",
+            "Hải Phòng",
+            "Hòa Bình",
+            "Hồ Chí Minh",
+            "Hậu Giang",
+            "Hưng Yên",
+            "Khánh Hòa",
+            "Kiên Giang",
+            "Kon Tum",
+            "Lai Châu",
+            "Lào Cai",
+            "Lạng Sơn",
+            "Lâm Đồng",
+            "Long An",
+            "Nam Định",
+            "Nghệ An",
+            "Ninh Bình",
+            "Ninh Thuận",
+            "Phú Thọ",
+            "Phú Yên",
+            "Quảng Bình",
+            "Quảng Nam",
+            "Quảng Ngãi",
+            "Quảng Ninh",
+            "Quảng Trị",
+            "Sóc Trăng",
+            "Sơn La",
+            "Tây Ninh",
+            "Thái Bình",
+            "Thái Nguyên",
+            "Thanh Hóa",
+            "Thừa Thiên - Huế",
+            "Tiền Giang",
+            "Trà Vinh",
+            "Tuyên Quang",
+            "Vĩnh Long",
+            "Vĩnh Phúc",
+            "Yên Bái"});
+            this.cbSaleOrg.Location = new System.Drawing.Point(161, 312);
+            this.cbSaleOrg.Name = "cbSaleOrg";
+            this.cbSaleOrg.Size = new System.Drawing.Size(149, 21);
+            this.cbSaleOrg.TabIndex = 93;
             // 
             // MKTVTDanhsackhachhang
             // 
@@ -503,15 +635,15 @@
         private System.Windows.Forms.TextBox txtnote;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox txtcity;
+        private System.Windows.Forms.ComboBox cbcity;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtdistrict;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRegion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtSalesOrg;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbchannel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbregion;
+        private System.Windows.Forms.ComboBox cbSaleOrg;
     }
 }
