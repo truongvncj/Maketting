@@ -165,6 +165,12 @@
     <Compile Include="View\MKTCustomerchanellist.Designer.cs">
       <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTProgramemakeandsetIObutger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTProgramemakeandsetIObutger.Designer.cs">
+      <DependentUpon>MKTProgramemakeandsetIObutger.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTViewselectchannel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTCustomerchanellist.resx">
       <DependentUpon>MKTCustomerchanellist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTProgramemakeandsetIObutger.resx">
+      <DependentUpon>MKTProgramemakeandsetIObutger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTViewselectchannel.resx">
       <DependentUpon>MKTViewselectchannel.cs</DependentUpon>

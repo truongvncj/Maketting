@@ -29,6 +29,16 @@
       <Column Name="IOprogamecreatRight" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
+    <Type Name="tbl_MKT_CustomerChaneltmp">
+      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Select_channel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_DetailRpt_Phieuissue" Member="tbl_MKT_DetailRpt_Phieuissues">
     <Type Name="tbl_MKT_DetailRpt_Phieuissue">
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -54,6 +64,21 @@
       <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_IO_Programe" Member="tbl_MKT_IO_Programes">
+    <Type Name="tbl_MKT_IO_Programe">
+      <Column Name="IO_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IO_Name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Sales_Org" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChannelGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Avaiable_Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Spent_Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_khoMKT" Member="tbl_MKT_khoMKTs">
@@ -241,6 +266,17 @@
       <Column Name="StoreLocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Programe" Member="tbl_MKT_Programes">
+    <Type Name="tbl_MKT_Programe">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tenCT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Fromdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Todate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="TotalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Region" Member="tbl_MKT_Regions">
@@ -481,25 +517,30 @@
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_MKT_IO_Programe" Member="tbl_MKT_IO_Programes">
-    <Type Name="tbl_MKT_IO_Programe">
-      <Column Name="macT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="tenCT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+  <Table Name="dbo.tbl_MKT_Programepriceproduct" Member="tbl_MKT_Programepriceproducts">
+    <Type Name="tbl_MKT_Programepriceproduct">
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Sales_Org" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ChannelGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
-    <Type Name="tbl_MKT_CustomerChaneltmp">
-      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="Select_channel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+  <Table Name="dbo.tbl_MKT_StockendbudgetbyRegion" Member="tbl_MKT_StockendbudgetbyRegions">
+    <Type Name="tbl_MKT_StockendbudgetbyRegion">
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Spent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

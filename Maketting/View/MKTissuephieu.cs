@@ -2079,8 +2079,8 @@ namespace Maketting.View
                 if (rs2 != null)
                 {
 
-                    txtmact.Text = rs2.macT;
-                    txtmucdichname.Text = rs2.tenCT;
+                    txtmact.Text = rs2.IO_number;
+                    txtmucdichname.Text = rs2.IO_Name;
 
                 }
 

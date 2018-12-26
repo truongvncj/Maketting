@@ -116,8 +116,8 @@ namespace Maketting.View
                 {
 
 
-                    txtma.Text = item.macT;
-                    txtten.Text = item.tenCT;
+                    txtma.Text = item.IO_number;
+                    txtten.Text = item.IO_Name;
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
                  
@@ -289,15 +289,15 @@ namespace Maketting.View
 
                 //    MeasureItemEventArgs.re
                 var rs = (from p in db.tbl_MKT_IO_Programes
-                          where p.macT == maCT
+                          where p.IO_number == maCT
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
 
 
                 if (rs != null)
                 {
-                    rs.macT = this.maCT;//= this.txtma.Text;
-                    rs.tenCT = this.tenCT;//= this.txtten.Text;
+                    rs.IO_number = this.maCT;//= this.txtma.Text;
+                    rs.IO_Name = this.tenCT;//= this.txtten.Text;
               
                     rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
                     rs.Region = this.region;
@@ -370,8 +370,8 @@ namespace Maketting.View
 
             tbl_MKT_IO_Programe p = new tbl_MKT_IO_Programe();
 
-            p.macT = this.maCT;//= this.txtma.Text;
-            p.tenCT = this.tenCT;//= this.txtten.Text;
+            p.IO_number = this.maCT;//= this.txtma.Text;
+            p.IO_Name = this.tenCT;//= this.txtten.Text;
        
             p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 

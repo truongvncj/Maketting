@@ -1199,14 +1199,15 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes
-                     orderby p.macT
+                     orderby p.IO_number
                      select new
                      {
-                         Mã_chương_trình = p.macT,
-                         Tên_chương_trình = p.tenCT,
+                         IO = p.IO_number,
+                         Tên_chương_trình = p.IO_Name,
                          p.Sales_Org,
                          p.Region,
                          p.ChannelGroup,
+                        
                        
                        
                          Ghi_chú = p.ghichu,
