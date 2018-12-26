@@ -16,11 +16,27 @@ using System.Text.RegularExpressions;
 using System.Data.OleDb;
 using System.IO;
 using System.Security.Cryptography;
+using System.IO;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Maketting
 {
     class Utils
     {
+
+
+        public static string Truncate(string source, int length)
+        {
+            if (source.Length > length)
+            {
+                return source.Substring(0, length);
+            }
+            return source;
+        }
+
+
         public static DateTime getEndOfMonth(DateTime date)
         {
             if (date.Month == 12)

@@ -60,3 +60,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTCustomerchanellist.res
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTRegionllist.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTSalesOrglist.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewselectchannel.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramemakeandsetIObutger.resources

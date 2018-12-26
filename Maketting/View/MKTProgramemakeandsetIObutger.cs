@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
+
+using System.Configuration;
 
 namespace Maketting.View
 {
@@ -19,14 +23,19 @@ namespace Maketting.View
         public string kqstring { get; set; }
         public int id { get; set; }
 
-        public string username  { get; set; }
+        public string username { get; set; }
 
 
 
-    //  IQueryable rs, LinqtoSQLDataContext d
-    public MKTProgramemakeandsetIObutger()
+        //  IQueryable rs, LinqtoSQLDataContext d
+        public MKTProgramemakeandsetIObutger()
         {
             InitializeComponent();
+
+
+            lbfileupload.Text = "";
+            txtsohieuct.Text = "";
+
 
             label7.Text = "Select one or more channel ";
 
@@ -218,7 +227,7 @@ namespace Maketting.View
 
                     //update to server
 
-                 //   string username = Utils.getusername();
+                    //   string username = Utils.getusername();
 
 
 
@@ -264,7 +273,7 @@ namespace Maketting.View
         private void button1_Click(object sender, EventArgs e)
         {
 
-        //    string username = Utils.getusername();
+            //    string username = Utils.getusername();
 
 
 
@@ -279,7 +288,7 @@ namespace Maketting.View
 
                 if (item.Select_channel == true)
                 {
-                    if (kqstring !="")
+                    if (kqstring != "")
                     {
                         this.kqstring = item.Chanel_code + ";" + this.kqstring;
                     }
@@ -287,13 +296,101 @@ namespace Maketting.View
                     {
                         this.kqstring = item.Chanel_code;
                     }
-                    
+
 
                 }
 
             }
 
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            lbfileupload.Visible = true;
+
+
+            if (txtsohieuct.Text =="")
+            {
+
+                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme " , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtsohieuct.Focus();
+                return;
+            }
+
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open PDF File scheme programe";
+            theDialog.Filter = "PDF files|*.pdf";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = theDialog.FileName.ToString();
+
+
+
+
+                // getting the file path of uploaded file  
+                string filename1 = Path.GetFileName(filePath); // getting the file name of uploaded file  
+                string type = Path.GetExtension(filename1); // getting the file extension of uploaded file  
+                                                            //     string type = String.Empty;
+
+
+                string connection_string = Utils.getConnectionstr();
+                var db = new LinqtoSQLDataContext(connection_string);
+
+                try
+                {
+
+             
+
+                byte[] bytes;
+                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    using (var reader = new BinaryReader(stream))
+                    {
+                        bytes = reader.ReadBytes((Int32)stream.Length);
+                    }
+                }
+                using (var varConnection = new SqlConnection(connection_string))
+                {
+                    varConnection.Open();
+
+
+                    using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data)" + " values (@Name, @type, @Data)", varConnection))
+
+                    {
+                        sqlWrite.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Utils.Truncate(filename1, 225);
+                        sqlWrite.Parameters.Add("@type", SqlDbType.NVarChar).Value = type;
+                        sqlWrite.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
+
+                        sqlWrite.ExecuteNonQuery();
+                    }
+                }
+
+              
+                lbfileupload.ForeColor = System.Drawing.Color.Green;
+                lbfileupload.Text = "File Uploaded Successfully";
+
+
+                }
+                catch (Exception)
+                {
+
+                    lbfileupload.ForeColor = System.Drawing.Color.Red;
+                    lbfileupload.Text = "File Uploaded Error";
+
+                }
+
+
+
+
+            }
+
+
+
+
+
         }
     }
 }

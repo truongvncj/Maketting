@@ -279,6 +279,26 @@
       <Column Name="TotalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKT_Programepdfdata" Member="tbl_MKT_Programepdfdatas">
+    <Type Name="tbl_MKT_Programepdfdata">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="Contentype" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Programepriceproduct" Member="tbl_MKT_Programepriceproducts">
+    <Type Name="tbl_MKT_Programepriceproduct">
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_Region" Member="tbl_MKT_Regions">
     <Type Name="tbl_MKT_Region">
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -350,6 +370,20 @@
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ordered" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_StockendbudgetbyRegion" Member="tbl_MKT_StockendbudgetbyRegions">
+    <Type Name="tbl_MKT_StockendbudgetbyRegion">
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Spent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendTMP" Member="tbl_MKT_StockendTMPs">
@@ -515,32 +549,6 @@
       <Column Name="RecieptQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Programepriceproduct" Member="tbl_MKT_Programepriceproducts">
-    <Type Name="tbl_MKT_Programepriceproduct">
-      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_StockendbudgetbyRegion" Member="tbl_MKT_StockendbudgetbyRegions">
-    <Type Name="tbl_MKT_StockendbudgetbyRegion">
-      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Spent" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

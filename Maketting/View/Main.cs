@@ -4460,6 +4460,16 @@ namespace Maketting.View
 
 
         }
+
+        private void setIOButgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            View.MKTProgramemakeandsetIObutger accsup = new MKTProgramemakeandsetIObutger();
+            accsup.Show();
+
+
+
+        }
     }
 
 
