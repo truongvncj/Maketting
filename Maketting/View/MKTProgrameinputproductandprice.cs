@@ -315,7 +315,18 @@ namespace Maketting.View
 
             var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
                               where pp.Username == username
-                              select pp;
+                              select new
+                              {
+                                  pp.ITEM_Code,
+                                  pp.MATERIAL,
+                                  pp.Price,
+                                  pp.SAP_CODE,
+                                  pp.Description,
+                                  pp.id,
+                                  pp.Username,
+
+
+                              };
 
 
 
@@ -326,10 +337,19 @@ namespace Maketting.View
 
 
 
+            // blank phiếu
 
-           
+            txtdescription.Text = "";
+            txtid.Text = "";
+            txtname.Text = "";
+          
+            txtsapcode.Text = "";
+
+            txtposmproduct.Text = "";
+            txtprice.Text = "";
 
 
+            txtposmproduct.Focus();
 
 
 
@@ -400,7 +420,7 @@ namespace Maketting.View
             {
 
 
-                txtposmproduct.Focus();
+            //   
 
 
             }

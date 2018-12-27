@@ -25,7 +25,8 @@ namespace Maketting.View
 
         public string username { get; set; }
 
-        
+        public string ProgrameIDDocno { get; set; }
+
 
         //  IQueryable rs, LinqtoSQLDataContext d
         public MKTProgramemakeandsetIObutger()
@@ -36,7 +37,7 @@ namespace Maketting.View
             lbfileupload.Text = "";
             txtsohieuct.Text = "";
 
-
+            this.ProgrameIDDocno = txtsohieuct.Text;
            // label7.Text = "Select one or more channel ";
 
             this.username = Utils.getusername();
@@ -49,15 +50,31 @@ namespace Maketting.View
             Model.MKT.DeleteALLIOTMP(dc);
 
 
+         
+
+
             var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
                                where pp.Username == username
-                               select pp;
-        
+                               select new
+                               {
+                                   pp.IO_number,
+                                   pp.ChannelGroup,
+                                   pp.Budget,
+                                   pp.Region,
+                                   pp.Sales_Org,
+                                   pp.Username,
+                                   pp.id,
+
+
+
+
+                               };
+
 
 
             this.dataGridViewIO.DataSource = Programelist;
             dataGridViewIO.Columns["Id"].Visible = false;
-            dataGridViewIO.Columns["username"].Visible = false;
+            dataGridViewIO.Columns["Username"].Visible = false;
             //   Valuechoose = "";
             // kqstring = "";
 
@@ -66,7 +83,19 @@ namespace Maketting.View
 
             var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
                                where pp.Username == username
-                               select pp;
+                              select new
+                              {
+                                  pp.ITEM_Code,
+                                  pp.MATERIAL,
+                                  pp.Price,
+                                  pp.SAP_CODE,
+                                  pp.Description,
+                                  pp.id,
+                                  pp.Username,
+
+
+                              };
+
 
 
 
@@ -304,7 +333,7 @@ namespace Maketting.View
             lbfileupload.Visible = true;
 
 
-            if (txtsohieuct.Text == "")
+            if (this.ProgrameIDDocno == "")
             {
 
                 MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -328,7 +357,7 @@ namespace Maketting.View
                 string filename1 = Path.GetFileName(filePath); // getting the file name of uploaded file  
                 string type = Path.GetExtension(filename1); // getting the file extension of uploaded file  
                                                             //     string type = String.Empty;
-                string ProgrameIDDocno = txtsohieuct.Text;
+             //   string ProgrameIDDocno = txtsohieuct.Text;
 
                 string connection_string = Utils.getConnectionstr();
                 var db = new LinqtoSQLDataContext(connection_string);
@@ -357,7 +386,7 @@ namespace Maketting.View
                             sqlWrite.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Utils.Truncate(filename1, 225);
                             sqlWrite.Parameters.Add("@type", SqlDbType.NVarChar).Value = type;
                             sqlWrite.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
-                            sqlWrite.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
+                            sqlWrite.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(this.ProgrameIDDocno, 50);
 
                             sqlWrite.ExecuteNonQuery();
                         }
@@ -390,9 +419,42 @@ namespace Maketting.View
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            View.MKTProgrameinputproductandprice spchon = new MKTProgrameinputproductandprice(this.dataGridViewProduct, txtsohieuct.Text);
+
+            if (this.ProgrameIDDocno == "")
+            {
+
+                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtsohieuct.Focus();
+                return;
+            }
+
+            View.MKTProgrameinputproductandprice spchon = new MKTProgrameinputproductandprice(this.dataGridViewProduct, this.ProgrameIDDocno);
             spchon.ShowDialog();
 
+        }
+
+        private void txtsohieuct_TextChanged(object sender, EventArgs e)
+        {
+            this.ProgrameIDDocno = txtsohieuct.Text;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            if (this.ProgrameIDDocno == "")
+            {
+
+                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtsohieuct.Focus();
+                return;
+            }
+
+            View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3,0, this.ProgrameIDDocno, this.dataGridViewIO);
+            spchon.ShowDialog();
+
+            
         }
     }
 }

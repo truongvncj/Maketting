@@ -478,7 +478,7 @@ namespace Maketting.Model
                          Created_date = p.Ngaytaophieu,
                          p.Region,
                          p.Gate_pass,
-                    IO =     p.Purposeid,
+                         IO = p.Purposeid,
                          p.Purpose,
 
                          p.Status,
@@ -503,9 +503,9 @@ namespace Maketting.Model
                          p.Loadingby,
                          Completed_date = p.Date_Received_Issued,
                          p.Completed_by,
-                      
-                       
-                      
+
+
+
 
 
 
@@ -669,12 +669,12 @@ namespace Maketting.Model
         {
             string urs = Utils.getusername();
 
-       //     string connection_string = Utils.getConnectionstr();
-       //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //     string connection_string = Utils.getConnectionstr();
+            //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             var rs = from pp in dc.tbl_MKT_CustomerChaneltmps
-                     where pp.username == urs 
+                     where pp.username == urs
                      select pp;
 
             if (rs.Count() > 0)
@@ -1253,13 +1253,14 @@ namespace Maketting.Model
                          p.Sales_Org,
                          p.Region,
                          p.ChannelGroup,
-                        
-                       
-                       
+
+
+
                          Ghi_chú = p.ghichu,
-                      
-                     
-                     
+
+                         Số_hiệu_CT = p.ProgrameIDDocno,
+
+                         p.Budget,
 
                          ID = p.id,
                      };
@@ -1493,7 +1494,7 @@ namespace Maketting.Model
                      {
                          Region = pp.Region,
                          Note = pp.Note,
-                       
+
                          ID = pp.id,
 
                      };

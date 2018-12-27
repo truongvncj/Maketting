@@ -533,7 +533,7 @@ namespace Maketting.View
 
 
 
-                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(3, -1);  // 3 là thêm ới
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(3, -1,"0");  // 3 là thêm ới
 
                 p.ShowDialog();
 
@@ -879,7 +879,7 @@ namespace Maketting.View
 
 
 
-                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(4, idtk);  // 4 là là xóa sửa
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(4, idtk,"0");  // 4 là là xóa sửa
 
                 p.ShowDialog();
 

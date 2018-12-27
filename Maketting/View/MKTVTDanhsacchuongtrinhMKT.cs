@@ -22,8 +22,10 @@ namespace Maketting.View
         public string region { get; set; }
         public string salesorg { get; set; }
         public string channelgroup { get; set; }
+        public string ProgrameIDDocno { get; set; }
 
         public string ghichu { get; set; }
+               public double budget { get; set; }
 
         public bool chon { get; set; }
 
@@ -41,13 +43,19 @@ namespace Maketting.View
         }
 
 
-        public MKTVTDanhsacchuongtrinhMKT(int lainghiepvu, int id) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
+        public MKTVTDanhsacchuongtrinhMKT(int lainghiepvu, int id, string ProgrameIDDocno) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
         {
             InitializeComponent();
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             chon = false;
+            this.ProgrameIDDocno = ProgrameIDDocno;
+            txtsohieuct.Text = ProgrameIDDocno;
+
+            this.budget = 0;
+
+        //    txtsohieuct.Enabled = false;
 
             // list region
             List<ComboboxItem> listRegion = new List<ComboboxItem>();
@@ -120,8 +128,8 @@ namespace Maketting.View
                     txtten.Text = item.IO_Name;
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
-                 
-
+                    txtsohieuct.Text = item.ProgrameIDDocno;
+                    this.ProgrameIDDocno = item.ProgrameIDDocno; ;
                     txtghichu.Text = item.ghichu;
 
                     cbregion.Text = item.Region;// 
@@ -242,6 +250,18 @@ namespace Maketting.View
         private void btupdate_Click(object sender, EventArgs e)
         {
 
+            if (Utils.IsValidnumber(txtbudget.Text))
+            {
+                this.budget = double.Parse(txtbudget.Text.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Budget must be a number" , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbudget.Focus();
+
+                return;
+            }
+
             this.maCT = this.txtma.Text;
             this.tenCT = this.txtten.Text;
 
@@ -251,6 +271,8 @@ namespace Maketting.View
             this.region = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
 
             this.channelgroup = txtchannelgroup.Text;
+
+            this.ProgrameIDDocno = txtsohieuct.Text;
 
 
             if (maCT == "")
@@ -298,12 +320,12 @@ namespace Maketting.View
                 {
                     rs.IO_number = this.maCT;//= this.txtma.Text;
                     rs.IO_Name = this.tenCT;//= this.txtten.Text;
-              
+                    rs.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
                     rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
                     rs.Region = this.region;
                     rs.Sales_Org = this.salesorg;
                     rs.ChannelGroup = this.channelgroup;
-
+                    rs.ProgrameIDDocno = this.ProgrameIDDocno;
 
                     db.SubmitChanges();
                     this.Close();
@@ -330,17 +352,35 @@ namespace Maketting.View
 
         private void btnew_Click(object sender, EventArgs e)
         {
+            if (Utils.IsValidnumber(txtbudget.Text))
+            {
+                this.budget = double.Parse(txtbudget.Text.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Budget must be a number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbudget.Focus();
 
+                return;
+            }
 
             this.maCT = this.txtma.Text;
             this.tenCT = this.txtten.Text;
-      
+       
             this.ghichu = txtghichu.Text;
 
             this.salesorg = (cbsales_org.SelectedItem as ComboboxItem).Value.ToString();
             this.region = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
 
             this.channelgroup = txtchannelgroup.Text;
+            this.ProgrameIDDocno = txtsohieuct.Text;
+
+            if (txtsohieuct.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số hiệu chương trình", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
 
 
             if (maCT == "")
@@ -348,6 +388,8 @@ namespace Maketting.View
                 MessageBox.Show("Bạn chưa có mã chương trình", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
             if (cbsales_org.Text == "")
             {
                 MessageBox.Show("Bạn chưa có mã sales Org", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -375,7 +417,8 @@ namespace Maketting.View
        
             p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 
-
+            p.ProgrameIDDocno = this.ProgrameIDDocno;
+            p.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
             p.Region = this.region;
             p.Sales_Org = this.salesorg;
             p.ChannelGroup = this.channelgroup;
@@ -524,6 +567,36 @@ namespace Maketting.View
             View.MKTViewselectchannel accsup = new MKTViewselectchannel();
             accsup.ShowDialog();
             txtchannelgroup.Text = accsup.kqstring;
+        }
+
+        private void txtbudget_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+          //  this.budget =double.Parse( txtbudget.Text);
+            if (Utils.IsValidnumber(txtbudget.Text))
+            {
+                this.budget = double.Parse(txtbudget.Text.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Budget must be a number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbudget.Focus();
+
+                return;
+            }
+
+
+
+
+        }
+
+        private void txtsohieuct_TextChanged(object sender, EventArgs e)
+        {
+            this.ProgrameIDDocno = txtsohieuct.Text;
+
+
         }
     }
 

@@ -179,6 +179,7 @@
             this.button4.TabStop = false;
             this.button4.Text = "Create IO";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -277,6 +278,7 @@
             this.txtsohieuct.Size = new System.Drawing.Size(271, 24);
             this.txtsohieuct.TabIndex = 27;
             this.txtsohieuct.Text = "8/2018/00246/01/HOC";
+            this.txtsohieuct.TextChanged += new System.EventHandler(this.txtsohieuct_TextChanged);
             // 
             // label1
             // 
