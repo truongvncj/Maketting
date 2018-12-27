@@ -16,12 +16,9 @@ namespace Maketting.View
     {
         // public View.CreatenewContract contractnew;
         public int id { get; set; }
-        public string sapcodePOSM { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-
-        public bool chon { get; set; }
-
+        public DataGridView dataGridViewProduct { get; set; }
+        public string ProgrameIDDocno { get; set; }
+       
 
         public class ComboboxItem
         {
@@ -36,16 +33,16 @@ namespace Maketting.View
         }
 
 
-        public MKTProgrameinputproductandprice() // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
+        public MKTProgrameinputproductandprice(DataGridView dataGridViewProduct, string ProgrameIDDocno) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
         {
             InitializeComponent();
-
-            chon = false;
-
-
+            this.id = -1;
+            //    chon = false;
 
 
+            this.dataGridViewProduct = dataGridViewProduct;
 
+            this.ProgrameIDDocno = ProgrameIDDocno;
 
 
 
@@ -69,12 +66,12 @@ namespace Maketting.View
                          {
 
                              ITEM_Code = g.Key,
-                             SAP_CODE = g.Select(x => x.SAP_CODE.FirstOrDefault()),
-                             MATERIAL = g.Select(x => x.MATERIAL.FirstOrDefault()),
-                             Description = g.Select(x => x.Description.FirstOrDefault()),
-                             UNIT = g.Select(x => x.UNIT.FirstOrDefault()),
+                             SAP_CODE = g.Select(x => x.SAP_CODE).FirstOrDefault(),
+                             MATERIAL = g.Select(x => x.MATERIAL).FirstOrDefault(),
+                             Description = g.Select(x => x.Description).FirstOrDefault(),
+                             UNIT = g.Select(x => x.UNIT).FirstOrDefault(),
 
-                             id = g.Select(x => x.id),
+                             id = g.Select(x => x.id).FirstOrDefault(),
 
                          };
 
@@ -108,6 +105,12 @@ namespace Maketting.View
                         txtname.Text = valuechon.MATERIAL;
                         txtdescription.Text = valuechon.Description;
                         txtprice.Focus();
+                        this.id = id;
+
+
+
+
+
                     }
 
                 }
@@ -244,6 +247,87 @@ namespace Maketting.View
 
         private void btnew_Click(object sender, EventArgs e)
         {
+            if (this.id ==-1)
+            {
+
+                MessageBox.Show("Please chọn một sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtposmproduct.Focus();
+                return;
+
+
+
+            }
+
+            if (!Utils.IsValidnumber(txtprice.Text))
+            {
+
+                MessageBox.Show("Please input price ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtprice.Focus();
+                return;
+
+
+
+            }
+
+            string username = Utils.getusername();
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            // add to tem tbl_MKT_ProgramepriceproductTMPs
+
+            var productid = (from pp in dc.tbl_MKT_Stockends
+                              where pp.id == this.id
+                              select pp).FirstOrDefault();
+
+            if (productid != null)
+            {
+                tbl_MKT_ProgramepriceproductTMP selectproduct = new tbl_MKT_ProgramepriceproductTMP();
+
+                selectproduct.ITEM_Code = productid.ITEM_Code;
+                selectproduct.MATERIAL = productid.MATERIAL;
+                selectproduct.Price = double.Parse(txtprice.Text);
+                selectproduct.ProgrameIDDocno = ProgrameIDDocno;
+                selectproduct.SAP_CODE = productid.SAP_CODE;
+                selectproduct.UNIT = productid.UNIT;
+                selectproduct.Username = username;
+                selectproduct.Description = productid.Description;
+
+
+                dc.tbl_MKT_ProgramepriceproductTMPs.InsertOnSubmit(selectproduct);
+                dc.SubmitChanges();
+
+
+
+
+
+
+            }
+
+            ///
+
+
+
+
+            var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
+                              where pp.Username == username
+                              select pp;
+
+
+
+            this.dataGridViewProduct.DataSource = priceIOlist;
+            dataGridViewProduct.Columns["Id"].Visible = false;
+            dataGridViewProduct.Columns["Username"].Visible = false;
+
+
+
+
+
+           
 
 
 
