@@ -37,7 +37,7 @@ namespace Maketting.View
             txtsohieuct.Text = "";
 
 
-            label7.Text = "Select one or more channel ";
+           // label7.Text = "Select one or more channel ";
 
             this.username = Utils.getusername();
 
@@ -46,39 +46,33 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            Model.MKT.DeleteALLChannelTMP(dc);
+            Model.MKT.DeleteALLIOTMP(dc);
 
 
-            var channelist = from pp in dc.tbl_MKT_CustomerChanels
-                             select pp;
-            foreach (var item in channelist)
-            {
-                tbl_MKT_CustomerChaneltmp newchanel = new tbl_MKT_CustomerChaneltmp();
-
-                newchanel.Chanel_code = item.Chanel_code;
-                newchanel.Chanel_name = item.Chanel_name;
-                newchanel.Note = item.Note;
-                newchanel.Select_channel = false;
-                newchanel.ID = item.id;
-                newchanel.username = username;
-                dc.tbl_MKT_CustomerChaneltmps.InsertOnSubmit(newchanel);
-                dc.SubmitChanges();
+            var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
+                               where pp.Username == username
+                               select pp;
+        
 
 
-            }
-            var channelisttmp = from pp in dc.tbl_MKT_CustomerChaneltmps
-                                where pp.username == username
-                                select pp;
-
-
-
-            this.dataGridView1.DataSource = channelisttmp;
-            dataGridView1.Columns["Id"].Visible = false;
-            dataGridView1.Columns["username"].Visible = false;
+            this.dataGridViewIO.DataSource = Programelist;
+            dataGridViewIO.Columns["Id"].Visible = false;
+            dataGridViewIO.Columns["username"].Visible = false;
             //   Valuechoose = "";
-            kqstring = "";
+            // kqstring = "";
+
+            Model.MKT.DeleteALLIPricelistIOTMP(dc);
 
 
+            var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
+                               where pp.Username == username
+                               select pp;
+
+
+
+            this.dataGridViewProduct.DataSource = priceIOlist;
+            dataGridViewProduct.Columns["Id"].Visible = false;
+            dataGridViewProduct.Columns["Username"].Visible = false;
 
         }
 
@@ -171,7 +165,7 @@ namespace Maketting.View
             //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
             //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
 
-            foreach (var c in dataGridView1.Columns)
+            foreach (var c in dataGridViewIO.Columns)
             {
                 DataGridViewColumn clm = (DataGridViewColumn)c;
                 clm.HeaderText = clm.HeaderText.Replace("_", " ");
@@ -199,7 +193,7 @@ namespace Maketting.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colheadertext = this.dataGridView1.Columns[this.dataGridView1.CurrentCell.ColumnIndex].HeaderText;
+            string colheadertext = this.dataGridViewIO.Columns[this.dataGridViewIO.CurrentCell.ColumnIndex].HeaderText;
 
             //      bbb
 
@@ -210,19 +204,19 @@ namespace Maketting.View
 
 
 
-                if (dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["ID"].Value != null && dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Select_channel"].Value != null)
+                if (dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["ID"].Value != null && dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value != null)
                 {
-                    int indexID = int.Parse(dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["ID"].Value.ToString());
+                    int indexID = int.Parse(dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["ID"].Value.ToString());
 
 
-                    bool currentvalue = (bool)dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Select_channel"].Value;
+                    bool currentvalue = (bool)dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value;
 
-                    dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-                    dataGridView1.ReadOnly = false;
+                    dataGridViewIO.EditMode = DataGridViewEditMode.EditProgrammatically;
+                    dataGridViewIO.ReadOnly = false;
 
 
-                    dataGridView1.Rows[this.dataGridView1.CurrentRow.Index].Cells["Select_channel"].Value = !currentvalue;
-                    dataGridView1.ReadOnly = true;
+                    dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value = !currentvalue;
+                    dataGridViewIO.ReadOnly = true;
                     // upvaof server
 
                     //update to server
@@ -277,30 +271,30 @@ namespace Maketting.View
 
 
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //string connection_string = Utils.getConnectionstr();
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var channelisttmp = from pp in dc.tbl_MKT_CustomerChaneltmps
-                                where pp.username == username
-                                select pp;
-            foreach (var item in channelisttmp)
-            {
+            //var channelisttmp = from pp in dc.tbl_MKT_CustomerChaneltmps
+            //                    where pp.username == username
+            //                    select pp;
+            //foreach (var item in channelisttmp)
+            //{
 
-                if (item.Select_channel == true)
-                {
-                    if (kqstring != "")
-                    {
-                        this.kqstring = item.Chanel_code + ";" + this.kqstring;
-                    }
-                    else
-                    {
-                        this.kqstring = item.Chanel_code;
-                    }
+            //    if (item.Select_channel == true)
+            //    {
+            //        if (kqstring != "")
+            //        {
+            //            this.kqstring = item.Chanel_code + ";" + this.kqstring;
+            //        }
+            //        else
+            //        {
+            //            this.kqstring = item.Chanel_code;
+            //        }
 
 
-                }
+            //    }
 
-            }
+            //}
 
             this.Close();
         }
@@ -310,10 +304,10 @@ namespace Maketting.View
             lbfileupload.Visible = true;
 
 
-            if (txtsohieuct.Text =="")
+            if (txtsohieuct.Text == "")
             {
 
-                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme " , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 txtsohieuct.Focus();
                 return;
@@ -334,7 +328,7 @@ namespace Maketting.View
                 string filename1 = Path.GetFileName(filePath); // getting the file name of uploaded file  
                 string type = Path.GetExtension(filename1); // getting the file extension of uploaded file  
                                                             //     string type = String.Empty;
-
+                string ProgrameIDDocno = txtsohieuct.Text;
 
                 string connection_string = Utils.getConnectionstr();
                 var db = new LinqtoSQLDataContext(connection_string);
@@ -342,35 +336,36 @@ namespace Maketting.View
                 try
                 {
 
-             
 
-                byte[] bytes;
-                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-                {
-                    using (var reader = new BinaryReader(stream))
+
+                    byte[] bytes;
+                    using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                     {
-                        bytes = reader.ReadBytes((Int32)stream.Length);
+                        using (var reader = new BinaryReader(stream))
+                        {
+                            bytes = reader.ReadBytes((Int32)stream.Length);
+                        }
                     }
-                }
-                using (var varConnection = new SqlConnection(connection_string))
-                {
-                    varConnection.Open();
-
-
-                    using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data)" + " values (@Name, @type, @Data)", varConnection))
-
+                    using (var varConnection = new SqlConnection(connection_string))
                     {
-                        sqlWrite.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Utils.Truncate(filename1, 225);
-                        sqlWrite.Parameters.Add("@type", SqlDbType.NVarChar).Value = type;
-                        sqlWrite.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
+                        varConnection.Open();
 
-                        sqlWrite.ExecuteNonQuery();
+
+                        using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
+
+                        {
+                            sqlWrite.Parameters.Add("@Name", SqlDbType.NVarChar).Value = Utils.Truncate(filename1, 225);
+                            sqlWrite.Parameters.Add("@type", SqlDbType.NVarChar).Value = type;
+                            sqlWrite.Parameters.Add("@Data", SqlDbType.Binary).Value = bytes;
+                            sqlWrite.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
+
+                            sqlWrite.ExecuteNonQuery();
+                        }
                     }
-                }
 
-              
-                lbfileupload.ForeColor = System.Drawing.Color.Green;
-                lbfileupload.Text = "File Uploaded Successfully";
+
+                    lbfileupload.ForeColor = System.Drawing.Color.Green;
+                    lbfileupload.Text = "File Uploaded Successfully";
 
 
                 }
@@ -392,5 +387,13 @@ namespace Maketting.View
 
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            View.MKTProgrameinputproductandprice spchon = new MKTProgrameinputproductandprice();
+            spchon.ShowDialog();
+
+        }
     }
 }
+ 

@@ -687,6 +687,52 @@ namespace Maketting.Model
         }
 
 
+
+        public static void DeleteALLIOTMP(LinqtoSQLDataContext dc) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            //     string connection_string = Utils.getConnectionstr();
+            //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKT_IO_ProgrameTMPs
+                     where pp.Username == urs
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKT_IO_ProgrameTMPs.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+        }
+
+
+
+        public static void DeleteALLIPricelistIOTMP(LinqtoSQLDataContext dc) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            //     string connection_string = Utils.getConnectionstr();
+            //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
+                     where pp.Username == urs
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKT_ProgramepriceproductTMPs.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+        }
+
+
         public static void DeleteALLTransferphieutamTMP(LinqtoSQLDataContext dc, string urs) // vd phieu thu nghiep vu là phieu thu: PT,
         {
 
