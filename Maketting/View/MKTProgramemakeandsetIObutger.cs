@@ -25,7 +25,7 @@ namespace Maketting.View
 
         public string username { get; set; }
 
-
+        
 
         //  IQueryable rs, LinqtoSQLDataContext d
         public MKTProgramemakeandsetIObutger()
@@ -390,7 +390,7 @@ namespace Maketting.View
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            View.MKTProgrameinputproductandprice spchon = new MKTProgrameinputproductandprice();
+            View.MKTProgrameinputproductandprice spchon = new MKTProgrameinputproductandprice(this.dataGridViewProduct, txtsohieuct.Text);
             spchon.ShowDialog();
 
         }

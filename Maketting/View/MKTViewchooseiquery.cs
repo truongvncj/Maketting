@@ -18,8 +18,7 @@ namespace Maketting.View
         public string maphanhanh { get; set; }
         public bool chon { get; set; }
         public int id { get; set; }
-
-
+      
 
 
 
@@ -37,7 +36,7 @@ namespace Maketting.View
             //   Valuechoose = "";
             chon = false;
 
-
+         
 
         }
 
