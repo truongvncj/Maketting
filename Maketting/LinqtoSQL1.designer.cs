@@ -12101,6 +12101,8 @@ namespace Maketting
 		
 		private string _POnumber;
 		
+		private string _Unit;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -12135,6 +12137,8 @@ namespace Maketting
     partial void OnRecieptbyChanged();
     partial void OnPOnumberChanging(string value);
     partial void OnPOnumberChanged();
+    partial void OnUnitChanging(string value);
+    partial void OnUnitChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -12438,6 +12442,26 @@ namespace Maketting
 					this._POnumber = value;
 					this.SendPropertyChanged("POnumber");
 					this.OnPOnumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(255)")]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this.OnUnitChanging(value);
+					this.SendPropertyChanging();
+					this._Unit = value;
+					this.SendPropertyChanged("Unit");
+					this.OnUnitChanged();
 				}
 			}
 		}

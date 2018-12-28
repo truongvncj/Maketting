@@ -33,6 +33,7 @@ namespace Maketting.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Viewtable));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btaddto = new System.Windows.Forms.Button();
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_exporttoex = new System.Windows.Forms.Button();
             this.bt_themmoi = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btaddto = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -88,6 +88,18 @@ namespace Maketting.View
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1332, 28);
             this.panel2.TabIndex = 45;
+            // 
+            // btaddto
+            // 
+            this.btaddto.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btaddto.Location = new System.Drawing.Point(1113, 3);
+            this.btaddto.Name = "btaddto";
+            this.btaddto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btaddto.Size = new System.Drawing.Size(87, 23);
+            this.btaddto.TabIndex = 6;
+            this.btaddto.Text = "Add to ";
+            this.btaddto.UseVisualStyleBackColor = true;
+            this.btaddto.Click += new System.EventHandler(this.btaddto_Click);
             // 
             // bt_sua
             // 
@@ -312,19 +324,8 @@ namespace Maketting.View
             this.dataGridView1.VirtualMode = true;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
-            // 
-            // btaddto
-            // 
-            this.btaddto.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btaddto.Location = new System.Drawing.Point(1113, 3);
-            this.btaddto.Name = "btaddto";
-            this.btaddto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btaddto.Size = new System.Drawing.Size(87, 23);
-            this.btaddto.TabIndex = 6;
-            this.btaddto.Text = "Add to ";
-            this.btaddto.UseVisualStyleBackColor = true;
-            this.btaddto.Click += new System.EventHandler(this.btaddto_Click);
             // 
             // Viewtable
             // 

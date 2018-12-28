@@ -63,3 +63,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTViewselectchannel.reso
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramemakeandsetIObutger.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgrameinputproductandprice.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTVTDanhsacIOtemp.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramepaymentaproval.resources

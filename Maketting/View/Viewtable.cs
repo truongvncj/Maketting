@@ -13,6 +13,8 @@ using System.Globalization;
 using System.Threading;
 using Maketting.Model;
 using System.Data.SqlClient;
+using System.IO;
+using System.Diagnostics;
 
 namespace Maketting.View
 {
@@ -394,7 +396,7 @@ namespace Maketting.View
             {
 
 
-         //       string makh = valuesave;
+                //       string makh = valuesave;
 
 
 
@@ -406,7 +408,7 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-           
+
                 var rs = Model.MKT.danhsachcustomerChannel(this.db);
                 dataGridView1.DataSource = rs;
 
@@ -526,9 +528,9 @@ namespace Maketting.View
             {
 
 
-              string mahieuct = "";
+                string mahieuct = "";
 
-          //      int idtk = 0;
+                //      int idtk = 0;
                 try
                 {
                     mahieuct = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Số_hiệu_CT"].Value;
@@ -890,7 +892,7 @@ namespace Maketting.View
 
 
 
-                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(4, idtk,"0");  // 4 là là xóa sửa
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(4, idtk, "0");  // 4 là là xóa sửa
 
                 p.ShowDialog();
 
@@ -1097,10 +1099,10 @@ namespace Maketting.View
 
                     }
 
-                    
+
 
                 }
-                
+
             }
 
 
@@ -1122,6 +1124,154 @@ namespace Maketting.View
             {
                 MessageBox.Show("There are dublicate code can not add to Product list ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (this.valuesave == "Schemeprograme")
+            {
+
+                //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                {
+
+                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value!="") 
+                    {
+                        #region
+
+
+                       
+
+                        string ProgrameIDDocno = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value;
+
+
+
+                        SaveFileDialog thedialog = new SaveFileDialog();
+                        //
+
+
+                        //   datagridview datagridview1 = new datagridview();
+                        //   datagridview1.datasource = datagrid.datasource;
+
+                        thedialog.Title = "export: " + ProgrameIDDocno+ "  to PDF file";
+                        thedialog.Filter = "PDF files|*.pdf";
+                        thedialog.InitialDirectory = @"c:\";
+                        thedialog.FileName = "downloadfile";
+
+
+                        if (thedialog.ShowDialog() == DialogResult.OK)
+                        {
+
+                            string filePath = thedialog.FileName.ToString();
+
+                            //     string id;
+                            //       FileStream FS = null;
+
+                            //      byte[] dbbyte;
+                            try
+                            {
+                                //Get a stored PDF bytes
+                                //   dbbyte = (byte[])dr["UploadFiles"];
+
+
+                                //store file Temporarily 
+                                string connection_string = Utils.getConnectionstr();
+                                var db = new LinqtoSQLDataContext(connection_string);
+
+                                //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
+
+                                using (SqlConnection sqlconnection = new SqlConnection(connection_string))
+                                {
+                                    sqlconnection.Open();
+
+                                    string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
+
+                                    // Read File content from Sql Table 
+                                    SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
+
+                                    selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
+
+
+                                    SqlDataReader reader = selectCommand.ExecuteReader();
+                                    if (reader.Read())
+                                    {
+                                        byte[] fileData = (byte[])reader[0];
+
+                                        // Write/Export File content into new text file
+                                        File.WriteAllBytes(filePath, fileData);
+                                    }
+                                }
+
+
+                                //Assign File path create file
+
+
+                                //     FS = new FileStream(filepath, System.IO.FileMode.Create);
+
+
+
+                                //Write bytes to create file
+                                //    FS.Write(dbbyte, 0, dbbyte.Length);
+
+
+
+                                // Open file after write 
+                                //Create instance for process class
+                                Process Proc = new Process();
+                                //assign file path for process
+                                Proc.StartInfo.FileName = filePath;
+                                Proc.Start();
+                            }
+                            catch (Exception ex)
+                            {
+                                // throw new System.ArgumentException(ex.Message);
+
+                              //  ex.Message.ToString();
+                                MessageBox.Show(ex.ToString());
+                            }
+                            finally
+                            {
+                                //Close FileStream instance
+                                //   FS.Close();
+                            }
+
+
+
+
+
+                    
+
+
+
+
+                        }
+
+
+                        #endregion
+
+                        
+
+
+                    }
+
+
+
+                }
+
+
+
+
+            }
+
+
+
+
+
+
+
+
 
 
         }

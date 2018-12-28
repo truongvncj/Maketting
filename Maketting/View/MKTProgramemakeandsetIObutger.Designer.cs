@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTProgramemakeandsetIObutger));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btreviewfile = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbfileupload = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.txtfromdate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewIO = new System.Windows.Forms.DataGridView();
-            this.btreviewfile = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIO)).BeginInit();
@@ -92,8 +92,20 @@
             this.panel1.Controls.Add(this.dataGridViewIO);
             this.panel1.Location = new System.Drawing.Point(3, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 651);
+            this.panel1.Size = new System.Drawing.Size(941, 681);
             this.panel1.TabIndex = 0;
+            // 
+            // btreviewfile
+            // 
+            this.btreviewfile.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btreviewfile.Location = new System.Drawing.Point(464, 214);
+            this.btreviewfile.Name = "btreviewfile";
+            this.btreviewfile.Size = new System.Drawing.Size(99, 23);
+            this.btreviewfile.TabIndex = 69;
+            this.btreviewfile.TabStop = false;
+            this.btreviewfile.Text = "View file";
+            this.btreviewfile.UseVisualStyleBackColor = true;
+            this.btreviewfile.Click += new System.EventHandler(this.btreviewfile_Click);
             // 
             // label11
             // 
@@ -123,7 +135,7 @@
             // 
             this.lbfileupload.AutoSize = true;
             this.lbfileupload.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfileupload.Location = new System.Drawing.Point(493, 214);
+            this.lbfileupload.Location = new System.Drawing.Point(569, 215);
             this.lbfileupload.Name = "lbfileupload";
             this.lbfileupload.Size = new System.Drawing.Size(74, 18);
             this.lbfileupload.TabIndex = 66;
@@ -219,7 +231,7 @@
             this.dataGridViewProduct.Location = new System.Drawing.Point(27, 282);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.dataGridViewProduct.ReadOnly = true;
-            this.dataGridViewProduct.Size = new System.Drawing.Size(431, 326);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(431, 356);
             this.dataGridViewProduct.TabIndex = 34;
             // 
             // label6
@@ -336,7 +348,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(816, 614);
+            this.button1.Location = new System.Drawing.Point(816, 642);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 27);
             this.button1.TabIndex = 18;
@@ -357,7 +369,7 @@
             this.dataGridViewIO.Location = new System.Drawing.Point(496, 280);
             this.dataGridViewIO.Name = "dataGridViewIO";
             this.dataGridViewIO.ReadOnly = true;
-            this.dataGridViewIO.Size = new System.Drawing.Size(417, 326);
+            this.dataGridViewIO.Size = new System.Drawing.Size(417, 356);
             this.dataGridViewIO.TabIndex = 0;
             this.dataGridViewIO.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridViewIO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -366,23 +378,11 @@
             this.dataGridViewIO.Enter += new System.EventHandler(this.dataGridView1_Enter);
             this.dataGridViewIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
-            // btreviewfile
-            // 
-            this.btreviewfile.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btreviewfile.Location = new System.Drawing.Point(816, 212);
-            this.btreviewfile.Name = "btreviewfile";
-            this.btreviewfile.Size = new System.Drawing.Size(99, 25);
-            this.btreviewfile.TabIndex = 69;
-            this.btreviewfile.TabStop = false;
-            this.btreviewfile.Text = "View file";
-            this.btreviewfile.UseVisualStyleBackColor = true;
-            this.btreviewfile.Click += new System.EventHandler(this.btreviewfile_Click);
-            // 
             // MKTProgramemakeandsetIObutger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 658);
+            this.ClientSize = new System.Drawing.Size(956, 688);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

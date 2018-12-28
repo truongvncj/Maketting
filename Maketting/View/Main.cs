@@ -3835,7 +3835,7 @@ namespace Maketting.View
         private void storeManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        
+
 
 
 
@@ -4117,7 +4117,7 @@ namespace Maketting.View
         {
 
 
-           
+
 
 
 
@@ -4233,7 +4233,7 @@ namespace Maketting.View
 
 
             var rs5 = from pp in dc.tbl_MKT_Soldtocodes
-               //       where pp.Soldtype == false
+                          //       where pp.Soldtype == false
                       select pp;
 
 
@@ -4350,7 +4350,7 @@ namespace Maketting.View
 
         private void customerChanelListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void customerChannelManageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4363,7 +4363,7 @@ namespace Maketting.View
             var rs5 = from pp in dc.tbl_MKT_CustomerChanels
                           //   where pp.Soldtype == true
                       select pp;
-            
+
 
             View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
             tbl.ShowDialog();
@@ -4393,7 +4393,7 @@ namespace Maketting.View
 
 
             //var rs5 = from pp in dc.tbl_MKT_IO_Programes
-                     
+
             //          select pp;
 
 
@@ -4467,6 +4467,41 @@ namespace Maketting.View
             View.MKTProgramemakeandsetIObutger accsup = new MKTProgramemakeandsetIObutger();
             accsup.Show();
 
+
+
+        }
+
+        private void viewProgrameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Programepdfdatas
+                          //   where pp.Soldtype == true
+                      select new
+                      {
+                          pp.ProgrameIDDocno,
+                          pp.Name,
+                          //   pp.Contentype
+
+
+                      };
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "PROGRAME POSM SCHEME FILE LIST", 100, "Schemeprograme");
+            tbl.ShowDialog();
+
+        }
+
+        private void paymentApprovalSetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
+            accsup.Show();
 
 
         }

@@ -12,6 +12,7 @@ using System.IO;
 using System.Data.SqlClient;
 
 using System.Configuration;
+using System.Diagnostics;
 
 namespace Maketting.View
 {
@@ -45,7 +46,7 @@ namespace Maketting.View
 
 
             this.ProgrameIDDocno = txtsohieuct.Text;
-           // label7.Text = "Select one or more channel ";
+            // label7.Text = "Select one or more channel ";
 
             this.username = Utils.getusername();
 
@@ -57,7 +58,7 @@ namespace Maketting.View
             Model.MKT.DeleteALLIOTMP(dc);
 
 
-         
+
 
 
             var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
@@ -89,7 +90,7 @@ namespace Maketting.View
 
 
             var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
-                               where pp.Username == username
+                              where pp.Username == username
                               select new
                               {
                                   pp.ITEM_Code,
@@ -308,7 +309,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             // ghi file   [tbl_MKT_Programe]
-          
+
 
             var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
                                where pp.Username == username
@@ -324,7 +325,7 @@ namespace Maketting.View
             }
 
             var programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
-                                               where pp.Username == username
+                               where pp.Username == username
                                select pp;
 
 
@@ -366,8 +367,8 @@ namespace Maketting.View
 
             // ghi file  [tbl_MKT_Programepriceproduct]
             var productlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
-                           where pp.Username == username
-                           select pp;
+                              where pp.Username == username
+                              select pp;
 
 
             foreach (var item in productlist)
@@ -382,7 +383,7 @@ namespace Maketting.View
                 newitem2.ProgrameIDDocno = item.ProgrameIDDocno;
                 newitem2.SAP_CODE = item.SAP_CODE;
                 newitem2.UNIT = item.UNIT;
-             
+
                 dc.tbl_MKT_Programepriceproducts.InsertOnSubmit(newitem2);
                 dc.SubmitChanges();
 
@@ -395,8 +396,8 @@ namespace Maketting.View
             // ghi file   [tbl_MKT_IO_Programe]
 
             var programe = from pp in dc.tbl_MKT_IO_ProgrameTMPs
-                               where pp.Username == username
-                               select pp;
+                           where pp.Username == username
+                           select pp;
 
 
             foreach (var item in programe)
@@ -412,7 +413,7 @@ namespace Maketting.View
                 newitem.ProgrameIDDocno = item.ProgrameIDDocno;
                 newitem.Region = item.Region;
                 newitem.Sales_Org = item.Sales_Org;
-            
+
                 dc.tbl_MKT_IO_Programes.InsertOnSubmit(newitem);
                 dc.SubmitChanges();
 
@@ -420,7 +421,7 @@ namespace Maketting.View
 
             }
 
-            
+
 
             this.Close();
 
@@ -459,7 +460,7 @@ namespace Maketting.View
                 string filename1 = Path.GetFileName(filePath); // getting the file name of uploaded file  
                 string type = Path.GetExtension(filename1); // getting the file extension of uploaded file  
                                                             //     string type = String.Empty;
-             //   string ProgrameIDDocno = txtsohieuct.Text;
+                                                            //   string ProgrameIDDocno = txtsohieuct.Text;
 
                 string connection_string = Utils.getConnectionstr();
                 var db = new LinqtoSQLDataContext(connection_string);
@@ -553,10 +554,10 @@ namespace Maketting.View
                 return;
             }
 
-            View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3,0, this.ProgrameIDDocno, this.dataGridViewIO);
+            View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3, 0, this.ProgrameIDDocno, this.dataGridViewIO);
             spchon.ShowDialog();
 
-            
+
         }
 
         private void btreviewfile_Click(object sender, EventArgs e)
@@ -570,7 +571,114 @@ namespace Maketting.View
                 return;
             }
 
+            //
+            //   string filePath = theDialog.FileName.ToString();
 
+            SaveFileDialog thedialog = new SaveFileDialog();
+            //
+
+
+            //   datagridview datagridview1 = new datagridview();
+            //   datagridview1.datasource = datagrid.datasource;
+
+            thedialog.Title = "export to PDF file";
+            thedialog.Filter = "PDF files|*.pdf";
+            thedialog.InitialDirectory = @"c:\";
+            thedialog.FileName = this.ProgrameIDDocno;
+
+
+            if (thedialog.ShowDialog() == DialogResult.OK)
+            {
+
+                string filePath = thedialog.FileName.ToString();
+
+                //     string id;
+                FileStream FS = null;
+                byte[] dbbyte;
+                try
+                {
+                    //Get a stored PDF bytes
+                    //   dbbyte = (byte[])dr["UploadFiles"];
+
+
+                    //store file Temporarily 
+                    string connection_string = Utils.getConnectionstr();
+                    var db = new LinqtoSQLDataContext(connection_string);
+
+                    //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
+
+                    using (SqlConnection sqlconnection = new SqlConnection(connection_string))
+                    {
+                        sqlconnection.Open();
+
+                        string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
+
+                        // Read File content from Sql Table 
+                        SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
+
+                        selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(this.ProgrameIDDocno, 50);
+
+
+                        SqlDataReader reader = selectCommand.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            byte[] fileData = (byte[])reader[0];
+
+                            // Write/Export File content into new text file
+                            File.WriteAllBytes(filePath, fileData);
+                        }
+                    }
+
+
+                    //Assign File path create file
+
+
+               //     FS = new FileStream(filepath, System.IO.FileMode.Create);
+
+
+
+                    //Write bytes to create file
+                //    FS.Write(dbbyte, 0, dbbyte.Length);
+
+
+
+                    // Open file after write 
+                    //Create instance for process class
+                    Process Proc = new Process();
+                    //assign file path for process
+                    Proc.StartInfo.FileName = filePath;
+                    Proc.Start();
+                }
+                catch (Exception ex)
+                {
+                    throw new System.ArgumentException(ex.Message);
+                }
+                finally
+                {
+                    //Close FileStream instance
+                 //   FS.Close();
+                }
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+            // getting the file path of uploaded file  
+            //   string filename1 = Path.GetFileName(filePath); // getting the file name of uploaded file  
+            //   string type = Path.GetExtension(filename1); // getting the file extension of uploaded file  
+            //     string type = String.Empty;
+            //   string ProgrameIDDocno = txtsohieuct.Text;
 
 
 
@@ -581,4 +689,3 @@ namespace Maketting.View
         }
     }
 }
- 

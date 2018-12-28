@@ -86,7 +86,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Price", typeof(float)));
-            
+
 
 
 
@@ -882,7 +882,23 @@ namespace Maketting.Model
                 }
 
             }
+            else
+            {
 
+                tbl_MKT_Stockend newitem = new tbl_MKT_Stockend();
+                newitem.END_STOCK = itemnhap.RecieptQuantity;
+                newitem.ITEM_Code = itemnhap.Materiacode;
+                newitem.SAP_CODE = itemnhap.Materiacode;
+                newitem.Store_code = storecode;
+                newitem.UNIT = itemnhap.Unit;
+                newitem.END_STOCK = itemnhap.RecieptQuantity;
+                newitem.END_STOCK = itemnhap.RecieptQuantity;
+
+
+                dc.tbl_MKT_Stockends.InsertOnSubmit(newitem);
+
+                dc.SubmitChanges();
+            }
 
 
 
@@ -1287,7 +1303,7 @@ namespace Maketting.Model
 
                          Ghi_chú = p.ghichu,
 
-                      
+
 
                          p.Budget,
 

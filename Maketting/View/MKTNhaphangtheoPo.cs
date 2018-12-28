@@ -539,6 +539,7 @@ namespace Maketting.View
                                 newreciepts.Materialname = item.Materialname;
                                 newreciepts.POnumber = item.POnumber;
                                 newreciepts.ShippingPoint = item.Storelocation;
+                                newreciepts.Unit = item.Unit;
                       //          newreciepts.Serriload
 
                                 //  newreciepts.Status=""
