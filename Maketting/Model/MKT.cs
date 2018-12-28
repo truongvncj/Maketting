@@ -85,7 +85,8 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
-
+            dt.Columns.Add(new DataColumn("Price", typeof(float)));
+            
 
 
 
@@ -95,6 +96,8 @@ namespace Maketting.Model
             dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
             dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
+            dataGridViewDetail.Columns["Price"].ReadOnly = true;
+            dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
             //DGV_DateTimePicker.DateTimePickerColumn col = new DGV_DateTimePicker.DateTimePickerColumn();
             //col.HeaderText = "Ngày chứng từ";
@@ -498,6 +501,7 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         p.Price,
                          p.Tranposterby,
                          p.Truck,
                          p.Loadingby,
@@ -1243,11 +1247,36 @@ namespace Maketting.Model
         {
 
 
+            //var rs = (from p in db.tbl_MKT_IO_Programes
+            //          where p.IO_number == maCT
+            //          //  orderby tbl_dstaikhoan.matk
+            //          select p).FirstOrDefault();
+
+
+            //if (rs != null)
+            //{
+            //    rs.IO_number = this.maCT;//= this.txtma.Text;
+            //    rs.IO_Name = this.tenCT;//= this.txtten.Text;
+            //    rs.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
+            //    rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
+            //    rs.Region = this.region;
+            //    rs.Sales_Org = this.salesorg;
+            //    rs.ChannelGroup = this.channelgroup;
+            //    rs.ProgrameIDDocno = this.ProgrameIDDocno;
+
+            //    db.SubmitChanges();
+            //    this.Close();
+            //}
+
+
+
+
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes
                      orderby p.IO_number
                      select new
                      {
+                         Số_hiệu_CT = p.ProgrameIDDocno,
                          IO = p.IO_number,
                          Tên_chương_trình = p.IO_Name,
                          p.Sales_Org,
@@ -1258,7 +1287,7 @@ namespace Maketting.Model
 
                          Ghi_chú = p.ghichu,
 
-                         Số_hiệu_CT = p.ProgrameIDDocno,
+                      
 
                          p.Budget,
 

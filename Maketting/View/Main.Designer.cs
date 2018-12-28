@@ -95,6 +95,7 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentApprovalSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -490,6 +491,7 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iOBudgetSetupToolStripMenuItem,
             this.setIOButgetToolStripMenuItem,
+            this.paymentApprovalSetToolStripMenuItem,
             this.toolStripSeparator9,
             this.customerChannelManageToolStripMenuItem});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
@@ -501,26 +503,26 @@
             this.iOBudgetSetupToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.iOBudgetSetupToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
             this.iOBudgetSetupToolStripMenuItem.Name = "iOBudgetSetupToolStripMenuItem";
-            this.iOBudgetSetupToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.iOBudgetSetupToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.iOBudgetSetupToolStripMenuItem.Text = "IO list manage";
             this.iOBudgetSetupToolStripMenuItem.Click += new System.EventHandler(this.iOBudgetSetupToolStripMenuItem_Click);
             // 
             // setIOButgetToolStripMenuItem
             // 
             this.setIOButgetToolStripMenuItem.Name = "setIOButgetToolStripMenuItem";
-            this.setIOButgetToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.setIOButgetToolStripMenuItem.Text = "Set IO budget";
+            this.setIOButgetToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.setIOButgetToolStripMenuItem.Text = "Set POSM programe";
             this.setIOButgetToolStripMenuItem.Click += new System.EventHandler(this.setIOButgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(217, 6);
             // 
             // customerChannelManageToolStripMenuItem
             // 
             this.customerChannelManageToolStripMenuItem.Name = "customerChannelManageToolStripMenuItem";
-            this.customerChannelManageToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.customerChannelManageToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
             this.customerChannelManageToolStripMenuItem.Text = "Channel manage";
             this.customerChannelManageToolStripMenuItem.Click += new System.EventHandler(this.customerChannelManageToolStripMenuItem_Click);
             // 
@@ -585,6 +587,12 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            // 
+            // paymentApprovalSetToolStripMenuItem
+            // 
+            this.paymentApprovalSetToolStripMenuItem.Name = "paymentApprovalSetToolStripMenuItem";
+            this.paymentApprovalSetToolStripMenuItem.Size = new System.Drawing.Size(220, 24);
+            this.paymentApprovalSetToolStripMenuItem.Text = "Payment approval set";
             // 
             // Main
             // 
@@ -673,6 +681,7 @@
         private ToolStripMenuItem regionListToolStripMenuItem;
         private ToolStripMenuItem channelListToolStripMenuItem;
         private ToolStripMenuItem setIOButgetToolStripMenuItem;
+        private ToolStripMenuItem paymentApprovalSetToolStripMenuItem;
     }
 }
 

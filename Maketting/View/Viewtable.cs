@@ -526,14 +526,25 @@ namespace Maketting.View
             {
 
 
-                string makh = valuesave;
+              string mahieuct = "";
+
+          //      int idtk = 0;
+                try
+                {
+                    mahieuct = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Số_hiệu_CT"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một chương trình !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
 
 
 
 
-
-                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(3, -1,"0");  // 3 là thêm ới
+                View.MKTVTDanhsacchuongtrinhMKT p = new MKTVTDanhsacchuongtrinhMKT(3, -1, mahieuct);  // 3 là thêm ới
 
                 p.ShowDialog();
 

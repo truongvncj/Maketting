@@ -165,6 +165,7 @@
       <Column Name="Truck" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Completed_by" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -291,6 +292,8 @@
       <Column Name="Todate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ghichu" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="TotalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="UsedBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BalanceBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Programepdfdata" Member="tbl_MKT_Programepdfdatas">

@@ -25,7 +25,7 @@ namespace Maketting.View
         public string ProgrameIDDocno { get; set; }
 
         public string ghichu { get; set; }
-               public double budget { get; set; }
+        public double budget { get; set; }
 
         public bool chon { get; set; }
 
@@ -55,7 +55,7 @@ namespace Maketting.View
 
             this.budget = 0;
 
-        //    txtsohieuct.Enabled = false;
+            txtsohieuct.Enabled = false;
 
             // list region
             List<ComboboxItem> listRegion = new List<ComboboxItem>();
@@ -113,7 +113,7 @@ namespace Maketting.View
                 txtma.Enabled = false;
 
 
-               
+
 
 
                 var item = (from p in dc.tbl_MKT_IO_Programes
@@ -228,14 +228,14 @@ namespace Maketting.View
 
 
 
-            var rs1 = (from p in dc.tbl_MKT_Soldtocodes
+            var rs1 = (from p in dc.tbl_MKT_IO_Programes
                        where p.id == this.id
                        select p).FirstOrDefault();
 
             if (rs1 != null)
             {
 
-                dc.tbl_MKT_Soldtocodes.DeleteOnSubmit(rs1);
+                dc.tbl_MKT_IO_Programes.DeleteOnSubmit(rs1);
                 dc.SubmitChanges();
                 this.Close();
 
@@ -256,7 +256,7 @@ namespace Maketting.View
             }
             else
             {
-                MessageBox.Show("Budget must be a number" , "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Budget must be a number", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbudget.Focus();
 
                 return;
@@ -366,7 +366,7 @@ namespace Maketting.View
 
             this.maCT = this.txtma.Text;
             this.tenCT = this.txtten.Text;
-       
+
             this.ghichu = txtghichu.Text;
 
             this.salesorg = (cbsales_org.SelectedItem as ComboboxItem).Value.ToString();
@@ -414,7 +414,7 @@ namespace Maketting.View
 
             p.IO_number = this.maCT;//= this.txtma.Text;
             p.IO_Name = this.tenCT;//= this.txtten.Text;
-       
+
             p.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
 
             p.ProgrameIDDocno = this.ProgrameIDDocno;
@@ -451,14 +451,14 @@ namespace Maketting.View
 
         private void txtDienthoai_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
         }
 
 
 
         private void txtNguoidaidien_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
 
@@ -494,7 +494,7 @@ namespace Maketting.View
 
         private void txtdiachi_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void txtghichu_KeyPress(object sender, KeyPressEventArgs e)
@@ -511,7 +511,7 @@ namespace Maketting.View
 
         private void txtmasothue_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void txttaikhoannganhangso_KeyPress(object sender, KeyPressEventArgs e)
@@ -574,7 +574,7 @@ namespace Maketting.View
 
 
 
-          //  this.budget =double.Parse( txtbudget.Text);
+            //  this.budget =double.Parse( txtbudget.Text);
             if (Utils.IsValidnumber(txtbudget.Text))
             {
                 this.budget = double.Parse(txtbudget.Text.ToString());

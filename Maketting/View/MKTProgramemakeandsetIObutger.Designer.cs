@@ -37,9 +37,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btiosetup = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btprodutadd = new System.Windows.Forms.Button();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.txttotalbudget = new System.Windows.Forms.TextBox();
@@ -54,6 +54,7 @@
             this.txtfromdate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewIO = new System.Windows.Forms.DataGridView();
+            this.btreviewfile = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIO)).BeginInit();
@@ -64,6 +65,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btreviewfile);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbfileupload);
@@ -71,9 +73,9 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btiosetup);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btprodutadd);
             this.panel1.Controls.Add(this.dataGridViewProduct);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txttotalbudget);
@@ -130,10 +132,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(356, 4);
+            this.label16.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(328, 4);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(233, 24);
+            this.label16.Size = new System.Drawing.Size(261, 25);
             this.label16.TabIndex = 65;
             this.label16.Text = "POSM SCHEME CREATE";
             // 
@@ -169,17 +172,17 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "Tạo mã IO và Budget cho mỗi vùng ---->>";
             // 
-            // button4
+            // btiosetup
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Location = new System.Drawing.Point(816, 244);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 25);
-            this.button4.TabIndex = 39;
-            this.button4.TabStop = false;
-            this.button4.Text = "Create IO";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btiosetup.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btiosetup.Location = new System.Drawing.Point(816, 244);
+            this.btiosetup.Name = "btiosetup";
+            this.btiosetup.Size = new System.Drawing.Size(97, 25);
+            this.btiosetup.TabIndex = 39;
+            this.btiosetup.TabStop = false;
+            this.btiosetup.Text = "Create IO";
+            this.btiosetup.UseVisualStyleBackColor = true;
+            this.btiosetup.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -191,17 +194,17 @@
             this.label7.TabIndex = 36;
             this.label7.Text = "Chọn chi tiết đồ POSM dùng để khuyến mại ---->>";
             // 
-            // button2
+            // btprodutadd
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Location = new System.Drawing.Point(370, 249);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 25);
-            this.button2.TabIndex = 35;
-            this.button2.TabStop = false;
-            this.button2.Text = "Select POSM";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btprodutadd.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btprodutadd.Location = new System.Drawing.Point(370, 249);
+            this.btprodutadd.Name = "btprodutadd";
+            this.btprodutadd.Size = new System.Drawing.Size(88, 25);
+            this.btprodutadd.TabIndex = 35;
+            this.btprodutadd.TabStop = false;
+            this.btprodutadd.Text = "Select POSM";
+            this.btprodutadd.UseVisualStyleBackColor = true;
+            this.btprodutadd.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // dataGridViewProduct
             // 
@@ -363,6 +366,18 @@
             this.dataGridViewIO.Enter += new System.EventHandler(this.dataGridView1_Enter);
             this.dataGridViewIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
+            // btreviewfile
+            // 
+            this.btreviewfile.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btreviewfile.Location = new System.Drawing.Point(816, 212);
+            this.btreviewfile.Name = "btreviewfile";
+            this.btreviewfile.Size = new System.Drawing.Size(99, 25);
+            this.btreviewfile.TabIndex = 69;
+            this.btreviewfile.TabStop = false;
+            this.btreviewfile.Text = "View file";
+            this.btreviewfile.UseVisualStyleBackColor = true;
+            this.btreviewfile.Click += new System.EventHandler(this.btreviewfile_Click);
+            // 
             // MKTProgramemakeandsetIObutger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,9 +405,9 @@
         private System.Windows.Forms.DataGridView dataGridViewIO;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btiosetup;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btprodutadd;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txttotalbudget;
@@ -411,5 +426,6 @@
         private System.Windows.Forms.Label lbfileupload;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btreviewfile;
     }
 }

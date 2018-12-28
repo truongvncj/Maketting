@@ -19,6 +19,12 @@ namespace Maketting.View
         public string sophieu { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
+        public string ProgrameIDDocno { get; set; }
+        public string IO_number { get; set; }
+        
+
+        public double Totalcost { get; set; }
+
 
         public class ComboboxItem
         {
@@ -33,7 +39,7 @@ namespace Maketting.View
 
         public void cleartoblankDEtailphieu()
         {
-
+            this.Totalcost = 0;
             #region  list black phiếu
 
 
@@ -78,8 +84,9 @@ namespace Maketting.View
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
+            drToAdd["Price"] = PhieuMKT.Price;
 
-
+            
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
@@ -149,6 +156,10 @@ namespace Maketting.View
         {
 
             #region  list black phiếu
+
+            this.IO_number = "";
+            this.ProgrameIDDocno = "";
+                
             datepickngayphieu.Enabled = true;
             txtNote.Text = "";
 
@@ -410,7 +421,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                txtnguoinhan.Focus();
+                txtmucdichname.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -622,6 +633,78 @@ namespace Maketting.View
 
             #endregion
 
+            #region     // check customer code có trong chanenel
+            //string connection_string = Utils.getConnectionstr();
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                                   where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                                   && pp.IO_number == this.IO_number
+                                   select pp.ChannelGroup).FirstOrDefault();
+
+
+            string[] chanelparts = channelgroup.Split(';');
+
+            //foreach (var item in chanelparts)
+            //{
+            //    MessageBox.Show("---"+item);
+            //}
+            string channelcode = (from pp in dc.tbl_MKT_Soldtocodes
+                                 where pp.Customer == txtcustcode.Text
+                                 select pp.Chanel).FirstOrDefault();
+       
+            //     MessageBox.Show("--channelcode-" + channelcode);
+            if (!chanelparts.Contains(channelcode))
+            {
+
+                MessageBox.Show("Please check customer code , that is not in chanel of this progarme !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                checkhead = false;
+
+                txtnguoinhan.Focus();
+
+                return;
+
+
+            }
+
+
+
+
+
+            #endregion
+
+
+            #region // check buget of programe
+
+            for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+            {
+                if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
+                {
+                 this.Totalcost = Totalcost + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
+                   
+
+                }
+            }
+            var programebudget = (from pp in dc.tbl_MKT_Programes
+                              where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                              select pp.BalanceBudget).FirstOrDefault();
+
+
+
+
+            if (programebudget < this.Totalcost)
+            {
+                MessageBox.Show("The Issue is over the budget of this progarame, balance now is:  "+ programebudget.ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                checkdetail = false;
+                return;
+            }
+
+
+            #endregion      //check buget of programe
+
+
             if (checkdetail && checkhead)
             {
 
@@ -723,6 +806,13 @@ namespace Maketting.View
                         {
                             detailphieu.Unit = (string)dataGridViewDetail.Rows[idrow].Cells["Unit"].Value;
                         }
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
+                        {
+                            detailphieu.Price = (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
+                        }
+
+
                         dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
 
@@ -732,6 +822,35 @@ namespace Maketting.View
                 }
 
                 #endregion
+
+
+                #region          // trừ tồn bughet của chương trình
+
+                //for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+                //{
+                //    if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
+                //    {
+                     //   this.Totalcost = Totalcost + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
+
+
+                //    }
+                //}
+                var programebudget2 = (from pp in dc.tbl_MKT_Programes
+                                      where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                                      select pp).FirstOrDefault();
+                if (programebudget2 != null)
+                {
+                    programebudget2.BalanceBudget = programebudget2.BalanceBudget - this.Totalcost;
+                    programebudget2.UsedBudget = programebudget2.UsedBudget + -this.Totalcost;
+
+                    dc.SubmitChanges();
+
+                }
+
+
+
+
+                #endregion                //
 
                 MessageBox.Show("Phiếu " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //    cleartoblankphieu();
@@ -1458,7 +1577,17 @@ namespace Maketting.View
             //    string colname = view.Columns[view.CurrentCell.ColumnIndex].Name;
             //     string SelectedItem = view.Rows[i].Cells["Tk_Nợ"].Value.ToString();
 
+            // kiểm tra đã tạo io chưa
+            if (txtmact.Text == "")
+            {
 
+                MessageBox.Show("Please IO trước khi chọn sản phẩm ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtmact.Focus();
+                return;
+            }
+
+            //
 
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -1493,13 +1622,30 @@ namespace Maketting.View
 
                 string columhead = dataGridViewDetail.Columns[e.ColumnIndex].HeaderText.ToString();
 
+                var listproduct = from pp in dc.tbl_MKT_Programepriceproducts
+                                  where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                                  select pp.ITEM_Code;
+
+
+
 
                 IQueryable rs = null;
+
+
+                //var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                //          where (from gg in dc.tbl_MKT_StoreRights
+                //                 where gg.storeright == rightkho
+                //                 select gg.makho).Contains(pp.makho)
+                //          select pp;
+
 
                 if (columhead == "Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
+                        && listproduct.Contains(pp.ITEM_Code)
+
+
                          select new
                          {
                              pp.ITEM_Code,
@@ -1519,6 +1665,8 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && listproduct.Contains(pp.ITEM_Code)
+
                          select new
                          {
                              pp.ITEM_Code,
@@ -1537,6 +1685,8 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && listproduct.Contains(pp.ITEM_Code)
+
                          select new
                          {
                              pp.ITEM_Code,
@@ -1556,6 +1706,8 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && listproduct.Contains(pp.ITEM_Code)
+
                          select new
                          {
                              pp.ITEM_Code,
@@ -1618,6 +1770,13 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
+                                                                                   where p.ITEM_Code == valuechon.ITEM_Code
+                                                                                   && p.ProgrameIDDocno == this.ProgrameIDDocno
+                                                                                   select p.Price).FirstOrDefault();
+
+
+
 
                     }
                     else
@@ -1628,6 +1787,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = DBNull.Value;
 
                     }
 
@@ -2006,6 +2166,7 @@ namespace Maketting.View
                              //  pp.MateriaSAPcode,
                              pp.Description,
                              pp.Issued,
+                             pp.Price,
 
                              Store = pp.ShippingPoint,
                              Created_by = pp.Username,
@@ -2081,13 +2242,15 @@ namespace Maketting.View
 
                     txtmact.Text = rs2.IO_number;
                     txtmucdichname.Text = rs2.IO_Name;
+                    this.ProgrameIDDocno = rs2.ProgrameIDDocno;
+                    this.IO_number = rs2.IO_number;
 
-                }
+              }
 
 
 
 
-                txtNote.Focus();
+               txtnguoinhan.Focus();
 
 
                 //    dataGridViewDetail.Focus();
@@ -2165,14 +2328,39 @@ namespace Maketting.View
             {
                 e.Handled = true;
                 //  cbsophieu.
+                if (txtmact.Text == "")
+                {
 
+                    MessageBox.Show("Please IO trước khi chọn khách hàng ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtmucdichname.Focus();
+                    return;
+                }
+
+
+                // chanel of IO
                 string seachtext = txtnguoinhan.Text;
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+                string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                                      where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                                      && pp.IO_number == this.IO_number
+                                      select pp.ChannelGroup).FirstOrDefault();
+
+
+                string[]  chanelparts = channelgroup.Split(';');
+                
+                //st1 = parts[0].Trim();
+                //st2 = parts[1].Trim();
+                //st3 = parts[2].Trim();
+                //st4 = parts[3].Trim();
+                
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
                          where pp.FullNameN.Contains(seachtext)
                          && pp.Soldtype == true
+                         && chanelparts.Contains(pp.Chanel)
+
                          select new
                          {
                              pp.KeyAcc,
@@ -2208,7 +2396,7 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                   lbtel.Text = rs2.Telephone1;
+                    lbtel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
@@ -2298,7 +2486,7 @@ namespace Maketting.View
 
 
 
-                txtmucdichname.Focus();
+                txtNote.Focus();
             }
         }
 

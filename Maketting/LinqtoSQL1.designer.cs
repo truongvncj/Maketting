@@ -3159,6 +3159,8 @@ namespace Maketting
 		
 		private string _Completed_by;
 		
+		private System.Nullable<double> _Price;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3225,6 +3227,8 @@ namespace Maketting
     partial void OnRegionChanged();
     partial void OnCompleted_byChanging(string value);
     partial void OnCompleted_byChanged();
+    partial void OnPriceChanging(System.Nullable<double> value);
+    partial void OnPriceChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -3848,6 +3852,26 @@ namespace Maketting
 					this._Completed_by = value;
 					this.SendPropertyChanged("Completed_by");
 					this.OnCompleted_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Float")]
+		public System.Nullable<double> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
 				}
 			}
 		}
@@ -6247,6 +6271,10 @@ namespace Maketting
 		
 		private System.Nullable<double> _TotalBudget;
 		
+		private System.Nullable<double> _UsedBudget;
+		
+		private System.Nullable<double> _BalanceBudget;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -6265,6 +6293,10 @@ namespace Maketting
     partial void OnghichuChanged();
     partial void OnTotalBudgetChanging(System.Nullable<double> value);
     partial void OnTotalBudgetChanged();
+    partial void OnUsedBudgetChanging(System.Nullable<double> value);
+    partial void OnUsedBudgetChanged();
+    partial void OnBalanceBudgetChanging(System.Nullable<double> value);
+    partial void OnBalanceBudgetChanged();
     #endregion
 		
 		public tbl_MKT_Programe()
@@ -6408,6 +6440,46 @@ namespace Maketting
 					this._TotalBudget = value;
 					this.SendPropertyChanged("TotalBudget");
 					this.OnTotalBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsedBudget", DbType="Float")]
+		public System.Nullable<double> UsedBudget
+		{
+			get
+			{
+				return this._UsedBudget;
+			}
+			set
+			{
+				if ((this._UsedBudget != value))
+				{
+					this.OnUsedBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._UsedBudget = value;
+					this.SendPropertyChanged("UsedBudget");
+					this.OnUsedBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BalanceBudget", DbType="Float")]
+		public System.Nullable<double> BalanceBudget
+		{
+			get
+			{
+				return this._BalanceBudget;
+			}
+			set
+			{
+				if ((this._BalanceBudget != value))
+				{
+					this.OnBalanceBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._BalanceBudget = value;
+					this.SendPropertyChanged("BalanceBudget");
+					this.OnBalanceBudgetChanged();
 				}
 			}
 		}

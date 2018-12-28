@@ -308,21 +308,49 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             // ghi file   [tbl_MKT_Programe]
+          
+
+            var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
+                               where pp.Username == username
+                               select pp;
+
+
+            if (Programelist.Count() <= 0)
+            {
+                MessageBox.Show("Please setup IO of this progarme !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                btiosetup.Focus();
+                return;
+            }
+
+            var programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
+                                               where pp.Username == username
+                               select pp;
+
+
+            if (programelist.Count() <= 0)
+            {
+                MessageBox.Show("Please setup product of this progarme !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                btprodutadd.Focus();
+                return;
+            }
+
             tbl_MKT_Programe newprograme = new tbl_MKT_Programe();
             if (Utils.IsValidnumber(txttotalbudget.Text))
             {
                 newprograme.TotalBudget = double.Parse(txttotalbudget.Text);
-
+                newprograme.BalanceBudget = double.Parse(txttotalbudget.Text);
             }
             else
             {
                 MessageBox.Show("Budget must be a munber ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                newprograme = null;
                 txttotalbudget.Focus();
                 return;
             }
 
-          
+
             newprograme.Fromdate = txtfromdate.Value;
             newprograme.Todate = txttodate.Value;
             newprograme.tenCT = txttenct.Text;
@@ -337,42 +365,69 @@ namespace Maketting.View
 
 
             // ghi file  [tbl_MKT_Programepriceproduct]
+            var productlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
+                           where pp.Username == username
+                           select pp;
+
+
+            foreach (var item in productlist)
+            {
+
+                tbl_MKT_Programepriceproduct newitem2 = new tbl_MKT_Programepriceproduct();
+
+                newitem2.Description = item.Description;
+                newitem2.ITEM_Code = item.ITEM_Code;
+                newitem2.MATERIAL = item.MATERIAL;
+                newitem2.Price = item.Price;
+                newitem2.ProgrameIDDocno = item.ProgrameIDDocno;
+                newitem2.SAP_CODE = item.SAP_CODE;
+                newitem2.UNIT = item.UNIT;
+             
+                dc.tbl_MKT_Programepriceproducts.InsertOnSubmit(newitem2);
+                dc.SubmitChanges();
 
 
 
+            }
 
 
 
             // ghi file   [tbl_MKT_IO_Programe]
 
+            var programe = from pp in dc.tbl_MKT_IO_ProgrameTMPs
+                               where pp.Username == username
+                               select pp;
+
+
+            foreach (var item in programe)
+            {
+
+                tbl_MKT_IO_Programe newitem = new tbl_MKT_IO_Programe();
+
+                newitem.Budget = item.Budget;
+                newitem.ChannelGroup = item.ChannelGroup;
+                newitem.ghichu = item.ghichu;
+                newitem.IO_Name = item.IO_Name;
+                newitem.IO_number = item.IO_number;
+                newitem.ProgrameIDDocno = item.ProgrameIDDocno;
+                newitem.Region = item.Region;
+                newitem.Sales_Org = item.Sales_Org;
+            
+                dc.tbl_MKT_IO_Programes.InsertOnSubmit(newitem);
+                dc.SubmitChanges();
 
 
 
+            }
 
-
-            //var channelisttmp = from pp in dc.tbl_MKT_CustomerChaneltmps
-            //                    where pp.username == username
-            //                    select pp;
-            //foreach (var item in channelisttmp)
-            //{
-
-            //    if (item.Select_channel == true)
-            //    {
-            //        if (kqstring != "")
-            //        {
-            //            this.kqstring = item.Chanel_code + ";" + this.kqstring;
-            //        }
-            //        else
-            //        {
-            //            this.kqstring = item.Chanel_code;
-            //        }
-
-
-            //    }
-
-            //}
+            
 
             this.Close();
+
+
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -502,6 +557,27 @@ namespace Maketting.View
             spchon.ShowDialog();
 
             
+        }
+
+        private void btreviewfile_Click(object sender, EventArgs e)
+        {
+            if (this.ProgrameIDDocno == "")
+            {
+
+                MessageBox.Show("Please nhập số hiệu chương trình và upload trước khi view ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtsohieuct.Focus();
+                return;
+            }
+
+
+
+
+
+
+
+
+
         }
     }
 }
