@@ -42,16 +42,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txttotalbudget = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txttodate = new System.Windows.Forms.DateTimePicker();
             this.txtsohieuct = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtnguoiyeucau = new System.Windows.Forms.TextBox();
+            this.txttenct = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.datepickngayphieu = new System.Windows.Forms.DateTimePicker();
+            this.txtfromdate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewIO = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -76,16 +76,16 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.dataGridViewProduct);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txttotalbudget);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.txttodate);
             this.panel1.Controls.Add(this.txtsohieuct);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtnguoiyeucau);
+            this.panel1.Controls.Add(this.txttenct);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.datepickngayphieu);
+            this.panel1.Controls.Add(this.txtfromdate);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.dataGridViewIO);
             this.panel1.Location = new System.Drawing.Point(3, 5);
@@ -229,14 +229,14 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "VNĐ";
             // 
-            // textBox2
+            // txttotalbudget
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(242, 173);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 24);
-            this.textBox2.TabIndex = 32;
-            this.textBox2.Text = "160000000";
+            this.txttotalbudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotalbudget.Location = new System.Drawing.Point(242, 173);
+            this.txttotalbudget.Name = "txttotalbudget";
+            this.txttotalbudget.Size = new System.Drawing.Size(171, 24);
+            this.txttotalbudget.TabIndex = 32;
+            this.txttotalbudget.Text = "160000000";
             // 
             // label4
             // 
@@ -258,17 +258,17 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Đến ngày";
             // 
-            // dateTimePicker1
+            // txttodate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "dd.MM.yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(242, 143);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(119, 24);
-            this.dateTimePicker1.TabIndex = 28;
-            this.dateTimePicker1.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            this.txttodate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttodate.CustomFormat = "dd.MM.yyyy";
+            this.txttodate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttodate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txttodate.Location = new System.Drawing.Point(242, 143);
+            this.txttodate.Name = "txttodate";
+            this.txttodate.Size = new System.Drawing.Size(119, 24);
+            this.txttodate.TabIndex = 28;
+            this.txttodate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             // 
             // txtsohieuct
             // 
@@ -290,14 +290,14 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Số hiệu chương trình";
             // 
-            // txtnguoiyeucau
+            // txttenct
             // 
-            this.txtnguoiyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoiyeucau.Location = new System.Drawing.Point(242, 80);
-            this.txtnguoiyeucau.Name = "txtnguoiyeucau";
-            this.txtnguoiyeucau.Size = new System.Drawing.Size(347, 24);
-            this.txtnguoiyeucau.TabIndex = 25;
-            this.txtnguoiyeucau.Text = "Chương trình khuyến mại đón năm học mới 2018";
+            this.txttenct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttenct.Location = new System.Drawing.Point(242, 80);
+            this.txttenct.Name = "txttenct";
+            this.txttenct.Size = new System.Drawing.Size(347, 24);
+            this.txttenct.TabIndex = 25;
+            this.txttenct.Text = "Chương trình khuyến mại đón năm học mới 2018";
             // 
             // label5
             // 
@@ -319,17 +319,17 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Áp dụng từ ngày";
             // 
-            // datepickngayphieu
+            // txtfromdate
             // 
-            this.datepickngayphieu.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datepickngayphieu.CustomFormat = "dd.MM.yyyy";
-            this.datepickngayphieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datepickngayphieu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datepickngayphieu.Location = new System.Drawing.Point(242, 110);
-            this.datepickngayphieu.Name = "datepickngayphieu";
-            this.datepickngayphieu.Size = new System.Drawing.Size(119, 24);
-            this.datepickngayphieu.TabIndex = 22;
-            this.datepickngayphieu.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            this.txtfromdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.CustomFormat = "dd.MM.yyyy";
+            this.txtfromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtfromdate.Location = new System.Drawing.Point(242, 110);
+            this.txtfromdate.Name = "txtfromdate";
+            this.txtfromdate.Size = new System.Drawing.Size(119, 24);
+            this.txtfromdate.TabIndex = 22;
+            this.txtfromdate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             // 
             // button1
             // 
@@ -395,16 +395,16 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txttotalbudget;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txttodate;
         private System.Windows.Forms.TextBox txtsohieuct;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtnguoiyeucau;
+        private System.Windows.Forms.TextBox txttenct;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker datepickngayphieu;
+        private System.Windows.Forms.DateTimePicker txtfromdate;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label16;

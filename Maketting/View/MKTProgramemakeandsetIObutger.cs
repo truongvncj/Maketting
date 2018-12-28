@@ -37,6 +37,13 @@ namespace Maketting.View
             lbfileupload.Text = "";
             txtsohieuct.Text = "";
 
+            txttenct.Text = "";
+            txtfromdate.Value = DateTime.Today;
+            txttodate.Value = DateTime.Today;
+            txttotalbudget.Text = "";
+
+
+
             this.ProgrameIDDocno = txtsohieuct.Text;
            // label7.Text = "Select one or more channel ";
 
@@ -296,12 +303,52 @@ namespace Maketting.View
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //    string username = Utils.getusername();
+            string username = Utils.getusername();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            // ghi file   [tbl_MKT_Programe]
+            tbl_MKT_Programe newprograme = new tbl_MKT_Programe();
+            if (Utils.IsValidnumber(txttotalbudget.Text))
+            {
+                newprograme.TotalBudget = double.Parse(txttotalbudget.Text);
+
+            }
+            else
+            {
+                MessageBox.Show("Budget must be a munber ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txttotalbudget.Focus();
+                return;
+            }
+
+          
+            newprograme.Fromdate = txtfromdate.Value;
+            newprograme.Todate = txttodate.Value;
+            newprograme.tenCT = txttenct.Text;
+
+            newprograme.ProgrameIDDocno = txtsohieuct.Text;
+
+
+            dc.tbl_MKT_Programes.InsertOnSubmit(newprograme);
+            dc.SubmitChanges();
 
 
 
-            //string connection_string = Utils.getConnectionstr();
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            // ghi file  [tbl_MKT_Programepriceproduct]
+
+
+
+
+
+
+            // ghi file   [tbl_MKT_IO_Programe]
+
+
+
+
+
 
             //var channelisttmp = from pp in dc.tbl_MKT_CustomerChaneltmps
             //                    where pp.username == username
