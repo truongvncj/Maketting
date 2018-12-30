@@ -633,12 +633,12 @@ namespace Maketting.View
                     //Assign File path create file
 
 
-               //     FS = new FileStream(filepath, System.IO.FileMode.Create);
+                    //     FS = new FileStream(filepath, System.IO.FileMode.Create);
 
 
 
                     //Write bytes to create file
-                //    FS.Write(dbbyte, 0, dbbyte.Length);
+                    //    FS.Write(dbbyte, 0, dbbyte.Length);
 
 
 
@@ -656,7 +656,7 @@ namespace Maketting.View
                 finally
                 {
                     //Close FileStream instance
-                 //   FS.Close();
+                    //   FS.Close();
                 }
 
 
@@ -686,6 +686,42 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void txtsohieuct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txttenct.Focus();
+
+            }
+        }
+
+        private void txttenct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtfromdate.Focus();
+
+            }
+        }
+
+        private void txtfromdate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txttodate.Focus();
+
+            }
+        }
+
+        private void txttodate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txttotalbudget.Focus();
+
+            }
         }
     }
 }

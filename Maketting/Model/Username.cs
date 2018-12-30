@@ -128,7 +128,424 @@ namespace Maketting.Model
 
             //throw new NotImplementedException();
         }
+        public static bool getSalesRegionManageright()
+        {
 
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.SalesRegionManageright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+        public static bool getCustomerEditright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.CustomerEdit).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getCustomerUploadright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.CustomerUploadright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getSalesLocationright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.SalesLocationright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getChannelsalesManageright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.ChannelsalesManageright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+        public static bool getIOmanageright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.IOmanageright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getSetPOSMprogrameright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.SetPOSMprogrameright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
+        public static bool getViewProgramePDFright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.ViewProgramePDFright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+        public static bool getAprovalPaymentRequestright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.AprovalPaymentRequestright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getRequestpaymentApprovalright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.RequestpaymentApproval).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
+        public static bool getuploadBeginStoreright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.uploadBeginStoreright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
+        public static bool getupdateGatePassDeliveredright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.updateGatePassDeliveredright).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getloadTransferOUtright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.TransferOut).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+        public static bool getloadTransferINright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.TransferIN).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
+
+        public static bool getloadStoreIssueright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.StoreIssue).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
+
+        public static bool getloadcreatedright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.Loadcreated).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
 
 
         public static bool getsystemright()
@@ -156,6 +573,33 @@ namespace Maketting.Model
 
 
         }
+
+        public static bool getControlUsernameright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.ControlUsername).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
 
         public static bool getMakettingright()
         {

@@ -412,39 +412,6 @@ namespace Maketting.View
         private void updateNewAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            //     bool kq;
-            programlist md = new programlist();
-
-            DialogResult kq1 = MessageBox.Show("Xóa VAT out thay thế bằng bảng mới ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            switch (kq1)
-            {
-                case DialogResult.None:
-                    break;
-                case DialogResult.OK:
-
-
-                    break;
-                case DialogResult.Cancel:
-                    break;
-                case DialogResult.Abort:
-                    break;
-                case DialogResult.Retry:
-                    break;
-                case DialogResult.Ignore:
-                    break;
-                case DialogResult.Yes:
-
-
-                    md.input();
-
-
-                    break;
-                case DialogResult.No:
-                    break;
-                default:
-                    break;
-            }
 
 
 
@@ -462,8 +429,6 @@ namespace Maketting.View
 
         private void addUpdateAndReplaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            programlist md = new programlist();
-            md.input();
 
 
 
@@ -3328,7 +3293,7 @@ namespace Maketting.View
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            if (!Username.getsystemright())
+            if (!Username.getControlUsernameright())
             {
                 View.MKTNoouthourise view = new MKTNoouthourise();
                 view.ShowDialog();
@@ -3374,6 +3339,13 @@ namespace Maketting.View
         {
 
 
+            if (!Username.getloadcreatedright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
 
             #region//tao load
             //if (name == "tmphieuthu")
@@ -3398,6 +3370,15 @@ namespace Maketting.View
         private void nhậpKhoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //phiếu xuất kho
+
+
+            if (!Username.getloadStoreIssueright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
             MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
             pxk.ShowDialog();
 
@@ -4045,6 +4026,12 @@ namespace Maketting.View
         private void transferOUtToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            if (!Username.getloadTransferOUtright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
 
 
@@ -4065,8 +4052,14 @@ namespace Maketting.View
         private void transferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            if (!Username.getloadTransferINright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             //phiếu xuất kho
-            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT TRANSFER OUT NUMBER ");
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT TRANSFER IN NUMBER ");
             pxk.ShowDialog();
 
             string Transfernumber = pxk.valuetext;
@@ -4128,7 +4121,12 @@ namespace Maketting.View
 
         private void uploadBeginStoreToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            if (!Username.getuploadBeginStoreright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
 
             List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
@@ -4185,6 +4183,13 @@ namespace Maketting.View
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!Username.getCustomerUploadright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
 
 
@@ -4196,6 +4201,16 @@ namespace Maketting.View
 
         private void uploadShiptoCodeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
+            if (!Username.getCustomerUploadright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
             Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
 
 
@@ -4355,6 +4370,15 @@ namespace Maketting.View
 
         private void customerChannelManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!Username.getChannelsalesManageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4373,7 +4397,13 @@ namespace Maketting.View
 
         private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //    NPDanhsachnhavantai
+            if (!Username.getCustomerEditright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4387,6 +4417,16 @@ namespace Maketting.View
 
         private void iOBudgetSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!Username.getIOmanageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
+
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4406,6 +4446,14 @@ namespace Maketting.View
 
         private void channelListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
+            if (!Username.getChannelsalesManageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4423,6 +4471,12 @@ namespace Maketting.View
 
         private void regionListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Username.getSalesRegionManageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
             string connection_string = Utils.getConnectionstr();
 
@@ -4444,6 +4498,14 @@ namespace Maketting.View
 
         private void salesOrgListToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!Username.getSalesLocationright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4463,6 +4525,12 @@ namespace Maketting.View
 
         private void setIOButgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Username.getSetPOSMprogrameright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
             View.MKTProgramemakeandsetIObutger accsup = new MKTProgramemakeandsetIObutger();
             accsup.Show();
@@ -4473,6 +4541,13 @@ namespace Maketting.View
 
         private void viewProgrameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Username.getViewProgramePDFright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
             string connection_string = Utils.getConnectionstr();
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -4498,11 +4573,158 @@ namespace Maketting.View
 
         private void paymentApprovalSetToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Username.getAprovalPaymentRequestright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
+            //View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
+            //accsup.Show();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
+                      where pp.payID != null && pp.Approval == "Not Approved"
+                      select new
+                      {
+                          pp.payID,
+                          pp.IO_number,
+                          pp.ProgrameIDDocno,
+                          pp.ProgrameName,
+                          Budge_Requested = pp.TotalAprovalBudget,
+                          pp.Account,
+                          pp.costcenter,
+                          pp.Requestby,
+                          pp.Approval,
+
+
+                      };
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTs REQUEST For APPROVAl", 100, "PaymentRequest");
+            tbl.ShowDialog();
+
+        }
+
+        private void paymentApprovalRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+            if (!Username.getRequestpaymentApprovalright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
             View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
             accsup.Show();
 
+
+        }
+
+        private void viewPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
+                      where pp.payID != null
+                      select new
+                      {
+                          pp.payID,
+                          pp.IO_number,
+                          pp.ProgrameIDDocno,
+                          pp.ProgrameName,
+                          Budge_Requested = pp.TotalAprovalBudget,
+                          pp.Account,
+                          pp.costcenter,
+                          pp.Requestby,
+                          pp.Approval,
+
+
+                      };
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTs REQUEST", 100, "PaymentRequestview");
+            tbl.ShowDialog();
+        }
+
+        private void updateGatePassDeliveredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!Username.getAprovalPaymentRequestright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+            #region//tmphieuthu
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTupdateMKTcompleted accsup = new MKTupdateMKTcompleted(this);
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
+        }
+
+        private void viewAllPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
+                      where pp.payID != null
+                      select new
+                      {
+                          pp.payID,
+                          pp.IO_number,
+                          pp.ProgrameIDDocno,
+                          pp.ProgrameName,
+                          Budge_Requested = pp.TotalAprovalBudget,
+                          pp.Account,
+                          pp.costcenter,
+                          pp.Requestby,
+                          pp.Approval,
+
+
+                      };
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTs REQUEST", 100, "PaymentRequestview");
+            tbl.ShowDialog();
+        }
+
+        private void setPOSMProgrameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getSetPOSMprogrameright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
+
+            View.MKTProgramemakeandsetIObutger accsup = new MKTProgramemakeandsetIObutger();
+            accsup.Show();
 
         }
     }

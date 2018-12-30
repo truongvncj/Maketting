@@ -302,12 +302,12 @@ namespace Maketting.View
 
         private void button7_Click(object sender, EventArgs e)
         {
-            programlist proglist = new programlist();
-            //    DialogResult kq1 = MessageBox.Show("Xóa toàn bộ Program ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //      bool kq;
-            string connection_string = Utils.getConnectionstr();
+            //programlist proglist = new programlist();
+            ////    DialogResult kq1 = MessageBox.Show("Xóa toàn bộ Program ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            ////      bool kq;
+            //string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             //    var typeff = typeof(tbl_kaprogramlist);

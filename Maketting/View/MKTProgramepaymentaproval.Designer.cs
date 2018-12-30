@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTProgramepaymentaproval));
-            this.dataGridViewIO = new System.Windows.Forms.DataGridView();
+            this.dataGridviewpaymentapprval = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txttenct = new System.Windows.Forms.TextBox();
@@ -39,42 +39,47 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtcostcenter = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtchargetoaccount = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txttotalbudget = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtionumber = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtchargetoaccount = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtcostcenter = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIO)).BeginInit();
+            this.button4 = new System.Windows.Forms.Button();
+            this.txtfromdate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtpaymentID = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridviewpaymentapprval)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewIO
+            // dataGridviewpaymentapprval
             // 
-            this.dataGridViewIO.AllowUserToAddRows = false;
-            this.dataGridViewIO.AllowUserToDeleteRows = false;
-            this.dataGridViewIO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridviewpaymentapprval.AllowUserToAddRows = false;
+            this.dataGridviewpaymentapprval.AllowUserToDeleteRows = false;
+            this.dataGridviewpaymentapprval.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewIO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewIO.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewIO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewIO.Location = new System.Drawing.Point(28, 260);
-            this.dataGridViewIO.Name = "dataGridViewIO";
-            this.dataGridViewIO.ReadOnly = true;
-            this.dataGridViewIO.Size = new System.Drawing.Size(738, 304);
-            this.dataGridViewIO.TabIndex = 0;
-            this.dataGridViewIO.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridViewIO.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridViewIO.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
-            this.dataGridViewIO.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
-            this.dataGridViewIO.Enter += new System.EventHandler(this.dataGridView1_Enter);
-            this.dataGridViewIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            this.dataGridviewpaymentapprval.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridviewpaymentapprval.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridviewpaymentapprval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridviewpaymentapprval.Location = new System.Drawing.Point(28, 260);
+            this.dataGridviewpaymentapprval.Name = "dataGridviewpaymentapprval";
+            this.dataGridviewpaymentapprval.ReadOnly = true;
+            this.dataGridviewpaymentapprval.Size = new System.Drawing.Size(738, 304);
+            this.dataGridviewpaymentapprval.TabIndex = 0;
+            this.dataGridviewpaymentapprval.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridviewpaymentapprval.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridviewpaymentapprval.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            this.dataGridviewpaymentapprval.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
+            this.dataGridviewpaymentapprval.Enter += new System.EventHandler(this.dataGridView1_Enter);
+            this.dataGridviewpaymentapprval.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // button1
             // 
@@ -92,16 +97,16 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(24, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 18);
+            this.label5.Size = new System.Drawing.Size(145, 18);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Tên chương trình khuyến mại";
+            this.label5.Text = "Tên chương trình KM";
             // 
             // txttenct
             // 
             this.txttenct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttenct.Location = new System.Drawing.Point(242, 111);
+            this.txttenct.Location = new System.Drawing.Point(210, 114);
             this.txttenct.Name = "txttenct";
-            this.txttenct.Size = new System.Drawing.Size(347, 24);
+            this.txttenct.Size = new System.Drawing.Size(556, 24);
             this.txttenct.TabIndex = 25;
             this.txttenct.Text = "Chương trình khuyến mại đón năm học mới 2018";
             // 
@@ -118,7 +123,7 @@
             // txtsohieuct
             // 
             this.txtsohieuct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsohieuct.Location = new System.Drawing.Point(242, 79);
+            this.txtsohieuct.Location = new System.Drawing.Point(210, 82);
             this.txtsohieuct.Name = "txtsohieuct";
             this.txtsohieuct.Size = new System.Drawing.Size(271, 24);
             this.txtsohieuct.TabIndex = 27;
@@ -128,7 +133,7 @@
             // btiosetup
             // 
             this.btiosetup.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btiosetup.Location = new System.Drawing.Point(317, 229);
+            this.btiosetup.Location = new System.Drawing.Point(297, 229);
             this.btiosetup.Name = "btiosetup";
             this.btiosetup.Size = new System.Drawing.Size(97, 25);
             this.btiosetup.TabIndex = 39;
@@ -143,9 +148,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(29, 231);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(281, 18);
+            this.label9.Size = new System.Drawing.Size(262, 18);
             this.label9.TabIndex = 40;
-            this.label9.Text = "Select payment approval upload file ---->>";
+            this.label9.Text = "Select payment approval upload file -->";
             // 
             // label16
             // 
@@ -154,20 +159,25 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(205, 4);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(384, 25);
+            this.label16.Size = new System.Drawing.Size(415, 25);
             this.label16.TabIndex = 65;
-            this.label16.Text = "POSM PAYMENT  APPROVAL SETUP";
+            this.label16.Text = "POSM PAYMENT  APPROVAL REQUEST";
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.txtpaymentID);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtfromdate);
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.txtcostcenter);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtchargetoaccount);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txttotalbudget);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button2);
@@ -181,21 +191,61 @@
             this.panel1.Controls.Add(this.txttenct);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridViewIO);
+            this.panel1.Controls.Add(this.dataGridviewpaymentapprval);
             this.panel1.Location = new System.Drawing.Point(3, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(793, 613);
             this.panel1.TabIndex = 0;
             // 
-            // label4
+            // txtcostcenter
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(76, 567);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 18);
-            this.label4.TabIndex = 71;
-            this.label4.Text = "1600000";
+            this.txtcostcenter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcostcenter.Location = new System.Drawing.Point(211, 181);
+            this.txtcostcenter.Name = "txtcostcenter";
+            this.txtcostcenter.Size = new System.Drawing.Size(271, 24);
+            this.txtcostcenter.TabIndex = 75;
+            this.txtcostcenter.Text = "12650";
+            this.txtcostcenter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcostcenter_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 181);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 18);
+            this.label8.TabIndex = 74;
+            this.label8.Text = "Cost Center";
+            // 
+            // txtchargetoaccount
+            // 
+            this.txtchargetoaccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtchargetoaccount.Location = new System.Drawing.Point(211, 147);
+            this.txtchargetoaccount.Name = "txtchargetoaccount";
+            this.txtchargetoaccount.Size = new System.Drawing.Size(271, 24);
+            this.txtchargetoaccount.TabIndex = 73;
+            this.txtchargetoaccount.Text = "894258000";
+            this.txtchargetoaccount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtchargetoaccount_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(24, 147);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 18);
+            this.label6.TabIndex = 72;
+            this.label6.Text = "Charge to Account";
+            // 
+            // txttotalbudget
+            // 
+            this.txttotalbudget.AutoSize = true;
+            this.txttotalbudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotalbudget.Location = new System.Drawing.Point(76, 567);
+            this.txttotalbudget.Name = "txttotalbudget";
+            this.txttotalbudget.Size = new System.Drawing.Size(64, 18);
+            this.txttotalbudget.TabIndex = 71;
+            this.txttotalbudget.Text = "1600000";
             // 
             // label3
             // 
@@ -211,22 +261,23 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(475, 236);
+            this.label2.Location = new System.Drawing.Point(400, 236);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 18);
+            this.label2.Size = new System.Drawing.Size(167, 18);
             this.label2.TabIndex = 69;
-            this.label2.Text = "Manual payment add ------->";
+            this.label2.Text = "Manual payment add -->";
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button2.Location = new System.Drawing.Point(673, 231);
+            this.button2.Location = new System.Drawing.Point(573, 231);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 25);
             this.button2.TabIndex = 68;
             this.button2.TabStop = false;
             this.button2.Text = "Add payment";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // label7
             // 
@@ -241,7 +292,7 @@
             // txtionumber
             // 
             this.txtionumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtionumber.Location = new System.Drawing.Point(242, 49);
+            this.txtionumber.Location = new System.Drawing.Point(210, 52);
             this.txtionumber.Name = "txtionumber";
             this.txtionumber.Size = new System.Drawing.Size(271, 24);
             this.txtionumber.TabIndex = 0;
@@ -258,44 +309,63 @@
             this.button3.TabStop = false;
             this.button3.Text = "OK";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // txtchargetoaccount
+            // button4
             // 
-            this.txtchargetoaccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtchargetoaccount.Location = new System.Drawing.Point(243, 144);
-            this.txtchargetoaccount.Name = "txtchargetoaccount";
-            this.txtchargetoaccount.Size = new System.Drawing.Size(271, 24);
-            this.txtchargetoaccount.TabIndex = 73;
-            this.txtchargetoaccount.Text = "894258000";
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button4.Location = new System.Drawing.Point(693, 231);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(73, 25);
+            this.button4.TabIndex = 76;
+            this.button4.TabStop = false;
+            this.button4.Text = "Redo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // label6
+            // txtfromdate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 18);
-            this.label6.TabIndex = 72;
-            this.label6.Text = "Charge to Account";
+            this.txtfromdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.CustomFormat = "dd.MM.yyyy";
+            this.txtfromdate.Enabled = false;
+            this.txtfromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtfromdate.Location = new System.Drawing.Point(626, 49);
+            this.txtfromdate.Name = "txtfromdate";
+            this.txtfromdate.Size = new System.Drawing.Size(119, 24);
+            this.txtfromdate.TabIndex = 78;
+            this.txtfromdate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             // 
-            // txtcostcenter
+            // label4
             // 
-            this.txtcostcenter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcostcenter.Location = new System.Drawing.Point(243, 178);
-            this.txtcostcenter.Name = "txtcostcenter";
-            this.txtcostcenter.Size = new System.Drawing.Size(271, 24);
-            this.txtcostcenter.TabIndex = 75;
-            this.txtcostcenter.Text = "12650";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(581, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 18);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Date";
             // 
-            // label8
+            // label10
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(24, 181);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 18);
-            this.label8.TabIndex = 74;
-            this.label8.Text = "Cost Center";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(536, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 18);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Payment ID";
+            // 
+            // txtpaymentID
+            // 
+            this.txtpaymentID.AutoSize = true;
+            this.txtpaymentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpaymentID.ForeColor = System.Drawing.Color.Red;
+            this.txtpaymentID.Location = new System.Drawing.Point(626, 88);
+            this.txtpaymentID.Name = "txtpaymentID";
+            this.txtpaymentID.Size = new System.Drawing.Size(64, 18);
+            this.txtpaymentID.TabIndex = 82;
+            this.txtpaymentID.Text = "1213324";
             // 
             // MKTProgramepaymentaproval
             // 
@@ -311,7 +381,7 @@
             this.Name = "MKTProgramepaymentaproval";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment approval";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridviewpaymentapprval)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -320,7 +390,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewIO;
+        private System.Windows.Forms.DataGridView dataGridviewpaymentapprval;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txttenct;
@@ -330,7 +400,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label txttotalbudget;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
@@ -341,5 +411,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtchargetoaccount;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label txtpaymentID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker txtfromdate;
     }
 }

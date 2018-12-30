@@ -592,25 +592,30 @@ namespace Maketting.View
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
+            // ;
 
             bool checkdetail = true;
             bool checkhead = true;
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs5 = (from pp in dc.tbl_MKt_ListLoadheads
-                       where pp.id.ToString() == this.soload && pp.Status != "TMP"
-
-                       select pp).FirstOrDefault();
-            if (rs5 != null)
+            if (this.statusphieu == 1)
             {
-                MessageBox.Show("Can not created, dublicate found !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                checkhead = false;
-                return;
 
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheads
+                           where pp.id.ToString() == this.soload && pp.Status != "TMP"
+
+                           select pp).FirstOrDefault();
+                if (rs5 != null)
+                {
+                    MessageBox.Show("Can not created, dublicate found !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                    checkhead = false;
+                    return;
+
+                }
             }
-
 
             #region  // check head
             if (txtmaNVT.Text == "")
@@ -661,7 +666,40 @@ namespace Maketting.View
             if (checkdetail && checkhead)
             {
 
+                #region
 
+
+
+                if (this.statusphieu == 2)
+                {
+                    var updateblank = from pp in dc.tbl_MKt_Listphieudetails
+                                      where pp.ShipmentNumber == this.soload
+                                      && pp.ShippingPoint == this.storelocation
+                                      select pp;
+                    foreach (var item in updateblank)
+                    {
+                        item.Status = "CRT";
+                        item.Tranposterby = "";
+                        item.Truck = "";
+                        item.ShipmentNumber = "";
+                        item.Shipmentby = "";
+
+                        dc.SubmitChanges();
+                    }
+
+
+                    var deletelistload = from pp in dc.tbl_MKt_ListLoadheadDetails
+                                         where pp.LoadNumber == this.soload
+                                      && pp.ShippingPoint == this.storelocation
+                                      && pp.Status == "CRT"
+                                         select pp;
+
+                    dc.tbl_MKt_ListLoadheadDetails.DeleteAllOnSubmit(deletelistload);
+                    dc.SubmitChanges();
+
+
+                }
+                #endregion
 
                 #region // head 
                 //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
@@ -709,7 +747,7 @@ namespace Maketting.View
                             item.Truck = txttrucnumber.Text;
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
-                         
+
                             dc.SubmitChanges();
                         }
 
@@ -793,6 +831,9 @@ namespace Maketting.View
 
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //  cleartoblankphieu();
+
+
+
             }
 
 
@@ -853,7 +894,7 @@ namespace Maketting.View
         private void button6_Click(object sender, EventArgs e)
         {
             Model.MKT.restatusphieuLoadingtoCRT();
-
+            this.statusphieu = 1;
             this.cleartoblankphieu();
 
             Model.MKT.DeleteALLphieutamTMP();
@@ -1849,6 +1890,7 @@ namespace Maketting.View
 
             #endregion
             btluu.Enabled = false;
+            btsua.Enabled = true;
             tabControl1.SelectedTab = tabPage1;
         }
 
@@ -2053,6 +2095,24 @@ namespace Maketting.View
 
         private void btxoa_Click(object sender, EventArgs e)
         {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs3 = (from pp in dc.tbl_MKt_WHstoreissues
+                       where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                       select pp.LoadNumber).FirstOrDefault();
+
+            if (rs3 != null)
+            {
+                MessageBox.Show("LoadNumber " + soload + " can not delete  by store issued !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
+
+
             bool kq = Model.MKT.Deletephieuload(this.soload, this.storelocation);
             Model.MKT.restatusphieuLoadingtoCRT();
 
@@ -2118,7 +2178,7 @@ namespace Maketting.View
 
 
 
-
+                txttrucnumber.Focus();
 
 
             }

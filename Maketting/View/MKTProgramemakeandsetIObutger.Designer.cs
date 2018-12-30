@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTProgramemakeandsetIObutger));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btreviewfile = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lbfileupload = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -66,8 +64,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btreviewfile);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbfileupload);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.button3);
@@ -106,30 +102,6 @@
             this.btreviewfile.Text = "View file";
             this.btreviewfile.UseVisualStyleBackColor = true;
             this.btreviewfile.Click += new System.EventHandler(this.btreviewfile_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.SystemColors.Control;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(595, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(320, 16);
-            this.label11.TabIndex = 68;
-            this.label11.Text = "Exp:  Chương trình khuyến mại đón năm học mới 2018";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.Control;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(595, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 16);
-            this.label10.TabIndex = 67;
-            this.label10.Text = "Exp:  8/2018/00246/01/HOC";
             // 
             // lbfileupload
             // 
@@ -284,6 +256,7 @@
             this.txttodate.Size = new System.Drawing.Size(119, 24);
             this.txttodate.TabIndex = 28;
             this.txttodate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            this.txttodate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttodate_KeyPress);
             // 
             // txtsohieuct
             // 
@@ -294,6 +267,7 @@
             this.txtsohieuct.TabIndex = 27;
             this.txtsohieuct.Text = "8/2018/00246/01/HOC";
             this.txtsohieuct.TextChanged += new System.EventHandler(this.txtsohieuct_TextChanged);
+            this.txtsohieuct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsohieuct_KeyPress);
             // 
             // label1
             // 
@@ -310,9 +284,10 @@
             this.txttenct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttenct.Location = new System.Drawing.Point(242, 80);
             this.txttenct.Name = "txttenct";
-            this.txttenct.Size = new System.Drawing.Size(347, 24);
+            this.txttenct.Size = new System.Drawing.Size(533, 24);
             this.txttenct.TabIndex = 25;
             this.txttenct.Text = "Chương trình khuyến mại đón năm học mới 2018";
+            this.txttenct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttenct_KeyPress);
             // 
             // label5
             // 
@@ -345,6 +320,7 @@
             this.txtfromdate.Size = new System.Drawing.Size(119, 24);
             this.txtfromdate.TabIndex = 22;
             this.txtfromdate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            this.txtfromdate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfromdate_KeyPress);
             // 
             // button1
             // 
@@ -424,8 +400,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lbfileupload;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btreviewfile;
     }
 }

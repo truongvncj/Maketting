@@ -398,6 +398,7 @@ namespace Maketting.Model
 
         public static void restatusphieuLoadingtoCRT()
         {
+          
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
@@ -713,6 +714,27 @@ namespace Maketting.Model
             }
         }
 
+
+        public static void DeletePaymentaprovalTMP(LinqtoSQLDataContext dc) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            string urs = Utils.getusername();
+
+            //     string connection_string = Utils.getConnectionstr();
+            //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                     where pp.username == urs
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.tbl_MKT_Payment_AprovalTMPs.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+        }
 
 
         public static void DeleteALLIPricelistIOTMP(LinqtoSQLDataContext dc) // vd phieu thu nghiep vu là phieu thu: PT,

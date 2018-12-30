@@ -113,6 +113,7 @@
       <DependentUpon>LinqtoSQL.dbml</DependentUpon>
     </Compile>
     <Compile Include="Model\SercurityFucntion.cs" />
+    <Compile Include="Model\Aprovalpayment.cs" />
     <Compile Include="Model\StoreMKT.cs" />
     <Compile Include="Model\Khohang.cs" />
     <Compile Include="Model\MKT.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Model\customerinput_ctrl.cs" />
     <Compile Include="Model\fuctionprog.cs" />
     <Compile Include="Model\Contract.cs" />
-    <Compile Include="Model\programlist.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Nhacungcap.cs" />
     <Compile Include="Model\Username.cs" />
@@ -146,6 +146,12 @@
     </Compile>
     <Compile Include="View\MKTProgrameinputproductandprice.Designer.cs">
       <DependentUpon>MKTProgrameinputproductandprice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTProgramepaymentbyFI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTProgramepaymentbyFI.Designer.cs">
+      <DependentUpon>MKTProgramepaymentbyFI.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTProgramepaymentaproval.cs">
       <SubType>Form</SubType>
@@ -434,6 +440,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTProgrameinputproductandprice.resx">
       <DependentUpon>MKTProgrameinputproductandprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTProgramepaymentbyFI.resx">
+      <DependentUpon>MKTProgramepaymentbyFI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTProgramepaymentaproval.resx">
       <DependentUpon>MKTProgramepaymentaproval.cs</DependentUpon>

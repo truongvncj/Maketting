@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Maketting.View
 {
@@ -28,20 +29,24 @@ namespace Maketting.View
 
         public string ProgrameIDDocno { get; set; }
         public string ionumber { get; set; }
+        public double totalBudget { get; set; }
 
+        public int payID { get; set; }
 
-        //  IQueryable rs, LinqtoSQLDataContext d
-        public MKTProgramepaymentaproval()
+        public void blanknewpayment()
         {
-            InitializeComponent();
-
-
-        //    lbfileupload.Text = "";
+            //    lbfileupload.Text = "";
             txtsohieuct.Text = "";
             txtionumber.Text = "";
             txttenct.Text = "";
             txtchargetoaccount.Text = "";
             txtcostcenter.Text = "";
+            txttotalbudget.Text = "";
+            txtfromdate.Value = DateTime.Today;
+            this.payID = Model.Aprovalpayment.getNewPaymentid();
+            txtpaymentID.Text = this.payID.ToString();
+
+
 
 
             txtsohieuct.Enabled = false;
@@ -62,24 +67,29 @@ namespace Maketting.View
 
             ////---------------------
 
-            Model.MKT.DeleteALLIOTMP(dc);
+            Model.MKT.DeletePaymentaprovalTMP(dc);
 
 
 
 
 
-            var Programelist = from pp in dc.tbl_MKT_IO_ProgrameTMPs
-                               where pp.Username == username
+            var Programelist = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                               where pp.username == username
                                select new
                                {
-                                   pp.IO_number,
-                                   pp.ChannelGroup,
-                                   pp.Budget,
-                                   pp.Region,
-                                   pp.Sales_Org,
-                                   pp.Username,
+                                   //      pp.IO_number,
+                                   //      pp.ProgrameIDDocno,
+                                   //     pp.Account,
+                                   //     pp.costcenter,
+                                   pp.Customercode,
+                                   pp.CustomerName,
+
+                                   pp.CustomerAddress,
+                                   pp.AprovalBudget,
+
                                    pp.id,
 
+                                   pp.username,
 
 
 
@@ -87,12 +97,22 @@ namespace Maketting.View
 
 
 
-            this.dataGridViewIO.DataSource = Programelist;
-            dataGridViewIO.Columns["Id"].Visible = false;
-            dataGridViewIO.Columns["Username"].Visible = false;
+
+            this.dataGridviewpaymentapprval.DataSource = Programelist;
+            dataGridviewpaymentapprval.Columns["id"].Visible = false;
+            dataGridviewpaymentapprval.Columns["username"].Visible = false;
 
 
             txtionumber.Focus();
+
+        }
+        //  IQueryable rs, LinqtoSQLDataContext d
+        public MKTProgramepaymentaproval()
+        {
+            InitializeComponent();
+
+            blanknewpayment();
+
 
         }
 
@@ -185,7 +205,7 @@ namespace Maketting.View
             //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
             //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
 
-            foreach (var c in dataGridViewIO.Columns)
+            foreach (var c in dataGridviewpaymentapprval.Columns)
             {
                 DataGridViewColumn clm = (DataGridViewColumn)c;
                 clm.HeaderText = clm.HeaderText.Replace("_", " ");
@@ -213,7 +233,7 @@ namespace Maketting.View
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string colheadertext = this.dataGridViewIO.Columns[this.dataGridViewIO.CurrentCell.ColumnIndex].HeaderText;
+            string colheadertext = this.dataGridviewpaymentapprval.Columns[this.dataGridviewpaymentapprval.CurrentCell.ColumnIndex].HeaderText;
 
             //      bbb
 
@@ -224,19 +244,19 @@ namespace Maketting.View
 
 
 
-                if (dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["ID"].Value != null && dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value != null)
+                if (dataGridviewpaymentapprval.Rows[this.dataGridviewpaymentapprval.CurrentRow.Index].Cells["ID"].Value != null && dataGridviewpaymentapprval.Rows[this.dataGridviewpaymentapprval.CurrentRow.Index].Cells["Select_channel"].Value != null)
                 {
-                    int indexID = int.Parse(dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["ID"].Value.ToString());
+                    int indexID = int.Parse(dataGridviewpaymentapprval.Rows[this.dataGridviewpaymentapprval.CurrentRow.Index].Cells["ID"].Value.ToString());
 
 
-                    bool currentvalue = (bool)dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value;
+                    bool currentvalue = (bool)dataGridviewpaymentapprval.Rows[this.dataGridviewpaymentapprval.CurrentRow.Index].Cells["Select_channel"].Value;
 
-                    dataGridViewIO.EditMode = DataGridViewEditMode.EditProgrammatically;
-                    dataGridViewIO.ReadOnly = false;
+                    dataGridviewpaymentapprval.EditMode = DataGridViewEditMode.EditProgrammatically;
+                    dataGridviewpaymentapprval.ReadOnly = false;
 
 
-                    dataGridViewIO.Rows[this.dataGridViewIO.CurrentRow.Index].Cells["Select_channel"].Value = !currentvalue;
-                    dataGridViewIO.ReadOnly = true;
+                    dataGridviewpaymentapprval.Rows[this.dataGridviewpaymentapprval.CurrentRow.Index].Cells["Select_channel"].Value = !currentvalue;
+                    dataGridviewpaymentapprval.ReadOnly = true;
                     // upvaof server
 
                     //update to server
@@ -559,10 +579,46 @@ namespace Maketting.View
                 return;
             }
 
+            Model.Aprovalpayment approvapayment = new Model.Aprovalpayment();
+            approvapayment.Inputapprovalpayment();
 
 
-            //View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3, 0, this.ProgrameIDDocno, this.dataGridViewIO);
-            //spchon.ShowDialog();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var Programelist = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                               where pp.username == username
+                               select new
+                               {
+                                   //      pp.IO_number,
+                                   //      pp.ProgrameIDDocno,
+                                   //     pp.Account,
+                                   //     pp.costcenter,
+                                   pp.Customercode,
+                                   pp.CustomerName,
+
+                                   pp.CustomerAddress,
+                                   pp.AprovalBudget,
+
+                                   pp.id,
+
+                                   pp.username,
+
+
+
+                               };
+
+
+
+
+            this.dataGridviewpaymentapprval.DataSource = Programelist;
+            if (Programelist.Count() > 0)
+            {
+                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+
+                txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
+
+            }
 
 
         }
@@ -743,11 +799,270 @@ namespace Maketting.View
 
 
 
-                btiosetup.Focus();
+                txtchargetoaccount.Focus();
 
 
                 //    dataGridViewDetail.Focus();
 
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            var Programelist1 = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                                where pp.username == username
+                                select pp;
+
+            dc.tbl_MKT_Payment_AprovalTMPs.DeleteAllOnSubmit(Programelist1);
+            dc.SubmitChanges();
+
+            var Programelist = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                               where pp.username == username
+                               select new
+                               {
+                                   //      pp.IO_number,
+                                   //      pp.ProgrameIDDocno,
+                                   //     pp.Account,
+                                   //     pp.costcenter,
+                                   pp.Customercode,
+                                   pp.CustomerName,
+
+                                   pp.CustomerAddress,
+                                   pp.AprovalBudget,
+
+                                   pp.id,
+
+                                   pp.username,
+
+
+
+                               };
+
+
+
+            this.dataGridviewpaymentapprval.DataSource = Programelist;
+
+            if (Programelist.Count()>0)
+            {
+                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+
+                txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
+
+            }
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (this.ionumber == "")
+            {
+
+                MessageBox.Show("Please nhập IO number ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtionumber.Focus();
+                return;
+            }
+
+            if (txtchargetoaccount.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Account charge to ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtchargetoaccount.Focus();
+                return;
+            }
+
+            if (txtcostcenter.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Cost center ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtcostcenter.Focus();
+                return;
+            }
+            //check if payment natf đã request ? // một khách hàng 1/ 1 iio chỉ một lần request
+
+
+
+
+            #region q List các document có trong bảng tbl_MKT_Payment_AprovalTMP không có trong bảng tbl_MKT_Payment_Aproval   !
+            //---
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var q = from paymenttemp in dc.tbl_MKT_Payment_AprovalTMPs
+                    where (from payment in dc.tbl_MKT_Payment_Aprovals
+                           select payment.Customercode).Contains(paymenttemp.Customercode)
+                            && (from payment in dc.tbl_MKT_Payment_Aprovals
+                                select payment.IO_number).Contains(paymenttemp.IO_number)
+
+                    select paymenttemp;
+
+
+
+            if (q.Count() != 0)
+            {
+
+                Viewtable viewtbl = new Viewtable(q, dc, "List các payment request đã lập request rồi, please check", 100, "paymentrequest");
+
+                viewtbl.ShowDialog();
+                return;
+            }
+
+
+
+            var q2 = from p in dc.tbl_MKT_Payment_AprovalTMPs
+                     where p.username == username
+                     select p;
+
+            if (q2.Count() == 0)
+            {
+                MessageBox.Show("Please nhập nhập chi tiết request ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                btiosetup.Focus();
+                return;
+            }
+            #endregion q
+
+
+
+
+
+            //update head IOpayment
+            var newpaymentrequest = (from p in dc.tbl_MKT_Payment_Aproval_heads
+                                     where p.IO_number == "TMP" && p.username == username
+                                     select p).FirstOrDefault();
+
+
+            if (newpaymentrequest != null)
+            {
+                newpaymentrequest.IO_number = Utils.Truncate(txtionumber.Text, 50);
+                newpaymentrequest.payID = this.payID;
+                newpaymentrequest.Account = Utils.Truncate(txtchargetoaccount.Text, 50);
+                newpaymentrequest.costcenter = Utils.Truncate(txtcostcenter.Text, 50);
+                newpaymentrequest.Requestby = username;
+
+                newpaymentrequest.ProgrameIDDocno = Utils.Truncate(txtsohieuct.Text, 225);
+                newpaymentrequest.ProgrameName = Utils.Truncate(txttenct.Text, 50);
+
+                newpaymentrequest.Approval = "Not Approved";
+                newpaymentrequest.TotalAprovalBudget = this.totalBudget;
+
+                dc.SubmitChanges();
+            }
+            else
+            {
+                MessageBox.Show("Pleae check IO payment ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                btiosetup.Focus();
+                return;
+            }
+            // tbl_MKT_Payment_Aproval_head newpaymentrequest = new tbl_MKT_Payment_Aproval_head();
+
+
+
+
+
+            // udate payment progarme
+            var tmprequest = from p in dc.tbl_MKT_Payment_AprovalTMPs
+                             where p.username == username
+                             select p;
+
+
+            foreach (var item in tmprequest)
+            {
+                tbl_MKT_Payment_Aproval newpaymentRQ = new tbl_MKT_Payment_Aproval();
+
+
+                newpaymentRQ.IO_number = Utils.Truncate(txtionumber.Text, 50);
+                newpaymentRQ.payID = this.payID;
+                newpaymentRQ.Account = Utils.Truncate(txtchargetoaccount.Text, 50);
+                newpaymentRQ.costcenter = Utils.Truncate(txtcostcenter.Text, 50);
+                newpaymentRQ.Requestby = username;
+
+                newpaymentRQ.AprovalBudget = item.AprovalBudget;
+
+                newpaymentRQ.Customercode = item.Customercode;
+                newpaymentRQ.CustomerName = item.CustomerName;
+                newpaymentRQ.CustomerAddress = item.CustomerAddress;
+                newpaymentRQ.ProgrameIDDocno = Utils.Truncate(txtsohieuct.Text, 50);
+
+                newpaymentRQ.Requsestdate = txtfromdate.Value;
+                newpaymentRQ.Approval = "Not Approved";
+
+                dc.tbl_MKT_Payment_Aprovals.InsertOnSubmit(newpaymentRQ);
+                dc.SubmitChanges();
+
+
+
+            }
+
+
+            MessageBox.Show("Upload payment done ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            blanknewpayment();
+
+
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+
+
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var Programelist = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+                               where pp.username == username
+                               select new
+                               {
+                                   //      pp.IO_number,
+                                   //      pp.ProgrameIDDocno,
+                                   //     pp.Account,
+                                   //     pp.costcenter,
+                                   pp.Customercode,
+                                   pp.CustomerName,
+
+                                   pp.CustomerAddress,
+                                   pp.AprovalBudget,
+
+                                   pp.id,
+
+                                   pp.username,
+
+
+
+                               };
+
+
+            if (Programelist.Count() > 0)
+            {
+                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+
+                txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
+
+            }
+        }
+
+        private void txtchargetoaccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtcostcenter.Focus();
+            }
+        }
+
+        private void txtcostcenter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btiosetup.Focus();
             }
         }
     }

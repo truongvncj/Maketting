@@ -1131,145 +1131,193 @@ namespace Maketting.View
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (this.valuesave == "Schemeprograme")
+            try
             {
+                #region  view pdf file
 
-                //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                if (this.valuesave == "Schemeprograme")
                 {
 
-                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value!="") 
+                    //     view file pdf  programe
                     {
-                        #region
 
-
-                       
-
-                        string ProgrameIDDocno = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value;
-
-
-
-                        SaveFileDialog thedialog = new SaveFileDialog();
-                        //
-
-
-                        //   datagridview datagridview1 = new datagridview();
-                        //   datagridview1.datasource = datagrid.datasource;
-
-                        thedialog.Title = "export: " + ProgrameIDDocno+ "  to PDF file";
-                        thedialog.Filter = "PDF files|*.pdf";
-                        thedialog.InitialDirectory = @"c:\";
-                        thedialog.FileName = "downloadfile";
-
-
-                        if (thedialog.ShowDialog() == DialogResult.OK)
+                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != "")
                         {
+                            #region
 
-                            string filePath = thedialog.FileName.ToString();
 
-                            //     string id;
-                            //       FileStream FS = null;
 
-                            //      byte[] dbbyte;
-                            try
+
+                            string ProgrameIDDocno = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value;
+
+
+
+                            SaveFileDialog thedialog = new SaveFileDialog();
+                            //
+
+
+                            //   datagridview datagridview1 = new datagridview();
+                            //   datagridview1.datasource = datagrid.datasource;
+
+                            thedialog.Title = "export: " + ProgrameIDDocno + "  to PDF file";
+                            thedialog.Filter = "PDF files|*.pdf";
+                            thedialog.InitialDirectory = @"c:\";
+                            thedialog.FileName = "downloadfile";
+
+
+                            if (thedialog.ShowDialog() == DialogResult.OK)
                             {
-                                //Get a stored PDF bytes
-                                //   dbbyte = (byte[])dr["UploadFiles"];
 
+                                string filePath = thedialog.FileName.ToString();
 
-                                //store file Temporarily 
-                                string connection_string = Utils.getConnectionstr();
-                                var db = new LinqtoSQLDataContext(connection_string);
+                                //     string id;
+                                //       FileStream FS = null;
 
-                                //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
-
-                                using (SqlConnection sqlconnection = new SqlConnection(connection_string))
+                                //      byte[] dbbyte;
+                                try
                                 {
-                                    sqlconnection.Open();
-
-                                    string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
-
-                                    // Read File content from Sql Table 
-                                    SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
-
-                                    selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
+                                    //Get a stored PDF bytes
+                                    //   dbbyte = (byte[])dr["UploadFiles"];
 
 
-                                    SqlDataReader reader = selectCommand.ExecuteReader();
-                                    if (reader.Read())
+                                    //store file Temporarily 
+                                    string connection_string = Utils.getConnectionstr();
+                                    var db = new LinqtoSQLDataContext(connection_string);
+
+                                    //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
+
+                                    using (SqlConnection sqlconnection = new SqlConnection(connection_string))
                                     {
-                                        byte[] fileData = (byte[])reader[0];
+                                        sqlconnection.Open();
 
-                                        // Write/Export File content into new text file
-                                        File.WriteAllBytes(filePath, fileData);
+                                        string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
+
+                                        // Read File content from Sql Table 
+                                        SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
+
+                                        selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
+
+
+                                        SqlDataReader reader = selectCommand.ExecuteReader();
+                                        if (reader.Read())
+                                        {
+                                            byte[] fileData = (byte[])reader[0];
+
+                                            // Write/Export File content into new text file
+                                            File.WriteAllBytes(filePath, fileData);
+                                        }
                                     }
+
+
+                                    //Assign File path create file
+
+
+                                    //     FS = new FileStream(filepath, System.IO.FileMode.Create);
+
+
+
+                                    //Write bytes to create file
+                                    //    FS.Write(dbbyte, 0, dbbyte.Length);
+
+
+
+                                    // Open file after write 
+                                    //Create instance for process class
+                                    Process Proc = new Process();
+                                    //assign file path for process
+                                    Proc.StartInfo.FileName = filePath;
+                                    Proc.Start();
+                                }
+                                catch (Exception ex)
+                                {
+                                    // throw new System.ArgumentException(ex.Message);
+
+                                    //  ex.Message.ToString();
+                                    MessageBox.Show(ex.ToString());
+                                }
+                                finally
+                                {
+                                    //Close FileStream instance
+                                    //   FS.Close();
                                 }
 
 
-                                //Assign File path create file
-
-
-                                //     FS = new FileStream(filepath, System.IO.FileMode.Create);
 
 
 
-                                //Write bytes to create file
-                                //    FS.Write(dbbyte, 0, dbbyte.Length);
 
 
 
-                                // Open file after write 
-                                //Create instance for process class
-                                Process Proc = new Process();
-                                //assign file path for process
-                                Proc.StartInfo.FileName = filePath;
-                                Proc.Start();
-                            }
-                            catch (Exception ex)
-                            {
-                                // throw new System.ArgumentException(ex.Message);
 
-                              //  ex.Message.ToString();
-                                MessageBox.Show(ex.ToString());
-                            }
-                            finally
-                            {
-                                //Close FileStream instance
-                                //   FS.Close();
+
                             }
 
 
-
-
-
-                    
-
-
+                            #endregion
 
 
                         }
 
+                    }
 
-                        #endregion
+                }
+                #endregion
 
-                        
 
+
+                #region  approval payment request
+                if (this.valuesave == "PaymentRequest")
+                {
+
+
+                    //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                    {
+
+                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != "")
+                        {
+                            #region
+
+                            int payID = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value;
+
+                            View.MKTProgramepaymentbyFI accsup = new MKTProgramepaymentbyFI(payID, this.dataGridView1);
+                            accsup.Show();
+
+
+
+
+
+
+                            #endregion
+
+
+                        }
 
                     }
+
+
+
+
+
+
 
 
 
                 }
 
 
+                #endregion
+
+
 
 
             }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.ToString());
+            }
 
-
-
-
-
+          
 
 
 

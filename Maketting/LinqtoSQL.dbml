@@ -27,6 +27,24 @@
       <Column Name="StoreLocationmanage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="addNewProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="IOprogamecreatRight" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Loadcreated" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="StoreIssue" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TransferOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TransferIN" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChanelManage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IOmanageright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SetPOSMprogrameright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ViewProgramePDFright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AprovalPaymentRequestright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="updateGatePassDeliveredright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RequestpaymentApproval" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="uploadBeginStoreright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ControlUsername" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerEdit" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerUploadright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SalesLocationright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SalesRegionManageright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ChannelsalesManageright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
@@ -137,7 +155,7 @@
       <Column Name="Gate_pass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Date_Received_Issued" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Requested_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Customer_SAP_Code" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Customer_SAP_Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Receiver_by" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Tel" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -166,6 +184,7 @@
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Completed_by" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NetValue" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -230,6 +249,54 @@
       <Column Name="masothueNVT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="dienthoaiNVT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Payment_Aproval" Member="tbl_MKT_Payment_Aprovals">
+    <Type Name="tbl_MKT_Payment_Aproval">
+      <Column Name="IO_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customercode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="AprovalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="costcenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="payID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Approval" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Requestby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Approvalby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Requsestdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Approvaldate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Payment_Aproval_head" Member="tbl_MKT_Payment_Aproval_heads">
+    <Type Name="tbl_MKT_Payment_Aproval_head">
+      <Column Name="Requestby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IO_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalAprovalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="costcenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="payID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Approval" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProgrameName" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Payment_AprovalTMP" Member="tbl_MKT_Payment_AprovalTMPs">
+    <Type Name="tbl_MKT_Payment_AprovalTMP">
+      <Column Name="IO_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Customercode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="AprovalBudget" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="costcenter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Account" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POdetail" Member="tbl_MKt_POdetails">
@@ -328,19 +395,6 @@
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_ProgramepriceproductTMPbo" Member="tbl_MKT_ProgramepriceproductTMPbos">
-    <Type Name="tbl_MKT_ProgramepriceproductTMPbo">
-      <Column Name="ProgrameIDDocno" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Region" Member="tbl_MKT_Regions">

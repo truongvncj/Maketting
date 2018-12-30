@@ -75,6 +75,15 @@ namespace Maketting
     partial void Inserttbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
     partial void Updatetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
     partial void Deletetbl_MKT_Nhacungungvantai(tbl_MKT_Nhacungungvantai instance);
+    partial void Inserttbl_MKT_Payment_Aproval(tbl_MKT_Payment_Aproval instance);
+    partial void Updatetbl_MKT_Payment_Aproval(tbl_MKT_Payment_Aproval instance);
+    partial void Deletetbl_MKT_Payment_Aproval(tbl_MKT_Payment_Aproval instance);
+    partial void Inserttbl_MKT_Payment_Aproval_head(tbl_MKT_Payment_Aproval_head instance);
+    partial void Updatetbl_MKT_Payment_Aproval_head(tbl_MKT_Payment_Aproval_head instance);
+    partial void Deletetbl_MKT_Payment_Aproval_head(tbl_MKT_Payment_Aproval_head instance);
+    partial void Inserttbl_MKT_Payment_AprovalTMP(tbl_MKT_Payment_AprovalTMP instance);
+    partial void Updatetbl_MKT_Payment_AprovalTMP(tbl_MKT_Payment_AprovalTMP instance);
+    partial void Deletetbl_MKT_Payment_AprovalTMP(tbl_MKT_Payment_AprovalTMP instance);
     partial void Inserttbl_MKt_POdetail(tbl_MKt_POdetail instance);
     partial void Updatetbl_MKt_POdetail(tbl_MKt_POdetail instance);
     partial void Deletetbl_MKt_POdetail(tbl_MKt_POdetail instance);
@@ -96,9 +105,6 @@ namespace Maketting
     partial void Inserttbl_MKT_ProgramepriceproductTMP(tbl_MKT_ProgramepriceproductTMP instance);
     partial void Updatetbl_MKT_ProgramepriceproductTMP(tbl_MKT_ProgramepriceproductTMP instance);
     partial void Deletetbl_MKT_ProgramepriceproductTMP(tbl_MKT_ProgramepriceproductTMP instance);
-    partial void Inserttbl_MKT_ProgramepriceproductTMPbo(tbl_MKT_ProgramepriceproductTMPbo instance);
-    partial void Updatetbl_MKT_ProgramepriceproductTMPbo(tbl_MKT_ProgramepriceproductTMPbo instance);
-    partial void Deletetbl_MKT_ProgramepriceproductTMPbo(tbl_MKT_ProgramepriceproductTMPbo instance);
     partial void Inserttbl_MKT_Region(tbl_MKT_Region instance);
     partial void Updatetbl_MKT_Region(tbl_MKT_Region instance);
     partial void Deletetbl_MKT_Region(tbl_MKT_Region instance);
@@ -302,6 +308,30 @@ namespace Maketting
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_MKT_Payment_Aproval> tbl_MKT_Payment_Aprovals
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Payment_Aproval>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Payment_Aproval_head> tbl_MKT_Payment_Aproval_heads
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Payment_Aproval_head>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Payment_AprovalTMP> tbl_MKT_Payment_AprovalTMPs
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Payment_AprovalTMP>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_MKt_POdetail> tbl_MKt_POdetails
 		{
 			get
@@ -355,14 +385,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKT_ProgramepriceproductTMP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_ProgramepriceproductTMPbo> tbl_MKT_ProgramepriceproductTMPbos
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_ProgramepriceproductTMPbo>();
 			}
 		}
 		
@@ -677,6 +699,42 @@ namespace Maketting
 		
 		private bool _IOprogamecreatRight;
 		
+		private bool _Loadcreated;
+		
+		private bool _StoreIssue;
+		
+		private bool _TransferOut;
+		
+		private bool _TransferIN;
+		
+		private bool _ChanelManage;
+		
+		private bool _IOmanageright;
+		
+		private bool _SetPOSMprogrameright;
+		
+		private bool _ViewProgramePDFright;
+		
+		private bool _AprovalPaymentRequestright;
+		
+		private bool _updateGatePassDeliveredright;
+		
+		private bool _RequestpaymentApproval;
+		
+		private bool _uploadBeginStoreright;
+		
+		private bool _ControlUsername;
+		
+		private bool _CustomerEdit;
+		
+		private bool _CustomerUploadright;
+		
+		private bool _SalesLocationright;
+		
+		private bool _SalesRegionManageright;
+		
+		private bool _ChannelsalesManageright;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -715,6 +773,42 @@ namespace Maketting
     partial void OnaddNewProductChanged();
     partial void OnIOprogamecreatRightChanging(bool value);
     partial void OnIOprogamecreatRightChanged();
+    partial void OnLoadcreatedChanging(bool value);
+    partial void OnLoadcreatedChanged();
+    partial void OnStoreIssueChanging(bool value);
+    partial void OnStoreIssueChanged();
+    partial void OnTransferOutChanging(bool value);
+    partial void OnTransferOutChanged();
+    partial void OnTransferINChanging(bool value);
+    partial void OnTransferINChanged();
+    partial void OnChanelManageChanging(bool value);
+    partial void OnChanelManageChanged();
+    partial void OnIOmanagerightChanging(bool value);
+    partial void OnIOmanagerightChanged();
+    partial void OnSetPOSMprogramerightChanging(bool value);
+    partial void OnSetPOSMprogramerightChanged();
+    partial void OnViewProgramePDFrightChanging(bool value);
+    partial void OnViewProgramePDFrightChanged();
+    partial void OnAprovalPaymentRequestrightChanging(bool value);
+    partial void OnAprovalPaymentRequestrightChanged();
+    partial void OnupdateGatePassDeliveredrightChanging(bool value);
+    partial void OnupdateGatePassDeliveredrightChanged();
+    partial void OnRequestpaymentApprovalChanging(bool value);
+    partial void OnRequestpaymentApprovalChanged();
+    partial void OnuploadBeginStorerightChanging(bool value);
+    partial void OnuploadBeginStorerightChanged();
+    partial void OnControlUsernameChanging(bool value);
+    partial void OnControlUsernameChanged();
+    partial void OnCustomerEditChanging(bool value);
+    partial void OnCustomerEditChanged();
+    partial void OnCustomerUploadrightChanging(bool value);
+    partial void OnCustomerUploadrightChanged();
+    partial void OnSalesLocationrightChanging(bool value);
+    partial void OnSalesLocationrightChanged();
+    partial void OnSalesRegionManagerightChanging(bool value);
+    partial void OnSalesRegionManagerightChanged();
+    partial void OnChannelsalesManagerightChanging(bool value);
+    partial void OnChannelsalesManagerightChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1058,6 +1152,366 @@ namespace Maketting
 					this._IOprogamecreatRight = value;
 					this.SendPropertyChanged("IOprogamecreatRight");
 					this.OnIOprogamecreatRightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Loadcreated", DbType="Bit NOT NULL")]
+		public bool Loadcreated
+		{
+			get
+			{
+				return this._Loadcreated;
+			}
+			set
+			{
+				if ((this._Loadcreated != value))
+				{
+					this.OnLoadcreatedChanging(value);
+					this.SendPropertyChanging();
+					this._Loadcreated = value;
+					this.SendPropertyChanged("Loadcreated");
+					this.OnLoadcreatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreIssue", DbType="Bit NOT NULL")]
+		public bool StoreIssue
+		{
+			get
+			{
+				return this._StoreIssue;
+			}
+			set
+			{
+				if ((this._StoreIssue != value))
+				{
+					this.OnStoreIssueChanging(value);
+					this.SendPropertyChanging();
+					this._StoreIssue = value;
+					this.SendPropertyChanged("StoreIssue");
+					this.OnStoreIssueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransferOut", DbType="Bit NOT NULL")]
+		public bool TransferOut
+		{
+			get
+			{
+				return this._TransferOut;
+			}
+			set
+			{
+				if ((this._TransferOut != value))
+				{
+					this.OnTransferOutChanging(value);
+					this.SendPropertyChanging();
+					this._TransferOut = value;
+					this.SendPropertyChanged("TransferOut");
+					this.OnTransferOutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransferIN", DbType="Bit NOT NULL")]
+		public bool TransferIN
+		{
+			get
+			{
+				return this._TransferIN;
+			}
+			set
+			{
+				if ((this._TransferIN != value))
+				{
+					this.OnTransferINChanging(value);
+					this.SendPropertyChanging();
+					this._TransferIN = value;
+					this.SendPropertyChanged("TransferIN");
+					this.OnTransferINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChanelManage", DbType="Bit NOT NULL")]
+		public bool ChanelManage
+		{
+			get
+			{
+				return this._ChanelManage;
+			}
+			set
+			{
+				if ((this._ChanelManage != value))
+				{
+					this.OnChanelManageChanging(value);
+					this.SendPropertyChanging();
+					this._ChanelManage = value;
+					this.SendPropertyChanged("ChanelManage");
+					this.OnChanelManageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IOmanageright", DbType="Bit NOT NULL")]
+		public bool IOmanageright
+		{
+			get
+			{
+				return this._IOmanageright;
+			}
+			set
+			{
+				if ((this._IOmanageright != value))
+				{
+					this.OnIOmanagerightChanging(value);
+					this.SendPropertyChanging();
+					this._IOmanageright = value;
+					this.SendPropertyChanged("IOmanageright");
+					this.OnIOmanagerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetPOSMprogrameright", DbType="Bit NOT NULL")]
+		public bool SetPOSMprogrameright
+		{
+			get
+			{
+				return this._SetPOSMprogrameright;
+			}
+			set
+			{
+				if ((this._SetPOSMprogrameright != value))
+				{
+					this.OnSetPOSMprogramerightChanging(value);
+					this.SendPropertyChanging();
+					this._SetPOSMprogrameright = value;
+					this.SendPropertyChanged("SetPOSMprogrameright");
+					this.OnSetPOSMprogramerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViewProgramePDFright", DbType="Bit NOT NULL")]
+		public bool ViewProgramePDFright
+		{
+			get
+			{
+				return this._ViewProgramePDFright;
+			}
+			set
+			{
+				if ((this._ViewProgramePDFright != value))
+				{
+					this.OnViewProgramePDFrightChanging(value);
+					this.SendPropertyChanging();
+					this._ViewProgramePDFright = value;
+					this.SendPropertyChanged("ViewProgramePDFright");
+					this.OnViewProgramePDFrightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AprovalPaymentRequestright", DbType="Bit NOT NULL")]
+		public bool AprovalPaymentRequestright
+		{
+			get
+			{
+				return this._AprovalPaymentRequestright;
+			}
+			set
+			{
+				if ((this._AprovalPaymentRequestright != value))
+				{
+					this.OnAprovalPaymentRequestrightChanging(value);
+					this.SendPropertyChanging();
+					this._AprovalPaymentRequestright = value;
+					this.SendPropertyChanged("AprovalPaymentRequestright");
+					this.OnAprovalPaymentRequestrightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updateGatePassDeliveredright", DbType="Bit NOT NULL")]
+		public bool updateGatePassDeliveredright
+		{
+			get
+			{
+				return this._updateGatePassDeliveredright;
+			}
+			set
+			{
+				if ((this._updateGatePassDeliveredright != value))
+				{
+					this.OnupdateGatePassDeliveredrightChanging(value);
+					this.SendPropertyChanging();
+					this._updateGatePassDeliveredright = value;
+					this.SendPropertyChanged("updateGatePassDeliveredright");
+					this.OnupdateGatePassDeliveredrightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestpaymentApproval", DbType="Bit NOT NULL")]
+		public bool RequestpaymentApproval
+		{
+			get
+			{
+				return this._RequestpaymentApproval;
+			}
+			set
+			{
+				if ((this._RequestpaymentApproval != value))
+				{
+					this.OnRequestpaymentApprovalChanging(value);
+					this.SendPropertyChanging();
+					this._RequestpaymentApproval = value;
+					this.SendPropertyChanged("RequestpaymentApproval");
+					this.OnRequestpaymentApprovalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_uploadBeginStoreright", DbType="Bit NOT NULL")]
+		public bool uploadBeginStoreright
+		{
+			get
+			{
+				return this._uploadBeginStoreright;
+			}
+			set
+			{
+				if ((this._uploadBeginStoreright != value))
+				{
+					this.OnuploadBeginStorerightChanging(value);
+					this.SendPropertyChanging();
+					this._uploadBeginStoreright = value;
+					this.SendPropertyChanged("uploadBeginStoreright");
+					this.OnuploadBeginStorerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ControlUsername", DbType="Bit NOT NULL")]
+		public bool ControlUsername
+		{
+			get
+			{
+				return this._ControlUsername;
+			}
+			set
+			{
+				if ((this._ControlUsername != value))
+				{
+					this.OnControlUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._ControlUsername = value;
+					this.SendPropertyChanged("ControlUsername");
+					this.OnControlUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerEdit", DbType="Bit NOT NULL")]
+		public bool CustomerEdit
+		{
+			get
+			{
+				return this._CustomerEdit;
+			}
+			set
+			{
+				if ((this._CustomerEdit != value))
+				{
+					this.OnCustomerEditChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerEdit = value;
+					this.SendPropertyChanged("CustomerEdit");
+					this.OnCustomerEditChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerUploadright", DbType="Bit NOT NULL")]
+		public bool CustomerUploadright
+		{
+			get
+			{
+				return this._CustomerUploadright;
+			}
+			set
+			{
+				if ((this._CustomerUploadright != value))
+				{
+					this.OnCustomerUploadrightChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerUploadright = value;
+					this.SendPropertyChanged("CustomerUploadright");
+					this.OnCustomerUploadrightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesLocationright", DbType="Bit NOT NULL")]
+		public bool SalesLocationright
+		{
+			get
+			{
+				return this._SalesLocationright;
+			}
+			set
+			{
+				if ((this._SalesLocationright != value))
+				{
+					this.OnSalesLocationrightChanging(value);
+					this.SendPropertyChanging();
+					this._SalesLocationright = value;
+					this.SendPropertyChanged("SalesLocationright");
+					this.OnSalesLocationrightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalesRegionManageright", DbType="Bit NOT NULL")]
+		public bool SalesRegionManageright
+		{
+			get
+			{
+				return this._SalesRegionManageright;
+			}
+			set
+			{
+				if ((this._SalesRegionManageright != value))
+				{
+					this.OnSalesRegionManagerightChanging(value);
+					this.SendPropertyChanging();
+					this._SalesRegionManageright = value;
+					this.SendPropertyChanged("SalesRegionManageright");
+					this.OnSalesRegionManagerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChannelsalesManageright", DbType="Bit NOT NULL")]
+		public bool ChannelsalesManageright
+		{
+			get
+			{
+				return this._ChannelsalesManageright;
+			}
+			set
+			{
+				if ((this._ChannelsalesManageright != value))
+				{
+					this.OnChannelsalesManagerightChanging(value);
+					this.SendPropertyChanging();
+					this._ChannelsalesManageright = value;
+					this.SendPropertyChanged("ChannelsalesManageright");
+					this.OnChannelsalesManagerightChanged();
 				}
 			}
 		}
@@ -3103,7 +3557,7 @@ namespace Maketting
 		
 		private string _Requested_by;
 		
-		private System.Nullable<double> _Customer_SAP_Code;
+		private string _Customer_SAP_Code;
 		
 		private string _Receiver_by;
 		
@@ -3161,6 +3615,8 @@ namespace Maketting
 		
 		private System.Nullable<double> _Price;
 		
+		private System.Nullable<double> _NetValue;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3171,7 +3627,7 @@ namespace Maketting
     partial void OnDate_Received_IssuedChanged();
     partial void OnRequested_byChanging(string value);
     partial void OnRequested_byChanged();
-    partial void OnCustomer_SAP_CodeChanging(System.Nullable<double> value);
+    partial void OnCustomer_SAP_CodeChanging(string value);
     partial void OnCustomer_SAP_CodeChanged();
     partial void OnReceiver_byChanging(string value);
     partial void OnReceiver_byChanged();
@@ -3229,6 +3685,8 @@ namespace Maketting
     partial void OnCompleted_byChanged();
     partial void OnPriceChanging(System.Nullable<double> value);
     partial void OnPriceChanged();
+    partial void OnNetValueChanging(System.Nullable<double> value);
+    partial void OnNetValueChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -3296,8 +3754,8 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_SAP_Code", DbType="Float")]
-		public System.Nullable<double> Customer_SAP_Code
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_SAP_Code", DbType="NVarChar(50)")]
+		public string Customer_SAP_Code
 		{
 			get
 			{
@@ -3872,6 +4330,26 @@ namespace Maketting
 					this._Price = value;
 					this.SendPropertyChanged("Price");
 					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NetValue", DbType="Float")]
+		public System.Nullable<double> NetValue
+		{
+			get
+			{
+				return this._NetValue;
+			}
+			set
+			{
+				if ((this._NetValue != value))
+				{
+					this.OnNetValueChanging(value);
+					this.SendPropertyChanging();
+					this._NetValue = value;
+					this.SendPropertyChanged("NetValue");
+					this.OnNetValueChanged();
 				}
 			}
 		}
@@ -5176,6 +5654,984 @@ namespace Maketting
 					this._id = value;
 					this.SendPropertyChanged("id");
 					this.OnidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Payment_Aproval")]
+	public partial class tbl_MKT_Payment_Aproval : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IO_number;
+		
+		private string _ProgrameIDDocno;
+		
+		private string _Customercode;
+		
+		private string _CustomerName;
+		
+		private string _CustomerAddress;
+		
+		private System.Nullable<double> _AprovalBudget;
+		
+		private string _costcenter;
+		
+		private string _Account;
+		
+		private int _id;
+		
+		private System.Nullable<int> _payID;
+		
+		private string _Approval;
+		
+		private string _Requestby;
+		
+		private string _Approvalby;
+		
+		private System.Nullable<System.DateTime> _Requsestdate;
+		
+		private System.Nullable<System.DateTime> _Approvaldate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIO_numberChanging(string value);
+    partial void OnIO_numberChanged();
+    partial void OnProgrameIDDocnoChanging(string value);
+    partial void OnProgrameIDDocnoChanged();
+    partial void OnCustomercodeChanging(string value);
+    partial void OnCustomercodeChanged();
+    partial void OnCustomerNameChanging(string value);
+    partial void OnCustomerNameChanged();
+    partial void OnCustomerAddressChanging(string value);
+    partial void OnCustomerAddressChanged();
+    partial void OnAprovalBudgetChanging(System.Nullable<double> value);
+    partial void OnAprovalBudgetChanged();
+    partial void OncostcenterChanging(string value);
+    partial void OncostcenterChanged();
+    partial void OnAccountChanging(string value);
+    partial void OnAccountChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnpayIDChanging(System.Nullable<int> value);
+    partial void OnpayIDChanged();
+    partial void OnApprovalChanging(string value);
+    partial void OnApprovalChanged();
+    partial void OnRequestbyChanging(string value);
+    partial void OnRequestbyChanged();
+    partial void OnApprovalbyChanging(string value);
+    partial void OnApprovalbyChanged();
+    partial void OnRequsestdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRequsestdateChanged();
+    partial void OnApprovaldateChanging(System.Nullable<System.DateTime> value);
+    partial void OnApprovaldateChanged();
+    #endregion
+		
+		public tbl_MKT_Payment_Aproval()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IO_number", DbType="NVarChar(50)")]
+		public string IO_number
+		{
+			get
+			{
+				return this._IO_number;
+			}
+			set
+			{
+				if ((this._IO_number != value))
+				{
+					this.OnIO_numberChanging(value);
+					this.SendPropertyChanging();
+					this._IO_number = value;
+					this.SendPropertyChanged("IO_number");
+					this.OnIO_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgrameIDDocno", DbType="NVarChar(50)")]
+		public string ProgrameIDDocno
+		{
+			get
+			{
+				return this._ProgrameIDDocno;
+			}
+			set
+			{
+				if ((this._ProgrameIDDocno != value))
+				{
+					this.OnProgrameIDDocnoChanging(value);
+					this.SendPropertyChanging();
+					this._ProgrameIDDocno = value;
+					this.SendPropertyChanged("ProgrameIDDocno");
+					this.OnProgrameIDDocnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customercode", DbType="NVarChar(50)")]
+		public string Customercode
+		{
+			get
+			{
+				return this._Customercode;
+			}
+			set
+			{
+				if ((this._Customercode != value))
+				{
+					this.OnCustomercodeChanging(value);
+					this.SendPropertyChanging();
+					this._Customercode = value;
+					this.SendPropertyChanged("Customercode");
+					this.OnCustomercodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(225)")]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this.OnCustomerNameChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerName = value;
+					this.SendPropertyChanged("CustomerName");
+					this.OnCustomerNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(225)")]
+		public string CustomerAddress
+		{
+			get
+			{
+				return this._CustomerAddress;
+			}
+			set
+			{
+				if ((this._CustomerAddress != value))
+				{
+					this.OnCustomerAddressChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerAddress = value;
+					this.SendPropertyChanged("CustomerAddress");
+					this.OnCustomerAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AprovalBudget", DbType="Float")]
+		public System.Nullable<double> AprovalBudget
+		{
+			get
+			{
+				return this._AprovalBudget;
+			}
+			set
+			{
+				if ((this._AprovalBudget != value))
+				{
+					this.OnAprovalBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._AprovalBudget = value;
+					this.SendPropertyChanged("AprovalBudget");
+					this.OnAprovalBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_costcenter", DbType="NVarChar(50)")]
+		public string costcenter
+		{
+			get
+			{
+				return this._costcenter;
+			}
+			set
+			{
+				if ((this._costcenter != value))
+				{
+					this.OncostcenterChanging(value);
+					this.SendPropertyChanging();
+					this._costcenter = value;
+					this.SendPropertyChanged("costcenter");
+					this.OncostcenterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="NVarChar(50)")]
+		public string Account
+		{
+			get
+			{
+				return this._Account;
+			}
+			set
+			{
+				if ((this._Account != value))
+				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
+					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payID", DbType="Int")]
+		public System.Nullable<int> payID
+		{
+			get
+			{
+				return this._payID;
+			}
+			set
+			{
+				if ((this._payID != value))
+				{
+					this.OnpayIDChanging(value);
+					this.SendPropertyChanging();
+					this._payID = value;
+					this.SendPropertyChanged("payID");
+					this.OnpayIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approval", DbType="NVarChar(50)")]
+		public string Approval
+		{
+			get
+			{
+				return this._Approval;
+			}
+			set
+			{
+				if ((this._Approval != value))
+				{
+					this.OnApprovalChanging(value);
+					this.SendPropertyChanging();
+					this._Approval = value;
+					this.SendPropertyChanged("Approval");
+					this.OnApprovalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Requestby", DbType="NVarChar(50)")]
+		public string Requestby
+		{
+			get
+			{
+				return this._Requestby;
+			}
+			set
+			{
+				if ((this._Requestby != value))
+				{
+					this.OnRequestbyChanging(value);
+					this.SendPropertyChanging();
+					this._Requestby = value;
+					this.SendPropertyChanged("Requestby");
+					this.OnRequestbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approvalby", DbType="NVarChar(50)")]
+		public string Approvalby
+		{
+			get
+			{
+				return this._Approvalby;
+			}
+			set
+			{
+				if ((this._Approvalby != value))
+				{
+					this.OnApprovalbyChanging(value);
+					this.SendPropertyChanging();
+					this._Approvalby = value;
+					this.SendPropertyChanged("Approvalby");
+					this.OnApprovalbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Requsestdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Requsestdate
+		{
+			get
+			{
+				return this._Requsestdate;
+			}
+			set
+			{
+				if ((this._Requsestdate != value))
+				{
+					this.OnRequsestdateChanging(value);
+					this.SendPropertyChanging();
+					this._Requsestdate = value;
+					this.SendPropertyChanged("Requsestdate");
+					this.OnRequsestdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approvaldate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Approvaldate
+		{
+			get
+			{
+				return this._Approvaldate;
+			}
+			set
+			{
+				if ((this._Approvaldate != value))
+				{
+					this.OnApprovaldateChanging(value);
+					this.SendPropertyChanging();
+					this._Approvaldate = value;
+					this.SendPropertyChanged("Approvaldate");
+					this.OnApprovaldateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Payment_Aproval_head")]
+	public partial class tbl_MKT_Payment_Aproval_head : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Requestby;
+		
+		private string _IO_number;
+		
+		private System.Nullable<double> _TotalAprovalBudget;
+		
+		private string _costcenter;
+		
+		private string _Account;
+		
+		private System.Nullable<int> _payID;
+		
+		private int _id;
+		
+		private string _username;
+		
+		private string _Approval;
+		
+		private string _ProgrameIDDocno;
+		
+		private string _ProgrameName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRequestbyChanging(string value);
+    partial void OnRequestbyChanged();
+    partial void OnIO_numberChanging(string value);
+    partial void OnIO_numberChanged();
+    partial void OnTotalAprovalBudgetChanging(System.Nullable<double> value);
+    partial void OnTotalAprovalBudgetChanged();
+    partial void OncostcenterChanging(string value);
+    partial void OncostcenterChanged();
+    partial void OnAccountChanging(string value);
+    partial void OnAccountChanged();
+    partial void OnpayIDChanging(System.Nullable<int> value);
+    partial void OnpayIDChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnApprovalChanging(string value);
+    partial void OnApprovalChanged();
+    partial void OnProgrameIDDocnoChanging(string value);
+    partial void OnProgrameIDDocnoChanged();
+    partial void OnProgrameNameChanging(string value);
+    partial void OnProgrameNameChanged();
+    #endregion
+		
+		public tbl_MKT_Payment_Aproval_head()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Requestby", DbType="NVarChar(50)")]
+		public string Requestby
+		{
+			get
+			{
+				return this._Requestby;
+			}
+			set
+			{
+				if ((this._Requestby != value))
+				{
+					this.OnRequestbyChanging(value);
+					this.SendPropertyChanging();
+					this._Requestby = value;
+					this.SendPropertyChanged("Requestby");
+					this.OnRequestbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IO_number", DbType="NVarChar(50)")]
+		public string IO_number
+		{
+			get
+			{
+				return this._IO_number;
+			}
+			set
+			{
+				if ((this._IO_number != value))
+				{
+					this.OnIO_numberChanging(value);
+					this.SendPropertyChanging();
+					this._IO_number = value;
+					this.SendPropertyChanged("IO_number");
+					this.OnIO_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAprovalBudget", DbType="Float")]
+		public System.Nullable<double> TotalAprovalBudget
+		{
+			get
+			{
+				return this._TotalAprovalBudget;
+			}
+			set
+			{
+				if ((this._TotalAprovalBudget != value))
+				{
+					this.OnTotalAprovalBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._TotalAprovalBudget = value;
+					this.SendPropertyChanged("TotalAprovalBudget");
+					this.OnTotalAprovalBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_costcenter", DbType="NVarChar(50)")]
+		public string costcenter
+		{
+			get
+			{
+				return this._costcenter;
+			}
+			set
+			{
+				if ((this._costcenter != value))
+				{
+					this.OncostcenterChanging(value);
+					this.SendPropertyChanging();
+					this._costcenter = value;
+					this.SendPropertyChanged("costcenter");
+					this.OncostcenterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="NVarChar(50)")]
+		public string Account
+		{
+			get
+			{
+				return this._Account;
+			}
+			set
+			{
+				if ((this._Account != value))
+				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
+					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_payID", DbType="Int")]
+		public System.Nullable<int> payID
+		{
+			get
+			{
+				return this._payID;
+			}
+			set
+			{
+				if ((this._payID != value))
+				{
+					this.OnpayIDChanging(value);
+					this.SendPropertyChanging();
+					this._payID = value;
+					this.SendPropertyChanged("payID");
+					this.OnpayIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Approval", DbType="NVarChar(50)")]
+		public string Approval
+		{
+			get
+			{
+				return this._Approval;
+			}
+			set
+			{
+				if ((this._Approval != value))
+				{
+					this.OnApprovalChanging(value);
+					this.SendPropertyChanging();
+					this._Approval = value;
+					this.SendPropertyChanged("Approval");
+					this.OnApprovalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgrameIDDocno", DbType="NVarChar(50)")]
+		public string ProgrameIDDocno
+		{
+			get
+			{
+				return this._ProgrameIDDocno;
+			}
+			set
+			{
+				if ((this._ProgrameIDDocno != value))
+				{
+					this.OnProgrameIDDocnoChanging(value);
+					this.SendPropertyChanging();
+					this._ProgrameIDDocno = value;
+					this.SendPropertyChanged("ProgrameIDDocno");
+					this.OnProgrameIDDocnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgrameName", DbType="NVarChar(225)")]
+		public string ProgrameName
+		{
+			get
+			{
+				return this._ProgrameName;
+			}
+			set
+			{
+				if ((this._ProgrameName != value))
+				{
+					this.OnProgrameNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProgrameName = value;
+					this.SendPropertyChanged("ProgrameName");
+					this.OnProgrameNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Payment_AprovalTMP")]
+	public partial class tbl_MKT_Payment_AprovalTMP : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IO_number;
+		
+		private string _ProgrameIDDocno;
+		
+		private string _Customercode;
+		
+		private string _CustomerName;
+		
+		private string _CustomerAddress;
+		
+		private System.Nullable<double> _AprovalBudget;
+		
+		private string _costcenter;
+		
+		private string _Account;
+		
+		private int _id;
+		
+		private string _username;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIO_numberChanging(string value);
+    partial void OnIO_numberChanged();
+    partial void OnProgrameIDDocnoChanging(string value);
+    partial void OnProgrameIDDocnoChanged();
+    partial void OnCustomercodeChanging(string value);
+    partial void OnCustomercodeChanged();
+    partial void OnCustomerNameChanging(string value);
+    partial void OnCustomerNameChanged();
+    partial void OnCustomerAddressChanging(string value);
+    partial void OnCustomerAddressChanged();
+    partial void OnAprovalBudgetChanging(System.Nullable<double> value);
+    partial void OnAprovalBudgetChanged();
+    partial void OncostcenterChanging(string value);
+    partial void OncostcenterChanged();
+    partial void OnAccountChanging(string value);
+    partial void OnAccountChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    #endregion
+		
+		public tbl_MKT_Payment_AprovalTMP()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IO_number", DbType="NVarChar(50)")]
+		public string IO_number
+		{
+			get
+			{
+				return this._IO_number;
+			}
+			set
+			{
+				if ((this._IO_number != value))
+				{
+					this.OnIO_numberChanging(value);
+					this.SendPropertyChanging();
+					this._IO_number = value;
+					this.SendPropertyChanged("IO_number");
+					this.OnIO_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgrameIDDocno", DbType="NVarChar(50)")]
+		public string ProgrameIDDocno
+		{
+			get
+			{
+				return this._ProgrameIDDocno;
+			}
+			set
+			{
+				if ((this._ProgrameIDDocno != value))
+				{
+					this.OnProgrameIDDocnoChanging(value);
+					this.SendPropertyChanging();
+					this._ProgrameIDDocno = value;
+					this.SendPropertyChanged("ProgrameIDDocno");
+					this.OnProgrameIDDocnoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customercode", DbType="NVarChar(50)")]
+		public string Customercode
+		{
+			get
+			{
+				return this._Customercode;
+			}
+			set
+			{
+				if ((this._Customercode != value))
+				{
+					this.OnCustomercodeChanging(value);
+					this.SendPropertyChanging();
+					this._Customercode = value;
+					this.SendPropertyChanged("Customercode");
+					this.OnCustomercodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(225)")]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this.OnCustomerNameChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerName = value;
+					this.SendPropertyChanged("CustomerName");
+					this.OnCustomerNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerAddress", DbType="NVarChar(225)")]
+		public string CustomerAddress
+		{
+			get
+			{
+				return this._CustomerAddress;
+			}
+			set
+			{
+				if ((this._CustomerAddress != value))
+				{
+					this.OnCustomerAddressChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerAddress = value;
+					this.SendPropertyChanged("CustomerAddress");
+					this.OnCustomerAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AprovalBudget", DbType="Float")]
+		public System.Nullable<double> AprovalBudget
+		{
+			get
+			{
+				return this._AprovalBudget;
+			}
+			set
+			{
+				if ((this._AprovalBudget != value))
+				{
+					this.OnAprovalBudgetChanging(value);
+					this.SendPropertyChanging();
+					this._AprovalBudget = value;
+					this.SendPropertyChanged("AprovalBudget");
+					this.OnAprovalBudgetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_costcenter", DbType="NVarChar(50)")]
+		public string costcenter
+		{
+			get
+			{
+				return this._costcenter;
+			}
+			set
+			{
+				if ((this._costcenter != value))
+				{
+					this.OncostcenterChanging(value);
+					this.SendPropertyChanging();
+					this._costcenter = value;
+					this.SendPropertyChanged("costcenter");
+					this.OncostcenterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Account", DbType="NVarChar(50)")]
+		public string Account
+		{
+			get
+			{
+				return this._Account;
+			}
+			set
+			{
+				if ((this._Account != value))
+				{
+					this.OnAccountChanging(value);
+					this.SendPropertyChanging();
+					this._Account = value;
+					this.SendPropertyChanged("Account");
+					this.OnAccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
 				}
 			}
 		}
@@ -7122,260 +8578,6 @@ namespace Maketting
 					this._ProgrameIDDocno = value;
 					this.SendPropertyChanged("ProgrameIDDocno");
 					this.OnProgrameIDDocnoChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_ProgramepriceproductTMPbo")]
-	public partial class tbl_MKT_ProgramepriceproductTMPbo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _ProgrameIDDocno;
-		
-		private string _SAP_CODE;
-		
-		private string _ITEM_Code;
-		
-		private string _MATERIAL;
-		
-		private string _Description;
-		
-		private string _UNIT;
-		
-		private System.Nullable<double> _Price;
-		
-		private string _Username;
-		
-		private int _id;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProgrameIDDocnoChanging(string value);
-    partial void OnProgrameIDDocnoChanged();
-    partial void OnSAP_CODEChanging(string value);
-    partial void OnSAP_CODEChanged();
-    partial void OnITEM_CodeChanging(string value);
-    partial void OnITEM_CodeChanged();
-    partial void OnMATERIALChanging(string value);
-    partial void OnMATERIALChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnUNITChanging(string value);
-    partial void OnUNITChanged();
-    partial void OnPriceChanging(System.Nullable<double> value);
-    partial void OnPriceChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    #endregion
-		
-		public tbl_MKT_ProgramepriceproductTMPbo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgrameIDDocno", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ProgrameIDDocno
-		{
-			get
-			{
-				return this._ProgrameIDDocno;
-			}
-			set
-			{
-				if ((this._ProgrameIDDocno != value))
-				{
-					this.OnProgrameIDDocnoChanging(value);
-					this.SendPropertyChanging();
-					this._ProgrameIDDocno = value;
-					this.SendPropertyChanged("ProgrameIDDocno");
-					this.OnProgrameIDDocnoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAP_CODE", DbType="NVarChar(255)")]
-		public string SAP_CODE
-		{
-			get
-			{
-				return this._SAP_CODE;
-			}
-			set
-			{
-				if ((this._SAP_CODE != value))
-				{
-					this.OnSAP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SAP_CODE = value;
-					this.SendPropertyChanged("SAP_CODE");
-					this.OnSAP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITEM_Code", DbType="NVarChar(255)")]
-		public string ITEM_Code
-		{
-			get
-			{
-				return this._ITEM_Code;
-			}
-			set
-			{
-				if ((this._ITEM_Code != value))
-				{
-					this.OnITEM_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._ITEM_Code = value;
-					this.SendPropertyChanged("ITEM_Code");
-					this.OnITEM_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATERIAL", DbType="NVarChar(255)")]
-		public string MATERIAL
-		{
-			get
-			{
-				return this._MATERIAL;
-			}
-			set
-			{
-				if ((this._MATERIAL != value))
-				{
-					this.OnMATERIALChanging(value);
-					this.SendPropertyChanging();
-					this._MATERIAL = value;
-					this.SendPropertyChanged("MATERIAL");
-					this.OnMATERIALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT", DbType="NVarChar(255)")]
-		public string UNIT
-		{
-			get
-			{
-				return this._UNIT;
-			}
-			set
-			{
-				if ((this._UNIT != value))
-				{
-					this.OnUNITChanging(value);
-					this.SendPropertyChanging();
-					this._UNIT = value;
-					this.SendPropertyChanged("UNIT");
-					this.OnUNITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Float")]
-		public System.Nullable<double> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(50)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
 				}
 			}
 		}
