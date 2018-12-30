@@ -27,6 +27,7 @@ namespace Maketting.View
         public string username { get; set; }
 
         public string ProgrameIDDocno { get; set; }
+        public string ionumber { get; set; }
 
 
         //  IQueryable rs, LinqtoSQLDataContext d
@@ -37,19 +38,29 @@ namespace Maketting.View
 
         //    lbfileupload.Text = "";
             txtsohieuct.Text = "";
-
+            txtionumber.Text = "";
             txttenct.Text = "";
-          
+            txtchargetoaccount.Text = "";
+            txtcostcenter.Text = "";
+
+
+            txtsohieuct.Enabled = false;
+            txttenct.Enabled = false;
+
 
             this.ProgrameIDDocno = txtsohieuct.Text;
             // label7.Text = "Select one or more channel ";
-
+            this.ionumber = "";
             this.username = Utils.getusername();
 
 
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+            ////---------------------
 
             Model.MKT.DeleteALLIOTMP(dc);
 
@@ -79,33 +90,9 @@ namespace Maketting.View
             this.dataGridViewIO.DataSource = Programelist;
             dataGridViewIO.Columns["Id"].Visible = false;
             dataGridViewIO.Columns["Username"].Visible = false;
-            //   Valuechoose = "";
-            // kqstring = "";
-
-            //Model.MKT.DeleteALLIPricelistIOTMP(dc);
 
 
-            //var priceIOlist = from pp in dc.tbl_MKT_ProgramepriceproductTMPs
-            //                  where pp.Username == username
-            //                  select new
-            //                  {
-            //                      pp.ITEM_Code,
-            //                      pp.MATERIAL,
-            //                      pp.Price,
-            //                      pp.SAP_CODE,
-            //                      pp.Description,
-            //                      pp.id,
-            //                      pp.Username,
-
-
-            //                  };
-
-
-
-
-            //this.dataGridViewProduct.DataSource = priceIOlist;
-            //dataGridViewProduct.Columns["Id"].Visible = false;
-            //dataGridViewProduct.Columns["Username"].Visible = false;
+            txtionumber.Focus();
 
         }
 
@@ -539,17 +526,43 @@ namespace Maketting.View
         private void button4_Click(object sender, EventArgs e)
         {
 
-            if (this.ProgrameIDDocno == "")
+            //txtsohieuct.Text = "";
+            //txtionumber.Text = "";
+            //txttenct.Text = "";
+            //txtchargetoaccount.Text = "";
+            //txtcostcenter.Text = "";
+
+            if (this.ionumber == "")
             {
 
-                MessageBox.Show("Please nhập số hiệu chương trình trước khi upload file scheme ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please nhập IO number trước khi upload file ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                txtsohieuct.Focus();
+                txtionumber.Focus();
                 return;
             }
 
-            View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3, 0, this.ProgrameIDDocno, this.dataGridViewIO);
-            spchon.ShowDialog();
+            if (txtchargetoaccount.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Account charge to ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtchargetoaccount.Focus();
+                return;
+            }
+
+            if (txtcostcenter.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Cost center ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtcostcenter.Focus();
+                return;
+            }
+
+
+
+            //View.MKTVTDanhsacIOtemp spchon = new MKTVTDanhsacIOtemp(3, 0, this.ProgrameIDDocno, this.dataGridViewIO);
+            //spchon.ShowDialog();
 
 
         }
@@ -680,6 +693,62 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void txtionumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //  cbsophieu.
+                e.Handled = true;
+
+                string seachtext = txtionumber.Text;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                //var rs = from pp in dc.tbl_MKT_IO_Programes
+                //         where pp.tenCT.Contains(seachtext)
+                //         select new
+                //         {
+                //             MÃ_CHƯƠNG_TRÌNH = pp.macT,
+                //             TÊN_CHƯƠNG_TRÌNH = pp.tenCT,
+
+
+
+                //             pp.id,
+
+                //         };
+
+                var rs = Model.MKT.DanhsachctMKTSeachbyIOseach(dc, txtionumber.Text);
+
+                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PURPOSE ", "MKT");
+                selectkq.ShowDialog();
+                int id = selectkq.id;
+
+                var rs2 = (from pp in dc.tbl_MKT_IO_Programes
+                           where pp.id == id
+                           select pp).FirstOrDefault();
+
+                if (rs2 != null)
+                {
+
+                    txtionumber.Text = rs2.IO_number;
+                    txttenct.Text = rs2.IO_Name;
+                    txtsohieuct.Text = rs2.ProgrameIDDocno;
+                    this.ionumber = rs2.IO_number;
+                    this.ProgrameIDDocno = rs2.IO_number;
+
+                }
+
+
+
+
+                btiosetup.Focus();
+
+
+                //    dataGridViewDetail.Focus();
+
+            }
         }
     }
 }

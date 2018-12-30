@@ -1321,6 +1321,71 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+
+        public static IQueryable DanhsachctMKTSeachbyIOseach(LinqtoSQLDataContext dc, string ionumber)
+        {
+
+
+            //var rs = (from p in db.tbl_MKT_IO_Programes
+            //          where p.IO_number == maCT
+            //          //  orderby tbl_dstaikhoan.matk
+            //          select p).FirstOrDefault();
+
+
+            //if (rs != null)
+            //{
+            //    rs.IO_number = this.maCT;//= this.txtma.Text;
+            //    rs.IO_Name = this.tenCT;//= this.txtten.Text;
+            //    rs.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
+            //    rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
+            //    rs.Region = this.region;
+            //    rs.Sales_Org = this.salesorg;
+            //    rs.ChannelGroup = this.channelgroup;
+            //    rs.ProgrameIDDocno = this.ProgrameIDDocno;
+
+            //    db.SubmitChanges();
+            //    this.Close();
+            //}
+
+
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = from p in db.tbl_MKT_IO_Programes
+                     where p.IO_number.Contains(ionumber)
+                     orderby p.IO_number
+                     select new
+                     {
+                         Số_hiệu_CT = p.ProgrameIDDocno,
+                         IO = p.IO_number,
+                         Tên_chương_trình = p.IO_Name,
+                         p.Sales_Org,
+                         p.Region,
+                         p.ChannelGroup,
+
+
+
+                         Ghi_chú = p.ghichu,
+
+
+
+                         p.Budget,
+
+                         ID = p.id,
+                     };
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+            return rs;
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+
         public static IQueryable DanhsachnhavantaiMKT(LinqtoSQLDataContext dc)
         {
 
