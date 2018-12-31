@@ -32,6 +32,58 @@ namespace Maketting.View
         public double totalBudget { get; set; }
 
         public int payID { get; set; }
+        public DataGridView DatagridviewTmp { get; set; }
+
+
+
+        //public static void updateTotal()
+        //{
+
+        //    string Username = Utils.getusername();
+
+
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+          
+
+        //    var Programelist = from pp in dc.tbl_MKT_Payment_AprovalTMPs
+        //                       where pp.username == Username
+        //                       select new
+        //                       {
+        //                           //      pp.IO_number,
+        //                           //      pp.ProgrameIDDocno,
+        //                           //     pp.Account,
+        //                           //     pp.costcenter,
+        //                           pp.Customercode,
+        //                           pp.CustomerName,
+
+        //                           pp.CustomerAddress,
+        //                           pp.AprovalBudget,
+
+        //                           pp.id,
+
+        //                           pp.username,
+
+
+
+        //                       };
+
+
+
+        //    dataGridviewpaymentapprval.DataSource = Programelist;
+
+        //    if (Programelist.Count() > 0)
+        //    {
+        //        double totalBudgetup = (double)Programelist.Sum(x => x.AprovalBudget);
+
+        //        txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
+
+        //    }
+
+
+
+        //}
+
 
         public void blanknewpayment()
         {
@@ -1010,9 +1062,38 @@ namespace Maketting.View
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+            //       Model view.MKTAddnewbudgetTMP 
+            if (this.ionumber == "")
+            {
+
+                MessageBox.Show("Please nhập IO number trước khi upload file ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtionumber.Focus();
+                return;
+            }
+
+            if (txtchargetoaccount.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Account charge to ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtchargetoaccount.Focus();
+                return;
+            }
+
+            if (txtcostcenter.Text == "")
+            {
+
+                MessageBox.Show("Please nhập Cost center ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtcostcenter.Focus();
+                return;
+            }
 
 
 
+            View.MKTAddnewbudgetTMP newadd = new MKTAddnewbudgetTMP(this.ionumber, this.dataGridviewpaymentapprval, this.txttotalbudget);
+            newadd.ShowDialog();
 
 
             string connection_string = Utils.getConnectionstr();
