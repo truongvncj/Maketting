@@ -928,6 +928,38 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static void updatetangOrdered(string itemCode, double ordered, string Store_code)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var valueitem = (from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemCode
+                     && p.Store_code == Store_code
+                     select p).FirstOrDefault();
+
+            if (valueitem != null)
+            {
+                valueitem.Ordered = valueitem.Ordered.GetValueOrDefault(0) + ordered;
+
+                dc.SubmitChanges();
+
+            }
+
+
+
+
+
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
+
         public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout)
         {
 
@@ -1272,13 +1304,15 @@ namespace Maketting.Model
 
             }
 
-            //    grviewlisttk.DataSource = rs;
+            //   Giảm ordered khi xuất hàng
 
 
+            Model.MKT.updatetangOrdered(itemxuat.Materiacode, - (double)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
+            //   Giảm ordered khi xuất hàng
 
-            //  throw new NotImplementedException();
+
         }
 
         public static IQueryable DanhsachctMKT(LinqtoSQLDataContext dc)

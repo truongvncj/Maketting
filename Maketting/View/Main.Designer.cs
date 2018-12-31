@@ -73,6 +73,7 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.paymentApprovalRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setPOSMProgrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,8 +93,8 @@
             this.setIOButgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProgrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewAllPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentApprovalSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewAllPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.updateGatePassDeliveredToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menureports = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,7 +105,6 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.setPOSMProgrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -339,9 +339,9 @@
             this.toolStripSeparator11,
             this.storeDiviceByRegiomToolStripMenuItem,
             this.toolStripSeparator12,
+            this.setPOSMProgrameToolStripMenuItem,
             this.paymentApprovalRequestToolStripMenuItem,
-            this.viewPaymentRequestToolStripMenuItem,
-            this.setPOSMProgrameToolStripMenuItem});
+            this.viewPaymentRequestToolStripMenuItem});
             this.MenuMaketting.Name = "MenuMaketting";
             this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
             this.MenuMaketting.Text = "Maketting";
@@ -419,6 +419,7 @@
             // 
             // paymentApprovalRequestToolStripMenuItem
             // 
+            this.paymentApprovalRequestToolStripMenuItem.Image = global::Maketting.Properties.Resources.Thienha;
             this.paymentApprovalRequestToolStripMenuItem.Name = "paymentApprovalRequestToolStripMenuItem";
             this.paymentApprovalRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.paymentApprovalRequestToolStripMenuItem.Text = "Payment approval request";
@@ -430,6 +431,14 @@
             this.viewPaymentRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.viewPaymentRequestToolStripMenuItem.Text = "View Payment request";
             this.viewPaymentRequestToolStripMenuItem.Click += new System.EventHandler(this.viewPaymentRequestToolStripMenuItem_Click);
+            // 
+            // setPOSMProgrameToolStripMenuItem
+            // 
+            this.setPOSMProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
+            this.setPOSMProgrameToolStripMenuItem.Name = "setPOSMProgrameToolStripMenuItem";
+            this.setPOSMProgrameToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.setPOSMProgrameToolStripMenuItem.Text = "Set POSM programe";
+            this.setPOSMProgrameToolStripMenuItem.Click += new System.EventHandler(this.setPOSMProgrameToolStripMenuItem_Click);
             // 
             // Menuload
             // 
@@ -579,19 +588,19 @@
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(262, 6);
             // 
-            // viewAllPaymentRequestToolStripMenuItem
-            // 
-            this.viewAllPaymentRequestToolStripMenuItem.Name = "viewAllPaymentRequestToolStripMenuItem";
-            this.viewAllPaymentRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.viewAllPaymentRequestToolStripMenuItem.Text = "View all payment request";
-            this.viewAllPaymentRequestToolStripMenuItem.Click += new System.EventHandler(this.viewAllPaymentRequestToolStripMenuItem_Click);
-            // 
             // paymentApprovalSetToolStripMenuItem
             // 
             this.paymentApprovalSetToolStripMenuItem.Name = "paymentApprovalSetToolStripMenuItem";
             this.paymentApprovalSetToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.paymentApprovalSetToolStripMenuItem.Text = "Approval payment request";
             this.paymentApprovalSetToolStripMenuItem.Click += new System.EventHandler(this.paymentApprovalSetToolStripMenuItem_Click);
+            // 
+            // viewAllPaymentRequestToolStripMenuItem
+            // 
+            this.viewAllPaymentRequestToolStripMenuItem.Name = "viewAllPaymentRequestToolStripMenuItem";
+            this.viewAllPaymentRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.viewAllPaymentRequestToolStripMenuItem.Text = "View all payment request";
+            this.viewAllPaymentRequestToolStripMenuItem.Click += new System.EventHandler(this.viewAllPaymentRequestToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
@@ -666,14 +675,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // setPOSMProgrameToolStripMenuItem
-            // 
-            this.setPOSMProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
-            this.setPOSMProgrameToolStripMenuItem.Name = "setPOSMProgrameToolStripMenuItem";
-            this.setPOSMProgrameToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.setPOSMProgrameToolStripMenuItem.Text = "Set POSM programe";
-            this.setPOSMProgrameToolStripMenuItem.Click += new System.EventHandler(this.setPOSMProgrameToolStripMenuItem_Click);
             // 
             // Main
             // 

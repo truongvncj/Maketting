@@ -802,7 +802,8 @@ namespace Maketting.View
                     if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                     {
                         tbl_MKt_Listphieudetail detailphieu = new tbl_MKt_Listphieudetail();
-
+                        string ItemCode = "";
+                        float ordered = 0;
                         detailphieu.Address = txtdiachi.Text;
                         detailphieu.Customer_SAP_Code = txtcustcode.Text;
                         detailphieu.Receiver_by = txtnguoinhan.Text;
@@ -833,7 +834,8 @@ namespace Maketting.View
 
                         if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                         {
-                            detailphieu.Materiacode = (string)dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value;
+                            ItemCode = (string)dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value;
+                            detailphieu.Materiacode = ItemCode;
                         }
 
 
@@ -844,8 +846,8 @@ namespace Maketting.View
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
                         {
-
-                            detailphieu.Issued = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+                            ordered = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+                            detailphieu.Issued = ordered;
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
                         {
@@ -869,11 +871,26 @@ namespace Maketting.View
 
 
 
+
+                        #region       //update tang ordered
+                        Model.MKT.updatetangOrdered(ItemCode, ordered, this.storelocation);
+
+
+
+                        #endregion
+
+
+
+
+
+
+
                     }
                 }
 
                 #endregion
 
+             
 
                 #region          // trừ tồn bughet của chương trình
 
@@ -1710,7 +1727,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                             Avaiable_stock = pp.END_STOCK,
+                             Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1731,7 +1748,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                             Avaiable_stock = pp.END_STOCK,
+                             Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1751,7 +1768,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                             Avaiable_stock = pp.END_STOCK,
+                             Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1772,8 +1789,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                             Avaiable_stock = pp.END_STOCK,
-
+                             Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
                              pp.id,
 
                          };
@@ -1800,7 +1816,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
                                                                                     where p.ITEM_Code == valuechon.ITEM_Code
