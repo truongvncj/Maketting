@@ -687,6 +687,22 @@ namespace Maketting.View
                         dc.SubmitChanges();
                     }
 
+                    var updateblankhead = from pp in dc.tbl_MKt_Listphieuheads
+                                          where pp.LoadNumber == this.soload
+                                      && pp.ShippingPoint == this.storelocation
+                                      select pp;
+                    foreach (var item in updateblankhead)
+                    {
+                        item.Status = "CRT";
+                        item.Tranposterby = "";
+                        item.LoadNumber = "";
+                        item.Trucknumber = "";
+                      
+
+
+                        dc.SubmitChanges();
+                    }
+
 
                     var deletelistload = from pp in dc.tbl_MKt_ListLoadheadDetails
                                          where pp.LoadNumber == this.soload
