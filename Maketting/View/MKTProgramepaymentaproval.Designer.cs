@@ -39,6 +39,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtpaymentID = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtfromdate = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
             this.txtcostcenter = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtchargetoaccount = new System.Windows.Forms.TextBox();
@@ -50,11 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtionumber = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.txtfromdate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtpaymentID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridviewpaymentapprval)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -159,9 +159,9 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(205, 4);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(415, 25);
+            this.label16.Size = new System.Drawing.Size(296, 25);
             this.label16.TabIndex = 65;
-            this.label16.Text = "POSM PAYMENT  APPROVAL REQUEST";
+            this.label16.Text = "POSM  PAYMENT REQUEST";
             // 
             // panel1
             // 
@@ -196,6 +196,62 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(793, 613);
             this.panel1.TabIndex = 0;
+            // 
+            // txtpaymentID
+            // 
+            this.txtpaymentID.AutoSize = true;
+            this.txtpaymentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpaymentID.ForeColor = System.Drawing.Color.Red;
+            this.txtpaymentID.Location = new System.Drawing.Point(626, 88);
+            this.txtpaymentID.Name = "txtpaymentID";
+            this.txtpaymentID.Size = new System.Drawing.Size(64, 18);
+            this.txtpaymentID.TabIndex = 82;
+            this.txtpaymentID.Text = "1213324";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(536, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 18);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Payment ID";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(581, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 18);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Date";
+            // 
+            // txtfromdate
+            // 
+            this.txtfromdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.CustomFormat = "dd.MM.yyyy";
+            this.txtfromdate.Enabled = false;
+            this.txtfromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtfromdate.Location = new System.Drawing.Point(626, 49);
+            this.txtfromdate.Name = "txtfromdate";
+            this.txtfromdate.Size = new System.Drawing.Size(119, 24);
+            this.txtfromdate.TabIndex = 78;
+            this.txtfromdate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button4.Location = new System.Drawing.Point(693, 231);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(73, 25);
+            this.button4.TabIndex = 76;
+            this.button4.TabStop = false;
+            this.button4.Text = "Redo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // txtcostcenter
             // 
@@ -310,62 +366,6 @@
             this.button3.Text = "OK";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // button4
-            // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button4.Location = new System.Drawing.Point(693, 231);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(73, 25);
-            this.button4.TabIndex = 76;
-            this.button4.TabStop = false;
-            this.button4.Text = "Redo";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // txtfromdate
-            // 
-            this.txtfromdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfromdate.CustomFormat = "dd.MM.yyyy";
-            this.txtfromdate.Enabled = false;
-            this.txtfromdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfromdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtfromdate.Location = new System.Drawing.Point(626, 49);
-            this.txtfromdate.Name = "txtfromdate";
-            this.txtfromdate.Size = new System.Drawing.Size(119, 24);
-            this.txtfromdate.TabIndex = 78;
-            this.txtfromdate.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(581, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 18);
-            this.label4.TabIndex = 79;
-            this.label4.Text = "Date";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(536, 88);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 18);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Payment ID";
-            // 
-            // txtpaymentID
-            // 
-            this.txtpaymentID.AutoSize = true;
-            this.txtpaymentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpaymentID.ForeColor = System.Drawing.Color.Red;
-            this.txtpaymentID.Location = new System.Drawing.Point(626, 88);
-            this.txtpaymentID.Name = "txtpaymentID";
-            this.txtpaymentID.Size = new System.Drawing.Size(64, 18);
-            this.txtpaymentID.TabIndex = 82;
-            this.txtpaymentID.Text = "1213324";
             // 
             // MKTProgramepaymentaproval
             // 
