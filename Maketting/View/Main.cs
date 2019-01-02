@@ -4642,7 +4642,7 @@ namespace Maketting.View
                           pp.IO_number,
                           pp.ProgrameIDDocno,
                           pp.ProgrameName,
-                          Budge_Requested = pp.TotalAprovalBudget,
+                          Budget_Requested = pp.TotalAprovalBudget,
                           pp.Account,
                           pp.costcenter,
                           pp.Requestby,
