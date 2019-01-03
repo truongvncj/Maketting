@@ -120,9 +120,6 @@ namespace Maketting
     partial void Inserttbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Updatetbl_MKT_Stockend(tbl_MKT_Stockend instance);
     partial void Deletetbl_MKT_Stockend(tbl_MKT_Stockend instance);
-    partial void Inserttbl_MKT_StockendbudgetbyRegion(tbl_MKT_StockendbudgetbyRegion instance);
-    partial void Updatetbl_MKT_StockendbudgetbyRegion(tbl_MKT_StockendbudgetbyRegion instance);
-    partial void Deletetbl_MKT_StockendbudgetbyRegion(tbl_MKT_StockendbudgetbyRegion instance);
     partial void Inserttbl_MKT_StockendTMP(tbl_MKT_StockendTMP instance);
     partial void Updatetbl_MKT_StockendTMP(tbl_MKT_StockendTMP instance);
     partial void Deletetbl_MKT_StockendTMP(tbl_MKT_StockendTMP instance);
@@ -156,6 +153,9 @@ namespace Maketting
     partial void Inserttbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Updatetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
     partial void Deletetbl_MKt_WHstoreissue(tbl_MKt_WHstoreissue instance);
+    partial void Inserttbl_MKT_StockendRegionBudget(tbl_MKT_StockendRegionBudget instance);
+    partial void Updatetbl_MKT_StockendRegionBudget(tbl_MKT_StockendRegionBudget instance);
+    partial void Deletetbl_MKT_StockendRegionBudget(tbl_MKT_StockendRegionBudget instance);
     #endregion
 		
 		public LinqtoSQLDataContext() : 
@@ -428,14 +428,6 @@ namespace Maketting
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_MKT_StockendbudgetbyRegion> tbl_MKT_StockendbudgetbyRegions
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_StockendbudgetbyRegion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_MKT_StockendTMP> tbl_MKT_StockendTMPs
 		{
 			get
@@ -521,6 +513,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKt_WHstoreissue>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_StockendRegionBudget> tbl_MKT_StockendRegionBudgets
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_StockendRegionBudget>();
 			}
 		}
 	}
@@ -6695,6 +6695,8 @@ namespace Maketting
 		
 		private string _Region;
 		
+		private System.Nullable<double> _inputRate;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -6731,6 +6733,8 @@ namespace Maketting
     partial void OnUnit_PriceChanged();
     partial void OnRegionChanging(string value);
     partial void OnRegionChanged();
+    partial void OninputRateChanging(System.Nullable<double> value);
+    partial void OninputRateChanged();
     #endregion
 		
 		public tbl_MKt_POdetail()
@@ -7058,6 +7062,26 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inputRate", DbType="Float")]
+		public System.Nullable<double> inputRate
+		{
+			get
+			{
+				return this._inputRate;
+			}
+			set
+			{
+				if ((this._inputRate != value))
+				{
+					this.OninputRateChanging(value);
+					this.SendPropertyChanging();
+					this._inputRate = value;
+					this.SendPropertyChanged("inputRate");
+					this.OninputRateChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -7113,6 +7137,12 @@ namespace Maketting
 		
 		private System.Nullable<double> _Unit_Price;
 		
+		private string _Region;
+		
+		private System.Nullable<double> _inputRate;
+		
+		private System.Nullable<System.DateTime> _POdate;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -7145,6 +7175,12 @@ namespace Maketting
     partial void OnIOnameChanged();
     partial void OnUnit_PriceChanging(System.Nullable<double> value);
     partial void OnUnit_PriceChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OninputRateChanging(System.Nullable<double> value);
+    partial void OninputRateChanged();
+    partial void OnPOdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPOdateChanged();
     #endregion
 		
 		public tbl_MKt_POdetail_TMP()
@@ -7428,6 +7464,66 @@ namespace Maketting
 					this._Unit_Price = value;
 					this.SendPropertyChanged("Unit_Price");
 					this.OnUnit_PriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inputRate", DbType="Float")]
+		public System.Nullable<double> inputRate
+		{
+			get
+			{
+				return this._inputRate;
+			}
+			set
+			{
+				if ((this._inputRate != value))
+				{
+					this.OninputRateChanging(value);
+					this.SendPropertyChanging();
+					this._inputRate = value;
+					this.SendPropertyChanged("inputRate");
+					this.OninputRateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> POdate
+		{
+			get
+			{
+				return this._POdate;
+			}
+			set
+			{
+				if ((this._POdate != value))
+				{
+					this.OnPOdateChanging(value);
+					this.SendPropertyChanging();
+					this._POdate = value;
+					this.SendPropertyChanged("POdate");
+					this.OnPOdateChanged();
 				}
 			}
 		}
@@ -10040,284 +10136,6 @@ namespace Maketting
 					this._Ordered = value;
 					this.SendPropertyChanged("Ordered");
 					this.OnOrderedChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_StockendbudgetbyRegion")]
-	public partial class tbl_MKT_StockendbudgetbyRegion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Region;
-		
-		private string _SAP_CODE;
-		
-		private string _ITEM_Code;
-		
-		private string _MATERIAL;
-		
-		private string _Description;
-		
-		private string _UNIT;
-		
-		private System.Nullable<double> _Budget;
-		
-		private System.Nullable<double> _Spent;
-		
-		private System.Nullable<double> _Balance;
-		
-		private int _id;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRegionChanging(string value);
-    partial void OnRegionChanged();
-    partial void OnSAP_CODEChanging(string value);
-    partial void OnSAP_CODEChanged();
-    partial void OnITEM_CodeChanging(string value);
-    partial void OnITEM_CodeChanged();
-    partial void OnMATERIALChanging(string value);
-    partial void OnMATERIALChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnUNITChanging(string value);
-    partial void OnUNITChanged();
-    partial void OnBudgetChanging(System.Nullable<double> value);
-    partial void OnBudgetChanged();
-    partial void OnSpentChanging(System.Nullable<double> value);
-    partial void OnSpentChanged();
-    partial void OnBalanceChanging(System.Nullable<double> value);
-    partial void OnBalanceChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    #endregion
-		
-		public tbl_MKT_StockendbudgetbyRegion()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
-		public string Region
-		{
-			get
-			{
-				return this._Region;
-			}
-			set
-			{
-				if ((this._Region != value))
-				{
-					this.OnRegionChanging(value);
-					this.SendPropertyChanging();
-					this._Region = value;
-					this.SendPropertyChanged("Region");
-					this.OnRegionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAP_CODE", DbType="NVarChar(255)")]
-		public string SAP_CODE
-		{
-			get
-			{
-				return this._SAP_CODE;
-			}
-			set
-			{
-				if ((this._SAP_CODE != value))
-				{
-					this.OnSAP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SAP_CODE = value;
-					this.SendPropertyChanged("SAP_CODE");
-					this.OnSAP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITEM_Code", DbType="NVarChar(255)")]
-		public string ITEM_Code
-		{
-			get
-			{
-				return this._ITEM_Code;
-			}
-			set
-			{
-				if ((this._ITEM_Code != value))
-				{
-					this.OnITEM_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._ITEM_Code = value;
-					this.SendPropertyChanged("ITEM_Code");
-					this.OnITEM_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATERIAL", DbType="NVarChar(255)")]
-		public string MATERIAL
-		{
-			get
-			{
-				return this._MATERIAL;
-			}
-			set
-			{
-				if ((this._MATERIAL != value))
-				{
-					this.OnMATERIALChanging(value);
-					this.SendPropertyChanging();
-					this._MATERIAL = value;
-					this.SendPropertyChanged("MATERIAL");
-					this.OnMATERIALChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT", DbType="NVarChar(255)")]
-		public string UNIT
-		{
-			get
-			{
-				return this._UNIT;
-			}
-			set
-			{
-				if ((this._UNIT != value))
-				{
-					this.OnUNITChanging(value);
-					this.SendPropertyChanging();
-					this._UNIT = value;
-					this.SendPropertyChanged("UNIT");
-					this.OnUNITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Budget", DbType="Float")]
-		public System.Nullable<double> Budget
-		{
-			get
-			{
-				return this._Budget;
-			}
-			set
-			{
-				if ((this._Budget != value))
-				{
-					this.OnBudgetChanging(value);
-					this.SendPropertyChanging();
-					this._Budget = value;
-					this.SendPropertyChanged("Budget");
-					this.OnBudgetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spent", DbType="Float")]
-		public System.Nullable<double> Spent
-		{
-			get
-			{
-				return this._Spent;
-			}
-			set
-			{
-				if ((this._Spent != value))
-				{
-					this.OnSpentChanging(value);
-					this.SendPropertyChanging();
-					this._Spent = value;
-					this.SendPropertyChanged("Spent");
-					this.OnSpentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Float")]
-		public System.Nullable<double> Balance
-		{
-			get
-			{
-				return this._Balance;
-			}
-			set
-			{
-				if ((this._Balance != value))
-				{
-					this.OnBalanceChanging(value);
-					this.SendPropertyChanging();
-					this._Balance = value;
-					this.SendPropertyChanged("Balance");
-					this.OnBalanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
 				}
 			}
 		}
@@ -13664,6 +13482,380 @@ namespace Maketting
 					this._Unit = value;
 					this.SendPropertyChanged("Unit");
 					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_StockendRegionBudget")]
+	public partial class tbl_MKT_StockendRegionBudget : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Region;
+		
+		private string _SAP_CODE;
+		
+		private string _ITEM_Code;
+		
+		private string _MATERIAL;
+		
+		private string _Description;
+		
+		private string _UNIT;
+		
+		private System.Nullable<double> _QuantityInputbyPO;
+		
+		private System.Nullable<double> _QuantityOutput;
+		
+		private System.Nullable<double> _Balance;
+		
+		private int _id;
+		
+		private System.Nullable<double> _QuantityInputbyReturn;
+		
+		private System.Nullable<double> _QuantitybyDevice;
+		
+		private string _Note;
+		
+		private System.Nullable<System.DateTime> _Regionchangedate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
+    partial void OnSAP_CODEChanging(string value);
+    partial void OnSAP_CODEChanged();
+    partial void OnITEM_CodeChanging(string value);
+    partial void OnITEM_CodeChanged();
+    partial void OnMATERIALChanging(string value);
+    partial void OnMATERIALChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnUNITChanging(string value);
+    partial void OnUNITChanged();
+    partial void OnQuantityInputbyPOChanging(System.Nullable<double> value);
+    partial void OnQuantityInputbyPOChanged();
+    partial void OnQuantityOutputChanging(System.Nullable<double> value);
+    partial void OnQuantityOutputChanged();
+    partial void OnBalanceChanging(System.Nullable<double> value);
+    partial void OnBalanceChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnQuantityInputbyReturnChanging(System.Nullable<double> value);
+    partial void OnQuantityInputbyReturnChanged();
+    partial void OnQuantitybyDeviceChanging(System.Nullable<double> value);
+    partial void OnQuantitybyDeviceChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnRegionchangedateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRegionchangedateChanged();
+    #endregion
+		
+		public tbl_MKT_StockendRegionBudget()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SAP_CODE", DbType="NVarChar(255)")]
+		public string SAP_CODE
+		{
+			get
+			{
+				return this._SAP_CODE;
+			}
+			set
+			{
+				if ((this._SAP_CODE != value))
+				{
+					this.OnSAP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SAP_CODE = value;
+					this.SendPropertyChanged("SAP_CODE");
+					this.OnSAP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ITEM_Code", DbType="NVarChar(255)")]
+		public string ITEM_Code
+		{
+			get
+			{
+				return this._ITEM_Code;
+			}
+			set
+			{
+				if ((this._ITEM_Code != value))
+				{
+					this.OnITEM_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._ITEM_Code = value;
+					this.SendPropertyChanged("ITEM_Code");
+					this.OnITEM_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATERIAL", DbType="NVarChar(255)")]
+		public string MATERIAL
+		{
+			get
+			{
+				return this._MATERIAL;
+			}
+			set
+			{
+				if ((this._MATERIAL != value))
+				{
+					this.OnMATERIALChanging(value);
+					this.SendPropertyChanging();
+					this._MATERIAL = value;
+					this.SendPropertyChanged("MATERIAL");
+					this.OnMATERIALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(255)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT", DbType="NVarChar(255)")]
+		public string UNIT
+		{
+			get
+			{
+				return this._UNIT;
+			}
+			set
+			{
+				if ((this._UNIT != value))
+				{
+					this.OnUNITChanging(value);
+					this.SendPropertyChanging();
+					this._UNIT = value;
+					this.SendPropertyChanged("UNIT");
+					this.OnUNITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityInputbyPO", DbType="Float")]
+		public System.Nullable<double> QuantityInputbyPO
+		{
+			get
+			{
+				return this._QuantityInputbyPO;
+			}
+			set
+			{
+				if ((this._QuantityInputbyPO != value))
+				{
+					this.OnQuantityInputbyPOChanging(value);
+					this.SendPropertyChanging();
+					this._QuantityInputbyPO = value;
+					this.SendPropertyChanged("QuantityInputbyPO");
+					this.OnQuantityInputbyPOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityOutput", DbType="Float")]
+		public System.Nullable<double> QuantityOutput
+		{
+			get
+			{
+				return this._QuantityOutput;
+			}
+			set
+			{
+				if ((this._QuantityOutput != value))
+				{
+					this.OnQuantityOutputChanging(value);
+					this.SendPropertyChanging();
+					this._QuantityOutput = value;
+					this.SendPropertyChanged("QuantityOutput");
+					this.OnQuantityOutputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Float")]
+		public System.Nullable<double> Balance
+		{
+			get
+			{
+				return this._Balance;
+			}
+			set
+			{
+				if ((this._Balance != value))
+				{
+					this.OnBalanceChanging(value);
+					this.SendPropertyChanging();
+					this._Balance = value;
+					this.SendPropertyChanged("Balance");
+					this.OnBalanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityInputbyReturn", DbType="Float")]
+		public System.Nullable<double> QuantityInputbyReturn
+		{
+			get
+			{
+				return this._QuantityInputbyReturn;
+			}
+			set
+			{
+				if ((this._QuantityInputbyReturn != value))
+				{
+					this.OnQuantityInputbyReturnChanging(value);
+					this.SendPropertyChanging();
+					this._QuantityInputbyReturn = value;
+					this.SendPropertyChanged("QuantityInputbyReturn");
+					this.OnQuantityInputbyReturnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantitybyDevice", DbType="Float")]
+		public System.Nullable<double> QuantitybyDevice
+		{
+			get
+			{
+				return this._QuantitybyDevice;
+			}
+			set
+			{
+				if ((this._QuantitybyDevice != value))
+				{
+					this.OnQuantitybyDeviceChanging(value);
+					this.SendPropertyChanging();
+					this._QuantitybyDevice = value;
+					this.SendPropertyChanged("QuantitybyDevice");
+					this.OnQuantitybyDeviceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(255)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Regionchangedate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Regionchangedate
+		{
+			get
+			{
+				return this._Regionchangedate;
+			}
+			set
+			{
+				if ((this._Regionchangedate != value))
+				{
+					this.OnRegionchangedateChanging(value);
+					this.SendPropertyChanging();
+					this._Regionchangedate = value;
+					this.SendPropertyChanged("Regionchangedate");
+					this.OnRegionchangedateChanged();
 				}
 			}
 		}

@@ -63,7 +63,7 @@ namespace Maketting.View
             DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
 
             DataRow drToAdd = dataTable.NewRow();
-         //   dt.Columns.Add(new DataColumn("Region", typeof(string)));
+            //   dt.Columns.Add(new DataColumn("Region", typeof(string)));
 
             drToAdd["Region"] = Ponumber.Region;
             drToAdd["MATERIAL"] = Ponumber.Materialname;
@@ -457,7 +457,7 @@ namespace Maketting.View
                        select pp).FirstOrDefault();
             if (rs5 != null)
             {
-                MessageBox.Show("Can not created, dublicate found !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Can not created, please check PO number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
                 checkhead = false;
                 return;
@@ -628,12 +628,12 @@ namespace Maketting.View
                         //     detailphieu.Tel = lbtel.Text;
                         detailphieu.Username = this.Username;
                         detailphieu.POnumber = this.PONumber;
-
+                        detailphieu.POdate = datepickngayphieu.Value;
                         //   Region
 
                         if (dataGridViewDetail.Rows[idrow].Cells["Region"].Value != DBNull.Value)
                         {
-                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["Region"].Value;
+                            detailphieu.Region = (string)dataGridViewDetail.Rows[idrow].Cells["Region"].Value;
                         }
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
@@ -670,8 +670,13 @@ namespace Maketting.View
                             detailphieu.Unit_Price = (float)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value;
                         }
 
+
+
                         dc.tbl_MKt_POdetail_TMPs.InsertOnSubmit(detailphieu);
                         dc.SubmitChanges();
+
+
+
 
 
 
@@ -683,27 +688,32 @@ namespace Maketting.View
                 #region// Group and create PO
 
 
-                var rs6 = (from pp in dc.tbl_MKt_POdetail_TMPs
-                           where pp.POnumber == this.PONumber// && pp.StatusPO != "TMP"
-                           group pp by pp.MateriaItemcode into gg
-                           select new
-                           {
-                               MateriaItemcode = gg.Key,
-                               QuantityOrder = gg.Sum(m => m.QuantityOrder),
-                               Description = gg.Select(m => m.Description).FirstOrDefault(),
-                               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
-                               MateriaSAPcode = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-                               POnumber = gg.Select(m => m.POnumber).FirstOrDefault(),
-                               //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
-                               Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                               Unit = gg.Select(m => m.Unit).FirstOrDefault(),
-                               Username = gg.Select(m => m.Username).FirstOrDefault(),
+                //var rs6 = (from pp in dc.tbl_MKt_POdetail_TMPs
+                //           where pp.POnumber == this.PONumber// && pp.StatusPO != "TMP"
+                //           group pp by pp.MateriaItemcode into gg
+                //           select new
+                //           {
+                //               MateriaItemcode = gg.Key,
+                //               QuantityOrder = gg.Sum(m => m.QuantityOrder),
+                //               Description = gg.Select(m => m.Description).FirstOrDefault(),
+                //               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+                //               MateriaSAPcode = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+                //               POnumber = gg.Select(m => m.POnumber).FirstOrDefault(),
+                //               //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
+                //               Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
+                //               Unit = gg.Select(m => m.Unit).FirstOrDefault(),
+                //               Username = gg.Select(m => m.Username).FirstOrDefault(),
 
-                               Unit_price = gg.Sum(m => m.Unit_Price* m.QuantityOrder) / gg.Sum(m => m.QuantityOrder),
+                //               Unit_price = gg.Sum(m => m.Unit_Price * m.QuantityOrder) / gg.Sum(m => m.QuantityOrder),
 
 
 
-                           });
+                //           });
+
+
+                var rs6 = from pp in dc.tbl_MKt_POdetail_TMPs
+                          where pp.POnumber == this.PONumber// && pp.StatusPO != "TMP"
+                          select pp;
 
                 if (rs6.Count() > 0)
                 {
@@ -712,7 +722,7 @@ namespace Maketting.View
                     {
 
                         tbl_MKt_POdetail detailPO = new tbl_MKt_POdetail();
-                        detailPO.Unit_Price = item.Unit_price;
+                        detailPO.Unit_Price = item.Unit_Price;
                         detailPO.MateriaItemcode = item.MateriaItemcode;
                         detailPO.Description = item.Description;
                         detailPO.Materialname = item.Materialname;
@@ -723,10 +733,13 @@ namespace Maketting.View
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
-                        //  this.PONumber = 
-                        //     detailPO.Username = item.Username;
-                        //     detailPO.Username = item.Username;
-                        //     detailPO.Username = item.Username;
+                        detailPO.Region = item.Region;
+                        detailPO.inputRate = item.QuantityOrder.GetValueOrDefault(0) / (from pp in dc.tbl_MKt_POdetail_TMPs
+                                                                                        where pp.POnumber == this.PONumber && pp.MateriaItemcode == item.MateriaItemcode
+                                                                                        select pp.QuantityOrder).Sum().GetValueOrDefault(1);
+
+
+                        detailPO.DatePO = item.POdate;
 
                         dc.tbl_MKt_POdetails.InsertOnSubmit(detailPO);
                         dc.SubmitChanges();
@@ -1351,6 +1364,10 @@ namespace Maketting.View
                 }
             }
 
+
+
+
+
             if (!kq && e.RowIndex >= 0 && dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
 
@@ -1364,10 +1381,15 @@ namespace Maketting.View
 
                 IQueryable rs = null;
 
+
+                #region   product chose
+
                 if (columhead == "Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
+
                          where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
+                         && pp.ITEM_Code == pp.SAP_CODE
                          select new
                          {
                              pp.ITEM_Code,
@@ -1387,6 +1409,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && pp.ITEM_Code == pp.SAP_CODE
                          select new
                          {
                              pp.ITEM_Code,
@@ -1405,6 +1428,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && pp.ITEM_Code == pp.SAP_CODE
                          select new
                          {
                              pp.ITEM_Code,
@@ -1424,6 +1448,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
+                           && pp.ITEM_Code == pp.SAP_CODE
                          select new
                          {
                              pp.ITEM_Code,
@@ -1439,39 +1464,13 @@ namespace Maketting.View
 
                 }
 
-                //if (columhead == "Unit")
-                //{
-                //    rs = from pp in dc.tbl_MKT_Stockends
-                //         where pp.UNIT.Contains(valueseach)
-                //         select new
-                //         {
-                //             pp.ITEM_Code,
-                //             pp.SAP_CODE,
-                //             pp.MATERIAL,
-                //             pp.Description,
-                //             pp.UNIT,
-                //             Avaiable_stock = pp.END_STOCK,
-
-                //             pp.id,
-
-                //         };
-
-                //}
-                //  MessageBox.Show(columhead);
                 if (rs != null)
                 {
                     View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT PRODUCTS ", "Sanpham");
                     selectkq.ShowDialog();
                     int id = selectkq.id;
 
-                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
-                    //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
 
 
                     var valuechon = (from pp in dc.tbl_MKT_Stockends
@@ -1503,9 +1502,75 @@ namespace Maketting.View
 
                 }
 
-                //   }
+                #endregion
+
+                #region   region chose
+
+                if (columhead == "Region")
+                {
+                    rs = from pp in dc.tbl_MKT_Regions
+                         where pp.Note.Contains(valueseach) //&& pp.Store_code == this.storelocation
+                         select new
+                         {
+                             pp.Region,
+                             pp.Note,
+
+
+                             pp.id,
+
+                         };
+
+
+
+
+
+                    //        dt.Columns.Add(new DataColumn("Region", typeof(string)));
+
+                    if (rs != null)
+                    {
+                        View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT REGION ", "REGION");
+                        selectkq.ShowDialog();
+                        int id = selectkq.id;
+
+
+
+
+                        var valuechon = (from pp in dc.tbl_MKT_Regions
+                                         where pp.id == id
+                                         select pp).FirstOrDefault();
+
+                        if (valuechon != null)
+                        {
+                            dataGridViewDetail.Rows[e.RowIndex].Cells["Region"].Value = valuechon.Region;
+
+
+                        }
+                        else
+                        {
+                            dataGridViewDetail.Rows[e.RowIndex].Cells["Region"].Value = DBNull.Value;
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+                }
+
+
+                #endregion
+
+
+
+
 
             }
+
 
 
 
@@ -1899,7 +1964,7 @@ namespace Maketting.View
                          {
                              MÃ_KHÁCH_HÀNG = pp.Customer,
                              TÊN_KHÁCH_HÀNG = pp.FullNameN,
-                             ĐỊA_CHỈ = pp.Street +" "+pp.District +" "+pp.City,
+                             ĐỊA_CHỈ = pp.Street + " " + pp.District + " " + pp.City,
                              QUẬN_HUYỆN = pp.District,
                              TỈNH_THÀNH_PHỐ = pp.City,
                              ĐIỆN_THOẠI = pp.Telephone1,
@@ -1974,7 +2039,7 @@ namespace Maketting.View
 
         private void btmucdich_Click_1(object sender, EventArgs e)
         {
-          
+
 
             //if (Model.Username.getIOcreateRight() == true)
             //{

@@ -511,7 +511,12 @@ namespace Maketting.View
 
                         Model.MKT.giamtrukhokhixuathang(phieuxuat);
 
-                   
+
+
+
+
+
+
 
                     }
                 }
@@ -535,6 +540,44 @@ namespace Maketting.View
                         item.Status = "Delivering";
                         item.Loadingby = this.Username;
                         dc.SubmitChanges();
+
+
+
+
+
+                        tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+                        newregionupdate.ITEM_Code = item.MateriaSAPcode;
+                        newregionupdate.SAP_CODE = item.MateriaSAPcode;
+                        newregionupdate.MATERIAL = item.Materialname;
+                        newregionupdate.Description = item.Description;
+                        newregionupdate.Region = item.Region;
+                        newregionupdate.QuantityInputbyPO = 0;
+                        newregionupdate.QuantityInputbyReturn = 0;
+                        newregionupdate.QuantityOutput = item.Issued;
+                        newregionupdate.QuantitybyDevice = 0;
+                        newregionupdate.Note = item.Gate_pass;
+
+                        newregionupdate.Regionchangedate = DateTime.Today;
+
+                        dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                        dc.SubmitChanges();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     }
                 }
 

@@ -4653,7 +4653,7 @@ namespace Maketting.View
 
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTs REQUEST", 100, "PaymentRequestview");
+            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTS REQUEST", 100, "PaymentRequestview");
             tbl.ShowDialog();
         }
 
@@ -4783,7 +4783,7 @@ namespace Maketting.View
 
         private void updateGatePassDeliveredToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-                 if (!Username.getAprovalPaymentRequestright())
+            if (!Username.getAprovalPaymentRequestright())
             {
                 View.MKTNoouthourise view = new MKTNoouthourise();
                 view.ShowDialog();
@@ -4803,6 +4803,54 @@ namespace Maketting.View
             this.clearpannelload(accsup);
             // this.Close();
             #endregion
+
+        }
+
+        private void reportsRegionProgramBudgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                      group pp by new
+                      {
+                          pp.Region,
+                          pp.ITEM_Code,
+
+                      } into gg
+                      select new
+                      {
+                          Region = gg.Key.Region,
+                          Material_Item_Code = gg.Key.ITEM_Code,
+                          Material_SAP_Code = gg.Select(m => m.SAP_CODE).FirstOrDefault(),
+                          Material_Name = gg.Select(m => m.MATERIAL).FirstOrDefault(),
+                          Description = gg.Select(m => m.Description).FirstOrDefault(),
+
+                          Quantity_PO_Reciepted = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0),
+                          Issued = gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                          Return_Ticket = gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
+
+                          Adjuted_Device_Stock = gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
+
+
+
+
+
+                          Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                      };
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK BUDGET ON STORE ", 100, "rEgIONBUTGETINSTORE");
+            tbl.ShowDialog();
+
+
+
+
+
+
 
         }
     }

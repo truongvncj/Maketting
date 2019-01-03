@@ -317,6 +317,7 @@
       <Column Name="RecieptedQuantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Unit_Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="inputRate" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POdetail_TMP" Member="tbl_MKt_POdetail_TMPs">
@@ -335,6 +336,9 @@
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Unit_Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="inputRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="POdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POhead" Member="tbl_MKt_POheads">
@@ -468,20 +472,6 @@
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ordered" Type="System.Double" DbType="Float" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_StockendbudgetbyRegion" Member="tbl_MKT_StockendbudgetbyRegions">
-    <Type Name="tbl_MKT_StockendbudgetbyRegion">
-      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Budget" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Spent" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendTMP" Member="tbl_MKT_StockendTMPs">
@@ -648,6 +638,24 @@
       <Column Name="Recieptby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_StockendRegionBudget" Member="tbl_MKT_StockendRegionBudgets">
+    <Type Name="tbl_MKT_StockendRegionBudget">
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QuantityInputbyPO" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityOutput" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="QuantityInputbyReturn" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantitybyDevice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Regionchangedate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

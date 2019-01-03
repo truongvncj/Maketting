@@ -99,100 +99,10 @@ namespace Maketting.Model
             dataGridViewDetail.Columns["Price"].ReadOnly = true;
             dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
-            //DGV_DateTimePicker.DateTimePickerColumn col = new DGV_DateTimePicker.DateTimePickerColumn();
-            //col.HeaderText = "Ngày chứng từ";
-            //col.Name = "Ngày_chứng_từ";
-            //col.DataPropertyName = "ngayctuhide";
-            //dataGridViewTkCo.Columns.Add(col);
 
-
-            //    dataGridViewTkCo.Columns.Remove("Tk_Có");
-
-            //#region  //    bindDataToDataGridViewComboPrograme(); Tk_Có
-            //string connection_string = Utils.getConnectionstr();
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //DataGridViewComboBoxColumn cmbdgv = new DataGridViewComboBoxColumn();
-
-
-            //List<View.BeePhieuThu.ComboboxItem> CombomCollection = new List<View.BeePhieuThu.ComboboxItem>();
-            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-            //         orderby tbl_dstaikhoan.matk
-            //         select tbl_dstaikhoan;
-            //foreach (var item in rs)
-            //{
-            //    View.BeePhieuThu.ComboboxItem cb = new View.BeePhieuThu.ComboboxItem();
-            //    cb.Value = item.matk.Trim();
-            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
-            //    CombomCollection.Add(cb);
-            //}
-
-            //cmbdgv.DataSource = CombomCollection;
-            //cmbdgv.HeaderText = "Tk_Có";
-            //cmbdgv.Name = "Tk_Có";
-            //cmbdgv.ValueMember = "Value";
-            //cmbdgv.DisplayMember = "Text";
-            //cmbdgv.Width = 100;
-            //cmbdgv.DropDownWidth = 300;
-            //cmbdgv.DataPropertyName = "tkCohide"; //Bound value to the datasource
-
-
-            //dataGridViewTkCo.Columns.Add(cmbdgv);
-
-
-
-
-
-            //#endregion binddata
-
-
-            //dataGridViewTkCo.Columns["tkCohide"].Visible = false;
-            ////     dataGridViewTkCo.Columns["ngayctuhide"].Visible = false;
-
-            //dataGridViewTkCo.Columns["Tk_Có"].DisplayIndex = 0;
-            //dataGridViewTkCo.Columns["Tk_Có"].Width = 100;
-            //dataGridViewTkCo.Columns["Tk_Có"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DisplayIndex = 1;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].Width = 100;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].ReadOnly = true;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
-
-            //dataGridViewTkCo.Columns["Tên_chi_tiết"].DisplayIndex = 2;
-            //dataGridViewTkCo.Columns["Tên_chi_tiết"].Width = 200;
-            //dataGridViewTkCo.Columns["Tên_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Tên_chi_tiết"].ReadOnly = true;
-            //dataGridViewTkCo.Columns["Tên_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
-
-
-            //dataGridViewTkCo.Columns["Số_tiền"].DisplayIndex = 3;
-            //dataGridViewTkCo.Columns["Số_tiền"].Width = 100;
-            //dataGridViewTkCo.Columns["Số_tiền"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Số_tiền"].DefaultCellStyle.Format = "N0";
-
-
-            //dataGridViewTkCo.Columns["Diễn_giải"].DisplayIndex = 4;
-            //dataGridViewTkCo.Columns["Diễn_giải"].Width = 300;
-            //dataGridViewTkCo.Columns["Diễn_giải"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-
-            ////dataGridViewTkCo.Columns["Ký_hiêu"].DisplayIndex = 5;
-            ////dataGridViewTkCo.Columns["Ký_hiêu"].Width = 100;
-            ////dataGridViewTkCo.Columns["Ký_hiêu"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-
-            ////dataGridViewTkCo.Columns["Ngày_chứng_từ"].DisplayIndex = 6;
-            ////dataGridViewTkCo.Columns["Ngày_chứng_từ"].Width = 100;
-            ////dataGridViewTkCo.Columns["Ngày_chứng_từ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-
-            ////dataGridViewTkCo.Columns["Số_chứng_từ"].DisplayIndex = 7;
-            //dataGridViewTkCo.Columns["Số_chứng_từ"].Width = 200;
-            //dataGridViewTkCo.Columns["Số_chứng_từ"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-
-
+            dataGridViewDetail.Columns["Price"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["Issue_Quantity"].DefaultCellStyle.Format = "N0";
 
 
 
@@ -247,6 +157,9 @@ namespace Maketting.Model
 
 
 
+            dataGridViewDetail.Columns["Quantity"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.Format = "N0";
+         
 
             #endregion datatable temp
 
@@ -380,6 +293,8 @@ namespace Maketting.Model
 
 
 
+            dataGridViewDetail.Columns["Unit_Price"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["PO_Quantity"].DefaultCellStyle.Format = "N0";
 
 
 
@@ -556,86 +471,12 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Materialname", typeof(string)));
             dt.Columns.Add(new DataColumn("Issued", typeof(string)));
 
-            //drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
-            //drToAdd["Customer_Code"] = PhieuMKT.Customer_SAP_Code;
-            //drToAdd["Receiver_by"] = PhieuMKT.Receiver_by;
-            //drToAdd["Address"] = PhieuMKT.Address;
-            //drToAdd["Materiacode"] = PhieuMKT.Materiacode;
-            //drToAdd["Materialname"] = PhieuMKT.Materialname;
-            //drToAdd["Issued"] = PhieuMKT.Issued;
-
-
-
+       
 
             dataGridViewDetailload.DataSource = dt;
 
 
-            //dataGridViewDetail.Columns["Unit"].ReadOnly = true;
-            //dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-            //dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
-            //dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-
-
-            //DGV_DateTimePicker.DateTimePickerColumn col = new DGV_DateTimePicker.DateTimePickerColumn();
-            //col.HeaderText = "Ngày chứng từ";
-            //col.Name = "Ngày_chứng_từ";
-            //col.DataPropertyName = "ngayctuhide";
-            //dataGridViewTkCo.Columns.Add(col);
-
-
-            //    dataGridViewTkCo.Columns.Remove("Tk_Có");
-
-            //#region  //    bindDataToDataGridViewComboPrograme(); Tk_Có
-            //string connection_string = Utils.getConnectionstr();
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            //DataGridViewComboBoxColumn cmbdgv = new DataGridViewComboBoxColumn();
-
-
-            //List<View.BeePhieuThu.ComboboxItem> CombomCollection = new List<View.BeePhieuThu.ComboboxItem>();
-            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-            //         orderby tbl_dstaikhoan.matk
-            //         select tbl_dstaikhoan;
-            //foreach (var item in rs)
-            //{
-            //    View.BeePhieuThu.ComboboxItem cb = new View.BeePhieuThu.ComboboxItem();
-            //    cb.Value = item.matk.Trim();
-            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
-            //    CombomCollection.Add(cb);
-            //}
-
-            //cmbdgv.DataSource = CombomCollection;
-            //cmbdgv.HeaderText = "Tk_Có";
-            //cmbdgv.Name = "Tk_Có";
-            //cmbdgv.ValueMember = "Value";
-            //cmbdgv.DisplayMember = "Text";
-            //cmbdgv.Width = 100;
-            //cmbdgv.DropDownWidth = 300;
-            //cmbdgv.DataPropertyName = "tkCohide"; //Bound value to the datasource
-
-
-            //dataGridViewTkCo.Columns.Add(cmbdgv);
-
-
-
-
-
-            //#endregion binddata
-
-
-            //dataGridViewTkCo.Columns["tkCohide"].Visible = false;
-            ////     dataGridViewTkCo.Columns["ngayctuhide"].Visible = false;
-
-            //dataGridViewTkCo.Columns["Tk_Có"].DisplayIndex = 0;
-            //dataGridViewTkCo.Columns["Tk_Có"].Width = 100;
-            //dataGridViewTkCo.Columns["Tk_Có"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DisplayIndex = 1;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].Width = 100;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].ReadOnly = true;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
-
+        
             #endregion datatable temp
 
 
@@ -1319,29 +1160,7 @@ namespace Maketting.Model
         {
 
 
-            //var rs = (from p in db.tbl_MKT_IO_Programes
-            //          where p.IO_number == maCT
-            //          //  orderby tbl_dstaikhoan.matk
-            //          select p).FirstOrDefault();
-
-
-            //if (rs != null)
-            //{
-            //    rs.IO_number = this.maCT;//= this.txtma.Text;
-            //    rs.IO_Name = this.tenCT;//= this.txtten.Text;
-            //    rs.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
-            //    rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
-            //    rs.Region = this.region;
-            //    rs.Sales_Org = this.salesorg;
-            //    rs.ChannelGroup = this.channelgroup;
-            //    rs.ProgrameIDDocno = this.ProgrameIDDocno;
-
-            //    db.SubmitChanges();
-            //    this.Close();
-            //}
-
-
-
+      
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes
@@ -1382,29 +1201,7 @@ namespace Maketting.Model
         {
 
 
-            //var rs = (from p in db.tbl_MKT_IO_Programes
-            //          where p.IO_number == maCT
-            //          //  orderby tbl_dstaikhoan.matk
-            //          select p).FirstOrDefault();
-
-
-            //if (rs != null)
-            //{
-            //    rs.IO_number = this.maCT;//= this.txtma.Text;
-            //    rs.IO_Name = this.tenCT;//= this.txtten.Text;
-            //    rs.Budget = this.budget;// = txtdiachitaikhoannganhang.Text;
-            //    rs.ghichu = this.ghichu;// = txtdiachitaikhoannganhang.Text;
-            //    rs.Region = this.region;
-            //    rs.Sales_Org = this.salesorg;
-            //    rs.ChannelGroup = this.channelgroup;
-            //    rs.ProgrameIDDocno = this.ProgrameIDDocno;
-
-            //    db.SubmitChanges();
-            //    this.Close();
-            //}
-
-
-
+        
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes
