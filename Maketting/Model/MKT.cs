@@ -423,7 +423,9 @@ namespace Maketting.Model
                          p.Loadingby,
                          Completed_date = p.Date_Received_Issued,
                          p.Completed_by,
-
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Returnby,
 
 
 

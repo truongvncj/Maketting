@@ -4855,6 +4855,15 @@ namespace Maketting.View
 
         private void gatepassHavePOSMReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            if (!Username.getReturnticketRight())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
             //phiueeys gatpaste
             MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT GATEPASS SERRI");
             pxk.ShowDialog();
@@ -4885,35 +4894,20 @@ namespace Maketting.View
                 }
 
 
-                var rs6 = (from pp in dc.tbl_MKt_Listphieuheads
-                           where pp.Gate_pass == Gatepassseru
-                           && (pp.Status != "Delivering" || pp.Status != "completed")
-
-                           select pp).FirstOrDefault();
-                if (rs6 == null)
-                {
-                    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-
-                    return;
-
-                }
-
-                //var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
-                //           where pp.Serriload == Gatepassseru
-                //           && pp.RecieptQuantity > 0
-
+                //var rs6 = (from pp in dc.tbl_MKt_Listphieuheads
+                //           where pp.Gate_pass == Gatepassseru
+                //           && (pp.Status != "Delivering" || pp.Status != "completed")
 
                 //           select pp).FirstOrDefault();
-                //if (rs7 != null)
+                //if (rs6 == null)
                 //{
-                //    MessageBox.Show("Phiếu đã nhập hàng về rồi, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-
+                //    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+             
                 //    return;
 
                 //}
 
+            
 
 
                 #region// xuất hagf

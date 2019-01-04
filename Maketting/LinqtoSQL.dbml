@@ -45,6 +45,8 @@
       <Column Name="SalesLocationright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="SalesRegionManageright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ChannelsalesManageright" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnTicket" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="doMoreReturnticket" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
@@ -185,7 +187,9 @@
       <Column Name="Completed_by" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="NetValue" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ReturnQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Returnby" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Returndate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReturnQuantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">

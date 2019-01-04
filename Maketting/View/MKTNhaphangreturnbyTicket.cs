@@ -45,11 +45,11 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == this.ticketserri
-            //         select pp;
+                     //         select pp;
 
 
-            //var rs = from pp in dc.tb
-            //         where pp.Serriload == this.ticketserri
+                     //var rs = from pp in dc.tb
+                     //         where pp.Serriload == this.ticketserri
                      select new
                      {
                          ID = pp.id,
@@ -58,9 +58,10 @@ namespace Maketting.View
                          Material_code = pp.Materiacode,
                          Material_name = pp.Materialname,
                          Issued = pp.Issued,
+                         Retured_Quantity = pp.ReturnQuantity,
                          //     Real_issue = 0,
 
-                      
+
 
                      };
 
@@ -86,12 +87,14 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Issued"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Retured_Quantity"].ReadOnly = true;
 
-                dataGridViewLoaddetail.Columns["Maketting_load"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Maketting_ticket"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Requested_issue"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Issued"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Retured_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -204,17 +207,17 @@ namespace Maketting.View
             this.Username = Utils.getusername();
             this.Createdby = Utils.getname();
             this.ticketserri = ticketserri;
-            txtnguoixuathang.Text = "";
+            txtnguoireturn.Text = "";
 
 
-            txtnguoixuathang.Text = Utils.getname();
+            txtnguoireturn.Text = Utils.getname();
 
 
             txtloadseri.Text = ticketserri;
 
 
 
-            datecreated.Value = DateTime.Today;
+            datereturn.Value = DateTime.Today;
 
 
             loaddetailreturnTicket();
@@ -248,7 +251,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtnguoixuathang.Focus();
+                txtnguoireturn.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 
@@ -344,7 +347,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                datecreated.Focus();
+                datereturn.Focus();
                 //  datepickngayphieu
                 //    string valueinput = cb_customerka.Text;
 
@@ -396,15 +399,22 @@ namespace Maketting.View
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
 
+
+
+
+
+
             bool checkdetail = true;
 
 
-            //            Maketting_load = pp.LoadNumber,
-            //             Shipping_Point = pp.ShippingPoint,
-            //             Material_code = pp.Materiacode,
-            //             Material_name = pp.Materialname,
-            //             Requested_issue = pp.Issued,
-            //        //     Real_issue = 0,
+            //dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Maketting_ticket"].ReadOnly = true;
+
+            //dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Material_code"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Issued"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Retured_Quantity"].ReadOnly = true;
 
 
             #region // detail
@@ -424,12 +434,36 @@ namespace Maketting.View
 
                 }
 
-                if (dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value != DBNull.Value)
+         //       float Retured_Quantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Retured_Quantity"].Value;
+
+               
+
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value != DBNull.Value && dataGridViewLoaddetail.Rows[idrow].Cells["Retured_Quantity"].Value != DBNull.Value)
                 {
 
-                    float ReturnQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
-                    float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
-                    if (yeucau < ReturnQuantity)
+                    double ReturnQuantity = double.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
+                    double Retured_Quantity = double.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Retured_Quantity"].Value.ToString());
+                    double yeucau = double.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Issued"].Value.ToString());
+
+
+                    if (!Model.Username.getDomoreReturnticketRight() && Retured_Quantity > 0)
+                    {
+
+
+
+
+
+                        View.MKTNoouthourise view = new MKTNoouthourise();
+                        view.ShowDialog();
+                        checkdetail = false;
+
+                        return;
+                    }
+
+
+
+
+                    if (yeucau < ReturnQuantity + Retured_Quantity)
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
@@ -440,7 +474,7 @@ namespace Maketting.View
                         return;
                     }
 
-                    if ( ReturnQuantity <0)
+                    if (ReturnQuantity < 0)
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
@@ -499,22 +533,24 @@ namespace Maketting.View
                     {
                         int idfind = (int)dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value;
 
-                        var rs = from pp in dc.tbl_MKt_WHstoreissues
+                        var rs = from pp in dc.tbl_MKt_Listphieudetails
                                  where pp.id == idfind
                                  select pp;
 
-                        if (rs.Count()>0)
+                        if (rs.Count() > 0)
                         {
                             foreach (var item in rs)
                             {
-                                item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
-                                item.Recieptby = txtnguoixuathang.Text;
+                                item.ReturnQuantity = item.ReturnQuantity + (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
+                                item.Returnby = txtnguoireturn.Text;
+                                item.Returndate = datereturn.Value;
 
-                           
+
+
 
                                 dc.SubmitChanges();
 
-                                Model.MKT.tangkhokhinhaphang(item, this.storelocation);
+                                //       Model.MKT.tangkhokhinhaphang(item, this.storelocation);
 
 
 
@@ -529,9 +565,9 @@ namespace Maketting.View
 
 
 
-                    
 
-                   
+
+
 
                     }
                 }
@@ -539,7 +575,7 @@ namespace Maketting.View
                 #endregion
 
 
-                MessageBox.Show("Store return :  " + this.ticketserri.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ticket return :  " + this.ticketserri.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //var phieuMKT = (from pp in dc.tbl_MKt_Listphieus
                 //                where pp.ShipmentNumber == this.soload
@@ -654,7 +690,7 @@ namespace Maketting.View
             dc.SubmitChanges();
 
 
-            
+
 
             var rptMKThead = (from pp in dc.tbl_MKt_ListLoadheads
                               where pp.LoadNumber == this.gatepass && pp.ShippingPoint == this.storelocation
@@ -712,7 +748,7 @@ namespace Maketting.View
                          select new
                          {
                              Storeman = pp.Storeman,
-                             Subid =    pp.Subid,
+                             Subid = pp.Subid,
                              //     codetransporter = pp.codetransporter,
                              shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
@@ -730,7 +766,7 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
-          
+
             var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == this.ticketserri
                            orderby pp.Materiacode
@@ -742,10 +778,10 @@ namespace Maketting.View
                                Materialname = pp.Materialname,
                                soluong = pp.RecieptQuantity,
                                //   username = pp.Username,
-                            
+
 
                            };
-            if (rsdetail.Count()>0)
+            if (rsdetail.Count() > 0)
             {
                 int stt = 0;
                 foreach (var item in rsdetail)
@@ -754,20 +790,20 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                        tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
 
-                        detailpx.stt = stt.ToString();
-                        detailpx.soluong = item.soluong;
-                        detailpx.Username = this.Username;
-                        detailpx.materialcode = item.Materiacode;
-                        detailpx.tensanpham = item.Materialname;
-                        detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+                    detailpx.stt = stt.ToString();
+                    detailpx.soluong = item.soluong;
+                    detailpx.Username = this.Username;
+                    detailpx.materialcode = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
 
 
-                        dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                        dc.SubmitChanges();
+                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
 
-                 
+
 
 
 
@@ -776,19 +812,19 @@ namespace Maketting.View
             }
 
             var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
-                           where pp.Username == this.Username
-                           orderby pp.stt
-                           select new
-                           {
+                            where pp.Username == this.Username
+                            orderby pp.stt
+                            select new
+                            {
 
-                               stt = pp.stt,
-                               tensanpham = pp.tensanpham,
-                               materialcode = pp.materialcode,
-                               soluong = pp.soluong,
-                               //   username = pp.Username,
-                               bangchu = pp.bangchu,
+                                stt = pp.stt,
+                                tensanpham = pp.tensanpham,
+                                materialcode = pp.materialcode,
+                                soluong = pp.soluong,
+                                //   username = pp.Username,
+                                bangchu = pp.bangchu,
 
-                           };
+                            };
 
 
             var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail
@@ -989,12 +1025,12 @@ namespace Maketting.View
             btluu.Enabled = true;
 
 
-            datecreated.Enabled = true;
+            datereturn.Enabled = true;
 
 
 
 
-            txtnguoixuathang.Enabled = true;
+            txtnguoireturn.Enabled = true;
 
 
             btluu.Enabled = true;
@@ -1012,7 +1048,7 @@ namespace Maketting.View
             {
                 //  cbsophieu.
                 e.Handled = true;
-                txtnguoixuathang.Focus();
+                txtnguoireturn.Focus();
 
                 //    string valueinput = cb_customerka.Text;
 

@@ -94,6 +94,7 @@
             this.approvalPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerChannelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOBudgetSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,7 +113,6 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -566,8 +566,8 @@
             this.setPOSMProgrameToolStripMenuItem1,
             this.approvalPaymentRequestToolStripMenuItem});
             this.salesToolStripMenuItem1.Name = "salesToolStripMenuItem1";
-            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
-            this.salesToolStripMenuItem1.Text = "Set Program POSM";
+            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(86, 24);
+            this.salesToolStripMenuItem1.Text = "Set POSM";
             // 
             // setPOSMProgrameToolStripMenuItem1
             // 
@@ -598,6 +598,13 @@
             this.updateGatePassDeliveredToolStripMenuItem1.Size = new System.Drawing.Size(265, 24);
             this.updateGatePassDeliveredToolStripMenuItem1.Text = "Update Gate pass delivered ";
             this.updateGatePassDeliveredToolStripMenuItem1.Click += new System.EventHandler(this.updateGatePassDeliveredToolStripMenuItem1_Click);
+            // 
+            // gatepassHavePOSMReturnToolStripMenuItem
+            // 
+            this.gatepassHavePOSMReturnToolStripMenuItem.Name = "gatepassHavePOSMReturnToolStripMenuItem";
+            this.gatepassHavePOSMReturnToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.gatepassHavePOSMReturnToolStripMenuItem.Text = "Gatepass have POSM return";
+            this.gatepassHavePOSMReturnToolStripMenuItem.Click += new System.EventHandler(this.gatepassHavePOSMReturnToolStripMenuItem_Click);
             // 
             // salesToolStripMenuItem
             // 
@@ -738,13 +745,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // gatepassHavePOSMReturnToolStripMenuItem
-            // 
-            this.gatepassHavePOSMReturnToolStripMenuItem.Name = "gatepassHavePOSMReturnToolStripMenuItem";
-            this.gatepassHavePOSMReturnToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.gatepassHavePOSMReturnToolStripMenuItem.Text = "Gatepass have POSM return";
-            this.gatepassHavePOSMReturnToolStripMenuItem.Click += new System.EventHandler(this.gatepassHavePOSMReturnToolStripMenuItem_Click);
             // 
             // Main
             // 

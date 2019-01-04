@@ -735,6 +735,10 @@ namespace Maketting
 		
 		private bool _ChannelsalesManageright;
 		
+		private bool _ReturnTicket;
+		
+		private bool _doMoreReturnticket;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -809,6 +813,10 @@ namespace Maketting
     partial void OnSalesRegionManagerightChanged();
     partial void OnChannelsalesManagerightChanging(bool value);
     partial void OnChannelsalesManagerightChanged();
+    partial void OnReturnTicketChanging(bool value);
+    partial void OnReturnTicketChanged();
+    partial void OndoMoreReturnticketChanging(bool value);
+    partial void OndoMoreReturnticketChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1512,6 +1520,46 @@ namespace Maketting
 					this._ChannelsalesManageright = value;
 					this.SendPropertyChanged("ChannelsalesManageright");
 					this.OnChannelsalesManagerightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnTicket", DbType="Bit NOT NULL")]
+		public bool ReturnTicket
+		{
+			get
+			{
+				return this._ReturnTicket;
+			}
+			set
+			{
+				if ((this._ReturnTicket != value))
+				{
+					this.OnReturnTicketChanging(value);
+					this.SendPropertyChanging();
+					this._ReturnTicket = value;
+					this.SendPropertyChanged("ReturnTicket");
+					this.OnReturnTicketChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doMoreReturnticket", DbType="Bit NOT NULL")]
+		public bool doMoreReturnticket
+		{
+			get
+			{
+				return this._doMoreReturnticket;
+			}
+			set
+			{
+				if ((this._doMoreReturnticket != value))
+				{
+					this.OndoMoreReturnticketChanging(value);
+					this.SendPropertyChanging();
+					this._doMoreReturnticket = value;
+					this.SendPropertyChanged("doMoreReturnticket");
+					this.OndoMoreReturnticketChanged();
 				}
 			}
 		}
@@ -3617,7 +3665,11 @@ namespace Maketting
 		
 		private System.Nullable<double> _NetValue;
 		
-		private System.Nullable<double> _ReturnQuantity;
+		private string _Returnby;
+		
+		private System.Nullable<System.DateTime> _Returndate;
+		
+		private double _ReturnQuantity;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3689,7 +3741,11 @@ namespace Maketting
     partial void OnPriceChanged();
     partial void OnNetValueChanging(System.Nullable<double> value);
     partial void OnNetValueChanged();
-    partial void OnReturnQuantityChanging(System.Nullable<double> value);
+    partial void OnReturnbyChanging(string value);
+    partial void OnReturnbyChanged();
+    partial void OnReturndateChanging(System.Nullable<System.DateTime> value);
+    partial void OnReturndateChanged();
+    partial void OnReturnQuantityChanging(double value);
     partial void OnReturnQuantityChanged();
     #endregion
 		
@@ -4358,8 +4414,48 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnQuantity", DbType="Float")]
-		public System.Nullable<double> ReturnQuantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnby", DbType="NVarChar(255)")]
+		public string Returnby
+		{
+			get
+			{
+				return this._Returnby;
+			}
+			set
+			{
+				if ((this._Returnby != value))
+				{
+					this.OnReturnbyChanging(value);
+					this.SendPropertyChanging();
+					this._Returnby = value;
+					this.SendPropertyChanged("Returnby");
+					this.OnReturnbyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returndate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Returndate
+		{
+			get
+			{
+				return this._Returndate;
+			}
+			set
+			{
+				if ((this._Returndate != value))
+				{
+					this.OnReturndateChanging(value);
+					this.SendPropertyChanging();
+					this._Returndate = value;
+					this.SendPropertyChanged("Returndate");
+					this.OnReturndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReturnQuantity", DbType="Float NOT NULL")]
+		public double ReturnQuantity
 		{
 			get
 			{

@@ -44,11 +44,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtloadseri = new System.Windows.Forms.Label();
-            this.txtnguoixuathang = new System.Windows.Forms.TextBox();
+            this.txtnguoireturn = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.datecreated = new System.Windows.Forms.DateTimePicker();
+            this.datereturn = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -184,11 +184,11 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.txtloadseri);
-            this.panel1.Controls.Add(this.txtnguoixuathang);
+            this.panel1.Controls.Add(this.txtnguoireturn);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.datecreated);
+            this.panel1.Controls.Add(this.datereturn);
             this.panel1.Location = new System.Drawing.Point(6, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 69);
@@ -234,16 +234,16 @@
             this.txtloadseri.TabIndex = 65;
             this.txtloadseri.Text = "HNI001135";
             // 
-            // txtnguoixuathang
+            // txtnguoireturn
             // 
-            this.txtnguoixuathang.Enabled = false;
-            this.txtnguoixuathang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoixuathang.Location = new System.Drawing.Point(698, 23);
-            this.txtnguoixuathang.Name = "txtnguoixuathang";
-            this.txtnguoixuathang.Size = new System.Drawing.Size(267, 24);
-            this.txtnguoixuathang.TabIndex = 21;
-            this.txtnguoixuathang.Text = "LÊ THANH VÂN";
-            this.txtnguoixuathang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
+            this.txtnguoireturn.Enabled = false;
+            this.txtnguoireturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnguoireturn.Location = new System.Drawing.Point(698, 23);
+            this.txtnguoireturn.Name = "txtnguoireturn";
+            this.txtnguoireturn.Size = new System.Drawing.Size(267, 24);
+            this.txtnguoireturn.TabIndex = 21;
+            this.txtnguoireturn.Text = "LÊ THANH VÂN";
+            this.txtnguoireturn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
             // 
             // label11
             // 
@@ -261,9 +261,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(576, 26);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 18);
+            this.label5.Size = new System.Drawing.Size(71, 18);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Store Issue  by";
+            this.label5.Text = "Return by";
             // 
             // label2
             // 
@@ -275,19 +275,19 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Date: ";
             // 
-            // datecreated
+            // datereturn
             // 
-            this.datecreated.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datecreated.CustomFormat = "dd.MM.yyyy";
-            this.datecreated.Enabled = false;
-            this.datecreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datecreated.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datecreated.Location = new System.Drawing.Point(1073, 23);
-            this.datecreated.Name = "datecreated";
-            this.datecreated.Size = new System.Drawing.Size(119, 24);
-            this.datecreated.TabIndex = 0;
-            this.datecreated.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
-            this.datecreated.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.datepickngayphieu_KeyPress);
+            this.datereturn.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datereturn.CustomFormat = "dd.MM.yyyy";
+            this.datereturn.Enabled = false;
+            this.datereturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datereturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datereturn.Location = new System.Drawing.Point(1073, 23);
+            this.datereturn.Name = "datereturn";
+            this.datereturn.Size = new System.Drawing.Size(119, 24);
+            this.datereturn.TabIndex = 0;
+            this.datereturn.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            this.datereturn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.datepickngayphieu_KeyPress);
             // 
             // tabControl1
             // 
@@ -337,11 +337,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label txtloadseri;
-        private System.Windows.Forms.TextBox txtnguoixuathang;
+        private System.Windows.Forms.TextBox txtnguoireturn;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker datecreated;
+        private System.Windows.Forms.DateTimePicker datereturn;
         private System.Windows.Forms.TabControl tabControl1;
     }
 }
