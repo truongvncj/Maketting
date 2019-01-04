@@ -4833,7 +4833,7 @@ namespace Maketting.View
                           Issued = gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                           Return_Ticket = gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
 
-                          Adjuted_Device_Stock = gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
+                          Adjusted_Device_Stock = gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
 
 
 
@@ -4847,9 +4847,93 @@ namespace Maketting.View
             tbl.ShowDialog();
 
 
+    
 
 
 
+        }
+
+        private void gatepassHavePOSMReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiueeys gatpaste
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT GATEPASS SERRI");
+            pxk.ShowDialog();
+            //c
+            string Gatepassseru = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
+                           where pp.Region + pp.ShippingPoint + pp.Gate_pass == Gatepassseru
+                          // && pp.completed == true
+
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri Gatepass !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+
+                var rs6 = (from pp in dc.tbl_MKt_Listphieuheads
+                           where pp.Gate_pass == Gatepassseru
+                           && (pp.Status != "Delivering" || pp.Status != "completed")
+
+                           select pp).FirstOrDefault();
+                if (rs6 == null)
+                {
+                    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+                //var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
+                //           where pp.Serriload == Gatepassseru
+                //           && pp.RecieptQuantity > 0
+
+
+                //           select pp).FirstOrDefault();
+                //if (rs7 != null)
+                //{
+                //    MessageBox.Show("Phiếu đã nhập hàng về rồi, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                //    return;
+
+                //}
+
+
+
+                #region// xuất hagf
+                //if (name == "tmphieuthu")
+                //{
+                // MKTNhaphangtheoPo
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTNhaphangreturnbyTicket xuatkho = new MKTNhaphangreturnbyTicket(this, Gatepassseru);
+                this.clearpannelload(xuatkho);
+                // this.Close();
+                #endregion
+
+
+
+            }
 
 
         }

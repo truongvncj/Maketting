@@ -112,6 +112,7 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -565,8 +566,8 @@
             this.setPOSMProgrameToolStripMenuItem1,
             this.approvalPaymentRequestToolStripMenuItem});
             this.salesToolStripMenuItem1.Name = "salesToolStripMenuItem1";
-            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(55, 24);
-            this.salesToolStripMenuItem1.Text = "Sales";
+            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
+            this.salesToolStripMenuItem1.Text = "Set Program POSM";
             // 
             // setPOSMProgrameToolStripMenuItem1
             // 
@@ -585,10 +586,11 @@
             // settlementToolStripMenuItem
             // 
             this.settlementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateGatePassDeliveredToolStripMenuItem1});
+            this.updateGatePassDeliveredToolStripMenuItem1,
+            this.gatepassHavePOSMReturnToolStripMenuItem});
             this.settlementToolStripMenuItem.Name = "settlementToolStripMenuItem";
-            this.settlementToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
-            this.settlementToolStripMenuItem.Text = "Settlement";
+            this.settlementToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.settlementToolStripMenuItem.Text = "Update Gatepass";
             // 
             // updateGatePassDeliveredToolStripMenuItem1
             // 
@@ -737,6 +739,13 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // gatepassHavePOSMReturnToolStripMenuItem
+            // 
+            this.gatepassHavePOSMReturnToolStripMenuItem.Name = "gatepassHavePOSMReturnToolStripMenuItem";
+            this.gatepassHavePOSMReturnToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.gatepassHavePOSMReturnToolStripMenuItem.Text = "Gatepass have POSM return";
+            this.gatepassHavePOSMReturnToolStripMenuItem.Click += new System.EventHandler(this.gatepassHavePOSMReturnToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -841,6 +850,7 @@
         private ToolStripMenuItem updateGatePassDeliveredToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator14;
         private ToolStripMenuItem reportsRegionProgramBudgetToolStripMenuItem;
+        private ToolStripMenuItem gatepassHavePOSMReturnToolStripMenuItem;
     }
 }
 
