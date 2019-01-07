@@ -62,9 +62,9 @@ namespace Maketting.View
             {
                 this.btnew.Visible = false;
                 //  this.txtmaNCC.Text = makhachhang;
-                txtitemcode.Text = idsanpham.ToString();
-                txtitemcode.Enabled = false;
-
+                //txtitemcode.Text = idsanpham.ToString();
+          //      txtitemcode.Enabled = false;
+///
 
 
 
@@ -84,7 +84,7 @@ namespace Maketting.View
                 //    txttondaukysoluong.Text = item.tondksoluong.ToString();
                 //    txtthanhtienton.Text = item.tondkthanhtien.ToString();
 
-                    txtitemcode.Text = item.ITEM_Code;
+                    //txtitemcode.Text = item.ITEM_Code;
                     txttensanpham.Text = item.MATERIAL;
 
                
@@ -175,7 +175,7 @@ namespace Maketting.View
 
 
 
-            this.itemcode = this.txtitemcode.Text;
+            this.itemcode = this.txtsapcode.Text;
             this.materialname = this.txttensanpham.Text;
 
 
@@ -276,9 +276,9 @@ namespace Maketting.View
             }
 
             this.sapcode = txtsapcode.Text;
-            this.itemcode = this.txtitemcode.Text;
+            this.itemcode = this.txtsapcode.Text;
             this.materialname = this.txttensanpham.Text;
-            this.itemcode = txtitemcode.Text;
+            this.itemcode = txtsapcode.Text;
             this.unit = txtunit.Text;
             this.storelocation = txtstorelocation.Text;
 
@@ -360,14 +360,7 @@ namespace Maketting.View
 
         private void txttennganhang_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-
-
-                txtitemcode.Focus();
-
-
-            }
+          
         }
 
         private void txtmakho_TextChanged(object sender, EventArgs e)
@@ -379,14 +372,7 @@ namespace Maketting.View
 
         private void txtghichu_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-
-
-                txtitemcode.Focus();
-
-
-            }
+          
         }
 
         private void txttensanpham_KeyPress(object sender, KeyPressEventArgs e)
@@ -476,14 +462,7 @@ namespace Maketting.View
         private void txtghichu_KeyPress_1(object sender, KeyPressEventArgs e)
         {
 
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-
-
-                txtitemcode.Focus();
-
-
-            }
+          
 
         }
 
@@ -503,14 +482,7 @@ namespace Maketting.View
         private void txtunit_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-
-
-                txtitemcode.Focus();
-
-
-            }
+       
         }
     }
 
