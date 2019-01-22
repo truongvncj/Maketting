@@ -20,7 +20,7 @@ namespace Maketting.View
         public int id { get; set; }
         public View.Main main1;
 
-
+      public string  fornname { get; set; }
 
 
         //  IQueryable rs, LinqtoSQLDataContext d
@@ -30,8 +30,7 @@ namespace Maketting.View
             this.main1 = Main;
             label7.Text = fornname;
             this.columhead = columhead;
-            //System.Data.DataTable dt = new System.Data.DataTable();
-            //dt = tbl;
+            this.fornname = fornname;
             this.dataGridView1.DataSource = rs;
             dataGridView1.Columns["id"].Visible = false;
             //   Valuechoose = "";
@@ -178,7 +177,7 @@ namespace Maketting.View
                     this.Close();
                     main1.clearpannel();
 
-                    View.MKTWHcountaproval main = new MKTWHcountaproval(main1, this.id);
+                    View.MKTWHcountaproval main = new MKTWHcountaproval(main1, this.id,this.fornname);
 
                     main1.clearpannelload(main);
 

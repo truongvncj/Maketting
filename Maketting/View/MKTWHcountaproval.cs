@@ -200,12 +200,20 @@ namespace Maketting.View
 
         public View.Main main1;
 
-        public MKTWHcountaproval(View.Main Main, int idstorecount)
+        public MKTWHcountaproval(View.Main Main, int idstorecount, string vieworaction)
         {
             InitializeComponent();
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
 
+
+            if (vieworaction == "STOCK COUNT LIST")
+            {
+
+
+                btAproval.Visible = false;
+                btreject.Visible = false;
+            }
 
             this.main1 = Main;
 

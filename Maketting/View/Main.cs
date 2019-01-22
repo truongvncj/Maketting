@@ -4931,6 +4931,105 @@ namespace Maketting.View
 
 
         }
+
+        private void viewStockCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Model.Username.getInventoryAprrovalRight())
+            {
+
+
+
+                //  MKTViewchooseiquery
+                List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                ///
+                string username = Utils.getusername();
+                string rightkho = Model.Username.getmaquyenkho();
+
+                //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+                ///
+
+                var rs2 = from pp in dc.tbl_MKT_khoMKTs
+                          where pp.storeright == rightkho
+                          select pp;
+                foreach (var item2 in rs2)
+
+
+                {
+                    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                    cb.Value = item2.makho.Trim();
+                    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                    CombomCollection.Add(cb);
+                }
+
+
+                MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+                choosesl.ShowDialog();
+
+                string storelocation = choosesl.value;
+                bool kq = choosesl.kq;
+                if (kq)
+                {
+                    #region// view
+                    //    string connection_string = Utils.getConnectionstr();
+
+                    //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    var rs1 = from pp in dc.tbl_MKT_Stockcounts
+                              where pp.Store_code == storelocation
+                              && pp.Aproved == true
+                              group pp by new
+                              {
+                                  pp.CountingDate,
+                                  pp.Idsub
+                              } into gg
+                              select new
+                              {
+                                  Store = gg.Select(m => m.Store_code).FirstOrDefault(),
+                                  Counting_Date = gg.Key.CountingDate,
+                                  Counting_times = gg.Key.Idsub,
+
+                                  //                Issued = gg.Sum(m => m.Issued),
+                                  //                         Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                                  //   Counting_times = gg.Select(m => m.Idsub).FirstOrDefault(),
+                                  Createdby = gg.Select(m => m.Createdby).FirstOrDefault(),
+                                  Aproval_Status = gg.Select(m => m.Aproved).FirstOrDefault(),
+                                  Status = gg.Select(m => m.Status).FirstOrDefault(),
+                                  Aproval_By = gg.Select(m => m.Aprovedby).FirstOrDefault(),
+
+                                  id = gg.Select(m => m.id).FirstOrDefault(),
+
+                              };
+
+
+                    this.clearpannel();
+                    //          MKTWHcountaproval
+
+                    View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT LIST", "Counting_view");
+                    this.clearpannelload(approvaldemkho);
+                    // this.Close();
+                    #endregion
+
+
+
+                }
+
+            }
+            else
+            {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
+
+            };
+
+
+
+        }
     }
 
 

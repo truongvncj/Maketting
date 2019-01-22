@@ -113,6 +113,7 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewStockCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -491,7 +492,8 @@
             this.transferInToolStripMenuItem,
             this.toolStripSeparator6,
             this.inventoryToolStripMenuItem,
-            this.inventoryApprovalToolStripMenuItem});
+            this.inventoryApprovalToolStripMenuItem,
+            this.viewStockCountToolStripMenuItem});
             this.Menuwavehouse.Name = "Menuwavehouse";
             this.Menuwavehouse.Size = new System.Drawing.Size(101, 24);
             this.Menuwavehouse.Text = "Ware House";
@@ -746,6 +748,13 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // viewStockCountToolStripMenuItem
+            // 
+            this.viewStockCountToolStripMenuItem.Name = "viewStockCountToolStripMenuItem";
+            this.viewStockCountToolStripMenuItem.Size = new System.Drawing.Size(204, 24);
+            this.viewStockCountToolStripMenuItem.Text = "View Stock Count";
+            this.viewStockCountToolStripMenuItem.Click += new System.EventHandler(this.viewStockCountToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -851,6 +860,7 @@
         private ToolStripSeparator toolStripSeparator14;
         private ToolStripMenuItem reportsRegionProgramBudgetToolStripMenuItem;
         private ToolStripMenuItem gatepassHavePOSMReturnToolStripMenuItem;
+        private ToolStripMenuItem viewStockCountToolStripMenuItem;
     }
 }
 
