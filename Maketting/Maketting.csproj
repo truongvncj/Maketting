@@ -183,6 +183,12 @@
     <Compile Include="View\MKTAddnewbudgetTMP.Designer.cs">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTselectStoreandRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTselectStoreandRegion.Designer.cs">
+      <DependentUpon>MKTselectStoreandRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTTransferin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTAddnewbudgetTMP.resx">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTselectStoreandRegion.resx">
+      <DependentUpon>MKTselectStoreandRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTTransferin.resx">
       <DependentUpon>MKTTransferin.cs</DependentUpon>

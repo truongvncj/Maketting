@@ -739,6 +739,8 @@ namespace Maketting
 		
 		private bool _doMoreReturnticket;
 		
+		private bool _doViewcounting;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -817,6 +819,8 @@ namespace Maketting
     partial void OnReturnTicketChanged();
     partial void OndoMoreReturnticketChanging(bool value);
     partial void OndoMoreReturnticketChanged();
+    partial void OndoViewcountingChanging(bool value);
+    partial void OndoViewcountingChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1560,6 +1564,26 @@ namespace Maketting
 					this._doMoreReturnticket = value;
 					this.SendPropertyChanged("doMoreReturnticket");
 					this.OndoMoreReturnticketChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doViewcounting", DbType="Bit NOT NULL")]
+		public bool doViewcounting
+		{
+			get
+			{
+				return this._doViewcounting;
+			}
+			set
+			{
+				if ((this._doViewcounting != value))
+				{
+					this.OndoViewcountingChanging(value);
+					this.SendPropertyChanging();
+					this._doViewcounting = value;
+					this.SendPropertyChanged("doViewcounting");
+					this.OndoViewcountingChanged();
 				}
 			}
 		}
@@ -10315,6 +10339,8 @@ namespace Maketting
 		
 		private System.Nullable<System.DateTime> _Regionchangedate;
 		
+		private string _Store_code;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10347,6 +10373,8 @@ namespace Maketting
     partial void OnNoteChanged();
     partial void OnRegionchangedateChanging(System.Nullable<System.DateTime> value);
     partial void OnRegionchangedateChanged();
+    partial void OnStore_codeChanging(string value);
+    partial void OnStore_codeChanged();
     #endregion
 		
 		public tbl_MKT_StockendRegionBudget()
@@ -10630,6 +10658,26 @@ namespace Maketting
 					this._Regionchangedate = value;
 					this.SendPropertyChanged("Regionchangedate");
 					this.OnRegionchangedateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Store_code", DbType="NVarChar(10)")]
+		public string Store_code
+		{
+			get
+			{
+				return this._Store_code;
+			}
+			set
+			{
+				if ((this._Store_code != value))
+				{
+					this.OnStore_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Store_code = value;
+					this.SendPropertyChanged("Store_code");
+					this.OnStore_codeChanged();
 				}
 			}
 		}

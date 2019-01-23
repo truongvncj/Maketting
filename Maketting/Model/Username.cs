@@ -759,6 +759,35 @@ namespace Maketting.Model
 
 
         }
+
+
+        public static bool getviewCountingright()
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            string Name = Utils.getusername();
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.doViewcounting).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
         public static bool getInventoryAprrovalRight()
         {
 

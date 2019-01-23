@@ -4809,12 +4809,71 @@ namespace Maketting.View
         private void reportsRegionProgramBudgetToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            //  MKTViewchooseiquery
+            List<View.MKTselectStoreandRegion.ComboboxItem> CombomCollection1 = new List<View.MKTselectStoreandRegion.ComboboxItem>();
+            List<View.MKTselectStoreandRegion.ComboboxItem> CombomCollection2 = new List<View.MKTselectStoreandRegion.ComboboxItem>();
 
             string connection_string = Utils.getConnectionstr();
+
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs2 = from pp in dc.tbl_MKT_khoMKTs
+                      where pp.storeright == rightkho
+                      select pp;
+            foreach (var item2 in rs2)
+
+
+            {
+                View.MKTselectStoreandRegion.ComboboxItem cb = new View.MKTselectStoreandRegion.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection1.Add(cb);
+            }
+            //
+
+            var rs3 = from pp in dc.tbl_MKT_Regions
+                   //  where pp.Region == rightkho
+                      select pp;
+            foreach (var item2 in rs3)
+
+
+            {
+                View.MKTselectStoreandRegion.ComboboxItem cb = new View.MKTselectStoreandRegion.ComboboxItem();
+                cb.Value = item2.Region.Trim();
+                cb.Text = item2.Region.Trim() + ": " + item2.Note.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection2.Add(cb);
+            }
+
+            MKTselectStoreandRegion choosesl = new MKTselectStoreandRegion("PLEASE SELECT A STORE ","STORE","REGION", CombomCollection1, CombomCollection2);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value1;
+            string region = choosesl.value2;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+
+
+
+            }
+
+       //         string connection_string = Utils.getConnectionstr();
+      //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
             var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                      where pp.Region == region
+                      && pp.Store_code == storelocation
                       group pp by new
                       {
                           pp.Region,
@@ -4934,7 +4993,7 @@ namespace Maketting.View
 
         private void viewStockCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Model.Username.getInventoryAprrovalRight())
+            if (Model.Username.getviewCountingright())
             {
 
 
