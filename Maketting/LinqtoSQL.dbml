@@ -491,7 +491,6 @@
       <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="QuantityInputbyPO" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="QuantityOutput" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="QuantityInputbyReturn" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="QuantitybyDevice" Type="System.Double" DbType="Float" CanBeNull="true" />

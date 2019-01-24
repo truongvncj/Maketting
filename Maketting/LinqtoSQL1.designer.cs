@@ -10351,8 +10351,6 @@ namespace Maketting
 		
 		private System.Nullable<double> _QuantityOutput;
 		
-		private System.Nullable<double> _Balance;
-		
 		private int _id;
 		
 		private System.Nullable<double> _QuantityInputbyReturn;
@@ -10385,8 +10383,6 @@ namespace Maketting
     partial void OnQuantityInputbyPOChanged();
     partial void OnQuantityOutputChanging(System.Nullable<double> value);
     partial void OnQuantityOutputChanged();
-    partial void OnBalanceChanging(System.Nullable<double> value);
-    partial void OnBalanceChanged();
     partial void OnidChanging(int value);
     partial void OnidChanged();
     partial void OnQuantityInputbyReturnChanging(System.Nullable<double> value);
@@ -10562,26 +10558,6 @@ namespace Maketting
 					this._QuantityOutput = value;
 					this.SendPropertyChanged("QuantityOutput");
 					this.OnQuantityOutputChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Float")]
-		public System.Nullable<double> Balance
-		{
-			get
-			{
-				return this._Balance;
-			}
-			set
-			{
-				if ((this._Balance != value))
-				{
-					this.OnBalanceChanging(value);
-					this.SendPropertyChanging();
-					this._Balance = value;
-					this.SendPropertyChanged("Balance");
-					this.OnBalanceChanged();
 				}
 			}
 		}

@@ -172,7 +172,7 @@ namespace Maketting.View
 
             //if (this.kq == true)
             //{
-            //    this.Close();
+               this.Close();
 
             //}
 
