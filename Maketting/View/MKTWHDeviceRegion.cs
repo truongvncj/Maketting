@@ -76,8 +76,8 @@ namespace Maketting.View
 
                 dataGridViewLoaddetail.DataSource = dataTable;
 
-              
 
+                dataGridViewLoaddetail.Columns["id"].Visible = false;
                 dataGridViewLoaddetail.Columns["Store"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["SAP_CODE"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["ITEM_Code"].ReadOnly = true;
@@ -1589,12 +1589,21 @@ namespace Maketting.View
                 cb.Text = item2.Region.Trim() + ": " + item2.Note.Trim().ToUpper();// + "    || Example: " + item2.Example;
                 CombomCollection.Add(cb);
             }
-
+            //dataGridViewLoaddetail.Columns["id"].Visible = false;
+            //dataGridViewLoaddetail.Columns["Store"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["SAP_CODE"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["ITEM_Code"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Description"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["UNIT"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["END_STOCK"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Region_Budgeted"].ReadOnly = true;
+            //dataGridViewLoaddetail.Columns["Balance"].ReadOnly = true;
 
             try
             {
                 this.id = (int)this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["id"].Value;
-                this.balance = (float)this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Balance"].Value;
+                this.balance = float.Parse(this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Balance"].Value.ToString());
 
 
             }

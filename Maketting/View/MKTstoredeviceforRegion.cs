@@ -12,7 +12,7 @@ namespace Maketting.View
     public partial class MKTstoredeviceforRegion : Form
     {
 
-        public float addingamount  ;
+        public float addingamount;
         public float balance;
         public bool kq;
         public string Region;
@@ -69,36 +69,74 @@ namespace Maketting.View
 
             //     item.PayType = (cb_program.SelectedItem as ComboboxItem).Value.ToString();
 
-          
+
 
             if (cbregion != null && cbregion.SelectedValue != null)  // update prograne -- cai nay 
             {
                 this.Region = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
                 this.Regionnote = (cbregion.SelectedItem as ComboboxItem).Text.ToString();
                 this.kq = true;
-             //   this.Close();
+                //   this.Close();
 
             }
             else
             {
 
                 this.kq = false;
+
+                return;
                 //  MessageBox.Show("Please select a value !","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
 
-
-
-
-
-
-
-            if (this.kq == true)
+            if (!Utils.IsValidnumber(tbaddingamount.Text))
             {
-                this.Close();
+                MessageBox.Show("Adding amount must be a number !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Utils.IsValidnumber(tbaddingamount.Text))
+            {
+
+                try
+                {
+                    int addingamount = int.Parse(tbaddingamount.Text);
+
+
+                    if (addingamount <0 )
+                    {
+                        MessageBox.Show("Adding amount must be a greater than zezo !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (addingamount > this.balance )
+                    {
+                        MessageBox.Show("Adding amount must be a less than balance !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Adding amount must be a interger number !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
             }
+
+
+
+
+
+            //if (this.kq == true)
+            //{
+            //    this.Close();
+
+            //}
 
 
 
@@ -109,7 +147,7 @@ namespace Maketting.View
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void textBox1_KeyPress(object sender, KeyEventArgs e)
@@ -119,7 +157,7 @@ namespace Maketting.View
                 this.button1.Focus();
             }
 
-           
+
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
