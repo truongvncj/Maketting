@@ -17,6 +17,9 @@ namespace Maketting.View
         public bool kq;
         public string Region;
         public string Regionnote;
+        public string materialcode;
+        public string materialname; 
+                public string storelocation;
 
         public class ComboboxItem
         {
@@ -40,7 +43,9 @@ namespace Maketting.View
             lbmaterialname.Text = materialname;
             lbbalance.Text = balance.ToString();
             this.balance = balance;
-
+            this.materialcode = materialcode;
+            this.storelocation = storelocation;
+            this.materialname = materialname;
             cbregion.DataSource = CombomCollection;
             this.kq = false;
 
@@ -117,7 +122,7 @@ namespace Maketting.View
                     }
 
 
-
+                    this.addingamount = addingamount;
                 }
                 catch (Exception)
                 {
@@ -130,7 +135,40 @@ namespace Maketting.View
 
 
 
+            // chia budget
 
+            #region giảm budget region
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            string username = Utils.getusername();
+
+            tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+            newregionupdate.ITEM_Code = materialcode;
+            newregionupdate.SAP_CODE = materialcode;
+            newregionupdate.MATERIAL = materialname;
+            //       newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+            newregionupdate.Region = this.Region;// Model.Username.getuseRegion();
+            newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+            newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
+            newregionupdate.QuantityOutput = 0;// (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
+            newregionupdate.QuantitybyDevice = this.addingamount;
+            // newregionupdate.Note = item.n;
+            newregionupdate.Regionchangedate = DateTime.Today;
+            newregionupdate.Store_code = this.storelocation;
+
+            dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+            dc.SubmitChanges();
+
+
+            #endregion
+
+
+
+
+            //chia nudget
 
             //if (this.kq == true)
             //{
