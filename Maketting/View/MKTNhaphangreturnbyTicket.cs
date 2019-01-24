@@ -554,6 +554,30 @@ namespace Maketting.View
 
 
 
+                                #region tăng nhập hàng budget
+                                tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+                                newregionupdate.ITEM_Code = item.Materiacode;
+                                newregionupdate.SAP_CODE = item.Materiacode;
+                                newregionupdate.MATERIAL = item.Materialname;
+                                //   newregionupdate.Description = item.;
+                                newregionupdate.Region = item.Region;
+                                newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbyReturn = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
+                                newregionupdate.QuantityOutput = 0;
+                                newregionupdate.QuantitybyDevice = 0;
+                               // newregionupdate.Note = item.n;
+                                newregionupdate.Regionchangedate = datereturn.Value;
+                                newregionupdate.Store_code = this.storelocation;
+
+                                dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                                dc.SubmitChanges();
+
+
+                                #endregion
+
+
+
 
 
 

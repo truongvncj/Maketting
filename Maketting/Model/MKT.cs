@@ -799,7 +799,6 @@ namespace Maketting.Model
 
 
 
-
             //throw new NotImplementedException();
         }
 

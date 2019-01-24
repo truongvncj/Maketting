@@ -183,6 +183,12 @@
     <Compile Include="View\MKTAddnewbudgetTMP.Designer.cs">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTstoredeviceforRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTstoredeviceforRegion.Designer.cs">
+      <DependentUpon>MKTstoredeviceforRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTselectStoreandRegion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +230,12 @@
     </Compile>
     <Compile Include="View\MKTVTDanhsacshipto.Designer.cs">
       <DependentUpon>MKTVTDanhsacshipto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTWHDeviceRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHDeviceRegion.Designer.cs">
+      <DependentUpon>MKTWHDeviceRegion.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTWHtransferout.cs">
       <SubType>Form</SubType>
@@ -477,6 +489,9 @@
     <EmbeddedResource Include="View\MKTAddnewbudgetTMP.resx">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTstoredeviceforRegion.resx">
+      <DependentUpon>MKTstoredeviceforRegion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTselectStoreandRegion.resx">
       <DependentUpon>MKTselectStoreandRegion.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,6 +512,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTVTDanhsacshipto.resx">
       <DependentUpon>MKTVTDanhsacshipto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHDeviceRegion.resx">
+      <DependentUpon>MKTWHDeviceRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHtransferout.resx">
       <DependentUpon>MKTWHtransferout.cs</DependentUpon>

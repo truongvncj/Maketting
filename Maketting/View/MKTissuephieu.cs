@@ -880,6 +880,29 @@ namespace Maketting.View
                         #endregion
 
 
+                        #region giảm budget region
+                        tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+                        newregionupdate.ITEM_Code = ItemCode;
+                        newregionupdate.SAP_CODE = (string)dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value;
+                        newregionupdate.MATERIAL = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
+                       newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+                        newregionupdate.Region = Model.Username.getuseRegion();
+                        newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                        newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
+                        newregionupdate.QuantityOutput = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
+                        newregionupdate.QuantitybyDevice = 0;
+                        // newregionupdate.Note = item.n;
+                        newregionupdate.Regionchangedate = datepickngayphieu.Value;
+                        newregionupdate.Store_code = this.storelocation;
+
+                        dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                        dc.SubmitChanges();
+
+
+                        #endregion
+
+
 
 
 

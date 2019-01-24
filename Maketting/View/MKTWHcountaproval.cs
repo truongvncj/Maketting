@@ -65,53 +65,16 @@ namespace Maketting.View
 
             if (rs.Count() > 0)
             {
-                //  dataGridViewLoaddetail.DataSource = rs;
-
-                //    this.soload = rs.FirstOrDefault().Maketting_load;
-                //   this.storelocation = rs.FirstOrDefault().Shipping_Point;
-
-                //Utils ut = new Utils();
-                //DataTable dataTable = ut.ToDataTable(dc, rs);
-                //dataTable.Columns.Add(new DataColumn("Count_Quantity", typeof(float)));
-
-
+           
                 dataGridViewLoaddetail.DataSource = rs;
                 this.rs = rs;
                 this.datacontext = dc;
-                //      Store = pp.Store_code,
-                //         Shipping_Point = pp.SAP_CODE,
-                //         ITEM_Code = pp.ITEM_Code,
-                //         Material_name = pp.MATERIAL,
-                //         Description = pp.Description,
-                //         UNIT = pp.UNIT,
-
-                //  dataGridViewLoaddetail.Columns["Store"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["SAP_CODE"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["ITEM_Code"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["Description"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["UNIT"].ReadOnly = true;
-                //  dataGridViewLoaddetail.Columns["END_STOCK"].ReadOnly = true;
-
-
-                //  dataGridViewLoaddetail.Columns["Store"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //  dataGridViewLoaddetail.Columns["SAP_CODE"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //  dataGridViewLoaddetail.Columns["ITEM_Code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //  dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //  dataGridViewLoaddetail.Columns["Description"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //  dataGridViewLoaddetail.Columns["UNIT"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                ////  dataGridViewLoaddetail.Columns["END_STOCK"].Visible = false;
+            
 
             }
 
 
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DisplayIndex = 1;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].Width = 100;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].ReadOnly = true;
-            //dataGridViewTkCo.Columns["Mã_chi_tiết"].DefaultCellStyle.BackColor = Color.LightGray;
-
-
+        
 
 
 

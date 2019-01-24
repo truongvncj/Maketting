@@ -89,8 +89,8 @@ namespace Maketting.View
 
             if (cbselect2 != null && cbselect2.SelectedValue != null)  // update prograne -- cai nay 
             {
-                this.value2 = (cbselect.SelectedItem as ComboboxItem).Value.ToString();
-                this.valuetext2 = (cbselect.SelectedItem as ComboboxItem).Text.ToString();
+                this.value2 = (cbselect2.SelectedItem as ComboboxItem).Value.ToString();
+                this.valuetext2 = (cbselect2.SelectedItem as ComboboxItem).Text.ToString();
                 this.kq = true;
              //   this.Close();
 

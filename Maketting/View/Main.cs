@@ -3790,8 +3790,8 @@ namespace Maketting.View
 
                     this.clearpannel();
                     //          MKTWHcountaproval
-
-                    View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT LIST WITH APROVAL STATUS ", "Counting_times");
+                    // STOCK COUNT LIST
+                    View.MKTViewchooseiqueryloadtomain approvaldemkho = new MKTViewchooseiqueryloadtomain(this, rs1, dc, "STOCK COUNT WITH APROVAL STATUS ", "Counting_times");
                     this.clearpannelload(approvaldemkho);
                     // this.Close();
                     #endregion
@@ -4865,8 +4865,6 @@ namespace Maketting.View
 
 
 
-            }
-
        //         string connection_string = Utils.getConnectionstr();
       //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -4883,11 +4881,12 @@ namespace Maketting.View
                       select new
                       {
                           Region = gg.Key.Region,
+                          Shipping_Point = storelocation,
                           Material_Item_Code = gg.Key.ITEM_Code,
                           Material_SAP_Code = gg.Select(m => m.SAP_CODE).FirstOrDefault(),
                           Material_Name = gg.Select(m => m.MATERIAL).FirstOrDefault(),
                           Description = gg.Select(m => m.Description).FirstOrDefault(),
-
+                          UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
                           Quantity_PO_Reciepted = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0),
                           Issued = gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                           Return_Ticket = gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
@@ -4906,7 +4905,9 @@ namespace Maketting.View
             tbl.ShowDialog();
 
 
-    
+
+            }
+
 
 
 
@@ -5085,6 +5086,95 @@ namespace Maketting.View
                 noright.ShowDialog();
 
             };
+
+
+
+        }
+
+        private void storeDiviceByRegiomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Model.Username.getInventoryRight())
+            {
+                View.MKTNoouthourise noright = new View.MKTNoouthourise();
+                noright.ShowDialog();
+                return;
+            }
+         
+
+
+                List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                ///
+                string username = Utils.getusername();
+                string rightkho = Model.Username.getmaquyenkho();
+
+                //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+                ///
+
+                var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                          where pp.storeright == rightkho
+                          select pp;
+                foreach (var item2 in rs1)
+
+
+                {
+                    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                    cb.Value = item2.makho.Trim();
+                    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                    CombomCollection.Add(cb);
+                }
+
+
+                MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+                choosesl.ShowDialog();
+
+                string storelocation = choosesl.value;
+                bool kq = choosesl.kq;
+                if (kq)
+                {
+
+                //------------
+
+
+
+                #region//tao load
+                //if (name == "tmphieuthu")
+                //{
+
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+
+
+                this.clearpannel();
+
+
+                View.MKTWHDeviceRegion demkho = new MKTWHDeviceRegion(this, storelocation);
+                this.clearpannelload(demkho);
+                // this.Close();
+                #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+                //---------
+
+
+            }
+
 
 
 

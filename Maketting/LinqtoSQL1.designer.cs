@@ -10053,6 +10053,8 @@ namespace Maketting
 		
 		private System.Nullable<double> _Ordered;
 		
+		private double _RegionBudgeted;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10077,6 +10079,8 @@ namespace Maketting
     partial void OnTransferingOUTChanged();
     partial void OnOrderedChanging(System.Nullable<double> value);
     partial void OnOrderedChanged();
+    partial void OnRegionBudgetedChanging(double value);
+    partial void OnRegionBudgetedChanged();
     #endregion
 		
 		public tbl_MKT_Stockend()
@@ -10280,6 +10284,26 @@ namespace Maketting
 					this._Ordered = value;
 					this.SendPropertyChanged("Ordered");
 					this.OnOrderedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegionBudgeted", DbType="Float NOT NULL")]
+		public double RegionBudgeted
+		{
+			get
+			{
+				return this._RegionBudgeted;
+			}
+			set
+			{
+				if ((this._RegionBudgeted != value))
+				{
+					this.OnRegionBudgetedChanging(value);
+					this.SendPropertyChanging();
+					this._RegionBudgeted = value;
+					this.SendPropertyChanged("RegionBudgeted");
+					this.OnRegionBudgetedChanged();
 				}
 			}
 		}

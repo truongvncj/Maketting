@@ -478,6 +478,7 @@
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ordered" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RegionBudgeted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendRegionBudget" Member="tbl_MKT_StockendRegionBudgets">

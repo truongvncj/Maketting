@@ -68,3 +68,5 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramepaymentbyFI.re
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTAddnewbudgetTMP.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangreturnbyTicket.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectStoreandRegion.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHDeviceRegion.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTstoredeviceforRegion.resources

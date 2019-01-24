@@ -20,6 +20,7 @@ namespace Maketting.View
         public string Loadnumberserri { get; set; }
         public string soload { get; set; }
         public string storelocation { get; set; }
+        public string region { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
 
@@ -507,10 +508,6 @@ namespace Maketting.View
                                 dc.SubmitChanges();
 
                                 Model.MKT.tangkhokhinhaphang(item, this.storelocation);
-
-
-
-
 
 
 

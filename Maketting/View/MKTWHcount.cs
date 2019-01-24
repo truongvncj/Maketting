@@ -51,7 +51,7 @@ namespace Maketting.View
                          Description = pp.Description,
                          UNIT = pp.UNIT,
                          END_STOCK = pp.END_STOCK,
-                          //     Real_issue = 0,
+                      //   Count_Quantity = pp.END_STOCK,  //     Real_issue = 0,
 
                      };
 
@@ -59,12 +59,24 @@ namespace Maketting.View
             {
                 //  dataGridViewLoaddetail.DataSource = rs;
 
-            //    this.soload = rs.FirstOrDefault().Maketting_load;
-             //   this.storelocation = rs.FirstOrDefault().Shipping_Point;
+                //    this.soload = rs.FirstOrDefault().Maketting_load;
+                //   this.storelocation = rs.FirstOrDefault().Shipping_Point;
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Count_Quantity", typeof(float)));
+                foreach (System.Data.DataRow row in dataTable.Rows)
+                {
+
+
+                    row["Count_Quantity"] = row["END_STOCK"];
+                  
+                }
+
+            //    xxxx
+            
+
+
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
