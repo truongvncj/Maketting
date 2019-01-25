@@ -11,15 +11,18 @@ namespace Maketting.View
 {
     public partial class MKTstoredeviceforRegion : Form
     {
-
+        public float Region_Budgeted;
         public float addingamount;
         public float balance;
         public bool kq;
         public string Region;
         public string Regionnote;
         public string materialcode;
-        public string materialname; 
-                public string storelocation;
+        public string materialname;
+        public string storelocation;
+        public int rowindex;
+
+        public DataGridView datagridview;
 
         public class ComboboxItem
         {
@@ -34,7 +37,7 @@ namespace Maketting.View
 
 
 
-        public MKTstoredeviceforRegion(String storelocation, String materialcode, String materialname, float balance, List<ComboboxItem> CombomCollection)
+        public MKTstoredeviceforRegion(String storelocation, String materialcode, String materialname, float balance, float Region_Budgeted, List<ComboboxItem> CombomCollection, DataGridView datagridview, int rowindex)
         {
             InitializeComponent();
 
@@ -48,11 +51,11 @@ namespace Maketting.View
             this.materialname = materialname;
             cbregion.DataSource = CombomCollection;
             this.kq = false;
+            this.rowindex = rowindex;
 
+            this.datagridview = datagridview;
 
-
-
-
+            this.Region_Budgeted = Region_Budgeted;
 
 
 
@@ -109,13 +112,13 @@ namespace Maketting.View
                     int addingamount = int.Parse(tbaddingamount.Text);
 
 
-                    if (addingamount <0 )
+                    if (addingamount < 0)
                     {
                         MessageBox.Show("Adding amount must be a greater than zezo !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
-                    if (addingamount > this.balance )
+                    if (addingamount > this.balance)
                     {
                         MessageBox.Show("Adding amount must be a less than balance !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -172,14 +175,60 @@ namespace Maketting.View
 
             //if (this.kq == true)
             //{
-               this.Close();
+            this.Close();
+            //     this.id = (int)this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["id"].Value;
+            //     this.balance = float.Parse(this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Balance"].Value.ToString());
 
             //}
+            //      datagridview.Columns["END_STOCK"].ReadOnly = true;
+            //       datagridview.Columns["Region_Budgeted"].ReadOnly = true;
+            //       datagridview.Columns["Balance"].ReadOnly = true;
+            //   this.datagridview.Rows[rowindex].Cells["Region_Budgeted"].ReadOnly = false;
+            //      this.datagridview.Rows[rowindex].Cells["Balance"].ReadOnly = false;
+            this.datagridview.Rows[rowindex].Cells["Region_Budgeted"].Value = this.Region_Budgeted + this.addingamount;
+            this.datagridview.Rows[rowindex].Cells["Balance"].Value = this.balance - this.addingamount;
+
+            //   DataGridViewColumn col = new DataGridViewTextBoxColumn();
+            //    col.HeaderText = this.Region;
+
+            try
+            {
+                if (this.datagridview.Rows[rowindex].Cells[this.Region].Value == null)
+                {
+                    //     this.datagridview.Rows[rowindex].Cells[this.Region].Value = 0;
+                    this.datagridview.Rows[rowindex].Cells[this.Region].Value = this.addingamount;
+                }
+                else
+                {
+                    this.datagridview.Rows[rowindex].Cells[this.Region].Value = this.addingamount + float.Parse(this.datagridview.Rows[rowindex].Cells[this.Region].Value.ToString());
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                DataGridViewColumn col = new DataGridViewColumn();
+                DataGridViewCell cell = new DataGridViewTextBoxCell();
+                //         cell.Value = "0";
+                //  cell.
+                col.CellTemplate = cell;
+
+                col.HeaderText = this.Region;
+                col.Name = this.Region;
+                col.Visible = true;
+                datagridview.Columns.Add(col);
+
+
+                this.datagridview.Rows[rowindex].Cells[this.Region].Value = this.addingamount;
+
+                //  throw;
+            }
 
 
 
-
-
+            //     this.datagridview.Rows[rowindex].Cells["Region_Budgeted"].ReadOnly = true;
+            //    this.datagridview.Rows[rowindex].Cells["Balance"].ReadOnly = true;
 
         }
 

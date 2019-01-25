@@ -21,6 +21,7 @@ namespace Maketting.View
         public string Createdby { get; set; }
         public int id { get; set; }
         public float balance { get; set; }
+        public float Region_Budgeted { get; set; }
 
 
         LinqtoSQLDataContext datacontext { get; set; }
@@ -57,7 +58,7 @@ namespace Maketting.View
                          UNIT = pp.UNIT,
                          END_STOCK = pp.END_STOCK,
                          Region_Budgeted =      pp.RegionBudgeted,
-                         Balance = pp.END_STOCK- pp.RegionBudgeted,
+                    //     Balance = pp.END_STOCK- pp.RegionBudgeted,
                          //   Count_Quantity = pp.END_STOCK,  //     Real_issue = 0,
 
                      };
@@ -71,8 +72,15 @@ namespace Maketting.View
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
-         
 
+                dataTable.Columns.Add(new DataColumn("Balance", typeof(float)));
+                foreach (System.Data.DataRow row in dataTable.Rows)
+                {
+
+
+                    row["Balance"] = float.Parse(row["END_STOCK"].ToString()) -float.Parse( row["Region_Budgeted"].ToString()); 
+
+                }
 
                 dataGridViewLoaddetail.DataSource = dataTable;
 
@@ -1589,6 +1597,8 @@ namespace Maketting.View
                 cb.Text = item2.Region.Trim() + ": " + item2.Note.Trim().ToUpper();// + "    || Example: " + item2.Example;
                 CombomCollection.Add(cb);
             }
+
+          //  this.Region_Budgeted = 0;
             //dataGridViewLoaddetail.Columns["id"].Visible = false;
             //dataGridViewLoaddetail.Columns["Store"].ReadOnly = true;
             //dataGridViewLoaddetail.Columns["SAP_CODE"].ReadOnly = true;
@@ -1605,6 +1615,7 @@ namespace Maketting.View
                 this.id = (int)this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["id"].Value;
                 this.balance = float.Parse(this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Balance"].Value.ToString());
 
+                this.Region_Budgeted = float.Parse(this.dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Region_Budgeted"].Value.ToString());
 
             }
             catch (Exception ex)
@@ -1621,7 +1632,7 @@ namespace Maketting.View
             if (item != null)
             {
 
-                MKTstoredeviceforRegion choosesl = new MKTstoredeviceforRegion(item.Store_code, item.ITEM_Code, item.MATERIAL, this.balance, CombomCollection);
+                MKTstoredeviceforRegion choosesl = new MKTstoredeviceforRegion(item.Store_code, item.ITEM_Code, item.MATERIAL, balance, Region_Budgeted, CombomCollection, dataGridViewLoaddetail, e.RowIndex);
                 choosesl.ShowDialog();
 
                // string storelocation = choosesl.value1;
