@@ -141,6 +141,12 @@
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
     <Compile Include="shared\StringExtensions.cs" />
+    <Compile Include="View\MKTissuephieu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTissuephieu2.Designer.cs">
+      <DependentUpon>MKTissuephieu2.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTNhaphangreturnbyTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTissue.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTissuephieu2.resx">
+      <DependentUpon>MKTissuephieu2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTNhaphangreturnbyTicket.resx">
       <DependentUpon>MKTNhaphangreturnbyTicket.cs</DependentUpon>

@@ -70,3 +70,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangreturnbyTicket
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectStoreandRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHDeviceRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTstoredeviceforRegion.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu2.resources

@@ -3265,7 +3265,7 @@ namespace Maketting.View
             this.clearpannel();
 
 
-            View.MKTissuephieu accsup = new MKTissuephieu(this);
+            View.MKTissuephieu2 accsup = new MKTissuephieu2(this);
             this.clearpannelload(accsup);
             // this.Close();
             #endregion
