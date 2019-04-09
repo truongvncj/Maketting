@@ -64,16 +64,12 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.massInputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.storeDiviceByRegiomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.setPOSMProgrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentApprovalRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.reportsRegionProgramBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,9 +86,6 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStockCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.setPOSMProgrameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.approvalPaymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +107,11 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.channelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewPaymentRequestToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.iOListManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -187,7 +185,6 @@
             this.MenuMaketting,
             this.Menuload,
             this.Menuwavehouse,
-            this.salesToolStripMenuItem1,
             this.settlementToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.Menureports,
@@ -343,16 +340,14 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem,
             this.toolStripSeparator2,
             this.inputPOToolStripMenuItem,
-            this.massInputPOToolStripMenuItem,
+            this.iOListManageToolStripMenuItem,
+            this.channelManageToolStripMenuItem,
             this.toolStripSeparator1,
             this.báoCáoPhiếuMKTToolStripMenuItem,
             this.storeAvaiableReportsToolStripMenuItem,
             this.toolStripSeparator11,
             this.storeDiviceByRegiomToolStripMenuItem,
             this.toolStripSeparator12,
-            this.setPOSMProgrameToolStripMenuItem,
-            this.paymentApprovalRequestToolStripMenuItem,
-            this.viewPaymentRequestToolStripMenuItem,
             this.toolStripSeparator14,
             this.reportsRegionProgramBudgetToolStripMenuItem});
             this.MenuMaketting.Name = "MenuMaketting";
@@ -386,13 +381,6 @@
             this.inputPOToolStripMenuItem.Text = "Input PO ";
             this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
             // 
-            // massInputPOToolStripMenuItem
-            // 
-            this.massInputPOToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.massInputPOToolStripMenuItem.Name = "massInputPOToolStripMenuItem";
-            this.massInputPOToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.massInputPOToolStripMenuItem.Text = "Mass input PO from Excel";
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -420,7 +408,7 @@
             // 
             // storeDiviceByRegiomToolStripMenuItem
             // 
-            this.storeDiviceByRegiomToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.storeDiviceByRegiomToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.storeDiviceByRegiomToolStripMenuItem.Name = "storeDiviceByRegiomToolStripMenuItem";
             this.storeDiviceByRegiomToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.storeDiviceByRegiomToolStripMenuItem.Text = "Store device by region";
@@ -431,29 +419,6 @@
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(262, 6);
             // 
-            // setPOSMProgrameToolStripMenuItem
-            // 
-            this.setPOSMProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
-            this.setPOSMProgrameToolStripMenuItem.Name = "setPOSMProgrameToolStripMenuItem";
-            this.setPOSMProgrameToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.setPOSMProgrameToolStripMenuItem.Text = "Set POSM programe";
-            this.setPOSMProgrameToolStripMenuItem.Click += new System.EventHandler(this.setPOSMProgrameToolStripMenuItem_Click);
-            // 
-            // paymentApprovalRequestToolStripMenuItem
-            // 
-            this.paymentApprovalRequestToolStripMenuItem.Image = global::Maketting.Properties.Resources.Thienha;
-            this.paymentApprovalRequestToolStripMenuItem.Name = "paymentApprovalRequestToolStripMenuItem";
-            this.paymentApprovalRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.paymentApprovalRequestToolStripMenuItem.Text = "Payment request";
-            this.paymentApprovalRequestToolStripMenuItem.Click += new System.EventHandler(this.paymentApprovalRequestToolStripMenuItem_Click);
-            // 
-            // viewPaymentRequestToolStripMenuItem
-            // 
-            this.viewPaymentRequestToolStripMenuItem.Name = "viewPaymentRequestToolStripMenuItem";
-            this.viewPaymentRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.viewPaymentRequestToolStripMenuItem.Text = "View Payment request";
-            this.viewPaymentRequestToolStripMenuItem.Click += new System.EventHandler(this.viewPaymentRequestToolStripMenuItem_Click);
-            // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
@@ -463,7 +428,7 @@
             // 
             this.reportsRegionProgramBudgetToolStripMenuItem.Name = "reportsRegionProgramBudgetToolStripMenuItem";
             this.reportsRegionProgramBudgetToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
-            this.reportsRegionProgramBudgetToolStripMenuItem.Text = "Store region POSM budget";
+            this.reportsRegionProgramBudgetToolStripMenuItem.Text = "POSM Store region budget";
             this.reportsRegionProgramBudgetToolStripMenuItem.Click += new System.EventHandler(this.reportsRegionProgramBudgetToolStripMenuItem_Click);
             // 
             // Menuload
@@ -570,29 +535,6 @@
             this.viewStockCountToolStripMenuItem.Text = "View Stock Count";
             this.viewStockCountToolStripMenuItem.Click += new System.EventHandler(this.viewStockCountToolStripMenuItem_Click);
             // 
-            // salesToolStripMenuItem1
-            // 
-            this.salesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setPOSMProgrameToolStripMenuItem1,
-            this.approvalPaymentRequestToolStripMenuItem});
-            this.salesToolStripMenuItem1.Name = "salesToolStripMenuItem1";
-            this.salesToolStripMenuItem1.Size = new System.Drawing.Size(86, 24);
-            this.salesToolStripMenuItem1.Text = "Set POSM";
-            // 
-            // setPOSMProgrameToolStripMenuItem1
-            // 
-            this.setPOSMProgrameToolStripMenuItem1.Name = "setPOSMProgrameToolStripMenuItem1";
-            this.setPOSMProgrameToolStripMenuItem1.Size = new System.Drawing.Size(254, 24);
-            this.setPOSMProgrameToolStripMenuItem1.Text = "Set POSM programe";
-            this.setPOSMProgrameToolStripMenuItem1.Click += new System.EventHandler(this.setPOSMProgrameToolStripMenuItem1_Click);
-            // 
-            // approvalPaymentRequestToolStripMenuItem
-            // 
-            this.approvalPaymentRequestToolStripMenuItem.Name = "approvalPaymentRequestToolStripMenuItem";
-            this.approvalPaymentRequestToolStripMenuItem.Size = new System.Drawing.Size(254, 24);
-            this.approvalPaymentRequestToolStripMenuItem.Text = "Approval payment request";
-            this.approvalPaymentRequestToolStripMenuItem.Click += new System.EventHandler(this.approvalPaymentRequestToolStripMenuItem_Click);
-            // 
             // settlementToolStripMenuItem
             // 
             this.settlementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -621,13 +563,16 @@
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerChannelManageToolStripMenuItem,
             this.iOBudgetSetupToolStripMenuItem,
-            this.setIOButgetToolStripMenuItem,
-            this.viewProgrameToolStripMenuItem,
             this.toolStripSeparator13,
+            this.setIOButgetToolStripMenuItem,
             this.paymentApprovalSetToolStripMenuItem,
+            this.viewProgrameToolStripMenuItem,
             this.viewAllPaymentRequestToolStripMenuItem,
             this.toolStripSeparator9,
-            this.updateGatePassDeliveredToolStripMenuItem});
+            this.updateGatePassDeliveredToolStripMenuItem,
+            this.toolStripSeparator15,
+            this.paymentRequestToolStripMenuItem,
+            this.viewPaymentRequestToolStripMenuItem1});
             this.salesToolStripMenuItem.Name = "salesToolStripMenuItem";
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.salesToolStripMenuItem.Text = "Control";
@@ -756,6 +701,39 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // channelManageToolStripMenuItem
+            // 
+            this.channelManageToolStripMenuItem.Name = "channelManageToolStripMenuItem";
+            this.channelManageToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.channelManageToolStripMenuItem.Text = "Channel manage";
+            this.channelManageToolStripMenuItem.Click += new System.EventHandler(this.channelManageToolStripMenuItem_Click);
+            // 
+            // paymentRequestToolStripMenuItem
+            // 
+            this.paymentRequestToolStripMenuItem.Name = "paymentRequestToolStripMenuItem";
+            this.paymentRequestToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.paymentRequestToolStripMenuItem.Text = "Payment request";
+            this.paymentRequestToolStripMenuItem.Click += new System.EventHandler(this.paymentRequestToolStripMenuItem_Click);
+            // 
+            // viewPaymentRequestToolStripMenuItem1
+            // 
+            this.viewPaymentRequestToolStripMenuItem1.Name = "viewPaymentRequestToolStripMenuItem1";
+            this.viewPaymentRequestToolStripMenuItem1.Size = new System.Drawing.Size(265, 24);
+            this.viewPaymentRequestToolStripMenuItem1.Text = "View Payment request";
+            this.viewPaymentRequestToolStripMenuItem1.Click += new System.EventHandler(this.viewPaymentRequestToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(262, 6);
+            // 
+            // iOListManageToolStripMenuItem
+            // 
+            this.iOListManageToolStripMenuItem.Name = "iOListManageToolStripMenuItem";
+            this.iOListManageToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
+            this.iOListManageToolStripMenuItem.Text = "IO list manage";
+            this.iOListManageToolStripMenuItem.Click += new System.EventHandler(this.iOListManageToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,7 +812,6 @@
         private ToolStripMenuItem customerChannelManageToolStripMenuItem;
         private ToolStripMenuItem storeDiviceByRegiomToolStripMenuItem;
         private ToolStripMenuItem editCustomerToolStripMenuItem;
-        private ToolStripMenuItem massInputPOToolStripMenuItem;
         private ToolStripMenuItem storeBalanceOnDateToolStripMenuItem;
         private ToolStripMenuItem inOutStoreReportsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator10;
@@ -847,21 +824,20 @@
         private ToolStripMenuItem viewProgrameToolStripMenuItem;
         private ToolStripMenuItem viewMasterDataProductListToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator12;
-        private ToolStripMenuItem paymentApprovalRequestToolStripMenuItem;
-        private ToolStripMenuItem viewPaymentRequestToolStripMenuItem;
         private ToolStripMenuItem updateGatePassDeliveredToolStripMenuItem;
         private ToolStripMenuItem viewAllPaymentRequestToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator13;
-        private ToolStripMenuItem setPOSMProgrameToolStripMenuItem;
-        private ToolStripMenuItem salesToolStripMenuItem1;
-        private ToolStripMenuItem setPOSMProgrameToolStripMenuItem1;
-        private ToolStripMenuItem approvalPaymentRequestToolStripMenuItem;
         private ToolStripMenuItem settlementToolStripMenuItem;
         private ToolStripMenuItem updateGatePassDeliveredToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator14;
         private ToolStripMenuItem reportsRegionProgramBudgetToolStripMenuItem;
         private ToolStripMenuItem gatepassHavePOSMReturnToolStripMenuItem;
         private ToolStripMenuItem viewStockCountToolStripMenuItem;
+        private ToolStripMenuItem channelManageToolStripMenuItem;
+        private ToolStripMenuItem paymentRequestToolStripMenuItem;
+        private ToolStripMenuItem viewPaymentRequestToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator15;
+        private ToolStripMenuItem iOListManageToolStripMenuItem;
     }
 }
 

@@ -85,7 +85,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Price", typeof(float)));
+      //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
 
 
 
@@ -96,11 +96,11 @@ namespace Maketting.Model
             dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
             dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
-            dataGridViewDetail.Columns["Price"].ReadOnly = true;
-            dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+    //        dataGridViewDetail.Columns["Price"].ReadOnly = true;
+      //      dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
-            dataGridViewDetail.Columns["Price"].DefaultCellStyle.Format = "N0";
+       //     dataGridViewDetail.Columns["Price"].DefaultCellStyle.Format = "N0";
             dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.Format = "N0";
             dataGridViewDetail.Columns["Issue_Quantity"].DefaultCellStyle.Format = "N0";
 

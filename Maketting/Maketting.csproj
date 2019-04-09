@@ -695,6 +695,7 @@
   <ItemGroup>
     <Content Include="giphyipg_Pb0_3.ico" />
     <Content Include="marketing_3111733_960_720_vus_4.ico" />
+    <None Include="Resources\coca-cola pic run.jpg" />
     <None Include="Resources\vintage-coca-cola-pinup-girls.jpg" />
     <None Include="Resources\61561-coca-cola.gif" />
     <None Include="Resources\coca_cola_coke_gif_by_sookie_by_sookiesooker.gif" />

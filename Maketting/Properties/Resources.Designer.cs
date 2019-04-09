@@ -153,6 +153,16 @@ namespace Maketting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coca_cola_pic_run {
+            get {
+                object obj = ResourceManager.GetObject("coca-cola pic run", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DIEUVAN {
             get {
                 object obj = ResourceManager.GetObject("DIEUVAN", resourceCulture);

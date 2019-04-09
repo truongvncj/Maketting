@@ -96,7 +96,7 @@ namespace Maketting.View
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
-            drToAdd["Price"] = PhieuMKT.Price;
+         //   drToAdd["Price"] = PhieuMKT.Price;
 
 
             dataTable.Rows.Add(drToAdd);
@@ -202,9 +202,9 @@ namespace Maketting.View
             //public double Customerbugetioused { get; set; }
             //public double Customerbugetiobalance { get; set; }
 
-            txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
-            txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
-            txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
+            //txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
+            //txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
+            //txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
 
             txtnguoiyeucau.Enabled = true;
             txtnguoinhan.Enabled = true;
@@ -367,7 +367,7 @@ namespace Maketting.View
             InitializeComponent();
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
-            groupBox1.Visible = true;
+            //groupBox1.Visible = true;
 
             this.main1 = Main;
 
@@ -858,12 +858,12 @@ namespace Maketting.View
                             detailphieu.Unit = (string)dataGridViewDetail.Rows[idrow].Cells["Unit"].Value;
                         }
 
-                        if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
-                        {
-                            detailphieu.Price = (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
-                        }
+                        //if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
+                        //{
+                        //    detailphieu.Price = (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
+                        //}
 
-                        detailphieu.NetValue = detailphieu.Price * detailphieu.Issued;
+                       // detailphieu.NetValue = detailphieu.Price * detailphieu.Issued;
 
 
                         dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
@@ -915,33 +915,27 @@ namespace Maketting.View
 
              
 
-                #region          // trừ tồn bughet của chương trình
+                //#region          // trừ tồn bughet của chương trình
 
-                //for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+         
+                //var programebudget2 = (from pp in dc.tbl_MKT_Programes
+                //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                //                       select pp).FirstOrDefault();
+                //if (programebudget2 != null)
                 //{
-                //    if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value)
-                //    {
-                //   this.Totalcost = Totalcost + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value;
+                //    programebudget2.BalanceBudget = programebudget2.BalanceBudget - this.POSMisuevalue;
+                //    programebudget2.UsedBudget = programebudget2.UsedBudget + -this.POSMisuevalue;
 
+                //    dc.SubmitChanges();
 
-                //    }
                 //}
-                var programebudget2 = (from pp in dc.tbl_MKT_Programes
-                                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                       select pp).FirstOrDefault();
-                if (programebudget2 != null)
-                {
-                    programebudget2.BalanceBudget = programebudget2.BalanceBudget - this.POSMisuevalue;
-                    programebudget2.UsedBudget = programebudget2.UsedBudget + -this.POSMisuevalue;
-
-                    dc.SubmitChanges();
-
-                }
 
 
 
 
-                #endregion                //
+                //#endregion                //
+
+
 
                 MessageBox.Show("Phiếu " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //    cleartoblankphieu();
@@ -1004,7 +998,7 @@ namespace Maketting.View
 
         private void button6_Click(object sender, EventArgs e)
         {
-            groupBox1.Visible = true;
+            //groupBox1.Visible = true;
             this.cleartoblankphieu();
 
             Model.MKT.DeleteALLphieutamTMP();
@@ -1719,9 +1713,9 @@ namespace Maketting.View
                 string username = Utils.getusername();
 
              
-                var listproduct = from pp in dc.tbl_MKT_Programepriceproducts
-                                  where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                  select pp.ITEM_Code;
+                //var listproduct = from pp in dc.tbl_MKT_Programepriceproducts
+                //                  where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                //                  select pp.ITEM_Code;
 
 
 
@@ -1740,7 +1734,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
-                        && listproduct.Contains(pp.ITEM_Code)
+                    //    && listproduct.Contains(pp.ITEM_Code)
 
 
                          select new
@@ -1762,7 +1756,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && listproduct.Contains(pp.ITEM_Code)
+                      //     && listproduct.Contains(pp.ITEM_Code)
 
                          select new
                          {
@@ -1782,7 +1776,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && listproduct.Contains(pp.ITEM_Code)
+                    //       && listproduct.Contains(pp.ITEM_Code)
 
                          select new
                          {
@@ -1803,7 +1797,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && listproduct.Contains(pp.ITEM_Code)
+                     //      && listproduct.Contains(pp.ITEM_Code)
 
                          select new
                          {
@@ -1841,10 +1835,10 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
-                                                                                    where p.ITEM_Code == valuechon.ITEM_Code
-                                                                                    && p.ProgrameIDDocno == this.ProgrameIDDocno
-                                                                                    select p.Price).FirstOrDefault();
+                        //dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
+                        //                                                            where p.ITEM_Code == valuechon.ITEM_Code
+                        //                                                            && p.ProgrameIDDocno == this.ProgrameIDDocno
+                        //                                                            select p.Price).FirstOrDefault();
 
 
                    
@@ -1858,7 +1852,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = DBNull.Value;
+                      //  dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = DBNull.Value;
 
                     }
 
@@ -1878,21 +1872,21 @@ namespace Maketting.View
 
 
          
-            if (columhead == "Issue Quantity")
-            {
-                this.POSMisuevalue = 0;
-                for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
-                {
-                    if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
-                    {
-                        this.POSMisuevalue = POSMisuevalue + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value * (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+            //if (columhead == "Issue Quantity")
+            //{
+            //    this.POSMisuevalue = 0;
+            //    for (int idrow = 0; idrow < dataGridViewDetail.RowCount - 1; idrow++)
+            //    {
+            //        if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
+            //        {
+            //            this.POSMisuevalue = POSMisuevalue + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value * (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
 
 
-                    }
-                }
-                txtPOSMissuevalue.Text = this.POSMisuevalue.ToString("#,#", CultureInfo.InvariantCulture);
+            //        }
+            //    }
+            //    txtPOSMissuevalue.Text = this.POSMisuevalue.ToString("#,#", CultureInfo.InvariantCulture);
 
-            }
+            //}
 
             #endregion
 
@@ -2077,7 +2071,7 @@ namespace Maketting.View
             string sophieufind = "";
             string storelocationfind = "";
             string connection_string = Utils.getConnectionstr();
-            groupBox1.Visible = false;
+            //groupBox1.Visible = false;
             btluu.Enabled = false;
             //btsua.Enabled = true;
             btmoi.Enabled = false;
@@ -2340,10 +2334,10 @@ namespace Maketting.View
                     this.ProgrameIDDocno = rs2.ProgrameIDDocno;
                     this.IO_number = rs2.IO_number;
 
-                    this.Programebudgetbalance = (double)(from pp in dc.tbl_MKT_Programes
-                                          where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                          select pp.BalanceBudget).FirstOrDefault().GetValueOrDefault(0);
-                    txtprogramebudgetbalance.Text = this.Programebudgetbalance.ToString("#,#", CultureInfo.InvariantCulture);
+                    //this.Programebudgetbalance = (double)(from pp in dc.tbl_MKT_Programes
+                    //                      where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                    //                      select pp.BalanceBudget).FirstOrDefault().GetValueOrDefault(0);
+                    //txtprogramebudgetbalance.Text = this.Programebudgetbalance.ToString("#,#", CultureInfo.InvariantCulture);
 
 
                 }
@@ -2444,13 +2438,13 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
-                                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                       && pp.IO_number == this.IO_number
-                                       select pp.ChannelGroup).FirstOrDefault();
+                //string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                //                       && pp.IO_number == this.IO_number
+                //                       select pp.ChannelGroup).FirstOrDefault();
 
 
-                string[] chanelparts = channelgroup.Split(';');
+                //string[] chanelparts = channelgroup.Split(';');
 
                 //st1 = parts[0].Trim();
                 //st2 = parts[1].Trim();
@@ -2460,7 +2454,7 @@ namespace Maketting.View
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
                          where pp.FullNameN.Contains(seachtext)
                          && pp.Soldtype == true
-                         && chanelparts.Contains(pp.Chanel)
+                 //        && chanelparts.Contains(pp.Chanel)
 
                          select new
                          {
@@ -2505,26 +2499,26 @@ namespace Maketting.View
                     txtShiptoname.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
 
-                    this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
-                                                   where pp.Customercode == rs2.Customer
-                                                   && pp.IO_number == this.IO_number
-                                                   && pp.Approval == "Approved"
-                                                   select pp.AprovalBudget).Sum().GetValueOrDefault(0);
+                    //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
+                    //                               where pp.Customercode == rs2.Customer
+                    //                               && pp.IO_number == this.IO_number
+                    //                               && pp.Approval == "Approved"
+                    //                               select pp.AprovalBudget).Sum().GetValueOrDefault(0);
 
                 
 
-                    this.Customerbugetioused = (from pp in dc.tbl_MKt_Listphieudetails
-                                                where pp.Customer_SAP_Code == rs2.Customer
-                                                && pp.Purposeid == this.IO_number
-                                                select pp.NetValue).Sum().GetValueOrDefault(0);
+                    //this.Customerbugetioused = (from pp in dc.tbl_MKt_Listphieudetails
+                    //                            where pp.Customer_SAP_Code == rs2.Customer
+                    //                            && pp.Purposeid == this.IO_number
+                    //                            select pp.NetValue).Sum().GetValueOrDefault(0);
 
-                    this.Customerbugetiobalance = this.Customerbugetioaproval - this.Customerbugetioused;
+                    //this.Customerbugetiobalance = this.Customerbugetioaproval - this.Customerbugetioused;
 
 
 
-                    txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
-                    txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
-                    txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
+                    //txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
+                    //txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
+                    //txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
 
                 }
 

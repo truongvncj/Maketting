@@ -4615,46 +4615,12 @@ namespace Maketting.View
 
 
 
-            if (!Username.getRequestpaymentApprovalright())
-            {
-                View.MKTNoouthourise view = new MKTNoouthourise();
-                view.ShowDialog();
-                return;
-            }
-
-            View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
-            accsup.Show();
-
 
         }
 
         private void viewPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
-                      where pp.payID != null
-                      select new
-                      {
-                          pp.payID,
-                          pp.IO_number,
-                          pp.ProgrameIDDocno,
-                          pp.ProgrameName,
-                          Budget_Requested = pp.TotalAprovalBudget,
-                          pp.Account,
-                          pp.costcenter,
-                          pp.Requestby,
-                          pp.Approval,
-
-
-                      };
-
-
-
-            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTS REQUEST", 100, "PaymentRequestview");
-            tbl.ShowDialog();
+         
         }
 
         private void updateGatePassDeliveredToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4730,55 +4696,12 @@ namespace Maketting.View
 
         private void setPOSMProgrameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!Username.getSetPOSMprogrameright())
-            {
-                View.MKTNoouthourise view = new MKTNoouthourise();
-                view.ShowDialog();
-                return;
-            }
-
-
-
-            View.MKTProgramemakeandsetIObutger accsup = new MKTProgramemakeandsetIObutger();
-            accsup.Show();
+        
         }
 
         private void approvalPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Username.getAprovalPaymentRequestright())
-            {
-                View.MKTNoouthourise view = new MKTNoouthourise();
-                view.ShowDialog();
-                return;
-            }
-
-            //View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
-            //accsup.Show();
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
-                      where pp.payID != null && pp.Approval == "Not Approved"
-                      select new
-                      {
-                          pp.payID,
-                          pp.IO_number,
-                          pp.ProgrameIDDocno,
-                          pp.ProgrameName,
-                          Budge_Requested = pp.TotalAprovalBudget,
-                          pp.Account,
-                          pp.costcenter,
-                          pp.Requestby,
-                          pp.Approval,
-
-
-                      };
-
-
-
-            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTs REQUEST For APPROVAl", 100, "PaymentRequest");
-            tbl.ShowDialog();
+          
         }
 
         private void updateGatePassDeliveredToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -5178,6 +5101,106 @@ namespace Maketting.View
 
 
 
+        }
+
+        private void channelManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getChannelsalesManageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_CustomerChanels
+                          //   where pp.Soldtype == true
+                      select pp;
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Channel list", 17, "Channel");
+            tbl.ShowDialog();
+        }
+
+        private void paymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!Username.getRequestpaymentApprovalright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+            View.MKTProgramepaymentaproval accsup = new MKTProgramepaymentaproval();
+            accsup.Show();
+
+        }
+
+        private void viewPaymentRequestToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Payment_Aproval_heads
+                      where pp.payID != null
+                      select new
+                      {
+                          pp.payID,
+                          pp.IO_number,
+                          pp.ProgrameIDDocno,
+                          pp.ProgrameName,
+                          Budget_Requested = pp.TotalAprovalBudget,
+                          pp.Account,
+                          pp.costcenter,
+                          pp.Requestby,
+                          pp.Approval,
+
+
+                      };
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "LIST PAYMENTS REQUEST", 100, "PaymentRequestview");
+            tbl.ShowDialog();
+        }
+
+        private void massInputPOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iOListManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getIOmanageright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            //var rs5 = from pp in dc.tbl_MKT_IO_Programes
+
+            //          select pp;
+
+
+            var rs5 = Model.MKT.DanhsachctMKT(dc);
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Progarme list", 13, "IO");
+            tbl.ShowDialog();
         }
     }
 
