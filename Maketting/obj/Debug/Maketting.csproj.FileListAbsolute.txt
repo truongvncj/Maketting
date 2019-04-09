@@ -71,3 +71,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTselectStoreandRegion.r
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHDeviceRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTstoredeviceforRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu2.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramemake2.resources

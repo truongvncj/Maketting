@@ -55,7 +55,7 @@ namespace Maketting.View
 
             this.budget = 0;
 
-            txtsohieuct.Enabled = false;
+         //   txtsohieuct.Enabled = false;
 
             // list region
             List<ComboboxItem> listRegion = new List<ComboboxItem>();

@@ -5202,6 +5202,34 @@ namespace Maketting.View
             View.Viewtable tbl = new Viewtable(rs5, dc, "Progarme list", 13, "IO");
             tbl.ShowDialog();
         }
+
+        private void pOSMProgramCreatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getSetPOSMprogrameright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+            View.MKTProgramemake2 accsup = new MKTProgramemake2();
+            accsup.Show();
+
+        }
+
+        private void setPOSMProgarm2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getSetPOSMprogrameright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+            View.MKTProgramemake2 accsup = new MKTProgramemake2();
+            accsup.Show();
+
+        }
     }
 
 

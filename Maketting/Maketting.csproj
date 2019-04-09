@@ -159,6 +159,12 @@
     <Compile Include="View\MKTProgrameinputproductandprice.Designer.cs">
       <DependentUpon>MKTProgrameinputproductandprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTProgramemake2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTProgramemake2.Designer.cs">
+      <DependentUpon>MKTProgramemake2.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTProgramepaymentbyFI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTProgrameinputproductandprice.resx">
       <DependentUpon>MKTProgrameinputproductandprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTProgramemake2.resx">
+      <DependentUpon>MKTProgramemake2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTProgramepaymentbyFI.resx">
       <DependentUpon>MKTProgramepaymentbyFI.cs</DependentUpon>
