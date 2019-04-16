@@ -539,7 +539,8 @@ namespace Maketting.View
                 {
 
                     MessageBox.Show("Bạn phải chọn một chương trình !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    mahieuct = "0";
+                   // return;
                 }
 
 
