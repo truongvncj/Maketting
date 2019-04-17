@@ -886,7 +886,15 @@ namespace Maketting.View
                         newregionupdate.ITEM_Code = ItemCode;
                         newregionupdate.SAP_CODE = (string)dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value;
                         newregionupdate.MATERIAL = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
-                       newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+                        if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
+                        {
+                            newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+                        }
+                        else
+                        {
+                            newregionupdate.Description = "";
+                        }
+                 
                         newregionupdate.Region = Model.Username.getuseRegion();
                         newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
                         newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;

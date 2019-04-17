@@ -269,19 +269,53 @@ namespace Maketting.View
 
         private void btnew_Click(object sender, EventArgs e)
         {
-            if (itemcode == "")
-            {
-                MessageBox.Show("Bạn kiểm tra mã sản phẩm", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (itemcode == "")
+            //{
+            //    MessageBox.Show("Bạn kiểm tra mã sản phẩm", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
+            this.description = txtdescription.Text;
             this.sapcode = txtsapcode.Text;
-            this.itemcode = this.txtsapcode.Text;
+            this.itemcode = txtsapcode.Text;
             this.materialname = this.txttensanpham.Text;
             this.itemcode = txtsapcode.Text;
             this.unit = txtunit.Text;
             this.storelocation = txtstorelocation.Text;
 
+
+            if (this.sapcode =="")
+            {
+                MessageBox.Show("Please input SAp code", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (this.itemcode == "")
+            {
+                MessageBox.Show("Please input itemcode code", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.materialname == "")
+            {
+                MessageBox.Show("Please input material name ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.storelocation == "")
+            {
+                MessageBox.Show("Please input storelocation ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (this.unit == "")
+            {
+                MessageBox.Show("Please input unit ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (this.description == "")
+            {
+                MessageBox.Show("Please input description ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
