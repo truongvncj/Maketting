@@ -55,8 +55,8 @@ namespace Maketting.View
             dataGridViewLoaddetail.DataSource = dt;
             //  dataGridViewLoaddetail.Columns["Unit"].ReadOnly = true;
             //  dataGridViewLoaddetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-            //      dataGridViewLoaddetail.Columns["Avaiable_Quantity"].ReadOnly = true;
-            //      dataGridViewLoaddetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            //      dataGridViewLoaddetail.Columns["Available_Quantity"].ReadOnly = true;
+            //      dataGridViewLoaddetail.Columns["Available_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
 

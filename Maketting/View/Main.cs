@@ -5230,6 +5230,44 @@ namespace Maketting.View
             accsup.Show();
 
         }
+
+        private void toolStripMenuItem1_Click_2(object sender, EventArgs e)
+        {
+
+     
+        }
+
+        private void toolStripMenuItem1_Click_3(object sender, EventArgs e)
+        {
+            MKTFromdatetodateRegion datepick = new MKTFromdatetodateRegion();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            string region = datepick.region;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+
+
+
+
+
+        }
     }
 
 

@@ -75,7 +75,7 @@ namespace Maketting.View
 
             //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-            //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+            //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
 
 
@@ -631,7 +631,7 @@ namespace Maketting.View
 
                     //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
                     //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+                    //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
                     dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.White;
 
@@ -658,9 +658,9 @@ namespace Maketting.View
 
                     }
 
-                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Avaiable_Quantity"].Value != DBNull.Value)
+                    if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Available_Quantity"].Value != DBNull.Value)
                     {
-                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value > (float)dataGridViewDetail.Rows[idrow].Cells["Avaiable_Quantity"].Value)
+                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value > (float)dataGridViewDetail.Rows[idrow].Cells["Available_Quantity"].Value)
                         {
                             MessageBox.Show("Please số lượng lớn hơn số avaiable, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
@@ -825,7 +825,7 @@ namespace Maketting.View
 
                         //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
                         //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                        //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+                        //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
                         {
@@ -1839,7 +1839,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
                                                                                     where p.ITEM_Code == valuechon.ITEM_Code
@@ -1856,7 +1856,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = DBNull.Value;
 

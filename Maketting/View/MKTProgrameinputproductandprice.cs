@@ -91,7 +91,7 @@ namespace Maketting.View
 
                     //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
                     //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+                    //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
 
                     var valuechon = (from pp in dc.tbl_MKT_Stockends

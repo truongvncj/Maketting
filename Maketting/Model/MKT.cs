@@ -84,8 +84,9 @@ namespace Maketting.Model
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
-      //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
+            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Region_Balance", typeof(float)));
+            //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
 
 
 
@@ -93,17 +94,21 @@ namespace Maketting.Model
             dataGridViewDetail.DataSource = dt;
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
-            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Available_Quantity"].ReadOnly = true;
+            dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
-    //        dataGridViewDetail.Columns["Price"].ReadOnly = true;
-      //      dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Region_Balance"].ReadOnly = true;
+            dataGridViewDetail.Columns["Region_Balance"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+
+            //        dataGridViewDetail.Columns["Price"].ReadOnly = true;
+            //      dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
-       //     dataGridViewDetail.Columns["Price"].DefaultCellStyle.Format = "N0";
-            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.Format = "N0";
+            //     dataGridViewDetail.Columns["Price"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.Format = "N0";
             dataGridViewDetail.Columns["Issue_Quantity"].DefaultCellStyle.Format = "N0";
 
+            dataGridViewDetail.Columns["Region_Balance"].DefaultCellStyle.Format = "N0";
 
 
             #endregion datatable temp
@@ -144,7 +149,7 @@ namespace Maketting.Model
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
 
 
@@ -152,14 +157,14 @@ namespace Maketting.Model
             dataGridViewDetail.DataSource = dt;
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
-            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Available_Quantity"].ReadOnly = true;
+            dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
 
             dataGridViewDetail.Columns["Quantity"].DefaultCellStyle.Format = "N0";
-            dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.Format = "N0";
-         
+            dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.Format = "N0";
+
 
             #endregion datatable temp
 
@@ -280,7 +285,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Unit_Price", typeof(float)));
-            //     dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+            //     dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
 
 
@@ -288,8 +293,8 @@ namespace Maketting.Model
             dataGridViewDetail.DataSource = dt;
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-            //  dataGridViewDetail.Columns["Avaiable_Quantity"].ReadOnly = true;
-            //   dataGridViewDetail.Columns["Avaiable_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            //  dataGridViewDetail.Columns["Available_Quantity"].ReadOnly = true;
+            //   dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
 
 
@@ -313,7 +318,7 @@ namespace Maketting.Model
 
         public static void restatusphieuLoadingtoCRT()
         {
-          
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
@@ -447,7 +452,72 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region)
+        {
+            //  throw new NotImplementedException();
 
+
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
+                     && p.Region == region
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+
+                         p.Requested_by,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
+                         p.Price,
+                         p.Tranposterby,
+                         p.Truck,
+                         p.Loadingby,
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Returnby,
+
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+
+
+
+
+        }
 
 
 
@@ -473,12 +543,12 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Materialname", typeof(string)));
             dt.Columns.Add(new DataColumn("Issued", typeof(string)));
 
-       
+
 
             dataGridViewDetailload.DataSource = dt;
 
 
-        
+
             #endregion datatable temp
 
 
@@ -779,9 +849,9 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var valueitem = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemCode
-                     && p.Store_code == Store_code
-                     select p).FirstOrDefault();
+                             where p.ITEM_Code == itemCode
+                             && p.Store_code == Store_code
+                             select p).FirstOrDefault();
 
             if (valueitem != null)
             {
@@ -1149,7 +1219,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.Materiacode, - (double)itemxuat.Issued, itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.Materiacode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
             //   Giảm ordered khi xuất hàng
@@ -1161,7 +1231,7 @@ namespace Maketting.Model
         {
 
 
-      
+
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes
@@ -1202,7 +1272,7 @@ namespace Maketting.Model
         {
 
 
-        
+
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_IO_Programes

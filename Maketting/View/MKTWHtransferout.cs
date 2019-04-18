@@ -1481,7 +1481,7 @@ namespace Maketting.View
 
                     //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
                     //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                    //dt.Columns.Add(new DataColumn("Avaiable_Quantity", typeof(float)));
+                    //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
 
                     var valuechon = (from pp in dc.tbl_MKT_Stockends
@@ -1496,7 +1496,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
 
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = valuechon.END_STOCK;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK;
 
                     }
                     else
@@ -1507,7 +1507,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
 
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Avaiable_Quantity"].Value = DBNull.Value;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
                         //    tbl_MKt_Transferoutdetail
                     }
 
