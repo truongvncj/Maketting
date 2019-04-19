@@ -159,7 +159,6 @@ namespace Maketting.View
         }
 
 
-
         private void UpdateText(string Billed_Qty, string NSR, string UC, string PC, string GSR)
         {
 
@@ -175,73 +174,120 @@ namespace Maketting.View
         }
 
         public delegate void UpdateTextCallback(string Billed_Qty, string NSR, string UC, string PC, string GSR);
-        //    In your thread, you can call the Invoke method on m_TextBox, passing the delegate to call, as well as the parameters.
 
-
-
-        //public void Reloadcustomer(String inutstring)
-
-        //{
-        //    string connection_string = Utils.getConnectionstr();
-        //    //      UpdateDatagridview
-        //    System.Data.DataTable dt = new System.Data.DataTable();
-        //    //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-        //    var rsthisperiod = from tbl_KaCustomer in dc.tbl_PosCustomers
-        //                       where ((int)tbl_KaCustomer.Customer).ToString().Contains(inutstring)
-        //                       select tbl_KaCustomer;
-
-        //    Utils ut = new Utils();
-        //    dt = ut.ToDataTable(dc, rsthisperiod);
-
-        //    this.dataGridView1.DataSource = dt;
-
-
-        //}
 
 
 
         void Control_KeyPress(object sender, KeyEventArgs e)
         {
-            // if (viewcode == 2)// nuew la bàng salsetemp update
-
-            //if ((viewcode == 2) && e.KeyCode == Keys.F3)
-            //{
 
 
-
-
-
-            //    FormCollection fc = System.Windows.Forms.Application.OpenForms;
-
-            //    bool kq = false;
-            //    foreach (Form frm in fc)
-            //    {
-            //        if (frm.Text == "tblsales")
-
-
-            //        {
-            //            kq = true;
-            //            frm.Focus();
-
-            //        }
-            //    }
-
-            //    if (!kq)
-            //    {
-            //        Seachcode sheaching = new Seachcode(this, "tblsales");
-            //        sheaching.Show();
-            //    }
+            if ((viewcode == 100) && e.KeyCode == Keys.F3)  // viewocode là 100 tức là tìm phiếu mkt
+            {
 
 
 
 
-            //}
+
+                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+
+                bool kq = false;
+                foreach (Form frm in fc)
+                {
+                    if (frm.Text == "Tìm phiếu MKT")
+
+
+                    {
+                        kq = true;
+                        frm.Focus();
+
+                    }
+                }
+
+                if (!kq)
+                {
+                    SeachphieuMKT sheaching = new SeachphieuMKT(this, "Tìm phiếu MKT");
+                    sheaching.Show();
+                }
+
+
+
+
+            }
 
 
         }
 
+        public void ReloadPhieuMKTtheoso(Viewtable Viewtable, string MKTnumber , string txtname)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     where p.Gate_pass.Contains(MKTnumber)  && p.Receiver_by.Contains(txtname)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+
+                         p.Requested_by,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
+                         p.Price,
+                         p.Tranposterby,
+                         p.Truck,
+                         p.Loadingby,
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Returnby,
+
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            Viewtable.dataGridView1.DataSource = rs;
+
+
+
+            //  throw new NotImplementedException();
+        }
 
         public BindingSource source2;
+
+
         public Viewtable(IQueryable rs, LinqtoSQLDataContext dc, string fornname, int viewcode, string valuesave)
         {
             //    this.dataGridView1.DataSource = rs;
@@ -266,6 +312,14 @@ namespace Maketting.View
 
             this.formlabel.Text = fornname;
             btaddto.Visible = false;
+            if (viewcode == 55) // 55 chỉ view và exports
+            {
+                bt_themmoi.Visible = false;
+                bt_sua.Visible = false;
+                btaddto.Visible = false;
+                lbseach.Visible = false;
+            }
+
             if (viewcode == 100)
             {
                 bt_themmoi.Visible = false;
@@ -313,6 +367,7 @@ namespace Maketting.View
 
 
         }
+
 
         private void bt_addtomaster_Click(object sender, EventArgs e)
         {
@@ -540,7 +595,7 @@ namespace Maketting.View
 
                     MessageBox.Show("Bạn phải chọn một chương trình !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mahieuct = "0";
-                   // return;
+                    // return;
                 }
 
 
@@ -1318,7 +1373,7 @@ namespace Maketting.View
                 MessageBox.Show(ex.ToString());
             }
 
-          
+
 
 
 

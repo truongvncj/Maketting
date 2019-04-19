@@ -53,6 +53,7 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbseach = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -80,6 +81,7 @@ namespace Maketting.View
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.lbseach);
             this.panel2.Controls.Add(this.btaddto);
             this.panel2.Controls.Add(this.bt_sua);
             this.panel2.Controls.Add(this.bt_exporttoex);
@@ -327,6 +329,17 @@ namespace Maketting.View
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
+            // lbseach
+            // 
+            this.lbseach.AutoSize = true;
+            this.lbseach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbseach.ForeColor = System.Drawing.Color.Red;
+            this.lbseach.Location = new System.Drawing.Point(1024, 6);
+            this.lbseach.Name = "lbseach";
+            this.lbseach.Size = new System.Drawing.Size(83, 20);
+            this.lbseach.TabIndex = 7;
+            this.lbseach.Text = "F3- Seach";
+            // 
             // Viewtable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +356,7 @@ namespace Maketting.View
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.Pl_endview.ResumeLayout(false);
             this.Pl_endview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -378,5 +392,6 @@ namespace Maketting.View
         private System.Windows.Forms.Button bt_sua;
         private System.Windows.Forms.Button bt_themmoi;
         private System.Windows.Forms.Button btaddto;
+        private System.Windows.Forms.Label lbseach;
     }
 }

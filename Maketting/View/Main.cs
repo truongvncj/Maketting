@@ -3597,7 +3597,7 @@ namespace Maketting.View
 
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 100, "STORERPT");
+                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
                 tbl.ShowDialog();
 
 
@@ -4824,7 +4824,7 @@ namespace Maketting.View
                       };
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK BUDGET ON STORE ", 100, "rEgIONBUTGETINSTORE");
+            View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK BUDGET ON STORE ", 55, "rEgIONBUTGETINSTORE");
             tbl.ShowDialog();
 
 
@@ -5255,7 +5255,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 100 là danh sach nha nha phiếu
 
                 viewtbl.ShowDialog();
 
@@ -5266,6 +5266,32 @@ namespace Maketting.View
 
 
 
+
+        }
+
+        private void storeInputDetailByPOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPOnham(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU PHIẾU NHẬP KHO THEO PO ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
 
         }
     }

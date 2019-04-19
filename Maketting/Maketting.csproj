@@ -399,6 +399,12 @@
     <Compile Include="View\MKTViewchooseiquery.Designer.cs">
       <DependentUpon>MKTViewchooseiquery.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SeachphieuMKT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SeachphieuMKT.Designer.cs">
+      <DependentUpon>SeachphieuMKT.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Viewdatatable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -615,6 +621,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTViewchooseiquery.resx">
       <DependentUpon>MKTViewchooseiquery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SeachphieuMKT.resx">
+      <DependentUpon>SeachphieuMKT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Viewdatatable.resx">
       <DependentUpon>Viewdatatable.cs</DependentUpon>

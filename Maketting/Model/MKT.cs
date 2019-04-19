@@ -1697,6 +1697,68 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachPOnham(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+
+
+
+            var rs = from pp in dc.tbl_MKt_POdetails
+                     where pp.StatusPO == "IN"
+                     select new
+                     {
+                         pp.Region,
+                         pp.POnumber,
+                         pp.Storelocation,
+                         pp.DatePO,
+                         pp.MateriaSAPcode,
+                         pp.MateriaItemcode,
+                         pp.Materialname,
+
+                         Reciepted_Quantity = pp.RecieptedQuantity,
+                         pp.Unit,
+                         //    ID = pp.id,
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
+
+
+        public static double getBalancebuget(string materialitemcode, string region, string storelocation)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            double kq = 0;
+            var rs5 = (from pp in dc.tbl_MKT_StockendRegionBudgets
+                       where pp.Region == region
+                       && pp.Store_code == storelocation
+                    && pp.ITEM_Code == materialitemcode
+                       group pp by new
+                       {
+                           //   pp.Region,
+                           pp.ITEM_Code,
+
+                       } into gg
+                       select new
+                       {
+
+
+                           Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                       });
+
+            if (rs5.Count()>0)
+            {
+                kq = rs5.FirstOrDefault().Balance;
+            }
+
+
+            return kq;
+
+        }
 
     }
 }

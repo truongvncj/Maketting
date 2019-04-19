@@ -18,6 +18,7 @@ namespace Maketting.View
                                              //   public string sophieuID { get; set; }
         public string sophieu { get; set; }
         public string storelocation { get; set; }
+        public string region { get; set; }
         public string Username { get; set; }
         public string ProgrameIDDocno { get; set; }
         public string IO_number { get; set; }
@@ -240,6 +241,8 @@ namespace Maketting.View
             string username = Utils.getusername();
             this.Username = username;
             string rightkho = Model.Username.getmaquyenkho();
+
+            this.region = Model.Username.getuseRegion();
 
           //  if (rightkho == null)
           //  {
@@ -1843,13 +1846,17 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
+
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storelocation);
+
                         //dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
                         //                                                            where p.ITEM_Code == valuechon.ITEM_Code
                         //                                                            && p.ProgrameIDDocno == this.ProgrameIDDocno
                         //                                                            select p.Price).FirstOrDefault();
 
+                        //          Region_Balance
 
-                   
+
 
                     }
                     else
@@ -1860,7 +1867,7 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
-                      //  dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = DBNull.Value;
+                       dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = DBNull.Value;
 
                     }
 
