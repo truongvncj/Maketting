@@ -3534,7 +3534,7 @@ namespace Maketting.View
 
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 100, "STORERPT");
+                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
                 tbl.ShowDialog();
 
 
