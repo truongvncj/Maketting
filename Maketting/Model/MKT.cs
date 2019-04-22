@@ -1726,6 +1726,38 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
+        public static IQueryable DanhsachPOList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+
+
+
+            var rs = from pp in dc.tbl_MKt_POdetails
+                  // where pp.StatusPO == "IN"
+                     select new
+                     {
+                         pp.Region,
+                         pp.POnumber,
+                         pp.Storelocation,
+                         pp.DatePO,
+                         pp.MateriaSAPcode,
+                         pp.MateriaItemcode,
+                         pp.Materialname,
+                         pp.Unit,
+                         pp.QuantityOrder,
+                         pp.Unit_Price,
+                        
+                         Reciepted_Quantity = pp.RecieptedQuantity,
+                   
+                         //    ID = pp.id,
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
 
 
         public static double getBalancebuget(string materialitemcode, string region, string storelocation)

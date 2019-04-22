@@ -64,6 +64,7 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storeInputDetailByPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.channelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSMProgramCreatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,7 +117,7 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.storeInputDetailByPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -345,6 +346,7 @@
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem,
             this.toolStripSeparator2,
             this.inputPOToolStripMenuItem,
+            this.pOListToolStripMenuItem,
             this.storeInputDetailByPOToolStripMenuItem,
             this.toolStripSeparator16,
             this.channelManageToolStripMenuItem,
@@ -389,6 +391,13 @@
             this.inputPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.inputPOToolStripMenuItem.Text = "Input PO ";
             this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
+            // 
+            // storeInputDetailByPOToolStripMenuItem
+            // 
+            this.storeInputDetailByPOToolStripMenuItem.Name = "storeInputDetailByPOToolStripMenuItem";
+            this.storeInputDetailByPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.storeInputDetailByPOToolStripMenuItem.Text = "Reciepted reports";
+            this.storeInputDetailByPOToolStripMenuItem.Click += new System.EventHandler(this.storeInputDetailByPOToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
@@ -771,12 +780,12 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // storeInputDetailByPOToolStripMenuItem
+            // pOListToolStripMenuItem
             // 
-            this.storeInputDetailByPOToolStripMenuItem.Name = "storeInputDetailByPOToolStripMenuItem";
-            this.storeInputDetailByPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.storeInputDetailByPOToolStripMenuItem.Text = "Store reciepted detail reports";
-            this.storeInputDetailByPOToolStripMenuItem.Click += new System.EventHandler(this.storeInputDetailByPOToolStripMenuItem_Click);
+            this.pOListToolStripMenuItem.Name = "pOListToolStripMenuItem";
+            this.pOListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.pOListToolStripMenuItem.Text = "PO List";
+            this.pOListToolStripMenuItem.Click += new System.EventHandler(this.pOListToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -887,6 +896,7 @@
         private ToolStripMenuItem setPOSMProgarm2ToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem storeInputDetailByPOToolStripMenuItem;
+        private ToolStripMenuItem pOListToolStripMenuItem;
     }
 }
 
