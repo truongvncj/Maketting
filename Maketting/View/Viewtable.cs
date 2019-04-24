@@ -35,15 +35,19 @@ namespace Maketting.View
             }
         }
         public string valuesave { get; set; }
+        public LinqtoSQLDataContext dc { get; set; }
+
+
+
         public int viewcode;
-        public IQueryable rs;
-        LinqtoSQLDataContext db;
+        public IQueryable rs { get; set; }
+ //       LinqtoSQLDataContext db;
         public DataGridView Dtgridview;
 
 
-        public static string connection_string = Utils.getConnectionstr();
+        //public static string connection_string = Utils.getConnectionstr();
 
-        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
         //   public List<ComboboxItem> dataCollectionaccount;
@@ -218,16 +222,18 @@ namespace Maketting.View
 
         }
 
-        public void ReloadPhieuMKTtheoso(Viewtable Viewtable, string MKTnumber , string txtname)
+        public void ReloadPhieuMKTtheoso(Viewtable Viewtable,  string MKTnumber , string txtname, string region, string statusphieu)
         {
 
+         //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
-            string connection_string = Utils.getConnectionstr();
+          //  string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+           // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = from p in dc.tbl_MKt_Listphieudetails
+            var rs = from p in this.dc.tbl_MKt_Listphieudetails
                      where p.Gate_pass.Contains(MKTnumber)  && p.Receiver_by.Contains(txtname)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
+                     && p.Status.Contains(statusphieu) && p.Region.Contains(region)
                      orderby p.Gate_pass
                      select new
                      {
@@ -280,7 +286,7 @@ namespace Maketting.View
 
             Viewtable.dataGridView1.DataSource = rs;
 
-
+            this.rs = rs;
 
             //  throw new NotImplementedException();
         }
@@ -301,7 +307,9 @@ namespace Maketting.View
             this.dataGridView1.DataSource = rs;
             this.Dtgridview = dataGridView1;
 
-            this.db = dc;
+     
+
+            this.dc = dc;
             this.viewcode = viewcode;
             this.rs = rs;
             //  this.lb_seach.Text = "F3 TÌM KIẾM";
@@ -361,7 +369,7 @@ namespace Maketting.View
             Control_ac ctrex = new Control_ac();
 
 
-            ctrex.exportexceldatagridtofile(this.rs, this.db, this.Text);
+            ctrex.exportexceldatagridtofile(this.rs, this.dc, this.Text);
 
 
 
@@ -398,10 +406,10 @@ namespace Maketting.View
 
 
 
-                var rs = Model.MKT.danhsachsalesorglist(this.db);
+                var rs = Model.MKT.danhsachsalesorglist(this.dc);
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -431,10 +439,10 @@ namespace Maketting.View
 
 
 
-                var rs = Model.MKT.danhsachregionlist(this.db);
+                var rs = Model.MKT.danhsachregionlist(this.dc);
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -464,9 +472,9 @@ namespace Maketting.View
 
 
 
-                var rs = Model.MKT.danhsachcustomerChannel(this.db);
+                var rs = Model.MKT.danhsachcustomerChannel(this.dc);
                 dataGridView1.DataSource = rs;
-
+                this.rs = rs;
 
 
             }
@@ -495,13 +503,13 @@ namespace Maketting.View
 
                 p.ShowDialog();
 
-                var rs = Model.MKT.shiptolistbycustomer(this.db, makh);
-                //var rs = Model.MKT.shiptolist(this.db);
+                var rs = Model.MKT.shiptolistbycustomer(this.dc, makh);
+                //var rs = Model.MKT.shiptolist(this.dc);
 
                 dataGridView1.DataSource = rs;
 
 
-
+                this.rs = rs;
             }
 
 
@@ -531,10 +539,10 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                //  var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
-                var rs = Model.MKT.danhsachkhoMKTRight(this.db);
+                //  var rs = Model.MKT.DanhsachnhavantaiMKT(this.dc);
+                var rs = Model.MKT.danhsachkhoMKTRight(this.dc);
                 dataGridView1.DataSource = rs;
-
+                this.rs = rs;
 
 
             }
@@ -563,11 +571,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+                var rs = Model.MKT.DanhsachnhavantaiMKT(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -607,11 +615,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.DanhsachctMKT(this.db);
+                var rs = Model.MKT.DanhsachctMKT(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -639,12 +647,12 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhkhachhang(this.db);
+                var rs = Model.MKT.danhkhachhang(this.dc);
 
                 dataGridView1.DataSource = rs;
 
 
-
+                this.rs = rs;
             }
 
 
@@ -665,11 +673,11 @@ namespace Maketting.View
 
                 var rs1 = Model.MKT.danhsachkhoMKT(dc);
 
-                //   var rs = Model.Khohang.Danhsachkho(this.db);
+                //   var rs = Model.Khohang.Danhsachkho(this.dc);
 
                 dataGridView1.DataSource = rs1;
 
-
+                this.rs = rs1;
 
             }
 
@@ -727,11 +735,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhsachsalesorglist(this.db);
+                var rs = Model.MKT.danhsachsalesorglist(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -771,11 +779,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhsachregionlist(this.db);
+                var rs = Model.MKT.danhsachregionlist(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -815,7 +823,7 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhsachcustomerChannel(this.db);
+                var rs = Model.MKT.danhsachcustomerChannel(this.dc);
 
                 dataGridView1.DataSource = rs;
 
@@ -859,7 +867,7 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhsachkhoMKTRight(this.db);
+                var rs = Model.MKT.danhsachkhoMKTRight(this.dc);
 
                 dataGridView1.DataSource = rs;
 
@@ -903,11 +911,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.DanhsachnhavantaiMKT(this.db);
+                var rs = Model.MKT.DanhsachnhavantaiMKT(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -953,12 +961,12 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.DanhsachctMKT(this.db);
+                var rs = Model.MKT.DanhsachctMKT(this.dc);
 
                 dataGridView1.DataSource = rs;
 
 
-
+                this.rs = rs;
             }
 
 
@@ -1004,11 +1012,11 @@ namespace Maketting.View
                 p.ShowDialog();
 
 
-                var rs = Model.MKT.danhkhachhang(this.db);
+                var rs = Model.MKT.danhkhachhang(this.dc);
 
                 dataGridView1.DataSource = rs;
 
-
+                this.rs = rs;
 
             }
 
@@ -1058,7 +1066,7 @@ namespace Maketting.View
                 dataGridView1.DataSource = rs1;
 
 
-
+                this.rs = rs;
             }
             #endregion
 

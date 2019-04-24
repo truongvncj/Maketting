@@ -458,7 +458,7 @@ namespace Maketting.View
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value != DBNull.Value)
                 {
 
-                    float Reciep_Quantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                    float Reciep_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
                     float Reciepted_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value.ToString());
                     float Order_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Order_Quantity"].Value.ToString());
 

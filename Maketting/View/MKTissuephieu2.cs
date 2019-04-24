@@ -2450,6 +2450,8 @@ namespace Maketting.View
 
                 // chanel of IO
                 string seachtext = txtnguoinhan.Text;
+                string seachcode = txtseachcode.Text;
+
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -2468,6 +2470,7 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
                          where pp.FullNameN.Contains(seachtext)
+                         &&pp.Customer.Contains(seachcode)
                          && pp.Soldtype == true
                        && chanelparts.Contains(pp.Chanel)
 
@@ -2645,6 +2648,127 @@ namespace Maketting.View
 
             viewtbl.Show();
 
+        }
+
+        private void txtseachcode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                //  cbsophieu.
+                if (txtmact.Text == "")
+                {
+
+                    MessageBox.Show("Please IO trước khi chọn khách hàng ! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtmucdichname.Focus();
+                    return;
+                }
+
+
+                // chanel of IO
+                string seachtext = txtnguoinhan.Text;
+                string seachcode = txtseachcode.Text;
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                                       && pp.IO_number == this.IO_number
+                                       select pp.ChannelGroup).FirstOrDefault();
+
+
+                string[] chanelparts = channelgroup.Split(';');
+
+                //st1 = parts[0].Trim();
+                //st2 = parts[1].Trim();
+                //st3 = parts[2].Trim();
+                //st4 = parts[3].Trim();
+
+                var rs = from pp in dc.tbl_MKT_Soldtocodes
+                         where pp.FullNameN.Contains(seachtext)
+                         && pp.Customer.Contains(seachcode)
+                         && pp.Soldtype == true
+                       && chanelparts.Contains(pp.Chanel)
+
+                         select new
+                         {
+                             pp.KeyAcc,
+                             pp.Chanel,
+                             pp.Region,
+                             pp.SalesOrg,
+                             pp.District,
+                             MÃ_KHÁCH_HÀNG = pp.Customer,
+                             TÊN_KHÁCH_HÀNG = pp.FullNameN,
+                             ĐỊA_CHỈ = pp.Street + " " + pp.District + " " + pp.City,
+                             QUẬN = pp.District,
+                             TỈNH_THÀNH_PHỐ = pp.City,
+                             ĐIỆN_THOẠI = pp.Telephone1,
+                             GHI_CHÚ = pp.Note,
+
+
+
+
+                             ID = pp.id,
+
+                         };
+
+                View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT RECIPIENTS", "MKT");
+                selectkq.ShowDialog();
+                int id = selectkq.id;
+
+                var rs2 = (from pp in dc.tbl_MKT_Soldtocodes
+                           where pp.id == id
+                           select pp).FirstOrDefault();
+
+                if (rs2 != null)
+                {
+                    txtcustcode.Text = rs2.Customer;
+                    txtnguoinhan.Text = rs2.FullNameN;
+                    txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
+                    lbtel.Text = rs2.Telephone1;
+
+
+                    txtShiptoCode.Text = rs2.ShiptoCode;
+
+                    txtShiptoname.Text = rs2.FullNameN;
+                    txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
+
+                    //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
+                    //                               where pp.Customercode == rs2.Customer
+                    //                               && pp.IO_number == this.IO_number
+                    //                               && pp.Approval == "Approved"
+                    //                               select pp.AprovalBudget).Sum().GetValueOrDefault(0);
+
+
+
+                    //this.Customerbugetioused = (from pp in dc.tbl_MKt_Listphieudetails
+                    //                            where pp.Customer_SAP_Code == rs2.Customer
+                    //                            && pp.Purposeid == this.IO_number
+                    //                            select pp.NetValue).Sum().GetValueOrDefault(0);
+
+                    //this.Customerbugetiobalance = this.Customerbugetioaproval - this.Customerbugetioused;
+
+
+
+                    //txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
+                    //txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
+                    //txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
+
+                }
+
+
+
+
+
+
+
+
+                txtShiptoname.Focus();
+
+
+            }
         }
     }
 }

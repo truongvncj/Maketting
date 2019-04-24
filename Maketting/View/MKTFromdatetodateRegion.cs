@@ -15,6 +15,7 @@ namespace Maketting.View
         public DateTime fromdate { get; set; }
         public DateTime todate { get; set; }
         public string region { get; set; }
+        public string ststusphieu { get; set; }
 
         public bool chon { get; set; }
 
@@ -53,7 +54,8 @@ namespace Maketting.View
             todatepicker.Value = DateTime.Today;
             this.fromdate = fromdatepicker.Value;
             this.todate = todatepicker.Value;
-
+            cbstatusphieu.SelectedIndex = 0;
+        //    this.ststusphieu = cbstatusphieu.SelectedValue.ToString();
 
             this.region = "";// (cbselect2.SelectedItem as View.MKTselectStoreandRegion.ComboboxItem).Value.ToString();
             chon = false;
@@ -62,13 +64,34 @@ namespace Maketting.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
 
+
+
+            //   this.ststusphieu = cbstatusphieu.SelectedValue.ToString();
+            chon = true;
+            if (cbstatusphieu != null && cbstatusphieu.SelectedItem != null)  // update prograne -- cai nay 
+            {
+                this.ststusphieu = cbstatusphieu.GetItemText(cbstatusphieu.SelectedItem);
+                if (this.ststusphieu == "All")
+                {
+                    this.ststusphieu = "";
+                }
+
+          //   ComboBox1.GetItemText(ComboBox1.SelectedItem)
+          //  string temp = cboTypeOfMaterial.ValueMember.ToString();
+            }
+            else
+            {
+
+                chon = false;
+                MessageBox.Show("Please select a Status !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //   return;
+            }
 
             if (cbselect2 != null && cbselect2.SelectedValue != null)  // update prograne -- cai nay 
             {
                 this.region = (cbselect2.SelectedItem as View.MKTselectStoreandRegion.ComboboxItem).Value.ToString();
-                chon = true;
+             
             }
             else
             {
@@ -112,6 +135,11 @@ namespace Maketting.View
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbselect2_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

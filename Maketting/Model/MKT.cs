@@ -452,14 +452,14 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-        public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region)
+        public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region, string statusphieu)
         {
             //  throw new NotImplementedException();
 
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
-                     && p.Region == region
+                     && p.Region == region  && p.Status.Contains(statusphieu)
                      orderby p.Gate_pass
                      select new
                      {

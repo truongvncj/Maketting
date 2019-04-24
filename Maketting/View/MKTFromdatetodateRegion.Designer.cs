@@ -32,11 +32,13 @@
             this.fromdatepicker = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbselect2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.todatepicker = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbselect2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbstatusphieu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(229, 155);
+            this.button1.Location = new System.Drawing.Point(229, 189);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 21);
             this.button1.TabIndex = 1;
@@ -65,6 +67,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.cbstatusphieu);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cbselect2);
             this.panel1.Controls.Add(this.label2);
@@ -74,9 +78,29 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 208);
+            this.panel1.Size = new System.Drawing.Size(348, 233);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Region Maketting";
+            // 
+            // cbselect2
+            // 
+            this.cbselect2.DropDownWidth = 200;
+            this.cbselect2.FormattingEnabled = true;
+            this.cbselect2.Location = new System.Drawing.Point(161, 94);
+            this.cbselect2.Name = "cbselect2";
+            this.cbselect2.Size = new System.Drawing.Size(152, 21);
+            this.cbselect2.TabIndex = 7;
+            this.cbselect2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbselect2_KeyPress);
             // 
             // label2
             // 
@@ -110,30 +134,37 @@
             this.todatepicker.TabIndex = 2;
             this.todatepicker.Value = new System.DateTime(2016, 3, 6, 0, 0, 0, 0);
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Region Maketting";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 18);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Status of delivery";
             // 
-            // cbselect2
+            // cbstatusphieu
             // 
-            this.cbselect2.DropDownWidth = 200;
-            this.cbselect2.FormattingEnabled = true;
-            this.cbselect2.Location = new System.Drawing.Point(161, 94);
-            this.cbselect2.Name = "cbselect2";
-            this.cbselect2.Size = new System.Drawing.Size(152, 21);
-            this.cbselect2.TabIndex = 7;
+            this.cbstatusphieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstatusphieu.DropDownWidth = 200;
+            this.cbstatusphieu.FormattingEnabled = true;
+            this.cbstatusphieu.Items.AddRange(new object[] {
+            "CRT",
+            "Shipping",
+            "Delivering",
+            "completed",
+            "All"});
+            this.cbstatusphieu.Location = new System.Drawing.Point(161, 134);
+            this.cbstatusphieu.Name = "cbstatusphieu";
+            this.cbstatusphieu.Size = new System.Drawing.Size(152, 21);
+            this.cbstatusphieu.TabIndex = 9;
             // 
             // MKTFromdatetodateRegion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 225);
+            this.ClientSize = new System.Drawing.Size(360, 245);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -157,5 +188,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbselect2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbstatusphieu;
     }
 }

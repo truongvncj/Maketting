@@ -5245,6 +5245,8 @@ namespace Maketting.View
             DateTime fromdate = datepick.fromdate;
             DateTime todate = datepick.todate;
             string region = datepick.region;
+            string statusphieu = datepick.ststusphieu.Trim();
+
             bool kq = datepick.chon;
 
             if (kq) // nueeus có chọn
@@ -5252,7 +5254,7 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region);
+                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region, statusphieu);
 
 
                 Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 100 là danh sach nha nha phiếu
