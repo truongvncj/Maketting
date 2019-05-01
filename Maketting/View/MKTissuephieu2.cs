@@ -2455,13 +2455,13 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
-                                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                       && pp.IO_number == this.IO_number
-                                       select pp.ChannelGroup).FirstOrDefault();
+                //string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                //                       && pp.IO_number == this.IO_number
+                //                       select pp.ChannelGroup).FirstOrDefault();
 
 
-                string[] chanelparts = channelgroup.Split(';');
+      //          string[] chanelparts = channelgroup.Split(';');
 
                 //st1 = parts[0].Trim();
                 //st2 = parts[1].Trim();
@@ -2472,7 +2472,7 @@ namespace Maketting.View
                          where pp.FullNameN.Contains(seachtext)
                          &&pp.Customer.Contains(seachcode)
                          && pp.Soldtype == true
-                       && chanelparts.Contains(pp.Chanel)
+                 //      && chanelparts.Contains(pp.Chanel)
 
                          select new
                          {
@@ -2673,13 +2673,13 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
-                                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                       && pp.IO_number == this.IO_number
-                                       select pp.ChannelGroup).FirstOrDefault();
+                //string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+                //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+                //                       && pp.IO_number == this.IO_number
+                //                       select pp.ChannelGroup).FirstOrDefault();
 
 
-                string[] chanelparts = channelgroup.Split(';');
+          //      string[] chanelparts = channelgroup.Split(';');
 
                 //st1 = parts[0].Trim();
                 //st2 = parts[1].Trim();
@@ -2690,7 +2690,7 @@ namespace Maketting.View
                          where pp.FullNameN.Contains(seachtext)
                          && pp.Customer.Contains(seachcode)
                          && pp.Soldtype == true
-                       && chanelparts.Contains(pp.Chanel)
+             //          && chanelparts.Contains(pp.Chanel)
 
                          select new
                          {
