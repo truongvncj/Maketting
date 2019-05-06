@@ -117,7 +117,7 @@ namespace Maketting.View
 
 
 
-
+            salesToolStripMenuItem.Visible = false;
 
 
             //     string tencty = Model.Username.getnamecty();
@@ -5315,6 +5315,82 @@ namespace Maketting.View
 
 
                 Viewtable viewtbl = new Viewtable(rs, dc, "PO LIST ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+        }
+
+        private void inputPOToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //       MKTPOmake
+
+
+            #region//MKTPOmake
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTPOmake accsup = new MKTPOmake(this);
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
+
+
+        }
+
+        private void pOListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPOList(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "PO LIST ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+        }
+
+        private void recieptedReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPOnham(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU PHIẾU NHẬP KHO THEO PO ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
