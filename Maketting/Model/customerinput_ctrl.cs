@@ -126,7 +126,7 @@ namespace Maketting.Model
             int Customerid = 0;
             int FullNameNid = 0;
             int Telephone1id = 0;
-         
+
             int Districtid = 0;
             int SalesOrgid = 0;
             int Streetid = 0;
@@ -141,23 +141,23 @@ namespace Maketting.Model
             int KeyAccid = 0;
             int SalesDistrictid = 0;
             int VATregistrationNoid = 0;
-        
 
-       //     View.Viewdatatable vi1 = new View.Viewdatatable(sourceData, "Test");
 
-       //     vi1.ShowDialog();
-            int headindex =-2;
+            //     View.Viewdatatable vi1 = new View.Viewdatatable(sourceData, "Test");
+
+            //     vi1.ShowDialog();
+            int headindex = -2;
 
             for (int rowid = 0; rowid < 3; rowid++)
             {
-               // headindex = 1;
+                // headindex = 1;
                 for (int columid = 0; columid < sourceData.Columns.Count; columid++)
                 {
 
                     string value = sourceData.Rows[rowid][columid].ToString();
-      //            MessageBox.Show(value +":"+ rowid);
+                    //            MessageBox.Show(value +":"+ rowid);
 
-                    if (value != null )
+                    if (value != null)
                     {
 
                         #region setcolum
@@ -171,7 +171,7 @@ namespace Maketting.Model
                         {
 
                             FullNameNid = columid;
-                      //    headindex = 0;
+                            //    headindex = 0;
 
                         }
 
@@ -180,7 +180,7 @@ namespace Maketting.Model
                         {
 
                             Telephone1id = columid;
-                         //   headindex = 0;
+                            //   headindex = 0;
 
 
 
@@ -188,7 +188,7 @@ namespace Maketting.Model
 
                         //
 
-                        
+
                         if (value.Trim().Contains("Chanel") && headindex == rowid)
                         {
                             Chanelid = columid;
@@ -201,63 +201,63 @@ namespace Maketting.Model
 
                         }
 
-                        if (value.Trim().Contains("District") && headindex == rowid )
+                        if (value.Trim().Contains("District") && headindex == rowid)
                         {
 
                             if (columid != SalesDistrictid)
                             {
                                 Districtid = columid;
                             }
-                          
-                           
+
+
                         }
 
                         if (value.Trim().Contains("SalesOrg") && headindex == rowid)
                         {
                             SalesOrgid = columid;
-                           
+
                         }
 
                         if (value.Trim().Contains("Street") && headindex == rowid)
                         {
                             Streetid = columid;
-                           // headindex = 0;
+                            // headindex = 0;
                         }
 
                         if (value.Trim().Contains("City") && headindex == rowid)
                         {
                             Cityid = columid;
-                            
+
                         }
 
                         if (value.Trim().Contains("Region") && headindex == rowid)
                         {
                             Regionid = columid;
-                          
+
                         }
-                        if (value.Trim().Contains("PaymentTerms") && headindex == rowid)
-                        {
-                            PaymentTermsid = columid;
-                         
-                        }
+                        //if (value.Trim().Contains("PaymentTerms") && headindex == rowid)
+                        //{
+                        //    PaymentTermsid = columid;
+
+                        //}
                         if (value.Trim().Contains("PriceList") && headindex == rowid)
                         {
                             PriceListid = columid;
-                          
+
                         }
                         if (value.Trim().Contains("KeyAcc") && headindex == rowid)
                         {
                             KeyAccid = columid;
-                           
+
                         }
-                      
+
                         if (value.Trim().Contains("VATregistrationNo") && headindex == rowid)
                         {
                             VATregistrationNoid = columid;
-                            
+
                         }
 
-                        
+
 
                         #endregion
 
@@ -265,53 +265,53 @@ namespace Maketting.Model
 
 
                 }// colum
-                
+
             }// roww off heatder
 
 
             for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
             {
-                               
-                    #region setvalue of pricelist
-                    //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
-                  string customer = sourceData.Rows[rowixd][Customerid].ToString();
-                if ( customer != "" && Utils.IsValidnumber(customer))
+
+                #region setvalue of pricelist
+                //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
+                string customer = sourceData.Rows[rowixd][Customerid].ToString();
+                if (customer != "" && Utils.IsValidnumber(customer))
                 {
 
 
-                    
+
 
                     DataRow dr = batable.NewRow();
-                    dr["Customer"] = sourceData.Rows[rowixd][Customerid].ToString().Trim();
-                    dr["ShiptoCode"] = sourceData.Rows[rowixd][Customerid].ToString().Trim();
+                    dr["Customer"] = sourceData.Rows[rowixd][Customerid].ToString().Truncate(50);
+                    dr["ShiptoCode"] = sourceData.Rows[rowixd][Customerid].ToString().Truncate(50);
                     dr["Soldtype"] = true;
-                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Trim();
+                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Truncate(225);
 
-             
 
-        dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Trim();
-                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Trim();
-                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Trim();
-                    dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Trim();
-                    dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Trim();
 
-                    dr["Region"] = sourceData.Rows[rowixd][Regionid].ToString().Trim();
+                    dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Truncate(225);
+                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Truncate(50);
+                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Truncate(50);
+                    dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Truncate(50);
+                    dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Truncate(50);
 
-                    dr["PaymentTerms"] = sourceData.Rows[rowixd][PaymentTermsid].ToString().Trim();
+                    dr["Region"] = sourceData.Rows[rowixd][Regionid].ToString().Truncate(50);
 
-                    dr["PriceList"] = sourceData.Rows[rowixd][PriceListid].ToString().Trim();
+                //    dr["PaymentTerms"] = sourceData.Rows[rowixd][PaymentTermsid].ToString();
 
-                    dr["KeyAcc"] = sourceData.Rows[rowixd][KeyAccid].ToString().Trim();
+                  dr["PriceList"] = sourceData.Rows[rowixd][PriceListid].ToString().Truncate(50);
 
-                    dr["SalesDistrict"] = sourceData.Rows[rowixd][SalesDistrictid].ToString().Trim();
+                    dr["KeyAcc"] = sourceData.Rows[rowixd][KeyAccid].ToString().Truncate(50);
 
-                    dr["VATregistrationNo"] = sourceData.Rows[rowixd][VATregistrationNoid].ToString().Trim();
-                    dr["Chanel"] = sourceData.Rows[rowixd][Chanelid].ToString().Trim();
+                    dr["SalesDistrict"] = sourceData.Rows[rowixd][SalesDistrictid].ToString().Truncate(50);
 
-                    
+                    dr["VATregistrationNo"] = sourceData.Rows[rowixd][VATregistrationNoid].ToString().Truncate(50);
+                    dr["Chanel"] = sourceData.Rows[rowixd][Chanelid].ToString().Truncate(50);
 
-                            dr["Createdon"] =  DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
-                    dr["Createby"] = Model.Username.getUsername();
+
+
+                    dr["Createdon"] = DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
+                    dr["Createby"] = Model.Username.getUsername().Truncate(50);
 
 
 
@@ -331,13 +331,13 @@ namespace Maketting.Model
             //sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
 
             //batable.Columns.Add("", typeof(string));
-        
+
 
 
             using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
             {
 
-             
+
 
 
                 bulkCopy.DestinationTableName = "tbl_MKT_Soldtocode";
@@ -353,7 +353,7 @@ namespace Maketting.Model
                 bulkCopy.ColumnMappings.Add("SalesOrg", "SalesOrg");
                 bulkCopy.ColumnMappings.Add("Street", "Street");
                 bulkCopy.ColumnMappings.Add("City", "City");
-           
+
                 bulkCopy.ColumnMappings.Add("Region", "Region");
                 bulkCopy.ColumnMappings.Add("PaymentTerms", "PaymentTerms");
                 bulkCopy.ColumnMappings.Add("PriceList", "PriceList");
@@ -367,7 +367,7 @@ namespace Maketting.Model
                 bulkCopy.ColumnMappings.Add("Soldtype", "Soldtype");
                 bulkCopy.ColumnMappings.Add("Chanel", "Chanel");
 
-                
+
 
 
 
@@ -452,15 +452,15 @@ namespace Maketting.Model
             batable.Columns.Add("Street", typeof(string));
 
             batable.Columns.Add("City", typeof(string));
-         //   batable.Columns.Add("Region", typeof(string));
-        //    batable.Columns.Add("PaymentTerms", typeof(string));
+            //   batable.Columns.Add("Region", typeof(string));
+            //    batable.Columns.Add("PaymentTerms", typeof(string));
 
-        //    batable.Columns.Add("PriceList", typeof(string));
-        //    batable.Columns.Add("KeyAcc", typeof(double));
-      //      batable.Columns.Add("SalesDistrict", typeof(string));
+            //    batable.Columns.Add("PriceList", typeof(string));
+            //    batable.Columns.Add("KeyAcc", typeof(double));
+            //      batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("Createdon", typeof(DateTime));
             batable.Columns.Add("Createby", typeof(string));
-        //    batable.Columns.Add("VATregistrationNo", typeof(string));
+            //    batable.Columns.Add("VATregistrationNo", typeof(string));
 
 
             //dr[""] = sourceData.Rows[rowixd][Customerid].ToString().Trim();
@@ -476,15 +476,15 @@ namespace Maketting.Model
             int Streetid = 0;
             int Cityid = 0;
 
-        //    int Regionid = 0;
+            //    int Regionid = 0;
 
-         //   int PaymentTermsid = 0;
+            //   int PaymentTermsid = 0;
 
-         //   int PriceListid = 0;
+            //   int PriceListid = 0;
 
-        //    int KeyAccid = 0;
-    //   int SalesDistrictid = 0;
-       //     int VATregistrationNoid = 0;
+            //    int KeyAccid = 0;
+            //   int SalesDistrictid = 0;
+            //     int VATregistrationNoid = 0;
 
 
             //     View.Viewdatatable vi1 = new View.Viewdatatable(sourceData, "Test");
@@ -531,7 +531,7 @@ namespace Maketting.Model
 
                         }
 
-                        
+
 
                         if (value.Trim().Contains("Shiptocode") && headindex == rowid)
                         {
@@ -544,7 +544,7 @@ namespace Maketting.Model
 
                             //if (columid != SalesDistrictid)
                             //{
-                                Districtid = columid;
+                            Districtid = columid;
                             //}
 
 
@@ -713,7 +713,7 @@ namespace Maketting.Model
                 //bulkCopy.ColumnMappings.Add("SalesDistrict", "SalesDistrict");
                 bulkCopy.ColumnMappings.Add("Createdon", "Createdon");
                 bulkCopy.ColumnMappings.Add("Createby", "Createby");
-         //       bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
+                //       bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
 
 
 

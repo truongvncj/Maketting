@@ -8,18 +8,26 @@ namespace Maketting.shared
     public static class StringExtensions
     {
 
-       
-            public static string Right(this string str, int length)
+
+        public static string Right(this string str, int length)
+        {
+            return str.Substring(str.Length - length, length);
+
+
+
+
+
+
+        }
+
+        public static string Truncate(this string source, int length)
+        {
+            if (source.Length > length)
             {
-                return str.Substring(str.Length - length, length);
-
-
-
-
-
-
+                return source.Substring(0, length);
             }
-      
+            return source;
+        }
 
     }
 }

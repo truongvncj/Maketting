@@ -4233,7 +4233,7 @@ namespace Maketting.View
 
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 100, "STORERPT");
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 111, "STORERPT");
             tbl.ShowDialog();
 
 
@@ -4253,7 +4253,7 @@ namespace Maketting.View
 
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 100, "STORERPT");
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 111, "STORERPT");
             tbl.ShowDialog();
 
 
