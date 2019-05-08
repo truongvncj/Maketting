@@ -717,9 +717,6 @@
     <None Include="Resources\exit_2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\giphy.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="giphyipg_Pb0_3.ico" />
     <Content Include="marketing_3111733_960_720_vus_4.ico" />
     <None Include="Resources\coca-cola pic run.jpg" />
@@ -728,7 +725,6 @@
     <None Include="Resources\04-example_800x600_v4 %281%29.gif" />
     <None Include="Resources\blogosfera-diciembre-640x300.jpg" />
     <None Include="Resources\DIEUVAN.png" />
-    <None Include="Resources\KETOANTONGHOP.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
