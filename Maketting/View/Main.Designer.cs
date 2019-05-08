@@ -371,7 +371,7 @@
             // 
             // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+   //         this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
@@ -443,7 +443,7 @@
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
+        //    this.toolStripMenuItem1.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
             this.toolStripMenuItem1.Text = "Status Gate pass by region reports";
@@ -451,7 +451,7 @@
             // 
             // báoCáoPhiếuMKTToolStripMenuItem
             // 
-            this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
+        //    this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
             this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
             this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass  reports";
@@ -667,7 +667,7 @@
             // 
             // setIOButgetToolStripMenuItem
             // 
-            this.setIOButgetToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
+      //      this.setIOButgetToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
             this.setIOButgetToolStripMenuItem.Name = "setIOButgetToolStripMenuItem";
             this.setIOButgetToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.setIOButgetToolStripMenuItem.Text = "Set POSM programe";
@@ -682,7 +682,7 @@
             // 
             // viewProgrameToolStripMenuItem
             // 
-            this.viewProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+       //     this.viewProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.viewProgrameToolStripMenuItem.Name = "viewProgrameToolStripMenuItem";
             this.viewProgrameToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.viewProgrameToolStripMenuItem.Text = "View programe PDF file";
@@ -747,7 +747,7 @@
             // 
             // Storerpt
             // 
-            this.Storerpt.Image = global::Maketting.Properties.Resources.giphy;
+         //   this.Storerpt.Image = global::Maketting.Properties.Resources.giphy;
             this.Storerpt.Name = "Storerpt";
             this.Storerpt.Size = new System.Drawing.Size(382, 24);
             this.Storerpt.Text = "Inventory avaiable  report";
@@ -774,7 +774,7 @@
             // 
             // statusGatepassReportsToolStripMenuItem
             // 
-            this.statusGatepassReportsToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
+     //       this.statusGatepassReportsToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
             this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(382, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";

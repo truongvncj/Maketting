@@ -682,81 +682,84 @@ namespace Maketting.View
 
             #endregion
 
-            #region     // check customer code có trong chanenel
-            //string connection_string = Utils.getConnectionstr();
-            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
-                                   where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                                   && pp.IO_number == this.IO_number
-                                   select pp.ChannelGroup).FirstOrDefault();
+            //#region     // check customer code có trong chanenel
+            ////string connection_string = Utils.getConnectionstr();
+            ////LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            //string channelgroup = (from pp in dc.tbl_MKT_IO_Programes
+            //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
+            //                       && pp.IO_number == this.IO_number
+            //                       select pp.ChannelGroup).FirstOrDefault();
 
 
-            string[] chanelparts = channelgroup.Split(';');
+            //string[] chanelparts = channelgroup.Split(';');
 
-            //foreach (var item in chanelparts)
+            ////foreach (var item in chanelparts)
+            ////{
+            ////    MessageBox.Show("---"+item);
+            ////}
+            //string channelcode = (from pp in dc.tbl_MKT_Soldtocodes
+            //                      where pp.Customer == txtcustcode.Text
+            //                      select pp.Chanel).FirstOrDefault();
+
+            ////     MessageBox.Show("--channelcode-" + channelcode);
+            //if (!chanelparts.Contains(channelcode))
             //{
-            //    MessageBox.Show("---"+item);
+
+            //    MessageBox.Show("Please check customer code , that is not in chanel of this progarme !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+            //    checkhead = false;
+
+            //    txtnguoinhan.Focus();
+
+            //    return;
+
+
             //}
-            string channelcode = (from pp in dc.tbl_MKT_Soldtocodes
-                                  where pp.Customer == txtcustcode.Text
-                                  select pp.Chanel).FirstOrDefault();
-
-            //     MessageBox.Show("--channelcode-" + channelcode);
-            if (!chanelparts.Contains(channelcode))
-            {
-
-                MessageBox.Show("Please check customer code , that is not in chanel of this progarme !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                checkhead = false;
-
-                txtnguoinhan.Focus();
-
-                return;
-
-
-            }
 
 
 
 
 
-            #endregion
+            //#endregion
 
 
 
 
-            #region // check buget of programe
+            //#region // check buget of programe
 
 
 
 
 
-            if (this.Programebudgetbalance < this.POSMisuevalue)
-            {
-                MessageBox.Show("The Issue is over the budget of this progarame, balance now is:  " + this.Programebudgetbalance.ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                checkdetail = false;
-                return;
-            }
+            //if (this.Programebudgetbalance < this.POSMisuevalue)
+            //{
+            //    MessageBox.Show("The Issue is over the budget of this progarame, balance now is:  " + this.Programebudgetbalance.ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+            //    checkdetail = false;
+            //    return;
+            //}
 
 
-            #endregion      //check buget of programe
+            //#endregion      //check buget of programe
 
-            #region            //check butget customer IO
+            //#region            //check butget customer IO
 
-            if (this.POSMisuevalue > this.Customerbugetiobalance)
-            {
-                MessageBox.Show("The Issue: " + this.POSMisuevalue.ToString() + " is over the budget :  " + this.Customerbugetiobalance.ToString() + " , Please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                checkdetail = false;
-                return;
+            //if (this.POSMisuevalue > this.Customerbugetiobalance)
+            //{
+            //    MessageBox.Show("The Issue: " + this.POSMisuevalue.ToString() + " is over the budget :  " + this.Customerbugetiobalance.ToString() + " , Please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+            //    checkdetail = false;
+            //    return;
 
 
 
-            }
+            //}
 
-            #endregion
+            //#endregion
+
+
             if (checkdetail && checkhead)
             {
 

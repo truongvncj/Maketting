@@ -73,66 +73,6 @@ namespace Maketting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _61561_coca_cola {
-            get {
-                object obj = ResourceManager.GetObject("61561-coca-cola", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap anh_phao_hoa4 {
-            get {
-                object obj = ResourceManager.GetObject("anh-phao-hoa4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Binhminh {
-            get {
-                object obj = ResourceManager.GetObject("Binhminh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Binhminh1 {
-            get {
-                object obj = ResourceManager.GetObject("Binhminh1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Binhminh2 {
-            get {
-                object obj = ResourceManager.GetObject("Binhminh2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Binhminhbeach {
-            get {
-                object obj = ResourceManager.GetObject("Binhminhbeach", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blogosfera_diciembre_640x300 {
             get {
                 object obj = ResourceManager.GetObject("blogosfera-diciembre-640x300", resourceCulture);
@@ -216,36 +156,6 @@ namespace Maketting.Properties {
         internal static System.Drawing.Bitmap marketing_3111733_960_7201 {
             get {
                 object obj = ResourceManager.GetObject("marketing-3111733_960_7201", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rgb_vn_kisaigoncocacola_4 {
-            get {
-                object obj = ResourceManager.GetObject("rgb.vn_kisaigoncocacola_4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Thienha {
-            get {
-                object obj = ResourceManager.GetObject("Thienha", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vintage_coca_cola_pinup_girls {
-            get {
-                object obj = ResourceManager.GetObject("vintage-coca-cola-pinup-girls", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
