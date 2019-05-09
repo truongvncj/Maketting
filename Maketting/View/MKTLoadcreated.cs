@@ -247,6 +247,8 @@ namespace Maketting.View
 
             #region  list black phiếu
             datecreated.Enabled = true;
+            cbGhepshipment.CheckState = CheckState.Checked;
+            txtShipment.Text = "";
 
             txtmaNVT.Text = "";
             txtmaNVT.Enabled = false;
@@ -599,6 +601,9 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+          
+
+
             if (this.statusphieu == 1)
             {
 
@@ -618,16 +623,6 @@ namespace Maketting.View
             }
 
             #region  // check head
-            if (txtmaNVT.Text == "")
-            {
-                MessageBox.Show("Pleae select a transposter !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txttenNVT.Focus();
-                checkhead = false;
-                return;
-            }
-
-
-
 
             if (txttrucnumber.Text == "")
             {
@@ -645,6 +640,43 @@ namespace Maketting.View
                 checkhead = false;
                 return;
             }
+
+
+            if (txtmaNVT.Text == "")
+            {
+                MessageBox.Show("Pleae select a transposter !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttenNVT.Focus();
+                checkhead = false;
+                return;
+            }
+           
+            if (Utils.IsValidnumber(txtShipment.Text.ToString()) == true && cbGhepshipment.Checked == true)
+            {
+                MessageBox.Show("Pleae nhập số shipment ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShipment.Focus();
+                checkhead = false;
+                return;
+            }
+
+            if (txtShipment.Text != "" && cbGhepshipment.Checked == false)
+            {
+                MessageBox.Show("Please xóa số shipment nếu là xe chạy trực tiếp !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShipment.Focus();
+                checkhead = false;
+                return;
+            }
+
+
+            if (txtShipment.Text == "" && cbGhepshipment.Checked == true)
+            {
+                MessageBox.Show("Pleae nhập số shipment ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShipment.Focus();
+                checkhead = false;
+                return;
+            }
+            //            txtShipment
+
+       
             #endregion
 
 
@@ -2572,6 +2604,24 @@ namespace Maketting.View
 
             ctrex.exportexceldatagridtofile(rs, dc, this.Text);
 
+        }
+
+        private void txttrucnumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtShipment.Focus();
+
+                //    string valueinput = cb_customerka.Text;
+
+                //    string connection_string = Utils.getConnectionstr();
+                //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                //    string username = Utils.getusername();
+
+
+            }
         }
     }
 

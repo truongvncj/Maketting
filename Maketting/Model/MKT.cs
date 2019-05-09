@@ -83,6 +83,8 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+            //      dt.Columns.Add(new DataColumn("Material_Name", typeof(string)));
+            //        drToAdd["Material_Name"] = PhieuMKT.Materialname;
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
             dt.Columns.Add(new DataColumn("Region_Balance", typeof(float)));
@@ -92,6 +94,16 @@ namespace Maketting.Model
 
 
             dataGridViewDetail.DataSource = dt;
+
+
+            //dataGridProgramdetail.Columns["Payment_Control"].DisplayIndex = 1;
+            //dataGridProgramdetail.Columns["Payment_Control"].Width = 70;
+            //dataGridProgramdetail.Columns["Payment_Control"].HeaderText = "Payment\nControl";
+            //this.dataGridProgramdetail.Columns["Payment_Control"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //      dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dataGridViewDetail.Columns["MATERIAL"].Width = 300;
+            dataGridViewDetail.Columns["Description"].Width = 300;
+
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             dataGridViewDetail.Columns["Available_Quantity"].ReadOnly = true;
@@ -419,6 +431,7 @@ namespace Maketting.Model
                          // Số_lượng_còn_lại = p.Soluongconlai,
                          p.Materiacode,
                          p.MateriaSAPcode,
+                         Material_name = p.Materialname,
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
@@ -459,7 +472,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
-                     && p.Region == region  && p.Status.Contains(statusphieu)
+                     && p.Region == region && p.Status.Contains(statusphieu)
                      orderby p.Gate_pass
                      select new
                      {
@@ -1734,7 +1747,7 @@ namespace Maketting.Model
 
 
             var rs = from pp in dc.tbl_MKt_POdetails
-                  // where pp.StatusPO == "IN"
+                         // where pp.StatusPO == "IN"
                      select new
                      {
                          pp.Region,
@@ -1747,9 +1760,9 @@ namespace Maketting.Model
                          pp.Unit,
                          pp.QuantityOrder,
                          pp.Unit_Price,
-                        
+
                          Reciepted_Quantity = pp.RecieptedQuantity,
-                   
+
                          //    ID = pp.id,
 
                      };
@@ -1782,7 +1795,7 @@ namespace Maketting.Model
                            Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                        });
 
-            if (rs5.Count()>0)
+            if (rs5.Count() > 0)
             {
                 kq = rs5.FirstOrDefault().Balance;
             }

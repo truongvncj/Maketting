@@ -93,6 +93,10 @@
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewStockCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.inputPOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.recieptedReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,10 +122,6 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.inputPOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.recieptedReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -371,7 +371,6 @@
             // 
             // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
-   //         this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
@@ -443,7 +442,6 @@
             // 
             // toolStripMenuItem1
             // 
-        //    this.toolStripMenuItem1.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
             this.toolStripMenuItem1.Text = "Status Gate pass by region reports";
@@ -451,7 +449,6 @@
             // 
             // báoCáoPhiếuMKTToolStripMenuItem
             // 
-        //    this.báoCáoPhiếuMKTToolStripMenuItem.Image = global::Maketting.Properties.Resources.KETOANTONGHOP;
             this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
             this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass  reports";
@@ -602,6 +599,32 @@
             this.viewStockCountToolStripMenuItem.Text = "View Stock Count";
             this.viewStockCountToolStripMenuItem.Click += new System.EventHandler(this.viewStockCountToolStripMenuItem_Click);
             // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(216, 6);
+            // 
+            // inputPOToolStripMenuItem1
+            // 
+            this.inputPOToolStripMenuItem1.Name = "inputPOToolStripMenuItem1";
+            this.inputPOToolStripMenuItem1.Size = new System.Drawing.Size(219, 24);
+            this.inputPOToolStripMenuItem1.Text = "PO Input ";
+            this.inputPOToolStripMenuItem1.Click += new System.EventHandler(this.inputPOToolStripMenuItem1_Click);
+            // 
+            // pOListToolStripMenuItem1
+            // 
+            this.pOListToolStripMenuItem1.Name = "pOListToolStripMenuItem1";
+            this.pOListToolStripMenuItem1.Size = new System.Drawing.Size(219, 24);
+            this.pOListToolStripMenuItem1.Text = "PO List";
+            this.pOListToolStripMenuItem1.Click += new System.EventHandler(this.pOListToolStripMenuItem1_Click);
+            // 
+            // recieptedReportsToolStripMenuItem
+            // 
+            this.recieptedReportsToolStripMenuItem.Name = "recieptedReportsToolStripMenuItem";
+            this.recieptedReportsToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
+            this.recieptedReportsToolStripMenuItem.Text = "PO Reciepted reports";
+            this.recieptedReportsToolStripMenuItem.Click += new System.EventHandler(this.recieptedReportsToolStripMenuItem_Click);
+            // 
             // settlementToolStripMenuItem
             // 
             this.settlementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -667,7 +690,6 @@
             // 
             // setIOButgetToolStripMenuItem
             // 
-      //      this.setIOButgetToolStripMenuItem.Image = global::Maketting.Properties.Resources._61561_coca_cola;
             this.setIOButgetToolStripMenuItem.Name = "setIOButgetToolStripMenuItem";
             this.setIOButgetToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.setIOButgetToolStripMenuItem.Text = "Set POSM programe";
@@ -682,7 +704,6 @@
             // 
             // viewProgrameToolStripMenuItem
             // 
-       //     this.viewProgrameToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.viewProgrameToolStripMenuItem.Name = "viewProgrameToolStripMenuItem";
             this.viewProgrameToolStripMenuItem.Size = new System.Drawing.Size(265, 24);
             this.viewProgrameToolStripMenuItem.Text = "View programe PDF file";
@@ -747,9 +768,8 @@
             // 
             // Storerpt
             // 
-         //   this.Storerpt.Image = global::Maketting.Properties.Resources.giphy;
             this.Storerpt.Name = "Storerpt";
-            this.Storerpt.Size = new System.Drawing.Size(382, 24);
+            this.Storerpt.Size = new System.Drawing.Size(255, 24);
             this.Storerpt.Text = "Inventory avaiable  report";
             this.Storerpt.Click += new System.EventHandler(this.Storerpt_Click);
             // 
@@ -757,26 +777,25 @@
             // 
             this.storeBalanceOnDateToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.storeBalanceOnDateToolStripMenuItem.Name = "storeBalanceOnDateToolStripMenuItem";
-            this.storeBalanceOnDateToolStripMenuItem.Size = new System.Drawing.Size(382, 24);
+            this.storeBalanceOnDateToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
             this.storeBalanceOnDateToolStripMenuItem.Text = "Inventory report on date";
             // 
             // inOutStoreReportsToolStripMenuItem
             // 
             this.inOutStoreReportsToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.inOutStoreReportsToolStripMenuItem.Name = "inOutStoreReportsToolStripMenuItem";
-            this.inOutStoreReportsToolStripMenuItem.Size = new System.Drawing.Size(382, 24);
-            this.inOutStoreReportsToolStripMenuItem.Text = "General account of input – output – inventory ";
+            this.inOutStoreReportsToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.inOutStoreReportsToolStripMenuItem.Text = "Stock Movement Summary";
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(379, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(252, 6);
             // 
             // statusGatepassReportsToolStripMenuItem
             // 
-     //       this.statusGatepassReportsToolStripMenuItem.Image = global::Maketting.Properties.Resources.blogosfera_diciembre_640x300;
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
-            this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(382, 24);
+            this.statusGatepassReportsToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
             this.statusGatepassReportsToolStripMenuItem.Text = "Status Gate pass reports";
             this.statusGatepassReportsToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsToolStripMenuItem_Click);
             // 
@@ -794,32 +813,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(216, 6);
-            // 
-            // inputPOToolStripMenuItem1
-            // 
-            this.inputPOToolStripMenuItem1.Name = "inputPOToolStripMenuItem1";
-            this.inputPOToolStripMenuItem1.Size = new System.Drawing.Size(219, 24);
-            this.inputPOToolStripMenuItem1.Text = "PO Input ";
-            this.inputPOToolStripMenuItem1.Click += new System.EventHandler(this.inputPOToolStripMenuItem1_Click);
-            // 
-            // pOListToolStripMenuItem1
-            // 
-            this.pOListToolStripMenuItem1.Name = "pOListToolStripMenuItem1";
-            this.pOListToolStripMenuItem1.Size = new System.Drawing.Size(219, 24);
-            this.pOListToolStripMenuItem1.Text = "PO List";
-            this.pOListToolStripMenuItem1.Click += new System.EventHandler(this.pOListToolStripMenuItem1_Click);
-            // 
-            // recieptedReportsToolStripMenuItem
-            // 
-            this.recieptedReportsToolStripMenuItem.Name = "recieptedReportsToolStripMenuItem";
-            this.recieptedReportsToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.recieptedReportsToolStripMenuItem.Text = "PO Reciepted reports";
-            this.recieptedReportsToolStripMenuItem.Click += new System.EventHandler(this.recieptedReportsToolStripMenuItem_Click);
             // 
             // Main
             // 

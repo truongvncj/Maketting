@@ -46,6 +46,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtseachcode = new System.Windows.Forms.TextBox();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtShiptoCode = new System.Windows.Forms.TextBox();
@@ -60,7 +63,6 @@
             this.btcustomer = new System.Windows.Forms.Button();
             this.cbkhohang = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbtel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtmucdichname = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -83,9 +85,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.txtseachcode = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.txttel = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -262,6 +262,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txttel);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtseachcode);
@@ -279,7 +280,6 @@
             this.panel1.Controls.Add(this.btcustomer);
             this.panel1.Controls.Add(this.cbkhohang);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.lbtel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtmucdichname);
             this.panel1.Controls.Add(this.label19);
@@ -301,6 +301,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 297);
             this.panel1.TabIndex = 65;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(444, 121);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 13);
+            this.label14.TabIndex = 87;
+            this.label14.Text = "Seach by Name";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(328, 121);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 13);
+            this.label13.TabIndex = 86;
+            this.label13.Text = "Seach by Code";
+            // 
+            // txtseachcode
+            // 
+            this.txtseachcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtseachcode.Location = new System.Drawing.Point(331, 135);
+            this.txtseachcode.Name = "txtseachcode";
+            this.txtseachcode.Size = new System.Drawing.Size(110, 24);
+            this.txtseachcode.TabIndex = 85;
+            this.txtseachcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtseachcode_KeyPress);
             // 
             // txtNote
             // 
@@ -445,16 +474,6 @@
             this.label4.Size = new System.Drawing.Size(111, 18);
             this.label4.TabIndex = 72;
             this.label4.Text = "Store (Tại kho):";
-            // 
-            // lbtel
-            // 
-            this.lbtel.AutoSize = true;
-            this.lbtel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtel.Location = new System.Drawing.Point(978, 96);
-            this.lbtel.Name = "lbtel";
-            this.lbtel.Size = new System.Drawing.Size(88, 18);
-            this.lbtel.TabIndex = 71;
-            this.lbtel.Text = "0902218678";
             // 
             // label3
             // 
@@ -714,34 +733,13 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
-            // txtseachcode
+            // txttel
             // 
-            this.txtseachcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtseachcode.Location = new System.Drawing.Point(331, 135);
-            this.txtseachcode.Name = "txtseachcode";
-            this.txtseachcode.Size = new System.Drawing.Size(110, 24);
-            this.txtseachcode.TabIndex = 85;
-            this.txtseachcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtseachcode_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(328, 121);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 13);
-            this.label13.TabIndex = 86;
-            this.label13.Text = "Seach by Code";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(444, 121);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(83, 13);
-            this.label14.TabIndex = 87;
-            this.label14.Text = "Seach by Name";
+            this.txttel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttel.Location = new System.Drawing.Point(978, 93);
+            this.txttel.Name = "txttel";
+            this.txttel.Size = new System.Drawing.Size(161, 24);
+            this.txttel.TabIndex = 88;
             // 
             // MKTissuephieu2
             // 
@@ -797,7 +795,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DataGridView dataGridViewListphieu;
-        private System.Windows.Forms.Label lbtel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtmucdichname;
         private System.Windows.Forms.Label lbweight;
@@ -824,5 +821,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtseachcode;
+        private System.Windows.Forms.TextBox txttel;
     }
 }

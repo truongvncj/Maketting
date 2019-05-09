@@ -91,12 +91,15 @@ namespace Maketting.View
 
             DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MATERIAL"] = PhieuMKT.Materiacode;
+            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
             drToAdd["Description"] = PhieuMKT.Description;
             drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
+         //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
+
+
         //     drToAdd["Region_Balance"] = PhieuMKT.Region;
 
 
@@ -223,7 +226,7 @@ namespace Maketting.View
             txtdiachi.Text = "";
             txtnguoiyeucau.Text = Utils.getname();
 
-            lbtel.Text = "";
+            txttel.Text = "";
             lbweight.Text = "";
             lbgatepassno.Text = "";
             datepickngayphieu.Value = DateTime.Today;
@@ -793,7 +796,7 @@ namespace Maketting.View
                     rs.Status = "CRT";
                     rs.Gate_pass = this.sophieu;
 
-                    rs.Tel = lbtel.Text;
+                    rs.Tel = txttel.Text;
                     rs.Username = this.Username;
                     dc.SubmitChanges();
 
@@ -820,7 +823,7 @@ namespace Maketting.View
                         detailphieu.ShippingPoint = this.storelocation;
                         detailphieu.Requested_by = txtnguoiyeucau.Text;
                         detailphieu.Status = "CRT";
-                        detailphieu.Tel = lbtel.Text;
+                        detailphieu.Tel = txttel.Text;
                         detailphieu.Username = this.Username;
                         detailphieu.Gate_pass = this.sophieu;
                         detailphieu.Region = Model.Username.getuseRegion();
@@ -2154,7 +2157,7 @@ namespace Maketting.View
                                                       //   rs.Status = "CRT";
                 lbgatepassno.Text = this.sophieu;
 
-                lbtel.Text = rs.Tel;// = ;
+                txttel.Text = rs.Tel;// = ;
                                     //  rs.Username = this.Username;
                                     //   dc.SubmitChanges();
 
@@ -2512,7 +2515,7 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                    lbtel.Text = rs2.Telephone1;
+                    txttel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
@@ -2602,7 +2605,7 @@ namespace Maketting.View
                     //txtcustcode.Text = rs2.Customer;
                     //txtnguoinhan.Text = rs2.FullNameN;
                     //txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                    lbtel.Text = rs2.Telephone1;
+                    txttel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
@@ -2730,7 +2733,7 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
-                    lbtel.Text = rs2.Telephone1;
+                    txttel.Text = rs2.Telephone1;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
