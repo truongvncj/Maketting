@@ -539,6 +539,7 @@ namespace Maketting.View
                     {
                         item.Status = "Delivering";
                         item.Loadingby = this.Username;
+                        item.Issued_dated = DateTime.Today;
                         dc.SubmitChanges();
 
 

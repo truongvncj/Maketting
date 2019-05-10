@@ -245,8 +245,7 @@ namespace Maketting.View
             this.Username = username;
             string rightkho = Model.Username.getmaquyenkho();
 
-            this.region = Model.Username.getuseRegion();
-
+           
           //  if (rightkho == null)
           //  {
 
@@ -280,6 +279,41 @@ namespace Maketting.View
 
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
+
+
+            #region // load curent region
+
+            List<ComboboxItem> itemthisregion = new List<ComboboxItem>();
+
+            var rs3 = from pp in dc.tbl_MKT_Regions
+                  
+                      select pp;
+            foreach (var item2 in rs3)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Region.Trim();
+                cb.Text = item2.Region.Trim() + ": " + item2.Note.Trim();
+                itemthisregion.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbfromRegion.DataSource = itemthisregion;
+            cbfromRegion.SelectedIndex = 0;
+            this.region = Model.Username.getuseRegion();
+
+            //   this.region = (cbfromRegion.SelectedItem as ComboboxItem).Value.ToString();
+
+            //  thus region.Items
+            foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
+            {
+                if (item.Value.ToString().Trim() == this.region.Trim())
+                {
+                    cbfromRegion.SelectedItem = item;
+                }
+            }
+
+            #endregion
 
 
             Model.MKT.DeleteALLphieutamTMP();
@@ -777,7 +811,7 @@ namespace Maketting.View
 
                 if (rs != null)
                 {
-                    rs.Region = Model.Username.getuseRegion();
+                    rs.Region = this.region;//Model.Username.getuseRegion();
                     rs.Address = txtdiachi.Text;
                     rs.ShiptoAddress = txtshiptoaddress.Text;
 
@@ -826,7 +860,9 @@ namespace Maketting.View
                         detailphieu.Tel = txttel.Text;
                         detailphieu.Username = this.Username;
                         detailphieu.Gate_pass = this.sophieu;
-                        detailphieu.Region = Model.Username.getuseRegion();
+                        detailphieu.Region = this.region;//Model.Username.getuseRegion();
+
+                      
                         //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
                         //dt.Columns.Add(new DataColumn("Description", typeof(string)));
                         //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
@@ -903,8 +939,8 @@ namespace Maketting.View
                         {
                             newregionupdate.Description = "";
                         }
-                 
-                        newregionupdate.Region = Model.Username.getuseRegion();
+
+                        newregionupdate.Region = this.region;//Model.Username.getuseRegion();
                         newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
                         newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
                         newregionupdate.QuantityOutput = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
@@ -2153,6 +2189,15 @@ namespace Maketting.View
                     }
                 }
 
+                //  thus region.Items
+                foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
+                {
+                    if (item.Value.ToString().Trim() == rs.Region.Trim())
+                    {
+                        cbfromRegion.SelectedItem = item;
+                    }
+                }
+
                 txtnguoiyeucau.Text = rs.Requested_by;// = ;
                                                       //   rs.Status = "CRT";
                 lbgatepassno.Text = this.sophieu;
@@ -2775,6 +2820,16 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void cbfromRegion_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.region = (cbfromRegion.SelectedItem as ComboboxItem).Value.ToString();
+        }
+
+        private void lbweight_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

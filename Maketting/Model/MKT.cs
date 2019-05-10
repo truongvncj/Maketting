@@ -435,10 +435,13 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         p.Issued_dated,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
                          p.Loadingby,
+                         p.Delivery_date,
+
                          Completed_date = p.Date_Received_Issued,
                          p.Completed_by,
                          p.ReturnQuantity,
