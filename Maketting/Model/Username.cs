@@ -256,6 +256,33 @@ namespace Maketting.Model
 
 
         }
+
+        public static bool getchangeProductright()
+        {
+
+            string Name = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from tbl_Temp in dc.tbl_Temps
+                      where tbl_Temp.Username == Name
+                      select tbl_Temp.change_Product).FirstOrDefault();
+
+
+
+
+
+            return (bool)rs;
+
+
+
+
+
+        }
+
         public static bool getIOmanageright()
         {
 

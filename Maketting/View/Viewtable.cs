@@ -186,6 +186,59 @@ namespace Maketting.View
         {
 
 
+            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3 ) // tìm mas sản phẩm
+            {
+
+
+                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+
+                bool kq = false;
+                foreach (Form frm in fc)
+                {
+                    if (frm.Text == "Tìm theo Material Name")
+
+
+                    {
+                        kq = true;
+                        frm.Focus();
+
+                    }
+                }
+
+                if (!kq)
+                {
+
+
+                 //   int idsanpham = 0;
+                    string storelocation = "";
+                    //    int idtk = 0;
+                    try
+                    {
+                    //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                        storelocation = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                    }
+                    catch (Exception)
+                    {
+
+                       // MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+
+                    Seachcode sheaching = new Seachcode(this, "Tìm theo Material Name", storelocation);
+                    sheaching.Show();
+                }
+
+
+
+
+
+            }
+
+
+
+
             if ((viewcode == 100) && e.KeyCode == Keys.F3)  // viewocode là 100 tức là tìm phiếu mkt
             {
 
@@ -222,6 +275,53 @@ namespace Maketting.View
 
         }
 
+
+        public void ReloadsanphamKhotheoso(Viewtable Viewtable, string materialseachname,  string storelocation)
+        {
+
+            //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+
+            //  string connection_string = Utils.getConnectionstr();
+
+            // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in this.dc.tbl_MKT_Stockends
+                     where p.MATERIAL.Contains(materialseachname) && p.Store_code.Contains(storelocation)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
+                                                                                                           //    && p.Status.Contains(materialseachname) && p.Region.Contains(region)
+                     select new
+                     {
+
+                         p.Store_code,
+
+                         p.ITEM_Code,
+
+                         // pp.RegionBudgeted,
+                         p.SAP_CODE,
+
+                         p.MATERIAL,
+
+                         p.Description,
+
+                         p.END_STOCK,
+                         p.UNIT,
+
+                         p.Ordered,
+                         p.TransferingOUT,
+
+                         p.id,
+
+
+                     };
+
+
+
+
+            Viewtable.dataGridView1.DataSource = rs;
+
+            this.rs = rs;
+
+            //  throw new NotImplementedException();
+        }
 
 
         public void ReloadPhieuMKTtheoso(Viewtable Viewtable, string MKTnumber, string txtname, string region, string statusphieu)
@@ -327,7 +427,7 @@ namespace Maketting.View
                 bt_themmoi.Visible = false;
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
-                lbseach.Visible = false;
+              //  lbseach.Visible = false;
             }
 
             if (viewcode == 100)
@@ -1210,6 +1310,16 @@ namespace Maketting.View
                 {
 
 
+                    if (!Username.getchangeProductright())
+                    {
+                      //  View.MKTNoouthourise view = new MKTNoouthourise();
+                     //   view.ShowDialog();
+                        return;
+                    }
+
+
+
+
                     //       string makh = valuesave;
 
 
@@ -1252,10 +1362,32 @@ namespace Maketting.View
 
                     var rs6 = from pp in dc.tbl_MKT_Stockends
                               where pp.Store_code == storelocation
-                              select pp;
+                              select new
+                              {
 
-                    this.dataGridView1.DataSource = null;
-                    dataGridView1.Refresh();
+                                  pp.Store_code,
+
+                                  pp.ITEM_Code,
+
+                                  // pp.RegionBudgeted,
+                                  pp.SAP_CODE,
+
+                                  pp.MATERIAL,
+
+                                  pp.Description,
+
+                                  pp.END_STOCK,
+                                  pp.UNIT,
+
+                                  pp.Ordered,
+                                  pp.TransferingOUT,
+
+                                  pp.id,
+
+
+                              };
+
+
 
                     this.dataGridView1.DataSource = rs6;
                     this.rs = rs6;

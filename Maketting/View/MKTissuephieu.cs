@@ -17,6 +17,7 @@ namespace Maketting.View
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
                                              //   public string sophieuID { get; set; }
         public string sophieu { get; set; }
+        public string region { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
         public string ProgrameIDDocno { get; set; }
@@ -2414,7 +2415,7 @@ namespace Maketting.View
 
         private void btxoa_Click(object sender, EventArgs e)
         {
-            bool kq = Model.MKT.Deletephieu(this.sophieu, this.storelocation);
+            bool kq = Model.MKT.Deletephieu(this.sophieu, this.storelocation, this.region);
             if (kq)
             {
                 MessageBox.Show("Delete " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);

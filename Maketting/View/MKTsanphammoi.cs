@@ -71,9 +71,9 @@ namespace Maketting.View
 
 
 
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+                //      string connection_string = Utils.getConnectionstr();
+                //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                LinqtoSQLDataContext dc = this.Fromviewable.dc;
 
 
                 var item = (from p in dc.tbl_MKT_Stockends
@@ -98,6 +98,8 @@ namespace Maketting.View
 
                     txtItemcode.Enabled = false;
 
+                  
+
 
                 }
 
@@ -120,7 +122,7 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-
+             
 
                 var item = (from p in dc.tbl_MKT_Stockends
                             where p.id == idsanpham
@@ -265,9 +267,9 @@ namespace Maketting.View
             if (itemcode != "")
             {
                 chon = true;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
+                //        string connection_string = Utils.getConnectionstr();
+                //        LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+                LinqtoSQLDataContext db = this.Fromviewable.dc;
                 //   tbl_dstaikhoan tk = new tbl_dstaikhoan();
 
 

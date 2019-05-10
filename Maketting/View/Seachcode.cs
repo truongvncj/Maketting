@@ -15,15 +15,18 @@ namespace Maketting.View
 
         public MKTInputchange Fromeditable;
         public string tablename;
-        public Seachcode(Viewtable Fromviewable, string tablename)
+
+        public string varialnew;
+        public Seachcode(Viewtable Fromviewable, string tablename, string varialnew)
         {
 
-   
+
             InitializeComponent();
+            this.Text = tablename;
             this.Fromviewable = Fromviewable;
 
             this.tablename = tablename;
-
+            this.varialnew = varialnew;
         }
 
 
@@ -38,6 +41,8 @@ namespace Maketting.View
 
 
             InitializeComponent();
+
+
             this.Fromeditable = Fromeditable;
 
             this.tablename = tablename;
@@ -46,7 +51,7 @@ namespace Maketting.View
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -67,7 +72,7 @@ namespace Maketting.View
 
         private void Seachcode_Leave(object sender, EventArgs e)
         {
-         
+
         }
 
         private void Seachcode_Deactivate(object sender, EventArgs e)
@@ -77,7 +82,7 @@ namespace Maketting.View
 
         private void sendingtext_Enter(object sender, EventArgs e)
         {
-          
+
         }
 
         private void sendingtext_KeyPress(object sender, KeyPressEventArgs e)
@@ -87,26 +92,28 @@ namespace Maketting.View
 
 
 
-                    //if (tablename == "tblCustomer")
-                    //{
-                    //    Fromviewable.Reloadcustomer(this.sendingtext.Text);
-                    //}
-             
-                    ////  tblCustomered
-
-                    if (tablename == "tblCustomered")
-                    {
+                if (tablename == "Tìm theo Material Name")
+                {
 
 
-                        Fromeditable.Reloadeditcustomer(this.sendingtext.Text);
-                    }
+                    Fromviewable.ReloadsanphamKhotheoso(Fromviewable, this.sendingtext.Text, this.varialnew);
+                }
+
+                //  tblCustomered
+
+                if (tablename == "tblCustomered")
+                {
+
+
+                    Fromeditable.Reloadeditcustomer(this.sendingtext.Text);
+                }
 
 
                 if (tablename == "tblsales")
                 {
 
 
-              //      Fromviewable.Reloadsales(this.sendingtext.Text);
+                    //      Fromviewable.Reloadsales(this.sendingtext.Text);
                 }
 
 

@@ -3495,6 +3495,7 @@ namespace Maketting.View
             ///
             string username = Utils.getusername();
             string rightkho = Model.Username.getmaquyenkho();
+            string region = Model.Username.getuseRegion();
 
             //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
@@ -3530,8 +3531,30 @@ namespace Maketting.View
 
                 var rs5 = from pp in dc.tbl_MKT_Stockends
                           where pp.Store_code == storelocation
-                          select pp;
+                          select new
+                          {
 
+                              pp.Store_code,
+
+                              pp.ITEM_Code,
+
+                              // pp.RegionBudgeted,
+                              pp.SAP_CODE,
+
+                              pp.MATERIAL,
+
+                              pp.Description,
+
+                              pp.END_STOCK,
+                              pp.UNIT,
+
+                              pp.Ordered,
+                              pp.TransferingOUT,
+
+                              pp.id,
+
+
+                          };
 
 
                 View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
@@ -3559,6 +3582,7 @@ namespace Maketting.View
             ///
             string username = Utils.getusername();
             string rightkho = Model.Username.getmaquyenkho();
+            string region = Model.Username.getuseRegion();
 
             //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
@@ -3593,9 +3617,38 @@ namespace Maketting.View
 
                 var rs5 = from pp in dc.tbl_MKT_Stockends
                           where pp.Store_code == storelocation
-                          select pp;
+                          select new
+                          {
+
+                              pp.Store_code,
+
+                              pp.ITEM_Code,
+
+                              // pp.RegionBudgeted,
+                              pp.SAP_CODE,
+
+                              pp.MATERIAL,
+
+                              pp.Description,
+
+                              pp.END_STOCK,
+                              pp.UNIT,
+
+                              pp.Ordered,
+                              pp.TransferingOUT,
+
+                              pp.id,
 
 
+                          };
+
+                //foreach (var item in rs5)
+                //{
+
+                //    item.RegionBudgeted = Model.MKT.getBalancebuget(item.ITEM_Code, region, storelocation);
+                //    dc.SubmitChanges();
+
+                //}
 
                 View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
                 tbl.ShowDialog();
@@ -4620,7 +4673,7 @@ namespace Maketting.View
 
         private void viewPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void updateGatePassDeliveredToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4696,12 +4749,12 @@ namespace Maketting.View
 
         private void setPOSMProgrameToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void approvalPaymentRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void updateGatePassDeliveredToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -4764,7 +4817,7 @@ namespace Maketting.View
             //
 
             var rs3 = from pp in dc.tbl_MKT_Regions
-                   //  where pp.Region == rightkho
+                          //  where pp.Region == rightkho
                       select pp;
             foreach (var item2 in rs3)
 
@@ -4776,7 +4829,7 @@ namespace Maketting.View
                 CombomCollection2.Add(cb);
             }
 
-            MKTselectStoreandRegion choosesl = new MKTselectStoreandRegion("PLEASE SELECT A STORE ","STORE","REGION", CombomCollection1, CombomCollection2);
+            MKTselectStoreandRegion choosesl = new MKTselectStoreandRegion("PLEASE SELECT A STORE ", "STORE", "REGION", CombomCollection1, CombomCollection2);
             choosesl.ShowDialog();
 
             string storelocation = choosesl.value1;
@@ -4788,44 +4841,44 @@ namespace Maketting.View
 
 
 
-       //         string connection_string = Utils.getConnectionstr();
-      //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                //         string connection_string = Utils.getConnectionstr();
+                //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
-                      where pp.Region == region
-                      && pp.Store_code == storelocation
-                      group pp by new
-                      {
-                          pp.Region,
-                          pp.ITEM_Code,
+                var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                          where pp.Region == region
+                          && pp.Store_code == storelocation
+                          group pp by new
+                          {
+                              pp.Region,
+                              pp.ITEM_Code,
 
-                      } into gg
-                      select new
-                      {
-                          Region = gg.Key.Region,
-                          Shipping_Point = storelocation,
-                          Material_Item_Code = gg.Key.ITEM_Code,
-                          Material_SAP_Code = gg.Select(m => m.SAP_CODE).FirstOrDefault(),
-                          Material_Name = gg.Select(m => m.MATERIAL).FirstOrDefault(),
-                          Description = gg.Select(m => m.Description).FirstOrDefault(),
-                          UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
-                          Quantity_PO_Reciepted = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0),
-                          Issued = gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
-                          Return_Ticket = gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
+                          } into gg
+                          select new
+                          {
+                              Region = gg.Key.Region,
+                              Shipping_Point = storelocation,
+                              Material_Item_Code = gg.Key.ITEM_Code,
+                              Material_SAP_Code = gg.Select(m => m.SAP_CODE).FirstOrDefault(),
+                              Material_Name = gg.Select(m => m.MATERIAL).FirstOrDefault(),
+                              Description = gg.Select(m => m.Description).FirstOrDefault(),
+                              UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
+                              Quantity_PO_Reciepted = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0),
+                              Issued = gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                              Return_Ticket = gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
 
-                          Adjusted_Device_Stock = gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
-
-
+                              Adjusted_Device_Stock = gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
 
 
 
-                          Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
-                      };
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK BUDGET ON STORE ", 55, "rEgIONBUTGETINSTORE");
-            tbl.ShowDialog();
+                              Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                          };
+
+
+                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK BUDGET ON STORE ", 55, "rEgIONBUTGETINSTORE");
+                tbl.ShowDialog();
 
 
 
@@ -4863,7 +4916,7 @@ namespace Maketting.View
 
                 var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
                            where pp.Region + pp.ShippingPoint + pp.Gate_pass == Gatepassseru
-                          // && pp.completed == true
+                           // && pp.completed == true
 
 
                            select pp).FirstOrDefault();
@@ -4885,12 +4938,12 @@ namespace Maketting.View
                 //if (rs6 == null)
                 //{
                 //    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-             
+
                 //    return;
 
                 //}
 
-            
+
 
 
                 #region// xuất hagf
@@ -5022,44 +5075,44 @@ namespace Maketting.View
                 noright.ShowDialog();
                 return;
             }
-         
 
 
-                List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-                string connection_string = Utils.getConnectionstr();
 
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
 
-                ///
-                string username = Utils.getusername();
-                string rightkho = Model.Username.getmaquyenkho();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
 
-
-                ///
-
-                var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                          where pp.storeright == rightkho
-                          select pp;
-                foreach (var item2 in rs1)
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
 
-                {
-                    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                    cb.Value = item2.makho.Trim();
-                    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                    CombomCollection.Add(cb);
-                }
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                      where pp.storeright == rightkho
+                      select pp;
+            foreach (var item2 in rs1)
 
 
-                MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
-                choosesl.ShowDialog();
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
 
-                string storelocation = choosesl.value;
-                bool kq = choosesl.kq;
-                if (kq)
-                {
+
+            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
 
                 //------------
 
@@ -5234,7 +5287,7 @@ namespace Maketting.View
         private void toolStripMenuItem1_Click_2(object sender, EventArgs e)
         {
 
-     
+
         }
 
         private void toolStripMenuItem1_Click_3(object sender, EventArgs e)

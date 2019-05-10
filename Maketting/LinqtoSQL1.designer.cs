@@ -741,6 +741,8 @@ namespace Maketting
 		
 		private bool _doViewcounting;
 		
+		private bool _change_Product;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -821,6 +823,8 @@ namespace Maketting
     partial void OndoMoreReturnticketChanged();
     partial void OndoViewcountingChanging(bool value);
     partial void OndoViewcountingChanged();
+    partial void Onchange_ProductChanging(bool value);
+    partial void Onchange_ProductChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1584,6 +1588,26 @@ namespace Maketting
 					this._doViewcounting = value;
 					this.SendPropertyChanged("doViewcounting");
 					this.OndoViewcountingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_change_Product", DbType="Bit NOT NULL")]
+		public bool change_Product
+		{
+			get
+			{
+				return this._change_Product;
+			}
+			set
+			{
+				if ((this._change_Product != value))
+				{
+					this.Onchange_ProductChanging(value);
+					this.SendPropertyChanging();
+					this._change_Product = value;
+					this.SendPropertyChanged("change_Product");
+					this.Onchange_ProductChanged();
 				}
 			}
 		}
@@ -10435,6 +10459,8 @@ namespace Maketting
 		
 		private string _Store_code;
 		
+		private string _Gate_pass;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10467,6 +10493,8 @@ namespace Maketting
     partial void OnRegionchangedateChanged();
     partial void OnStore_codeChanging(string value);
     partial void OnStore_codeChanged();
+    partial void OnGate_passChanging(string value);
+    partial void OnGate_passChanged();
     #endregion
 		
 		public tbl_MKT_StockendRegionBudget()
@@ -10750,6 +10778,26 @@ namespace Maketting
 					this._Store_code = value;
 					this.SendPropertyChanged("Store_code");
 					this.OnStore_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gate_pass", DbType="NVarChar(255)")]
+		public string Gate_pass
+		{
+			get
+			{
+				return this._Gate_pass;
+			}
+			set
+			{
+				if ((this._Gate_pass != value))
+				{
+					this.OnGate_passChanging(value);
+					this.SendPropertyChanging();
+					this._Gate_pass = value;
+					this.SendPropertyChanged("Gate_pass");
+					this.OnGate_passChanged();
 				}
 			}
 		}

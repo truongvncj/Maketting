@@ -414,6 +414,7 @@ namespace Maketting.Model
                          Created_date = p.Ngaytaophieu,
                          p.Region,
                          p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
                          IO = p.Purposeid,
                          p.Purpose,
 
@@ -422,7 +423,7 @@ namespace Maketting.Model
                          p.ShipmentNumber,
 
                          p.Requested_by,
-                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                      
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Address,
@@ -759,12 +760,15 @@ namespace Maketting.Model
             //throw new NotImplementedException();
         }
 
-        public static bool Deletephieu(string sophieu, string kho) // vd phieu thu nghiep vu là phieu thu: PT,
+        public static bool Deletephieu(string sophieu, string kho, string Region) // vd phieu thu nghiep vu là phieu thu: PT,
         {
             //   string urs = Utils.getusername();
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+         
+
 
 
             var rs3 = (from pp in dc.tbl_MKt_Listphieuheads
@@ -778,6 +782,53 @@ namespace Maketting.Model
             }
 
 
+            #region  // giảm order và giảm budget region
+
+            #region       //update giảm ordered
+
+            var rs22 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                      select pp;
+
+
+            if (rs22.Count() > 0)
+            {
+                foreach (var item in rs22)
+                {
+                    Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued, item.ShippingPoint);
+
+                }
+
+
+
+            }
+
+
+
+
+            #endregion
+            //  xóa butget đã bocck
+            var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                      where pp.Gate_pass == sophieu && pp.Store_code == kho  && pp.Region == Region
+                       select pp;
+
+
+            if (rs24.Count() > 0)
+            {
+                dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs24);
+                dc.SubmitChanges();
+
+            }
+            //newregionupdate.Store_code = this.storelocation;
+            //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
+            //newregionupdate.Gate_pass = this.sophieu;
+
+
+
+            #endregion
+
+
+
             var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
                       select pp;
@@ -789,11 +840,11 @@ namespace Maketting.Model
                 dc.SubmitChanges();
 
             }
-            else
-            {
-                MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
 
             var rs = from pp in dc.tbl_MKt_Listphieuheads
                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
@@ -804,11 +855,11 @@ namespace Maketting.Model
                 dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
                 dc.SubmitChanges();
             }
-            else
-            {
-                MessageBox.Show("Please check phiếu: " + sophieu + " can not delete head!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete head!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
 
             return true;
         }
@@ -1809,6 +1860,39 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
+
+        
+    public static double getAvailable_Quantity(string materialitemcode,  string storelocation)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            double kq = 0;
+            var rs5 = (from pp in dc.tbl_MKT_Stockends
+                       where pp.Store_code == storelocation
+                    && pp.ITEM_Code == materialitemcode
+                       group pp by new
+                       {
+                           //   pp.Region,
+                           pp.ITEM_Code,
+
+                       } into gg
+                       select new
+                       {
+
+
+                           Balance = gg.Sum(m => m.END_STOCK).GetValueOrDefault(0) - gg.Sum(m => m.Ordered).GetValueOrDefault(0) ,// + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                       });
+
+            if (rs5.Count() > 0)
+            {
+                kq = rs5.FirstOrDefault().Balance;
+            }
+
+
+            return kq;
+
+        }
+
 
         public static double getBalancebuget(string materialitemcode, string region, string storelocation)
         {
