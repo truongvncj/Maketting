@@ -820,7 +820,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemnhap.Materiacode
+                     where p.ITEM_Code == itemnhap.MateriaItemcode
                              && p.Store_code == storecode
                      select p;
 
@@ -838,8 +838,10 @@ namespace Maketting.Model
 
                 tbl_MKT_Stockend newitem = new tbl_MKT_Stockend();
                 newitem.END_STOCK = itemnhap.RecieptQuantity;
-                newitem.ITEM_Code = itemnhap.Materiacode;
+                newitem.ITEM_Code = itemnhap.MateriaItemcode;
                 newitem.SAP_CODE = itemnhap.Materiacode;
+                newitem.MATERIAL = itemnhap.Materialname;
+
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;
                 newitem.END_STOCK = itemnhap.RecieptQuantity;
@@ -1775,6 +1777,38 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachGRList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+
+
+
+            var rs = from pp in dc.tbl_MKt_POdetails
+                     where pp.StatusPO == "IN"
+                     select new
+                     {
+                         pp.Region,
+                         pp.POnumber,
+                         pp.Storelocation,
+                         pp.DatePO,
+                         pp.MateriaSAPcode,
+                         pp.MateriaItemcode,
+                         pp.Materialname,
+                         pp.Unit,
+                         pp.QuantityOrder,
+                         pp.Unit_Price,
+
+                         Reciepted_Quantity = pp.RecieptedQuantity,
+                         Create_by = pp.Username,
+                         //    ID = pp.id,
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
 
         public static double getBalancebuget(string materialitemcode, string region, string storelocation)
         {

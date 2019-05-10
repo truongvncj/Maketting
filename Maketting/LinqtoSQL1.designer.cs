@@ -13737,6 +13737,8 @@ namespace Maketting
 		
 		private string _Unit;
 		
+		private string _MateriaItemcode;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -13773,6 +13775,8 @@ namespace Maketting
     partial void OnPOnumberChanged();
     partial void OnUnitChanging(string value);
     partial void OnUnitChanged();
+    partial void OnMateriaItemcodeChanging(string value);
+    partial void OnMateriaItemcodeChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -14096,6 +14100,26 @@ namespace Maketting
 					this._Unit = value;
 					this.SendPropertyChanged("Unit");
 					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MateriaItemcode", DbType="NVarChar(50)")]
+		public string MateriaItemcode
+		{
+			get
+			{
+				return this._MateriaItemcode;
+			}
+			set
+			{
+				if ((this._MateriaItemcode != value))
+				{
+					this.OnMateriaItemcodeChanging(value);
+					this.SendPropertyChanging();
+					this._MateriaItemcode = value;
+					this.SendPropertyChanged("MateriaItemcode");
+					this.OnMateriaItemcodeChanged();
 				}
 			}
 		}

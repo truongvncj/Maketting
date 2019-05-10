@@ -75,13 +75,13 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKt_POdetails
                      where pp.POnumber == this.POnumber
-                     group pp by pp.MateriaSAPcode into gg
+                     group pp by pp.MateriaItemcode into gg
                      select new
                      {
                          //    ID = pp.id,
                          PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
                          Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                         Material_SAP_code = gg.Key, // pp.MateriaSAPcode,
+                         Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                          Material_Item_code = gg.Key,
                          Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
                          Order_Quantity = gg.Sum(m => m.QuantityOrder),
@@ -111,7 +111,7 @@ namespace Maketting.View
 
                 dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
-                //      dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
@@ -123,7 +123,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["PO_number"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                //   dataGridViewLoaddetail.Columns["Material_Item_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Material_Item_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Order_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
@@ -528,10 +528,11 @@ namespace Maketting.View
 
                 for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
                 {
-                    if (dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value != DBNull.Value)
+                    if (dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value != DBNull.Value)
                     {
-                        string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
+                   //     string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
 
+                        string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
 
                         #region  update po detail
 
@@ -539,7 +540,7 @@ namespace Maketting.View
 
 
                         var rs = from pp in dc.tbl_MKt_POdetails
-                                 where pp.MateriaSAPcode == Material_SAP_code
+                                 where pp.MateriaItemcode == Material_Item_code
                                  && pp.POnumber == this.POnumber
                                  select pp;
 
@@ -556,7 +557,7 @@ namespace Maketting.View
 
                                 tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
-                                newregionupdate.ITEM_Code = item.MateriaSAPcode;
+                                newregionupdate.ITEM_Code = item.MateriaItemcode;
                                 newregionupdate.SAP_CODE = item.MateriaSAPcode;
                                 newregionupdate.MATERIAL = item.Materialname;
                                 newregionupdate.Description = item.Description;
@@ -588,15 +589,15 @@ namespace Maketting.View
 
 
                         var rs2 = from pp in dc.tbl_MKt_POdetails
-                                  where pp.MateriaSAPcode == Material_SAP_code
+                                  where pp.MateriaItemcode == Material_Item_code
                                        && pp.POnumber == this.POnumber
-                                  group pp by pp.MateriaSAPcode into gg
+                                  group pp by pp.MateriaItemcode into gg
                                   select new
                                   {
                                       //    ID = pp.id,
                                       PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
                                       Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Material_SAP_code = gg.Key, // pp.MateriaSAPcode,
+                                      Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                                       Material_Item_code = gg.Key,
                                       Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
                                       Order_Quantity = gg.Sum(m => m.QuantityOrder),
@@ -621,6 +622,8 @@ namespace Maketting.View
                                 newreciepts.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
                                 newreciepts.Materiacode = item.Material_SAP_code;
+                                newreciepts.MateriaItemcode = item.Material_Item_code;
+
                                 newreciepts.Materialname = item.Material_name;
                                 newreciepts.POnumber = item.PO_number;
                                 newreciepts.ShippingPoint = item.Storelocation;

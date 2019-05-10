@@ -122,6 +122,8 @@
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
+            this.gRListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -523,7 +525,9 @@
             this.toolStripSeparator17,
             this.inputPOToolStripMenuItem1,
             this.pOListToolStripMenuItem1,
-            this.recieptedReportsToolStripMenuItem});
+            this.recieptedReportsToolStripMenuItem,
+            this.toolStripSeparator18,
+            this.gRListToolStripMenuItem});
             this.Menuwavehouse.Name = "Menuwavehouse";
             this.Menuwavehouse.Size = new System.Drawing.Size(101, 24);
             this.Menuwavehouse.Text = "Ware House";
@@ -814,6 +818,18 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // toolStripSeparator18
+            // 
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            this.toolStripSeparator18.Size = new System.Drawing.Size(216, 6);
+            // 
+            // gRListToolStripMenuItem
+            // 
+            this.gRListToolStripMenuItem.Name = "gRListToolStripMenuItem";
+            this.gRListToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
+            this.gRListToolStripMenuItem.Text = "GR List";
+            this.gRListToolStripMenuItem.Click += new System.EventHandler(this.gRListToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -928,6 +944,8 @@
         private ToolStripMenuItem inputPOToolStripMenuItem1;
         private ToolStripMenuItem pOListToolStripMenuItem1;
         private ToolStripMenuItem recieptedReportsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator18;
+        private ToolStripMenuItem gRListToolStripMenuItem;
     }
 }
 

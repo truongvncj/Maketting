@@ -41,7 +41,7 @@ namespace Maketting.View
 
         public int viewcode;
         public IQueryable rs { get; set; }
- //       LinqtoSQLDataContext db;
+        //       LinqtoSQLDataContext db;
         public DataGridView Dtgridview;
 
 
@@ -222,17 +222,19 @@ namespace Maketting.View
 
         }
 
-        public void ReloadPhieuMKTtheoso(Viewtable Viewtable,  string MKTnumber , string txtname, string region, string statusphieu)
+
+
+        public void ReloadPhieuMKTtheoso(Viewtable Viewtable, string MKTnumber, string txtname, string region, string statusphieu)
         {
 
-         //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+            //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
-          //  string connection_string = Utils.getConnectionstr();
+            //  string connection_string = Utils.getConnectionstr();
 
-           // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in this.dc.tbl_MKt_Listphieudetails
-                     where p.Gate_pass.Contains(MKTnumber)  && p.Receiver_by.Contains(txtname)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
+                     where p.Gate_pass.Contains(MKTnumber) && p.Receiver_by.Contains(txtname)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
                      && p.Status.Contains(statusphieu) && p.Region.Contains(region)
                      orderby p.Gate_pass
                      select new
@@ -307,7 +309,7 @@ namespace Maketting.View
             this.dataGridView1.DataSource = rs;
             this.Dtgridview = dataGridView1;
 
-     
+
 
             this.dc = dc;
             this.viewcode = viewcode;
@@ -384,6 +386,8 @@ namespace Maketting.View
 
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
+            //    STORERPT
+
 
 
             #region  // viewcode ==19  sales orge list
@@ -1197,6 +1201,78 @@ namespace Maketting.View
 
             try
             {
+
+
+                #region  // viewcode ==55  sửa code sản phẩm
+
+
+                if (this.viewcode == 55 && this.valuesave == "STORERPT")
+                {
+
+
+                    //       string makh = valuesave;
+
+
+                    int idsanpham = 0;
+                    string storelocation = "";
+                    //    int idtk = 0;
+                    try
+                    {
+                        idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                        storelocation = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+
+
+
+
+
+
+
+                    View.MKTsanphammoi p = new MKTsanphammoi(2, idsanpham, storelocation, this);  // 3 là thêm ới
+
+                    p.ShowDialog();
+
+                    //var rs6 = from pp in dc.tbl_MKT_StockendTMPs
+                    //          where pp.Username == valuesave
+                    //          select pp;
+
+
+
+
+                    //this.dataGridView1.DataSource = rs6;
+                    // Reloadtonkhotheolocation(this, storelocation);
+
+                    var rs6 = from pp in dc.tbl_MKT_Stockends
+                              where pp.Store_code == storelocation
+                              select pp;
+
+                    this.dataGridView1.DataSource = null;
+                    dataGridView1.Refresh();
+
+                    this.dataGridView1.DataSource = rs6;
+                    this.rs = rs6;
+
+               
+
+
+                }
+
+
+
+                #endregion
+
+
+
+
+
                 #region  view pdf file
 
                 if (this.valuesave == "Schemeprograme")

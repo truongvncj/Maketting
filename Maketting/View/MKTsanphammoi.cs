@@ -21,14 +21,14 @@ namespace Maketting.View
         public string materialname { get; set; }
 
         public string storelocation { get; set; }
-     //   public string tenkho { get; set; }
+        //   public string tenkho { get; set; }
 
-    
+        public Viewtable Fromviewable;
         public string unit { get; set; }
 
 
         public string description { get; set; }
-     
+
 
         public bool chon { get; set; }
 
@@ -46,32 +46,33 @@ namespace Maketting.View
         }
 
 
-        public MKTsanphammoi(int loai, int idsanpham, string storelocation) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
+        public MKTsanphammoi(int loai, int idsanpham, string storelocation, Viewtable Fromviewable) // int = 1 xóa; int = 2 sửa ; int = 3 tao mới; int = 4 vừa sửa+ xóa
         {
             InitializeComponent();
-
+            this.Fromviewable = Fromviewable;
+            this.storelocation = storelocation;
             chon = false;
             //    cbkhohang
             txtstorelocation.Text = storelocation;
             txtstorelocation.Enabled = false;
-
+            this.storelocation = storelocation;
 
             this.id = idsanpham;
-
-            if (loai == 4) // xóa + sua
+            if (loai == 2) // xóa + sua
             {
                 this.btnew.Visible = false;
+                this.btxoa.Visible = false;
                 //  this.txtmaNCC.Text = makhachhang;
                 //txtitemcode.Text = idsanpham.ToString();
-          //      txtitemcode.Enabled = false;
-///
+                //      txtitemcode.Enabled = false;
+                ///
 
 
 
 
 
-                  string connection_string = Utils.getConnectionstr();
-                   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
 
@@ -81,16 +82,62 @@ namespace Maketting.View
 
                 if (item != null)
                 {
-                //    txttondaukysoluong.Text = item.tondksoluong.ToString();
-                //    txtthanhtienton.Text = item.tondkthanhtien.ToString();
+                    //    txttondaukysoluong.Text = item.tondksoluong.ToString();
+                    //    txtthanhtienton.Text = item.tondkthanhtien.ToString();
 
                     //txtitemcode.Text = item.ITEM_Code;
                     txttensanpham.Text = item.MATERIAL;
 
-               
+
+                    txtsapcode.Text = item.SAP_CODE;
+                    //   txtsapcode.Enabled = false;
+
+                    txtdescription.Text = item.Description;
+                    txtItemcode.Text = item.ITEM_Code;
+                    txtunit.Text = item.UNIT;
+
+                    txtItemcode.Enabled = false;
+
+
+                }
+
+
+            }
+
+
+            if (loai == 4) // xóa + sua
+            {
+                this.btnew.Visible = false;
+                //  this.txtmaNCC.Text = makhachhang;
+                //txtitemcode.Text = idsanpham.ToString();
+                //      txtitemcode.Enabled = false;
+                ///
+
+
+
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+                var item = (from p in dc.tbl_MKT_Stockends
+                            where p.id == idsanpham
+                            select p).FirstOrDefault();
+
+                if (item != null)
+                {
+                    //    txttondaukysoluong.Text = item.tondksoluong.ToString();
+                    //    txtthanhtienton.Text = item.tondkthanhtien.ToString();
+
+                    //txtitemcode.Text = item.ITEM_Code;
+                    txttensanpham.Text = item.MATERIAL;
+
+
                     txtsapcode.Text = item.SAP_CODE;
 
-               
+
 
 
 
@@ -173,20 +220,20 @@ namespace Maketting.View
             //
 
 
+            //     this.id = idsanpham;
 
-
-            this.itemcode = this.txtsapcode.Text;
+            this.itemcode = this.txtItemcode.Text;
             this.materialname = this.txttensanpham.Text;
 
 
             this.sapcode = txtsapcode.Text;
-        //    this.donvi = txtdonvi.Text;
-
-       
- 
+            this.unit = txtunit.Text;
+            this.description = txtdescription.Text;
 
 
-          //  this.ghichu = txtghichu.Text;
+
+
+            //  this.ghichu = txtghichu.Text;
 
             //if (cbkhohang.SelectedItem != null)
             //{
@@ -202,8 +249,8 @@ namespace Maketting.View
             //this.tenkho = (string)(cbkhohang.SelectedItem as ComboboxItem).Text;
 
 
- 
- 
+
+
 
 
 
@@ -226,7 +273,7 @@ namespace Maketting.View
 
                 //    MeasureItemEventArgs.re
                 var rs = (from p in db.tbl_MKT_Stockends
-                          where p.ITEM_Code == itemcode
+                          where p.id == this.id
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
 
@@ -237,18 +284,31 @@ namespace Maketting.View
                     rs.ITEM_Code = this.itemcode;// = this.txtmaNCC.Text;
                     rs.MATERIAL = this.materialname;// this.txttenNCC.Text;
 
-                //    rs.idmanhomsp = this.idnhomsanpham;
+                    rs.Description = this.description;
 
                     rs.SAP_CODE = this.sapcode;
-                 //   rs.donvi = this.donvi;
+                    rs.UNIT = this.unit;
                     rs.Store_code = this.storelocation;
-               
+
 
                     db.SubmitChanges();
+                    
+            
                     this.Close();
+
+                  
+
+                    //   Fromviewable.Reloadtonkhotheolocation(Fromviewable, this.storelocation);
                 }
 
 
+
+        //        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+
+
+
+
+                //Reloadtonkhotheolocation( this.storelocation);
 
             }
 
@@ -284,7 +344,7 @@ namespace Maketting.View
             this.storelocation = txtstorelocation.Text;
 
 
-            if (this.sapcode =="")
+            if (this.sapcode == "")
             {
                 MessageBox.Show("Please input SAp code", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -324,18 +384,18 @@ namespace Maketting.View
                      where pp.ITEM_Code == this.itemcode
                      select pp;
 
-            if (rs.Count()>0)
+            if (rs.Count() > 0)
             {
-               
-                    MessageBox.Show("Mã Item code bị trùng, please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-              
+
+                MessageBox.Show("Mã Item code bị trùng, please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+
             }
 
             var rs2 = from pp in dc.tbl_MKT_Stockends
-                     where pp.SAP_CODE == this.sapcode
-                     && pp.ITEM_Code == this.itemcode
-                     select pp;
+                      where pp.SAP_CODE == this.sapcode
+                      && pp.ITEM_Code == this.itemcode
+                      select pp;
 
             if (rs2.Count() > 0)
             {
@@ -359,8 +419,8 @@ namespace Maketting.View
 
             newproduct.UNIT = this.unit;
 
-        
-            
+
+
 
             dc.tbl_MKT_Stockends.InsertOnSubmit(newproduct);
             dc.SubmitChanges();
@@ -395,19 +455,19 @@ namespace Maketting.View
 
         private void txttennganhang_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
         }
 
         private void txtmakho_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
 
 
         private void txtghichu_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
         }
 
         private void txttensanpham_KeyPress(object sender, KeyPressEventArgs e)
@@ -445,7 +505,7 @@ namespace Maketting.View
             {
 
 
-            //    txttrongluong.Focus();
+                //    txttrongluong.Focus();
 
 
             }
@@ -459,7 +519,7 @@ namespace Maketting.View
             {
 
 
-             //   txtkhoiluong.Focus();
+                //   txtkhoiluong.Focus();
 
 
             }
@@ -473,7 +533,7 @@ namespace Maketting.View
             {
 
 
-             //   txtnhomsanpham.Focus();
+                //   txtnhomsanpham.Focus();
 
 
             }
@@ -487,7 +547,7 @@ namespace Maketting.View
             {
 
 
-          //      txtghichu.Focus();
+                //      txtghichu.Focus();
 
 
             }
@@ -497,7 +557,7 @@ namespace Maketting.View
         private void txtghichu_KeyPress_1(object sender, KeyPressEventArgs e)
         {
 
-          
+
 
         }
 
@@ -517,7 +577,7 @@ namespace Maketting.View
         private void txtunit_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-       
+
         }
     }
 

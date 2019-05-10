@@ -1389,7 +1389,7 @@ namespace Maketting.View
                     rs = from pp in dc.tbl_MKT_Stockends
 
                          where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
-                         && pp.ITEM_Code == pp.SAP_CODE
+                         && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
@@ -1409,7 +1409,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && pp.ITEM_Code == pp.SAP_CODE
+                           && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
@@ -1428,7 +1428,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && pp.ITEM_Code == pp.SAP_CODE
+                           && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
@@ -1448,7 +1448,7 @@ namespace Maketting.View
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
-                           && pp.ITEM_Code == pp.SAP_CODE
+                           && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
@@ -2011,12 +2011,12 @@ namespace Maketting.View
         private void btaddnew_Click(object sender, EventArgs e)
         {
 
-
+            View.Viewtable temp = null;
 
             if (Model.Username.getaddNewProductRight())
             {
 
-                View.MKTsanphammoi p = new MKTsanphammoi(3, -1, this.storelocation);  // 3 là thêm ới
+                View.MKTsanphammoi p = new MKTsanphammoi(3, -1, this.storelocation, temp);  // 3 là thêm ới
 
                 p.ShowDialog();
             }
