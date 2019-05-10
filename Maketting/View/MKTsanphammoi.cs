@@ -334,6 +334,7 @@ namespace Maketting.View
 
             var rs2 = from pp in dc.tbl_MKT_Stockends
                      where pp.SAP_CODE == this.sapcode
+                     && pp.ITEM_Code == this.itemcode
                      select pp;
 
             if (rs2.Count() > 0)
