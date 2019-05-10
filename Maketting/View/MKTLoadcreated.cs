@@ -22,6 +22,11 @@ namespace Maketting.View
         public IQueryable rs { get; set; }
         public LinqtoSQLDataContext dc { get; set; }
 
+        public string shipment { get; set; }
+        //  public string isGheplI { get; set; }
+
+
+
 
 
         public class ComboboxItem
@@ -286,7 +291,7 @@ namespace Maketting.View
 
             string username = Utils.getusername();
             this.Username = username;
-
+            this.shipment = "";
             //this.matk = taikhoan;
 
 
@@ -601,7 +606,7 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-          
+
 
 
             if (this.statusphieu == 1)
@@ -649,7 +654,7 @@ namespace Maketting.View
                 checkhead = false;
                 return;
             }
-           
+
             if (Utils.IsValidnumber(txtShipment.Text.ToString()) == true && cbGhepshipment.Checked == true)
             {
                 MessageBox.Show("Pleae nhập số shipment ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -676,7 +681,7 @@ namespace Maketting.View
             }
             //            txtShipment
 
-       
+
             #endregion
 
 
@@ -722,14 +727,14 @@ namespace Maketting.View
                     var updateblankhead = from pp in dc.tbl_MKt_Listphieuheads
                                           where pp.LoadNumber == this.soload
                                       && pp.ShippingPoint == this.storelocation
-                                      select pp;
+                                          select pp;
                     foreach (var item in updateblankhead)
                     {
                         item.Status = "CRT";
                         item.Tranposterby = "";
                         item.LoadNumber = "";
                         item.Trucknumber = "";
-                      
+
 
 
                         dc.SubmitChanges();
@@ -795,6 +800,8 @@ namespace Maketting.View
                             item.Truck = txttrucnumber.Text;
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
+                            item.Delivery_date = DateTime.Today;
+                            item.Included_Shipment = this.shipment;
 
                             dc.SubmitChanges();
                         }
@@ -866,6 +873,8 @@ namespace Maketting.View
                     loaddetail.ShippingPoint = this.storelocation;
                     loaddetail.Issued = item.Issued;
                     loaddetail.Status = "CRT";
+
+
 
                     dc.tbl_MKt_ListLoadheadDetails.InsertOnSubmit(loaddetail);
                     dc.SubmitChanges();
@@ -2622,6 +2631,13 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void txtShipment_TextChanged(object sender, EventArgs e)
+        {
+            // public string shipment { get; set; }
+            this.shipment = txtShipment.Text;
+            cbGhepshipment.Checked = false;
         }
     }
 

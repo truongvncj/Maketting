@@ -3695,6 +3695,12 @@ namespace Maketting
 		
 		private double _ReturnQuantity;
 		
+		private System.Nullable<System.DateTime> _Delivery_date;
+		
+		private System.Nullable<System.DateTime> _Issued_dated;
+		
+		private string _Included_Shipment;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3771,6 +3777,12 @@ namespace Maketting
     partial void OnReturndateChanged();
     partial void OnReturnQuantityChanging(double value);
     partial void OnReturnQuantityChanged();
+    partial void OnDelivery_dateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDelivery_dateChanged();
+    partial void OnIssued_datedChanging(System.Nullable<System.DateTime> value);
+    partial void OnIssued_datedChanged();
+    partial void OnIncluded_ShipmentChanging(string value);
+    partial void OnIncluded_ShipmentChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4494,6 +4506,66 @@ namespace Maketting
 					this._ReturnQuantity = value;
 					this.SendPropertyChanged("ReturnQuantity");
 					this.OnReturnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Delivery_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Delivery_date
+		{
+			get
+			{
+				return this._Delivery_date;
+			}
+			set
+			{
+				if ((this._Delivery_date != value))
+				{
+					this.OnDelivery_dateChanging(value);
+					this.SendPropertyChanging();
+					this._Delivery_date = value;
+					this.SendPropertyChanged("Delivery_date");
+					this.OnDelivery_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issued_dated", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Issued_dated
+		{
+			get
+			{
+				return this._Issued_dated;
+			}
+			set
+			{
+				if ((this._Issued_dated != value))
+				{
+					this.OnIssued_datedChanging(value);
+					this.SendPropertyChanging();
+					this._Issued_dated = value;
+					this.SendPropertyChanged("Issued_dated");
+					this.OnIssued_datedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Included_Shipment", DbType="NVarChar(50)")]
+		public string Included_Shipment
+		{
+			get
+			{
+				return this._Included_Shipment;
+			}
+			set
+			{
+				if ((this._Included_Shipment != value))
+				{
+					this.OnIncluded_ShipmentChanging(value);
+					this.SendPropertyChanging();
+					this._Included_Shipment = value;
+					this.SendPropertyChanged("Included_Shipment");
+					this.OnIncluded_ShipmentChanged();
 				}
 			}
 		}
