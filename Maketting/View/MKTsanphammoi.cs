@@ -279,7 +279,7 @@ namespace Maketting.View
             this.sapcode = txtsapcode.Text;
             this.itemcode = txtsapcode.Text;
             this.materialname = this.txttensanpham.Text;
-            this.itemcode = txtsapcode.Text;
+            this.itemcode = txtItemcode.Text;
             this.unit = txtunit.Text;
             this.storelocation = txtstorelocation.Text;
 
