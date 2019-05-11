@@ -392,7 +392,7 @@ namespace Maketting.View
 
             this.main1 = Main;
 
-
+            cbGhepshipment.CheckState = CheckState.Checked;
 
             this.statusphieu = 1; // tạo mới
             Model.MKT.restatusphieuLoadingtoCRT();
