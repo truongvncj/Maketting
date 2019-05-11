@@ -3535,11 +3535,11 @@ namespace Maketting.View
                           {
 
                               pp.Store_code,
-
+                              pp.SAP_CODE,
                               pp.ITEM_Code,
 
                               // pp.RegionBudgeted,
-                              pp.SAP_CODE,
+                          
 
                               pp.MATERIAL,
 
@@ -3624,11 +3624,11 @@ namespace Maketting.View
                           {
 
                               pp.Store_code,
-
+                              pp.SAP_CODE,
                               pp.ITEM_Code,
 
                               // pp.RegionBudgeted,
-                              pp.SAP_CODE,
+                        
 
                               pp.MATERIAL,
 
@@ -5449,7 +5449,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsachPOnham(dc, fromdate, todate);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU PHIẾU NHẬP KHO THEO PO ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PO NHẬP KHO", 55, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -5482,6 +5482,31 @@ namespace Maketting.View
 
             }
 
+        }
+
+        private void goodReceiptListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "GR LIST ", 55, "GR List");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
         }
     }
 

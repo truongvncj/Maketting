@@ -292,11 +292,11 @@ namespace Maketting.View
                      {
 
                          p.Store_code,
-
+                         p.SAP_CODE,
                          p.ITEM_Code,
 
                          // pp.RegionBudgeted,
-                         p.SAP_CODE,
+                     
 
                          p.MATERIAL,
 
@@ -1371,11 +1371,11 @@ namespace Maketting.View
                               {
 
                                   pp.Store_code,
-
+                                  pp.SAP_CODE,
                                   pp.ITEM_Code,
 
                                   // pp.RegionBudgeted,
-                                  pp.SAP_CODE,
+                              
 
                                   pp.MATERIAL,
 

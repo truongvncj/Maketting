@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTsanphammoi));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtQuantityPerPallet = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtItemcode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtstorelocation = new System.Windows.Forms.TextBox();
@@ -45,14 +48,15 @@
             this.btnew = new System.Windows.Forms.Button();
             this.txttensanpham = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtQuantityPerPallet = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtEndstock = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtEndstock);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtQuantityPerPallet);
             this.panel1.Controls.Add(this.label5);
@@ -76,6 +80,35 @@
             this.panel1.Size = new System.Drawing.Size(578, 352);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(313, 210);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 13);
+            this.label6.TabIndex = 82;
+            this.label6.Text = "Số lượng sản phẩm xếp trên 1 pallet";
+            // 
+            // txtQuantityPerPallet
+            // 
+            this.txtQuantityPerPallet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantityPerPallet.Location = new System.Drawing.Point(177, 209);
+            this.txtQuantityPerPallet.Name = "txtQuantityPerPallet";
+            this.txtQuantityPerPallet.Size = new System.Drawing.Size(130, 20);
+            this.txtQuantityPerPallet.TabIndex = 80;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(19, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 20);
+            this.label5.TabIndex = 81;
+            this.label5.Text = "NUMBER FULL PALLET";
             // 
             // txtItemcode
             // 
@@ -243,34 +276,25 @@
             this.label21.TabIndex = 49;
             this.label21.Text = "MATERIAL NAME";
             // 
-            // txtQuantityPerPallet
+            // txtEndstock
             // 
-            this.txtQuantityPerPallet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantityPerPallet.Location = new System.Drawing.Point(177, 209);
-            this.txtQuantityPerPallet.Name = "txtQuantityPerPallet";
-            this.txtQuantityPerPallet.Size = new System.Drawing.Size(130, 20);
-            this.txtQuantityPerPallet.TabIndex = 80;
+            this.txtEndstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndstock.Location = new System.Drawing.Point(176, 284);
+            this.txtEndstock.Name = "txtEndstock";
+            this.txtEndstock.Size = new System.Drawing.Size(130, 20);
+            this.txtEndstock.TabIndex = 84;
             // 
-            // label5
+            // label7
             // 
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 20);
-            this.label5.TabIndex = 81;
-            this.label5.Text = "NUMBER FULL PALLET";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(313, 210);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 13);
-            this.label6.TabIndex = 82;
-            this.label6.Text = "Số lượng sản phẩm xếp trên 1 pallet";
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(19, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 20);
+            this.label7.TabIndex = 83;
+            this.label7.Text = "END STOCK";
             // 
             // MKTsanphammoi
             // 
@@ -312,5 +336,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtQuantityPerPallet;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtEndstock;
+        private System.Windows.Forms.Label label7;
     }
 }

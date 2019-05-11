@@ -330,7 +330,7 @@ namespace Maketting.Model
 
         public static void restatusphieuLoadingtoCRT()
         {
-            
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
@@ -423,7 +423,7 @@ namespace Maketting.Model
                          p.ShipmentNumber,
 
                          p.Requested_by,
-                      
+
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Address,
@@ -767,7 +767,7 @@ namespace Maketting.Model
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-         
+
 
 
 
@@ -787,8 +787,8 @@ namespace Maketting.Model
             #region       //update giảm ordered
 
             var rs22 = from pp in dc.tbl_MKt_Listphieudetails
-                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                      select pp;
+                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                       select pp;
 
 
             if (rs22.Count() > 0)
@@ -809,7 +809,7 @@ namespace Maketting.Model
             #endregion
             //  xóa butget đã bocck
             var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
-                      where pp.Gate_pass == sophieu && pp.Store_code == kho  && pp.Region == Region
+                       where pp.Gate_pass == sophieu && pp.Store_code == kho && pp.Region == Region
                        select pp;
 
 
@@ -1835,24 +1835,26 @@ namespace Maketting.Model
 
 
 
-            var rs = from pp in dc.tbl_MKt_POdetails
-                     where pp.StatusPO == "IN"
+            var rs = from pp in dc.tbl_MKt_WHstoreissues
+                    // from gg in dc.tbl_MKt_POheads
+                     where pp.POnumber != null //&& pp.POnumber == gg.PONumber
                      select new
                      {
-                         pp.Region,
+                        // gg.
                          pp.POnumber,
-                         pp.Storelocation,
-                         pp.DatePO,
-                         pp.MateriaSAPcode,
+                         Ngày_nhập_kho = pp.date_input_output,
+                         DN_Number = pp.DNNumber,
+                         pp.Materiacode,
                          pp.MateriaItemcode,
                          pp.Materialname,
                          pp.Unit,
-                         pp.QuantityOrder,
-                         pp.Unit_Price,
+                         pp.RecieptQuantity,
+                         pp.Recieptby,
+                      
 
-                         Reciepted_Quantity = pp.RecieptedQuantity,
-                         Create_by = pp.Username,
-                         //    ID = pp.id,
+                         pp.Username,
+                         pp.ShippingPoint,
+                         pp.id,
 
                      };
 
@@ -1861,8 +1863,8 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-        
-    public static double getAvailable_Quantity(string materialitemcode,  string storelocation)
+
+        public static double getAvailable_Quantity(string materialitemcode, string storelocation)
         {
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -1880,7 +1882,7 @@ namespace Maketting.Model
                        {
 
 
-                           Balance = gg.Sum(m => m.END_STOCK).GetValueOrDefault(0) - gg.Sum(m => m.Ordered).GetValueOrDefault(0) ,// + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                           Balance = gg.Sum(m => m.END_STOCK).GetValueOrDefault(0) - gg.Sum(m => m.Ordered).GetValueOrDefault(0),// + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                        });
 
             if (rs5.Count() > 0)

@@ -98,6 +98,8 @@ namespace Maketting.View
                     txtdescription.Text = item.Description;
                     txtItemcode.Text = item.ITEM_Code;
 
+                    txtEndstock.Text = item.END_STOCK.ToString();
+
                     if (txtItemcode.Text == "")
                     {
                         txtItemcode.Text = item.SAP_CODE;
@@ -160,8 +162,9 @@ namespace Maketting.View
                     txtdescription.Text = item.Description;
                     txtItemcode.Text = item.ITEM_Code;
                     txtQuantityPerPallet.Text = item.Quantity_Per_Pallet.ToString();
+                    txtEndstock.Text = item.END_STOCK.ToString();
 
-
+                    txtsapcode.Enabled = false;
 
                 }
 
@@ -290,6 +293,14 @@ namespace Maketting.View
                 return;
             }
 
+
+            if (Utils.IsValidnumber(txtEndstock.Text) == false)
+            {
+                MessageBox.Show("Bạn check lại Endstock must be a number!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantityPerPallet.Focus();
+
+                return;
+            }
             this.QuantityPerPallet = float.Parse(txtQuantityPerPallet.Text);
 
 
@@ -330,6 +341,7 @@ namespace Maketting.View
                     rs.SAP_CODE = this.sapcode;
                     rs.UNIT = this.unit;
                     rs.Store_code = this.storelocation;
+                    rs.END_STOCK = float.Parse(txtEndstock.Text.ToString());
 
 
                     db.SubmitChanges();
