@@ -105,7 +105,7 @@ namespace Maketting.View
 
                     txtunit.Text = item.UNIT;
 
-                    txtItemcode.Enabled = false;
+                    txtsapcode.Enabled = false;
 
                  //   txtstorelocation.Text = item.Store_code;
                    // txtunit.Text = item.UNIT;

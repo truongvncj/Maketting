@@ -50,6 +50,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.datecreated = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateNgaynhaphang = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtdnnumbar = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -180,15 +184,19 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtdnnumbar);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dateNgaynhaphang);
             this.panel1.Controls.Add(this.txtstorelocation);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.datecreated);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.txtPonumber);
             this.panel1.Controls.Add(this.txtnguoinhanhang);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.datecreated);
             this.panel1.Location = new System.Drawing.Point(6, 26);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 69);
@@ -199,7 +207,7 @@
             // 
             this.txtstorelocation.AutoSize = true;
             this.txtstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstorelocation.Location = new System.Drawing.Point(423, 25);
+            this.txtstorelocation.Location = new System.Drawing.Point(343, 40);
             this.txtstorelocation.Name = "txtstorelocation";
             this.txtstorelocation.Size = new System.Drawing.Size(41, 18);
             this.txtstorelocation.TabIndex = 79;
@@ -209,7 +217,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(310, 25);
+            this.label4.Location = new System.Drawing.Point(230, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 18);
             this.label4.TabIndex = 72;
@@ -228,7 +236,7 @@
             // 
             this.txtPonumber.AutoSize = true;
             this.txtPonumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPonumber.Location = new System.Drawing.Point(125, 20);
+            this.txtPonumber.Location = new System.Drawing.Point(125, 33);
             this.txtPonumber.Name = "txtPonumber";
             this.txtPonumber.Size = new System.Drawing.Size(64, 25);
             this.txtPonumber.TabIndex = 65;
@@ -238,7 +246,7 @@
             // 
             this.txtnguoinhanhang.Enabled = false;
             this.txtnguoinhanhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoinhanhang.Location = new System.Drawing.Point(698, 23);
+            this.txtnguoinhanhang.Location = new System.Drawing.Point(483, 35);
             this.txtnguoinhanhang.Name = "txtnguoinhanhang";
             this.txtnguoinhanhang.Size = new System.Drawing.Size(267, 24);
             this.txtnguoinhanhang.TabIndex = 21;
@@ -249,7 +257,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(19, 23);
+            this.label11.Location = new System.Drawing.Point(19, 36);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 18);
             this.label11.TabIndex = 19;
@@ -259,7 +267,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(576, 26);
+            this.label5.Location = new System.Drawing.Point(400, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 7;
@@ -269,7 +277,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1020, 27);
+            this.label2.Location = new System.Drawing.Point(19, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 2;
@@ -282,7 +290,7 @@
             this.datecreated.Enabled = false;
             this.datecreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datecreated.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datecreated.Location = new System.Drawing.Point(1073, 23);
+            this.datecreated.Location = new System.Drawing.Point(72, 1);
             this.datecreated.Name = "datecreated";
             this.datecreated.Size = new System.Drawing.Size(119, 24);
             this.datecreated.TabIndex = 0;
@@ -298,6 +306,46 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 565);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1033, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 18);
+            this.label1.TabIndex = 71;
+            this.label1.Text = "Reciept date";
+            // 
+            // dateNgaynhaphang
+            // 
+            this.dateNgaynhaphang.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNgaynhaphang.CustomFormat = "dd.MM.yyyy";
+            this.dateNgaynhaphang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateNgaynhaphang.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNgaynhaphang.Location = new System.Drawing.Point(1129, 2);
+            this.dateNgaynhaphang.Name = "dateNgaynhaphang";
+            this.dateNgaynhaphang.Size = new System.Drawing.Size(119, 24);
+            this.dateNgaynhaphang.TabIndex = 70;
+            this.dateNgaynhaphang.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(788, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 18);
+            this.label6.TabIndex = 80;
+            this.label6.Text = "DN Number";
+            // 
+            // txtdnnumbar
+            // 
+            this.txtdnnumbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdnnumbar.Location = new System.Drawing.Point(881, 37);
+            this.txtdnnumbar.Name = "txtdnnumbar";
+            this.txtdnnumbar.Size = new System.Drawing.Size(157, 20);
+            this.txtdnnumbar.TabIndex = 81;
             // 
             // MKTNhaphangtheoPo
             // 
@@ -343,5 +391,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datecreated;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateNgaynhaphang;
+        private System.Windows.Forms.TextBox txtdnnumbar;
     }
 }

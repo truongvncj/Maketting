@@ -1351,7 +1351,7 @@ namespace Maketting.View
 
 
 
-                    View.MKTsanphammoi p = new MKTsanphammoi(2, idsanpham, storelocation, this);  // 3 là thêm ới
+                    View.MKTsanphammoi p = new MKTsanphammoi(4, idsanpham, storelocation, this);  // 3 là thêm ới
 
                     p.ShowDialog();
 
