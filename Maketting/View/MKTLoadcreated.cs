@@ -392,7 +392,8 @@ namespace Maketting.View
 
             this.main1 = Main;
 
-            cbGhepshipment.CheckState = CheckState.Checked;
+            //    cbGhepshipment.CheckState = CheckState.Checked;
+            cbGhepshipment.Checked = true;
 
             this.statusphieu = 1; // tạo mới
             Model.MKT.restatusphieuLoadingtoCRT();
@@ -2592,19 +2593,21 @@ namespace Maketting.View
                      {
 
 
-                         Gate_pass = p.Gate_pass,
+                     
                          Code_KH = p.Customer_SAP_Code,
                          Địa_chỉ = p.Address,
-                         Điện_thoại = p.Description,
+                      
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
-                         p.Ngaytaophieu,
+                       
                          p.Purpose,
                          p.Receiver_by,
                          p.Tel,
-
+                         Gate_pass = p.Gate_pass,
+                         Điện_thoại = p.Description,
+                         p.Ngaytaophieu,
                          ID = p.id,
                      };
 
@@ -2637,7 +2640,9 @@ namespace Maketting.View
         {
             // public string shipment { get; set; }
             this.shipment = txtShipment.Text;
-            cbGhepshipment.Checked = false;
+        //    cbGhepshipment.Checked = false;
+      //      cbGhepshipment.Checked = true;
+
         }
     }
 

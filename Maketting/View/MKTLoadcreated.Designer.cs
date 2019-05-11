@@ -517,6 +517,8 @@
             // cbGhepshipment
             // 
             this.cbGhepshipment.AutoSize = true;
+            this.cbGhepshipment.Checked = true;
+            this.cbGhepshipment.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbGhepshipment.Location = new System.Drawing.Point(121, 168);
             this.cbGhepshipment.Name = "cbGhepshipment";
             this.cbGhepshipment.Size = new System.Drawing.Size(121, 17);

@@ -330,7 +330,7 @@ namespace Maketting.Model
 
         public static void restatusphieuLoadingtoCRT()
         {
-
+            
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
