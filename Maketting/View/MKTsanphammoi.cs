@@ -90,16 +90,19 @@ namespace Maketting.View
                     //txtitemcode.Text = item.ITEM_Code;
                     txttensanpham.Text = item.MATERIAL;
 
-                    if (txttensanpham.Text =="")
-                    {
-                        txttensanpham.Text = item.SAP_CODE;
-                    }
+                  
 
                     txtsapcode.Text = item.SAP_CODE;
                     //   txtsapcode.Enabled = false;
 
                     txtdescription.Text = item.Description;
                     txtItemcode.Text = item.ITEM_Code;
+
+                    if (txtItemcode.Text == "")
+                    {
+                        txtItemcode.Text = item.SAP_CODE;
+                    }
+
                     txtunit.Text = item.UNIT;
 
                     txtItemcode.Enabled = false;
