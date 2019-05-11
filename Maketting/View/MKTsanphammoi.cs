@@ -287,7 +287,7 @@ namespace Maketting.View
 
             if (Utils.IsValidnumber(txtQuantityPerPallet.Text) == false)
             {
-                MessageBox.Show("Bạn chưa có số sản phẩm để xếp đủ 1 pallet của sản phẩm này !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please check lại số sản phẩm để xếp đủ 1 pallet của sản phẩm này !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtQuantityPerPallet.Focus();
 
                 return;
@@ -301,7 +301,8 @@ namespace Maketting.View
 
                 return;
             }
-            this.QuantityPerPallet = float.Parse(txtQuantityPerPallet.Text);
+
+            this.QuantityPerPallet = float.Parse(txtQuantityPerPallet.Text.ToString());
 
 
 

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTsanphammoi));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtEndstock = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtQuantityPerPallet = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,8 +50,6 @@
             this.btnew = new System.Windows.Forms.Button();
             this.txttensanpham = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtEndstock = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,14 +81,34 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // txtEndstock
+            // 
+            this.txtEndstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEndstock.Location = new System.Drawing.Point(176, 284);
+            this.txtEndstock.Name = "txtEndstock";
+            this.txtEndstock.Size = new System.Drawing.Size(130, 20);
+            this.txtEndstock.TabIndex = 84;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(19, 284);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 20);
+            this.label7.TabIndex = 83;
+            this.label7.Text = "END STOCK";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(313, 210);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 13);
+            this.label6.Size = new System.Drawing.Size(182, 13);
             this.label6.TabIndex = 82;
-            this.label6.Text = "Số lượng sản phẩm xếp trên 1 pallet";
+            this.label6.Text = "(Số lượng sản phẩm xếp trên 1 pallet)";
             // 
             // txtQuantityPerPallet
             // 
@@ -275,26 +295,6 @@
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
             this.label21.Text = "MATERIAL NAME";
-            // 
-            // txtEndstock
-            // 
-            this.txtEndstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEndstock.Location = new System.Drawing.Point(176, 284);
-            this.txtEndstock.Name = "txtEndstock";
-            this.txtEndstock.Size = new System.Drawing.Size(130, 20);
-            this.txtEndstock.TabIndex = 84;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 284);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 20);
-            this.label7.TabIndex = 83;
-            this.label7.Text = "END STOCK";
             // 
             // MKTsanphammoi
             // 

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using System.Linq;
+using System.Data.SqlClient;
 
 namespace Maketting.Model
 {
@@ -369,18 +370,22 @@ namespace Maketting.Model
                      select new
                      {
 
-
-                         Gate_pass = p.Gate_pass,
-                         Code_KH = p.Customer_SAP_Code,
-                         Shipto_code = pp.ShiptoCode,
+                         p.Purpose,
                          Địa_chỉ = pp.ShiptoAddress,
-                         Điện_thoại = pp.Tel,
+
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
+                         p.pallet,
+
                          p.Ngaytaophieu,
-                         p.Purpose,
+                         Điện_thoại = pp.Tel,
+                         Gate_pass = p.Gate_pass,
+                         p.Description,
+                         Code_KH = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
+
                          p.Receiver_by,
                          // p.Tel,
 
@@ -437,6 +442,7 @@ namespace Maketting.Model
                          p.Unit,
                          Issued = p.Issued,
                          p.Issued_dated,
+                         p.pallet,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
@@ -448,7 +454,7 @@ namespace Maketting.Model
                          p.ReturnQuantity,
                          p.Returndate,
                          p.Returnby,
-
+                         Incinclude_Shipment = p.Included_Shipment,
 
 
 
@@ -1506,17 +1512,22 @@ namespace Maketting.Model
                      {
 
 
-                         Gate_pass = p.Gate_pass,
-                         Code_KH = p.Customer_SAP_Code,
-                         Shipto_code = pp.ShiptoCode,
+                         p.Purpose,
                          Địa_chỉ = pp.ShiptoAddress,
-                         Điện_thoại = pp.Tel,
+
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
+                         p.pallet,
+
                          p.Ngaytaophieu,
-                         p.Purpose,
+                         Điện_thoại = pp.Tel,
+                         Gate_pass = p.Gate_pass,
+                         p.Description,
+                         Code_KH = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
+
                          p.Receiver_by,
                          // p.Tel,
 
@@ -1524,7 +1535,7 @@ namespace Maketting.Model
                      };
 
             dataGridViewDetail.DataSource = rs;
-
+            dataGridViewDetail.Columns["pallet"].DefaultCellStyle.Format = "N3";
 
 
 
@@ -1836,11 +1847,11 @@ namespace Maketting.Model
 
 
             var rs = from pp in dc.tbl_MKt_WHstoreissues
-                    // from gg in dc.tbl_MKt_POheads
+                         // from gg in dc.tbl_MKt_POheads
                      where pp.POnumber != null //&& pp.POnumber == gg.PONumber
                      select new
                      {
-                        // gg.
+                         // gg.
                          pp.POnumber,
                          Ngày_nhập_kho = pp.date_input_output,
                          DN_Number = pp.DNNumber,
@@ -1850,7 +1861,7 @@ namespace Maketting.Model
                          pp.Unit,
                          pp.RecieptQuantity,
                          pp.Recieptby,
-                      
+
 
                          pp.Username,
                          pp.ShippingPoint,
@@ -1925,6 +1936,65 @@ namespace Maketting.Model
 
 
             return kq;
+
+        }
+
+
+        public static void updatePalleCRTorder()
+        {
+
+            #region  DeleteTempFBL5nnew DeleteTempFBL5nnew
+            SqlConnection conn2 = null;
+            SqlDataReader rdr1 = null;
+
+            string destConnString = Utils.getConnectionstr();
+            try
+            {
+
+                conn2 = new SqlConnection(destConnString);
+                conn2.Open();
+                SqlCommand cmd1 = new SqlCommand("UpdatePalletforCRTorderdetail", conn2);
+                cmd1.CommandType = CommandType.StoredProcedure;
+
+                //    cmd1.Parameters.Add("@location", SqlDbType.NVarChar).Value = storelocation.Trim();
+                ///     cmd1.Parameters.Add("@todate", SqlDbType.Date).Value = todate;
+                //  System.Data.SqlDbType.DateTime
+                try
+                {
+                    rdr1 = cmd1.ExecuteReader();
+                    //  MessageBox.Show("OK, please go to Input verify to reinput !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error  Update Pallet for CRT Orderdetail \n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+
+
+                //       rdr1 = cmd1.ExecuteReader();
+
+            }
+            finally
+            {
+                if (conn2 != null)
+                {
+                    conn2.Close();
+                }
+                if (rdr1 != null)
+                {
+                    rdr1.Close();
+                }
+            }
+
+            #endregion
+
+
+
+
+
+
 
         }
 

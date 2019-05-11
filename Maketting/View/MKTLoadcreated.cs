@@ -21,7 +21,7 @@ namespace Maketting.View
         public string Username { get; set; }
         public IQueryable rs { get; set; }
         public LinqtoSQLDataContext dc { get; set; }
-
+        public float palletofLoad { get; set; }
         public string shipment { get; set; }
         //  public string isGheplI { get; set; }
 
@@ -72,7 +72,11 @@ namespace Maketting.View
             drToAdd["Materiacode"] = PhieuMKT.Materiacode;
             drToAdd["Materialname"] = PhieuMKT.Materialname;
             drToAdd["Issued"] = PhieuMKT.Issued;
+            if (PhieuMKT.pallet != null )
+            {
+                this.palletofLoad = this.palletofLoad + float.Parse(PhieuMKT.pallet.ToString());
 
+            }
 
 
             dataTable.Rows.Add(drToAdd);
@@ -159,6 +163,16 @@ namespace Maketting.View
                 }
             }
             dataTable.AcceptChanges();
+
+
+            if (PhieuMKT.pallet != null)
+            {
+                this.palletofLoad = this.palletofLoad - float.Parse(PhieuMKT.pallet.ToString());
+
+            }
+
+
+
             //foreach (DataRow row in dataTable.Rows)
             //{
 
@@ -281,7 +295,10 @@ namespace Maketting.View
             datecreated.Value = DateTime.Today;
 
             txtnguoitaoload.Focus();
-
+          //  txtPallet.ForeColor
+                     //this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
+                     //                                                                                                //  this.lb_totalrecord.ForeColor = Color.Chocolate;
+                     //                                                                                                //   this.Show();
 
             //     cbkhohang.Items.Clear();
 
@@ -292,6 +309,7 @@ namespace Maketting.View
             string username = Utils.getusername();
             this.Username = username;
             this.shipment = "";
+            this.palletofLoad = 0;
             //this.matk = taikhoan;
 
 
@@ -299,6 +317,13 @@ namespace Maketting.View
 
 
             dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+
+
+            //   dataGridViewDetail.Columns(3).DefaultCellStyle.Format = "#.###";
+            dataGridViewDetail.Columns["pallet"].DefaultCellStyle.Format = "N3";
+
+
+
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
             #endregion
@@ -396,9 +421,13 @@ namespace Maketting.View
             cbGhepshipment.Checked = true;
 
             this.statusphieu = 1; // tạo mới
+
+        
             Model.MKT.restatusphieuLoadingtoCRT();
+            Model.MKT.updatePalleCRTorder();  // để update toàn bộ palet cho crt oeerder
 
             cleartoblankphieu();
+
             string rightkho = Model.Username.getmaquyenkho();
 
             List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
@@ -2281,10 +2310,13 @@ namespace Maketting.View
                 foreach (var item in rs)
                 {
                     item.Username = Username;
+                    item.Loadingby = Username;
                     item.Status = "LOADING";
                     dc.SubmitChanges();
 
                     addDEtailLoad(item);
+
+
                 }
 
 
@@ -2293,8 +2325,9 @@ namespace Maketting.View
 
             dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
 
-
-
+      
+            // String.Format("{0:0.##}", 123.4567);
+            txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
 
         }
 
@@ -2353,8 +2386,8 @@ namespace Maketting.View
 
             dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
 
-
-
+            //    txtPallet.Text = this.palletofLoad.ToString();
+            txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
 
         }
 

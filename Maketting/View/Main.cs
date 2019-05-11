@@ -3549,6 +3549,7 @@ namespace Maketting.View
                               pp.UNIT,
 
                               pp.Ordered,
+                              
                               pp.TransferingOUT,
                               pp.ON_Hold,
                               pp.Quantity_Per_Pallet,

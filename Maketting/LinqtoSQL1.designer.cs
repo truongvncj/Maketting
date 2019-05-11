@@ -3757,6 +3757,8 @@ namespace Maketting
 		
 		private string _Included_Shipment;
 		
+		private System.Nullable<double> _pallet;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3839,6 +3841,8 @@ namespace Maketting
     partial void OnIssued_datedChanged();
     partial void OnIncluded_ShipmentChanging(string value);
     partial void OnIncluded_ShipmentChanged();
+    partial void OnpalletChanging(System.Nullable<double> value);
+    partial void OnpalletChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4622,6 +4626,26 @@ namespace Maketting
 					this._Included_Shipment = value;
 					this.SendPropertyChanged("Included_Shipment");
 					this.OnIncluded_ShipmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pallet", DbType="Float")]
+		public System.Nullable<double> pallet
+		{
+			get
+			{
+				return this._pallet;
+			}
+			set
+			{
+				if ((this._pallet != value))
+				{
+					this.OnpalletChanging(value);
+					this.SendPropertyChanging();
+					this._pallet = value;
+					this.SendPropertyChanged("pallet");
+					this.OnpalletChanged();
 				}
 			}
 		}
