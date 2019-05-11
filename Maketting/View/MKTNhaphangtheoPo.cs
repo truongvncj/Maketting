@@ -250,6 +250,8 @@ namespace Maketting.View
 
 
             datecreated.Value = DateTime.Today;
+            dateNgaynhaphang.Value = DateTime.Today;
+            txtdnnumbar.Text = "";
 
 
             loaddetailPNK();
@@ -434,8 +436,15 @@ namespace Maketting.View
         {
 
             bool checkdetail = true;
+            if (txtdnnumbar.Text == "")
+            {
 
 
+                MessageBox.Show("Please input DN Number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                checkdetail = false;
+
+                return;
+            }
 
 
             #region // detail
@@ -530,7 +539,7 @@ namespace Maketting.View
                 {
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value != DBNull.Value)
                     {
-                   //     string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
+                        //     string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
 
                         string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
 
@@ -628,6 +637,8 @@ namespace Maketting.View
                                 newreciepts.POnumber = item.PO_number;
                                 newreciepts.ShippingPoint = item.Storelocation;
                                 newreciepts.Unit = item.Unit;
+                                newreciepts.date_input_output = dateNgaynhaphang.Value;
+                                newreciepts.DNNumber = txtdnnumbar.Text;
                                 //          newreciepts.Serriload
 
                                 //  newreciepts.Status=""

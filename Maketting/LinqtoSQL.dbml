@@ -49,6 +49,7 @@
       <Column Name="doMoreReturnticket" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="doViewcounting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="change_Product" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="delete_Product" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
@@ -259,6 +260,12 @@
       <Column Name="masothueNVT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="dienthoaiNVT" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Palletrate" Member="tbl_MKT_Palletrates">
+    <Type Name="tbl_MKT_Palletrate">
+      <Column Name="[ITEM ]" Member="ITEM_" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="onPallet" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Payment_Aproval" Member="tbl_MKT_Payment_Aprovals">
@@ -672,12 +679,8 @@
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Palletrate" Member="tbl_MKT_Palletrates">
-    <Type Name="tbl_MKT_Palletrate">
-      <Column Name="[ITEM ]" Member="ITEM_" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="onPallet" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="date_input_output" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DNNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

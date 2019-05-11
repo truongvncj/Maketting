@@ -308,6 +308,14 @@ namespace Maketting
 			}
 		}
 		
+		public System.Data.Linq.Table<tbl_MKT_Palletrate> tbl_MKT_Palletrates
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Palletrate>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_MKT_Payment_Aproval> tbl_MKT_Payment_Aprovals
 		{
 			get
@@ -521,14 +529,6 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_MKt_WHstoreissue>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_MKT_Palletrate> tbl_MKT_Palletrates
-		{
-			get
-			{
-				return this.GetTable<tbl_MKT_Palletrate>();
 			}
 		}
 	}
@@ -751,6 +751,8 @@ namespace Maketting
 		
 		private bool _change_Product;
 		
+		private bool _delete_Product;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -833,6 +835,8 @@ namespace Maketting
     partial void OndoViewcountingChanged();
     partial void Onchange_ProductChanging(bool value);
     partial void Onchange_ProductChanged();
+    partial void Ondelete_ProductChanging(bool value);
+    partial void Ondelete_ProductChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1616,6 +1620,26 @@ namespace Maketting
 					this._change_Product = value;
 					this.SendPropertyChanged("change_Product");
 					this.Onchange_ProductChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_delete_Product", DbType="Bit NOT NULL")]
+		public bool delete_Product
+		{
+			get
+			{
+				return this._delete_Product;
+			}
+			set
+			{
+				if ((this._delete_Product != value))
+				{
+					this.Ondelete_ProductChanging(value);
+					this.SendPropertyChanging();
+					this._delete_Product = value;
+					this.SendPropertyChanged("delete_Product");
+					this.Ondelete_ProductChanged();
 				}
 			}
 		}
@@ -5923,6 +5947,51 @@ namespace Maketting
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Palletrate")]
+	public partial class tbl_MKT_Palletrate
+	{
+		
+		private string _ITEM_;
+		
+		private System.Nullable<double> _onPallet;
+		
+		public tbl_MKT_Palletrate()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[ITEM ]", Storage="_ITEM_", DbType="NVarChar(255)")]
+		public string ITEM_
+		{
+			get
+			{
+				return this._ITEM_;
+			}
+			set
+			{
+				if ((this._ITEM_ != value))
+				{
+					this._ITEM_ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_onPallet", DbType="Float")]
+		public System.Nullable<double> onPallet
+		{
+			get
+			{
+				return this._onPallet;
+			}
+			set
+			{
+				if ((this._onPallet != value))
+				{
+					this._onPallet = value;
+				}
 			}
 		}
 	}
@@ -13867,6 +13936,10 @@ namespace Maketting
 		
 		private string _MateriaItemcode;
 		
+		private System.Nullable<System.DateTime> _date_input_output;
+		
+		private string _DNNumber;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -13905,6 +13978,10 @@ namespace Maketting
     partial void OnUnitChanged();
     partial void OnMateriaItemcodeChanging(string value);
     partial void OnMateriaItemcodeChanged();
+    partial void Ondate_input_outputChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_input_outputChanged();
+    partial void OnDNNumberChanging(string value);
+    partial void OnDNNumberChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -14252,6 +14329,46 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_input_output", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date_input_output
+		{
+			get
+			{
+				return this._date_input_output;
+			}
+			set
+			{
+				if ((this._date_input_output != value))
+				{
+					this.Ondate_input_outputChanging(value);
+					this.SendPropertyChanging();
+					this._date_input_output = value;
+					this.SendPropertyChanged("date_input_output");
+					this.Ondate_input_outputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DNNumber", DbType="NVarChar(50)")]
+		public string DNNumber
+		{
+			get
+			{
+				return this._DNNumber;
+			}
+			set
+			{
+				if ((this._DNNumber != value))
+				{
+					this.OnDNNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DNNumber = value;
+					this.SendPropertyChanged("DNNumber");
+					this.OnDNNumberChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -14269,51 +14386,6 @@ namespace Maketting
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Palletrate")]
-	public partial class tbl_MKT_Palletrate
-	{
-		
-		private string _ITEM_;
-		
-		private System.Nullable<double> _onPallet;
-		
-		public tbl_MKT_Palletrate()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[ITEM ]", Storage="_ITEM_", DbType="NVarChar(255)")]
-		public string ITEM_
-		{
-			get
-			{
-				return this._ITEM_;
-			}
-			set
-			{
-				if ((this._ITEM_ != value))
-				{
-					this._ITEM_ = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_onPallet", DbType="Float")]
-		public System.Nullable<double> onPallet
-		{
-			get
-			{
-				return this._onPallet;
-			}
-			set
-			{
-				if ((this._onPallet != value))
-				{
-					this._onPallet = value;
-				}
 			}
 		}
 	}

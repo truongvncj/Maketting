@@ -217,6 +217,14 @@ namespace Maketting.View
 
 
 
+            if (!Model.Username.getDeleteProductright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
             var rs1 = (from p in dc.tbl_MKT_Stockends
                        where p.id == this.id
                        select p).FirstOrDefault();
