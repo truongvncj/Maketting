@@ -307,6 +307,9 @@ namespace Maketting.View
 
                          p.Ordered,
                          p.TransferingOUT,
+                         p.ON_Hold,
+                         p.Quantity_Per_Pallet,
+                         p.End_Stock_By_Pallet,
 
                          p.id,
 
@@ -317,6 +320,8 @@ namespace Maketting.View
 
 
             Viewtable.dataGridView1.DataSource = rs;
+         //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
+
 
             this.rs = rs;
 
@@ -1381,6 +1386,9 @@ namespace Maketting.View
 
                                   pp.Ordered,
                                   pp.TransferingOUT,
+                                  pp.ON_Hold,
+                                  pp.Quantity_Per_Pallet,
+                                  pp.End_Stock_By_Pallet,
 
                                   pp.id,
 
@@ -1390,6 +1398,9 @@ namespace Maketting.View
 
 
                     this.dataGridView1.DataSource = rs6;
+
+                 //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
+
                     this.rs = rs6;
 
                

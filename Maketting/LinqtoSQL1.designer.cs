@@ -523,6 +523,14 @@ namespace Maketting
 				return this.GetTable<tbl_MKt_WHstoreissue>();
 			}
 		}
+		
+		public System.Data.Linq.Table<tbl_MKT_Palletrate> tbl_MKT_Palletrates
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_Palletrate>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_CustomerChanel")]
@@ -10151,6 +10159,12 @@ namespace Maketting
 		
 		private double _RegionBudgeted;
 		
+		private System.Nullable<double> _ON_Hold;
+		
+		private System.Nullable<double> _Quantity_Per_Pallet;
+		
+		private System.Nullable<double> _End_Stock_By_Pallet;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10177,6 +10191,12 @@ namespace Maketting
     partial void OnOrderedChanged();
     partial void OnRegionBudgetedChanging(double value);
     partial void OnRegionBudgetedChanged();
+    partial void OnON_HoldChanging(System.Nullable<double> value);
+    partial void OnON_HoldChanged();
+    partial void OnQuantity_Per_PalletChanging(System.Nullable<double> value);
+    partial void OnQuantity_Per_PalletChanged();
+    partial void OnEnd_Stock_By_PalletChanging(System.Nullable<double> value);
+    partial void OnEnd_Stock_By_PalletChanged();
     #endregion
 		
 		public tbl_MKT_Stockend()
@@ -10400,6 +10420,66 @@ namespace Maketting
 					this._RegionBudgeted = value;
 					this.SendPropertyChanged("RegionBudgeted");
 					this.OnRegionBudgetedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ON_Hold", DbType="Float")]
+		public System.Nullable<double> ON_Hold
+		{
+			get
+			{
+				return this._ON_Hold;
+			}
+			set
+			{
+				if ((this._ON_Hold != value))
+				{
+					this.OnON_HoldChanging(value);
+					this.SendPropertyChanging();
+					this._ON_Hold = value;
+					this.SendPropertyChanged("ON_Hold");
+					this.OnON_HoldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity_Per_Pallet", DbType="Float")]
+		public System.Nullable<double> Quantity_Per_Pallet
+		{
+			get
+			{
+				return this._Quantity_Per_Pallet;
+			}
+			set
+			{
+				if ((this._Quantity_Per_Pallet != value))
+				{
+					this.OnQuantity_Per_PalletChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity_Per_Pallet = value;
+					this.SendPropertyChanged("Quantity_Per_Pallet");
+					this.OnQuantity_Per_PalletChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_End_Stock_By_Pallet", DbType="Float")]
+		public System.Nullable<double> End_Stock_By_Pallet
+		{
+			get
+			{
+				return this._End_Stock_By_Pallet;
+			}
+			set
+			{
+				if ((this._End_Stock_By_Pallet != value))
+				{
+					this.OnEnd_Stock_By_PalletChanging(value);
+					this.SendPropertyChanging();
+					this._End_Stock_By_Pallet = value;
+					this.SendPropertyChanged("End_Stock_By_Pallet");
+					this.OnEnd_Stock_By_PalletChanged();
 				}
 			}
 		}
@@ -14189,6 +14269,51 @@ namespace Maketting
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_Palletrate")]
+	public partial class tbl_MKT_Palletrate
+	{
+		
+		private string _ITEM_;
+		
+		private System.Nullable<double> _onPallet;
+		
+		public tbl_MKT_Palletrate()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[ITEM ]", Storage="_ITEM_", DbType="NVarChar(255)")]
+		public string ITEM_
+		{
+			get
+			{
+				return this._ITEM_;
+			}
+			set
+			{
+				if ((this._ITEM_ != value))
+				{
+					this._ITEM_ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_onPallet", DbType="Float")]
+		public System.Nullable<double> onPallet
+		{
+			get
+			{
+				return this._onPallet;
+			}
+			set
+			{
+				if ((this._onPallet != value))
+				{
+					this._onPallet = value;
+				}
 			}
 		}
 	}

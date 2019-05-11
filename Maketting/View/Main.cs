@@ -3550,6 +3550,9 @@ namespace Maketting.View
 
                               pp.Ordered,
                               pp.TransferingOUT,
+                              pp.ON_Hold,
+                              pp.Quantity_Per_Pallet,
+                              pp.End_Stock_By_Pallet,
 
                               pp.id,
 
@@ -3636,6 +3639,9 @@ namespace Maketting.View
 
                               pp.Ordered,
                               pp.TransferingOUT,
+                              pp.ON_Hold,
+                              pp.Quantity_Per_Pallet,
+                              pp.End_Stock_By_Pallet,
 
                               pp.id,
 

@@ -483,6 +483,9 @@
       <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Ordered" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="RegionBudgeted" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ON_Hold" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quantity_Per_Pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="End_Stock_By_Pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendRegionBudget" Member="tbl_MKT_StockendRegionBudgets">
@@ -669,6 +672,12 @@
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Palletrate" Member="tbl_MKT_Palletrates">
+    <Type Name="tbl_MKT_Palletrate">
+      <Column Name="[ITEM ]" Member="ITEM_" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="onPallet" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

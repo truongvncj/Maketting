@@ -20,6 +20,8 @@ namespace Maketting.View
         public string sapcode { get; set; }
         public string materialname { get; set; }
 
+        public float QuantityPerPallet { get; set; }
+
         public string storelocation { get; set; }
         //   public string tenkho { get; set; }
 
@@ -98,7 +100,13 @@ namespace Maketting.View
 
                     txtItemcode.Enabled = false;
 
-                  
+                 //   txtstorelocation.Text = item.Store_code;
+                   // txtunit.Text = item.UNIT;
+                   // txtdescription.Text = item.Description;
+                   // txtItemcode.Text = item.ITEM_Code;
+                    txtQuantityPerPallet.Text = item.Quantity_Per_Pallet.ToString();
+
+
 
 
                 }
@@ -140,7 +148,11 @@ namespace Maketting.View
                     txtsapcode.Text = item.SAP_CODE;
 
 
-
+                    txtstorelocation.Text = item.Store_code;
+                    txtunit.Text = item.UNIT;
+                    txtdescription.Text = item.Description;
+                    txtItemcode.Text = item.ITEM_Code;
+                    txtQuantityPerPallet.Text = item.Quantity_Per_Pallet.ToString();
 
 
 
@@ -232,7 +244,9 @@ namespace Maketting.View
             this.unit = txtunit.Text;
             this.description = txtdescription.Text;
 
-
+          
+          
+          
 
 
             //  this.ghichu = txtghichu.Text;
@@ -253,6 +267,15 @@ namespace Maketting.View
 
 
 
+            if (Utils.IsValidnumber(txtQuantityPerPallet.Text) == false)
+            {
+                MessageBox.Show("Bạn chưa có số sản phẩm để xếp đủ 1 pallet của sản phẩm này !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantityPerPallet.Focus();
+
+                return;
+            }
+
+            this.QuantityPerPallet = float.Parse(txtQuantityPerPallet.Text);
 
 
 
@@ -287,7 +310,8 @@ namespace Maketting.View
                     rs.MATERIAL = this.materialname;// this.txttenNCC.Text;
 
                     rs.Description = this.description;
-
+                    rs.Quantity_Per_Pallet = this.QuantityPerPallet;
+                    rs.End_Stock_By_Pallet = rs.END_STOCK * (1 / this.QuantityPerPallet);
                     rs.SAP_CODE = this.sapcode;
                     rs.UNIT = this.unit;
                     rs.Store_code = this.storelocation;
