@@ -370,29 +370,99 @@ namespace Maketting.Model
                      select new
                      {
 
-                         p.Purpose,
-                         Địa_chỉ = pp.ShiptoAddress,
 
+                         p.Receiver_by,
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
                          p.pallet,
-
+                         Địa_chỉ = pp.ShiptoAddress,
+                         p.Purpose,
+                         Code_KH = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
                          p.Description,
-                         Code_KH = p.Customer_SAP_Code,
-                         Shipto_code = pp.ShiptoCode,
 
-                         p.Receiver_by,
+
+
                          // p.Tel,
 
                          ID = p.id,
                      };
 
             //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+        public static IQueryable DanhsacHSTOCKMOVEmentdetail(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_WHstoreissues
+                     where p.date_input_output >= fromdate && p.date_input_output <= todate
+                     orderby p.date_input_output
+                     select p;
+            //select new
+            //{
+            //    Created_date = p.Ngaytaophieu,
+            //    p.Region,
+            //    p.Gate_pass,
+            //    Date_MKT_Phiếu = p.Ngaytaophieu,
+            //    IO = p.Purposeid,
+            //    p.Purpose,
+
+            //    p.Status,
+            //    p.ShippingPoint,
+            //    p.ShipmentNumber,
+
+            //    p.Requested_by,
+
+            //    p.Customer_SAP_Code,
+            //    p.Receiver_by,
+            //    p.Address,
+
+            //    //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+            //    // Số_lượng_còn_lại = p.Soluongconlai,
+            //    p.Materiacode,
+            //    p.MateriaSAPcode,
+            //    Material_name = p.Materialname,
+            //    p.Description,
+            //    p.Unit,
+            //    Issued = p.Issued,
+            //    p.Issued_dated,
+            //    p.pallet,
+            //    p.Price,
+            //    p.Tranposterby,
+            //    p.Truck,
+            //    p.Loadingby,
+            //    p.Delivery_date,
+
+            //    Completed_date = p.Date_Received_Issued,
+            //    p.Completed_by,
+            //    p.ReturnQuantity,
+            //    p.Returndate,
+            //    p.Returnby,
+            //    Incinclude_Shipment = p.Included_Shipment,
+
+
+
+
+
+            //    //    ID = p.id,
+            //};
 
 
 

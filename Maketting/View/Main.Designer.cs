@@ -65,8 +65,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.storeInputDetailByPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.channelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOSMProgramCreatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOListManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +125,7 @@
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockMovementDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -405,17 +406,17 @@
             this.pOListToolStripMenuItem.Text = "PO List";
             this.pOListToolStripMenuItem.Click += new System.EventHandler(this.pOListToolStripMenuItem_Click);
             // 
-            // toolStripSeparator16
-            // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(301, 6);
-            // 
             // storeInputDetailByPOToolStripMenuItem
             // 
             this.storeInputDetailByPOToolStripMenuItem.Name = "storeInputDetailByPOToolStripMenuItem";
             this.storeInputDetailByPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.storeInputDetailByPOToolStripMenuItem.Text = "PO Reciepted List";
             this.storeInputDetailByPOToolStripMenuItem.Click += new System.EventHandler(this.storeInputDetailByPOToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            this.toolStripSeparator16.Size = new System.Drawing.Size(301, 6);
             // 
             // channelManageToolStripMenuItem
             // 
@@ -777,6 +778,7 @@
             this.Storerpt,
             this.storeBalanceOnDateToolStripMenuItem,
             this.inOutStoreReportsToolStripMenuItem,
+            this.stockMovementDetailToolStripMenuItem,
             this.toolStripSeparator10,
             this.statusGatepassReportsToolStripMenuItem,
             this.goodReceiptListToolStripMenuItem});
@@ -838,6 +840,13 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            // 
+            // stockMovementDetailToolStripMenuItem
+            // 
+            this.stockMovementDetailToolStripMenuItem.Name = "stockMovementDetailToolStripMenuItem";
+            this.stockMovementDetailToolStripMenuItem.Size = new System.Drawing.Size(255, 24);
+            this.stockMovementDetailToolStripMenuItem.Text = "Stock Movement Detail";
+            this.stockMovementDetailToolStripMenuItem.Click += new System.EventHandler(this.stockMovementDetailToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -956,6 +965,7 @@
         private ToolStripSeparator toolStripSeparator18;
         private ToolStripMenuItem gRListToolStripMenuItem;
         private ToolStripMenuItem goodReceiptListToolStripMenuItem;
+        private ToolStripMenuItem stockMovementDetailToolStripMenuItem;
     }
 }
 

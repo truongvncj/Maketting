@@ -75,7 +75,7 @@ namespace Maketting.View
             if (PhieuMKT.pallet != null )
             {
                 this.palletofLoad = this.palletofLoad + float.Parse(PhieuMKT.pallet.ToString());
-
+                txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
             }
 
 
@@ -168,7 +168,7 @@ namespace Maketting.View
             if (PhieuMKT.pallet != null)
             {
                 this.palletofLoad = this.palletofLoad - float.Parse(PhieuMKT.pallet.ToString());
-
+                txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
             }
 
 
@@ -685,9 +685,9 @@ namespace Maketting.View
                 return;
             }
 
-            if (Utils.IsValidnumber(txtShipment.Text.ToString()) == true && cbGhepshipment.Checked == true)
+            if (!Utils.IsValidnumber(txtShipment.Text.ToString())  && cbGhepshipment.Checked == true)
             {
-                MessageBox.Show("Pleae nhập số shipment ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pleae nhập số shipment ghép là số shipment chở hàng có ghéo chở đồ MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShipment.Focus();
                 checkhead = false;
                 return;
@@ -1883,7 +1883,7 @@ namespace Maketting.View
 
             string shipmentfind = "";
             string ShippingPointfind = "";
-
+            this.palletofLoad = 0;
             string connection_string = Utils.getConnectionstr();
 
             //btluu.Enabled = false;

@@ -496,6 +496,8 @@ namespace Maketting.View
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
                         phieuxuat.Issued = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
                         phieuxuat.IssueDate = datecreated.Value;
+                        phieuxuat.date_input_output  = datecreated.Value;
+
                         phieuxuat.IssueIDsub = IssueIDsub;
                         phieuxuat.LoadNumber = this.soload;
                         phieuxuat.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
