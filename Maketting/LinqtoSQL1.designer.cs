@@ -13964,6 +13964,10 @@ namespace Maketting
 		
 		private string _DNNumber;
 		
+		private string _Document_number;
+		
+		private string _Transfer_number;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -14006,6 +14010,10 @@ namespace Maketting
     partial void Ondate_input_outputChanged();
     partial void OnDNNumberChanging(string value);
     partial void OnDNNumberChanged();
+    partial void OnDocument_numberChanging(string value);
+    partial void OnDocument_numberChanged();
+    partial void OnTransfer_numberChanging(string value);
+    partial void OnTransfer_numberChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -14389,6 +14397,46 @@ namespace Maketting
 					this._DNNumber = value;
 					this.SendPropertyChanged("DNNumber");
 					this.OnDNNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Document_number", DbType="NVarChar(50)")]
+		public string Document_number
+		{
+			get
+			{
+				return this._Document_number;
+			}
+			set
+			{
+				if ((this._Document_number != value))
+				{
+					this.OnDocument_numberChanging(value);
+					this.SendPropertyChanging();
+					this._Document_number = value;
+					this.SendPropertyChanged("Document_number");
+					this.OnDocument_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Transfer_number", DbType="NVarChar(50)")]
+		public string Transfer_number
+		{
+			get
+			{
+				return this._Transfer_number;
+			}
+			set
+			{
+				if ((this._Transfer_number != value))
+				{
+					this.OnTransfer_numberChanging(value);
+					this.SendPropertyChanging();
+					this._Transfer_number = value;
+					this.SendPropertyChanged("Transfer_number");
+					this.OnTransfer_numberChanged();
 				}
 			}
 		}

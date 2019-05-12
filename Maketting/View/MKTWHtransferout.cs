@@ -733,6 +733,39 @@ namespace Maketting.View
                         dc.SubmitChanges();
 
 
+
+                        tbl_MKt_WHstoreissue phieuxuatnhap = new tbl_MKt_WHstoreissue();
+
+                        phieuxuatnhap.IssueBy = txtnguoiyeucau.Text;
+                        phieuxuatnhap.Issued = item.Quantity; //(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;  // nhạn hàng
+                        phieuxuatnhap.IssueDate = datepickngayphieu.Value;
+                        phieuxuatnhap.date_input_output = datepickngayphieu.Value;
+                        phieuxuatnhap.Document_number = item.Tranfernumber;
+                        phieuxuatnhap.Transfer_number = item.Tranfernumber;
+                        phieuxuatnhap.Unit = item.Unit;
+                        phieuxuatnhap.ShippingPoint = item.Store_OUT;
+
+                     //   phieuxuatnhap.IssueIDsub = IssueIDsub;
+                        //  phieuxuatnhap.LoadNumber = this.soload;
+
+                        phieuxuatnhap.MateriaItemcode = item.MateriaItemcode;
+                        phieuxuatnhap.Materiacode = item.MateriaSAPcode; //(string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+                        phieuxuatnhap.Materialname = item.Materialname;// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
+                                                                       //   phieuxuatnhap.Serriload = this.Loadnumberserri;
+
+                        //  phieuxuatnhap.Status = "CRT";
+                        phieuxuatnhap.Username = this.Username;
+
+                        dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieuxuatnhap);
+                        dc.SubmitChanges();
+
+
+
+
+
+
+
+
                         Model.MKT.tranferoutrequestmakechange(DetailTransfer);
 
 

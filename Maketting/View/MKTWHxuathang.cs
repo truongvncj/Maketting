@@ -384,7 +384,7 @@ namespace Maketting.View
             }
         }
 
-     
+
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
@@ -496,7 +496,8 @@ namespace Maketting.View
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
                         phieuxuat.Issued = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
                         phieuxuat.IssueDate = datecreated.Value;
-                        phieuxuat.date_input_output  = datecreated.Value;
+                        phieuxuat.date_input_output = datecreated.Value;
+                        phieuxuat.Document_number = this.Loadnumberserri;
 
                         phieuxuat.IssueIDsub = IssueIDsub;
                         phieuxuat.LoadNumber = this.soload;
@@ -535,7 +536,7 @@ namespace Maketting.View
 
 
 
-                if (phieuMKT.Count()>0)
+                if (phieuMKT.Count() > 0)
                 {
                     foreach (var item in phieuMKT)
                     {
@@ -586,10 +587,27 @@ namespace Maketting.View
 
                 // head
 
+                var lisheadload = (from pp in dc.tbl_MKt_ListLoadheads
+                                   where pp.LoadNumber == this.soload
+                                   && pp.ShippingPoint == this.storelocation
+                                   select pp);
+
+
+
+                if (lisheadload.Count() > 0)
+                {
+                    foreach (var item in lisheadload)
+                    {
+                        item.Status = "Delivering";
+                        //  item.c = this.Username;
+                        dc.SubmitChanges();
+                    }
+                }
+
                 var phieuMKThead = (from pp in dc.tbl_MKt_Listphieuheads
-                                where pp.LoadNumber == this.soload
-                                && pp.ShippingPoint == this.storelocation
-                                select pp);
+                                    where pp.LoadNumber == this.soload
+                                    && pp.ShippingPoint == this.storelocation
+                                    select pp);
 
 
 
@@ -598,7 +616,7 @@ namespace Maketting.View
                     foreach (var item in phieuMKThead)
                     {
                         item.Status = "Delivering";
-                      //  item.c = this.Username;
+                        //  item.c = this.Username;
                         dc.SubmitChanges();
                     }
                 }
@@ -814,7 +832,7 @@ namespace Maketting.View
                          select new
                          {
                              Storeman = pp.Storeman,
-                             Subid =    pp.Subid,
+                             Subid = pp.Subid,
                              //     codetransporter = pp.codetransporter,
                              shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
@@ -832,7 +850,7 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
-          
+
             var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == this.Loadnumberserri && pp.IssueIDsub == this.subID
                            orderby pp.Materiacode
@@ -844,10 +862,10 @@ namespace Maketting.View
                                Materialname = pp.Materialname,
                                soluong = pp.Issued,
                                //   username = pp.Username,
-                            
+
 
                            };
-            if (rsdetail.Count()>0)
+            if (rsdetail.Count() > 0)
             {
                 int stt = 0;
                 foreach (var item in rsdetail)
@@ -856,20 +874,20 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                        tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
 
-                        detailpx.stt = stt.ToString();
-                        detailpx.soluong = item.soluong;
-                        detailpx.Username = this.Username;
-                        detailpx.materialcode = item.Materiacode;
-                        detailpx.tensanpham = item.Materialname;
-                        detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+                    detailpx.stt = stt.ToString();
+                    detailpx.soluong = item.soluong;
+                    detailpx.Username = this.Username;
+                    detailpx.materialcode = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
 
 
-                        dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                        dc.SubmitChanges();
+                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
 
-                 
+
 
 
 
@@ -878,19 +896,19 @@ namespace Maketting.View
             }
 
             var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
-                           where pp.Username == this.Username
-                           orderby pp.stt
-                           select new
-                           {
+                            where pp.Username == this.Username
+                            orderby pp.stt
+                            select new
+                            {
 
-                               stt = pp.stt,
-                               tensanpham = pp.tensanpham,
-                               materialcode = pp.materialcode,
-                               soluong = pp.soluong,
-                               //   username = pp.Username,
-                               bangchu = pp.bangchu,
+                                stt = pp.stt,
+                                tensanpham = pp.tensanpham,
+                                materialcode = pp.materialcode,
+                                soluong = pp.soluong,
+                                //   username = pp.Username,
+                                bangchu = pp.bangchu,
 
-                           };
+                            };
 
 
             var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail

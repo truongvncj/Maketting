@@ -682,6 +682,8 @@
       <Column Name="MateriaItemcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="date_input_output" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DNNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Document_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Transfer_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

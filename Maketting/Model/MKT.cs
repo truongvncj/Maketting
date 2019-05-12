@@ -1840,6 +1840,26 @@ namespace Maketting.Model
             }
 
 
+            var rs3 = from pp in dc.tbl_MKt_WHstoreissues
+                     where pp.Transfer_number == Tranfernumber && pp.ShippingPoint == Store_OUT
+                   //  && pp.Status == "CRT"
+                     select pp;
+
+            if (rs3.Count() > 0)
+            {
+
+                dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(rs3);
+                dc.SubmitChanges();
+
+                kq = true;
+            }
+            else
+            {
+                //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return kq;
+            }
+
 
             return kq;
 

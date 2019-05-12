@@ -586,6 +586,37 @@ namespace Maketting.View
 
 
 
+                                tbl_MKt_WHstoreissue phieuxuatnhap = new tbl_MKt_WHstoreissue();
+
+                                phieuxuatnhap.Recieptby = txtnguoinhanhang.Text;
+                                phieuxuatnhap.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;  // nhạn hàng
+                                phieuxuatnhap.IssueDate = datecreated.Value;
+                                phieuxuatnhap.date_input_output = datecreated.Value;
+                                phieuxuatnhap.Document_number = item.Tranfernumber;
+                                phieuxuatnhap.Transfer_number = item.Tranfernumber;
+                                phieuxuatnhap.Unit = item.Unit;
+                                phieuxuatnhap.ShippingPoint = item.Store_IN;
+
+                                phieuxuatnhap.IssueIDsub = IssueIDsub;
+                              //  phieuxuatnhap.LoadNumber = this.soload;
+
+                                phieuxuatnhap.MateriaItemcode = item.MateriaItemcode;
+                                phieuxuatnhap.Materiacode = item.MateriaSAPcode; //(string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+                                phieuxuatnhap.Materialname = item.Materialname;// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
+                             //   phieuxuatnhap.Serriload = this.Loadnumberserri;
+                               
+                              //  phieuxuatnhap.Status = "CRT";
+                                phieuxuatnhap.Username = this.Username;
+
+                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieuxuatnhap);
+                                dc.SubmitChanges();
+
+
+
+
+
+
+
 
 
                                 var headTR = (from pp in dc.tbl_MKt_TransferoutHEADs

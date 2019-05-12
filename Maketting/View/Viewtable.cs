@@ -186,7 +186,7 @@ namespace Maketting.View
         {
 
 
-            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3 ) // tìm mas sản phẩm
+            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3) // tìm mas sản phẩm
             {
 
 
@@ -209,18 +209,18 @@ namespace Maketting.View
                 {
 
 
-                 //   int idsanpham = 0;
+                    //   int idsanpham = 0;
                     string storelocation = "";
                     //    int idtk = 0;
                     try
                     {
-                    //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                        //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
                         storelocation = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
                     }
                     catch (Exception)
                     {
 
-                       // MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -276,7 +276,7 @@ namespace Maketting.View
         }
 
 
-        public void ReloadsanphamKhotheoso(Viewtable Viewtable, string materialseachname,  string storelocation)
+        public void ReloadsanphamKhotheoso(Viewtable Viewtable, string materialseachname, string storelocation)
         {
 
             //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
@@ -296,7 +296,7 @@ namespace Maketting.View
                          p.ITEM_Code,
 
                          // pp.RegionBudgeted,
-                     
+
 
                          p.MATERIAL,
 
@@ -320,7 +320,7 @@ namespace Maketting.View
 
 
             Viewtable.dataGridView1.DataSource = rs;
-         //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
+            //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
 
 
             this.rs = rs;
@@ -432,7 +432,16 @@ namespace Maketting.View
                 bt_themmoi.Visible = false;
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
-              //  lbseach.Visible = false;
+                //  lbseach.Visible = false;
+            }
+
+
+            if (viewcode == 1000) // 55 chỉ view và exports
+            {
+                bt_themmoi.Visible = false;
+                bt_sua.Visible = false;
+                btaddto.Visible = false;
+                lbseach.Visible = false;
             }
 
             if (viewcode == 100)
@@ -1317,8 +1326,8 @@ namespace Maketting.View
 
                     if (!Username.getchangeProductright())
                     {
-                      //  View.MKTNoouthourise view = new MKTNoouthourise();
-                     //   view.ShowDialog();
+                        //  View.MKTNoouthourise view = new MKTNoouthourise();
+                        //   view.ShowDialog();
                         return;
                     }
 
@@ -1375,7 +1384,7 @@ namespace Maketting.View
                                   pp.ITEM_Code,
 
                                   // pp.RegionBudgeted,
-                              
+
 
                                   pp.MATERIAL,
 
@@ -1399,11 +1408,11 @@ namespace Maketting.View
 
                     this.dataGridView1.DataSource = rs6;
 
-                 //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
+                    //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
 
                     this.rs = rs6;
 
-               
+
 
 
                 }
