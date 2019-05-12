@@ -632,7 +632,7 @@ namespace Maketting.View
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
                                 newreciepts.Materiacode = item.Material_SAP_code;
                                 newreciepts.MateriaItemcode = item.Material_Item_code;
-
+                                newreciepts.Document_number = txtdnnumbar.Text;
                                 newreciepts.Materialname = item.Material_name;
                                 newreciepts.POnumber = item.PO_number;
                                 newreciepts.ShippingPoint = item.Storelocation;

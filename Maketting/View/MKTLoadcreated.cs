@@ -2049,7 +2049,7 @@ namespace Maketting.View
 
 
                 var rs = from pp in dc.tbl_MKt_ListLoadheads
-                         where pp.ShippingPoint == this.storelocation && pp.Status == "CRT"
+                         where pp.ShippingPoint == this.storelocation //;//&& pp.Status == "CRT"
                          select new
                          {
                              Date = pp.Date_Created,

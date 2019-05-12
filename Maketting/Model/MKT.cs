@@ -476,6 +476,105 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsacHSTOCKMOVEmentsUMMARY(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+            //var rs5 = (from pp in dc.tbl_MKT_Stockends
+            //           where pp.Store_code == storelocation
+            //        && pp.ITEM_Code == materialitemcode
+            //           group pp by new
+            //           {
+            //               //   pp.Region,
+            //               pp.ITEM_Code,
+
+            //           } into gg
+            //           select new
+            //           {
+
+
+            //               Balance = gg.Sum(m => m.END_STOCK).GetValueOrDefault(0) - gg.Sum(m => m.Ordered).GetValueOrDefault(0),// + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+            //           });
+
+
+            var rs = from p in dc.tbl_MKt_WHstoreissues
+                     where p.date_input_output >= fromdate && p.date_input_output <= todate
+                     group p by new
+                     {
+                         //   pp.Region,
+                         p.MateriaItemcode,
+
+
+
+                     } into gg
+                     select new
+                     {
+                         MateriaL_Item_code = gg.Key.MateriaItemcode,
+                         MateriaL_SAP_code = gg.FirstOrDefault().Materiacode,
+                         In_put = gg.Sum(m => m.RecieptQuantity).GetValueOrDefault(0),
+                         Out_put = gg.Sum(m => m.Issued).GetValueOrDefault(0),
+                       
+
+                     };
+            //select new
+            //{
+            //    Created_date = p.Ngaytaophieu,
+            //    p.Region,
+            //    p.Gate_pass,
+            //    Date_MKT_Phiếu = p.Ngaytaophieu,
+            //    IO = p.Purposeid,
+            //    p.Purpose,
+
+            //    p.Status,
+            //    p.ShippingPoint,
+            //    p.ShipmentNumber,
+
+            //    p.Requested_by,
+
+            //    p.Customer_SAP_Code,
+            //    p.Receiver_by,
+            //    p.Address,
+
+            //    //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+            //    // Số_lượng_còn_lại = p.Soluongconlai,
+            //    p.Materiacode,
+            //    p.MateriaSAPcode,
+            //    Material_name = p.Materialname,
+            //    p.Description,
+            //    p.Unit,
+            //    Issued = p.Issued,
+            //    p.Issued_dated,
+            //    p.pallet,
+            //    p.Price,
+            //    p.Tranposterby,
+            //    p.Truck,
+            //    p.Loadingby,
+            //    p.Delivery_date,
+
+            //    Completed_date = p.Date_Received_Issued,
+            //    p.Completed_by,
+            //    p.ReturnQuantity,
+            //    p.Returndate,
+            //    p.Returnby,
+            //    Incinclude_Shipment = p.Included_Shipment,
+
+
+
+
+
+            //    //    ID = p.id,
+            //};
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
 
         public static IQueryable DanhsachPhieuMKTandstatus(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
         {

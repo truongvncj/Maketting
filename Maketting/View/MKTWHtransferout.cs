@@ -71,12 +71,14 @@ namespace Maketting.View
             drToAdd["Sap_Code"] = itemdetail.MateriaSAPcode;
             drToAdd["Unit"] = itemdetail.Unit;
             drToAdd["Quantity"] = itemdetail.Quantity;
+            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(itemdetail.MateriaItemcode, itemdetail.Store_OUT);//itemdetail.Quantity;
             //drToAdd["Unit_Price"] = Ponumber.Unit_Price;
 
             //     Unit_Price
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
+  //          dataGridViewDetail.Columns["Available_Quantity"].DefaultCellStyle.Format = "N0";
 
 
 

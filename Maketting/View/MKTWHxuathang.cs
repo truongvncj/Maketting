@@ -498,9 +498,11 @@ namespace Maketting.View
                         phieuxuat.IssueDate = datecreated.Value;
                         phieuxuat.date_input_output = datecreated.Value;
                         phieuxuat.Document_number = this.Loadnumberserri;
-
+              //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
                         phieuxuat.IssueIDsub = IssueIDsub;
                         phieuxuat.LoadNumber = this.soload;
+                        phieuxuat.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+
                         phieuxuat.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
                         phieuxuat.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
                         phieuxuat.Serriload = this.Loadnumberserri;
