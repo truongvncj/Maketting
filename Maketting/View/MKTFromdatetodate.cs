@@ -41,6 +41,8 @@ namespace Maketting.View
 
             if (this.fromdate <= this.todate)
             {
+                this.fromdate = fromdatepicker.Value;
+                this.todate = todatepicker.Value;
                 chon = true;
                 this.Close();
             }

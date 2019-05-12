@@ -882,7 +882,7 @@ namespace Maketting.View
                               Issued = gg.Sum(m => m.Issued),
                               Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
                               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
-
+                              
 
 
                           };

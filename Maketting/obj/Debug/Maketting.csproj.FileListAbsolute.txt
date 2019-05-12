@@ -74,3 +74,7 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuephieu2.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTProgramemake2.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdatetodateRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.SeachphieuMKT.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdatetodatestore.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandRegion.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandstore.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandStoreandRegion.resources

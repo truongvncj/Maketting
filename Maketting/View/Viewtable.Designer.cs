@@ -33,6 +33,7 @@ namespace Maketting.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Viewtable));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbseach = new System.Windows.Forms.Label();
             this.btaddto = new System.Windows.Forms.Button();
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_exporttoex = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbseach = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -90,6 +90,17 @@ namespace Maketting.View
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1332, 28);
             this.panel2.TabIndex = 45;
+            // 
+            // lbseach
+            // 
+            this.lbseach.AutoSize = true;
+            this.lbseach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbseach.ForeColor = System.Drawing.Color.Red;
+            this.lbseach.Location = new System.Drawing.Point(1024, 6);
+            this.lbseach.Name = "lbseach";
+            this.lbseach.Size = new System.Drawing.Size(83, 20);
+            this.lbseach.TabIndex = 7;
+            this.lbseach.Text = "F3- Seach";
             // 
             // btaddto
             // 
@@ -146,7 +157,7 @@ namespace Maketting.View
             this.formlabel.AutoSize = true;
             this.formlabel.BackColor = System.Drawing.Color.Transparent;
             this.formlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formlabel.Location = new System.Drawing.Point(380, 1);
+            this.formlabel.Location = new System.Drawing.Point(269, 1);
             this.formlabel.Name = "formlabel";
             this.formlabel.Size = new System.Drawing.Size(211, 22);
             this.formlabel.TabIndex = 8;
@@ -328,17 +339,6 @@ namespace Maketting.View
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
-            // 
-            // lbseach
-            // 
-            this.lbseach.AutoSize = true;
-            this.lbseach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbseach.ForeColor = System.Drawing.Color.Red;
-            this.lbseach.Location = new System.Drawing.Point(1024, 6);
-            this.lbseach.Name = "lbseach";
-            this.lbseach.Size = new System.Drawing.Size(83, 20);
-            this.lbseach.TabIndex = 7;
-            this.lbseach.Text = "F3- Seach";
             // 
             // Viewtable
             // 

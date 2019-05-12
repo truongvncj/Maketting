@@ -50,6 +50,11 @@ namespace Maketting.View
             }
 
             cbselect2.DataSource = CombomCollection2;
+
+
+
+
+
             fromdatepicker.Value = DateTime.Today;
             todatepicker.Value = DateTime.Today;
             this.fromdate = fromdatepicker.Value;

@@ -32,13 +32,13 @@
             this.fromdatepicker = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbstatusphieu = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbselect2 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.todatepicker = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbstatusphieu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,32 @@
             this.panel1.Size = new System.Drawing.Size(348, 233);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 18);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Status of delivery";
+            // 
+            // cbstatusphieu
+            // 
+            this.cbstatusphieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstatusphieu.DropDownWidth = 200;
+            this.cbstatusphieu.FormattingEnabled = true;
+            this.cbstatusphieu.Items.AddRange(new object[] {
+            "CRT",
+            "Shipping",
+            "Delivering",
+            "completed",
+            "All"});
+            this.cbstatusphieu.Location = new System.Drawing.Point(161, 134);
+            this.cbstatusphieu.Name = "cbstatusphieu";
+            this.cbstatusphieu.Size = new System.Drawing.Size(152, 21);
+            this.cbstatusphieu.TabIndex = 9;
             // 
             // label4
             // 
@@ -133,32 +159,6 @@
             this.todatepicker.Size = new System.Drawing.Size(152, 23);
             this.todatepicker.TabIndex = 2;
             this.todatepicker.Value = new System.DateTime(2016, 3, 6, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 18);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Status of delivery";
-            // 
-            // cbstatusphieu
-            // 
-            this.cbstatusphieu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbstatusphieu.DropDownWidth = 200;
-            this.cbstatusphieu.FormattingEnabled = true;
-            this.cbstatusphieu.Items.AddRange(new object[] {
-            "CRT",
-            "Shipping",
-            "Delivering",
-            "completed",
-            "All"});
-            this.cbstatusphieu.Location = new System.Drawing.Point(161, 134);
-            this.cbstatusphieu.Name = "cbstatusphieu";
-            this.cbstatusphieu.Size = new System.Drawing.Size(152, 21);
-            this.cbstatusphieu.TabIndex = 9;
             // 
             // MKTFromdatetodateRegion
             // 

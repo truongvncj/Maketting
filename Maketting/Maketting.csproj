@@ -141,6 +141,24 @@
     <Compile Include="shared\ExtractToDataTableOptions.cs" />
     <Compile Include="shared\LinQToExcel.cs" />
     <Compile Include="shared\StringExtensions.cs" />
+    <Compile Include="View\MKTFromdateandRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTFromdateandRegion.Designer.cs">
+      <DependentUpon>MKTFromdateandRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTFromdateandstore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTFromdateandstore.Designer.cs">
+      <DependentUpon>MKTFromdateandstore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTFromdatetodatestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTFromdatetodatestore.Designer.cs">
+      <DependentUpon>MKTFromdatetodatestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTFromdatetodateRegion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +218,12 @@
     </Compile>
     <Compile Include="View\MKTAddnewbudgetTMP.Designer.cs">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MKTFromdateandStoreandRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTFromdateandStoreandRegion.Designer.cs">
+      <DependentUpon>MKTFromdateandStoreandRegion.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MKTstoredeviceforRegion.cs">
       <SubType>Form</SubType>
@@ -492,6 +516,15 @@
     <EmbeddedResource Include="Reports\PhieuMKTissue.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTFromdateandRegion.resx">
+      <DependentUpon>MKTFromdateandRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTFromdateandstore.resx">
+      <DependentUpon>MKTFromdateandstore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTFromdatetodatestore.resx">
+      <DependentUpon>MKTFromdatetodatestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MKTFromdatetodateRegion.resx">
       <DependentUpon>MKTFromdatetodateRegion.cs</DependentUpon>
     </EmbeddedResource>
@@ -521,6 +554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTAddnewbudgetTMP.resx">
       <DependentUpon>MKTAddnewbudgetTMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTFromdateandStoreandRegion.resx">
+      <DependentUpon>MKTFromdateandStoreandRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTstoredeviceforRegion.resx">
       <DependentUpon>MKTstoredeviceforRegion.cs</DependentUpon>
