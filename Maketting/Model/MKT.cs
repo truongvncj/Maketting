@@ -1998,7 +1998,9 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
-        public static IQueryable DanhsachPOList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+
+
+        public static IQueryable DanhsachPOListbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region)
         {
 
 
@@ -2006,8 +2008,9 @@ namespace Maketting.Model
 
 
             var rs = from pp in dc.tbl_MKt_POdetails
-                          where pp.DatePO >= fromdate
-                          && pp.DatePO <= todate
+                     where pp.DatePO >= fromdate
+                     && pp.DatePO <= todate
+                      && pp.Region == region
                      select new
                      {
                          pp.Region,
@@ -2018,10 +2021,48 @@ namespace Maketting.Model
                          pp.MateriaItemcode,
                          pp.Materialname,
                          pp.Unit,
-                         pp.QuantityOrder,
                          pp.Unit_Price,
 
+                         pp.QuantityOrder,
+
                          Reciepted_Quantity = pp.RecieptedQuantity,
+                         Unreceipted = pp.QuantityOrder - pp.RecieptedQuantity,
+
+                         //    ID = pp.id,
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
+
+        public static IQueryable DanhsachPOList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+
+
+
+            var rs = from pp in dc.tbl_MKt_POdetails
+                     where pp.DatePO >= fromdate
+                     && pp.DatePO <= todate
+                     select new
+                     {
+                         pp.Region,
+                         pp.POnumber,
+                         pp.Storelocation,
+                         pp.DatePO,
+                         pp.MateriaSAPcode,
+                         pp.MateriaItemcode,
+                         pp.Materialname,
+                         pp.Unit,
+                         pp.Unit_Price,
+
+                         pp.QuantityOrder,
+
+                         Reciepted_Quantity = pp.RecieptedQuantity,
+                         Unreceipted = pp.QuantityOrder - pp.RecieptedQuantity,
 
                          //    ID = pp.id,
 

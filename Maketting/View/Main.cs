@@ -5694,6 +5694,106 @@ namespace Maketting.View
             }
 
         }
+
+        private void pOListReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPOList(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "PO LIST ", 55, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+        }
+
+        private void pODetailByRegionListReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdateandStoreandRegion choosesl = new MKTFromdateandStoreandRegion();
+
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.store;
+            string region = choosesl.region;
+            DateTime Fromdate = choosesl.fromdate;
+            DateTime Todate = choosesl.todate;
+
+
+
+
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+             
+                IQueryable rs = Model.MKT.DanhsachPOListbyregion(dc, Fromdate, Todate, region);
+
+
+
+
+                View.Viewtable tbl = new Viewtable(rs, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                tbl.ShowDialog();
+
+
+
+            }
+
+        }
+
+        private void pORToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdateandStoreandRegion choosesl = new MKTFromdateandStoreandRegion();
+
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.store;
+            string region = choosesl.region;
+            DateTime Fromdate = choosesl.fromdate;
+            DateTime Todate = choosesl.todate;
+
+
+
+
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+                IQueryable rs = Model.MKT.DanhsachPOListbyregion(dc, Fromdate, Todate, region);
+
+
+
+
+                View.Viewtable tbl = new Viewtable(rs, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                tbl.ShowDialog();
+
+
+
+            }
+        }
     }
 
 
