@@ -947,9 +947,9 @@ namespace Maketting.Model
 
 
 
-            var rs3 = (from pp in dc.tbl_MKt_Listphieuheads
+            var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
                        where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                       select pp.LoadNumber).FirstOrDefault();
+                       select pp.ShipmentNumber).FirstOrDefault();
 
             if (rs3 != null)
             {

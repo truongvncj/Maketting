@@ -65,6 +65,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.inputPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeInputDetailByPOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.channelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,10 +84,15 @@
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtĐồToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.onHoldReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onHoldBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onHoldReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.transferOUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -128,15 +134,13 @@
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pODetailByRegionListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pODetailByRegionListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onHoldBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onHoldReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onHoldReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+            this.customerEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCustomerListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -380,7 +384,8 @@
             this.reportsRegionProgramBudgetToolStripMenuItem,
             this.toolStripSeparator11,
             this.storeDiviceByRegiomToolStripMenuItem,
-            this.toolStripSeparator12});
+            this.toolStripSeparator12,
+            this.customerEditToolStripMenuItem});
             this.MenuMaketting.Name = "MenuMaketting";
             this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
             this.MenuMaketting.Text = "Maketting";
@@ -417,6 +422,13 @@
             this.pOListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.pOListToolStripMenuItem.Text = "PO Detail List Reports";
             this.pOListToolStripMenuItem.Click += new System.EventHandler(this.pOListToolStripMenuItem_Click);
+            // 
+            // pORToolStripMenuItem
+            // 
+            this.pORToolStripMenuItem.Name = "pORToolStripMenuItem";
+            this.pORToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.pORToolStripMenuItem.Text = "PO Detail by region list Reports";
+            this.pORToolStripMenuItem.Click += new System.EventHandler(this.pORToolStripMenuItem_Click);
             // 
             // storeInputDetailByPOToolStripMenuItem
             // 
@@ -558,6 +570,13 @@
             this.nhậpKhoToolStripMenuItem.Text = "Good Issue ";
             this.nhậpKhoToolStripMenuItem.Click += new System.EventHandler(this.nhậpKhoToolStripMenuItem_Click);
             // 
+            // goodReturnToolStripMenuItem
+            // 
+            this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
+            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.goodReturnToolStripMenuItem.Text = "Good Return ";
+            this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
+            // 
             // xuấtĐồToolStripMenuItem
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
@@ -570,17 +589,39 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(310, 6);
             // 
-            // goodReturnToolStripMenuItem
+            // goodToolStripMenuItem
             // 
-            this.goodReturnToolStripMenuItem.Name = "goodReturnToolStripMenuItem";
-            this.goodReturnToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.goodReturnToolStripMenuItem.Text = "Good Return ";
-            this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
+            this.goodToolStripMenuItem.Name = "goodToolStripMenuItem";
+            this.goodToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.goodToolStripMenuItem.Text = "Good  receipt colleted from market";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(310, 6);
+            // 
+            // onHoldReleaseToolStripMenuItem
+            // 
+            this.onHoldReleaseToolStripMenuItem.Name = "onHoldReleaseToolStripMenuItem";
+            this.onHoldReleaseToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.onHoldReleaseToolStripMenuItem.Text = "On Hold release";
+            // 
+            // onHoldBlockToolStripMenuItem
+            // 
+            this.onHoldBlockToolStripMenuItem.Name = "onHoldBlockToolStripMenuItem";
+            this.onHoldBlockToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.onHoldBlockToolStripMenuItem.Text = "On Hold block";
+            // 
+            // onHoldReportsToolStripMenuItem
+            // 
+            this.onHoldReportsToolStripMenuItem.Name = "onHoldReportsToolStripMenuItem";
+            this.onHoldReportsToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.onHoldReportsToolStripMenuItem.Text = "On Hold reports";
+            // 
+            // toolStripSeparator21
+            // 
+            this.toolStripSeparator21.Name = "toolStripSeparator21";
+            this.toolStripSeparator21.Size = new System.Drawing.Size(310, 6);
             // 
             // transferOUtToolStripMenuItem
             // 
@@ -803,7 +844,10 @@
             this.toolStripSeparator19,
             this.goodReceiptListToolStripMenuItem,
             this.pODetailListReportsToolStripMenuItem,
-            this.pODetailByRegionListReportsToolStripMenuItem});
+            this.pODetailByRegionListReportsToolStripMenuItem,
+            this.toolStripSeparator22,
+            this.viewCustomerListToolStripMenuItem1,
+            this.viewShiptoListToolStripMenuItem1});
             this.Menureports.Name = "Menureports";
             this.Menureports.Size = new System.Drawing.Size(72, 24);
             this.Menureports.Text = "Reports";
@@ -881,6 +925,13 @@
             this.pODetailListReportsToolStripMenuItem.Text = "PO Detail List Reports";
             this.pODetailListReportsToolStripMenuItem.Click += new System.EventHandler(this.pODetailListReportsToolStripMenuItem_Click);
             // 
+            // pODetailByRegionListReportsToolStripMenuItem
+            // 
+            this.pODetailByRegionListReportsToolStripMenuItem.Name = "pODetailByRegionListReportsToolStripMenuItem";
+            this.pODetailByRegionListReportsToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
+            this.pODetailByRegionListReportsToolStripMenuItem.Text = "PO Detail by region list Reports";
+            this.pODetailByRegionListReportsToolStripMenuItem.Click += new System.EventHandler(this.pODetailByRegionListReportsToolStripMenuItem_Click);
+            // 
             // passwordToolStripMenuItem
             // 
             this.passwordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -896,48 +947,31 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // pODetailByRegionListReportsToolStripMenuItem
+            // customerEditToolStripMenuItem
             // 
-            this.pODetailByRegionListReportsToolStripMenuItem.Name = "pODetailByRegionListReportsToolStripMenuItem";
-            this.pODetailByRegionListReportsToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
-            this.pODetailByRegionListReportsToolStripMenuItem.Text = "PO Detail by region list Reports";
-            this.pODetailByRegionListReportsToolStripMenuItem.Click += new System.EventHandler(this.pODetailByRegionListReportsToolStripMenuItem_Click);
+            this.customerEditToolStripMenuItem.Name = "customerEditToolStripMenuItem";
+            this.customerEditToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.customerEditToolStripMenuItem.Text = "Customer edit";
+            this.customerEditToolStripMenuItem.Click += new System.EventHandler(this.customerEditToolStripMenuItem_Click);
             // 
-            // pORToolStripMenuItem
+            // viewCustomerListToolStripMenuItem1
             // 
-            this.pORToolStripMenuItem.Name = "pORToolStripMenuItem";
-            this.pORToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.pORToolStripMenuItem.Text = "PO Detail by region list Reports";
-            this.pORToolStripMenuItem.Click += new System.EventHandler(this.pORToolStripMenuItem_Click);
+            this.viewCustomerListToolStripMenuItem1.Name = "viewCustomerListToolStripMenuItem1";
+            this.viewCustomerListToolStripMenuItem1.Size = new System.Drawing.Size(286, 24);
+            this.viewCustomerListToolStripMenuItem1.Text = "View customer list";
+            this.viewCustomerListToolStripMenuItem1.Click += new System.EventHandler(this.viewCustomerListToolStripMenuItem1_Click);
             // 
-            // goodToolStripMenuItem
+            // viewShiptoListToolStripMenuItem1
             // 
-            this.goodToolStripMenuItem.Name = "goodToolStripMenuItem";
-            this.goodToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.goodToolStripMenuItem.Text = "Good  receipt colleted from market";
+            this.viewShiptoListToolStripMenuItem1.Name = "viewShiptoListToolStripMenuItem1";
+            this.viewShiptoListToolStripMenuItem1.Size = new System.Drawing.Size(286, 24);
+            this.viewShiptoListToolStripMenuItem1.Text = "View shipto list";
+            this.viewShiptoListToolStripMenuItem1.Click += new System.EventHandler(this.viewShiptoListToolStripMenuItem1_Click);
             // 
-            // onHoldBlockToolStripMenuItem
+            // toolStripSeparator22
             // 
-            this.onHoldBlockToolStripMenuItem.Name = "onHoldBlockToolStripMenuItem";
-            this.onHoldBlockToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.onHoldBlockToolStripMenuItem.Text = "On Hold block";
-            // 
-            // onHoldReleaseToolStripMenuItem
-            // 
-            this.onHoldReleaseToolStripMenuItem.Name = "onHoldReleaseToolStripMenuItem";
-            this.onHoldReleaseToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.onHoldReleaseToolStripMenuItem.Text = "On Hold release";
-            // 
-            // onHoldReportsToolStripMenuItem
-            // 
-            this.onHoldReportsToolStripMenuItem.Name = "onHoldReportsToolStripMenuItem";
-            this.onHoldReportsToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.onHoldReportsToolStripMenuItem.Text = "On Hold reports";
-            // 
-            // toolStripSeparator21
-            // 
-            this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(310, 6);
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            this.toolStripSeparator22.Size = new System.Drawing.Size(283, 6);
             // 
             // Main
             // 
@@ -1068,6 +1102,10 @@
         private ToolStripMenuItem onHoldBlockToolStripMenuItem;
         private ToolStripMenuItem onHoldReportsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator21;
+        private ToolStripMenuItem customerEditToolStripMenuItem;
+        private ToolStripMenuItem viewCustomerListToolStripMenuItem1;
+        private ToolStripMenuItem viewShiptoListToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator22;
     }
 }
 

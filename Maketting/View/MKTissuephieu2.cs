@@ -98,7 +98,7 @@ namespace Maketting.View
             drToAdd["Unit"] = PhieuMKT.Unit;
             //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
-            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation);
+            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation)+PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 

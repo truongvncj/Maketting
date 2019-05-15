@@ -5794,6 +5794,60 @@ namespace Maketting.View
 
             }
         }
+
+        private void customerEditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Username.getCustomerEditright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs1 = Model.MKT.danhkhachhang(dc);
+            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+
+            viewtbl.Show();
+        }
+
+        private void viewCustomerListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Soldtocodes
+                      where pp.Soldtype == true
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 111, "STORERPT");
+            tbl.ShowDialog();
+
+        }
+
+        private void viewShiptoListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs5 = from pp in dc.tbl_MKT_Soldtocodes
+                          //       where pp.Soldtype == false
+                      select pp;
+
+
+
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 111, "STORERPT");
+            tbl.ShowDialog();
+        }
     }
 
 
