@@ -2165,7 +2165,8 @@ namespace Maketting.View
             string sophieufind = "";
             string storelocationfind = "";
             string connection_string = Utils.getConnectionstr();
-            //groupBox1.Visible = false;
+
+            string useregion = Model.Username.getuseRegion();          //groupBox1.Visible = false;
             btluu.Enabled = false;
             //btsua.Enabled = true;
             btmoi.Enabled = false;
@@ -2193,7 +2194,7 @@ namespace Maketting.View
 
             var rs = (from pp in dc.tbl_MKt_Listphieuheads
                       where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
-
+                      && pp.Region== useregion
                       select pp).FirstOrDefault();
 
             if (rs != null)
