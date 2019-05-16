@@ -98,7 +98,7 @@ namespace Maketting.View
             drToAdd["Unit"] = PhieuMKT.Unit;
             //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
-            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation)+PhieuMKT.Issued;
+            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
@@ -412,7 +412,7 @@ namespace Maketting.View
 
         public View.Main main1;
 
-        public MKTissuephieu2(View.Main Main)
+        public MKTissuephieu2(View.Main Main, string sophieu, string storelocation)
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -420,16 +420,123 @@ namespace Maketting.View
             //groupBox1.Visible = true;
 
             this.main1 = Main;
-
-
-
-            this.statusphieu = 1; // tạo mới
-
             cleartoblankphieu();
-            this.sophieu = Model.MKT.getMKtNo();
+
+
+            if (sophieu == "")
+            {
+                this.statusphieu = 1; // tạo mới
+                this.sophieu = Model.MKT.getMKtNo();
+                btcopy.Enabled = false;
+                btchange.Enabled = false;
+            }
+            else
+            {
+                this.statusphieu = 3;// display
+                this.sophieu = sophieu;
+                btcopy.Enabled = true;
+                btchange.Enabled = true;
+
+                #region loaddead so phieu va location
+                #region // head 
+                //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+                string connection_string = Utils.getConnectionstr();
+
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+                var rs = (from pp in dc.tbl_MKt_Listphieuheads
+                          where pp.Gate_pass == sophieu && pp.ShippingPoint == storelocation
+
+                          select pp).FirstOrDefault();
+
+                if (rs != null)
+                {
+                    this.sophieu = sophieu;
+                    lbgatepassno.Text = this.sophieu;
+
+                    txtdiachi.Text = rs.Address;
+                    txtshiptoaddress.Text = rs.ShiptoAddress;
+
+                    txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                    txtShiptoCode.Text = rs.ShiptoCode.ToString();
+
+
+                    txtnguoinhan.Text = rs.Receiver_by;// = 
+                    txtShiptoname.Text = rs.ShiptoName;
+
+                    datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
+                    txtmucdichname.Text = rs.Purpose;//= ;
+                    txtmact.Text = rs.Purposeid;//=;
+                    this.storelocation = rs.ShippingPoint;// = ;
+
+
+                    txtNote.Text = rs.Note;
+
+
+                    //  cbkhohang.Items
+                    foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
+                    {
+                        if (item.Value.ToString().Trim() == rs.ShippingPoint.Trim())
+                        {
+                            cbkhohang.SelectedItem = item;
+                        }
+                    }
+
+                    //  thus region.Items
+                    foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
+                    {
+                        if (item.Value.ToString().Trim() == rs.Region.Trim())
+                        {
+                            cbfromRegion.SelectedItem = item;
+                        }
+                    }
+
+                    txtnguoiyeucau.Text = rs.Requested_by;// = ;
+                                                          //   rs.Status = "CRT";
+                    lbgatepassno.Text = this.sophieu;
+
+                    txttel.Text = rs.Tel;// = ;
+                                         //  rs.Username = this.Username;
+                                         //   dc.SubmitChanges();
+
+
+                }
+
+
+                #endregion
+
+
+                #endregion
+
+                #region load detail so phieu va loacation
+                var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                          where pp.Gate_pass == sophieu && pp.ShippingPoint == storelocation
+
+                          select pp;
+
+                if (rs2.Count() > 0)
+                {
+                    cleartoblankDEtailphieu();
+                    foreach (var item in rs2)
+                    {
+                        addDEtailPhieuMKT(item);
+                        //  xxx
+
+
+
+                    }
+
+                }
+
+                #endregion
+
+            }
+
+
             lbgatepassno.Text = this.sophieu;
-            btcopy.Enabled = false;
-            btchange.Enabled = false;
+
 
 
 
@@ -2164,9 +2271,10 @@ namespace Maketting.View
         {
             string sophieufind = "";
             string storelocationfind = "";
+
             string connection_string = Utils.getConnectionstr();
 
-            string useregion = Model.Username.getuseRegion();          //groupBox1.Visible = false;
+            // string useregion = Model.Username.getuseRegion();          //groupBox1.Visible = false;
             btluu.Enabled = false;
             //btsua.Enabled = true;
             btmoi.Enabled = false;
@@ -2194,7 +2302,7 @@ namespace Maketting.View
 
             var rs = (from pp in dc.tbl_MKt_Listphieuheads
                       where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
-                      && pp.Region== useregion
+
                       select pp).FirstOrDefault();
 
             if (rs != null)
@@ -2340,17 +2448,17 @@ namespace Maketting.View
 
 
                 var rs = from pp in dc.tbl_MKt_Listphieudetails
-                         where pp.Status == "CRT"
+                         where pp.Status == "CRT" && pp.Username == username
                          select new
                          {
                              Date = pp.Ngaytaophieu,
                              pp.Region,
                              pp.Gate_pass,
-                      
+
                              pp.Purpose,
 
 
-                          
+
                              Material_Item_code = pp.Materiacode,
                              Material_SAP_code = pp.MateriaSAPcode,
                              pp.Materialname,
@@ -2907,8 +3015,8 @@ namespace Maketting.View
 
 
 
-         //   this.sophieu = Model.MKT.getMKtNo();
-           // lbgatepassno.Text = this.sophieu;
+            //   this.sophieu = Model.MKT.getMKtNo();
+            // lbgatepassno.Text = this.sophieu;
 
         }
     }

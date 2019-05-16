@@ -645,6 +645,78 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+
+        public static IQueryable DanhsachPhieuundelivery(LinqtoSQLDataContext dc, string usernamefind)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     where p.Username == usernamefind
+                     && p.Status =="CRT"
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+
+                         p.Requested_by,
+
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         Material_name = p.Materialname,
+                         p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
+                         p.Issued_dated,
+                         p.pallet,
+                         p.Price,
+                         p.Tranposterby,
+                         p.Truck,
+                         p.Loadingby,
+                         p.Delivery_date,
+
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Returnby,
+                         Incinclude_Shipment = p.Included_Shipment,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+
+
         public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region, string statusphieu)
         {
             //  throw new NotImplementedException();
@@ -949,6 +1021,7 @@ namespace Maketting.Model
 
             var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
                        where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                    && pp.ShipmentNumber != ""
                        select pp.ShipmentNumber).FirstOrDefault();
 
             if (rs3 != null)

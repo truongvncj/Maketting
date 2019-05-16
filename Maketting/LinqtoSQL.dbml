@@ -48,8 +48,8 @@
       <Column Name="ReturnTicket" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="doMoreReturnticket" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="doViewcounting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="change_Product" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="delete_Product" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="changeProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="deleteProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
@@ -444,7 +444,7 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="District" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SalesOrg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
       <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PaymentTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

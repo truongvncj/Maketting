@@ -420,7 +420,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            dc.ExecuteCommand("DELETE FROM tbl_MKT_Soldtocode where [Soldtype] = '0' ");
+            dc.ExecuteCommand("DELETE FROM tbl_MKT_Soldtocode");
             //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
             dc.CommandTimeout = 0;
             dc.SubmitChanges();
@@ -632,16 +632,25 @@ namespace Maketting.Model
                     DataRow dr = batable.NewRow();
                     dr["SoldtoCode"] = sourceData.Rows[rowixd][SoldtoCodeid].ToString().Trim();
                     dr["Shiptocode"] = sourceData.Rows[rowixd][Shiptocodeid].ToString().Trim();
-                    dr["Soldtype"] = false;
-                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Trim();
+
+                    if (sourceData.Rows[rowixd][SoldtoCodeid].ToString().Trim() == sourceData.Rows[rowixd][Shiptocodeid].ToString().Trim())
+                    {
+                        dr["Soldtype"] = true;
+                    }
+                    else
+                    {
+                        dr["Soldtype"] = false;
+                    }
+                 
+                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Truncate(225);
 
 
 
-                    dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Trim();
-                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Trim();
-                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Trim();
-                    dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Trim();
-                    dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Trim();
+                    dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Truncate(50);
+                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Truncate(50);
+                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Truncate(50);
+                    dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Truncate(225);
+                    dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Truncate(50);
 
                     //dr["Region"] = sourceData.Rows[rowixd][Regionid].ToString().Trim();
 

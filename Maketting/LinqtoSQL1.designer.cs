@@ -760,9 +760,9 @@ namespace Maketting
 		
 		private bool _doViewcounting;
 		
-		private bool _change_Product;
+		private bool _changeProduct;
 		
-		private bool _delete_Product;
+		private bool _deleteProduct;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -844,10 +844,10 @@ namespace Maketting
     partial void OndoMoreReturnticketChanged();
     partial void OndoViewcountingChanging(bool value);
     partial void OndoViewcountingChanged();
-    partial void Onchange_ProductChanging(bool value);
-    partial void Onchange_ProductChanged();
-    partial void Ondelete_ProductChanging(bool value);
-    partial void Ondelete_ProductChanged();
+    partial void OnchangeProductChanging(bool value);
+    partial void OnchangeProductChanged();
+    partial void OndeleteProductChanging(bool value);
+    partial void OndeleteProductChanged();
     #endregion
 		
 		public tbl_Temp()
@@ -1615,42 +1615,42 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_change_Product", DbType="Bit NOT NULL")]
-		public bool change_Product
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_changeProduct", DbType="Bit NOT NULL")]
+		public bool changeProduct
 		{
 			get
 			{
-				return this._change_Product;
+				return this._changeProduct;
 			}
 			set
 			{
-				if ((this._change_Product != value))
+				if ((this._changeProduct != value))
 				{
-					this.Onchange_ProductChanging(value);
+					this.OnchangeProductChanging(value);
 					this.SendPropertyChanging();
-					this._change_Product = value;
-					this.SendPropertyChanged("change_Product");
-					this.Onchange_ProductChanged();
+					this._changeProduct = value;
+					this.SendPropertyChanged("changeProduct");
+					this.OnchangeProductChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_delete_Product", DbType="Bit NOT NULL")]
-		public bool delete_Product
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deleteProduct", DbType="Bit NOT NULL")]
+		public bool deleteProduct
 		{
 			get
 			{
-				return this._delete_Product;
+				return this._deleteProduct;
 			}
 			set
 			{
-				if ((this._delete_Product != value))
+				if ((this._deleteProduct != value))
 				{
-					this.Ondelete_ProductChanging(value);
+					this.OndeleteProductChanging(value);
 					this.SendPropertyChanging();
-					this._delete_Product = value;
-					this.SendPropertyChanged("delete_Product");
-					this.Ondelete_ProductChanged();
+					this._deleteProduct = value;
+					this.SendPropertyChanged("deleteProduct");
+					this.OndeleteProductChanged();
 				}
 			}
 		}
@@ -9548,7 +9548,7 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="NVarChar(225)")]
 		public string Street
 		{
 			get

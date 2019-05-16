@@ -1317,6 +1317,44 @@ namespace Maketting.View
             {
 
 
+                #region  viewdetail 100 tạo phieu               phiếu
+                if (this.viewcode == 100 && this.valuesave == "tk")
+                {
+
+                    if (!Username.getMakettingright())
+                    {
+                        //  View.MKTNoouthourise view = new MKTNoouthourise();
+                        //   view.ShowDialog();
+                        return;
+                    }
+
+
+                    string sophieufind = "";
+              //      string region = "";
+                    string storelocationfind = "";
+                    //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                    try
+                    {
+                        sophieufind = this.dataGridView1.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
+                        storelocationfind = this.dataGridView1.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
+                   //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        //     this.phieuchiid = 0;
+                    }
+
+                    View.Main main = new Main();
+
+                    View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind,  storelocationfind);
+                    accsup.ShowDialog();
+                //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
+
+
+                }
+                #endregion
+
                 #region  // viewcode ==55  sửa code sản phẩm
 
 
@@ -1354,7 +1392,7 @@ namespace Maketting.View
 
 
 
-
+                    
 
 
 

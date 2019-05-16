@@ -269,7 +269,7 @@ namespace Maketting.Model
 
             var rs = (from tbl_Temp in dc.tbl_Temps
                       where tbl_Temp.Username == Name
-                      select tbl_Temp.change_Product).FirstOrDefault();
+                      select tbl_Temp.changeProduct).FirstOrDefault();
 
 
 
@@ -559,7 +559,7 @@ namespace Maketting.Model
 
             var rs = (from tbl_Temp in dc.tbl_Temps
                       where tbl_Temp.Username == Name
-                      select tbl_Temp.delete_Product).FirstOrDefault();
+                      select tbl_Temp.deleteProduct).FirstOrDefault();
 
 
 

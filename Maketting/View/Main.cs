@@ -3265,7 +3265,7 @@ namespace Maketting.View
             this.clearpannel();
 
 
-            View.MKTissuephieu2 accsup = new MKTissuephieu2(this);
+            View.MKTissuephieu2 accsup = new MKTissuephieu2(this, "", "");
             this.clearpannelload(accsup);
             // this.Close();
             #endregion
@@ -3539,7 +3539,7 @@ namespace Maketting.View
                               pp.ITEM_Code,
 
                               // pp.RegionBudgeted,
-                          
+
 
                               pp.MATERIAL,
 
@@ -3549,7 +3549,7 @@ namespace Maketting.View
                               pp.UNIT,
 
                               pp.Ordered,
-                              
+
                               pp.TransferingOUT,
                               pp.ON_Hold,
                               pp.Quantity_Per_Pallet,
@@ -3629,7 +3629,7 @@ namespace Maketting.View
                               pp.ITEM_Code,
 
                               // pp.RegionBudgeted,
-                        
+
 
                               pp.MATERIAL,
 
@@ -5598,7 +5598,7 @@ namespace Maketting.View
             datepick.ShowDialog();
 
             DateTime Ondate = datepick.Ondate.Date;
-         //   DateTime todate = datepick.todate;
+            //   DateTime todate = datepick.todate;
             string store = datepick.Store;
 
             bool kq = datepick.chon;
@@ -5608,10 +5608,10 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsacStoreOndate(dc, Ondate,  store);
+                IQueryable rs = Model.MKT.DanhsacStoreOndate(dc, Ondate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Inventory report on date: "  + Ondate.ToShortDateString()  , 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "Inventory report on date: " + Ondate.ToShortDateString(), 1000, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -5632,7 +5632,7 @@ namespace Maketting.View
 
             MKTFromdateandStoreandRegion choosesl = new MKTFromdateandStoreandRegion();
 
-             choosesl.ShowDialog();
+            choosesl.ShowDialog();
 
             string storelocation = choosesl.store;
             string region = choosesl.region;
@@ -5655,7 +5655,7 @@ namespace Maketting.View
                 var rs5 = from gg in dc.tbl_MKT_StockendRegionBudgets
                           where gg.Region == region
                           && gg.Store_code == storelocation
-                          && gg.Regionchangedate >= Fromdate 
+                          && gg.Regionchangedate >= Fromdate
                           && gg.Regionchangedate <= Todate
                           //group pp by new
                           //{
@@ -5672,21 +5672,21 @@ namespace Maketting.View
                               Material_Name = gg.MATERIAL,
                               Description = gg.Description,
                               UNIT = gg.UNIT,
-                              Quantity_PO_Reciepted =gg. QuantityInputbyPO,
+                              Quantity_PO_Reciepted = gg.QuantityInputbyPO,
                               Issued = gg.QuantityOutput,//gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                               Return_Ticket = gg.QuantityInputbyReturn,// gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
 
-                              Adjusted_Device_Stock =gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
+                              Adjusted_Device_Stock = gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
 
 
 
 
 
-                            //  Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                              //  Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                           };
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: "+ Fromdate.ToShortDateString()+ " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
                 tbl.ShowDialog();
 
 
@@ -5743,7 +5743,7 @@ namespace Maketting.View
 
 
 
-             
+
                 IQueryable rs = Model.MKT.DanhsachPOListbyregion(dc, Fromdate, Todate, region);
 
 
@@ -5847,6 +5847,55 @@ namespace Maketting.View
 
             View.Viewtable tbl = new Viewtable(rs5, dc, "Shipto List", 111, "STORERPT");
             tbl.ShowDialog();
+        }
+
+        private void findMakettingTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatus(dc, DateTime.Today, DateTime.Today);
+
+
+            Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            viewtbl.Show();
+
+
+
+        }
+
+        private void danhSaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // MKTFromdatetodate datepick = new MKTFromdatetodate();
+            //  datepick.ShowDialog();
+
+            //    DateTime fromdate = datepick.fromdate;
+            //    DateTime todate = datepick.todate;
+            //  bool kq = datepick.chon;
+
+            //  if (kq) // nueeus có chọn
+            //   {
+            string usernamefind = Utils.getusername();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            IQueryable rs = Model.MKT.DanhsachPhieuundelivery(dc, usernamefind);
+
+
+            Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Undelivery list", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            viewtbl.ShowDialog();
+
+
+            //  }
+
+        }
+
+        private void viewMasterDataProductListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
