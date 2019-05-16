@@ -2679,13 +2679,15 @@ namespace Maketting.View
 
                          select new
                          {
-                             pp.KeyAcc,
-                             pp.Chanel,
-                             pp.Region,
+                             //     pp.KeyAcc,
+                             //   pp.Chanel,
+                             //                             pp.Region,
                              pp.SalesOrg,
-                             pp.District,
+
                              MÃ_KHÁCH_HÀNG = pp.Customer,
                              TÊN_KHÁCH_HÀNG = pp.FullNameN,
+
+                             pp.District,
                              ĐỊA_CHỈ = pp.Street + " " + pp.District + " " + pp.City,
                              QUẬN = pp.District,
                              TỈNH_THÀNH_PHỐ = pp.City,
@@ -2764,13 +2766,21 @@ namespace Maketting.View
                 //  cbsophieu.
 
                 string seachtext = txtnguoinhan.Text;
+                string customercode = txtcustcode.Text;
+                if (customercode == "")
+                {
+
+                    MessageBox.Show("Please select customer code !");
+                    return;
+                }
+
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
-                         where pp.Customer == txtcustcode.Text
+                         where pp.Customer == customercode
                          // pp.FullNameN.Contains(seachtext)
-                         // && pp.Soldtype == false
+                         //     && pp.Soldtype == false
                          //  &&
                          select new
                          {
@@ -2897,15 +2907,16 @@ namespace Maketting.View
 
                          select new
                          {
-                             pp.KeyAcc,
-                             pp.Chanel,
-                             pp.Region,
+            //                 pp.KeyAcc,
+              //               pp.Chanel,
+                //             pp.Region,
                              pp.SalesOrg,
-                             pp.District,
+                  
                              MÃ_KHÁCH_HÀNG = pp.Customer,
                              TÊN_KHÁCH_HÀNG = pp.FullNameN,
                              ĐỊA_CHỈ = pp.Street + " " + pp.District + " " + pp.City,
                              QUẬN = pp.District,
+                          //   pp.District,
                              TỈNH_THÀNH_PHỐ = pp.City,
                              ĐIỆN_THOẠI = pp.Telephone1,
                              GHI_CHÚ = pp.Note,
