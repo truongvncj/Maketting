@@ -5897,6 +5897,26 @@ namespace Maketting.View
         {
 
         }
+
+        private void addCustomerAndShiptoListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!Username.getCustomerUploadright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
+
+
+            Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
+
+
+            inpoutctm.addcustomerinputshiptocode();
+
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 
 

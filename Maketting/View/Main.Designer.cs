@@ -142,6 +142,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomerAndShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -379,7 +380,8 @@
             this.toolStripSeparator11,
             this.storeDiviceByRegiomToolStripMenuItem,
             this.toolStripSeparator12,
-            this.customerEditToolStripMenuItem});
+            this.customerEditToolStripMenuItem,
+            this.addCustomerAndShiptoListToolStripMenuItem});
             this.MenuMaketting.Name = "MenuMaketting";
             this.MenuMaketting.Size = new System.Drawing.Size(88, 24);
             this.MenuMaketting.Text = "Maketting";
@@ -984,6 +986,13 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // addCustomerAndShiptoListToolStripMenuItem
+            // 
+            this.addCustomerAndShiptoListToolStripMenuItem.Name = "addCustomerAndShiptoListToolStripMenuItem";
+            this.addCustomerAndShiptoListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.addCustomerAndShiptoListToolStripMenuItem.Text = "AddCustomer and shipto list";
+            this.addCustomerAndShiptoListToolStripMenuItem.Click += new System.EventHandler(this.addCustomerAndShiptoListToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1118,6 +1127,7 @@
         private ToolStripSeparator toolStripSeparator22;
         private ToolStripMenuItem findMakettingTicketToolStripMenuItem;
         private ToolStripMenuItem danhSaToolStripMenuItem;
+        private ToolStripMenuItem addCustomerAndShiptoListToolStripMenuItem;
     }
 }
 

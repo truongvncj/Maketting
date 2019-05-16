@@ -23,7 +23,8 @@ namespace Maketting.View
         public string ProgrameIDDocno { get; set; }
         public string IO_number { get; set; }
 
-
+      //  public string Customercode { get; set; }
+        
         public double POSMisuevalue { get; set; }
         public double Programebudgetbalance { get; set; }
         public double Customerbugetioaproval { get; set; }
@@ -917,8 +918,16 @@ namespace Maketting.View
                         return;
                     }
 
+                    var rs56 = (from pp in dc.tbl_MKt_Listphieuheads
+                               where pp.id.ToString() == this.sophieu //&& pp.Status != "TMP"
 
-
+                               select pp).FirstOrDefault();
+                    if (rs56 != null)
+                    {
+                        rs56.Status = "TMP";
+                        dc.SubmitChanges();
+                        
+                    }
 
 
 
@@ -2712,6 +2721,7 @@ namespace Maketting.View
                 if (rs2 != null)
                 {
                     txtcustcode.Text = rs2.Customer;
+                 //   this.Customercode = rs2.Customer;
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txttel.Text = rs2.Telephone1;
@@ -2764,10 +2774,10 @@ namespace Maketting.View
             {
                 e.Handled = true;
                 //  cbsophieu.
-
+                
                 string seachtext = txtnguoinhan.Text;
-                string customercode = txtcustcode.Text;
-                if (customercode == "")
+                 string customercodefind = txtcustcode.Text;
+                if (customercodefind == "")
                 {
 
                     MessageBox.Show("Please select customer code !");
@@ -2778,7 +2788,7 @@ namespace Maketting.View
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs = from pp in dc.tbl_MKT_Soldtocodes
-                         where pp.Customer == customercode
+                         where pp.Customer == customercodefind
                          // pp.FullNameN.Contains(seachtext)
                          //     && pp.Soldtype == false
                          //  &&
@@ -2938,7 +2948,15 @@ namespace Maketting.View
 
                 if (rs2 != null)
                 {
+
+                    //xxx
+
+
+                    //    txtcustcode
+
+
                     txtcustcode.Text = rs2.Customer;
+
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txttel.Text = rs2.Telephone1;
@@ -2948,6 +2966,7 @@ namespace Maketting.View
 
                     txtShiptoname.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
+                    txtcustcode.Text = rs2.Customer;
 
                     //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
                     //                               where pp.Customercode == rs2.Customer
@@ -3029,6 +3048,20 @@ namespace Maketting.View
             //   this.sophieu = Model.MKT.getMKtNo();
             // lbgatepassno.Text = this.sophieu;
 
+        }
+
+        private void txtseachcode_TextChanged(object sender, EventArgs e)
+        {
+            txtnguoinhan.Text = "";
+            txtShiptoname.Text = "";
+            txtShiptoCode.Text = "";
+        }
+
+        private void txtnguoinhan_TextChanged(object sender, EventArgs e)
+        {
+            txtcustcode.Text = "";
+            txtShiptoname.Text = "";
+            txtShiptoCode.Text = "";
         }
     }
 }

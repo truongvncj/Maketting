@@ -1014,11 +1014,7 @@ namespace Maketting.Model
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-
-
-
+            
             var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
                        where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
                     && pp.ShipmentNumber != ""

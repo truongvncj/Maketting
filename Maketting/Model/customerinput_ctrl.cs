@@ -400,6 +400,362 @@ namespace Maketting.Model
             //  }
         }
 
+        public void addShiptolist(object obj)
+        {
+
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+            datainportF inf = (datainportF)obj;
+
+            string filename = inf.filename;
+
+            //   string filename = theDialog.FileName.ToString();
+
+            //   string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            //dc.ExecuteCommand("DELETE FROM tbl_MKT_Soldtocode");
+            ////    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+            //dc.CommandTimeout = 0;
+            //dc.SubmitChanges();
+
+            //    Customer Sales Organization Name 1  House num &Street  Street 4    City Telephone 1 Sales Office    Delivering Plant    Terms of Payment Price List Key Account No  Sales district  Created on  Created by  VAT Registration No.Central order block Order block for sales area
+
+
+            //                   
+            // SoldtoCode	Shiptocode	SalesOrg	FullNameN	Street	District	City	Telephone1
+
+
+            ExcelProvider ExcelProvide = new ExcelProvider();
+            //#endregion
+            System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
+
+            System.Data.DataTable batable = new System.Data.DataTable();
+
+
+            batable.Columns.Add("SoldtoCode", typeof(string));
+
+            batable.Columns.Add("Shiptocode", typeof(string));
+            batable.Columns.Add("Soldtype", typeof(Boolean));
+            batable.Columns.Add("FullNameN", typeof(string));
+            batable.Columns.Add("Telephone1", typeof(string));
+            //batable.Columns.Add("Note", typeof(string));
+
+            batable.Columns.Add("District", typeof(string));
+            batable.Columns.Add("SalesOrg", typeof(string));
+            batable.Columns.Add("Street", typeof(string));
+
+            batable.Columns.Add("City", typeof(string));
+            //   batable.Columns.Add("Region", typeof(string));
+            //    batable.Columns.Add("PaymentTerms", typeof(string));
+
+            //    batable.Columns.Add("PriceList", typeof(string));
+            //    batable.Columns.Add("KeyAcc", typeof(double));
+            //      batable.Columns.Add("SalesDistrict", typeof(string));
+            batable.Columns.Add("Createdon", typeof(DateTime));
+            batable.Columns.Add("Createby", typeof(string));
+            //    batable.Columns.Add("VATregistrationNo", typeof(string));
+
+
+            //dr[""] = sourceData.Rows[rowixd][Customerid].ToString().Trim();
+            //dr["[]"] = true;
+
+
+            int SoldtoCodeid = 0;
+            int FullNameNid = 0;
+            int Telephone1id = 0;
+            int Shiptocodeid = 0;
+            int Districtid = 0;
+            int SalesOrgid = 0;
+            int Streetid = 0;
+            int Cityid = 0;
+
+            //    int Regionid = 0;
+
+            //   int PaymentTermsid = 0;
+
+            //   int PriceListid = 0;
+
+            //    int KeyAccid = 0;
+            //   int SalesDistrictid = 0;
+            //     int VATregistrationNoid = 0;
+
+
+            //     View.Viewdatatable vi1 = new View.Viewdatatable(sourceData, "Test");
+
+            //     vi1.ShowDialog();
+
+            int headindex = -2;
+
+            for (int rowid = 0; rowid < 3; rowid++)
+            {
+                // headindex = 1;
+                for (int columid = 0; columid < sourceData.Columns.Count; columid++)
+                {
+
+                    string value = sourceData.Rows[rowid][columid].ToString();
+                    //            MessageBox.Show(value +":"+ rowid);
+
+                    if (value != null)
+                    {
+
+                        #region setcolum
+                        if (value.Trim().Contains("SoldtoCode"))
+                        {
+                            SoldtoCodeid = columid;
+                            headindex = rowid;
+                        }
+
+                        if (value.Trim().Contains("FullNameN") && headindex == rowid)
+                        {
+
+                            FullNameNid = columid;
+                            //    headindex = 0;
+
+                        }
+
+
+                        if (value.Trim().Contains("Telephone1") && headindex == rowid)
+                        {
+
+                            Telephone1id = columid;
+                            //   headindex = 0;
+
+
+
+                        }
+
+
+
+                        if (value.Trim().Contains("Shiptocode") && headindex == rowid)
+                        {
+                            Shiptocodeid = columid;
+
+                        }
+
+                        if (value.Trim().Contains("District") && headindex == rowid)
+                        {
+
+                            //if (columid != SalesDistrictid)
+                            //{
+                            Districtid = columid;
+                            //}
+
+
+                        }
+
+                        if (value.Trim().Contains("SalesOrg") && headindex == rowid)
+                        {
+                            SalesOrgid = columid;
+
+                        }
+
+                        if (value.Trim().Contains("Street") && headindex == rowid)
+                        {
+                            Streetid = columid;
+                            // headindex = 0;
+                        }
+
+                        if (value.Trim().Contains("City") && headindex == rowid)
+                        {
+                            Cityid = columid;
+
+                        }
+
+                        //if (value.Trim().Contains("Region") && headindex == rowid)
+                        //{
+                        //    Regionid = columid;
+
+                        //}
+                        //if (value.Trim().Contains("PaymentTerms") && headindex == rowid)
+                        //{
+                        //    PaymentTermsid = columid;
+
+                        //}
+                        //if (value.Trim().Contains("PriceList") && headindex == rowid)
+                        //{
+                        //    PriceListid = columid;
+
+                        //}
+                        //if (value.Trim().Contains("KeyAcc") && headindex == rowid)
+                        //{
+                        //    KeyAccid = columid;
+
+                        //}
+
+                        //if (value.Trim().Contains("VATregistrationNo") && headindex == rowid)
+                        //{
+                        //    VATregistrationNoid = columid;
+
+                        //}
+
+
+
+                        #endregion
+
+                    }
+
+
+
+                }// colum
+
+
+
+            }// roww off heatder
+
+            if (headindex == -2)
+            {
+
+                MessageBox.Show("File excel không đúng format !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+
+            }
+            for (int rowixd = 0; rowixd < sourceData.Rows.Count; rowixd++)
+            {
+
+                #region setvalue of pricelist
+                //   string valuepricelist = Utils.GetValueOfCellInExcel(worksheet, rowid, columpricelist);
+                string customer = sourceData.Rows[rowixd][SoldtoCodeid].ToString();
+                if (customer != "" && Utils.IsValidnumber(customer))
+                {
+
+
+
+
+                    DataRow dr = batable.NewRow();
+                    dr["SoldtoCode"] = sourceData.Rows[rowixd][SoldtoCodeid].ToString().Trim();
+                    dr["Shiptocode"] = sourceData.Rows[rowixd][Shiptocodeid].ToString().Trim();
+
+                    if (sourceData.Rows[rowixd][SoldtoCodeid].ToString().Trim() == sourceData.Rows[rowixd][Shiptocodeid].ToString().Trim())
+                    {
+                        dr["Soldtype"] = true;
+                    }
+                    else
+                    {
+                        dr["Soldtype"] = false;
+                    }
+
+                    dr["FullNameN"] = sourceData.Rows[rowixd][FullNameNid].ToString().Truncate(225);
+
+
+
+                    dr["Telephone1"] = sourceData.Rows[rowixd][Telephone1id].ToString().Truncate(50);
+                    dr["District"] = sourceData.Rows[rowixd][Districtid].ToString().Truncate(50);
+                    dr["SalesOrg"] = sourceData.Rows[rowixd][SalesOrgid].ToString().Truncate(50);
+                    dr["Street"] = sourceData.Rows[rowixd][Streetid].ToString().Truncate(225);
+                    dr["City"] = sourceData.Rows[rowixd][Cityid].ToString().Truncate(50);
+
+                    //dr["Region"] = sourceData.Rows[rowixd][Regionid].ToString().Trim();
+
+                    //dr["PaymentTerms"] = sourceData.Rows[rowixd][PaymentTermsid].ToString().Trim();
+
+                    //dr["PriceList"] = sourceData.Rows[rowixd][PriceListid].ToString().Trim();
+
+                    //dr["KeyAcc"] = sourceData.Rows[rowixd][KeyAccid].ToString().Trim();
+
+                    //dr["SalesDistrict"] = sourceData.Rows[rowixd][SalesDistrictid].ToString().Trim();
+
+                    //dr["VATregistrationNo"] = sourceData.Rows[rowixd][VATregistrationNoid].ToString().Trim();
+
+
+
+                    dr["Createdon"] = DateTime.Today;// Utils.GetValueOfCellInExcel(worksheet, rowid, columValid_to);
+                    dr["Createby"] = Model.Username.getUsername();
+
+
+
+                    batable.Rows.Add(dr);
+
+
+                }
+
+                #endregion
+
+            }// row
+
+            //conpy to server
+            string destConnString = Utils.getConnectionstr();
+
+            //adapter.FillSchema(sourceData, SchemaType.Source);
+            //sourceData.Columns["Posting Date"].DataType = typeof(DateTime);
+
+            //batable.Columns.Add("", typeof(string));
+
+
+
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destConnString))
+            {
+
+
+
+
+                bulkCopy.DestinationTableName = "tbl_MKT_Soldtocode";
+                // Write from the source to the destination.
+                bulkCopy.BulkCopyTimeout = 0;
+
+                bulkCopy.ColumnMappings.Add("SoldtoCode", "Customer");
+                bulkCopy.ColumnMappings.Add("Shiptocode", "ShiptoCode");
+                bulkCopy.ColumnMappings.Add("Soldtype", "Soldtype");
+
+
+
+                bulkCopy.ColumnMappings.Add("FullNameN", "FullNameN");
+                bulkCopy.ColumnMappings.Add("Telephone1", "Telephone1");
+                bulkCopy.ColumnMappings.Add("District", "District");
+
+                bulkCopy.ColumnMappings.Add("SalesOrg", "SalesOrg");
+                bulkCopy.ColumnMappings.Add("Street", "Street");
+                bulkCopy.ColumnMappings.Add("City", "City");
+
+                //bulkCopy.ColumnMappings.Add("Region", "Region");
+                //bulkCopy.ColumnMappings.Add("PaymentTerms", "PaymentTerms");
+                //bulkCopy.ColumnMappings.Add("PriceList", "PriceList");
+                //bulkCopy.ColumnMappings.Add("KeyAcc", "KeyAcc");
+
+                //bulkCopy.ColumnMappings.Add("SalesDistrict", "SalesDistrict");
+                bulkCopy.ColumnMappings.Add("Createdon", "Createdon");
+                bulkCopy.ColumnMappings.Add("Createby", "Createby");
+                //       bulkCopy.ColumnMappings.Add("VATregistrationNo", "VATregistrationNo");
+
+
+
+
+                try
+                {
+                    bulkCopy.WriteToServer(batable);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString(), "Thông báo lỗi Bulk Copy !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Thread.CurrentThread.Abort();
+                }
+
+
+            }
+            //copy to server
+            //   string connection_string = Utils.getConnectionstr();
+
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            //    var typeffmain = typeof(tbl_KAbaseprice);
+            //     var typeffsub = typeof(tbl_KAbaseprice);
+
+            //    VInputchange inputcdata1 = new VInputchange("", "Base price list", dc, "tbl_KAbaseprice", "tbl_KAbaseprice", typeffmain, typeffsub, "id", "id", "");
+            //    inputcdata1.ShowDialog();
+            //  View.Viewdatatable TB = new View.Viewdatatable(batable, "lIST DATA");
+            //  TB.ShowDialog();
+
+            //  }
+        }
+
         public void importShiptolist(object obj)
         {
 
@@ -884,5 +1240,64 @@ namespace Maketting.Model
 
             //throw new NotImplementedException();
         }
+
+
+
+        public void addcustomerinputshiptocode()
+        {
+
+
+            //   CultureInfo provider = CultureInfo.InvariantCulture;
+
+
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Excel File Shiptocode excel";
+            theDialog.Filter = "Excel files|*.xlsx; *.xls";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                //  AutoResetEvent autoEvent = new AutoResetEvent(false); //join
+
+
+
+                string filename = theDialog.FileName.ToString();
+                Thread t1 = new Thread(addShiptolist);
+                t1.IsBackground = true;
+                t1.Start(new datainportF() { filename = filename });
+
+
+                View.MKTCaculating wat = new View.MKTCaculating();
+                Thread t2 = new Thread(showwait);
+                t2.Start(new datashowwait() { wat = wat });
+
+
+                t1.Join();
+                if (t1.ThreadState != ThreadState.Running)
+                {
+
+                    // t2.Abort();
+
+                    wat.Invoke(wat.myDelegate);
+
+
+
+                }
+
+
+
+            }
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
+
+
+
+
+
     }
 }
