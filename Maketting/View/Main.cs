@@ -4766,7 +4766,7 @@ namespace Maketting.View
 
         private void updateGatePassDeliveredToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (!Username.getAprovalPaymentRequestright())
+            if (!Username.getupdateGatePassDeliveredright())
             {
                 View.MKTNoouthourise view = new MKTNoouthourise();
                 view.ShowDialog();

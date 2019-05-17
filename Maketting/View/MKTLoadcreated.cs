@@ -424,6 +424,7 @@ namespace Maketting.View
 
         
             Model.MKT.restatusphieuLoadingtoCRT();
+
             Model.MKT.updatePalleCRTorder();  // để update toàn bộ palet cho crt oeerder
 
             cleartoblankphieu();
@@ -459,10 +460,15 @@ namespace Maketting.View
             txtloadnumber.Text = this.soload;
         }
 
+
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -472,6 +478,9 @@ namespace Maketting.View
 
             main1.clearpannelload(main);
         }
+
+
+
 
         private void comboBox8_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -370,17 +370,19 @@ namespace Maketting.Model
                      select new
                      {
 
+                         Code_KH = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
 
                          p.Receiver_by,
+                         Địa_chỉ = pp.ShiptoAddress,
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
                          p.pallet,
-                         Địa_chỉ = pp.ShiptoAddress,
+                      
                          p.Purpose,
-                         Code_KH = p.Customer_SAP_Code,
-                         Shipto_code = pp.ShiptoCode,
+                     
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
@@ -1109,6 +1111,128 @@ namespace Maketting.Model
             return true;
         }
 
+        public static bool Deletephieutochange(string sophieu, string kho, string Region) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            //   string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
+                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                    && pp.ShipmentNumber != ""
+                       select pp.ShipmentNumber).FirstOrDefault();
+
+            if (rs3 != null)
+            {
+                MessageBox.Show("Note " + sophieu + " can not delete detail by load created !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+            #region  // giảm order và giảm budget region
+
+            #region       //update giảm ordered
+
+            var rs22 = from pp in dc.tbl_MKt_Listphieudetails
+                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                       select pp;
+
+
+            if (rs22.Count() > 0)
+            {
+                foreach (var item in rs22)
+                {
+                    Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued, item.ShippingPoint);
+
+                }
+
+
+
+            }
+
+
+
+
+            #endregion
+            //  xóa butget đã bocck
+            var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                       where pp.Gate_pass == sophieu && pp.Store_code == kho && pp.Region == Region
+                       select pp;
+
+
+            if (rs24.Count() > 0)
+            {
+                dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs24);
+                dc.SubmitChanges();
+
+            }
+            //newregionupdate.Store_code = this.storelocation;
+            //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
+            //newregionupdate.Gate_pass = this.sophieu;
+
+
+
+            #endregion
+
+
+
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                      select pp;
+
+
+            if (rs2.Count() > 0)
+            {
+                dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
+                dc.SubmitChanges();
+
+            }
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            var rs = from pp in dc.tbl_MKt_Listphieuheads
+                     where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+                //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+                foreach (var item in rs)
+                {
+
+                    item.Status = "TMP";
+                    dc.SubmitChanges();
+                }
+              
+            }
+            else
+            {
+
+                tbl_MKt_Listphieuhead newheaddoc = new tbl_MKt_Listphieuhead();
+
+      
+                newheaddoc.Ngaytaophieu = DateTime.Today;
+                newheaddoc.Status =  "TMP";
+                newheaddoc.Gate_pass = sophieu;
+                newheaddoc.ShippingPoint = kho;
+                dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
+                dc.SubmitChanges();
+
+
+
+
+
+
+
+            }
+
+            return true;
+        }
+
         public static void tangkhokhinhaphang(tbl_MKt_WHstoreissue itemnhap, string storecode)
         {
 
@@ -1384,7 +1508,7 @@ namespace Maketting.Model
 
 
             LinqtoSQLDataContext db = dc;
-            var rs = from p in db.tbl_MKT_Soldtocodes
+            var rs = (from p in db.tbl_MKT_Soldtocodes
                      where p.Soldtype == true
                      orderby p.Customer
                      select new
@@ -1404,7 +1528,7 @@ namespace Maketting.Model
                          p.VATregistrationNo,
 
                          ID = p.id,
-                     };
+                     }).Take(100);
 
             //    grviewlisttk.DataSource = rs;
 
@@ -1750,24 +1874,26 @@ namespace Maketting.Model
                      select new
                      {
 
+                         Code_KH = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
 
-                         p.Purpose,
+                         p.Receiver_by,
                          Địa_chỉ = pp.ShiptoAddress,
-
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
                          p.pallet,
 
+                         p.Purpose,
+
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
                          p.Description,
-                         Code_KH = p.Customer_SAP_Code,
-                         Shipto_code = pp.ShiptoCode,
 
-                         p.Receiver_by,
+
+
                          // p.Tel,
 
                          ID = p.id,
