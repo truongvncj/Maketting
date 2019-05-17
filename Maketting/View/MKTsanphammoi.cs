@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Maketting.Control;
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -93,7 +93,7 @@ namespace Maketting.View
                     //txtitemcode.Text = item.ITEM_Code;
                     txttensanpham.Text = item.MATERIAL;
 
-                  
+
 
                     txtsapcode.Text = item.SAP_CODE;
                     //   txtsapcode.Enabled = false;
@@ -112,10 +112,10 @@ namespace Maketting.View
 
                     txtsapcode.Enabled = false;
 
-                 //   txtstorelocation.Text = item.Store_code;
-                   // txtunit.Text = item.UNIT;
-                   // txtdescription.Text = item.Description;
-                   // txtItemcode.Text = item.ITEM_Code;
+                    //   txtstorelocation.Text = item.Store_code;
+                    // txtunit.Text = item.UNIT;
+                    // txtdescription.Text = item.Description;
+                    // txtItemcode.Text = item.ITEM_Code;
                     txtQuantityPerPallet.Text = item.Quantity_Per_Pallet.ToString();
 
 
@@ -142,7 +142,7 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-             
+
 
                 var item = (from p in dc.tbl_MKT_Stockends
                             where p.id == idsanpham
@@ -257,40 +257,30 @@ namespace Maketting.View
 
             //     this.id = idsanpham;
 
-            this.itemcode = this.txtItemcode.Text;
-            this.materialname = this.txttensanpham.Text;
+            //this.itemcode = this.txtItemcode.Text;
+            //this.materialname = this.txttensanpham.Text;
 
 
-            this.sapcode = txtsapcode.Text;
-            this.unit = txtunit.Text;
-            this.description = txtdescription.Text;
-
-          
-          
-          
+            //this.sapcode = txtsapcode.Text;
+            //this.unit = txtunit.Text;
+            //this.description = txtdescription.Text;
 
 
-            //  this.ghichu = txtghichu.Text;
-
-            //if (cbkhohang.SelectedItem != null)
-            //{
-            //    this.makho = (string)(cbkhohang.SelectedItem as ComboboxItem).Value;// (cbm.SelectedItem as ComboboxItem).Value.ToString();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Kiểm tra kho hàng!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            this.description = txtdescription.Text.Truncate(225);
+            this.sapcode = txtsapcode.Text.Truncate(225);
+            this.itemcode = txtsapcode.Text.Truncate(225);
+            this.materialname = this.txttensanpham.Text.Truncate(225);
+            this.unit = txtunit.Text.Truncate(50);
+            this.storelocation = txtstorelocation.Text.Truncate(10);
 
 
-            //this.tenkho = (string)(cbkhohang.SelectedItem as ComboboxItem).Text;
 
 
 
 
             if (Utils.IsValidnumber(txtQuantityPerPallet.Text) == false)
             {
-                MessageBox.Show("Please check lại số sản phẩm để xếp đủ 1 pallet của sản phẩm này !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please check lại số sản phẩm để xếp đủ 1 pallet của sản phẩm !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtQuantityPerPallet.Focus();
 
                 return;
@@ -328,12 +318,20 @@ namespace Maketting.View
             catch (Exception)
             {
 
-                MessageBox.Show("Bạn check lại  số sản phẩm để xếp đủ 1 pallet của sản phẩm này phải là số !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn check lại  số sản phẩm để xếp đủ 1 pallet của sản phẩm phải là số !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtQuantityPerPallet.Focus();
 
                 return;
             }
-         
+
+
+            if (this.QuantityPerPallet <= 0)
+            {
+                MessageBox.Show("Please check lại số sản phẩm để xếp đủ 1 pallet của sản phẩm phải là số lớn hơn không !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQuantityPerPallet.Focus();
+
+                return;
+            }
 
 
             if (itemcode == "")
@@ -376,18 +374,18 @@ namespace Maketting.View
 
 
                     db.SubmitChanges();
-                    
-            
+
+
                     this.Close();
 
-                  
+
 
                     //   Fromviewable.Reloadtonkhotheolocation(Fromviewable, this.storelocation);
                 }
 
 
 
-        //        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+                //        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
 
 
@@ -418,14 +416,15 @@ namespace Maketting.View
             //    MessageBox.Show("Bạn kiểm tra mã sản phẩm", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return;
             //}
+            //   x
 
-            this.description = txtdescription.Text;
-            this.sapcode = txtsapcode.Text;
-            this.itemcode = txtsapcode.Text;
-            this.materialname = this.txttensanpham.Text;
-            this.itemcode = txtItemcode.Text;
-            this.unit = txtunit.Text;
-            this.storelocation = txtstorelocation.Text;
+            this.description = txtdescription.Text.Truncate(225);
+            this.sapcode = txtsapcode.Text.Truncate(225);
+            this.itemcode = txtsapcode.Text.Truncate(225);
+            this.materialname = this.txttensanpham.Text.Truncate(225);
+            //   this.itemcode = txtItemcode.Text;
+            this.unit = txtunit.Text.Truncate(50);
+            this.storelocation = txtstorelocation.Text.Truncate(10);
 
 
             if (this.sapcode == "")

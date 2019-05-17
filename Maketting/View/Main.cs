@@ -3970,7 +3970,12 @@ namespace Maketting.View
 
         private void tậpHợpPhiếuMKTTrảVềToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!Username.getupdateGatePassDeliveredright())
+            {
+                View.MKTNoouthourise view = new MKTNoouthourise();
+                view.ShowDialog();
+                return;
+            }
 
 
             #region//tmphieuthu

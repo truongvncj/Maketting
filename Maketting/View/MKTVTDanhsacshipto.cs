@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Maketting.Control;
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -406,19 +406,19 @@ namespace Maketting.View
                 return;
             }
 
-            this.customername = this.txtname.Text;
-            this.shiptocode = this.txtShiptocode.Text;
+            this.customername = this.txtname.Text.ToString().Truncate(225);
+            this.shiptocode = this.txtShiptocode.Text.Truncate(50);
 
-            this.street = this.txtstreet.Text;
-            this.Customercode = txtcustomercode.Text;
-            this.city = txtcity.Text;
-            this.district = txtdistrict.Text;
+            this.street = this.txtstreet.Text.Truncate(225);
+            this.Customercode = txtcustomercode.Text.Truncate(50);
+            this.city = txtcity.Text.Truncate(50);
+            this.district = txtdistrict.Text.Truncate(50);
 
-            this.telephone = txttelephone.Text;
-            this.note = txtnote.Text;
+            this.telephone = txttelephone.Text.Truncate(50);
+            this.note = txtnote.Text.Truncate(225);
 
-            this.Region = txtSalesOrg.Text;
-            this.SalesOrg = txtSalesOrg.Text;
+            this.Region = txtSalesOrg.Text.Truncate(50);
+            this.SalesOrg = txtSalesOrg.Text.Truncate(50);
 
 
 

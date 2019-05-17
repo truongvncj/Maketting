@@ -1461,10 +1461,12 @@ namespace Maketting.Model
 
             var phieuid = (from p in dc.tbl_MKt_Listphieuheads
                            where p.Status == "TMP" && p.Username == urs
-                           select p.id).FirstOrDefault();
+                           select p).FirstOrDefault();
 
-
-            return phieuid.ToString();
+            phieuid.Gate_pass = phieuid.id.ToString();
+            dc.SubmitChanges();
+           
+            return phieuid.Gate_pass;
 
 
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Maketting.Control;
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -341,13 +341,13 @@ namespace Maketting.View
                 return;
             }
 
-            this.Customercode = txtcustomercode.Text;
-            this.customername = txtname.Text;
-            this.street = txtstreet.Text;
-            this.telephone = txttelephone.Text;
-            this.note = txtnote.Text;
-            this.district = txtdistrict.Text;
-            this.city = cbcity.Text;
+            this.Customercode = txtcustomercode.Text.Truncate(50);
+            this.customername = txtname.Text.Truncate(225);
+            this.street = txtstreet.Text.Truncate(225);
+            this.telephone = txttelephone.Text.Truncate(50);
+            this.note = txtnote.Text.Truncate(225);
+            this.district = txtdistrict.Text.Truncate(50);
+            this.city = cbcity.Text.Truncate(50);
             this.SaleRegion = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
             this.SalesOrg =  (cbSaleOrg.SelectedItem as ComboboxItem).Value.ToString();
             this.channel =  (cbchannel.SelectedItem as ComboboxItem).Value.ToString();
@@ -457,15 +457,15 @@ namespace Maketting.View
             }
 
 
-            this.customername = this.txtname.Text;
+            this.customername = this.txtname.Text.Truncate(225);
          
-            this.street = this.txtstreet.Text;
-            this.Customercode = txtcustomercode.Text;
-            this.city = cbcity.Text;
-            this.district = txtdistrict.Text;
+            this.street = this.txtstreet.Text.Truncate(225);
+            this.Customercode = txtcustomercode.Text.Truncate(50);
+            this.city = cbcity.Text.Truncate(50);
+            this.district = txtdistrict.Text.Truncate(50);
 
-            this.telephone = txttelephone.Text;
-            this.note = txtnote.Text;
+            this.telephone = txttelephone.Text.Truncate(50);
+            this.note = txtnote.Text.Truncate(225);
 
             this.SaleRegion = (cbregion.SelectedItem as ComboboxItem).Value.ToString();
             this.SalesOrg =  (cbSaleOrg.SelectedItem as ComboboxItem).Value.ToString();
