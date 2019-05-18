@@ -471,7 +471,9 @@ namespace Maketting.View
 
 
                         txtnguoinhan.Text = rs.Receiver_by;// = 
-                        txtshiptocodeseach.Text = rs.ShiptoName;
+
+                        txtshiptocodeseach.Text = "";
+                     //   txtshiptocodeseach.Text = rs.ShiptoName;
 
                         if (rs.Ngaytaophieu != null)
                         {
@@ -2679,7 +2681,9 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
 
-                    txtshiptocodeseach.Text = rs2.FullNameN;
+                 //  txtshiptocodeseach.Text = rs2.FullNameN;
+
+                    txtshiptocodeseach.Text = "";
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
                     //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
@@ -2913,8 +2917,8 @@ namespace Maketting.View
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
-
-                    txtshiptocodeseach.Text = rs2.FullNameN;
+                    txtshiptocodeseach.Text = "";
+                //    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
 
