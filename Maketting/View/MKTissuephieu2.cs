@@ -204,8 +204,8 @@ namespace Maketting.View
             txtShiptoCode.Text = "";
             txtShiptoCode.Enabled = false;
 
-            txtShiptoname.Text = "";
-            txtShiptoname.Enabled = true;
+            txtshiptocodeseach.Text = "";
+            txtshiptocodeseach.Enabled = true;
 
 
             txtshiptoaddress.Text = "";
@@ -471,7 +471,7 @@ namespace Maketting.View
 
 
                         txtnguoinhan.Text = rs.Receiver_by;// = 
-                        txtShiptoname.Text = rs.ShiptoName;
+                        txtshiptocodeseach.Text = rs.ShiptoName;
 
                         if (rs.Ngaytaophieu != null)
                         {
@@ -913,7 +913,7 @@ namespace Maketting.View
                     rs.ShiptoCode = double.Parse(txtShiptoCode.Text);
 
                     rs.Receiver_by = txtnguoinhan.Text.Truncate(225);
-                    rs.ShiptoName = txtShiptoname.Text.Truncate(225);
+                    rs.ShiptoName = txtshiptocodeseach.Text.Truncate(225);
                     rs.Note = txtNote.Text.Truncate(225);
 
                     rs.Ngaytaophieu = datepickngayphieu.Value;
@@ -2274,7 +2274,7 @@ namespace Maketting.View
 
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
-                txtShiptoname.Text = rs.ShiptoName;
+                txtshiptocodeseach.Text = rs.ShiptoName;
 
                 datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
                 txtmucdichname.Text = rs.Purpose;//= ;
@@ -2679,7 +2679,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
 
-                    txtShiptoname.Text = rs2.FullNameN;
+                    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
                     //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
@@ -2712,7 +2712,7 @@ namespace Maketting.View
 
 
 
-                txtShiptoname.Focus();
+                txtshiptocodeseach.Focus();
 
 
             }
@@ -2725,7 +2725,7 @@ namespace Maketting.View
                 e.Handled = true;
                 //  cbsophieu.
 
-                string seachtext = txtnguoinhan.Text;
+                string seachtext = txtshiptocodeseach.Text;
                 string customercodefind = txtcustcode.Text;
                 if (customercodefind == "")
                 {
@@ -2739,7 +2739,7 @@ namespace Maketting.View
 
                 var rs = (from pp in dc.tbl_MKT_Soldtocodes
                           where pp.Customer == customercodefind
-                          // pp.FullNameN.Contains(seachtext)
+                     &&     pp.ShiptoCode.Contains(seachtext)
                           //     && pp.Soldtype == false
                           //  &&
                           select new
@@ -2777,7 +2777,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
 
-                    txtShiptoname.Text = rs2.FullNameN;
+                    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
 
 
@@ -2914,7 +2914,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
 
-                    txtShiptoname.Text = rs2.FullNameN;
+                    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
 
@@ -2948,7 +2948,7 @@ namespace Maketting.View
 
 
 
-                txtShiptoname.Focus();
+                txtshiptocodeseach.Focus();
 
 
             }
@@ -3037,14 +3037,14 @@ namespace Maketting.View
         private void txtseachcode_TextChanged(object sender, EventArgs e)
         {
             txtnguoinhan.Text = "";
-            txtShiptoname.Text = "";
+            txtshiptocodeseach.Text = "";
             txtShiptoCode.Text = "";
         }
 
         private void txtnguoinhan_TextChanged(object sender, EventArgs e)
         {
             txtcustcode.Text = "";
-            txtShiptoname.Text = "";
+            txtshiptocodeseach.Text = "";
             txtShiptoCode.Text = "";
         }
     }
