@@ -380,9 +380,9 @@ namespace Maketting.Model
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
                          p.pallet,
-                      
+
                          p.Purpose,
-                     
+
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
@@ -594,7 +594,7 @@ namespace Maketting.Model
                          Date_MKT_Phiếu = p.Ngaytaophieu,
                          IO = p.Purposeid,
                          p.Purpose,
-
+                         p.Note,
                          p.Status,
                          p.ShippingPoint,
                          p.ShipmentNumber,
@@ -654,7 +654,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      where p.Username == usernamefind
-                     && p.Status =="CRT"
+                     && p.Status == "CRT"
                      orderby p.Gate_pass
                      select new
                      {
@@ -717,6 +717,56 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachPhieuundeliveryhead(LinqtoSQLDataContext dc, string usernamefind)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieuheads
+                     where p.Username == usernamefind
+                     && p.Status == "CRT"
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.Note,
+
+                         p.ShippingPoint,
+
+                         p.Requested_by,
+
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         Soldto_address = p.Address,
+                         Shipto_Address = p.ShiptoAddress,
+
+
+                         //    Completed_date = p.Date_Received_Issued,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
 
 
         public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region, string statusphieu)
@@ -1016,7 +1066,7 @@ namespace Maketting.Model
 
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            
+
             var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
                        where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
                     && pp.ShipmentNumber != ""
@@ -1207,16 +1257,16 @@ namespace Maketting.Model
                     item.Status = "TMP";
                     dc.SubmitChanges();
                 }
-              
+
             }
             else
             {
 
                 tbl_MKt_Listphieuhead newheaddoc = new tbl_MKt_Listphieuhead();
 
-      
+
                 newheaddoc.Ngaytaophieu = DateTime.Today;
-                newheaddoc.Status =  "TMP";
+                newheaddoc.Status = "TMP";
                 newheaddoc.Gate_pass = sophieu;
                 newheaddoc.ShippingPoint = kho;
                 dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
@@ -1465,7 +1515,7 @@ namespace Maketting.Model
 
             phieuid.Gate_pass = phieuid.id.ToString();
             dc.SubmitChanges();
-           
+
             return phieuid.Gate_pass;
 
 
@@ -1511,26 +1561,26 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = (from p in db.tbl_MKT_Soldtocodes
-                     where p.Soldtype == true
-                     orderby p.Customer
-                     select new
-                     {
+                      where p.Soldtype == true
+                      orderby p.Customer
+                      select new
+                      {
 
-                         SalesOrg = p.SalesOrg,
-                         Region = p.Region,
-                         p.Chanel,
-                         Customer = p.Customer,
-                         FullName = p.FullNameN,
-                         Street = p.Street,
-                         District = p.District,
-                         City = p.City,
-                         Telephone = p.Telephone1,
-                         Note = p.Note,
-                         p.Createby,
-                         p.VATregistrationNo,
+                          SalesOrg = p.SalesOrg,
+                          Region = p.Region,
+                          p.Chanel,
+                          Customer = p.Customer,
+                          FullName = p.FullNameN,
+                          Street = p.Street,
+                          District = p.District,
+                          City = p.City,
+                          Telephone = p.Telephone1,
+                          Note = p.Note,
+                          p.Createby,
+                          p.VATregistrationNo,
 
-                         ID = p.id,
-                     }).Take(100);
+                          ID = p.id,
+                      }).Take(100);
 
             //    grviewlisttk.DataSource = rs;
 
@@ -1893,7 +1943,7 @@ namespace Maketting.Model
                          Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
                          p.Description,
-
+                         p.Note,
 
 
                          // p.Tel,

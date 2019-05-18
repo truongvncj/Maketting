@@ -869,7 +869,7 @@ namespace Maketting.View
             {
 
                 var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
-                           where pp.id.ToString() == this.sophieu && pp.Status != "TMP"
+                           where pp.Gate_pass.ToString() == this.sophieu && pp.Status != "TMP"
 
                            select pp).FirstOrDefault();
                 if (rs5 != null)
@@ -907,7 +907,7 @@ namespace Maketting.View
                 {
                     rs.Region = this.region;//Model.Username.getuseRegion();
                     rs.Address = txtdiachi.Text.Truncate(225);
-                    rs.ShiptoAddress = txtshiptoaddress.Text;
+                    rs.ShiptoAddress = txtshiptoaddress.Text.Truncate(225);
 
                     rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
                     rs.ShiptoCode = double.Parse(txtShiptoCode.Text);
@@ -941,7 +941,8 @@ namespace Maketting.View
                         tbl_MKt_Listphieudetail detailphieu = new tbl_MKt_Listphieudetail();
                         string ItemCode = "";
                         float ordered = 0;
-                        detailphieu.Address = txtdiachi.Text.Truncate(225);
+                        detailphieu.Address = txtshiptoaddress.Text.Truncate(225);
+
                         detailphieu.Customer_SAP_Code = txtcustcode.Text;
                         detailphieu.Receiver_by = txtnguoinhan.Text.Truncate(225);
 
@@ -949,7 +950,9 @@ namespace Maketting.View
                         detailphieu.Purpose = txtmucdichname.Text;
                         detailphieu.Purposeid = txtmact.Text;
 
-                        detailphieu.Requested_by = txtnguoiyeucau.Text;
+                        detailphieu.Note = txtNote.Text.Truncate(225);
+
+                        detailphieu.Requested_by = txtnguoiyeucau.Text.Truncate(50);
                         detailphieu.Status = "CRT";
                         detailphieu.Tel = txttel.Text.Truncate(50);
                         detailphieu.Username = this.Username;
@@ -2427,9 +2430,12 @@ namespace Maketting.View
 
                              //     Customer = pp.Customer_SAP_Code,
                              pp.Address,
+                            
                              Store = pp.ShippingPoint,
                              Created_by = pp.Username,
                              pp.Requested_by,
+                             pp.Note,
+
                              pp.id,
 
                          };

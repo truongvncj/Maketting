@@ -81,6 +81,7 @@
             this.storeDiviceByRegiomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.customerEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomerAndShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,7 +143,9 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addCustomerAndShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
+            this.gatePassUndeliveryListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -360,7 +363,10 @@
             // 
             this.MenuMaketting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem,
+            this.toolStripSeparator23,
+            this.gatePassUndeliveryListToolStripMenuItem,
             this.danhSaToolStripMenuItem,
+            this.toolStripSeparator24,
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem,
             this.toolStripSeparator2,
             this.inputPOToolStripMenuItem,
@@ -397,7 +403,7 @@
             // 
             this.danhSaToolStripMenuItem.Name = "danhSaToolStripMenuItem";
             this.danhSaToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.danhSaToolStripMenuItem.Text = "Gate pass undelivery list";
+            this.danhSaToolStripMenuItem.Text = "Gate pass undelivery list detail";
             this.danhSaToolStripMenuItem.Click += new System.EventHandler(this.danhSaToolStripMenuItem_Click);
             // 
             // tậpHợpPhiếuMKTTrảVềToolStripMenuItem
@@ -528,6 +534,13 @@
             this.customerEditToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.customerEditToolStripMenuItem.Text = "Customer edit";
             this.customerEditToolStripMenuItem.Click += new System.EventHandler(this.customerEditToolStripMenuItem_Click);
+            // 
+            // addCustomerAndShiptoListToolStripMenuItem
+            // 
+            this.addCustomerAndShiptoListToolStripMenuItem.Name = "addCustomerAndShiptoListToolStripMenuItem";
+            this.addCustomerAndShiptoListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.addCustomerAndShiptoListToolStripMenuItem.Text = "AddCustomer and shipto list";
+            this.addCustomerAndShiptoListToolStripMenuItem.Click += new System.EventHandler(this.addCustomerAndShiptoListToolStripMenuItem_Click);
             // 
             // Menuload
             // 
@@ -986,12 +999,22 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // addCustomerAndShiptoListToolStripMenuItem
+            // toolStripSeparator23
             // 
-            this.addCustomerAndShiptoListToolStripMenuItem.Name = "addCustomerAndShiptoListToolStripMenuItem";
-            this.addCustomerAndShiptoListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.addCustomerAndShiptoListToolStripMenuItem.Text = "AddCustomer and shipto list";
-            this.addCustomerAndShiptoListToolStripMenuItem.Click += new System.EventHandler(this.addCustomerAndShiptoListToolStripMenuItem_Click);
+            this.toolStripSeparator23.Name = "toolStripSeparator23";
+            this.toolStripSeparator23.Size = new System.Drawing.Size(301, 6);
+            // 
+            // toolStripSeparator24
+            // 
+            this.toolStripSeparator24.Name = "toolStripSeparator24";
+            this.toolStripSeparator24.Size = new System.Drawing.Size(301, 6);
+            // 
+            // gatePassUndeliveryListToolStripMenuItem
+            // 
+            this.gatePassUndeliveryListToolStripMenuItem.Name = "gatePassUndeliveryListToolStripMenuItem";
+            this.gatePassUndeliveryListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.gatePassUndeliveryListToolStripMenuItem.Text = "Gate pass undelivery list";
+            this.gatePassUndeliveryListToolStripMenuItem.Click += new System.EventHandler(this.gatePassUndeliveryListToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1128,6 +1151,9 @@
         private ToolStripMenuItem findMakettingTicketToolStripMenuItem;
         private ToolStripMenuItem danhSaToolStripMenuItem;
         private ToolStripMenuItem addCustomerAndShiptoListToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator23;
+        private ToolStripSeparator toolStripSeparator24;
+        private ToolStripMenuItem gatePassUndeliveryListToolStripMenuItem;
     }
 }
 

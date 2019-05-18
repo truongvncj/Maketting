@@ -15,6 +15,8 @@ namespace Maketting.View
 
         public string region { get; set; }
         public string statusphieu { get; set; }
+        public string valuesave { get; set; }
+
 
         public LinqtoSQLDataContext dc { get; set; }
 
@@ -24,15 +26,15 @@ namespace Maketting.View
 
         public string tablename;
 
-        public SeachphieuMKT(Viewtable Fromviewable, string tablename)
+        public SeachphieuMKT(Viewtable Fromviewable, string tablename, string valuesave)
         {
 
-
+            // tkhead  là tìm theo head - - tk là tìm theo detai
             InitializeComponent();
             this.Fromviewable = Fromviewable;
 
             this.tablename = tablename;
-
+            this.valuesave = valuesave;
 
             List<View.MKTselectStoreandRegion.ComboboxItem> CombomCollection2 = new List<View.MKTselectStoreandRegion.ComboboxItem>();
 
@@ -129,10 +131,23 @@ namespace Maketting.View
 
                     //      static void ReloadPhieuMKTtheoso(DataGridView DataGridView1, string MKTnumber)
 
+                    if (this.valuesave == "tk")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+
+                    }
+
+                    if (this.valuesave == "tkhead")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheosohead(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+
+                    }
+
+                 //   Fromviewable.ReloadPhieuMKTtheoso(Fromviewable,  this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
 
+                    // tkhead  là tìm theo head - - tk là tìm theo detai
 
-                    Fromviewable.ReloadPhieuMKTtheoso(Fromviewable,  this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
                 }
 
 
@@ -152,13 +167,17 @@ namespace Maketting.View
                 {
 
 
-                    //      static void ReloadPhieuMKTtheoso(DataGridView DataGridView1, string MKTnumber)
+                    if (this.valuesave == "tk")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
+                    }
 
+                    if (this.valuesave == "tkhead")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheosohead(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
-
-
-                    Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+                    }
                 }
 
 
@@ -178,13 +197,17 @@ namespace Maketting.View
                 {
 
 
-                    //      static void ReloadPhieuMKTtheoso(DataGridView DataGridView1, string MKTnumber)
+                    if (this.valuesave == "tk")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
+                    }
 
+                    if (this.valuesave == "tkhead")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheosohead(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
-
-
-                    Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+                    }
                 }
 
 
@@ -204,12 +227,17 @@ namespace Maketting.View
                 {
 
 
-                    //      static void ReloadPhieuMKTtheoso(DataGridView DataGridView1, string MKTnumber)
+                    if (this.valuesave == "tk")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
+                    }
 
+                    if (this.valuesave == "tkhead")
+                    {
+                        Fromviewable.ReloadPhieuMKTtheosohead(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
 
-
-                    Fromviewable.ReloadPhieuMKTtheoso(Fromviewable, this.txtmktnumber.Text, this.txtname.Text, this.region, this.statusphieu);
+                    }
                 }
 
 

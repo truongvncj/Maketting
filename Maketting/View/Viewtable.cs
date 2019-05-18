@@ -263,7 +263,7 @@ namespace Maketting.View
 
                 if (!kq)
                 {
-                    SeachphieuMKT sheaching = new SeachphieuMKT(this, "Tìm phiếu MKT");
+                    SeachphieuMKT sheaching = new SeachphieuMKT(this, "Tìm phiếu MKT", this.valuesave); // tkhead  là tìm theo head - - tk là tìm theo detai
                     sheaching.Show();
                 }
 
@@ -377,7 +377,7 @@ namespace Maketting.View
                          p.Returndate,
                          p.Returnby,
 
-
+                         p.Note,
 
 
 
@@ -397,6 +397,64 @@ namespace Maketting.View
 
             //  throw new NotImplementedException();
         }
+
+        public void ReloadPhieuMKTtheosohead(Viewtable Viewtable, string MKTnumber, string txtname, string region, string statusphieu)
+        {
+
+          
+
+            //  string connection_string = Utils.getConnectionstr();
+
+            // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in this.dc.tbl_MKt_Listphieuheads
+                     where p.Gate_pass.Contains(MKTnumber) && p.Receiver_by.Contains(txtname)  // p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate  &&
+                     && p.Status.Contains(statusphieu) && p.Region.Contains(region)
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.Note,
+
+                         p.ShippingPoint,
+
+                         p.Requested_by,
+
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         Soldto_address = p.Address,
+                         Shipto_Address = p.ShiptoAddress,
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            Viewtable.dataGridView1.DataSource = rs;
+
+            this.rs = rs;
+
+            //  throw new NotImplementedException();
+        }
+
+
+     
+
+
 
         public BindingSource source2;
 
@@ -1318,7 +1376,7 @@ namespace Maketting.View
 
 
                 #region  viewdetail 100 tạo phieu               phiếu
-                if (this.viewcode == 100 && this.valuesave == "tk")
+                if (this.viewcode == 100 && (this.valuesave == "tk" ||this.valuesave == "tkhead" ) )
                 {
 
                     if (!Username.getMakettingright())

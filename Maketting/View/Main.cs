@@ -5889,7 +5889,7 @@ namespace Maketting.View
             IQueryable rs = Model.MKT.DanhsachPhieuundelivery(dc, usernamefind);
 
 
-            Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Undelivery list", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+            Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Undelivery detail list", 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
             viewtbl.ShowDialog();
 
@@ -5920,6 +5920,30 @@ namespace Maketting.View
             inpoutctm.addcustomerinputshiptocode();
 
             MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void gatePassUndeliveryListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // MKTFromdatetodate datepick = new MKTFromdatetodate();
+            //  datepick.ShowDialog();
+
+            //    DateTime fromdate = datepick.fromdate;
+            //    DateTime todate = datepick.todate;
+            //  bool kq = datepick.chon;
+
+            //  if (kq) // nueeus có chọn
+            //   {
+            string usernamefind = Utils.getusername();
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            IQueryable rs = Model.MKT.DanhsachPhieuundeliveryhead(dc, usernamefind);
+
+
+            Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Undelivery list", 100, "tkhead");// mã 5 là danh sach nha nha ccaaps
+
+            viewtbl.ShowDialog();
 
         }
     }
