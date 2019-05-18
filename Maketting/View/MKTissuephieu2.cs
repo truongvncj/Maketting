@@ -473,7 +473,7 @@ namespace Maketting.View
                         txtnguoinhan.Text = rs.Receiver_by;// = 
 
                         txtshiptocodeseach.Text = "";
-                     //   txtshiptocodeseach.Text = rs.ShiptoName;
+                        txtshiptoname.Text = rs.ShiptoName;
 
                         if (rs.Ngaytaophieu != null)
                         {
@@ -915,7 +915,9 @@ namespace Maketting.View
                     rs.ShiptoCode = double.Parse(txtShiptoCode.Text);
 
                     rs.Receiver_by = txtnguoinhan.Text.Truncate(225);
-                    rs.ShiptoName = txtshiptocodeseach.Text.Truncate(225);
+                    rs.ShiptoName = txtshiptoname.Text.Truncate(225);
+                    
+                 //   rs.ShiptoName = txtshiptocodeseach.Text.Truncate(225);
                     rs.Note = txtNote.Text.Truncate(225);
 
                     rs.Ngaytaophieu = datepickngayphieu.Value;
@@ -2276,7 +2278,7 @@ namespace Maketting.View
 
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
-                txtshiptocodeseach.Text = rs.ShiptoName;
+                txtshiptoname.Text = rs.ShiptoName;
 
                 datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
                 txtmucdichname.Text = rs.Purpose;//= ;
@@ -2781,7 +2783,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
 
-                    txtshiptocodeseach.Text = rs2.FullNameN;
+                    txtshiptoname.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
 
 
