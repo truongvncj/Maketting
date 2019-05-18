@@ -868,6 +868,17 @@ namespace Maketting.View
             if (checkdetail && checkhead)
             {
 
+            
+
+
+                if (this.statusphieu == 2) //; nếu là change requaes
+                {
+                    bool kq = Model.MKT.Deletephieutochange(this.sophieu, this.storelocation, this.region);
+
+
+                }
+
+
                 var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
                            where pp.Gate_pass.ToString() == this.sophieu && pp.Status != "TMP"
 
@@ -880,17 +891,6 @@ namespace Maketting.View
                     return;
 
                 }
-
-
-                if (this.statusphieu == 2) //; nếu là change requaes
-                {
-                    bool kq = Model.MKT.Deletephieutochange(this.sophieu, this.storelocation, this.region);
-
-
-                }
-
-
-
 
 
                 #region // head 
