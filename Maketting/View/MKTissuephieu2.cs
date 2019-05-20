@@ -207,8 +207,9 @@ namespace Maketting.View
             txtshiptocodeseach.Text = "";
             txtshiptocodeseach.Enabled = true;
 
-
             txtshiptoaddress.Text = "";
+            txtshiptoname.Text = "";
+
             txtshiptoaddress.Enabled = false;
 
             //       public double POSMisuevalue { get; set; }

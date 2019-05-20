@@ -1919,7 +1919,7 @@ namespace Maketting.Model
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                             && p.Gate_pass == pp.Gate_pass
                      && p.Address.Contains(txtseachaddress)
-                             && p.Customer_SAP_Code.ToString().Contains(txtseachcode)
+                             && p.Customer_SAP_Code.Contains(txtseachcode)
                                && (p.ShippingPoint + p.Gate_pass).Contains(txtseachgate)
 
 
