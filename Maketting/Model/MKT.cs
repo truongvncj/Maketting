@@ -1269,6 +1269,7 @@ namespace Maketting.Model
                 newheaddoc.Status = "TMP";
                 newheaddoc.Gate_pass = sophieu;
                 newheaddoc.ShippingPoint = kho;
+                newheaddoc.Username = Username.getUsername();
                 dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
                 dc.SubmitChanges();
 

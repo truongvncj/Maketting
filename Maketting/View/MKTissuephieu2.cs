@@ -901,7 +901,7 @@ namespace Maketting.View
 
                 var rs = (from pp in dc.tbl_MKt_Listphieuheads
                           where pp.Gate_pass == this.sophieu && pp.Status == "TMP"
-                          && pp.ShippingPoint == this.storelocation
+                          && pp.Username == this.Username
 
                           select pp).FirstOrDefault();
 
@@ -953,6 +953,10 @@ namespace Maketting.View
                         detailphieu.Ngaytaophieu = datepickngayphieu.Value;
                         detailphieu.Purpose = txtmucdichname.Text;
                         detailphieu.Purposeid = txtmact.Text;
+                     //   detailphieu.
+
+
+
 
                         detailphieu.Note = txtNote.Text.Truncate(225);
 
@@ -1304,166 +1308,7 @@ namespace Maketting.View
         private void dataGridViewListphieuthu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            try
-            {
-                this.sophieu = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Gate_pass"].Value;
-                this.storelocation = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Store"].Value;
-
-                //Date = pp.Ngaytaophieu,
-                //             pp.Gate_pass,
-                //             pp.Requested_by,
-                //             pp.Purpose,
-
-
-                //             pp.Receiver_by,
-                //             pp.Customer_SAP_Code,
-                //             pp.Address,
-                //             pp.Materiacode,
-                //             //  pp.MateriaSAPcode,
-                //             pp.Description,
-                //             pp.Issued,
-                //             Store = pp.ShippingPoint,
-                //             Created_by = pp.Username,
-                //             pp.id,
-            }
-            catch (Exception)
-            {
-
-                //     this.phieuchiid = 0;
-            }
-
-
-            //List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
-            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-            //         where tbl_dstaikhoan.loaitkid == "tien" // tien mat la loai 8
-            //         orderby tbl_dstaikhoan.matk
-            //         select tbl_dstaikhoan;
-            //foreach (var item in rs)
-            //{
-            //    ComboboxItem cb = new ComboboxItem();
-            //    cb.Value = item.matk.Trim();
-            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
-            //    CombomCollection.Add(cb);
-            //}
-
-            //cbtkco.DataSource = CombomCollection;
-
-            //#endregion load tk nợ
-
-
-
-            //   try
-            //{
-            //    this.phieuchiid = (int)this.dataGridViewListphieuchi.Rows[this.dataGridViewListphieuchi.CurrentCell.RowIndex].Cells["ID"].Value;
-
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    this.phieuchiid = 0;
-            //}
-
-            //if (this.phieuchiid != 0)
-            //{
-
-            //    string macty = Model.Username.getmacty();
-
-            //    #region view load form
-            //    var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
-            //                    where tbl_SoQuy.id == this.phieuchiid
-            //                    && tbl_SoQuy.macty == macty
-            //                    select new
-            //                    {
-
-            //                        //     tencongty = Model.Congty.getnamecongty(),
-            //                        //     diachicongty = Model.Congty.getdiachicongty(),
-            //                        ////     masothue = Model.Congty.getmasothuecongty(),
-            //                        //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
-            //                        //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
-
-            //                        sophieuthu = tbl_SoQuy.Sophieu,
-            //                        ngaychungtu = tbl_SoQuy.Ngayctu,
-            //                        nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
-            //                        //    nguoilapphieu = Utils.getname(),
-            //                        diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
-            //                        lydothu = tbl_SoQuy.Diengiai,
-            //                        sotien = tbl_SoQuy.PsCo,
-            //                        //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
-            //                        sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
-            //                        //    username = Utils.getusername(),
-
-
-            //                        machitietco = tbl_SoQuy.ChitietTM,
-            //                        tentkchitiet = tbl_SoQuy.TenchitietTM,
-            //                        tkno = tbl_SoQuy.TKtienmat,
-
-            //                        taikhoandoiung = tbl_SoQuy.TKdoiung,
-
-            //                    }).FirstOrDefault();
-
-
-            //    if (phieuchi != null)
-            //    {
-            //        datepickngayphieu.Value = phieuchi.ngaychungtu;
-
-            //        txttennguoinhan.Text = phieuchi.nguoinoptien;
-            //        txtdiachi.Text = phieuchi.diachinguoinop;
-            //        txtdiengiai.Text = phieuchi.lydothu;
-
-
-            //        //foreach (ComboboxItem item in (List<ComboboxItem>)cbtkco.DataSource)
-            //        //{
-            //        //    if (item.Value.ToString().Trim() == phieuchi.tkno.Trim())
-            //        //    {
-            //        //        cbtkco.SelectedItem = item;
-            //        //    }
-            //        //}
-
-
-
-
-
-
-
-
-            //        datepickngayphieu.Enabled = false;
-
-            //        txttennguoinhan.Enabled = false;
-            //        txtdiachi.Enabled = false;
-            //        txtdiengiai.Enabled = false;
-
-            //        btsua.Enabled = true;
-
-
-
-
-
-
-
-            //        this.statusphieuchi = 3;// View
-            // //       Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
-            //    Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
-            //        btluu.Visible = false;
-
-            //    }
-
-
-
-            //    #endregion view load form
-
-
-
-
-
-
-
-
-
-            //}
-
+          
 
         }
 
@@ -2229,8 +2074,7 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string sophieufind = "";
-            string storelocationfind = "";
+          
 
             string connection_string = Utils.getConnectionstr();
 
@@ -2246,9 +2090,9 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             try
             {
-                sophieufind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
-                storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Store"].Value.ToString();
-
+                this.sophieu = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
+                this.storelocation = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Store"].Value.ToString();
+                lbgatepassno.Text = this.sophieu;
             }
             catch (Exception ex)
             {
@@ -2261,20 +2105,25 @@ namespace Maketting.View
             //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
 
             var rs = (from pp in dc.tbl_MKt_Listphieuheads
-                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
 
                       select pp).FirstOrDefault();
 
             if (rs != null)
             {
-                this.sophieu = sophieufind;
+              
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
                 txtshiptoaddress.Text = rs.ShiptoAddress;
+              //  txtcustcode.Enabled = true;
+             
+           //     txtcustcode.Enabled = false;
 
-                txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
-                txtShiptoCode.Text = rs.ShiptoCode.ToString();
+             //   txtShiptoCode.Enabled = true;
+
+             
+             //   txtShiptoCode.Enabled = false;
 
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
@@ -2283,9 +2132,13 @@ namespace Maketting.View
                 datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
                 txtmucdichname.Text = rs.Purpose;//= ;
                 txtmact.Text = rs.Purposeid;//=;
-                this.storelocation = rs.ShippingPoint;// = ;
+                txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                txtShiptoCode.Text = rs.ShiptoCode.ToString();
 
 
+
+                // txtcustcode
+                //         txtShiptoCode
                 txtNote.Text = rs.Note;
 
 
@@ -2326,7 +2179,7 @@ namespace Maketting.View
 
             #region load detail so phieu va loacation
             var rs2 = from pp in dc.tbl_MKt_Listphieudetails
-                      where pp.Gate_pass == sophieufind && pp.ShippingPoint == storelocationfind
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
 
                       select pp;
 
@@ -2782,6 +2635,8 @@ namespace Maketting.View
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
+            //        this.txtShiptoCode = rs2.ShiptoCode;
+
 
                     txtshiptoname.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
