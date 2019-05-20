@@ -1915,9 +1915,9 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
-                    //  from pp in dc.tbl_MKt_Listphieuheads
+                     from pp in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
-                       //     && p.Gate_pass == pp.Gate_pass
+                            && p.Gate_pass == pp.Gate_pass
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.Contains(txtseachcode)
                                && p.Gate_pass.Contains(txtseachgate)
@@ -1928,10 +1928,10 @@ namespace Maketting.Model
                      {
 
                          Customer_code = p.Customer_SAP_Code,
-                       //  Shipto_code = p.,
+                         Shipto_code = pp.ShiptoCode,
 
-                         p.Receiver_by,
-                         Địa_chỉ = p.Address,//.ShiptoAddress,
+                         Shipto_Name = pp.ShiptoName, // p.Receiver_by,
+                         Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
                          p.Materiacode,
                          p.Materialname,
@@ -1941,7 +1941,7 @@ namespace Maketting.Model
                          p.Purpose,
 
                          p.Ngaytaophieu,
-                      //   Điện_thoại = pp.Tel,
+                         //   Điện_thoại = pp.Tel,
                          Gate_pass = p.Gate_pass,
                          p.Description,
                          p.Note,
