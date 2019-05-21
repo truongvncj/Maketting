@@ -992,7 +992,8 @@ namespace Maketting.View
             Model.MKT.restatusphieuLoadingtoCRT();
             this.statusphieu = 1;
             this.cleartoblankphieu();
-
+            this.palletofLoad = 0;
+            txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
             Model.MKT.DeleteALLphieutamTMP();
 
             this.soload = Model.MKT.getLoadNo();

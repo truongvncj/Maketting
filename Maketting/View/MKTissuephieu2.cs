@@ -783,7 +783,15 @@ namespace Maketting.View
                 checkhead = false;
                 return;
             }
+            if (txtshiptoname.Text == "")
+            {
+                MessageBox.Show("Pleae check Shipto name !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtshiptoname.Focus();
+                checkhead = false;
+                return;
+            }
 
+            
 
             if (cbkhohang.Text == "")
             {
@@ -2536,6 +2544,7 @@ namespace Maketting.View
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
+                    txtshiptoname.Text = rs2.FullNameN;
 
                  //  txtshiptocodeseach.Text = rs2.FullNameN;
 
@@ -2772,6 +2781,7 @@ namespace Maketting.View
                     txtnguoinhan.Text = rs2.FullNameN;
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txttel.Text = rs2.Telephone1;
+                    txtshiptoname.Text = rs2.FullNameN;
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
@@ -2864,6 +2874,7 @@ namespace Maketting.View
 
             var rs = (from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                      && pp.ShipmentNumber !=""
                       select pp.ShipmentNumber).FirstOrDefault();
 
             if (rs != null)
