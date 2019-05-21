@@ -1253,7 +1253,7 @@ namespace Maketting.Model
                 //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
                 foreach (var item in rs)
                 {
-
+                    item.Username = Username.getUsername();
                     item.Status = "TMP";
                     dc.SubmitChanges();
                 }

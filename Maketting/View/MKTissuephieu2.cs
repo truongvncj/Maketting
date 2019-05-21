@@ -924,9 +924,10 @@ namespace Maketting.View
                     rs.ShiptoCode = double.Parse(txtShiptoCode.Text);
 
                     rs.Receiver_by = txtnguoinhan.Text.Truncate(225);
+
                     rs.ShiptoName = txtshiptoname.Text.Truncate(225);
-                    
-                 //   rs.ShiptoName = txtshiptocodeseach.Text.Truncate(225);
+                    //txtshiptoname
+                    //   rs.ShiptoName = txtshiptocodeseach.Text.Truncate(225);
                     rs.Note = txtNote.Text.Truncate(225);
 
                     rs.Ngaytaophieu = datepickngayphieu.Value;
