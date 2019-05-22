@@ -358,6 +358,7 @@ namespace Maketting.View
                          Date_MKT_Phiếu = p.Ngaytaophieu,
                          p.Customer_SAP_Code,
                          p.Receiver_by,
+                         p.Tel,
                          p.Address,
 
                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
@@ -426,6 +427,7 @@ namespace Maketting.View
                          p.ShippingPoint,
 
                          p.Requested_by,
+                         p.Tel,
 
                          p.Customer_SAP_Code,
                          p.Receiver_by,

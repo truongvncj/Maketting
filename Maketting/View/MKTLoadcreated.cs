@@ -316,8 +316,8 @@ namespace Maketting.View
             Model.MKT.DeleteALLLoadtamTMP();
 
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
-
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
+            this.rs =  Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
 
             //   dataGridViewDetail.Columns(3).DefaultCellStyle.Format = "#.###";
             dataGridViewDetail.Columns["pallet"].DefaultCellStyle.Format = "N3";
@@ -2131,7 +2131,7 @@ namespace Maketting.View
 
             }
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
 
@@ -2215,7 +2215,7 @@ namespace Maketting.View
 
             //  Model.MKT.DeleteALLphieutamTMP();
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
 
@@ -2335,6 +2335,8 @@ namespace Maketting.View
 
             //     dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
             //     x
+         //   dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+            Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
 
             // String.Format("{0:0.##}", 123.4567);
             txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
@@ -2394,7 +2396,7 @@ namespace Maketting.View
 
             }
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
 
             //    txtPallet.Text = this.palletofLoad.ToString();
             txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
@@ -2624,35 +2626,9 @@ namespace Maketting.View
             string seachcode = txtseachcode.Text;
             string seachgate = txtseachgate.Text;
 
-            var rs = from p in dc.tbl_MKt_Listphieudetails
-                     where p.ShippingPoint == storelocation && p.Status == "CRT"
-                     && p.Address.Contains(seachaddress)
-                             && p.Customer_SAP_Code.ToString().Contains(seachcode)
-                               && (p.ShippingPoint + p.Gate_pass).Contains(seachgate)
-
-
-                     orderby p.Gate_pass
-                     select new
-                     {
-
-
-
-                         Code_KH = p.Customer_SAP_Code,
-                         Địa_chỉ = p.Address,
-
-
-                         p.Materiacode,
-                         p.Materialname,
-                         Số_lượng_xuất = p.Issued,
-
-                         p.Purpose,
-                         p.Receiver_by,
-                         p.Tel,
-                         Gate_pass = p.Gate_pass,
-                         Điện_thoại = p.Description,
-                         p.Ngaytaophieu,
-                         ID = p.id,
-                     };
+        //    var rs = this.rs;
+          //  dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            this.rs = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
 
 
 

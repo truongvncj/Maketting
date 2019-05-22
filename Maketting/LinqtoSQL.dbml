@@ -198,6 +198,7 @@
       <Column Name="Included_Shipment" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="shiptocity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">

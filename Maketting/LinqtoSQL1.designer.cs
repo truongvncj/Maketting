@@ -3772,6 +3772,8 @@ namespace Maketting
 		
 		private string _Note;
 		
+		private string _shiptocity;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3858,6 +3860,8 @@ namespace Maketting
     partial void OnpalletChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
+    partial void OnshiptocityChanging(string value);
+    partial void OnshiptocityChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4681,6 +4685,26 @@ namespace Maketting
 					this._Note = value;
 					this.SendPropertyChanged("Note");
 					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shiptocity", DbType="NVarChar(50)")]
+		public string shiptocity
+		{
+			get
+			{
+				return this._shiptocity;
+			}
+			set
+			{
+				if ((this._shiptocity != value))
+				{
+					this.OnshiptocityChanging(value);
+					this.SendPropertyChanging();
+					this._shiptocity = value;
+					this.SendPropertyChanged("shiptocity");
+					this.OnshiptocityChanged();
 				}
 			}
 		}

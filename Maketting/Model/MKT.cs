@@ -357,15 +357,17 @@ namespace Maketting.Model
 
         }
 
-        public static IQueryable DanhsachPhieuMKTtoDLV(string storelocation)
+        public static IQueryable DanhsachPhieuMKTtoDLV(string storelocation, LinqtoSQLDataContext dc)
         {
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //    string connection_string = Utils.getConnectionstr();
+            //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      from pp in dc.tbl_MKt_Listphieuheads
+             //        from ppp in dc.tbl_MKT_Soldtocodes
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                    && p.Gate_pass == pp.Gate_pass
+             //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
                      orderby p.Gate_pass
                      select new
                      {
@@ -373,12 +375,13 @@ namespace Maketting.Model
                          Shipto_code = pp.ShiptoCode,
                          Gate_pass = p.Gate_pass,
                          pp.Region,
+                         City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
                          Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
+                       
 
-                         
                          Địa_chỉ = pp.ShiptoAddress,
 
                          p.Materiacode,
@@ -390,7 +393,7 @@ namespace Maketting.Model
                          p.Receiver_by,
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
-                     
+
                          p.Description,
 
 
@@ -608,6 +611,7 @@ namespace Maketting.Model
 
                          p.Customer_SAP_Code,
                          p.Receiver_by,
+                         p.Tel,
                          p.Address,
 
                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
@@ -679,7 +683,7 @@ namespace Maketting.Model
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Address,
-
+                         p.Tel,
                          //   Số_lượng_thực_xuất = p.Soluongdaxuat,
                          // Số_lượng_còn_lại = p.Soluongconlai,
                          p.Materiacode,
@@ -745,7 +749,7 @@ namespace Maketting.Model
                          p.ShippingPoint,
 
                          p.Requested_by,
-
+                         p.Tel,
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          Soldto_address = p.Address,
@@ -796,6 +800,7 @@ namespace Maketting.Model
                          p.ShipmentNumber,
 
                          p.Requested_by,
+                         p.Tel,
                          Date_MKT_Phiếu = p.Ngaytaophieu,
                          p.Customer_SAP_Code,
                          p.Receiver_by,
@@ -1921,12 +1926,14 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      from pp in dc.tbl_MKt_Listphieuheads
+                    // from ppp in dc.tbl_MKT_Soldtocodes
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                             && p.Gate_pass == pp.Gate_pass
+                            //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.Contains(txtseachcode)
                                && p.Gate_pass.Contains(txtseachgate)
-
+                            
 
                      orderby p.Gate_pass
                      select new
@@ -1936,6 +1943,7 @@ namespace Maketting.Model
                          Shipto_code = pp.ShiptoCode,
                          Gate_pass = p.Gate_pass,
                          pp.Region,
+                         City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
                          Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
@@ -1949,7 +1957,7 @@ namespace Maketting.Model
 
                          p.Ngaytaophieu,
                          //   Điện_thoại = pp.Tel,
-                       //  Gate_pass = p.Gate_pass,
+                         //  Gate_pass = p.Gate_pass,
                          p.Description,
                          p.Note,
 

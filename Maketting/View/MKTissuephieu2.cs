@@ -466,10 +466,8 @@ namespace Maketting.View
                     {
                         lbgatepassno.Text = this.sophieu;
 
-                        txtdiachi.Text = rs.Address;
-                        txtshiptoaddress.Text = rs.ShiptoAddress;
-
-
+                       
+                     
 
                         txtnguoinhan.Text = rs.Receiver_by;// = 
 
@@ -491,8 +489,10 @@ namespace Maketting.View
 
                         txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
                         txtShiptoCode.Text = rs.ShiptoCode.ToString();
+                        txtdiachi.Text = rs.Address;
+                        txtshiptoaddress.Text = rs.ShiptoAddress;
 
-
+                        txtshiptoname.Text = rs.ShiptoName;
                         txtNote.Text = rs.Note;
 
 
@@ -556,10 +556,10 @@ namespace Maketting.View
                             addDEtailPhieuMKT(item);
                             //  xxx
 
-
+                            txtcity.Text = item.shiptocity;
 
                         }
-
+                      
                     }
 
                     #endregion
@@ -973,6 +973,9 @@ namespace Maketting.View
                         detailphieu.Requested_by = txtnguoiyeucau.Text.Truncate(50);
                         detailphieu.Status = "CRT";
                         detailphieu.Tel = txttel.Text.Truncate(50);
+                        detailphieu.shiptocity = txtcity.Text.Truncate(50);
+
+
                         detailphieu.Username = this.Username;
                         detailphieu.Gate_pass = this.sophieu;
                         detailphieu.Region = this.region;//Model.Username.getuseRegion();
@@ -2546,7 +2549,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptoname.Text = rs2.FullNameN;
-
+                    txtcity.Text = rs2.City;
                  //  txtshiptocodeseach.Text = rs2.FullNameN;
 
                     txtshiptocodeseach.Text = "";
@@ -2646,8 +2649,8 @@ namespace Maketting.View
 
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
-            //        this.txtShiptoCode = rs2.ShiptoCode;
-
+                    //        this.txtShiptoCode = rs2.ShiptoCode;
+                    txtcity.Text = rs2.City;
 
                     txtshiptoname.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
@@ -2783,7 +2786,7 @@ namespace Maketting.View
                     txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txttel.Text = rs2.Telephone1;
                     txtshiptoname.Text = rs2.FullNameN;
-
+                    txtcity.Text = rs2.City;
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptocodeseach.Text = "";
@@ -2913,6 +2916,8 @@ namespace Maketting.View
             txtnguoinhan.Text = "";
             txtshiptocodeseach.Text = "";
             txtShiptoCode.Text = "";
+            txtcity.Text = "";
+            txtshiptoaddress.Text = "";
         }
 
         private void txtnguoinhan_TextChanged(object sender, EventArgs e)
@@ -2920,6 +2925,8 @@ namespace Maketting.View
             txtcustcode.Text = "";
             txtshiptocodeseach.Text = "";
             txtShiptoCode.Text = "";
+            txtcity.Text = "";
+            txtshiptoaddress.Text = "";
         }
     }
 }
