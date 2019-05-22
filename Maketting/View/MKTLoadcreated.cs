@@ -72,7 +72,7 @@ namespace Maketting.View
             drToAdd["Materiacode"] = PhieuMKT.Materiacode;
             drToAdd["Materialname"] = PhieuMKT.Materialname;
             drToAdd["Issued"] = PhieuMKT.Issued;
-            if (PhieuMKT.pallet != null )
+            if (PhieuMKT.pallet != null)
             {
                 this.palletofLoad = this.palletofLoad + float.Parse(PhieuMKT.pallet.ToString());
                 txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
@@ -295,10 +295,10 @@ namespace Maketting.View
             datecreated.Value = DateTime.Today;
 
             txtnguoitaoload.Focus();
-          //  txtPallet.ForeColor
-                     //this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
-                     //                                                                                                //  this.lb_totalrecord.ForeColor = Color.Chocolate;
-                     //                                                                                                //   this.Show();
+            //  txtPallet.ForeColor
+            //this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
+            //                                                                                                //  this.lb_totalrecord.ForeColor = Color.Chocolate;
+            //                                                                                                //   this.Show();
 
             //     cbkhohang.Items.Clear();
 
@@ -422,7 +422,7 @@ namespace Maketting.View
 
             this.statusphieu = 1; // tạo mới
 
-        
+
             Model.MKT.restatusphieuLoadingtoCRT();
 
             Model.MKT.updatePalleCRTorder();  // để update toàn bộ palet cho crt oeerder
@@ -694,7 +694,7 @@ namespace Maketting.View
                 return;
             }
 
-            if (!Utils.IsValidnumber(txtShipment.Text.ToString())  && cbGhepshipment.Checked == true)
+            if (!Utils.IsValidnumber(txtShipment.Text.ToString()) && cbGhepshipment.Checked == true)
             {
                 MessageBox.Show("Pleae nhập số shipment ghép là số shipment chở hàng có ghéo chở đồ MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShipment.Focus();
@@ -891,7 +891,7 @@ namespace Maketting.View
                               Issued = gg.Sum(m => m.Issued),
                               Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
                               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
-                              
+
 
 
                           };
@@ -2333,9 +2333,9 @@ namespace Maketting.View
 
             }
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            //     dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
+            //     x
 
-      
             // String.Format("{0:0.##}", 123.4567);
             txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
 
@@ -2636,15 +2636,15 @@ namespace Maketting.View
                      {
 
 
-                     
+
                          Code_KH = p.Customer_SAP_Code,
                          Địa_chỉ = p.Address,
-                      
+
 
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
-                       
+
                          p.Purpose,
                          p.Receiver_by,
                          p.Tel,
@@ -2683,8 +2683,8 @@ namespace Maketting.View
         {
             // public string shipment { get; set; }
             this.shipment = txtShipment.Text;
-        //    cbGhepshipment.Checked = false;
-      //      cbGhepshipment.Checked = true;
+            //    cbGhepshipment.Checked = false;
+            //      cbGhepshipment.Checked = true;
 
         }
     }

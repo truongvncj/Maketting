@@ -369,11 +369,16 @@ namespace Maketting.Model
                      orderby p.Gate_pass
                      select new
                      {
-
-                         Code_KH = p.Customer_SAP_Code,
+                         Customer_code = p.Customer_SAP_Code,
                          Shipto_code = pp.ShiptoCode,
+                         Gate_pass = p.Gate_pass,
+                         pp.Region,
+                         Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
-                         p.Receiver_by,
+                         Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
+
+
+                         
                          Địa_chỉ = pp.ShiptoAddress,
 
                          p.Materiacode,
@@ -382,10 +387,10 @@ namespace Maketting.Model
                          p.pallet,
 
                          p.Purpose,
-
+                         p.Receiver_by,
                          p.Ngaytaophieu,
                          Điện_thoại = pp.Tel,
-                         Gate_pass = p.Gate_pass,
+                     
                          p.Description,
 
 
@@ -1929,8 +1934,10 @@ namespace Maketting.Model
 
                          Customer_code = p.Customer_SAP_Code,
                          Shipto_code = pp.ShiptoCode,
-
+                         Gate_pass = p.Gate_pass,
+                         pp.Region,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
+
                          Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
                          p.Materiacode,
@@ -1942,7 +1949,7 @@ namespace Maketting.Model
 
                          p.Ngaytaophieu,
                          //   Điện_thoại = pp.Tel,
-                         Gate_pass = p.Gate_pass,
+                       //  Gate_pass = p.Gate_pass,
                          p.Description,
                          p.Note,
 
