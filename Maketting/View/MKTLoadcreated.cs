@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -1096,7 +1096,7 @@ namespace Maketting.View
                 tbl_MKT_LoadHeadRpt headpx = new tbl_MKT_LoadHeadRpt();
 
                 headpx.codetransporter = rptMKThead.TransposterCode;
-                headpx.gatepasslist = gatepasslist;
+                headpx.gatepasslist = gatepasslist.Truncate(500);
                 headpx.username = this.Username;
                 headpx.Loadnumber = rptMKThead.LoadNumber;
                 headpx.nametransporter = rptMKThead.TransposterName;

@@ -5823,7 +5823,7 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gatepasslist", DbType="NVarChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gatepasslist", DbType="NVarChar(500)")]
 		public string gatepasslist
 		{
 			get
