@@ -146,6 +146,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -364,6 +365,7 @@
             // 
             this.MenuMaketting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem,
+            this.mKTCollectedRequestToolStripMenuItem,
             this.toolStripSeparator23,
             this.gatePassUndeliveryListToolStripMenuItem,
             this.danhSaToolStripMenuItem,
@@ -397,7 +399,7 @@
             // 
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Gate pass request";
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Issue request";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
             // 
             // toolStripSeparator23
@@ -1017,6 +1019,13 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
+            // mKTCollectedRequestToolStripMenuItem
+            // 
+            this.mKTCollectedRequestToolStripMenuItem.Name = "mKTCollectedRequestToolStripMenuItem";
+            this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.mKTCollectedRequestToolStripMenuItem.Text = "MKT Collect request";
+            this.mKTCollectedRequestToolStripMenuItem.Click += new System.EventHandler(this.mKTCollectedRequestToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1155,6 +1164,7 @@
         private ToolStripSeparator toolStripSeparator23;
         private ToolStripSeparator toolStripSeparator24;
         private ToolStripMenuItem gatePassUndeliveryListToolStripMenuItem;
+        private ToolStripMenuItem mKTCollectedRequestToolStripMenuItem;
     }
 }
 

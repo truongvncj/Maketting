@@ -4209,9 +4209,9 @@ namespace Maketting.View
             ///
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where (from gg in dc.tbl_MKT_StoreRights
-                             where gg.storeright == rightkho
-                             select gg.makho).Contains(pp.makho)
+                   //   where (from gg in dc.tbl_MKT_StoreRights
+                     //        where gg.storeright == rightkho
+                       //      select gg.makho).Contains(pp.makho)
                       select pp;
 
             foreach (var item2 in rs1)
@@ -4368,9 +4368,9 @@ namespace Maketting.View
             ///
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where (from gg in dc.tbl_MKT_StoreRights
-                             where gg.storeright == rightkho
-                             select gg.makho).Contains(pp.makho)
+                   //   where (from gg in dc.tbl_MKT_StoreRights
+                     //        where gg.storeright == rightkho
+                       //      select gg.makho).Contains(pp.makho)
                       select pp;
 
             foreach (var item2 in rs1)
@@ -5945,6 +5945,32 @@ namespace Maketting.View
 
             viewtbl.ShowDialog();
 
+        }
+
+        private void mKTCollectedRequestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            #region//MKTissuereturnRequest
+            //if (name == "tmphieuthu")
+            //{
+
+            //  Main.clearpannel();
+            //   Formload.
+            // clearpannel();
+            this.clearpannel();
+
+
+            View.MKTissuereturnRequest accsup = new MKTissuereturnRequest(this, "", "");
+            this.clearpannelload(accsup);
+            // this.Close();
+            #endregion
+
+
+
+
+
+
+            
         }
     }
 

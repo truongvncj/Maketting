@@ -87,6 +87,7 @@
       <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_IO_Programe" Member="tbl_MKT_IO_Programes">
@@ -199,6 +200,7 @@
       <Column Name="pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="shiptocity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Returnrequest" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -227,6 +229,7 @@
       <Column Name="ShiptoAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Returnrequest" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">

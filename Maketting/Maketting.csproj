@@ -165,6 +165,12 @@
     <Compile Include="View\MKTFromdatetodateRegion.Designer.cs">
       <DependentUpon>MKTFromdatetodateRegion.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTissuereturnRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTissuereturnRequest.Designer.cs">
+      <DependentUpon>MKTissuereturnRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTissuephieu2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -527,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTFromdatetodateRegion.resx">
       <DependentUpon>MKTFromdatetodateRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTissuereturnRequest.resx">
+      <DependentUpon>MKTissuereturnRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTissuephieu2.resx">
       <DependentUpon>MKTissuephieu2.cs</DependentUpon>

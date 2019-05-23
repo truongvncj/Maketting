@@ -2094,6 +2094,8 @@ namespace Maketting
 		
 		private System.Data.Linq.Binary _Barcode;
 		
+		private string _ghichu;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2122,6 +2124,8 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnBarcodeChanging(System.Data.Linq.Binary value);
     partial void OnBarcodeChanged();
+    partial void OnghichuChanging(string value);
+    partial void OnghichuChanged();
     #endregion
 		
 		public tbl_MKT_headRpt_Phieuissue()
@@ -2365,6 +2369,26 @@ namespace Maketting
 					this._Barcode = value;
 					this.SendPropertyChanged("Barcode");
 					this.OnBarcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(255)")]
+		public string ghichu
+		{
+			get
+			{
+				return this._ghichu;
+			}
+			set
+			{
+				if ((this._ghichu != value))
+				{
+					this.OnghichuChanging(value);
+					this.SendPropertyChanging();
+					this._ghichu = value;
+					this.SendPropertyChanged("ghichu");
+					this.OnghichuChanged();
 				}
 			}
 		}
@@ -3774,6 +3798,8 @@ namespace Maketting
 		
 		private string _shiptocity;
 		
+		private System.Nullable<int> _Returnrequest;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3862,6 +3888,8 @@ namespace Maketting
     partial void OnNoteChanged();
     partial void OnshiptocityChanging(string value);
     partial void OnshiptocityChanged();
+    partial void OnReturnrequestChanging(System.Nullable<int> value);
+    partial void OnReturnrequestChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4709,6 +4737,26 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnrequest", DbType="Int")]
+		public System.Nullable<int> Returnrequest
+		{
+			get
+			{
+				return this._Returnrequest;
+			}
+			set
+			{
+				if ((this._Returnrequest != value))
+				{
+					this.OnReturnrequestChanging(value);
+					this.SendPropertyChanging();
+					this._Returnrequest = value;
+					this.SendPropertyChanged("Returnrequest");
+					this.OnReturnrequestChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4784,6 +4832,8 @@ namespace Maketting
 		
 		private string _Trucknumber;
 		
+		private System.Nullable<int> _Returnrequest;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4836,6 +4886,8 @@ namespace Maketting
     partial void OnNoteChanged();
     partial void OnTrucknumberChanging(string value);
     partial void OnTrucknumberChanged();
+    partial void OnReturnrequestChanging(System.Nullable<int> value);
+    partial void OnReturnrequestChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -5319,6 +5371,26 @@ namespace Maketting
 					this._Trucknumber = value;
 					this.SendPropertyChanged("Trucknumber");
 					this.OnTrucknumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnrequest", DbType="Int")]
+		public System.Nullable<int> Returnrequest
+		{
+			get
+			{
+				return this._Returnrequest;
+			}
+			set
+			{
+				if ((this._Returnrequest != value))
+				{
+					this.OnReturnrequestChanging(value);
+					this.SendPropertyChanging();
+					this._Returnrequest = value;
+					this.SendPropertyChanged("Returnrequest");
+					this.OnReturnrequestChanged();
 				}
 			}
 		}

@@ -466,8 +466,8 @@ namespace Maketting.View
                     {
                         lbgatepassno.Text = this.sophieu;
 
-                       
-                     
+
+
 
                         txtnguoinhan.Text = rs.Receiver_by;// = 
 
@@ -559,7 +559,7 @@ namespace Maketting.View
                             txtcity.Text = item.shiptocity;
 
                         }
-                      
+
                     }
 
                     #endregion
@@ -791,7 +791,7 @@ namespace Maketting.View
                 return;
             }
 
-            
+
 
             if (cbkhohang.Text == "")
             {
@@ -879,7 +879,7 @@ namespace Maketting.View
             if (checkdetail && checkhead)
             {
 
-            
+
 
 
                 if (this.statusphieu == 2) //; nếu là change requaes
@@ -963,7 +963,7 @@ namespace Maketting.View
                         detailphieu.Ngaytaophieu = datepickngayphieu.Value;
                         detailphieu.Purpose = txtmucdichname.Text;
                         detailphieu.Purposeid = txtmact.Text;
-                     //   detailphieu.
+                        //   detailphieu.
 
 
 
@@ -1221,6 +1221,7 @@ namespace Maketting.View
                 headpx.Sophieu = rptMKThead.Gate_pass;
                 headpx.Nguoinhanname = rptMKThead.ShiptoName;
                 headpx.seri = rptMKThead.Region + this.storelocation + rptMKThead.Gate_pass;
+                headpx.ghichu = rptMKThead.Note;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
@@ -1275,7 +1276,7 @@ namespace Maketting.View
                              Nguoinhanname = pp.Nguoinhanname,
                              Diachi = pp.Diachi,
                              mucdich = pp.mucdich,
-
+                             ghichu = pp.ghichu,
                              dienthoai = pp.dienthoai,
                              seri = pp.seri,
                              Barcode = pp.Barcode
@@ -1321,7 +1322,7 @@ namespace Maketting.View
         private void dataGridViewListphieuthu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-          
+
 
         }
 
@@ -2087,7 +2088,7 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+
 
             string connection_string = Utils.getConnectionstr();
 
@@ -2124,19 +2125,22 @@ namespace Maketting.View
 
             if (rs != null)
             {
-              
+
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
-                txtshiptoaddress.Text = rs.ShiptoAddress;
-              //  txtcustcode.Enabled = true;
-             
-           //     txtcustcode.Enabled = false;
 
-             //   txtShiptoCode.Enabled = true;
 
-             
-             //   txtShiptoCode.Enabled = false;
+
+                //   txt
+                //  txtcustcode.Enabled = true;
+
+                //     txtcustcode.Enabled = false;
+
+                //   txtShiptoCode.Enabled = true;
+
+
+                //   txtShiptoCode.Enabled = false;
 
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
@@ -2153,6 +2157,9 @@ namespace Maketting.View
                 // txtcustcode
                 //         txtShiptoCode
                 txtNote.Text = rs.Note;
+                txtshiptoaddress.Text = rs.ShiptoAddress;
+
+
 
 
                 //  cbkhohang.Items
@@ -2204,7 +2211,7 @@ namespace Maketting.View
                     addDEtailPhieuMKT(item);
                     //  xxx
 
-
+                    txtcity.Text = item.shiptocity;
 
                 }
 
@@ -2300,7 +2307,7 @@ namespace Maketting.View
 
                              //     Customer = pp.Customer_SAP_Code,
                              pp.Address,
-                            
+
                              Store = pp.ShippingPoint,
                              Created_by = pp.Username,
                              pp.Requested_by,
@@ -2550,7 +2557,7 @@ namespace Maketting.View
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptoname.Text = rs2.FullNameN;
                     txtcity.Text = rs2.City;
-                 //  txtshiptocodeseach.Text = rs2.FullNameN;
+                    //  txtshiptocodeseach.Text = rs2.FullNameN;
 
                     txtshiptocodeseach.Text = "";
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
@@ -2612,7 +2619,7 @@ namespace Maketting.View
 
                 var rs = (from pp in dc.tbl_MKT_Soldtocodes
                           where pp.Customer == customercodefind
-                     &&     pp.ShiptoCode.Contains(seachtext)
+                     && pp.ShiptoCode.Contains(seachtext)
                           //     && pp.Soldtype == false
                           //  &&
                           select new
@@ -2783,17 +2790,17 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
 
                     txtnguoinhan.Text = rs2.FullNameN;
-                    txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
+              
                     txttel.Text = rs2.Telephone1;
                     txtshiptoname.Text = rs2.FullNameN;
                     txtcity.Text = rs2.City;
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptocodeseach.Text = "";
-                //    txtshiptocodeseach.Text = rs2.FullNameN;
+                    //    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
-
+                    txtdiachi.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     //this.Customerbugetioaproval = (from pp in dc.tbl_MKT_Payment_Aprovals
                     //                               where pp.Customercode == rs2.Customer
                     //                               && pp.IO_number == this.IO_number
@@ -2878,7 +2885,7 @@ namespace Maketting.View
 
             var rs = (from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
-                      && pp.ShipmentNumber !=""
+                      && pp.ShipmentNumber != ""
                       select pp.ShipmentNumber).FirstOrDefault();
 
             if (rs != null)
@@ -2918,6 +2925,8 @@ namespace Maketting.View
             txtShiptoCode.Text = "";
             txtcity.Text = "";
             txtshiptoaddress.Text = "";
+            txtshiptoname.Text = "";
+            txtdiachi.Text = "";
         }
 
         private void txtnguoinhan_TextChanged(object sender, EventArgs e)
@@ -2927,6 +2936,9 @@ namespace Maketting.View
             txtShiptoCode.Text = "";
             txtcity.Text = "";
             txtshiptoaddress.Text = "";
+            txtshiptoname.Text = "";
+            txtdiachi.Text = "";
+
         }
     }
 }

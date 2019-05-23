@@ -315,9 +315,10 @@ namespace Maketting.View
 
             Model.MKT.DeleteALLLoadtamTMP();
 
+            //            Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
-            this.rs =  Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
+
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
 
             //   dataGridViewDetail.Columns(3).DefaultCellStyle.Format = "#.###";
             dataGridViewDetail.Columns["pallet"].DefaultCellStyle.Format = "N3";
@@ -434,7 +435,7 @@ namespace Maketting.View
             List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+            this.dc = dc;
             //   string username = Utils.getusername();
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
                       where (from gg in dc.tbl_MKT_StoreRights
@@ -2131,7 +2132,7 @@ namespace Maketting.View
 
             }
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
 
@@ -2215,7 +2216,7 @@ namespace Maketting.View
 
             //  Model.MKT.DeleteALLphieutamTMP();
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
             dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
 
 
@@ -2335,7 +2336,7 @@ namespace Maketting.View
 
             //     dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
             //     x
-         //   dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
+            //   dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
             Model.MKT.DanhsachPhieuMKTtoDLVseach(this.storelocation, dataGridViewDetail, txtseachaddress.Text, txtseachcode.Text, txtseachgate.Text);
 
             // String.Format("{0:0.##}", 123.4567);
@@ -2396,7 +2397,7 @@ namespace Maketting.View
 
             }
 
-            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation,dc);
+            dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
 
             //    txtPallet.Text = this.palletofLoad.ToString();
             txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
@@ -2620,20 +2621,17 @@ namespace Maketting.View
         {
             Control_ac ctrex = new Control_ac();
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-            string seachaddress = txtseachaddress.Text;
-            string seachcode = txtseachcode.Text;
-            string seachgate = txtseachgate.Text;
+            //  Control_ac ctrex = new Control_ac();
 
-        //    var rs = this.rs;
-          //  dataGridViewDetail.DataSource = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation);
-            this.rs = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, dc);
+            this.rs = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, this.dc);
+
+            ctrex.exportexceldatagridtofile(this.rs, this.dc, this.Text);
 
 
 
 
-            ctrex.exportexceldatagridtofile(rs, dc, this.Text);
+
+            //   ctrex.exportexceldatagridtofile(rs, dc, this.Text);
 
         }
 

@@ -6,12 +6,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>18.83067cm</Width>
+              <Width>18.64254cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>8.61688cm</Height>
+              <Height>9.31789cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1188,6 +1188,78 @@
                             </Border>
                           </Style>
                         </Image>
+                        <Textbox Name="Textbox57">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Note( Ghi chú):</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.37957in</Top>
+                          <Left>0.1125in</Left>
+                          <Height>0.25in</Height>
+                          <Width>1.25601in</Width>
+                          <ZIndex>34</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox58">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ghichu.Value</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.38095in</Top>
+                          <Left>1.41532in</Left>
+                          <Height>0.23612in</Height>
+                          <Width>5.88345in</Width>
+                          <ZIndex>35</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -1216,9 +1288,9 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.16558cm</Top>
-        <Left>0.22233cm</Left>
-        <Height>8.61688cm</Height>
-        <Width>18.83067cm</Width>
+        <Left>0.31962cm</Left>
+        <Height>9.31789cm</Height>
+        <Width>18.64254cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1234,7 +1306,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>7.76016cm</Height>
+              <Height>6.58454cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1335,7 +1407,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.97672in</Top>
+                              <Top>0.86422in</Top>
                               <Left>2.9088in</Left>
                               <Height>0.24722in</Height>
                               <Width>4.15282in</Width>
@@ -1372,7 +1444,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.97672in</Top>
+                              <Top>0.86422in</Top>
                               <Left>0.03in</Left>
                               <Height>0.25in</Height>
                               <Width>2.8788in</Width>
@@ -1484,7 +1556,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.70658in</Top>
+                              <Top>2.34408in</Top>
                               <Left>0.02362in</Left>
                               <Height>0.1875in</Height>
                               <Width>5.14761in</Width>
@@ -1527,38 +1599,6 @@
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Times New Roman</FontFamily>
                                         <FontSize>11pt</FontSize>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>11pt</FontSize>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Normal</FontWeight>
                                         <TextDecoration>None</TextDecoration>
                                         <Color>#000000</Color>
@@ -1633,9 +1673,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.22672in</Top>
+                              <Top>1.12811in</Top>
                               <Left>0.02362in</Left>
-                              <Height>1.41041in</Height>
+                              <Height>1.14652in</Height>
                               <Width>2.87129in</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -1684,9 +1724,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.22672in</Top>
+                              <Top>1.12464in</Top>
                               <Left>2.89491in</Left>
-                              <Height>1.41041in</Height>
+                              <Height>1.14999in</Height>
                               <Width>4.16671in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
@@ -1701,9 +1741,9 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Top>0.05243in</Top>
-                          <Left>0.06547in</Left>
-                          <Height>2.89408in</Height>
+                          <Top>0.06076in</Top>
+                          <Left>0.04645in</Left>
+                          <Height>2.53158in</Height>
                           <Width>7.31903in</Width>
                           <Style>
                             <Border>
@@ -1741,9 +1781,9 @@
         <PageBreak>
           <BreakLocation>End</BreakLocation>
         </PageBreak>
-        <Top>11.20654cm</Top>
-        <Left>0.1411cm</Left>
-        <Height>7.76016cm</Height>
+        <Top>11.85142cm</Top>
+        <Left>0cm</Left>
+        <Height>6.58456cm</Height>
         <Width>18.87097cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -2258,8 +2298,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet2</DataSetName>
-        <Top>8.9797cm</Top>
-        <Left>0.23376cm</Left>
+        <Top>9.62458cm</Top>
+        <Left>0.38639cm</Left>
         <Height>2.05045cm</Height>
         <Width>18.50997cm</Width>
         <ZIndex>2</ZIndex>
@@ -2298,7 +2338,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>8.61688cm</Height>
+              <Height>9.24567cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3302,8 +3342,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <Top>3.06811in</Top>
-                          <Left>0.09478in</Left>
+                          <Top>3.07505in</Top>
+                          <Left>0.07407in</Left>
                           <Height>0.25in</Height>
                           <Width>1.25601in</Width>
                           <ZIndex>28</ZIndex>
@@ -3475,6 +3515,78 @@
                             </Border>
                           </Style>
                         </Image>
+                        <Textbox Name="Textbox59">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Note( Ghi chú):</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.3945in</Top>
+                          <Left>0.10802in</Left>
+                          <Height>0.2014in</Height>
+                          <Width>1.19966in</Width>
+                          <ZIndex>34</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox60">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ghichu.Value</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.34728in</Top>
+                          <Left>1.42023in</Left>
+                          <Height>0.23612in</Height>
+                          <Width>5.81771in</Width>
+                          <ZIndex>35</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
                       <Style>
@@ -3503,8 +3615,8 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>19.40237cm</Top>
-        <Left>0.0342cm</Left>
-        <Height>8.61688cm</Height>
+        <Left>0.13149cm</Left>
+        <Height>9.24567cm</Height>
         <Width>18.83067cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
@@ -3517,12 +3629,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>18.87097cm</Width>
+              <Width>18.63228cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>7.76016cm</Height>
+              <Height>6.9814cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -3552,7 +3664,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.24791in</Top>
-                              <Left>0.07167in</Left>
+                              <Left>0.08205in</Left>
                               <Height>0.25in</Height>
                               <Width>1.9047in</Width>
                               <Style>
@@ -3587,7 +3699,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.52568in</Top>
-                              <Left>0.07167in</Left>
+                              <Left>0.08205in</Left>
                               <Height>0.25in</Height>
                               <Width>2.03375in</Width>
                               <ZIndex>1</ZIndex>
@@ -3623,8 +3735,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.97672in</Top>
-                              <Left>2.79549in</Left>
+                              <Top>0.84512in</Top>
+                              <Left>2.80587in</Left>
                               <Height>0.24722in</Height>
                               <Width>4.26613in</Width>
                               <ZIndex>2</ZIndex>
@@ -3660,8 +3772,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.97672in</Top>
-                              <Left>0.03in</Left>
+                              <Top>0.84512in</Top>
+                              <Left>0.04038in</Left>
                               <Height>0.25in</Height>
                               <Width>2.76549in</Width>
                               <ZIndex>3</ZIndex>
@@ -3698,7 +3810,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
                               <Top>0.55346in</Top>
-                              <Left>3.60097in</Left>
+                              <Left>3.61135in</Left>
                               <Height>0.22222in</Height>
                               <Width>3.46065in</Width>
                               <ZIndex>4</ZIndex>
@@ -3734,7 +3846,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Left>0.08555in</Left>
+                              <Left>0.09593in</Left>
                               <Height>0.20624in</Height>
                               <Width>2.01987in</Width>
                               <ZIndex>5</ZIndex>
@@ -3772,7 +3884,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.70658in</Top>
+                              <Top>2.31388in</Top>
                               <Left>0.02362in</Left>
                               <Height>0.1875in</Height>
                               <Width>5.14761in</Width>
@@ -3791,54 +3903,6 @@
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>11pt</FontSize>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>11pt</FontSize>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value />
-                                      <Style>
-                                        <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Times New Roman</FontFamily>
-                                        <FontSize>11pt</FontSize>
-                                        <FontWeight>Normal</FontWeight>
-                                        <TextDecoration>None</TextDecoration>
-                                        <Color>#000000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
@@ -3921,9 +3985,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.22672in</Top>
-                              <Left>0.02362in</Left>
-                              <Height>1.41041in</Height>
+                              <Top>1.13679in</Top>
+                              <Left>0.04167in</Left>
+                              <Height>1.11874in</Height>
                               <Width>2.77187in</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -3972,9 +4036,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.22672in</Top>
+                              <Top>1.12568in</Top>
                               <Left>2.79549in</Left>
-                              <Height>1.41041in</Height>
+                              <Height>1.11874in</Height>
                               <Width>4.26613in</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
@@ -3989,10 +4053,10 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Top>0.05243in</Top>
-                          <Left>0.06547in</Left>
-                          <Height>2.89408in</Height>
-                          <Width>7.31903in</Width>
+                          <Top>0.05902in</Top>
+                          <Left>0.03833in</Left>
+                          <Height>2.50138in</Height>
+                          <Width>7.10636in</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -4026,10 +4090,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>30.42248cm</Top>
-        <Left>0.00281cm</Left>
-        <Height>7.76016cm</Height>
-        <Width>18.87097cm</Width>
+        <Top>31.05127cm</Top>
+        <Left>0.1001cm</Left>
+        <Height>6.9814cm</Height>
+        <Width>18.63228cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -4543,8 +4607,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet2</DataSetName>
-        <Top>28.19564cm</Top>
-        <Left>0.12511cm</Left>
+        <Top>28.82443cm</Top>
+        <Left>0.14018cm</Left>
         <Height>2.05045cm</Height>
         <Width>18.50997cm</Width>
         <ZIndex>5</ZIndex>
@@ -4583,7 +4647,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>19.08827cm</Width>
+  <Width>18.96216cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -4654,6 +4718,10 @@
         <Field Name="Barcode">
           <DataField>Barcode</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="ghichu">
+          <DataField>ghichu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

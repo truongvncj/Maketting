@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Linq;
 using System.Data.SqlClient;
-
+using Maketting.shared;
 namespace Maketting.Model
 {
     public class MKT
@@ -359,15 +359,15 @@ namespace Maketting.Model
 
         public static IQueryable DanhsachPhieuMKTtoDLV(string storelocation, LinqtoSQLDataContext dc)
         {
-            //    string connection_string = Utils.getConnectionstr();
-            //   LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            // string connection_string = Utils.getConnectionstr();
+            // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      from pp in dc.tbl_MKt_Listphieuheads
-             //        from ppp in dc.tbl_MKT_Soldtocodes
+                         //        from ppp in dc.tbl_MKT_Soldtocodes
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                    && p.Gate_pass == pp.Gate_pass
-             //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
+                     //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
                      orderby p.Gate_pass
                      select new
                      {
@@ -375,12 +375,12 @@ namespace Maketting.Model
                          Shipto_code = pp.ShiptoCode,
                          Gate_pass = p.Gate_pass,
                          pp.Region,
-                         City = p.shiptocity,
+                         Shipto_City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
                          Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
-                       
+
 
                          Địa_chỉ = pp.ShiptoAddress,
 
@@ -1926,14 +1926,14 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
                      from pp in dc.tbl_MKt_Listphieuheads
-                    // from ppp in dc.tbl_MKT_Soldtocodes
+                         // from ppp in dc.tbl_MKT_Soldtocodes
                      where p.ShippingPoint == storelocation && p.Status == "CRT"
                             && p.Gate_pass == pp.Gate_pass
-                            //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
+                     //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
                      && p.Address.Contains(txtseachaddress)
                              && p.Customer_SAP_Code.Contains(txtseachcode)
                                && p.Gate_pass.Contains(txtseachgate)
-                            
+
 
                      orderby p.Gate_pass
                      select new
@@ -1943,7 +1943,7 @@ namespace Maketting.Model
                          Shipto_code = pp.ShiptoCode,
                          Gate_pass = p.Gate_pass,
                          pp.Region,
-                         City = p.shiptocity,
+                         Shipto_City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
                          Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
@@ -1968,6 +1968,7 @@ namespace Maketting.Model
                      };
 
             dataGridViewDetail.DataSource = rs;
+
             dataGridViewDetail.Columns["pallet"].DefaultCellStyle.Format = "N3";
 
 

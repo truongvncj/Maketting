@@ -22,11 +22,19 @@ namespace Maketting.shared
 
         public static string Truncate(this string source, int length)
         {
-            if (source.Length > length)
+            if (source != null)
             {
-                return source.Substring(0, length);
+                if (source.Length > length)
+                {
+                    return source.Substring(0, length);
+                }
+                return source;
             }
-            return source;
+            else
+            {
+                return " ";
+            }
+         
         }
 
     }
