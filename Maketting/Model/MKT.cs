@@ -387,7 +387,7 @@ namespace Maketting.Model
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
-                         p.pallet,
+                         Pallet = p.pallet,
 
                          p.Purpose,
                          p.Receiver_by,
@@ -622,8 +622,9 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         Pallet = p.pallet,
                          p.Issued_dated,
-                         p.pallet,
+
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
@@ -634,6 +635,7 @@ namespace Maketting.Model
                          p.Completed_by,
                          p.ReturnQuantity,
                          p.Returndate,
+                         p.Return_reason,
                          p.Returnby,
                          Incinclude_Shipment = p.Included_Shipment,
 
@@ -693,7 +695,7 @@ namespace Maketting.Model
                          p.Unit,
                          Issued = p.Issued,
                          p.Issued_dated,
-                         p.pallet,
+                         Pallet = p.pallet,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
@@ -813,6 +815,7 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         Pallet = p.pallet,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
@@ -821,6 +824,7 @@ namespace Maketting.Model
                          p.Completed_by,
                          p.ReturnQuantity,
                          p.Returndate,
+                         p.Return_reason,
                          p.Returnby,
 
 
@@ -1951,7 +1955,7 @@ namespace Maketting.Model
                          p.Materiacode,
                          p.Materialname,
                          Số_lượng_xuất = p.Issued,
-                         p.pallet,
+                         Pallet = p.pallet,
 
                          p.Purpose,
 

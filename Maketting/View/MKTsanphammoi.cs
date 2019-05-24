@@ -63,7 +63,21 @@ namespace Maketting.View
             this.storelocation = storelocation;
 
             this.id = idsanpham;
-            if (loai == 2) // xóa + sua
+
+            
+                  if (loai == 1) // tạo mới
+            {
+                this.btupdate.Visible = false;
+                this.btxoa.Visible = false;
+                this.btnew.Visible = true;
+                //  this.txtmaNCC.Text = makhachhang;
+                //txtitemcode.Text = idsanpham.ToString();
+                //      txtitemcode.Enabled = false;
+                ///
+
+            }
+
+                if (loai == 2) // xóa + sua
             {
                 this.btnew.Visible = false;
                 this.btxoa.Visible = false;

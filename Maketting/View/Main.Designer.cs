@@ -111,6 +111,8 @@
             this.recieptedReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.gRListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
+            this.newProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,8 +149,9 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
-            this.newProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertWrongReturnTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -264,7 +267,10 @@
             this.storeLocationManageToolStripMenuItem,
             this.salesOrgListToolStripMenuItem,
             this.regionListToolStripMenuItem,
-            this.channelListToolStripMenuItem});
+            this.channelListToolStripMenuItem,
+            this.toolStripSeparator26,
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem,
+            this.revertWrongReturnTicketToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -757,6 +763,18 @@
             this.gRListToolStripMenuItem.Text = "PO Good Receipt list";
             this.gRListToolStripMenuItem.Click += new System.EventHandler(this.gRListToolStripMenuItem_Click);
             // 
+            // toolStripSeparator25
+            // 
+            this.toolStripSeparator25.Name = "toolStripSeparator25";
+            this.toolStripSeparator25.Size = new System.Drawing.Size(310, 6);
+            // 
+            // newProductToolStripMenuItem
+            // 
+            this.newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
+            this.newProductToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.newProductToolStripMenuItem.Text = "New Product";
+            this.newProductToolStripMenuItem.Click += new System.EventHandler(this.newProductToolStripMenuItem_Click);
+            // 
             // settlementToolStripMenuItem
             // 
             this.settlementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1030,17 +1048,24 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // toolStripSeparator25
+            // toolStripSeparator26
             // 
-            this.toolStripSeparator25.Name = "toolStripSeparator25";
-            this.toolStripSeparator25.Size = new System.Drawing.Size(310, 6);
+            this.toolStripSeparator26.Name = "toolStripSeparator26";
+            this.toolStripSeparator26.Size = new System.Drawing.Size(327, 6);
             // 
-            // newProductToolStripMenuItem
+            // checkAndUpdateStatusAfterIssueToolStripMenuItem
             // 
-            this.newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
-            this.newProductToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.newProductToolStripMenuItem.Text = "New Product";
-            this.newProductToolStripMenuItem.Click += new System.EventHandler(this.newProductToolStripMenuItem_Click);
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Name = "checkAndUpdateStatusAfterIssueToolStripMenuItem";
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Text = "Check and update status after issue";
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Click += new System.EventHandler(this.checkAndUpdateStatusAfterIssueToolStripMenuItem_Click);
+            // 
+            // revertWrongReturnTicketToolStripMenuItem
+            // 
+            this.revertWrongReturnTicketToolStripMenuItem.Name = "revertWrongReturnTicketToolStripMenuItem";
+            this.revertWrongReturnTicketToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.revertWrongReturnTicketToolStripMenuItem.Text = "Revert wrong return ticket";
+            this.revertWrongReturnTicketToolStripMenuItem.Click += new System.EventHandler(this.revertWrongReturnTicketToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1183,6 +1208,9 @@
         private ToolStripMenuItem mKTCollectedRequestToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator25;
         private ToolStripMenuItem newProductToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator26;
+        private ToolStripMenuItem checkAndUpdateStatusAfterIssueToolStripMenuItem;
+        private ToolStripMenuItem revertWrongReturnTicketToolStripMenuItem;
     }
 }
 

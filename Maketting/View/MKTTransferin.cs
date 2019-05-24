@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Maketting.shared;
 
 
 namespace Maketting.View
@@ -567,7 +568,7 @@ namespace Maketting.View
                              //   newtransferin.u = txtnguoinhanhang.Text;
                                 newtransferin.MateriaItemcode = item.MateriaItemcode;
                                 newtransferin.MateriaSAPcode = item.MateriaSAPcode;
-                                newtransferin.Materialname = item.Materialname;
+                                newtransferin.Materialname = item.Materialname.Truncate(225);
                                 newtransferin.Unit = item.Unit;
                                 newtransferin.Tranfernumber = item.Tranfernumber;
                                 newtransferin.Store_IN = item.Store_IN;
@@ -602,7 +603,7 @@ namespace Maketting.View
 
                                 phieuxuatnhap.MateriaItemcode = item.MateriaItemcode;
                                 phieuxuatnhap.Materiacode = item.MateriaSAPcode; //(string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
-                                phieuxuatnhap.Materialname = item.Materialname;// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
+                                phieuxuatnhap.Materialname = item.Materialname.Truncate(50);// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
                              //   phieuxuatnhap.Serriload = this.Loadnumberserri;
                                
                               //  phieuxuatnhap.Status = "CRT";

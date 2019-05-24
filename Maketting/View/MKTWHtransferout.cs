@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Maketting.shared;
 
 
 namespace Maketting.View
@@ -643,7 +644,7 @@ namespace Maketting.View
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
                         {
-                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
+                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value.ToString().Truncate(225);
                         }
 
                         if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
@@ -753,7 +754,7 @@ namespace Maketting.View
 
                         phieuxuatnhap.MateriaItemcode = item.MateriaItemcode;
                         phieuxuatnhap.Materiacode = item.MateriaSAPcode; //(string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
-                        phieuxuatnhap.Materialname = item.Materialname;// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
+                        phieuxuatnhap.Materialname = item.Materialname.Truncate(50);// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
                                                                        //   phieuxuatnhap.Serriload = this.Loadnumberserri;
 
                         //  phieuxuatnhap.Status = "CRT";
@@ -856,6 +857,9 @@ namespace Maketting.View
             Model.MKT.DeleteALLphieuDetailTransfertamTMP();
 
             this.Transfernumber = Model.MKT.getNewTransferNumber();
+
+            cleartoblankPOphieu();
+
             txttrasfernumber.Text = this.Transfernumber;
             btluu.Enabled = true;
 

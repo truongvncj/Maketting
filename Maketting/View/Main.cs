@@ -6084,6 +6084,224 @@ namespace Maketting.View
 
 
         }
+
+        private void checkAndUpdateStatusAfterIssueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+
+            var rs = from pp in dc.tbl_MKt_WHstoreissues
+                     where pp.LoadNumber != ""
+                     select pp.LoadNumber;
+
+
+            var rs2 = from p in dc.tbl_MKt_ListLoadheads
+                      where rs.Contains(p.LoadNumber)
+                      && (p.Status == "Shipping" || p.Status == "CRT")
+                      select p;
+
+            if (rs2.Count()>0)
+            {
+                foreach (var item in rs2)
+                {
+
+                    item.Status = "Delivering";
+                    dc.SubmitChanges();
+//                        All
+//CRT
+//Shipping
+//Delivering
+//completed
+                }
+            }
+
+            //var rs = from pp in dc.tbl_MKt_WHstoreissues
+            //         where pp.LoadNumber != ""
+            //         select pp.LoadNumber;
+
+
+            var rs3 = from p in dc.tbl_MKt_Listphieudetails
+                      where rs.Contains(p.ShipmentNumber)
+                      && (p.Status == "Shipping" || p.Status == "CRT")
+                      select p;
+
+            if (rs2.Count() > 0)
+            {
+                foreach (var item in rs2)
+                {
+
+                    item.Status = "Delivering";
+                    dc.SubmitChanges();
+                    //                        All
+                    //CRT
+                    //Shipping
+                    //Delivering
+                    //completed
+                }
+            }
+
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        var q = from tblVat in dc.tblVats
+            //                where !(from tblFBL5N in dc.tblFBL5Ns
+            //                        select tblFBL5N.Document_Number).Contains(tblVat.SAP_Invoice_Number)
+            //                && tblVat.Invoice_Amount_Before_VAT > 0
+            //                select tblVat;
+
+
+
+            //if (q.Count() != 0)
+            //{
+
+            //    Viewtable viewtbl = new Viewtable(q, dc, "List các document có trong bảng VAT không có trong bảng FBL5N ! Please check ", 1, DateTime.Today, DateTime.Today);
+            //    viewtbl.ShowDialog();
+            //    return false;
+            //}
+
+
+            //                      where pp.Store_code == storelocation
+
+
+            //tbl_MKt_WHstoreissue phieuxuat = new tbl_MKt_WHstoreissue();
+
+            //phieuxuat.IssueBy = txtnguoixuathang.Text;
+            //phieuxuat.Issued = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
+            //phieuxuat.IssueDate = datecreated.Value;
+            //phieuxuat.date_input_output = datecreated.Value;
+            //phieuxuat.Document_number = this.Loadnumberserri;
+            ////          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+            //phieuxuat.IssueIDsub = IssueIDsub;
+            //phieuxuat.LoadNumber = this.soload;
+            //phieuxuat.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+
+            //phieuxuat.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+            //phieuxuat.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
+            //phieuxuat.Serriload = this.Loadnumberserri;
+            //phieuxuat.ShippingPoint = this.storelocation;
+            //phieuxuat.Status = "CRT";
+            //phieuxuat.Username = this.Username;
+
+            //dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieuxuat);
+            //dc.SubmitChanges();
+
+
+
+
+
+
+
+        }
+
+        private void revertWrongReturnTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("LOADSERI NUMBER To Return Revert");
+            pxk.ShowDialog();
+            //c
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+                           where pp.Serriload == Loadnumberserri
+
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+
+                var rs6 = (from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == Loadnumberserri
+
+
+                           select pp).FirstOrDefault();
+                if (rs6 == null)
+                {
+                    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    return;
+
+                }
+
+                var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
+                           where pp.Serriload == Loadnumberserri
+                           && pp.RecieptQuantity > 0
+
+
+                           select pp);
+                if (rs7.Count()>0)
+                {
+                    // MessageBox.Show("Phiếu đã nhập hàng về rồi, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+
+                    // return;
+                    foreach (var item in rs7)
+                    {
+
+
+
+                        Model.MKT.giamtrukhokhixuathang(item);
+
+                        item.RecieptQuantity = 0;
+                        dc.SubmitChanges();
+
+
+                 //      Model.MKT.tangkhokhinhaphang(item, this.storelocation);
+
+                      
+
+
+                    }
+
+
+
+
+
+
+                }
+
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                //#region// xuất hagf
+                ////if (name == "tmphieuthu")
+                ////{
+                //// MKTNhaphangtheoPo
+                ////  Main.clearpannel();
+                ////   Formload.
+                //// clearpannel();
+                //this.clearpannel();
+
+
+                //View.MKTNhaphangreturn xuatkho = new MKTNhaphangreturn(this, Loadnumberserri);
+                //this.clearpannelload(xuatkho);
+                //// this.Close();
+                //#endregion
+
+
+
+            }
+
+
+        }
     }
 
 

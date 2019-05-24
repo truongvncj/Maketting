@@ -41,7 +41,7 @@ namespace Maketting.View
 
             DataTable dt = new DataTable();
 
-
+            dt.Columns.Add(new DataColumn("Region", typeof(string)));
             dt.Columns.Add(new DataColumn("Gate_pass", typeof(string)));
             dt.Columns.Add(new DataColumn("Shipping_Point", typeof(string)));
             dt.Columns.Add(new DataColumn("Customer_code", typeof(string)));
@@ -73,13 +73,14 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-
+            //     dt.Columns.Add(new DataColumn("Region", typeof(string)));
             //---------------
 
             DataTable dataTable = (DataTable)dataGridViewLoaddetail.DataSource;
 
             DataRow drToAdd = dataTable.NewRow();
 
+            drToAdd["Region"] = PhieuMKT.Region;
             drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
             drToAdd["Shipping_Point"] = PhieuMKT.ShippingPoint;
             drToAdd["Customer_code"] = PhieuMKT.Customer_SAP_Code;
@@ -195,7 +196,7 @@ namespace Maketting.View
             this.Createdby = Utils.getname();
             //       this.Loadnumberserri = Loadnumberserri;
             txtupdateby.Text = "";
-          
+
 
 
             txtupdateby.Text = Utils.getname();
@@ -220,7 +221,7 @@ namespace Maketting.View
             txtmktseri.Focus();
 
 
-        //    txtmktseri
+            //    txtmktseri
 
         }
 
@@ -390,7 +391,7 @@ namespace Maketting.View
             }
         }
 
-   
+
         //private void button1_Click(object sender, EventArgs e)  // new phieu 
         //{
 
@@ -2180,6 +2181,52 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+
+                #region newwu là phiếu đã tich trong list ở dưới
+                for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
+                {
+                    try
+                    {
+                        if (dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value != DBNull.Value)
+                        {
+
+                            string Gate_pass = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value.ToString().Trim();
+                            string Shipping_Point = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Shipping_Point"].Value.ToString().Trim();
+                            string Region = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Region"].Value.ToString().Trim();
+
+
+                            if (Region + Shipping_Point + Gate_pass == seachtext)
+                            {
+                                txtmktseri.Text = "";
+
+
+                                MessageBox.Show("Updated as below list ! ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                txtmktseri.Focus();
+
+
+
+                            }
+
+
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        return;
+
+
+                    }
+
+
+
+
+                }
+
+                #endregion
+
+
                 var rs = from pp in dc.tbl_MKt_Listphieuheads
                          where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == seachtext
                          select pp;
@@ -2197,7 +2244,7 @@ namespace Maketting.View
                         }
                         else
                         {
-                            MessageBox.Show("Please check, this POSM ticket status is : "+ item.Status, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Please check, this POSM ticket status is : " + item.Status + " please issue Load: " + item.ShippingPoint + item.LoadNumber, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
@@ -2209,6 +2256,8 @@ namespace Maketting.View
                 {
                     MessageBox.Show("Please check, wrong POSM ticket !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+
 
 
 
@@ -2246,7 +2295,7 @@ namespace Maketting.View
             Reportsview rpt = new Reportsview(null, dataset2, "PhieuMKTcompleted.rdlc");
             rpt.ShowDialog();
 
-          //  x
+            //  x
 
 
 
@@ -2293,7 +2342,7 @@ namespace Maketting.View
 
                             item.completed = true;
                             item.Date_Received_Issued = dateupdate.Value;
-                        //    item.completedby = txtupdateby.Text;
+                            //    item.completedby = txtupdateby.Text;
                             item.completedby = this.Username;
 
 

@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -638,7 +638,7 @@ namespace Maketting.View
 
                         if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
                         {
-                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
+                            detailphieu.Materialname = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value.ToString().Truncate(255);
                         }
 
                         if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
@@ -659,7 +659,7 @@ namespace Maketting.View
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
                         {
-                            detailphieu.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
+                            detailphieu.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value.ToString().Truncate(255);
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Unit"].Value != DBNull.Value)
                         {

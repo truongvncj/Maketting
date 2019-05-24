@@ -368,6 +368,8 @@ namespace Maketting.View
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         p.pallet,
+
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
@@ -377,6 +379,7 @@ namespace Maketting.View
                          p.ReturnQuantity,
                          p.Returndate,
                          p.Returnby,
+                         p.Return_reason,
 
                          p.Note,
 
@@ -560,29 +563,36 @@ namespace Maketting.View
 
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
-            //    STORERPT
-            string storecode = "";
-            #region View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT"); tạo sản  phẩm mới của kho
-            try
-            {
-                storecode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
-            }
-            catch (Exception)
+
+            if (this.viewcode == 55)
             {
 
-                MessageBox.Show("Bạn phải chọn một dòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               // mahieuct = "0";
-                return;
+                //    STORERPT
+                string storecode = "";
+                #region View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT"); tạo sản  phẩm mới của kho
+                try
+                {
+                    storecode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // mahieuct = "0";
+                    return;
+                }
+
+
+
+                MKTsanphammoi spmaoi = new MKTsanphammoi(1, 0, storecode, this);
+                spmaoi.ShowDialog();
+
+
+
+                #endregion
+
+
             }
-
-
-
-            MKTsanphammoi spmaoi = new MKTsanphammoi(1,0, storecode, this);
-            spmaoi.ShowDialog();
-
-
-
-            #endregion
 
             #region  // viewcode ==19  sales orge list
 

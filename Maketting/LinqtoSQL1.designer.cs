@@ -3800,6 +3800,8 @@ namespace Maketting
 		
 		private System.Nullable<int> _Returnrequest;
 		
+		private string _Return_reason;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3890,6 +3892,8 @@ namespace Maketting
     partial void OnshiptocityChanged();
     partial void OnReturnrequestChanging(System.Nullable<int> value);
     partial void OnReturnrequestChanged();
+    partial void OnReturn_reasonChanging(string value);
+    partial void OnReturn_reasonChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4753,6 +4757,26 @@ namespace Maketting
 					this._Returnrequest = value;
 					this.SendPropertyChanged("Returnrequest");
 					this.OnReturnrequestChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Return_reason", DbType="NVarChar(255)")]
+		public string Return_reason
+		{
+			get
+			{
+				return this._Return_reason;
+			}
+			set
+			{
+				if ((this._Return_reason != value))
+				{
+					this.OnReturn_reasonChanging(value);
+					this.SendPropertyChanging();
+					this._Return_reason = value;
+					this.SendPropertyChanged("Return_reason");
+					this.OnReturn_reasonChanged();
 				}
 			}
 		}

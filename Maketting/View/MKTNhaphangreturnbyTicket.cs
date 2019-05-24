@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -75,6 +75,7 @@ namespace Maketting.View
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Return_Quantity", typeof(float)));
+                dataTable.Columns.Add(new DataColumn("Return_Reason", typeof(string)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -544,7 +545,7 @@ namespace Maketting.View
                                 item.ReturnQuantity = item.ReturnQuantity + (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
                                 item.Returnby = txtnguoireturn.Text;
                                 item.Returndate = datereturn.Value;
-
+                                item.Return_reason = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Reason"].Value.ToString().Truncate(255);
 
 
 
