@@ -4476,7 +4476,7 @@ namespace Maketting.View
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs1 = Model.MKT.danhkhachhang(dc);
+            var rs1 = Model.MKT.danhkhachhangrutgon(dc);
             Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
@@ -5816,7 +5816,7 @@ namespace Maketting.View
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs1 = Model.MKT.danhkhachhang(dc);
+            var rs1 = Model.MKT.danhkhachhangrutgon(dc);
             Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
@@ -6299,6 +6299,115 @@ namespace Maketting.View
 
 
             }
+
+
+        }
+
+        private void gatepassIssueFormDateToDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyIssuedate(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ISSUE FORM : "+ fromdate.ToShortDateString() +" TO: " + todate.ToShortDateString(), 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+
+        }
+
+        private void deleteShiptoCodeIsNotANumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Soldtocodes
+                  //   where Utils.IsValidnumber(p.ShiptoCode) == false
+                     select p;
+            if (rs.Count()>0)
+            {
+
+                foreach (var item in rs)
+                {
+
+                    if (!Utils.IsValidnumber(item.ShiptoCode))
+                    {
+
+                        item.Createby = "0";
+                        dc.SubmitChanges();
+
+
+                    }
+
+
+                }
+
+            }
+
+            var rs2 = from p in dc.tbl_MKT_Soldtocodes
+                           where p.Createby == "0"
+                     select p;
+
+            if (rs2.Count()>0)
+            {
+                dc.tbl_MKT_Soldtocodes.DeleteAllOnSubmit(rs2);
+                dc.SubmitChanges();
+
+            }
+
+            //Viewtable viewtbl = new Viewtable(rs2, dc, "Danh sách shipto code sai", 100, "shiptocodewrong");// mã 5 là danh sach nha nha ccaaps
+
+            //viewtbl.ShowDialog();
+
+            MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+        }
+
+        private void reDeviceGoodRecieptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "Detail Goodreceipt List - Double click to redevice for each region ", 55, "tkRedeviceGRforRegion");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+
+
+
+
 
 
         }
