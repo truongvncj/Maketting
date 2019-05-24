@@ -122,7 +122,7 @@ namespace Maketting.View
                         else
                         {
 
-                            MessageBox.Show("You are using old version \n please use the new BEE ACCOUTING : " + Ver.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show("You are using old version \n please use the new one: " + Ver.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             this.Close();
 
 

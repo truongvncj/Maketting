@@ -489,7 +489,7 @@ namespace Maketting.View
             btaddto.Visible = false;
             if (viewcode == 55) // 55 chỉ view và exports
             {
-                bt_themmoi.Visible = false;
+                bt_themmoi.Visible = true;
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
                 //  lbseach.Visible = false;
@@ -561,8 +561,28 @@ namespace Maketting.View
         private void bt_themmoi_Click(object sender, EventArgs e)
         {
             //    STORERPT
+            string storecode = "";
+            #region View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT"); tạo sản  phẩm mới của kho
+            try
+            {
+                storecode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Bạn phải chọn một dòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // mahieuct = "0";
+                return;
+            }
 
 
+
+            MKTsanphammoi spmaoi = new MKTsanphammoi(1,0, storecode, this);
+            spmaoi.ShowDialog();
+
+
+
+            #endregion
 
             #region  // viewcode ==19  sales orge list
 

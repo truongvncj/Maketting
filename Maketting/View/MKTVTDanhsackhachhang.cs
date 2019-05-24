@@ -456,7 +456,13 @@ namespace Maketting.View
                 return;
             }
 
+            if (!Utils.IsValidnumber(txtcustomercode.Text))
+            {
+                MessageBox.Show("Pleae check, customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtcustomercode.Focus();
 
+                return;
+            }
             this.customername = this.txtname.Text.Truncate(225);
          
             this.street = this.txtstreet.Text.Truncate(225);

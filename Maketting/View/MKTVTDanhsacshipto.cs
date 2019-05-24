@@ -406,6 +406,22 @@ namespace Maketting.View
                 return;
             }
 
+            if (!Utils.IsValidnumber(this.txtShiptocode.ToString()) )
+            {
+                MessageBox.Show("Please check, ship to code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShiptocode.Focus();
+
+                return;
+            }
+
+            if (!Utils.IsValidnumber(this.txtcustomercode.ToString()))
+            {
+                MessageBox.Show("Please check, Customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShiptocode.Focus();
+
+                return;
+            }
+
             this.customername = this.txtname.Text.ToString().Truncate(225);
             this.shiptocode = this.txtShiptocode.Text.Truncate(50);
 
