@@ -3328,6 +3328,9 @@ namespace Maketting.View
 
 
             #endregion
+
+
+
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3503,9 +3506,9 @@ namespace Maketting.View
             ///
 
             var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where (from gg in dc.tbl_MKT_StoreRights
-                             where gg.storeright == rightkho
-                             select gg.makho).Contains(pp.makho)
+                   //   where (from gg in dc.tbl_MKT_StoreRights
+                     //        where gg.storeright == rightkho
+                       //      select gg.makho).Contains(pp.makho)
                       select pp;
 
             foreach (var item2 in rs1)
@@ -5971,6 +5974,115 @@ namespace Maketting.View
 
 
             
+        }
+
+        private void newProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+            
+        ////    xx
+        //             if (!Username.getaddNewProductRight())
+        //    {
+        //        //   View.MKTsanphammoi view = new MKTsanphammoi();
+
+        //        List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+        //        string connection_string = Utils.getConnectionstr();
+
+        //        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+        //        ///
+        //        string username = Utils.getusername();
+        //        string rightkho = Model.Username.getmaquyenkho();
+        //        string region = Model.Username.getuseRegion();
+
+        //        //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+        //        ///
+
+        //        var rs1 = from pp in dc.tbl_MKT_khoMKTs
+        //                      //   where (from gg in dc.tbl_MKT_StoreRights
+        //                      //        where gg.storeright == rightkho
+        //                      //      select gg.makho).Contains(pp.makho)
+        //                  select pp;
+
+        //        foreach (var item2 in rs1)
+
+
+        //        {
+        //            View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+        //            cb.Value = item2.makho.Trim();
+        //            cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+        //            CombomCollection.Add(cb);
+        //        }
+
+
+        //        MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+        //        choosesl.ShowDialog();
+
+        //        string storelocation = choosesl.value;
+        //        bool kq = choosesl.kq;
+        //        if (kq)
+        //        {
+
+
+
+        //            var rs5 = from pp in dc.tbl_MKT_Stockends
+        //                      where pp.Store_code == storelocation
+        //                      select new
+        //                      {
+
+        //                          pp.Store_code,
+        //                          pp.SAP_CODE,
+        //                          pp.ITEM_Code,
+
+        //                          // pp.RegionBudgeted,
+
+
+        //                          pp.MATERIAL,
+
+        //                          pp.Description,
+
+        //                          pp.END_STOCK,
+        //                          pp.UNIT,
+
+        //                          pp.Ordered,
+
+        //                          pp.TransferingOUT,
+        //                          pp.ON_Hold,
+        //                          pp.Quantity_Per_Pallet,
+        //                          pp.End_Stock_By_Pallet,
+
+        //                          pp.id,
+
+
+        //                      };
+
+
+        //            View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
+        //            tbl.Show();
+
+
+
+        //            View.MKTsanphammoi view = new MKTsanphammoi(1,0,"", tbl);
+        //            view.ShowDialog();
+
+        //        }
+
+        //    }
+
+
+        //    Model.customerinput_ctrl inpoutctm = new customerinput_ctrl();
+
+
+        //    inpoutctm.customerinputshiptocode();
+
+        //    MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
         }
     }
 

@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -505,7 +505,7 @@ namespace Maketting.View
                         phieuxuat.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
 
                         phieuxuat.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
-                        phieuxuat.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Trim();
+                        phieuxuat.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
                         phieuxuat.Serriload = this.Loadnumberserri;
                         phieuxuat.ShippingPoint = this.storelocation;
                         phieuxuat.Status = "CRT";

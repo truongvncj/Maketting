@@ -60,6 +60,7 @@
             this.channelListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
             this.gatePassUndeliveryListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,7 +147,8 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
+            this.newProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -402,6 +404,13 @@
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Issue request";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
             // 
+            // mKTCollectedRequestToolStripMenuItem
+            // 
+            this.mKTCollectedRequestToolStripMenuItem.Name = "mKTCollectedRequestToolStripMenuItem";
+            this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.mKTCollectedRequestToolStripMenuItem.Text = "MKT Collect request";
+            this.mKTCollectedRequestToolStripMenuItem.Click += new System.EventHandler(this.mKTCollectedRequestToolStripMenuItem_Click);
+            // 
             // toolStripSeparator23
             // 
             this.toolStripSeparator23.Name = "toolStripSeparator23";
@@ -601,7 +610,9 @@
             this.pOListToolStripMenuItem1,
             this.recieptedReportsToolStripMenuItem,
             this.toolStripSeparator18,
-            this.gRListToolStripMenuItem});
+            this.gRListToolStripMenuItem,
+            this.toolStripSeparator25,
+            this.newProductToolStripMenuItem});
             this.Menuwavehouse.Name = "Menuwavehouse";
             this.Menuwavehouse.Size = new System.Drawing.Size(101, 24);
             this.Menuwavehouse.Text = "Ware House";
@@ -1019,12 +1030,17 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // mKTCollectedRequestToolStripMenuItem
+            // toolStripSeparator25
             // 
-            this.mKTCollectedRequestToolStripMenuItem.Name = "mKTCollectedRequestToolStripMenuItem";
-            this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.mKTCollectedRequestToolStripMenuItem.Text = "MKT Collect request";
-            this.mKTCollectedRequestToolStripMenuItem.Click += new System.EventHandler(this.mKTCollectedRequestToolStripMenuItem_Click);
+            this.toolStripSeparator25.Name = "toolStripSeparator25";
+            this.toolStripSeparator25.Size = new System.Drawing.Size(310, 6);
+            // 
+            // newProductToolStripMenuItem
+            // 
+            this.newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
+            this.newProductToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.newProductToolStripMenuItem.Text = "New Product";
+            this.newProductToolStripMenuItem.Click += new System.EventHandler(this.newProductToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1165,6 +1181,8 @@
         private ToolStripSeparator toolStripSeparator24;
         private ToolStripMenuItem gatePassUndeliveryListToolStripMenuItem;
         private ToolStripMenuItem mKTCollectedRequestToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator25;
+        private ToolStripMenuItem newProductToolStripMenuItem;
     }
 }
 

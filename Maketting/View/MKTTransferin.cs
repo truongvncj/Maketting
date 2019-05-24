@@ -231,33 +231,33 @@ namespace Maketting.View
 
             //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
-            btluu.Enabled = false;
-            btinphieu.Enabled = false;
+            btluu.Enabled = true;
+            btinphieu.Enabled = true;
             ///
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //string connection_string = Utils.getConnectionstr();
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where pp.storeright == rightkho
-                      select pp;
-            foreach (var item2 in rs1)
-
-
-            {
-                if (item2.makho == this.To_Store)
-                {
-                    btluu.Enabled = true;
-                    btinphieu.Enabled = false;
-                }
-            }
-
-            if (btluu.Enabled == false)
-            {
-
-                MessageBox.Show("You have no outhourise to reciept this transfer by location right  !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //var rs1 = from pp in dc.tbl_MKT_khoMKTs
+            //          where pp.storeright == rightkho
+            //          select pp;
+            //foreach (var item2 in rs1)
 
 
-            }
+            //{
+            //    if (item2.makho == this.To_Store)
+            //    {
+            //        btluu.Enabled = true;
+            //        btinphieu.Enabled = false;
+            //    }
+            //}
+
+            //if (btluu.Enabled == false)
+            //{
+
+            //    MessageBox.Show("You have no outhourise to reciept this transfer by location right  !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+            //}
 
 
             txtTo_Store.Text = this.To_Store;
