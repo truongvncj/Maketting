@@ -183,6 +183,12 @@
     <Compile Include="View\MKTNhaphangreturnbyTicket.Designer.cs">
       <DependentUpon>MKTNhaphangreturnbyTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTNhaphangtheoPOredeviceforRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTNhaphangtheoPOredeviceforRegion.Designer.cs">
+      <DependentUpon>MKTNhaphangtheoPOredeviceforRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTProgrameinputproductandprice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -542,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTNhaphangreturnbyTicket.resx">
       <DependentUpon>MKTNhaphangreturnbyTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTNhaphangtheoPOredeviceforRegion.resx">
+      <DependentUpon>MKTNhaphangtheoPOredeviceforRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTProgrameinputproductandprice.resx">
       <DependentUpon>MKTProgrameinputproductandprice.cs</DependentUpon>

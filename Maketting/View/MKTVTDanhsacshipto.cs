@@ -283,8 +283,24 @@ namespace Maketting.View
                 return;
             }
 
-            this.Customercode = txtcustomercode.Text;
-            this.customername = txtname.Text;
+            if (!Utils.IsValidnumber(txtShiptocode.Text.ToString().Trim()))
+            {
+                MessageBox.Show("Please check, ship to code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShiptocode.Focus();
+
+                return;
+            }
+
+            if (!Utils.IsValidnumber(txtcustomercode.Text.ToString().Trim()))
+            {
+                MessageBox.Show("Please check, Customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtShiptocode.Focus();
+
+                return;
+            }
+
+            this.customername = this.txtname.Text.ToString().Trim().Truncate(225);
+            this.shiptocode = this.txtShiptocode.Text.ToString().Trim().Truncate(50);
             this.street = txtstreet.Text;
             this.telephone = txttelephone.Text;
             this.note = txtnote.Text;
@@ -406,7 +422,7 @@ namespace Maketting.View
                 return;
             }
 
-            if (!Utils.IsValidnumber(this.txtShiptocode.ToString()) )
+            if (!Utils.IsValidnumber(txtShiptocode.Text.ToString().Trim()) )
             {
                 MessageBox.Show("Please check, ship to code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShiptocode.Focus();
@@ -414,7 +430,7 @@ namespace Maketting.View
                 return;
             }
 
-            if (!Utils.IsValidnumber(this.txtcustomercode.ToString()))
+            if (!Utils.IsValidnumber(txtcustomercode.Text.ToString().Trim()))
             {
                 MessageBox.Show("Please check, Customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShiptocode.Focus();
@@ -422,8 +438,8 @@ namespace Maketting.View
                 return;
             }
 
-            this.customername = this.txtname.Text.ToString().Truncate(225);
-            this.shiptocode = this.txtShiptocode.Text.Truncate(50);
+            this.customername = this.txtname.Text.ToString().Trim().Truncate(225);
+            this.shiptocode = this.txtShiptocode.Text.ToString().Trim().Truncate(50);
 
             this.street = this.txtstreet.Text.Truncate(225);
             this.Customercode = txtcustomercode.Text.Truncate(50);

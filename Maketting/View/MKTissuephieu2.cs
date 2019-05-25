@@ -2445,7 +2445,7 @@ namespace Maketting.View
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs1 = Model.MKT.danhkhachhang(dc);
+            var rs1 = Model.MKT.danhkhachhangrutgon(dc);
             Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
@@ -2698,7 +2698,14 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string customercode = txtcustcode.Text;
 
-            var rs1 = Model.MKT.shiptolistbycustomer(dc, customercode);
+            if (customercode=="")
+            {
+                MessageBox.Show("Please select customer code !");
+                txtseachcode.Focus();
+                return;
+            }
+
+            var rs1 = Model.MKT.shiptolistbycustomerrutgon(dc, customercode);
             Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();

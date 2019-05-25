@@ -6397,7 +6397,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Detail Goodreceipt List - Double click to redevice for each region ", 55, "tkRedeviceGRforRegion");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "Detail Goodreceipt List - Double click to redevice for each region ", 1000, "tkRedeviceGRforRegion");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 

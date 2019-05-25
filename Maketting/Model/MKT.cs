@@ -1646,26 +1646,26 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext db = dc;
             var rs = from p in db.tbl_MKT_Soldtocodes
-                      where p.Soldtype == true
-                      orderby p.Customer
-                      select new
-                      {
+                     where p.Soldtype == true
+                     orderby p.Customer
+                     select new
+                     {
 
-                          SalesOrg = p.SalesOrg,
-                          Region = p.Region,
-                          p.Chanel,
-                          Customer = p.Customer,
-                          FullName = p.FullNameN,
-                          Street = p.Street,
-                          District = p.District,
-                          City = p.City,
-                          Telephone = p.Telephone1,
-                          Note = p.Note,
-                          p.Createby,
-                          p.VATregistrationNo,
+                         SalesOrg = p.SalesOrg,
+                         Region = p.Region,
+                         p.Chanel,
+                         Customer = p.Customer,
+                         FullName = p.FullNameN,
+                         Street = p.Street,
+                         District = p.District,
+                         City = p.City,
+                         Telephone = p.Telephone1,
+                         Note = p.Note,
+                         p.Createby,
+                         p.VATregistrationNo,
 
-                          ID = p.id,
-                      };
+                         ID = p.id,
+                     };
 
             //    grviewlisttk.DataSource = rs;
 
@@ -1811,6 +1811,53 @@ namespace Maketting.Model
 
             //throw new NotImplementedException();
         }
+
+        public static IQueryable shiptolistbycustomerrutgon(LinqtoSQLDataContext dc, string customercode)
+        {
+
+
+            // throw new NotImplementedException();
+
+
+            LinqtoSQLDataContext db = dc;
+            var rs = (from p in db.tbl_MKT_Soldtocodes
+                      where p.Customer == customercode
+                      orderby p.Customer
+                      select new
+                      {
+
+                          SalesOrg = p.SalesOrg,
+                          Region = p.Region,
+                          Customer = p.Customer,
+                          FullName = p.FullNameN,
+                          Street = p.Street,
+                          District = p.District,
+                          City = p.City,
+                          Telephone = p.Telephone1,
+                          Note = p.Note,
+
+
+                          ID = p.id,
+                      }).Take(100);
+
+            //    grviewlisttk.DataSource = rs;
+
+
+
+
+
+
+
+            return rs;
+
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
+
         //   tbl_MKt_WHstoreissue
         public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
         {
@@ -2482,6 +2529,8 @@ namespace Maketting.Model
                          pp.Username,
                          pp.ShippingPoint,
                          pp.id,
+                         Subid = pp.IssueIDsub,
+
 
                      };
 

@@ -11091,6 +11091,10 @@ namespace Maketting
 		
 		private string _Gate_pass;
 		
+		private string _POnumber;
+		
+		private System.Nullable<int> _idsub;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -11125,6 +11129,10 @@ namespace Maketting
     partial void OnStore_codeChanged();
     partial void OnGate_passChanging(string value);
     partial void OnGate_passChanged();
+    partial void OnPOnumberChanging(string value);
+    partial void OnPOnumberChanged();
+    partial void OnidsubChanging(System.Nullable<int> value);
+    partial void OnidsubChanged();
     #endregion
 		
 		public tbl_MKT_StockendRegionBudget()
@@ -11428,6 +11436,46 @@ namespace Maketting
 					this._Gate_pass = value;
 					this.SendPropertyChanged("Gate_pass");
 					this.OnGate_passChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POnumber", DbType="NVarChar(255)")]
+		public string POnumber
+		{
+			get
+			{
+				return this._POnumber;
+			}
+			set
+			{
+				if ((this._POnumber != value))
+				{
+					this.OnPOnumberChanging(value);
+					this.SendPropertyChanging();
+					this._POnumber = value;
+					this.SendPropertyChanged("POnumber");
+					this.OnPOnumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idsub", DbType="Int")]
+		public System.Nullable<int> idsub
+		{
+			get
+			{
+				return this._idsub;
+			}
+			set
+			{
+				if ((this._idsub != value))
+				{
+					this.OnidsubChanging(value);
+					this.SendPropertyChanging();
+					this._idsub = value;
+					this.SendPropertyChanged("idsub");
+					this.OnidsubChanged();
 				}
 			}
 		}

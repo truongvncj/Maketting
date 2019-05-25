@@ -578,6 +578,10 @@ namespace Maketting.View
                                 newregionupdate.Note = item.POnumber;
                                 newregionupdate.Regionchangedate = datecreated.Value;
                                 newregionupdate.Store_code = this.storelocation;
+                                newregionupdate.POnumber = this.POnumber;
+                                newregionupdate.idsub = this.subID; ;
+
+
 
                                 dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
                                 dc.SubmitChanges();

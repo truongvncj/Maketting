@@ -341,7 +341,15 @@ namespace Maketting.View
                 return;
             }
 
-            this.Customercode = txtcustomercode.Text.Truncate(50);
+            if (!Utils.IsValidnumber(txtcustomercode.Text.ToString().Trim()))
+            {
+                MessageBox.Show("Pleae check, customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtcustomercode.Focus();
+
+                return;
+            }
+
+            this.Customercode = txtcustomercode.Text.ToString().Trim().Truncate(50);
             this.customername = txtname.Text.Truncate(225);
             this.street = txtstreet.Text.Truncate(225);
             this.telephone = txttelephone.Text.Truncate(50);
@@ -456,14 +464,16 @@ namespace Maketting.View
                 return;
             }
 
-            if (!Utils.IsValidnumber(txtcustomercode.Text))
+            if (!Utils.IsValidnumber(txtcustomercode.Text.ToString().Trim()))
             {
                 MessageBox.Show("Pleae check, customer code must be a number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtcustomercode.Focus();
 
                 return;
             }
-            this.customername = this.txtname.Text.Truncate(225);
+
+
+            this.customername = this.txtname.Text.ToString().Trim().Truncate(225);
          
             this.street = this.txtstreet.Text.Truncate(225);
             this.Customercode = txtcustomercode.Text.Truncate(50);
