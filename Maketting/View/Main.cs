@@ -6399,7 +6399,7 @@ namespace Maketting.View
 
                 Viewtable viewtbl = new Viewtable(rs, dc, "Detail Goodreceipt List - Double click to redevice for each region ", 1000, "tkRedeviceGRforRegion");// mã 5 là danh sach nha nha ccaaps
 
-                viewtbl.ShowDialog();
+                viewtbl.Show();
 
 
             }

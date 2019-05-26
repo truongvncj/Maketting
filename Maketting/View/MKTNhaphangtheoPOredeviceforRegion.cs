@@ -22,6 +22,8 @@ namespace Maketting.View
         public string storelocation { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
+        public float totalinput { get; set; }
+
 
         public class ComboboxItem
         {
@@ -162,26 +164,26 @@ namespace Maketting.View
 
 
 
-                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+                //FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
-                bool kq = false;
-                foreach (Form frm in fc)
-                {
-                    if (frm.Text == "BeeSeach")
+                //bool kq = false;
+                //foreach (Form frm in fc)
+                //{
+                //    if (frm.Text == "BeeSeach")
 
 
-                    {
-                        kq = true;
-                        frm.Focus();
+                //    {
+                //        kq = true;
+                //        frm.Focus();
 
-                    }
-                }
+                //    }
+                //}
 
-                if (!kq)
-                {
-                    //  View.BeeSeachtwofield sheaching = new BeeSeachtwofield(this, "Người nôp", "Địa chỉ", "Nội dung");
-                    // sheaching.Show();
-                }
+                //if (!kq)
+                //{
+                //    //  View.BeeSeachtwofield sheaching = new BeeSeachtwofield(this, "Người nôp", "Địa chỉ", "Nội dung");
+                //    // sheaching.Show();
+                //}
 
 
 
@@ -196,26 +198,26 @@ namespace Maketting.View
 
 
 
-                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+                //FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
-                bool kq = false;
-                foreach (Form frm in fc)
-                {
-                    if (frm.Text == "BeeHtoansocaidoiung")
+                //bool kq = false;
+                //foreach (Form frm in fc)
+                //{
+                //    if (frm.Text == "BeeHtoansocaidoiung")
 
 
-                    {
-                        kq = true;
-                        frm.Focus();
+                //    {
+                //        kq = true;
+                //        frm.Focus();
 
-                    }
-                }
+                //    }
+                //}
 
-                if (!kq)
-                {
-                    //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
-                    //   BeeHtoansocaidoiung.Show();
-                }
+                //if (!kq)
+                //{
+                //    //   View.BeeHtoansocaiphieuchi BeeHtoansocaidoiung = new BeeHtoansocaiphieuchi(this, "Địa chỉ", "", "");
+                //    //   BeeHtoansocaidoiung.Show();
+                //}
 
 
 

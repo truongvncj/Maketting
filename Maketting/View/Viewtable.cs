@@ -470,7 +470,7 @@ namespace Maketting.View
             InitializeComponent();
             this.valuesave = valuesave;
 
-
+            this.viewcode = viewcode;
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);
 
@@ -480,7 +480,7 @@ namespace Maketting.View
 
 
             this.dc = dc;
-            this.viewcode = viewcode;
+         
             this.rs = rs;
             //  this.lb_seach.Text = "F3 TÌM KIẾM";
             //      this.bt_sendinggroup.Visible = false;
@@ -1405,7 +1405,44 @@ namespace Maketting.View
 
             try
             {
+                if (this.viewcode == 10000 )  // nếu là double clik trong mục po deviec region
+                {
+                  
 
+                    string Ponumber = "";
+                    int id = 0;
+                    int subid = 0;
+
+                  
+
+                    try
+                    {
+                        Ponumber = (string)dataGridView1.Rows[e.RowIndex].Cells["POnumber"].Value.ToString();
+                        id = (int)dataGridView1.Rows[e.RowIndex].Cells["id"].Value;
+                        subid = (int)dataGridView1.Rows[e.RowIndex].Cells["Subid"].Value;
+
+                        //     this.Close();
+                        MessageBox.Show("check 1", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
+
+                        reDevice.ShowDialog();
+
+                        //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                //    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
+
+                  //  reDevice.ShowDialog();
+
+
+
+                }
 
                 #region  viewdetail 100 tạo phieu               phiếu
                 if (this.viewcode == 100 && (this.valuesave == "tk" ||this.valuesave == "tkhead" ) )
