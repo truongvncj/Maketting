@@ -234,14 +234,14 @@ namespace Maketting.View
             datecreated.Value = DateTime.Today;
         
             txtdnnumbar.Text = "";
-
-
-            Loaddetailphieunhapregion();
-
             btluu.Enabled = true;
             btinphieu.Enabled = false;
 
             txtstorelocation.Text = this.storelocation;
+
+            Loaddetailphieunhapregion();
+
+        
             dataGridViewLoaddetail.Focus();
 
         }

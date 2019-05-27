@@ -1410,8 +1410,8 @@ namespace Maketting.View
                   
 
                     string Ponumber = "";
-                    int id = 0;
-                    int subid = 0;
+                    int id ;
+                    int subid ;
 
                  
 
