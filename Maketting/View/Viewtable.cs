@@ -1405,7 +1405,7 @@ namespace Maketting.View
 
             try
             {
-                if (this.viewcode == 10000 )  // nếu là double clik trong mục po deviec region
+                if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
                 {
                   
 
@@ -1413,7 +1413,7 @@ namespace Maketting.View
                     int id = 0;
                     int subid = 0;
 
-                  
+                 
 
                     try
                     {
@@ -1422,11 +1422,8 @@ namespace Maketting.View
                         subid = (int)dataGridView1.Rows[e.RowIndex].Cells["Subid"].Value;
 
                         //     this.Close();
-                        MessageBox.Show("check 1", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
-
-                        reDevice.ShowDialog();
+                      //  this.Close();
 
                         //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
                     }
@@ -1436,9 +1433,10 @@ namespace Maketting.View
                         return;
                     }
 
-                //    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
+                    
+                    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion( Ponumber, id, subid);
 
-                  //  reDevice.ShowDialog();
+                    reDevice.Show();
 
 
 

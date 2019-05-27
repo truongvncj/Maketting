@@ -17,12 +17,15 @@ namespace Maketting.View
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
 
         public int subID { get; set; }
+        public int id { get; set; }
+
         public string POnumber { get; set; }
+
         // public string soload { get; set; }
         public string storelocation { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
-        public float totalinput { get; set; }
+     //   public float totalinput { get; set; }
 
 
         public class ComboboxItem
@@ -37,70 +40,44 @@ namespace Maketting.View
         }
 
 
-        public void loaddetailPNK()
+        public void Loaddetailphieunhapregion()
         {
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
 
 
-            //var rs6 = (from pp in dc.tbl_MKt_POdetail_TMPs
-            //           where pp.POnumber == this.PONumber// && pp.StatusPO != "TMP"
-            //       
-            //           select new
-            //           {
-            //               MateriaItemcode = gg.Key,
-            //               QuantityOrder = gg.Sum(m => m.QuantityOrder),
-            //               Description = gg.Select(m => m.Description).FirstOrDefault(),
-            //               Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
-            //               MateriaSAPcode = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-            //               POnumber = gg.Select(m => m.POnumber).FirstOrDefault(),
-            //               //     StatusPO = gg.Select(m => m.StatusPO).FirstOrDefault(),
-            //               Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
-            //               Unit = gg.Select(m => m.Unit).FirstOrDefault(),
-            //               Username = gg.Select(m => m.Username).FirstOrDefault(),
-
-            //               Unit_price = gg.Sum(m => m.Unit_Price * m.QuantityOrder) / gg.Sum(m => m.QuantityOrder),
+          
 
 
-
-            //           });
-            //var rs = from pp in dc.tbl_MKt_POdetails
-            //         where pp.POnumber == this.POnumber
-            //         group pp by new
-            //         {
-            //             pp.MateriaSAPcode,
-            //             //   pp.Region
-            //         }
-            //         into gg
-
-
-            var rs = from pp in dc.tbl_MKt_POdetails
+            var rs = from pp in dc.tbl_MKt_WHstoreissues
                      where pp.POnumber == this.POnumber
+                 //    && pp.id == this.id
+                     && pp.IssueIDsub == this.subID
                      group pp by pp.MateriaItemcode into gg
                      select new
                      {
                          //    ID = pp.id,
                          PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                         Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                         Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+                         Shipping_Point = gg.Select(m => m.ShippingPoint).FirstOrDefault(),
+                         Material_SAP_code = gg.Select(m => m.Materiacode).FirstOrDefault(),
                          Material_Item_code = gg.Key,
                          Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
-                         Order_Quantity = gg.Sum(m => m.QuantityOrder),
-                         Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
+                         Reciepted_Quantity = gg.Sum(m => m.RecieptQuantity),
+                        // Redevice_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
                          //     Real_issue = 0,
 
 
 
                      };
 
-            if (rs.Count() > 0)
+            if (rs.Count() >= 0)
             {
                 //  dataGridViewLoaddetail.DataSource = rs;
 
                 //     this.soload = rs.FirstOrDefault().Maketting_load;
                 this.storelocation = rs.FirstOrDefault().Shipping_Point;
-
+            //    dateNgaynhaphang.Value = rs.FirstOrDefault().; DateTime.Today;
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
@@ -115,7 +92,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
+            //    dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
 
                 //    dataGridViewLoaddetail.Columns["ID"].Visible = false;
@@ -127,8 +104,8 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_Item_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Order_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Reciepted_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+              // dataGridViewLoaddetail.Columns["Order_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Reciept_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -229,14 +206,17 @@ namespace Maketting.View
 
         public View.Main main1;
 
-        public MKTNhaphangtheoPOredeviceforRegion( string POnumber, int id, int subid)
+        public MKTNhaphangtheoPOredeviceforRegion(string POnumber, int id, int subid)
         {
             InitializeComponent();
             this.KeyPreview = true;
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(Control_KeyPress);  // để đọc từ bàn phím phím tắt
 
+            this.POnumber = POnumber;
+            this.id = id;
+            this.subID = subID;
 
-       //     this.main1 = Main;
+         
 
             this.Username = Utils.getusername();
             this.Createdby = Utils.getname();
@@ -252,11 +232,11 @@ namespace Maketting.View
 
 
             datecreated.Value = DateTime.Today;
-            dateNgaynhaphang.Value = DateTime.Today;
+        
             txtdnnumbar.Text = "";
 
 
-            loaddetailPNK();
+            Loaddetailphieunhapregion();
 
             btluu.Enabled = true;
             btinphieu.Enabled = false;
@@ -273,11 +253,14 @@ namespace Maketting.View
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            main1.clearpannel();
-            View.Beemainload main = new Beemainload(main1);
 
-            main1.clearpannelload(main);
+
+
+            this.Close();
+        //    main1.clearpannel();
+        //    View.Beemainload main = new Beemainload(main1);
+
+        //    main1.clearpannelload(main);
         }
 
         private void comboBox8_KeyPress(object sender, KeyPressEventArgs e)
