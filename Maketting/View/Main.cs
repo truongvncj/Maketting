@@ -5952,6 +5952,7 @@ namespace Maketting.View
 
         private void mKTCollectedRequestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          
 
             #region//MKTissuereturnRequest
             //if (name == "tmphieuthu")
@@ -6320,7 +6321,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyIssuedate(dc, fromdate, todate);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ISSUE FORM : "+ fromdate.ToShortDateString() +" TO: " + todate.ToShortDateString(), 100, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ISSUE FROM : "+ fromdate.ToShortDateString() +" TO: " + todate.ToShortDateString(), 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
