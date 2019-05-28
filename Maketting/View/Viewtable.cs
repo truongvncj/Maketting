@@ -1412,7 +1412,21 @@ namespace Maketting.View
                     string Ponumber = "";
                     int id ;
                     int subid ;
+                    //pp.POnumber,
+                    //     Ngày_nhập_kho = pp.date_input_output,
+                    //     DN_Number = pp.DNNumber,
+                    //     pp.Materiacode,
+                    //     pp.MateriaItemcode,
+                    //     pp.Materialname,
+                    //     pp.Unit,
+                    //     pp.RecieptQuantity,
+                    //     pp.Recieptby,
 
+
+                    //     pp.Username,
+                    //     pp.ShippingPoint,
+                    //     pp.id,
+                    //     Subid = pp.IssueIDsub,
                  
 
                     try

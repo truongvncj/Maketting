@@ -25,7 +25,7 @@ namespace Maketting.View
         public string storelocation { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
-     //   public float totalinput { get; set; }
+        //   public float totalinput { get; set; }
 
 
         public class ComboboxItem
@@ -47,65 +47,64 @@ namespace Maketting.View
             string urs = Utils.getusername();
 
 
-          
 
 
-            var rs = from pp in dc.tbl_MKt_WHstoreissues
+
+            var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
                      where pp.POnumber == this.POnumber
-                 //    && pp.id == this.id
-                     && pp.IssueIDsub == this.subID
-                     group pp by pp.MateriaItemcode into gg
+                     //    && pp.id == this.id
+               //      && pp.idsub == this.subID
                      select new
                      {
-                         //    ID = pp.id,
-                         PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                         Shipping_Point = gg.Select(m => m.ShippingPoint).FirstOrDefault(),
-                         Material_SAP_code = gg.Select(m => m.Materiacode).FirstOrDefault(),
-                         Material_Item_code = gg.Key,
-                         Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
-                         Reciepted_Quantity = gg.Sum(m => m.RecieptQuantity),
-                        // Redevice_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
-                         //     Real_issue = 0,
+                         pp.Region,
+                         //    pp.POnumber,
+                         pp.Store_code,
+                         pp.Note,
+                         pp.SAP_CODE,
+                         pp.ITEM_Code,
+                         pp.MATERIAL,
+                        // pp.UNIT,
+                         Reciepted_Quantity = pp.QuantityInputbyPO,
 
 
 
                      };
 
-            if (rs.Count() >= 0)
+            if (rs.Count() > 0)
             {
                 //  dataGridViewLoaddetail.DataSource = rs;
 
                 //     this.soload = rs.FirstOrDefault().Maketting_load;
-                this.storelocation = rs.FirstOrDefault().Shipping_Point;
-            //    dateNgaynhaphang.Value = rs.FirstOrDefault().; DateTime.Today;
+                this.storelocation = rs.FirstOrDefault().Store_code;
+                //    dateNgaynhaphang.Value = rs.FirstOrDefault().; DateTime.Today;
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
-                dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
+                dataTable.Columns.Add(new DataColumn("New_Reciept_Quantity", typeof(float)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
 
-                //   dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["PO_number"].ReadOnly = true;
-
-                dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-            //    dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Region"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Store_code"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Note"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["SAP_CODE"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["ITEM_Code"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["MATERIAL"].ReadOnly = true;
+           //     dataGridViewLoaddetail.Columns["UNIT"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
 
                 //    dataGridViewLoaddetail.Columns["ID"].Visible = false;
 
 
                 //       dataGridViewLoaddetail.Columns["ID"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["PO_number"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Material_SAP_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Material_Item_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-              // dataGridViewLoaddetail.Columns["Order_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Reciept_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Region"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Store_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Note"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["SAP_CODE"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["ITEM_Code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["MATERIAL"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+           //     dataGridViewLoaddetail.Columns["UNIT"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Reciepted_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -216,7 +215,7 @@ namespace Maketting.View
             this.id = id;
             this.subID = subID;
 
-         
+
 
             this.Username = Utils.getusername();
             this.Createdby = Utils.getname();
@@ -232,7 +231,7 @@ namespace Maketting.View
 
 
             datecreated.Value = DateTime.Today;
-        
+
             txtdnnumbar.Text = "";
             btluu.Enabled = true;
             btinphieu.Enabled = false;
@@ -241,7 +240,7 @@ namespace Maketting.View
 
             Loaddetailphieunhapregion();
 
-        
+
             dataGridViewLoaddetail.Focus();
 
         }
@@ -257,10 +256,10 @@ namespace Maketting.View
 
 
             this.Close();
-        //    main1.clearpannel();
-        //    View.Beemainload main = new Beemainload(main1);
+            //    main1.clearpannel();
+            //    View.Beemainload main = new Beemainload(main1);
 
-        //    main1.clearpannelload(main);
+            //    main1.clearpannelload(main);
         }
 
         private void comboBox8_KeyPress(object sender, KeyPressEventArgs e)
