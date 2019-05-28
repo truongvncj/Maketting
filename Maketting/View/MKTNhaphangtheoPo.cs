@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -568,7 +568,7 @@ namespace Maketting.View
 
                                 newregionupdate.ITEM_Code = item.MateriaItemcode;
                                 newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                                newregionupdate.MATERIAL = item.Materialname;
+                                newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                                 newregionupdate.Description = item.Description;
                                 newregionupdate.Region = item.Region;
                                 newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
@@ -612,7 +612,7 @@ namespace Maketting.View
                                       Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
                                       Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                                       Material_Item_code = gg.Key,
-                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
+                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault().Truncate(255),
                                       Order_Quantity = gg.Sum(m => m.QuantityOrder),
                                       Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
                                                                                             //     Real_issue = 0,
@@ -637,7 +637,7 @@ namespace Maketting.View
                                 newreciepts.Materiacode = item.Material_SAP_code;
                                 newreciepts.MateriaItemcode = item.Material_Item_code;
                                 newreciepts.Document_number = txtdnnumbar.Text;
-                                newreciepts.Materialname = item.Material_name;
+                                newreciepts.Materialname = item.Material_name.Truncate(50);
                                 newreciepts.POnumber = item.PO_number;
                                 newreciepts.ShippingPoint = item.Storelocation;
                                 newreciepts.Unit = item.Unit;

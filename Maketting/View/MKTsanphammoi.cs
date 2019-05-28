@@ -479,6 +479,7 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKT_Stockends
                      where pp.ITEM_Code == this.itemcode
+                     && pp.Store_code == this.storelocation
                      select pp;
 
             if (rs.Count() > 0)
@@ -492,6 +493,7 @@ namespace Maketting.View
             var rs2 = from pp in dc.tbl_MKT_Stockends
                       where pp.SAP_CODE == this.sapcode
                       && pp.ITEM_Code == this.itemcode
+                      && pp.Store_code == this.storelocation
                       select pp;
 
             if (rs2.Count() > 0)

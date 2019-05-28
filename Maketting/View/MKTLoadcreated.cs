@@ -2621,11 +2621,52 @@ namespace Maketting.View
         {
             Control_ac ctrex = new Control_ac();
 
-            //  Control_ac ctrex = new Control_ac();
 
-            this.rs = Model.MKT.DanhsachPhieuMKTtoDLV(this.storelocation, this.dc);
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            ctrex.exportexceldatagridtofile(this.rs, this.dc, this.Text);
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     from pp in dc.tbl_MKt_Listphieuheads
+                         //        from ppp in dc.tbl_MKT_Soldtocodes
+                     where p.ShippingPoint == storelocation && p.Status == "CRT"
+                   && p.Gate_pass == pp.Gate_pass
+                     //    && ((int)pp.Customer_SAP_Code).ToString().Trim() == ppp.Customer
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Customer_code = p.Customer_SAP_Code,
+                         Shipto_code = pp.ShiptoCode,
+                         p.Gate_pass,
+                         pp.Region,
+                         Shipto_City = p.shiptocity,
+                         Shipto_Name = pp.ShiptoName, // p.Receiver_by,
+
+                         Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
+
+
+
+                     //    Địa_chỉ = pp.ShiptoAddress,
+
+                         p.Materiacode,
+                         p.Materialname,
+                         Số_lượng_xuất = p.Issued,
+                         Pallet = p.pallet,
+
+                         p.Purpose,
+                         p.Receiver_by,
+                         p.Ngaytaophieu,
+                         Điện_thoại = pp.Tel,
+
+                         p.Description,
+
+
+
+                         // p.Tel,
+
+                    //     ID = p.id,
+                     };
+
+            ctrex.exportexceldatagridtofile(rs, dc, "DANH SÁCH ĐƠN HÀNG CHƯA GIAO !");
 
 
 

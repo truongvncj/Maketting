@@ -1427,8 +1427,8 @@ namespace Maketting.View
                     //     pp.ShippingPoint,
                     //     pp.id,
                     //     Subid = pp.IssueIDsub,
-                 
 
+                    
                     try
                     {
                         Ponumber = (string)dataGridView1.Rows[e.RowIndex].Cells["POnumber"].Value.ToString();
@@ -1447,8 +1447,8 @@ namespace Maketting.View
                         return;
                     }
 
-                    
-                    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion( Ponumber, id, subid);
+
+                    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
 
                     reDevice.Show();
 

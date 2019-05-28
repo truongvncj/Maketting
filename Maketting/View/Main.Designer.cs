@@ -96,7 +96,9 @@
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
             this.xuấtĐồToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reDeviceGoodRecieptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.goodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -106,6 +108,7 @@
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.transferOUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deviceRegionForTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -154,9 +157,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deviceRegionForTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reDeviceGoodRecieptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
+            this.trackingWrongDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -277,7 +278,8 @@
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem,
             this.revertWrongReturnTicketToolStripMenuItem,
             this.revertWrongTransferInToolStripMenuItem,
-            this.deleteShiptoCodeIsNotANumberToolStripMenuItem});
+            this.deleteShiptoCodeIsNotANumberToolStripMenuItem,
+            this.trackingWrongDocToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -452,6 +454,7 @@
             // 
             // mKTCollectedRequestToolStripMenuItem
             // 
+            this.mKTCollectedRequestToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.mKTCollectedRequestToolStripMenuItem.Name = "mKTCollectedRequestToolStripMenuItem";
             this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
             this.mKTCollectedRequestToolStripMenuItem.Text = "MKT Collect request";
@@ -595,7 +598,7 @@
             this.storeDiviceByRegiomToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.storeDiviceByRegiomToolStripMenuItem.Name = "storeDiviceByRegiomToolStripMenuItem";
             this.storeDiviceByRegiomToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.storeDiviceByRegiomToolStripMenuItem.Text = "Store device by region";
+            this.storeDiviceByRegiomToolStripMenuItem.Text = "Divide Store for  region";
             this.storeDiviceByRegiomToolStripMenuItem.Click += new System.EventHandler(this.storeDiviceByRegiomToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
@@ -679,12 +682,25 @@
             this.goodReturnToolStripMenuItem.Text = "Good Return ";
             this.goodReturnToolStripMenuItem.Click += new System.EventHandler(this.goodReturnToolStripMenuItem_Click);
             // 
+            // toolStripSeparator27
+            // 
+            this.toolStripSeparator27.Name = "toolStripSeparator27";
+            this.toolStripSeparator27.Size = new System.Drawing.Size(310, 6);
+            // 
             // xuấtĐồToolStripMenuItem
             // 
             this.xuấtĐồToolStripMenuItem.Name = "xuấtĐồToolStripMenuItem";
             this.xuấtĐồToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
             this.xuấtĐồToolStripMenuItem.Text = "Good Receipt ";
             this.xuấtĐồToolStripMenuItem.Click += new System.EventHandler(this.xuấtĐồToolStripMenuItem_Click);
+            // 
+            // reDeviceGoodRecieptToolStripMenuItem
+            // 
+            this.reDeviceGoodRecieptToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.reDeviceGoodRecieptToolStripMenuItem.Name = "reDeviceGoodRecieptToolStripMenuItem";
+            this.reDeviceGoodRecieptToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.reDeviceGoodRecieptToolStripMenuItem.Text = "Re_divide for region receipt";
+            this.reDeviceGoodRecieptToolStripMenuItem.Click += new System.EventHandler(this.reDeviceGoodRecieptToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -740,6 +756,13 @@
             this.transferInToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
             this.transferInToolStripMenuItem.Text = "Transfer in";
             this.transferInToolStripMenuItem.Click += new System.EventHandler(this.transferInToolStripMenuItem_Click);
+            // 
+            // deviceRegionForTransferInToolStripMenuItem
+            // 
+            this.deviceRegionForTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.deviceRegionForTransferInToolStripMenuItem.Name = "deviceRegionForTransferInToolStripMenuItem";
+            this.deviceRegionForTransferInToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
+            this.deviceRegionForTransferInToolStripMenuItem.Text = "Divide Transferin  For Region  ";
             // 
             // toolStripSeparator6
             // 
@@ -1091,25 +1114,11 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // deviceRegionForTransferInToolStripMenuItem
+            // trackingWrongDocToolStripMenuItem
             // 
-            this.deviceRegionForTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.deviceRegionForTransferInToolStripMenuItem.Name = "deviceRegionForTransferInToolStripMenuItem";
-            this.deviceRegionForTransferInToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.deviceRegionForTransferInToolStripMenuItem.Text = "Device  Region For Transfer in";
-            // 
-            // reDeviceGoodRecieptToolStripMenuItem
-            // 
-            this.reDeviceGoodRecieptToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reDeviceGoodRecieptToolStripMenuItem.Name = "reDeviceGoodRecieptToolStripMenuItem";
-            this.reDeviceGoodRecieptToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
-            this.reDeviceGoodRecieptToolStripMenuItem.Text = "Redevice for region receipt";
-            this.reDeviceGoodRecieptToolStripMenuItem.Click += new System.EventHandler(this.reDeviceGoodRecieptToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator27
-            // 
-            this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(310, 6);
+            this.trackingWrongDocToolStripMenuItem.Name = "trackingWrongDocToolStripMenuItem";
+            this.trackingWrongDocToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.trackingWrongDocToolStripMenuItem.Text = "Tracking wrong document ";
             // 
             // Main
             // 
@@ -1260,6 +1269,7 @@
         private ToolStripSeparator toolStripSeparator27;
         private ToolStripMenuItem reDeviceGoodRecieptToolStripMenuItem;
         private ToolStripMenuItem deviceRegionForTransferInToolStripMenuItem;
+        private ToolStripMenuItem trackingWrongDocToolStripMenuItem;
     }
 }
 

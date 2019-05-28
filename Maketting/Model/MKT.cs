@@ -373,12 +373,12 @@ namespace Maketting.Model
                      {
                          Customer_code = p.Customer_SAP_Code,
                          Shipto_code = pp.ShiptoCode,
-                         Gate_pass = p.Gate_pass,
+                         p.Gate_pass,
                          pp.Region,
                          Shipto_City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
-                         Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
+                     //    Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
 
 
@@ -590,7 +590,7 @@ namespace Maketting.Model
 
 
             var rs = from p in dc.tbl_MKt_Listphieudetails
-                     where p.Ngaytaophieu >= fromdate && p.Issued_dated <= todate
+                     where p.Ngaytaophieu >= fromdate && p.Ngaytaophieu <= todate
                      orderby p.Gate_pass
                      select new
                      {
