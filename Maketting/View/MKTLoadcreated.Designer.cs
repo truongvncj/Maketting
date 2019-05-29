@@ -562,7 +562,7 @@
             this.cbGhepshipment.Name = "cbGhepshipment";
             this.cbGhepshipment.Size = new System.Drawing.Size(121, 17);
             this.cbGhepshipment.TabIndex = 79;
-            this.cbGhepshipment.Text = "Ghép theo shipment";
+            this.cbGhepshipment.Text = "Ghép theo shipmentghep";
             this.cbGhepshipment.UseVisualStyleBackColor = true;
             // 
             // label8
@@ -646,6 +646,7 @@
             this.txtloadnumber.Size = new System.Drawing.Size(81, 18);
             this.txtloadnumber.TabIndex = 65;
             this.txtloadnumber.Text = "HNI001135";
+            this.txtloadnumber.TextChanged += new System.EventHandler(this.txtloadnumber_TextChanged);
             // 
             // txttenNVT
             // 

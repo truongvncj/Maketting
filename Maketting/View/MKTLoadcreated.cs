@@ -22,7 +22,7 @@ namespace Maketting.View
         public IQueryable rs { get; set; }
         public LinqtoSQLDataContext dc { get; set; }
         public float palletofLoad { get; set; }
-        public string shipment { get; set; }
+        public string shipmentghep { get; set; }
         //  public string isGheplI { get; set; }
 
 
@@ -308,7 +308,7 @@ namespace Maketting.View
 
             string username = Utils.getusername();
             this.Username = username;
-            this.shipment = "";
+            this.shipmentghep = "";
             this.palletofLoad = 0;
             //this.matk = taikhoan;
 
@@ -697,7 +697,7 @@ namespace Maketting.View
 
             if (!Utils.IsValidnumber(txtShipment.Text.ToString()) && cbGhepshipment.Checked == true)
             {
-                MessageBox.Show("Pleae nhập số shipment ghép là số shipment chở hàng có ghéo chở đồ MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pleae nhập số shipmentghep ghép là số shipmentghep chở hàng có ghéo chở đồ MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShipment.Focus();
                 checkhead = false;
                 return;
@@ -705,7 +705,7 @@ namespace Maketting.View
 
             if (txtShipment.Text != "" && cbGhepshipment.Checked == false)
             {
-                MessageBox.Show("Please xóa số shipment nếu là xe chạy trực tiếp !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please xóa số shipmentghep nếu là xe chạy trực tiếp !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShipment.Focus();
                 checkhead = false;
                 return;
@@ -714,7 +714,7 @@ namespace Maketting.View
 
             if (txtShipment.Text == "" && cbGhepshipment.Checked == true)
             {
-                MessageBox.Show("Pleae nhập số shipment ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pleae nhập số shipmentghep ghép !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtShipment.Focus();
                 checkhead = false;
                 return;
@@ -841,7 +841,8 @@ namespace Maketting.View
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
                             item.Delivery_date = DateTime.Today;
-                            item.Included_Shipment = this.shipment;
+                            item.Included_Shipment = this.shipmentghep;
+                        //    item.ShipmentNumber = this.soload;
 
                             dc.SubmitChanges();
                         }
@@ -1373,6 +1374,23 @@ namespace Maketting.View
         {
 
             this.statusphieu = 2;
+            this.soload = txtloadnumber.Text;
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs3 = (from pp in dc.tbl_MKt_WHstoreissues
+                       where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                       select pp.LoadNumber).FirstOrDefault();
+
+            if (rs3 != null)
+            {
+                MessageBox.Show("LoadNumber " + soload + " can not change by store issued !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
 
             btluu.Enabled = true;
             btmoi.Enabled = true;
@@ -2696,11 +2714,16 @@ namespace Maketting.View
 
         private void txtShipment_TextChanged(object sender, EventArgs e)
         {
-            // public string shipment { get; set; }
-            this.shipment = txtShipment.Text;
+            // public string shipmentghep { get; set; }
+            this.shipmentghep = txtShipment.Text;
             //    cbGhepshipment.Checked = false;
             //      cbGhepshipment.Checked = true;
 
+        }
+
+        private void txtloadnumber_TextChanged(object sender, EventArgs e)
+        {
+            this.soload = txtloadnumber.Text;
         }
     }
 
