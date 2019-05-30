@@ -1395,7 +1395,7 @@ namespace Maketting.Model
                 newitem.END_STOCK = itemnhap.RecieptQuantity;
                 newitem.ITEM_Code = itemnhap.MateriaItemcode;
                 newitem.SAP_CODE = itemnhap.Materiacode;
-                newitem.MATERIAL = itemnhap.Materialname;
+                newitem.MATERIAL = itemnhap.Materialname.Truncate(255);
 
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;

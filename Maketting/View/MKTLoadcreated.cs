@@ -926,7 +926,7 @@ namespace Maketting.View
 
 
                 #endregion
-
+                this.statusphieu = 1;
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //  cleartoblankphieu();
 
@@ -1373,7 +1373,7 @@ namespace Maketting.View
         private void button2_Click(object sender, EventArgs e)
         {
 
-            this.statusphieu = 2;
+         
             this.soload = txtloadnumber.Text;
 
             string connection_string = Utils.getConnectionstr();
@@ -1391,7 +1391,7 @@ namespace Maketting.View
             }
 
 
-
+            this.statusphieu = 2;
             btluu.Enabled = true;
             btmoi.Enabled = true;
             btxoa.Enabled = true;
@@ -2369,6 +2369,11 @@ namespace Maketting.View
 
         private void dataGridViewLoaddetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (this.statusphieu != 2)
+            {
+                return;
+            }
+
             string gatepassfind = "";
 
             string connection_string = Utils.getConnectionstr();
@@ -2397,7 +2402,7 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKt_Listphieudetails
                      where pp.Gate_pass == gatepassfind && pp.ShippingPoint == this.storelocation //&& pp.Status == "LOADING"
-
+                     
                      select pp;
 
             if (rs != null)
