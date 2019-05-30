@@ -6489,6 +6489,46 @@ namespace Maketting.View
                 viewtbl.Show();
             }
         }
+
+        private void revertStoreErrorIssueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER ! ");
+            pxk.ShowDialog();
+
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = from pp in dc.tbl_MKt_WHstoreissues
+                          where pp.Serriload == Loadnumberserri
+                          select pp;
+
+
+
+                dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(rs5);
+                dc.SubmitChanges();
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+
+
+
+
+
+        }
+
+        private void revertWrongTransferInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

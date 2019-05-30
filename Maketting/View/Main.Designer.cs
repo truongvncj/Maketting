@@ -148,6 +148,7 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassIssueFormDateToDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findGatepassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findMakettingTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,7 +159,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.findGatepassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertStoreErrorIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -280,7 +281,8 @@
             this.revertWrongReturnTicketToolStripMenuItem,
             this.revertWrongTransferInToolStripMenuItem,
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem,
-            this.trackingWrongDocToolStripMenuItem});
+            this.trackingWrongDocToolStripMenuItem,
+            this.revertStoreErrorIssueToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -404,6 +406,7 @@
             this.revertWrongTransferInToolStripMenuItem.Name = "revertWrongTransferInToolStripMenuItem";
             this.revertWrongTransferInToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
             this.revertWrongTransferInToolStripMenuItem.Text = "Revert wrong Transfer in";
+            this.revertWrongTransferInToolStripMenuItem.Click += new System.EventHandler(this.revertWrongTransferInToolStripMenuItem_Click);
             // 
             // deleteShiptoCodeIsNotANumberToolStripMenuItem
             // 
@@ -1055,6 +1058,13 @@
             this.gatepassIssueFormDateToDateToolStripMenuItem.Text = "Gatepass issue form date to date";
             this.gatepassIssueFormDateToDateToolStripMenuItem.Click += new System.EventHandler(this.gatepassIssueFormDateToDateToolStripMenuItem_Click);
             // 
+            // findGatepassOfShipmentToolStripMenuItem
+            // 
+            this.findGatepassOfShipmentToolStripMenuItem.Name = "findGatepassOfShipmentToolStripMenuItem";
+            this.findGatepassOfShipmentToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.findGatepassOfShipmentToolStripMenuItem.Text = "Find Gatepass of shipment";
+            this.findGatepassOfShipmentToolStripMenuItem.Click += new System.EventHandler(this.findGatepassOfShipmentToolStripMenuItem_Click);
+            // 
             // findMakettingTicketToolStripMenuItem
             // 
             this.findMakettingTicketToolStripMenuItem.Name = "findMakettingTicketToolStripMenuItem";
@@ -1122,12 +1132,12 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // findGatepassOfShipmentToolStripMenuItem
+            // revertStoreErrorIssueToolStripMenuItem
             // 
-            this.findGatepassOfShipmentToolStripMenuItem.Name = "findGatepassOfShipmentToolStripMenuItem";
-            this.findGatepassOfShipmentToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.findGatepassOfShipmentToolStripMenuItem.Text = "Find Gatepass of shipment";
-            this.findGatepassOfShipmentToolStripMenuItem.Click += new System.EventHandler(this.findGatepassOfShipmentToolStripMenuItem_Click);
+            this.revertStoreErrorIssueToolStripMenuItem.Name = "revertStoreErrorIssueToolStripMenuItem";
+            this.revertStoreErrorIssueToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.revertStoreErrorIssueToolStripMenuItem.Text = "Revert store error issue ";
+            this.revertStoreErrorIssueToolStripMenuItem.Click += new System.EventHandler(this.revertStoreErrorIssueToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1280,6 +1290,7 @@
         private ToolStripMenuItem deviceRegionForTransferInToolStripMenuItem;
         private ToolStripMenuItem trackingWrongDocToolStripMenuItem;
         private ToolStripMenuItem findGatepassOfShipmentToolStripMenuItem;
+        private ToolStripMenuItem revertStoreErrorIssueToolStripMenuItem;
     }
 }
 
