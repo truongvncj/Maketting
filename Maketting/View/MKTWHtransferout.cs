@@ -717,8 +717,8 @@ namespace Maketting.View
                         tbl_MKt_Transferoutdetail DetailTransfer = new tbl_MKt_Transferoutdetail();
 
                         DetailTransfer.MateriaItemcode = item.MateriaItemcode;
-                        DetailTransfer.Description = item.Description;
-                        DetailTransfer.Materialname = item.Materialname;
+                        DetailTransfer.Description = item.Description.Truncate(255);
+                        DetailTransfer.Materialname = item.Materialname.Truncate(255);
                         DetailTransfer.MateriaSAPcode = item.MateriaSAPcode;
                         DetailTransfer.Tranfernumber = item.Tranfernumber;
                         DetailTransfer.Quantity = item.Quantity;

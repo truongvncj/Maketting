@@ -421,7 +421,7 @@ namespace Maketting.View
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value != DBNull.Value)
                 {
 
-                    float xuat = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
+                    float xuat = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
                     float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
                     if (yeucau != xuat)
                     {
@@ -495,7 +495,7 @@ namespace Maketting.View
                         tbl_MKt_WHstoreissue phieuxuat = new tbl_MKt_WHstoreissue();
 
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
-                        phieuxuat.Issued = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
+                        phieuxuat.Issued = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
                         phieuxuat.IssueDate = datecreated.Value;
                         phieuxuat.date_input_output = datecreated.Value;
                         phieuxuat.Document_number = this.Loadnumberserri;
@@ -556,7 +556,7 @@ namespace Maketting.View
 
                         newregionupdate.ITEM_Code = item.MateriaSAPcode;
                         newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                        newregionupdate.MATERIAL = item.Materialname;
+                        newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                         newregionupdate.Description = item.Description;
                         newregionupdate.Region = item.Region;
                         newregionupdate.QuantityInputbyPO = 0;

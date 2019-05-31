@@ -1517,8 +1517,8 @@ namespace Maketting.Model
 
                 tbl_MKT_Stockend newproduct = new tbl_MKT_Stockend();
 
-                newproduct.Description = itemIN.Description;
-                newproduct.MATERIAL = itemIN.Materialname;
+                newproduct.Description = itemIN.Description.Truncate(255);
+                newproduct.MATERIAL = itemIN.Materialname.Truncate(255);
 
 
                 newproduct.END_STOCK = itemIN.Reciepted_Quantity;
@@ -1533,7 +1533,7 @@ namespace Maketting.Model
 
                 newproduct.Ordered = 0;
 
-                newproduct.Description = itemIN.Description;
+               // newproduct.Description = itemIN.Description;
 
 
 
@@ -1867,7 +1867,7 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs = from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemxuat.Materiacode
+                     where p.ITEM_Code == itemxuat.MateriaItemcode
                      select p;
 
             if (rs.Count() > 0)
@@ -1883,7 +1883,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.Materiacode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
             //   Giảm ordered khi xuất hàng

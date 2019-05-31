@@ -54,6 +54,7 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lb_lookdetail = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -81,6 +82,7 @@ namespace Maketting.View
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.lb_lookdetail);
             this.panel2.Controls.Add(this.lbseach);
             this.panel2.Controls.Add(this.btaddto);
             this.panel2.Controls.Add(this.bt_sua);
@@ -340,6 +342,17 @@ namespace Maketting.View
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
+            // lb_lookdetail
+            // 
+            this.lb_lookdetail.AutoSize = true;
+            this.lb_lookdetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_lookdetail.ForeColor = System.Drawing.Color.Red;
+            this.lb_lookdetail.Location = new System.Drawing.Point(804, 6);
+            this.lb_lookdetail.Name = "lb_lookdetail";
+            this.lb_lookdetail.Size = new System.Drawing.Size(173, 20);
+            this.lb_lookdetail.TabIndex = 8;
+            this.lb_lookdetail.Text = "F6- Look detail ordered";
+            // 
             // Viewtable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,5 +406,6 @@ namespace Maketting.View
         private System.Windows.Forms.Button bt_themmoi;
         private System.Windows.Forms.Button btaddto;
         private System.Windows.Forms.Label lbseach;
+        private System.Windows.Forms.Label lb_lookdetail;
     }
 }

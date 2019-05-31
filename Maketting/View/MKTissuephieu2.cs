@@ -1009,7 +1009,7 @@ namespace Maketting.View
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
                         {
-                            ordered = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+                            ordered = float.Parse(dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value.ToString());
                             detailphieu.Issued = ordered;
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
@@ -1061,7 +1061,7 @@ namespace Maketting.View
 
                         newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
                         newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
-                        newregionupdate.QuantityOutput = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
+                        newregionupdate.QuantityOutput = float.Parse(dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value.ToString());// 0;
                         newregionupdate.QuantitybyDevice = 0;
                         // newregionupdate.Note = item.n;
                         newregionupdate.Regionchangedate = datepickngayphieu.Value;

@@ -80,3 +80,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandstore.resou
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandStoreandRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuereturnRequest.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangtheoPOredeviceforRegion.resources
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHlistdetailOrdered.resources

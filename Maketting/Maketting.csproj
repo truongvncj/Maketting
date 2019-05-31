@@ -357,6 +357,12 @@
     <Compile Include="View\MKTupdateMKTcompleted.Designer.cs">
       <DependentUpon>MKTupdateMKTcompleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTWHlistdetailOrdered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTWHlistdetailOrdered.Designer.cs">
+      <DependentUpon>MKTWHlistdetailOrdered.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTWHxuathang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -635,6 +641,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTupdateMKTcompleted.resx">
       <DependentUpon>MKTupdateMKTcompleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTWHlistdetailOrdered.resx">
+      <DependentUpon>MKTWHlistdetailOrdered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTWHxuathang.resx">
       <DependentUpon>MKTWHxuathang.cs</DependentUpon>

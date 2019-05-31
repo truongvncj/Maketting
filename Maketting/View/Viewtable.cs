@@ -185,6 +185,70 @@ namespace Maketting.View
         void Control_KeyPress(object sender, KeyEventArgs e)
         {
 
+          
+
+
+            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F6) // tìm mas sản phẩm
+            {
+
+
+                FormCollection fc = System.Windows.Forms.Application.OpenForms;
+
+                bool kq = false;
+                foreach (Form frm in fc)
+                {
+                    if (frm.Text == "List Ordered Detail")
+
+
+                    {
+                        kq = true;
+                        frm.Focus();
+
+                    }
+                }
+
+                if (!kq)
+                {
+
+
+                    //   int idsanpham = 0;
+                    string ITEM_Code;
+                    string Store_code;
+                    float END_STOCK;
+                    float Ordered;
+                    //    int idtk = 0;
+                    try
+                    {
+                        //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                        ITEM_Code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ITEM_Code"].Value;
+                        Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                        END_STOCK = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["END_STOCK"].Value.ToString());
+                        Ordered = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Ordered"].Value.ToString());
+                     //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+
+
+
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+
+                    Main tempman = new Main();
+
+                    MKTWHlistdetailOrdered viewordered = new MKTWHlistdetailOrdered(ITEM_Code, Store_code, END_STOCK, Ordered);
+                    viewordered.ShowDialog();
+
+                }
+
+
+
+
+
+            }
 
             if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3) // tìm mas sản phẩm
             {
@@ -477,7 +541,7 @@ namespace Maketting.View
             this.dataGridView1.DataSource = rs;
             this.Dtgridview = dataGridView1;
 
-
+            lb_lookdetail.Visible = false;
 
             this.dc = dc;
          
@@ -495,6 +559,9 @@ namespace Maketting.View
                 bt_themmoi.Visible = true;
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
+
+                lb_lookdetail.Visible = true;
+
                 //  lbseach.Visible = false;
             }
 
