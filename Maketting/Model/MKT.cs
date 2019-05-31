@@ -462,6 +462,89 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+
+        public static IQueryable DanhsacHSTOCKMOVEmentdetailbyproduct(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store, string itemcode)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_WHstoreissues
+                     where p.date_input_output >= fromdate && p.date_input_output <= todate
+                     && p.ShippingPoint == store
+                     && p.MateriaItemcode == itemcode
+                     orderby p.date_input_output
+                     select new
+                     {
+                         Input_Output_date = p.date_input_output,
+                         p.Document_number,
+
+                         p.Materiacode,
+                         p.MateriaItemcode,
+                         p.Materialname,
+                         p.Issued,
+                         Receipted = p.RecieptQuantity,
+                         Store_code = p.ShippingPoint,
+
+
+                         p.Username,
+
+                         p.IssueIDsub,
+                         p.id,
+
+
+
+
+
+
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+        public static IQueryable DanhsacHSTOCKMOVEmentsUMMARYbyproduct(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store, string itemcode)
+        {
+
+        
+
+            var rs = from p in dc.tbl_MKt_WHstoreissues
+                     where p.date_input_output >= fromdate && p.date_input_output <= todate
+                     && p.ShippingPoint == store
+                     && p.MateriaItemcode == itemcode
+                     group p by new
+                     {
+                         //   pp.Region,
+                         p.MateriaItemcode,
+
+
+
+                     } into gg
+                     select new
+                     {
+                         MateriaL_Item_code = gg.Key.MateriaItemcode,
+                         MateriaL_SAP_code = gg.FirstOrDefault().Materiacode,
+                         Material_name = gg.FirstOrDefault().Materialname,
+                         Receipted = gg.Sum(m => m.RecieptQuantity).GetValueOrDefault(0),
+                         Issued = gg.Sum(m => m.Issued).GetValueOrDefault(0),
+
+
+                     };
+           
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+
         public static IQueryable DanhsacHSTOCKMOVEmentsUMMARY(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
         {
 

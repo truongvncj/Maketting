@@ -185,8 +185,155 @@ namespace Maketting.View
         void Control_KeyPress(object sender, KeyEventArgs e)
         {
 
-          
+            //MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
+            //datepick.ShowDialog();
 
+            //DateTime fromdate = datepick.fromdate;
+            //DateTime todate = datepick.todate;
+            //string store = datepick.Store;
+
+            //bool kq = datepick.chon;
+
+            //if (kq) // nueeus có chọn
+            //{
+            //    string connection_string = Utils.getConnectionstr();
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            //    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
+
+
+            //    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            //    viewtbl.ShowDialog();
+
+
+            //}
+
+            #region f12 xem chi tiên
+
+
+            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F12) // tìm mas sản phẩm
+            {
+
+                //    string store = datepick.Store;
+
+
+
+
+                //   int idsanpham = 0;
+                string ITEM_Code;
+                string Store_code;
+
+                try
+                {
+                    //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                    ITEM_Code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ITEM_Code"].Value;
+                    Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                    //       END_STOCK = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["END_STOCK"].Value.ToString());
+                    //     Ordered = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Ordered"].Value.ToString());
+                    //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+
+
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MKTFromdatetodate datepick = new MKTFromdatetodate();
+                datepick.ShowDialog();
+
+                DateTime fromdate = datepick.fromdate;
+                DateTime todate = datepick.todate;
+                bool kq = datepick.chon;
+
+                if (kq) // nueeus có chọn
+                {
+                    //       string connection_string = Utils.getConnectionstr();
+                    //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentsUMMARYbyproduct(dc, fromdate, todate, Store_code, ITEM_Code);
+
+
+                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMARY ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                    viewtbl.ShowDialog();
+
+                }
+
+
+
+
+            }
+
+
+            #endregion f9 xem chi tiet kho
+
+            #region f9 xem chi tiên
+
+
+            if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F9) // tìm mas sản phẩm
+            {
+
+                //    string store = datepick.Store;
+
+
+
+
+                //   int idsanpham = 0;
+                string ITEM_Code;
+                string Store_code;
+
+                try
+                {
+                    //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                    ITEM_Code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ITEM_Code"].Value;
+                    Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                    //       END_STOCK = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["END_STOCK"].Value.ToString());
+                    //     Ordered = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Ordered"].Value.ToString());
+                    //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+
+
+
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MKTFromdatetodate datepick = new MKTFromdatetodate();
+                datepick.ShowDialog();
+
+                DateTime fromdate = datepick.fromdate;
+                DateTime todate = datepick.todate;
+                bool kq = datepick.chon;
+
+                if (kq) // nueeus có chọn
+                {
+                    //       string connection_string = Utils.getConnectionstr();
+                    //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbyproduct(dc, fromdate, todate, Store_code, ITEM_Code);
+
+
+                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                    viewtbl.ShowDialog();
+
+                }
+
+
+
+
+            }
+
+
+            #endregion f9 xem chi tiet kho
 
             if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F6) // tìm mas sản phẩm
             {
@@ -224,7 +371,7 @@ namespace Maketting.View
                         Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
                         END_STOCK = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["END_STOCK"].Value.ToString());
                         Ordered = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Ordered"].Value.ToString());
-                     //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                        //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
 
 
 
@@ -232,7 +379,7 @@ namespace Maketting.View
                     catch (Exception)
                     {
 
-                        MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Bạn phải chọn một dòng có ordered !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -469,7 +616,7 @@ namespace Maketting.View
         public void ReloadPhieuMKTtheosohead(Viewtable Viewtable, string MKTnumber, string txtname, string region, string statusphieu)
         {
 
-          
+
 
             //  string connection_string = Utils.getConnectionstr();
 
@@ -521,7 +668,7 @@ namespace Maketting.View
         }
 
 
-     
+
 
 
 
@@ -544,7 +691,7 @@ namespace Maketting.View
             lb_lookdetail.Visible = false;
 
             this.dc = dc;
-         
+
             this.rs = rs;
             //  this.lb_seach.Text = "F3 TÌM KIẾM";
             //      this.bt_sendinggroup.Visible = false;
@@ -560,11 +707,18 @@ namespace Maketting.View
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
 
-                lb_lookdetail.Visible = true;
-
+           
                 //  lbseach.Visible = false;
             }
 
+            if (this.valuesave == "STORERPT")
+            {
+                lb_lookdetail.Visible = true;
+                lbf12stockmovementsum.Visible = true;
+                lbf9stocmovementdetail.Visible = true;
+            }
+
+       
 
             if (viewcode == 1000) // 55 chỉ view và exports
             {
@@ -1474,11 +1628,11 @@ namespace Maketting.View
             {
                 if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
                 {
-                  
+
 
                     string Ponumber = "";
-                    int id ;
-                    int subid ;
+                    int id;
+                    int subid;
                     //pp.POnumber,
                     //     Ngày_nhập_kho = pp.date_input_output,
                     //     DN_Number = pp.DNNumber,
@@ -1495,7 +1649,7 @@ namespace Maketting.View
                     //     pp.id,
                     //     Subid = pp.IssueIDsub,
 
-                    
+
                     try
                     {
                         Ponumber = (string)dataGridView1.Rows[e.RowIndex].Cells["POnumber"].Value.ToString();
@@ -1504,7 +1658,7 @@ namespace Maketting.View
 
                         //     this.Close();
 
-                      //  this.Close();
+                        //  this.Close();
 
                         //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
                     }
@@ -1524,7 +1678,7 @@ namespace Maketting.View
                 }
 
                 #region  viewdetail 100 tạo phieu               phiếu
-                if (this.viewcode == 100 && (this.valuesave == "tk" ||this.valuesave == "tkhead" ) )
+                if (this.viewcode == 100 && (this.valuesave == "tk" || this.valuesave == "tkhead"))
                 {
 
                     if (!Username.getMakettingright())
@@ -1536,14 +1690,14 @@ namespace Maketting.View
 
 
                     string sophieufind = "";
-              //      string region = "";
+                    //      string region = "";
                     string storelocationfind = "";
                     //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
                     try
                     {
                         sophieufind = this.dataGridView1.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
                         storelocationfind = this.dataGridView1.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
-                   //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                        //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
                     }
                     catch (Exception ex)
                     {
@@ -1553,9 +1707,9 @@ namespace Maketting.View
 
                     View.Main main = new Main();
 
-                    View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind,  storelocationfind);
+                    View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind, storelocationfind);
                     accsup.ShowDialog();
-                //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
+                    //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
 
 
                 }
@@ -1598,7 +1752,7 @@ namespace Maketting.View
 
 
 
-                    
+
 
 
 
@@ -1801,47 +1955,47 @@ namespace Maketting.View
 
 
 
-                #region  approval payment request
-                if (this.valuesave == "PaymentRequest")
-                {
+                //#region  approval payment request
+                //if (this.valuesave == "PaymentRequest")
+                //{
 
 
-                    //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
-                    {
+                //    //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
+                //    {
 
-                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != "")
-                        {
-                            #region
+                //        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != "")
+                //        {
+                //            #region
 
-                            int payID = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value;
+                //            int payID = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value;
 
-                            View.MKTProgramepaymentbyFI accsup = new MKTProgramepaymentbyFI(payID, this.dataGridView1);
-                            accsup.Show();
-
-
-
-
-
-
-                            #endregion
-
-
-                        }
-
-                    }
+                //            View.MKTProgramepaymentbyFI accsup = new MKTProgramepaymentbyFI(payID, this.dataGridView1);
+                //            accsup.Show();
 
 
 
 
 
 
+                //            #endregion
+
+
+                //        }
+
+                //    }
 
 
 
-                }
 
 
-                #endregion
+
+
+
+
+                //}
+
+
+                //#endregion
 
 
 
