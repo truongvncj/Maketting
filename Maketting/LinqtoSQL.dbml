@@ -707,6 +707,7 @@
       <Column Name="DNNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Document_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Transfer_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Doc_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -5469,11 +5469,13 @@ namespace Maketting.View
 
         private void gRListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
             datepick.ShowDialog();
 
             DateTime fromdate = datepick.fromdate;
             DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
             bool kq = datepick.chon;
 
             if (kq) // nueeus có chọn
@@ -5481,10 +5483,10 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
+                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Good Receipt list", 55, "GR List");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "Good Receipt list", 1000, "GR List");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -5495,11 +5497,13 @@ namespace Maketting.View
 
         private void goodReceiptListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
             datepick.ShowDialog();
 
             DateTime fromdate = datepick.fromdate;
             DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
             bool kq = datepick.chon;
 
             if (kq) // nueeus có chọn
@@ -5507,10 +5511,10 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
+                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Good Receipt list", 55, "GR List");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "Good Receipt list", 1000, "GR List");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -6383,19 +6387,22 @@ namespace Maketting.View
 
         private void reDeviceGoodRecieptToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTFromdatetodate datepick = new MKTFromdatetodate();
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
             datepick.ShowDialog();
 
             DateTime fromdate = datepick.fromdate;
             DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
             bool kq = datepick.chon;
+
 
             if (kq) // nueeus có chọn
             {
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate);
+                IQueryable rs = Model.MKT.DanhsachGRList(dc, fromdate, todate, store);
 
 
                 Viewtable viewtbl = new Viewtable(rs, dc, "Detail Goodreceipt List - Double click to redevice for each region ", 1000, "tkRedeviceGRforRegion");// mã 5 là danh sach nha nha ccaaps
@@ -6528,6 +6535,34 @@ namespace Maketting.View
         private void revertWrongTransferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void storeInportReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
+            bool kq = datepick.chon;
+
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.storeimportsreports(dc, fromdate, todate, store);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "Store import detail reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
         }
     }
 

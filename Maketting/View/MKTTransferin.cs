@@ -223,7 +223,7 @@ namespace Maketting.View
 
 
             datecreated.Value = DateTime.Today;
-
+            datethucnhan.Value = DateTime.Today;
 
             loaddetailTranferin();
 
@@ -441,7 +441,20 @@ namespace Maketting.View
 
             bool checkdetail = true;
 
-        
+            if (txtDNnumber.Text == "")
+            {
+
+
+                MessageBox.Show("Please input DN Number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                checkdetail = false;
+
+                return;
+            }
+
+
+
+
+
 
             #region // detail
             for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
@@ -573,8 +586,7 @@ namespace Maketting.View
                                 newtransferin.Tranfernumber = item.Tranfernumber;
                                 newtransferin.Store_IN = item.Store_IN;
                                 newtransferin.Store_OUT = item.Store_OUT;
-
-
+                              
                                 newtransferin.Transfer_IN_Date = datecreated.Value;
 
                                 //  newreciepts.Status=""
@@ -591,13 +603,14 @@ namespace Maketting.View
 
                                 phieuxuatnhap.Recieptby = txtnguoinhanhang.Text;
                                 phieuxuatnhap.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;  // nhạn hàng
-                                phieuxuatnhap.IssueDate = datecreated.Value;
-                                phieuxuatnhap.date_input_output = datecreated.Value;
+                                phieuxuatnhap.IssueDate = datethucnhan.Value;
+                                phieuxuatnhap.date_input_output = datethucnhan.Value;
                                 phieuxuatnhap.Document_number = item.Tranfernumber;
                                 phieuxuatnhap.Transfer_number = item.Tranfernumber;
                                 phieuxuatnhap.Unit = item.Unit;
                                 phieuxuatnhap.ShippingPoint = item.Store_IN;
-
+                                phieuxuatnhap.DNNumber = txtDNnumber.Text.Truncate(50);
+                                phieuxuatnhap.Doc_date = datecreated.Value;
                                 phieuxuatnhap.IssueIDsub = IssueIDsub;
                               //  phieuxuatnhap.LoadNumber = this.soload;
 

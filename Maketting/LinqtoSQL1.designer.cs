@@ -14473,6 +14473,8 @@ namespace Maketting
 		
 		private string _Transfer_number;
 		
+		private System.Nullable<System.DateTime> _Doc_date;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -14519,6 +14521,8 @@ namespace Maketting
     partial void OnDocument_numberChanged();
     partial void OnTransfer_numberChanging(string value);
     partial void OnTransfer_numberChanged();
+    partial void OnDoc_dateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDoc_dateChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -14942,6 +14946,26 @@ namespace Maketting
 					this._Transfer_number = value;
 					this.SendPropertyChanged("Transfer_number");
 					this.OnTransfer_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Doc_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Doc_date
+		{
+			get
+			{
+				return this._Doc_date;
+			}
+			set
+			{
+				if ((this._Doc_date != value))
+				{
+					this.OnDoc_dateChanging(value);
+					this.SendPropertyChanging();
+					this._Doc_date = value;
+					this.SendPropertyChanged("Doc_date");
+					this.OnDoc_dateChanged();
 				}
 			}
 		}

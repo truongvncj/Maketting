@@ -378,7 +378,7 @@ namespace Maketting.Model
                          Shipto_City = p.shiptocity,
                          Shipto_Name = pp.ShiptoName, // p.Receiver_by,
 
-                     //    Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
+                         //    Shipto_Address = pp.ShiptoAddress,//.Address,//.ShiptoAddress,
 
 
 
@@ -512,7 +512,7 @@ namespace Maketting.Model
         public static IQueryable DanhsacHSTOCKMOVEmentsUMMARYbyproduct(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store, string itemcode)
         {
 
-        
+
 
             var rs = from p in dc.tbl_MKt_WHstoreissues
                      where p.date_input_output >= fromdate && p.date_input_output <= todate
@@ -536,7 +536,7 @@ namespace Maketting.Model
 
 
                      };
-           
+
 
             return rs;
 
@@ -1616,7 +1616,7 @@ namespace Maketting.Model
 
                 newproduct.Ordered = 0;
 
-               // newproduct.Description = itemIN.Description;
+                // newproduct.Description = itemIN.Description;
 
 
 
@@ -2583,7 +2583,7 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-        public static IQueryable DanhsachGRList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        public static IQueryable DanhsachGRList(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string storecode)
         {
 
 
@@ -2593,8 +2593,9 @@ namespace Maketting.Model
             var rs = from pp in dc.tbl_MKt_WHstoreissues
                          // from gg in dc.tbl_MKt_POheads
                      where pp.POnumber != null //&& pp.POnumber == gg.PONumber
-                     where pp.date_input_output >= fromdate
+                     && pp.date_input_output >= fromdate
                       && pp.date_input_output <= todate
+                        && pp.ShippingPoint == storecode
                      select new
                      {
                          // gg.
@@ -2622,6 +2623,48 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable storeimportsreports(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string storecode)
+        {
+
+
+
+
+
+            var rs = from pp in dc.tbl_MKt_WHstoreissues
+                         // from gg in dc.tbl_MKt_POheads
+                     where pp.RecieptQuantity != null //&& pp.POnumber == gg.PONumber
+                     && pp.date_input_output >= fromdate
+                      && pp.date_input_output <= todate
+                          && pp.ShippingPoint == storecode
+                     select new
+                     {
+                         // gg.
+                         DocumentNumber = pp.Document_number,
+                         Ngày_nhập_kho = pp.date_input_output,
+                         DN_Number = pp.DNNumber,
+                         pp.Materiacode,
+                         pp.MateriaItemcode,
+                         pp.Materialname,
+                         pp.Unit,
+                         pp.RecieptQuantity,
+                         pp.Recieptby,
+
+
+                         pp.Username,
+                         pp.ShippingPoint,
+                         Shipmnent = pp.Serriload,
+                         Transfer_in_number = pp.Transfer_number,
+                         pp.POnumber,
+                         //   pp.id,
+                         //    Subid = pp.IssueIDsub,
+
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
 
         public static double getAvailable_Quantity(string materialitemcode, string storelocation)
         {

@@ -394,13 +394,6 @@ namespace Maketting.View
             bool checkdetail = true;
 
 
-            //            Maketting_load = pp.LoadNumber,
-            //             Shipping_Point = pp.ShippingPoint,
-            //             Material_code = pp.Materiacode,
-            //             Material_name = pp.Materialname,
-            //             Requested_issue = pp.Issued,
-            //        //     Real_issue = 0,
-
 
             #region // detail
             for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
@@ -497,8 +490,8 @@ namespace Maketting.View
 
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
                         phieuxuat.Issued = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
-                        phieuxuat.IssueDate = datecreated.Value;
-                        phieuxuat.c
+                        phieuxuat.IssueDate = ngayThuctexuat.Value;
+                        phieuxuat.Doc_date = datecreated.Value;
 
                         phieuxuat.date_input_output = datecreated.Value;
                         phieuxuat.Document_number = this.Loadnumberserri;

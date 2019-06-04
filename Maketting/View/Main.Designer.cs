@@ -64,6 +64,7 @@
             this.revertWrongTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackingWrongDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertStoreErrorIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,7 +160,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.revertStoreErrorIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -420,6 +421,13 @@
             this.trackingWrongDocToolStripMenuItem.Name = "trackingWrongDocToolStripMenuItem";
             this.trackingWrongDocToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
             this.trackingWrongDocToolStripMenuItem.Text = "Tracking wrong document ";
+            // 
+            // revertStoreErrorIssueToolStripMenuItem
+            // 
+            this.revertStoreErrorIssueToolStripMenuItem.Name = "revertStoreErrorIssueToolStripMenuItem";
+            this.revertStoreErrorIssueToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.revertStoreErrorIssueToolStripMenuItem.Text = "Revert store error issue ";
+            this.revertStoreErrorIssueToolStripMenuItem.Click += new System.EventHandler(this.revertStoreErrorIssueToolStripMenuItem_Click);
             // 
             // MenuMaketting
             // 
@@ -987,6 +995,7 @@
             this.findGatepassOfShipmentToolStripMenuItem,
             this.findMakettingTicketToolStripMenuItem,
             this.toolStripSeparator19,
+            this.storeInportReportsToolStripMenuItem,
             this.goodReceiptListToolStripMenuItem,
             this.pODetailListReportsToolStripMenuItem,
             this.pODetailByRegionListReportsToolStripMenuItem,
@@ -1132,12 +1141,12 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // revertStoreErrorIssueToolStripMenuItem
+            // storeInportReportsToolStripMenuItem
             // 
-            this.revertStoreErrorIssueToolStripMenuItem.Name = "revertStoreErrorIssueToolStripMenuItem";
-            this.revertStoreErrorIssueToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
-            this.revertStoreErrorIssueToolStripMenuItem.Text = "Revert store error issue ";
-            this.revertStoreErrorIssueToolStripMenuItem.Click += new System.EventHandler(this.revertStoreErrorIssueToolStripMenuItem_Click);
+            this.storeInportReportsToolStripMenuItem.Name = "storeInportReportsToolStripMenuItem";
+            this.storeInportReportsToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.storeInportReportsToolStripMenuItem.Text = "Store import detail reports";
+            this.storeInportReportsToolStripMenuItem.Click += new System.EventHandler(this.storeInportReportsToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1291,6 +1300,7 @@
         private ToolStripMenuItem trackingWrongDocToolStripMenuItem;
         private ToolStripMenuItem findGatepassOfShipmentToolStripMenuItem;
         private ToolStripMenuItem revertStoreErrorIssueToolStripMenuItem;
+        private ToolStripMenuItem storeInportReportsToolStripMenuItem;
     }
 }
 
