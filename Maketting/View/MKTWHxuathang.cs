@@ -205,6 +205,7 @@ namespace Maketting.View
             txtloadseri.Text = Loadnumberserri;
 
 
+            ngayThuctexuat.Value = DateTime.Today;
 
             datecreated.Value = DateTime.Today;
 
@@ -497,6 +498,8 @@ namespace Maketting.View
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
                         phieuxuat.Issued = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
                         phieuxuat.IssueDate = datecreated.Value;
+                        phieuxuat.c
+
                         phieuxuat.date_input_output = datecreated.Value;
                         phieuxuat.Document_number = this.Loadnumberserri;
               //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;

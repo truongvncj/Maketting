@@ -2339,7 +2339,7 @@ namespace Maketting.View
                 foreach (var item in rs)
                 {
                     item.Username = Username;
-                    item.Loadingby = Username;
+                    item.Shipmentby = Username;
                     item.Status = "LOADING";
                     dc.SubmitChanges();
 

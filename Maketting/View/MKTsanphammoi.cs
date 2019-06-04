@@ -64,8 +64,8 @@ namespace Maketting.View
 
             this.id = idsanpham;
 
-            
-                  if (loai == 1) // tạo mới
+
+            if (loai == 1) // tạo mới
             {
                 this.btupdate.Visible = false;
                 this.btxoa.Visible = false;
@@ -77,7 +77,7 @@ namespace Maketting.View
 
             }
 
-                if (loai == 2) // xóa + sua
+            if (loai == 2) // xóa + sua
             {
                 this.btnew.Visible = false;
                 this.btxoa.Visible = false;
@@ -96,7 +96,7 @@ namespace Maketting.View
 
 
                 var item = (from p in dc.tbl_MKT_Stockends
-                            where p.id == idsanpham
+                            where p.id == this.id
                             select p).FirstOrDefault();
 
                 if (item != null)
@@ -159,7 +159,7 @@ namespace Maketting.View
 
 
                 var item = (from p in dc.tbl_MKT_Stockends
-                            where p.id == idsanpham
+                            where p.id == this.id
                             select p).FirstOrDefault();
 
                 if (item != null)
@@ -266,6 +266,8 @@ namespace Maketting.View
 
         private void btupdate_Click(object sender, EventArgs e)
         {
+
+
             //
 
 
@@ -282,7 +284,7 @@ namespace Maketting.View
 
             this.description = txtdescription.Text.Truncate(225);
             this.sapcode = txtsapcode.Text.Truncate(225);
-            this.itemcode = txtsapcode.Text.Truncate(225);
+            this.itemcode = txtItemcode.Text.Truncate(225);
             this.materialname = this.txttensanpham.Text.Truncate(225);
             this.unit = txtunit.Text.Truncate(50);
             this.storelocation = txtstorelocation.Text.Truncate(10);
@@ -358,15 +360,39 @@ namespace Maketting.View
 
             if (itemcode != "")
             {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+                var rs1 = from pp in dc.tbl_MKT_Stockends
+                          where pp.ITEM_Code == this.itemcode
+                          && pp.Store_code == this.storelocation
+                            && pp.id != this.id
+                          select pp;
+
+                if (rs1.Count() > 0)
+                {
+
+                    MessageBox.Show("Mã Item code bị trùng, please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+
+                }
+
+
+
+
+
                 chon = true;
                 //        string connection_string = Utils.getConnectionstr();
                 //        LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-                LinqtoSQLDataContext db = this.Fromviewable.dc;
+                //  LinqtoSQLDataContext db = this.Fromviewable.dc;
                 //   tbl_dstaikhoan tk = new tbl_dstaikhoan();
 
 
                 //    MeasureItemEventArgs.re
-                var rs = (from p in db.tbl_MKT_Stockends
+                var rs = (from p in dc.tbl_MKT_Stockends
                           where p.id == this.id
                           //  orderby tbl_dstaikhoan.matk
                           select p).FirstOrDefault();
@@ -375,10 +401,10 @@ namespace Maketting.View
                 if (rs != null)
                 {
 
-                    rs.ITEM_Code = this.itemcode;// = this.txtmaNCC.Text;
-                    rs.MATERIAL = this.materialname;// this.txttenNCC.Text;
+                    rs.ITEM_Code = this.itemcode.Trim();// = this.txtmaNCC.Text;
+                    rs.MATERIAL = this.materialname.Truncate(225);// this.txttenNCC.Text;
 
-                    rs.Description = this.description;
+                    rs.Description = this.description.Truncate(225);
                     rs.Quantity_Per_Pallet = this.QuantityPerPallet;
                     rs.End_Stock_By_Pallet = rs.END_STOCK * (1 / this.QuantityPerPallet);
                     rs.SAP_CODE = this.sapcode;
@@ -387,12 +413,12 @@ namespace Maketting.View
                     rs.END_STOCK = this.endstocknumber;
 
 
-                    db.SubmitChanges();
+                    dc.SubmitChanges();
 
 
                     this.Close();
 
-
+                    MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //   Fromviewable.Reloadtonkhotheolocation(Fromviewable, this.storelocation);
                 }
@@ -434,7 +460,7 @@ namespace Maketting.View
 
             this.description = txtdescription.Text.Truncate(225);
             this.sapcode = txtsapcode.Text.Truncate(225);
-            this.itemcode = txtsapcode.Text.Truncate(225);
+            this.itemcode = txtItemcode.Text.Truncate(225);
             this.materialname = this.txttensanpham.Text.Truncate(225);
             //   this.itemcode = txtItemcode.Text;
             this.unit = txtunit.Text.Truncate(50);

@@ -687,7 +687,7 @@ namespace Maketting.Model
                          p.Status,
                          p.ShippingPoint,
                          p.ShipmentNumber,
-
+                         p.Shipmentby,
                          p.Requested_by,
 
                          p.Customer_SAP_Code,
