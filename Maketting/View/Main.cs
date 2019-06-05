@@ -6262,7 +6262,7 @@ namespace Maketting.View
 
 
 
-                        Model.MKT.giamtrukhokhixuathang(item);
+                        Model.MKT.giamtrukhokhireverthangnhamsaive(item);
 
                         item.RecieptQuantity = 0;
                         dc.SubmitChanges();

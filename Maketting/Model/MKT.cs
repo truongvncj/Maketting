@@ -1620,7 +1620,7 @@ namespace Maketting.Model
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;
                 newitem.END_STOCK = itemnhap.RecieptQuantity;
-                newitem.END_STOCK = itemnhap.RecieptQuantity;
+            //    newitem.END_STOCK = itemnhap.RecieptQuantity;
 
 
                 dc.tbl_MKT_Stockends.InsertOnSubmit(newitem);
@@ -2082,7 +2082,8 @@ namespace Maketting.Model
         public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
         {
 
-
+        
+           
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -2106,7 +2107,39 @@ namespace Maketting.Model
             Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
+         
+
+
+        }
+        public static void giamtrukhokhireverthangnhamsaive(tbl_MKt_WHstoreissue itemxuat)
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs = from p in dc.tbl_MKT_Stockends
+                     where p.ITEM_Code == itemxuat.MateriaItemcode
+                     select p;
+
+            if (rs.Count() > 0)
+            {
+                foreach (var item in rs)
+                {
+                    item.END_STOCK = item.END_STOCK - itemxuat.RecieptQuantity;
+                    dc.SubmitChanges();
+                }
+
+            }
+
             //   Giảm ordered khi xuất hàng
+
+
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.RecieptQuantity, itemxuat.ShippingPoint);
+
+
+
 
 
         }

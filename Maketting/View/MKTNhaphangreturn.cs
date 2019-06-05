@@ -8,7 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Maketting.shared;
 
 namespace Maketting.View
 {
@@ -208,7 +208,7 @@ namespace Maketting.View
 
 
             datecreated.Value = DateTime.Today;
-
+            datethucnhan.Value = DateTime.Today;
 
             loaddetailPNK();
 
@@ -391,14 +391,7 @@ namespace Maketting.View
 
             bool checkdetail = true;
 
-
-            //            Maketting_load = pp.LoadNumber,
-            //             Shipping_Point = pp.ShippingPoint,
-            //             Material_code = pp.Materiacode,
-            //             Material_name = pp.Materialname,
-            //             Requested_issue = pp.Issued,
-            //        //     Real_issue = 0,
-
+        
 
             #region // detail
             for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
@@ -420,7 +413,7 @@ namespace Maketting.View
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value != DBNull.Value)
                 {
 
-                    float ReturnQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
+                    float ReturnQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
                     float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
                     if (yeucau < ReturnQuantity)
                     {
@@ -460,15 +453,20 @@ namespace Maketting.View
 
 
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
 
 
             if (checkdetail)
             {
 
 
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                //var rs1 = from pp in dc.tbl_MKt_WHstoreissues
+                //          where pp.id == idfind
+                //          select pp.;
+
+
+             
 
 
                 #region // head 
@@ -492,36 +490,68 @@ namespace Maketting.View
                     {
                         int idfind = (int)dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value;
 
-                        var rs = from pp in dc.tbl_MKt_WHstoreissues
+                        var item = (from pp in dc.tbl_MKt_WHstoreissues
                                  where pp.id == idfind
-                                 select pp;
+                                 select pp).FirstOrDefault();
 
-                        if (rs.Count()>0)
+                        if (item.IssueDate < datethucnhan.Value)
                         {
-                            foreach (var item in rs)
-                            {
-                                item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
-                                item.Recieptby = txtnguoixuathang.Text;
-                              //  item.doc
+                            MessageBox.Show("Ngày thực tế nhập lại hàng phải sau ngày hoặc cùng ngày xuất hàng !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            checkdetail = false;
 
+                            return;
+                        }
+
+                        if (item != null)
+                        {
+
+                      
+
+                                tbl_MKt_WHstoreissue phieunhap = new tbl_MKt_WHstoreissue();
+
+                                phieunhap.Recieptby = txtnguoixuathang.Text;
+                                phieunhap.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
+                                phieunhap.IssueDate = datethucnhan.Value;
+                                phieunhap.Doc_date = datecreated.Value;
+
+                                phieunhap.date_input_output = datethucnhan.Value;
+                                phieunhap.Document_number = this.Loadnumberserri;
+                                //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+                          //      phieuxuat.IssueIDsub = IssueIDsub;
+                                phieunhap.LoadNumber = this.soload;
+                                phieunhap.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+
+                                phieunhap.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+                                phieunhap.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
+                                phieunhap.Serriload = this.Loadnumberserri;
+                                phieunhap.ShippingPoint = this.storelocation;
+                            //    phieunhap.Status = "CRT";
+                                phieunhap.Username = this.Username;
+
+                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieunhap);
+                                dc.SubmitChanges();
+
+
+                            
+                          
 
 
                                 dc.SubmitChanges();
 
-                                Model.MKT.tangkhokhinhaphang(item, this.storelocation);
+                                Model.MKT.tangkhokhinhaphang(phieunhap, this.storelocation);
 
 
 
 
 
                             }
-                        }
+                     
+
+
+                      
 
 
 
-                    
-
-                   
 
                     }
                 }
@@ -723,6 +753,7 @@ namespace Maketting.View
           
             var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == this.Loadnumberserri
+                           && pp.RecieptQuantity >0
                            orderby pp.Materiacode
                            select new
                            {
