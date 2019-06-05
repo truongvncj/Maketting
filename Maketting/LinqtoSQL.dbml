@@ -200,8 +200,8 @@
       <Column Name="pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="shiptocity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Returnrequest" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Return_reason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Returnrequest" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -230,7 +230,7 @@
       <Column Name="ShiptoAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Returnrequest" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="requestReturn" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">

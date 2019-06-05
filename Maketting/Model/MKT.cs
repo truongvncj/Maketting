@@ -136,6 +136,63 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
+        public static DataGridView Loadnewdetailcollectrequest(DataGridView dataGridViewDetail)
+        {
+
+
+            dataGridViewDetail.DataSource = null;
+            #region datatable temp
+
+
+
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
+            dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
+
+            dt.Columns.Add(new DataColumn("Unit", typeof(string)));
+            //      dt.Columns.Add(new DataColumn("Material_Name", typeof(string)));
+            //        drToAdd["Material_Name"] = PhieuMKT.Materialname;
+            dt.Columns.Add(new DataColumn("Request_collect_Quantity", typeof(float)));
+      
+
+
+
+            dataGridViewDetail.DataSource = dt;
+
+
+            //dataGridProgramdetail.Columns["Payment_Control"].DisplayIndex = 1;
+            //dataGridProgramdetail.Columns["Payment_Control"].Width = 70;
+            //dataGridProgramdetail.Columns["Payment_Control"].HeaderText = "Payment\nControl";
+            //this.dataGridProgramdetail.Columns["Payment_Control"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //      dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dataGridViewDetail.Columns["MATERIAL"].Width = 300;
+            dataGridViewDetail.Columns["Description"].Width = 300;
+
+            dataGridViewDetail.Columns["Unit"].ReadOnly = true;
+            dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+     
+            dataGridViewDetail.Columns["Request_collect_Quantity"].DefaultCellStyle.Format = "N0";
+
+         
+
+            #endregion datatable temp
+
+
+            return dataGridViewDetail;
+
+
+
+
+
+            //  throw new NotImplementedException();
+        }
+
+
         public static DataGridView LoadnewdetailTRANSfer(DataGridView dataGridViewDetail)
         {
 
@@ -1450,6 +1507,86 @@ namespace Maketting.Model
 
             return true;
         }
+
+
+        public static bool Deletephieuthuchangtochange(string sophieu, string kho, string Region) // vd phieu thu nghiep vu là phieu thu: PT,
+        {
+            //   string urs = Utils.getusername();
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs3 = (from pp in dc.tbl_MKt_Listphieudetails
+                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                    && pp.ShipmentNumber != ""
+                       select pp.ShipmentNumber).FirstOrDefault();
+
+            if (rs3 != null)
+            {
+                MessageBox.Show("Note " + sophieu + " can not delete detail by load created !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+
+      
+
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                      select pp;
+
+
+            if (rs2.Count() > 0)
+            {
+                dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
+                dc.SubmitChanges();
+
+            }
+            //else
+            //{
+            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
+
+            var rs = from pp in dc.tbl_MKt_Listphieuheads
+                     where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+                //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+                foreach (var item in rs)
+                {
+                    item.Username = Username.getUsername();
+                    item.Status = "TMP";
+                    dc.SubmitChanges();
+                }
+
+            }
+            else
+            {
+
+                tbl_MKt_Listphieuhead newheaddoc = new tbl_MKt_Listphieuhead();
+
+
+                newheaddoc.Ngaytaophieu = DateTime.Today;
+                newheaddoc.Status = "TMP";
+                newheaddoc.Gate_pass = sophieu;
+                newheaddoc.ShippingPoint = kho;
+                newheaddoc.Username = Username.getUsername();
+                dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
+                dc.SubmitChanges();
+
+
+
+
+
+
+
+            }
+
+            return true;
+        }
+
 
         public static void tangkhokhinhaphang(tbl_MKt_WHstoreissue itemnhap, string storecode)
         {

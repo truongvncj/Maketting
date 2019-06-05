@@ -3798,9 +3798,9 @@ namespace Maketting
 		
 		private string _shiptocity;
 		
-		private System.Nullable<int> _Returnrequest;
-		
 		private string _Return_reason;
+		
+		private System.Nullable<double> _Returnrequest;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3890,10 +3890,10 @@ namespace Maketting
     partial void OnNoteChanged();
     partial void OnshiptocityChanging(string value);
     partial void OnshiptocityChanged();
-    partial void OnReturnrequestChanging(System.Nullable<int> value);
-    partial void OnReturnrequestChanged();
     partial void OnReturn_reasonChanging(string value);
     partial void OnReturn_reasonChanged();
+    partial void OnReturnrequestChanging(System.Nullable<double> value);
+    partial void OnReturnrequestChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -4741,26 +4741,6 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnrequest", DbType="Int")]
-		public System.Nullable<int> Returnrequest
-		{
-			get
-			{
-				return this._Returnrequest;
-			}
-			set
-			{
-				if ((this._Returnrequest != value))
-				{
-					this.OnReturnrequestChanging(value);
-					this.SendPropertyChanging();
-					this._Returnrequest = value;
-					this.SendPropertyChanged("Returnrequest");
-					this.OnReturnrequestChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Return_reason", DbType="NVarChar(255)")]
 		public string Return_reason
 		{
@@ -4777,6 +4757,26 @@ namespace Maketting
 					this._Return_reason = value;
 					this.SendPropertyChanged("Return_reason");
 					this.OnReturn_reasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnrequest", DbType="Float")]
+		public System.Nullable<double> Returnrequest
+		{
+			get
+			{
+				return this._Returnrequest;
+			}
+			set
+			{
+				if ((this._Returnrequest != value))
+				{
+					this.OnReturnrequestChanging(value);
+					this.SendPropertyChanging();
+					this._Returnrequest = value;
+					this.SendPropertyChanged("Returnrequest");
+					this.OnReturnrequestChanged();
 				}
 			}
 		}
@@ -4856,7 +4856,7 @@ namespace Maketting
 		
 		private string _Trucknumber;
 		
-		private System.Nullable<int> _Returnrequest;
+		private bool _requestReturn;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4910,8 +4910,8 @@ namespace Maketting
     partial void OnNoteChanged();
     partial void OnTrucknumberChanging(string value);
     partial void OnTrucknumberChanged();
-    partial void OnReturnrequestChanging(System.Nullable<int> value);
-    partial void OnReturnrequestChanged();
+    partial void OnrequestReturnChanging(bool value);
+    partial void OnrequestReturnChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -5399,22 +5399,22 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Returnrequest", DbType="Int")]
-		public System.Nullable<int> Returnrequest
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_requestReturn", DbType="Bit NOT NULL")]
+		public bool requestReturn
 		{
 			get
 			{
-				return this._Returnrequest;
+				return this._requestReturn;
 			}
 			set
 			{
-				if ((this._Returnrequest != value))
+				if ((this._requestReturn != value))
 				{
-					this.OnReturnrequestChanging(value);
+					this.OnrequestReturnChanging(value);
 					this.SendPropertyChanging();
-					this._Returnrequest = value;
-					this.SendPropertyChanged("Returnrequest");
-					this.OnReturnrequestChanged();
+					this._requestReturn = value;
+					this.SendPropertyChanged("requestReturn");
+					this.OnrequestReturnChanged();
 				}
 			}
 		}
