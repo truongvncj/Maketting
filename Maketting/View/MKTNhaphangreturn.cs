@@ -502,8 +502,9 @@ namespace Maketting.View
                             {
                                 item.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;
                                 item.Recieptby = txtnguoixuathang.Text;
+                              //  item.doc
 
-                           
+
 
                                 dc.SubmitChanges();
 
