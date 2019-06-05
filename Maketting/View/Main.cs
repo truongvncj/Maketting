@@ -6247,7 +6247,7 @@ namespace Maketting.View
 
                 var rs7 = (from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == Loadnumberserri
-                           && pp.RecieptQuantity > 0
+                           && pp.RecieptQuantity >= 0
 
 
                            select pp);
@@ -6260,12 +6260,12 @@ namespace Maketting.View
                     foreach (var item in rs7)
                     {
 
-
+                      
 
                         Model.MKT.giamtrukhokhireverthangnhamsaive(item);
-
-                        item.RecieptQuantity = 0;
+                        dc.tbl_MKt_WHstoreissues.DeleteOnSubmit(item);
                         dc.SubmitChanges();
+
 
 
                         //      Model.MKT.tangkhokhinhaphang(item, this.storelocation);
@@ -6534,6 +6534,10 @@ namespace Maketting.View
 
         private void revertWrongTransferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
+
+
 
         }
 

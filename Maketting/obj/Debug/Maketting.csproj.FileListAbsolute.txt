@@ -81,3 +81,4 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTFromdateandStoreandReg
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuereturnRequest.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangtheoPOredeviceforRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHlistdetailOrdered.resources
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTminutethuhang.rdlc

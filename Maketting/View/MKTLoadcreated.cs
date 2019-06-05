@@ -2430,7 +2430,7 @@ namespace Maketting.View
         private void button1_Click_1(object sender, EventArgs e)
         {
             //   string username = Utils.getusername();
-
+            #region in phiếu MKT
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -2450,7 +2450,9 @@ namespace Maketting.View
             dc.SubmitChanges();
 
             var rptMKThead = from pp in dc.tbl_MKt_Listphieuheads
+
                              where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                             && pp.requestReturn == false
                              select pp;
 
             if (rptMKThead.Count() > 0)
@@ -2491,6 +2493,7 @@ namespace Maketting.View
 
             var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
                                  where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+                                 && pp.Returnrequest == null
                                  orderby pp.Gate_pass
                                  select pp;
             int i = 0;
@@ -2572,7 +2575,159 @@ namespace Maketting.View
             Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKTlistbyLoad.rdlc");
             rpt.ShowDialog();
 
-            //}
+
+
+            #endregion n phiếu MKT
+
+            #region in biên ban thu hàng
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rptMKT = from pp in dc.tbl_MKT_headRpt_Phieuissues
+                         where pp.Username == this.Username
+                         select pp;
+
+            dc.tbl_MKT_headRpt_Phieuissues.DeleteAllOnSubmit(rptMKT);
+            dc.SubmitChanges();
+
+
+            var rptMKTdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
+                               where pp.Username == this.Username
+                               select pp;
+
+            dc.tbl_MKT_DetailRpt_Phieuissues.DeleteAllOnSubmit(rptMKTdetail);
+            dc.SubmitChanges();
+
+            var rptMKThead = from pp in dc.tbl_MKt_Listphieuheads
+
+                             where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
+                             && pp.requestReturn == false
+                             select pp;
+
+            if (rptMKThead.Count() > 0)
+            {
+
+                foreach (var item in rptMKThead)
+                {
+
+
+                    tbl_MKT_headRpt_Phieuissue headpx = new tbl_MKT_headRpt_Phieuissue();
+
+                    headpx.Diachi = item.ShiptoAddress;
+                    headpx.Nguoinhancode = item.ShiptoCode.ToString();
+                    headpx.Username = this.Username;
+                    headpx.Sophieu = item.Gate_pass;
+                    headpx.Nguoinhanname = item.ShiptoName;
+                    headpx.seri = item.Region + this.storelocation + item.Gate_pass;
+
+                    BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
+                    BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
+                    //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
+                    Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(item.Region + this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
+
+                    headpx.Barcode = result;
+                    headpx.dienthoai = item.Tel;
+                    headpx.mucdich = item.Purpose;
+                    headpx.Ngaythang = item.Ngaytaophieu;
+                    headpx.Nguoiyeucau = item.Requested_by;
+
+
+
+                    dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
+                    dc.SubmitChanges();
+                }
+            }
+
+
+
+            var rptMKTdetailmk = from pp in dc.tbl_MKt_Listphieudetails
+                                 where pp.ShipmentNumber == this.soload && pp.ShippingPoint == this.storelocation
+                                 && pp.Returnrequest == null
+                                 orderby pp.Gate_pass
+                                 select pp;
+            int i = 0;
+            string lastgatepass = "";
+            foreach (var item in rptMKTdetailmk)
+            {
+                if (lastgatepass != item.Gate_pass)
+                {
+                    i = 1;
+                }
+                else
+                {
+                    i = i + 1;
+                }
+
+
+                tbl_MKT_DetailRpt_Phieuissue detailpx = new tbl_MKT_DetailRpt_Phieuissue();
+
+                detailpx.stt = i.ToString();
+                detailpx.soluong = item.Issued;
+                detailpx.Username = this.Username;
+                detailpx.tensanpham = item.Materialname;
+                detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+                detailpx.Sophieu = item.Gate_pass;
+                lastgatepass = item.Gate_pass;
+                dc.tbl_MKT_DetailRpt_Phieuissues.InsertOnSubmit(detailpx);
+                dc.SubmitChanges();
+
+            }
+
+            var rshead = from pp in dc.tbl_MKT_headRpt_Phieuissues
+                         where pp.Username == this.Username
+                         //orderby pp.Sophieu
+                         select new
+                         {
+
+                             //   username = pp.Username,
+                             Nguoiyeucau = pp.Nguoiyeucau,
+                             Ngaythang = pp.Ngaythang,
+                             Sophieu = pp.Sophieu,
+                             Nguoinhancode = pp.Nguoinhancode,
+                             Nguoinhanname = pp.Nguoinhanname,
+                             Diachi = pp.Diachi,
+                             mucdich = pp.mucdich,
+
+                             dienthoai = pp.dienthoai,
+                             seri = pp.seri,
+                             Barcode = pp.Barcode
+
+
+                         };
+            Utils ut = new Utils();
+            var dataset1 = ut.ToDataTable(dc, rshead); // head
+
+            //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
+            //vx1.ShowDialog();
+            var rsdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
+                           where pp.Username == this.Username
+                           orderby pp.Sophieu, pp.stt
+                           select new
+                           {
+
+                               stt = pp.stt,
+                               tensanpham = pp.tensanpham,
+                               Sophieu = pp.Sophieu,
+                               soluong = pp.soluong,
+                               //   username = pp.Username,
+                               bangchu = pp.bangchu,
+
+                           };
+
+            //View.Viewtable vx = new Viewtable(rsdetail,dc,"test",100,"100");
+            //vx.ShowDialog();
+
+
+            var dataset2 = ut.ToDataTable(dc, rsdetail); // detail
+
+
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKTlistbyLoad.rdlc");
+            rpt.ShowDialog();
+
+
+
+            #endregion in bien ban thu hang ve
+
 
             //#endregion view reports payment request  // 
         }

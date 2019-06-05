@@ -48,6 +48,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtcity = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.txtshiptoname = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -95,8 +97,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtcity = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -347,6 +347,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 297);
             this.panel1.TabIndex = 65;
+            // 
+            // txtcity
+            // 
+            this.txtcity.Enabled = false;
+            this.txtcity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcity.Location = new System.Drawing.Point(536, 241);
+            this.txtcity.Name = "txtcity";
+            this.txtcity.Size = new System.Drawing.Size(184, 24);
+            this.txtcity.TabIndex = 97;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(490, 244);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 18);
+            this.label24.TabIndex = 96;
+            this.label24.Text = "City";
             // 
             // txtshiptoname
             // 
@@ -660,6 +679,7 @@
             this.lbgatepassno.Size = new System.Drawing.Size(81, 18);
             this.lbgatepassno.TabIndex = 65;
             this.lbgatepassno.Text = "HNI001135";
+            this.lbgatepassno.TextChanged += new System.EventHandler(this.lbgatepassno_TextChanged);
             // 
             // label16
             // 
@@ -859,25 +879,6 @@
             this.dataGridViewListphieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellContentClick);
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(490, 244);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(33, 18);
-            this.label24.TabIndex = 96;
-            this.label24.Text = "City";
-            // 
-            // txtcity
-            // 
-            this.txtcity.Enabled = false;
-            this.txtcity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcity.Location = new System.Drawing.Point(536, 241);
-            this.txtcity.Name = "txtcity";
-            this.txtcity.Size = new System.Drawing.Size(184, 24);
-            this.txtcity.TabIndex = 97;
             // 
             // MKTissuephieu2
             // 

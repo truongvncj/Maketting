@@ -494,11 +494,11 @@ namespace Maketting.View
                                  where pp.id == idfind
                                  select pp).FirstOrDefault();
 
-                        if (item.IssueDate < datethucnhan.Value)
+                        if (item.IssueDate > datethucnhan.Value)
                         {
                             MessageBox.Show("Ngày thực tế nhập lại hàng phải sau ngày hoặc cùng ngày xuất hàng !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             checkdetail = false;
-
+                            btluu.Enabled = true;
                             return;
                         }
 
@@ -560,23 +560,6 @@ namespace Maketting.View
 
 
                 MessageBox.Show("Store return :  " + this.Loadnumberserri.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //var phieuMKT = (from pp in dc.tbl_MKt_Listphieus
-                //                where pp.ShipmentNumber == this.soload
-                //                && pp.ShippingPoint == this.storelocation
-                //                select pp);
-
-
-
-                //if (phieuMKT.Count()>0)
-                //{
-                //    foreach (var item in phieuMKT)
-                //    {
-                //        item.Status = "Delivering";
-                //        dc.SubmitChanges();
-                //    }
-                //}
-
 
 
             }

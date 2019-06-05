@@ -675,7 +675,7 @@ namespace Maketting.View
         public BindingSource source2;
 
 
-        public Viewtable(IQueryable rs, LinqtoSQLDataContext dc, string fornname, int viewcode, string valuesave)
+        public Viewtable (IQueryable rs, LinqtoSQLDataContext dc, string fornname, int viewcode, string valuesave)
         {
             //    this.dataGridView1.DataSource = rs;
             InitializeComponent();

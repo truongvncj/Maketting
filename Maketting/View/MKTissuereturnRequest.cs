@@ -1107,10 +1107,10 @@ namespace Maketting.View
                 tbl_MKT_DetailRpt_Phieuissue detailpx = new tbl_MKT_DetailRpt_Phieuissue();
 
                 detailpx.stt = i.ToString();
-                detailpx.soluong = item.Issued;
+                detailpx.soluong = item.Returnrequest;
                 detailpx.Username = this.Username;
                 detailpx.tensanpham = item.Materialname;
-                detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+                detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Returnrequest.ToString()));
 
 
                 dc.tbl_MKT_DetailRpt_Phieuissues.InsertOnSubmit(detailpx);
@@ -1165,7 +1165,7 @@ namespace Maketting.View
             var dataset2 = ut.ToDataTable(dc, rsdetail); // detail
 
 
-            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKTissue.rdlc");
+            Reportsview rpt = new Reportsview(dataset1, dataset2, "PhieuMKTminutethuhang.rdlc");
             rpt.ShowDialog();
 
             //}
@@ -1968,7 +1968,7 @@ namespace Maketting.View
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
-                txtshiptoaddress.Text = rs.ShiptoAddress;
+             
               //  txtcustcode.Enabled = true;
              
            //     txtcustcode.Enabled = false;
@@ -1986,13 +1986,12 @@ namespace Maketting.View
                txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
                 txtShiptoCode.Text = rs.ShiptoCode.ToString();
 
-
+                
 
                 // txtcustcode
                 //         txtShiptoCode
                 txtNote.Text = rs.Note;
-
-
+             
                 //  cbkhohang.Items
                 foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
                 {
@@ -2008,6 +2007,7 @@ namespace Maketting.View
                     if (item.Value.ToString().Trim() == rs.Region.Trim())
                     {
                         cbfromRegion.SelectedItem = item;
+                       
                     }
                 }
 
@@ -2019,7 +2019,8 @@ namespace Maketting.View
                                      //  rs.Username = this.Username;
                                      //   dc.SubmitChanges();
 
-
+                txtshiptoaddress.Text = rs.ShiptoAddress;
+               
             }
 
 
@@ -2044,7 +2045,7 @@ namespace Maketting.View
                     //  xxx
 
 
-
+                    txtcity.Text = item.shiptocity;
                 }
 
             }
@@ -2675,6 +2676,11 @@ namespace Maketting.View
             txtShiptoCode.Text = "";
             txtcity.Text = "";
             txtshiptoaddress.Text = "";
+        }
+
+        private void lbgatepassno_TextChanged(object sender, EventArgs e)
+        {
+            this.sophieu = lbgatepassno.Text;
         }
     }
 }

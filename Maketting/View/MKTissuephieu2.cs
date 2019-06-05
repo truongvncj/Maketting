@@ -2280,6 +2280,7 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKt_Listphieudetails
                          where pp.Status == "CRT" && pp.Username == username
+                         && pp.Returnrequest == null
                          select new
                          {
                              Date = pp.Ngaytaophieu,
@@ -2949,6 +2950,11 @@ namespace Maketting.View
             txtshiptoname.Text = "";
             txtdiachi.Text = "";
 
+        }
+
+        private void lbgatepassno_TextChanged(object sender, EventArgs e)
+        {
+            this.sophieu = lbgatepassno.Text;
         }
     }
 }
