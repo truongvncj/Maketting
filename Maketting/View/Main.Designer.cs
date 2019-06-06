@@ -152,6 +152,7 @@
             this.findGatepassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findMakettingTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+            this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailByRegionListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,7 +161,6 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -731,6 +731,7 @@
             this.goodToolStripMenuItem.Name = "goodToolStripMenuItem";
             this.goodToolStripMenuItem.Size = new System.Drawing.Size(313, 24);
             this.goodToolStripMenuItem.Text = "Good  receipt colleted from market";
+            this.goodToolStripMenuItem.Click += new System.EventHandler(this.goodToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -1086,6 +1087,13 @@
             this.toolStripSeparator19.Name = "toolStripSeparator19";
             this.toolStripSeparator19.Size = new System.Drawing.Size(293, 6);
             // 
+            // storeInportReportsToolStripMenuItem
+            // 
+            this.storeInportReportsToolStripMenuItem.Name = "storeInportReportsToolStripMenuItem";
+            this.storeInportReportsToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.storeInportReportsToolStripMenuItem.Text = "Store import detail reports";
+            this.storeInportReportsToolStripMenuItem.Click += new System.EventHandler(this.storeInportReportsToolStripMenuItem_Click);
+            // 
             // goodReceiptListToolStripMenuItem
             // 
             this.goodReceiptListToolStripMenuItem.Name = "goodReceiptListToolStripMenuItem";
@@ -1140,13 +1148,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // storeInportReportsToolStripMenuItem
-            // 
-            this.storeInportReportsToolStripMenuItem.Name = "storeInportReportsToolStripMenuItem";
-            this.storeInportReportsToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.storeInportReportsToolStripMenuItem.Text = "Store import detail reports";
-            this.storeInportReportsToolStripMenuItem.Click += new System.EventHandler(this.storeInportReportsToolStripMenuItem_Click);
             // 
             // Main
             // 

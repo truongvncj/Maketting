@@ -82,3 +82,6 @@ D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTissuereturnRequest.res
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphangtheoPOredeviceforRegion.resources
 D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTWHlistdetailOrdered.resources
 D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTminutethuhang.rdlc
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\PhieuMKTminutethuhanglistbyload.rdlc
+D:\GitHub\Maketting\Maketting\bin\Debug\Reports\SubRPTBienbanthuhanglistbyLoad.rdlc
+D:\GitHub\Maketting\Maketting\obj\Debug\Maketting.View.MKTNhaphancollectfrommaket.resources

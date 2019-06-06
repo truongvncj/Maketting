@@ -183,6 +183,12 @@
     <Compile Include="View\MKTNhaphangreturnbyTicket.Designer.cs">
       <DependentUpon>MKTNhaphangreturnbyTicket.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MKTNhaphancollectfrommaket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MKTNhaphancollectfrommaket.Designer.cs">
+      <DependentUpon>MKTNhaphancollectfrommaket.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MKTNhaphangtheoPOredeviceforRegion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -507,6 +513,9 @@
     <EmbeddedResource Include="Reports\PhieuMKTcompleted.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PhieuMKTminutethuhanglistbyload.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTminutethuhang.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -529,6 +538,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PhieuMKTlistbyLoad.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SubRPTBienbanthuhanglistbyLoad.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SubRPTPhieuMKTlistbyLoad.rdlc">
@@ -557,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTNhaphangreturnbyTicket.resx">
       <DependentUpon>MKTNhaphangreturnbyTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MKTNhaphancollectfrommaket.resx">
+      <DependentUpon>MKTNhaphancollectfrommaket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MKTNhaphangtheoPOredeviceforRegion.resx">
       <DependentUpon>MKTNhaphangtheoPOredeviceforRegion.cs</DependentUpon>

@@ -1878,6 +1878,8 @@ namespace Maketting
 		
 		private string _Sophieu;
 		
+		private bool _thuhang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1896,6 +1898,8 @@ namespace Maketting
     partial void OntensanphamChanged();
     partial void OnSophieuChanging(string value);
     partial void OnSophieuChanged();
+    partial void OnthuhangChanging(bool value);
+    partial void OnthuhangChanged();
     #endregion
 		
 		public tbl_MKT_DetailRpt_Phieuissue()
@@ -2043,6 +2047,26 @@ namespace Maketting
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_thuhang", DbType="Bit NOT NULL")]
+		public bool thuhang
+		{
+			get
+			{
+				return this._thuhang;
+			}
+			set
+			{
+				if ((this._thuhang != value))
+				{
+					this.OnthuhangChanging(value);
+					this.SendPropertyChanging();
+					this._thuhang = value;
+					this.SendPropertyChanged("thuhang");
+					this.OnthuhangChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2096,6 +2120,8 @@ namespace Maketting
 		
 		private string _ghichu;
 		
+		private bool _thuhang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2126,6 +2152,8 @@ namespace Maketting
     partial void OnBarcodeChanged();
     partial void OnghichuChanging(string value);
     partial void OnghichuChanged();
+    partial void OnthuhangChanging(bool value);
+    partial void OnthuhangChanged();
     #endregion
 		
 		public tbl_MKT_headRpt_Phieuissue()
@@ -2389,6 +2417,26 @@ namespace Maketting
 					this._ghichu = value;
 					this.SendPropertyChanged("ghichu");
 					this.OnghichuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_thuhang", DbType="Bit NOT NULL")]
+		public bool thuhang
+		{
+			get
+			{
+				return this._thuhang;
+			}
+			set
+			{
+				if ((this._thuhang != value))
+				{
+					this.OnthuhangChanging(value);
+					this.SendPropertyChanging();
+					this._thuhang = value;
+					this.SendPropertyChanged("thuhang");
+					this.OnthuhangChanged();
 				}
 			}
 		}

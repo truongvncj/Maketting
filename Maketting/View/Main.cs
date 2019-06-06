@@ -6568,6 +6568,44 @@ namespace Maketting.View
 
             }
         }
+
+        private void goodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (!Username.getloadTransferINright())
+            //{
+            //    View.MKTNoouthourise view = new MKTNoouthourise();
+            //    view.ShowDialog();
+            //    return;
+            //}
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MINUTE SERRI NUMBER ");
+            pxk.ShowDialog();
+
+            string serinumer = pxk.valuetext;
+            bool kq = pxk.kq;
+            if (kq)
+            {
+
+                #region// nhập hagf
+                //if (name == "tmphieuthu")
+                //{
+                // MKTNhaphangtheoPo
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTNhaphancollectfrommaket nhaphang = new MKTNhaphancollectfrommaket(this, serinumer);
+                this.clearpannelload(nhaphang);
+
+
+                // this.Close();
+                #endregion
+
+
+            }
+        }
     }
 
 
