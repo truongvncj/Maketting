@@ -2836,6 +2836,51 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+
+        public static IQueryable storeimportsreportsbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string storecode)
+        {
+
+
+
+      ///      tbl_MKT_StockendRegionBudget
+
+            var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
+                         // from gg in dc.tbl_MKt_POheads
+                     where pp.QuantityInputbyPO != null || pp.QuantityInputbyReturn != null
+
+                   && pp.Regionchangedate >= fromdate
+                      && pp.Regionchangedate <= todate
+                          && pp.Store_code == storecode
+                     select new
+                     {
+                         //// gg.
+                         //DocumentNumber = pp.Document_number,
+                         //Ngày_nhập_kho = pp.Regionchangedate,
+                         //DN_Number = pp.DNNumber,
+                         //pp.Materiacode,
+                         //pp.MateriaItemcode,
+                         //pp.Materialname,
+                         //pp.Unit,
+                         //pp.RecieptQuantity,
+                         //pp.Recieptby,
+
+
+                         //pp.Username,
+                         //pp.ShippingPoint,
+                         //Shipmnent = pp.Serriload,
+                         //Transfer_in_number = pp.Transfer_number,
+                         //pp.POnumber,
+                         ////   pp.id,
+                         //    Subid = pp.IssueIDsub,
+
+
+                     };
+
+            return rs;
+
+            // throw new NotImplementedException();
+        }
+
         public static double getAvailable_Quantity(string materialitemcode, string storelocation)
         {
             string connection_string = Utils.getConnectionstr();

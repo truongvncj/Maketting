@@ -6580,9 +6580,26 @@ namespace Maketting.View
             //phiếu xuất kho
             MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MINUTE SERRI NUMBER ");
             pxk.ShowDialog();
-
-            string serinumer = pxk.valuetext;
             bool kq = pxk.kq;
+            string serinumer = pxk.valuetext;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var checknhaproi = (from pp in dc.tbl_MKt_WHstoreissues
+                                where pp.Document_number == serinumer
+                                && pp.RecieptQuantity > 0
+                                select pp).FirstOrDefault();
+
+            if (checknhaproi != null)
+            {
+
+
+                MessageBox.Show("Biên bản này đã nhập hàng trả về rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                kq = false;
+                return;
+            }
+
+          
             if (kq)
             {
 
@@ -6602,6 +6619,34 @@ namespace Maketting.View
 
                 // this.Close();
                 #endregion
+
+
+            }
+        }
+
+        private void storeRegionImportDetailReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
+            bool kq = datepick.chon;
+
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.storeimportsreportsbyregion(dc, fromdate, todate, store);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "Store import detail by region reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
 
 
             }

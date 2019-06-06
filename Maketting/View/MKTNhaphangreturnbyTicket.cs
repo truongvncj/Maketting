@@ -450,9 +450,7 @@ namespace Maketting.View
                     if (!Model.Username.getDomoreReturnticketRight() && Retured_Quantity > 0)
                     {
 
-
-
-
+                        
 
                         View.MKTNoouthourise view = new MKTNoouthourise();
                         view.ShowDialog();

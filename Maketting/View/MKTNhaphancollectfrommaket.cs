@@ -58,7 +58,7 @@ namespace Maketting.View
                          Material_code = pp.Materiacode,
                          Material_name = pp.Materialname,
                          Return_request = pp.Returnrequest,
-                         Retured_Quantity = pp.ReturnQuantity,
+                         //     Retured_Quantity = pp.ReturnQuantity,
                          //     Real_issue = 0,
 
 
@@ -74,8 +74,8 @@ namespace Maketting.View
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
-                dataTable.Columns.Add(new DataColumn("Return_Quantity", typeof(float)));
-            //    dataTable.Columns.Add(new DataColumn("Return_Reason", typeof(string)));
+                dataTable.Columns.Add(new DataColumn("Receipt_Quantity", typeof(float)));
+                //    dataTable.Columns.Add(new DataColumn("Return_Reason", typeof(string)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -88,14 +88,14 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Return_request"].ReadOnly = true;
-              //  dataGridViewLoaddetail.Columns["Retured_Quantity"].ReadOnly = true;
+                //  dataGridViewLoaddetail.Columns["Retured_Quantity"].ReadOnly = true;
 
                 dataGridViewLoaddetail.Columns["Maketting_ticket"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Return_request"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-             //   dataGridViewLoaddetail.Columns["Retured_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                //   dataGridViewLoaddetail.Columns["Retured_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -401,9 +401,14 @@ namespace Maketting.View
 
                 MessageBox.Show("Please input DN Number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 checkdetail = false;
-
+                txtdnnumbar.Focus();
                 return;
             }
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+         
 
 
             #region // detail
@@ -411,8 +416,8 @@ namespace Maketting.View
 
             {
 
-                dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.White;
-                if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value == DBNull.Value)
+                dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Style.BackColor = System.Drawing.Color.White;
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value == DBNull.Value)
                 {
                     dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
                     MessageBox.Show("Số lượng hàng nhập chưa input, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -423,18 +428,18 @@ namespace Maketting.View
 
                 }
 
-                if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value != DBNull.Value)
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value != DBNull.Value)
                 {
 
-                    float Reciep_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
-                 //   float Reciepted_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value.ToString());
+                    float Reciep_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());
+                    //   float Reciepted_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value.ToString());
                     float Requestquantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Request"].Value.ToString());
 
 
 
-                    if (Reciep_Quantity > Requestquantity )
+                    if (Reciep_Quantity > Requestquantity)
                     {
-                        dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                        dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
 
                         MessageBox.Show("Số lượng hàng nhập lớn hơn số yêu cầu , please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -445,7 +450,7 @@ namespace Maketting.View
 
                     if (Reciep_Quantity < 0)
                     {
-                        dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                        dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
 
                         MessageBox.Show("Số lượng hàng nhập về phải lớn hơn hoặc bằng 0, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -470,13 +475,19 @@ namespace Maketting.View
 
 
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+//            string connection_string = Utils.getConnectionstr();
+  //          LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
 
             if (checkdetail)
             {
+
+
+
+                #region
+
+
                 btluu.Enabled = false;
                 btinphieu.Enabled = true;
                 //int IssueIDsub = 1;
@@ -496,109 +507,61 @@ namespace Maketting.View
 
                 for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
                 {
-                    if (dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value != DBNull.Value)
+                    if (dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value != DBNull.Value)
                     {
-                        //     string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
+                        int idfind = (int)dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value;
 
-                        string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
-
-                        #region  update po detail
-
-
-
-
-                        var rs = from pp in dc.tbl_MKt_POdetails
-                                 where pp.MateriaItemcode == Material_Item_code
-                                 && pp.POnumber == this.serinumer
+                        var rs = from pp in dc.tbl_MKt_Listphieudetails
+                                 where pp.id == idfind
                                  select pp;
 
                         if (rs.Count() > 0)
                         {
                             foreach (var item in rs)
                             {
-                                item.StatusPO = "IN";
-                                item.RecieptedQuantity = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
-                                item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
+                                float Receipt_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());
+                                item.ReturnQuantity = Receipt_Quantity;
+                                item.Returnby = txtnguoinhanhang.Text;
+                                item.Returndate = dateNgaynhaphang.Value;
+
                                 dc.SubmitChanges();
 
 
-
+                                #region tăng nhập hàng budget
                                 tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
-                                newregionupdate.ITEM_Code = item.MateriaItemcode;
-                                newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                                newregionupdate.MATERIAL = item.Materialname.Truncate(255);
-                                newregionupdate.Description = item.Description;
+                                newregionupdate.ITEM_Code = item.Materiacode;
+                                newregionupdate.SAP_CODE = item.Materiacode;
+                                newregionupdate.MATERIAL = item.Materialname;
+                                //   newregionupdate.Description = item.;
                                 newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
-                                newregionupdate.QuantityInputbyReturn = 0;
+                                newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbyReturn = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());// 0;
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
-                                newregionupdate.Note = item.POnumber;
-                                newregionupdate.Regionchangedate = datecreated.Value;
+                                // newregionupdate.Note = item.n;
+                                newregionupdate.Regionchangedate = dateNgaynhaphang.Value;
                                 newregionupdate.Store_code = this.storelocation;
-                                newregionupdate.POnumber = this.serinumer;
-                                newregionupdate.idsub = this.subID; ;
-
-
 
                                 dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
                                 dc.SubmitChanges();
 
 
-
-                            }
-
-
-                        }
-
-                        #endregion
-
-
-
-                        #region  update gound recieot trong kho
-
-
-
-                        var rs2 = from pp in dc.tbl_MKt_POdetails
-                                  where pp.MateriaItemcode == Material_Item_code
-                                       && pp.POnumber == this.serinumer
-                                  group pp by pp.MateriaItemcode into gg
-                                  select new
-                                  {
-                                      //    ID = pp.id,
-                                      PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                                      Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-                                      Material_Item_code = gg.Key,
-                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault().Truncate(255),
-                                      Order_Quantity = gg.Sum(m => m.QuantityOrder),
-                                      Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
-                                                                                            //     Real_issue = 0,
-
-                                      Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Unit = gg.Select(m => m.Unit).FirstOrDefault(),
-
-                                  };
-
-                        if (rs2.Count() > 0)
-                        {
-                            foreach (var item in rs2)
-                            {
-
+                                #endregion
 
                                 tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
 
 
-                     //           newreciepts.IssueIDsub = IssueIDsub;
-                                newreciepts.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                                //           newreciepts.IssueIDsub = IssueIDsub;
+                                newreciepts.RecieptQuantity = Receipt_Quantity;//float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
-                                newreciepts.Materiacode = item.Material_SAP_code;
-                                newreciepts.MateriaItemcode = item.Material_Item_code;
+                                newreciepts.Materiacode = item.MateriaSAPcode;
+                                newreciepts.MateriaItemcode = item.Materiacode;
                                 newreciepts.Document_number = txtdnnumbar.Text;
-                                newreciepts.Materialname = item.Material_name.Truncate(50);
-                                newreciepts.POnumber = item.PO_number;
-                                newreciepts.ShippingPoint = item.Storelocation;
+                                newreciepts.Materialname = item.Materialname.Truncate(50);
+                                //       newreciepts.POnumber = item.PO_number;
+                                newreciepts.Document_number = this.serinumer;
+                                newreciepts.ShippingPoint = item.ShippingPoint;
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
@@ -612,18 +575,6 @@ namespace Maketting.View
                                 dc.SubmitChanges();
 
 
-                                var headpo = (from pp in dc.tbl_MKt_POheads
-                                              where pp.PONumber == this.serinumer
-                                              select pp);
-                                if (headpo.Count() > 0)
-                                {
-                                    foreach (var item2 in headpo)
-                                    {
-                                        item2.Status = "IN";
-                                        dc.SubmitChanges();
-                                    }
-                                }
-
 
                                 Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
 
@@ -632,8 +583,9 @@ namespace Maketting.View
                             }
                         }
 
-
                         #endregion
+
+
 
 
 
@@ -644,7 +596,7 @@ namespace Maketting.View
 
 
 
-                MessageBox.Show("Store reciept of PO :  " + this.serinumer.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Store reciept of minute :  " + this.serinumer.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
