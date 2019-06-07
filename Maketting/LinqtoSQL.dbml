@@ -538,6 +538,10 @@
       <Column Name="Gate_pass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="idsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QuantityInputbytransferin" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DocumentNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DnNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="QuantityReceipt" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendTMP" Member="tbl_MKT_StockendTMPs">
@@ -576,6 +580,7 @@
       <Column Name="Store_IN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Reciepted_Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="IssueIDsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Transferindetailrpt" Member="tbl_MKt_Transferindetailrpts">

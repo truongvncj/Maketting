@@ -5687,7 +5687,7 @@ namespace Maketting.View
                               Quantity_PO_Reciepted = gg.QuantityInputbyPO,
                               Issued = gg.QuantityOutput,//gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
                               Return_Ticket = gg.QuantityInputbyReturn,// gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
-
+                              Transfer_in = gg.QuantityInputbytransferin,
                               Adjusted_Device_Stock = gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
 
 
@@ -6260,7 +6260,7 @@ namespace Maketting.View
                     foreach (var item in rs7)
                     {
 
-                      
+
 
                         Model.MKT.giamtrukhokhireverthangnhamsaive(item);
                         dc.tbl_MKt_WHstoreissues.DeleteOnSubmit(item);
@@ -6491,7 +6491,7 @@ namespace Maketting.View
                               //    ID = p.id,
                           };
 
-                Viewtable viewtbl = new Viewtable(rs5, dc, "DANH SÁCH PHIẾU MAKETTING CỦA LOAD " + Loadnumberserri, 100, "tk");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs5, dc, "DANH SÁCH PHIẾU MAKETTING TRONG LOAD: " + Loadnumberserri, 100, "tk");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.Show();
             }
@@ -6599,7 +6599,7 @@ namespace Maketting.View
                 return;
             }
 
-          
+
             if (kq)
             {
 

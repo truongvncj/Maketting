@@ -110,7 +110,6 @@
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.transferOUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deviceRegionForTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventoryApprovalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,6 +152,7 @@
             this.findMakettingTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storeRegionImportDetailReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailByRegionListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,7 +161,6 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.storeRegionImportDetailReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -671,7 +670,6 @@
             this.toolStripSeparator21,
             this.transferOUtToolStripMenuItem,
             this.transferInToolStripMenuItem,
-            this.deviceRegionForTransferInToolStripMenuItem,
             this.toolStripSeparator6,
             this.inventoryToolStripMenuItem,
             this.inventoryApprovalToolStripMenuItem,
@@ -776,13 +774,6 @@
             this.transferInToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
             this.transferInToolStripMenuItem.Text = "Transfer in";
             this.transferInToolStripMenuItem.Click += new System.EventHandler(this.transferInToolStripMenuItem_Click);
-            // 
-            // deviceRegionForTransferInToolStripMenuItem
-            // 
-            this.deviceRegionForTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.deviceRegionForTransferInToolStripMenuItem.Name = "deviceRegionForTransferInToolStripMenuItem";
-            this.deviceRegionForTransferInToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
-            this.deviceRegionForTransferInToolStripMenuItem.Text = "Divide Transferin  For Region  ";
             // 
             // toolStripSeparator6
             // 
@@ -1096,6 +1087,13 @@
             this.storeInportReportsToolStripMenuItem.Text = "Store import detail reports";
             this.storeInportReportsToolStripMenuItem.Click += new System.EventHandler(this.storeInportReportsToolStripMenuItem_Click);
             // 
+            // storeRegionImportDetailReportsToolStripMenuItem
+            // 
+            this.storeRegionImportDetailReportsToolStripMenuItem.Name = "storeRegionImportDetailReportsToolStripMenuItem";
+            this.storeRegionImportDetailReportsToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
+            this.storeRegionImportDetailReportsToolStripMenuItem.Text = "Store region import detail reports ";
+            this.storeRegionImportDetailReportsToolStripMenuItem.Click += new System.EventHandler(this.storeRegionImportDetailReportsToolStripMenuItem_Click);
+            // 
             // goodReceiptListToolStripMenuItem
             // 
             this.goodReceiptListToolStripMenuItem.Name = "goodReceiptListToolStripMenuItem";
@@ -1150,13 +1148,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // storeRegionImportDetailReportsToolStripMenuItem
-            // 
-            this.storeRegionImportDetailReportsToolStripMenuItem.Name = "storeRegionImportDetailReportsToolStripMenuItem";
-            this.storeRegionImportDetailReportsToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
-            this.storeRegionImportDetailReportsToolStripMenuItem.Text = "Store region import detail reports ";
-            this.storeRegionImportDetailReportsToolStripMenuItem.Click += new System.EventHandler(this.storeRegionImportDetailReportsToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1306,7 +1297,6 @@
         private ToolStripMenuItem deleteShiptoCodeIsNotANumberToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator27;
         private ToolStripMenuItem reDeviceGoodRecieptToolStripMenuItem;
-        private ToolStripMenuItem deviceRegionForTransferInToolStripMenuItem;
         private ToolStripMenuItem trackingWrongDocToolStripMenuItem;
         private ToolStripMenuItem findGatepassOfShipmentToolStripMenuItem;
         private ToolStripMenuItem revertStoreErrorIssueToolStripMenuItem;

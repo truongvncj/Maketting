@@ -537,6 +537,11 @@ namespace Maketting.View
                                 newregionupdate.Region = item.Region;
                                 newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
                                 newregionupdate.QuantityInputbyReturn = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());// 0;
+                                newregionupdate.QuantityInputbytransferin = 0;
+                                newregionupdate.QuantityReceipt = Receipt_Quantity;
+                                newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
+                                newregionupdate.DocumentNumber = this.serinumer;
+
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
                                 // newregionupdate.Note = item.n;

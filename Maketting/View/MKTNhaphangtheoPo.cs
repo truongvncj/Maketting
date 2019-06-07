@@ -572,14 +572,19 @@ namespace Maketting.View
                                 newregionupdate.Description = item.Description;
                                 newregionupdate.Region = item.Region;
                                 newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityReceipt = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbytransferin = 0;
                                 newregionupdate.QuantityInputbyReturn = 0;
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
                                 newregionupdate.Note = item.POnumber;
                                 newregionupdate.Regionchangedate = datecreated.Value;
+
                                 newregionupdate.Store_code = this.storelocation;
                                 newregionupdate.POnumber = this.POnumber;
                                 newregionupdate.idsub = this.subID; ;
+                                newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
+                                newregionupdate.DocumentNumber = this.POnumber.Truncate(50);
 
 
 

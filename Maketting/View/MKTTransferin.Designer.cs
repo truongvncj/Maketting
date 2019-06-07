@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MKTTransferin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btinphieu = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,22 +40,22 @@
             this.dataGridViewLoaddetail = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDNnumber = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.datethucnhan = new System.Windows.Forms.DateTimePicker();
             this.txtFrom_Store = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTo_Store = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtTFnumber = new System.Windows.Forms.Label();
-            this.txtnguoinhanhang = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.datecreated = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtnguoinhanhang = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.datethucnhan = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDNnumber = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -141,38 +141,39 @@
             this.dataGridViewLoaddetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLoaddetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLoaddetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewLoaddetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLoaddetail.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLoaddetail.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewLoaddetail.Location = new System.Drawing.Point(6, 101);
             this.dataGridViewLoaddetail.Name = "dataGridViewLoaddetail";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLoaddetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLoaddetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewLoaddetail.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewLoaddetail.Size = new System.Drawing.Size(1261, 388);
             this.dataGridViewLoaddetail.TabIndex = 69;
             this.dataGridViewLoaddetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaddetail_CellContentClick);
             this.dataGridViewLoaddetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaddetail_CellDoubleClick);
+            this.dataGridViewLoaddetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLoaddetail_CellEndEdit);
             this.dataGridViewLoaddetail.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewLoaddetail_Paint);
             // 
             // label3
@@ -206,6 +207,46 @@
             this.panel1.Size = new System.Drawing.Size(1260, 63);
             this.panel1.TabIndex = 65;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(625, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 18);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "DN Number:";
+            // 
+            // txtDNnumber
+            // 
+            this.txtDNnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNnumber.Location = new System.Drawing.Point(722, 26);
+            this.txtDNnumber.Name = "txtDNnumber";
+            this.txtDNnumber.Size = new System.Drawing.Size(166, 24);
+            this.txtDNnumber.TabIndex = 71;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(987, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 18);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Reciept date: ";
+            // 
+            // datethucnhan
+            // 
+            this.datethucnhan.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datethucnhan.CustomFormat = "dd.MM.yyyy";
+            this.datethucnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datethucnhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datethucnhan.Location = new System.Drawing.Point(1091, 26);
+            this.datethucnhan.Name = "datethucnhan";
+            this.datethucnhan.Size = new System.Drawing.Size(119, 24);
+            this.datethucnhan.TabIndex = 82;
+            this.datethucnhan.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             // 
             // txtFrom_Store
             // 
@@ -266,17 +307,6 @@
             this.txtTFnumber.TabIndex = 65;
             this.txtTFnumber.Text = "1135";
             // 
-            // txtnguoinhanhang
-            // 
-            this.txtnguoinhanhang.Enabled = false;
-            this.txtnguoinhanhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoinhanhang.Location = new System.Drawing.Point(89, 4);
-            this.txtnguoinhanhang.Name = "txtnguoinhanhang";
-            this.txtnguoinhanhang.Size = new System.Drawing.Size(267, 24);
-            this.txtnguoinhanhang.TabIndex = 21;
-            this.txtnguoinhanhang.Text = "LÊ THANH VÂN";
-            this.txtnguoinhanhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -286,16 +316,6 @@
             this.label11.Size = new System.Drawing.Size(158, 18);
             this.label11.TabIndex = 19;
             this.label11.Text = "TRANSFER NUMBER";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Reciept by";
             // 
             // label2
             // 
@@ -321,6 +341,27 @@
             this.datecreated.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             this.datecreated.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.datepickngayphieu_KeyPress);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 18);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Reciept by";
+            // 
+            // txtnguoinhanhang
+            // 
+            this.txtnguoinhanhang.Enabled = false;
+            this.txtnguoinhanhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnguoinhanhang.Location = new System.Drawing.Point(89, 4);
+            this.txtnguoinhanhang.Name = "txtnguoinhanhang";
+            this.txtnguoinhanhang.Size = new System.Drawing.Size(267, 24);
+            this.txtnguoinhanhang.TabIndex = 21;
+            this.txtnguoinhanhang.Text = "LÊ THANH VÂN";
+            this.txtnguoinhanhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -330,48 +371,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 565);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(987, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 18);
-            this.label1.TabIndex = 83;
-            this.label1.Text = "Reciept date: ";
-            // 
-            // datethucnhan
-            // 
-            this.datethucnhan.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datethucnhan.CustomFormat = "dd.MM.yyyy";
-            this.datethucnhan.Enabled = false;
-            this.datethucnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datethucnhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datethucnhan.Location = new System.Drawing.Point(1091, 26);
-            this.datethucnhan.Name = "datethucnhan";
-            this.datethucnhan.Size = new System.Drawing.Size(119, 24);
-            this.datethucnhan.TabIndex = 82;
-            this.datethucnhan.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(625, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 18);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "DN Number:";
-            // 
-            // txtDNnumber
-            // 
-            this.txtDNnumber.Enabled = false;
-            this.txtDNnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNnumber.Location = new System.Drawing.Point(722, 26);
-            this.txtDNnumber.Name = "txtDNnumber";
-            this.txtDNnumber.Size = new System.Drawing.Size(166, 24);
-            this.txtDNnumber.TabIndex = 71;
             // 
             // MKTTransferin
             // 

@@ -73,6 +73,7 @@ namespace Maketting.View
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
+                dataTable.Columns.Add(new DataColumn("For_Region", typeof(string)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -86,7 +87,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Materia_Item_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["TransferOut_Quantity"].ReadOnly = true;
-                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
 
                 dataGridViewLoaddetail.Columns["ID"].Visible = false;
 
@@ -434,7 +435,7 @@ namespace Maketting.View
             }
         }
 
-       
+
 
         private void button1_Click(object sender, EventArgs e)  // new phieu 
         {
@@ -447,7 +448,7 @@ namespace Maketting.View
 
                 MessageBox.Show("Please input DN Number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 checkdetail = false;
-
+                txtDNnumber.Focus();
                 return;
             }
 
@@ -461,6 +462,23 @@ namespace Maketting.View
 
             {
 
+
+
+                dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Style.BackColor = System.Drawing.Color.White;
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value == DBNull.Value)
+                {
+                    dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Style.BackColor = System.Drawing.Color.Orange;
+                    MessageBox.Show("Please select For Region !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    checkdetail = false;
+
+                    return;
+
+
+                }
+
+
+
+
                 dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.White;
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value == DBNull.Value)
                 {
@@ -473,10 +491,14 @@ namespace Maketting.View
 
                 }
 
+
+
+
+
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value != DBNull.Value)
                 {
 
-                   
+
                     float Reciept_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
                     float Reciepted_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value.ToString());
 
@@ -569,16 +591,18 @@ namespace Maketting.View
                             {
                                 item.Status = "IN";
                                 item.Reciepted_Quantity = item.Reciepted_Quantity.GetValueOrDefault(0) + (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-                             //   item.b = item.Quantity - item.Reciepted_Quantity;
+                                //   item.b = item.Quantity - item.Reciepted_Quantity;
                                 dc.SubmitChanges();
 
-
+                           float Receipt_Quantity =     float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
+                          string For_Region =    dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50);
                                 tbl_MKt_TransferINdetail newtransferin = new tbl_MKt_TransferINdetail();
 
-
+                                newtransferin.Region = For_Region;// dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50);
+                    //            newtransferin.Region = 
                                 newtransferin.IssueIDsub = IssueIDsub;
-                                newtransferin.Reciepted_Quantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-                             //   newtransferin.u = txtnguoinhanhang.Text;
+                                newtransferin.Reciepted_Quantity = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
+                                //   newtransferin.u = txtnguoinhanhang.Text;
                                 newtransferin.MateriaItemcode = item.MateriaItemcode;
                                 newtransferin.MateriaSAPcode = item.MateriaSAPcode;
                                 newtransferin.Materialname = item.Materialname.Truncate(225);
@@ -586,7 +610,7 @@ namespace Maketting.View
                                 newtransferin.Tranfernumber = item.Tranfernumber;
                                 newtransferin.Store_IN = item.Store_IN;
                                 newtransferin.Store_OUT = item.Store_OUT;
-                              
+
                                 newtransferin.Transfer_IN_Date = datecreated.Value;
 
                                 //  newreciepts.Status=""
@@ -597,12 +621,42 @@ namespace Maketting.View
                                 dc.SubmitChanges();
 
 
+                                #region tăng nhập hàng budget
+                                tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+                                newregionupdate.ITEM_Code = item.MateriaItemcode;
+                                newregionupdate.SAP_CODE = item.MateriaSAPcode;
+                                newregionupdate.MATERIAL = item.Materialname;
+                                //   newregionupdate.Description = item.;
+                                newregionupdate.Region = For_Region;// item.dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50); 
+                                newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbyReturn = 0;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());// 0;
+                                newregionupdate.QuantityOutput = 0;
+                                newregionupdate.QuantitybyDevice = 0;
+                                newregionupdate.QuantityInputbytransferin = Receipt_Quantity;
+                                newregionupdate.QuantityReceipt = Receipt_Quantity;
+                                // newregionupdate.Note = item.n;;
+                                newregionupdate.Regionchangedate = datethucnhan.Value;
+                                newregionupdate.Store_code = item.Store_IN;
+
+
+                                newregionupdate.DnNumber = txtDNnumber.Text.Truncate(50);
+                                newregionupdate.DocumentNumber = this.TFnumber;
+
+
+
+                                dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                                dc.SubmitChanges();
+
+
+                                #endregion
+
 
 
                                 tbl_MKt_WHstoreissue phieuxuatnhap = new tbl_MKt_WHstoreissue();
 
                                 phieuxuatnhap.Recieptby = txtnguoinhanhang.Text;
-                                phieuxuatnhap.RecieptQuantity = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;  // nhạn hàng
+                                phieuxuatnhap.RecieptQuantity = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());  // nhạn hàng
                                 phieuxuatnhap.IssueDate = datethucnhan.Value;
                                 phieuxuatnhap.date_input_output = datethucnhan.Value;
                                 phieuxuatnhap.Document_number = item.Tranfernumber;
@@ -612,14 +666,14 @@ namespace Maketting.View
                                 phieuxuatnhap.DNNumber = txtDNnumber.Text.Truncate(50);
                                 phieuxuatnhap.Doc_date = datecreated.Value;
                                 phieuxuatnhap.IssueIDsub = IssueIDsub;
-                              //  phieuxuatnhap.LoadNumber = this.soload;
+                                //  phieuxuatnhap.LoadNumber = this.soload;
 
                                 phieuxuatnhap.MateriaItemcode = item.MateriaItemcode;
                                 phieuxuatnhap.Materiacode = item.MateriaSAPcode; //(string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
                                 phieuxuatnhap.Materialname = item.Materialname.Truncate(50);// (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value;
-                             //   phieuxuatnhap.Serriload = this.Loadnumberserri;
-                               
-                              //  phieuxuatnhap.Status = "CRT";
+                                                                                            //   phieuxuatnhap.Serriload = this.Loadnumberserri;
+
+                                //  phieuxuatnhap.Status = "CRT";
                                 phieuxuatnhap.Username = this.Username;
 
                                 dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieuxuatnhap);
@@ -636,7 +690,7 @@ namespace Maketting.View
                                 var headTR = (from pp in dc.tbl_MKt_TransferoutHEADs
                                               where pp.Tranfernumber == this.TFnumber
                                               select pp);
-                                if (headTR.Count()>0)
+                                if (headTR.Count() > 0)
                                 {
                                     foreach (var item2 in headTR)
                                     {
@@ -644,9 +698,9 @@ namespace Maketting.View
                                         dc.SubmitChanges();
                                     }
                                 }
-                         
 
-                          //      Model.MKT.tangkhokhinhaphang(newtransferin, this.txtTo_Store.Text);
+
+                                //      Model.MKT.tangkhokhinhaphang(newtransferin, this.txtTo_Store.Text);
 
                                 Model.MKT.tranferinmakechange(newtransferin);
 
@@ -886,7 +940,7 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                    tbl_MKt_Transferindetailrpt        detailpx = new tbl_MKt_Transferindetailrpt();
+                    tbl_MKt_Transferindetailrpt detailpx = new tbl_MKt_Transferindetailrpt();
 
                     detailpx.stt = stt.ToString();
                     detailpx.soluong = item.soluong;
@@ -2242,6 +2296,104 @@ namespace Maketting.View
 
             // Next
 
+
+        }
+
+        private void dataGridViewLoaddetail_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            FormCollection fc = System.Windows.Forms.Application.OpenForms;
+
+            bool kq = false;
+            foreach (Form frm in fc)
+            {
+                if (frm.Text == "SELECT")
+
+
+                {
+                    kq = true;
+                    frm.Focus();
+
+                }
+            }
+
+
+
+
+
+            if (!kq && e.RowIndex >= 0 && dataGridViewLoaddetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                string username = Utils.getusername();
+
+                string columhead = dataGridViewLoaddetail.Columns[e.ColumnIndex].HeaderText.ToString();
+                string valueseach = dataGridViewLoaddetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                IQueryable rs = null;
+                #region   region chose
+
+                if (columhead == "For Region")
+                {
+                    rs = from pp in dc.tbl_MKT_Regions
+                         where pp.Note.Contains(valueseach) //&& pp.Store_code == this.storelocation
+                         select new
+                         {
+                             pp.Region,
+                             pp.Note,
+
+
+                             pp.id,
+
+                         };
+
+
+
+
+
+                    //        dt.Columns.Add(new DataColumn("Region", typeof(string)));
+
+                    if (rs != null)
+                    {
+                        View.MKTViewchooseiquery selectkq = new MKTViewchooseiquery(rs, dc, "PLEASE SELECT REGION ", "REGION");
+                        selectkq.ShowDialog();
+                        int id = selectkq.id;
+
+
+
+
+                        var valuechon = (from pp in dc.tbl_MKT_Regions
+                                         where pp.id == id
+                                         select pp).FirstOrDefault();
+
+                        if (valuechon != null)
+                        {
+                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["For_Region"].Value = valuechon.Region;
+
+
+                        }
+                        else
+                        {
+                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["For_Region"].Value = DBNull.Value;
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+                }
+
+
+                #endregion
+            }
 
         }
     }

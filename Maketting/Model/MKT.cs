@@ -2846,32 +2846,33 @@ namespace Maketting.Model
 
             var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
                          // from gg in dc.tbl_MKt_POheads
-                     where pp.QuantityInputbyPO != null || pp.QuantityInputbyReturn != null
+                     where pp.QuantityReceipt >0
 
                    && pp.Regionchangedate >= fromdate
                       && pp.Regionchangedate <= todate
                           && pp.Store_code == storecode
                      select new
                      {
-                         //// gg.
-                         //DocumentNumber = pp.Document_number,
-                         //Ngày_nhập_kho = pp.Regionchangedate,
-                         //DN_Number = pp.DNNumber,
-                         //pp.Materiacode,
-                         //pp.MateriaItemcode,
-                         //pp.Materialname,
-                         //pp.Unit,
-                         //pp.RecieptQuantity,
-                         //pp.Recieptby,
+
+                         // gg.
+                         DocumentNumber = pp.DocumentNumber,
+                         Ngày_nhập_kho = pp.Regionchangedate,
+                         DN_Number = pp.DnNumber,
+                         pp.MATERIAL,
+                         pp.ITEM_Code,
+                         pp.SAP_CODE,
+                      //   pp.UNIT,
+                         pp.QuantityReceipt,
+                     //    pp.s,
 
 
-                         //pp.Username,
-                         //pp.ShippingPoint,
-                         //Shipmnent = pp.Serriload,
-                         //Transfer_in_number = pp.Transfer_number,
-                         //pp.POnumber,
-                         ////   pp.id,
-                         //    Subid = pp.IssueIDsub,
+                     //
+                         pp.Store_code,
+                      //   Shipmnent = pp.s,
+                    //     Transfer_in_number = pp.Transfer_number,
+                         pp.POnumber,
+                         //   pp.id,
+                         Subid = pp.idsub,
 
 
                      };

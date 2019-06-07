@@ -11143,6 +11143,14 @@ namespace Maketting
 		
 		private System.Nullable<int> _idsub;
 		
+		private System.Nullable<double> _QuantityInputbytransferin;
+		
+		private string _DocumentNumber;
+		
+		private string _DnNumber;
+		
+		private System.Nullable<double> _QuantityReceipt;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -11181,6 +11189,14 @@ namespace Maketting
     partial void OnPOnumberChanged();
     partial void OnidsubChanging(System.Nullable<int> value);
     partial void OnidsubChanged();
+    partial void OnQuantityInputbytransferinChanging(System.Nullable<double> value);
+    partial void OnQuantityInputbytransferinChanged();
+    partial void OnDocumentNumberChanging(string value);
+    partial void OnDocumentNumberChanged();
+    partial void OnDnNumberChanging(string value);
+    partial void OnDnNumberChanged();
+    partial void OnQuantityReceiptChanging(System.Nullable<double> value);
+    partial void OnQuantityReceiptChanged();
     #endregion
 		
 		public tbl_MKT_StockendRegionBudget()
@@ -11524,6 +11540,86 @@ namespace Maketting
 					this._idsub = value;
 					this.SendPropertyChanged("idsub");
 					this.OnidsubChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityInputbytransferin", DbType="Float")]
+		public System.Nullable<double> QuantityInputbytransferin
+		{
+			get
+			{
+				return this._QuantityInputbytransferin;
+			}
+			set
+			{
+				if ((this._QuantityInputbytransferin != value))
+				{
+					this.OnQuantityInputbytransferinChanging(value);
+					this.SendPropertyChanging();
+					this._QuantityInputbytransferin = value;
+					this.SendPropertyChanged("QuantityInputbytransferin");
+					this.OnQuantityInputbytransferinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DocumentNumber", DbType="NVarChar(255)")]
+		public string DocumentNumber
+		{
+			get
+			{
+				return this._DocumentNumber;
+			}
+			set
+			{
+				if ((this._DocumentNumber != value))
+				{
+					this.OnDocumentNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DocumentNumber = value;
+					this.SendPropertyChanged("DocumentNumber");
+					this.OnDocumentNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DnNumber", DbType="NVarChar(255)")]
+		public string DnNumber
+		{
+			get
+			{
+				return this._DnNumber;
+			}
+			set
+			{
+				if ((this._DnNumber != value))
+				{
+					this.OnDnNumberChanging(value);
+					this.SendPropertyChanging();
+					this._DnNumber = value;
+					this.SendPropertyChanged("DnNumber");
+					this.OnDnNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuantityReceipt", DbType="Float")]
+		public System.Nullable<double> QuantityReceipt
+		{
+			get
+			{
+				return this._QuantityReceipt;
+			}
+			set
+			{
+				if ((this._QuantityReceipt != value))
+				{
+					this.OnQuantityReceiptChanging(value);
+					this.SendPropertyChanging();
+					this._QuantityReceipt = value;
+					this.SendPropertyChanged("QuantityReceipt");
+					this.OnQuantityReceiptChanged();
 				}
 			}
 		}
@@ -11947,6 +12043,8 @@ namespace Maketting
 		
 		private System.Nullable<int> _IssueIDsub;
 		
+		private string _Region;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -11979,6 +12077,8 @@ namespace Maketting
     partial void OnReciepted_QuantityChanged();
     partial void OnIssueIDsubChanging(System.Nullable<int> value);
     partial void OnIssueIDsubChanged();
+    partial void OnRegionChanging(string value);
+    partial void OnRegionChanged();
     #endregion
 		
 		public tbl_MKt_TransferINdetail()
@@ -12262,6 +12362,26 @@ namespace Maketting
 					this._IssueIDsub = value;
 					this.SendPropertyChanged("IssueIDsub");
 					this.OnIssueIDsubChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Region", DbType="NVarChar(50)")]
+		public string Region
+		{
+			get
+			{
+				return this._Region;
+			}
+			set
+			{
+				if ((this._Region != value))
+				{
+					this.OnRegionChanging(value);
+					this.SendPropertyChanging();
+					this._Region = value;
+					this.SendPropertyChanged("Region");
+					this.OnRegionChanged();
 				}
 			}
 		}
