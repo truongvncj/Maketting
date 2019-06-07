@@ -675,7 +675,7 @@ namespace Maketting.View
         public BindingSource source2;
 
 
-        public Viewtable (IQueryable rs, LinqtoSQLDataContext dc, string fornname, int viewcode, string valuesave)
+        public Viewtable(IQueryable rs, LinqtoSQLDataContext dc, string fornname, int viewcode, string valuesave)
         {
             //    this.dataGridView1.DataSource = rs;
             InitializeComponent();
@@ -707,7 +707,7 @@ namespace Maketting.View
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
 
-           
+
                 //  lbseach.Visible = false;
             }
 
@@ -718,7 +718,7 @@ namespace Maketting.View
                 lbf9stocmovementdetail.Visible = true;
             }
 
-       
+
 
             if (viewcode == 1000) // 55 chỉ view và exports
             {
@@ -1624,8 +1624,12 @@ namespace Maketting.View
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            try
-            {
+            //try
+            //{
+
+                #region  tìm PO
+
+
                 if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
                 {
 
@@ -1634,20 +1638,7 @@ namespace Maketting.View
                     int id;
                     int subid;
                     //pp.POnumber,
-                    //     Ngày_nhập_kho = pp.date_input_output,
-                    //     DN_Number = pp.DNNumber,
-                    //     pp.Materiacode,
-                    //     pp.MateriaItemcode,
-                    //     pp.Materialname,
-                    //     pp.Unit,
-                    //     pp.RecieptQuantity,
-                    //     pp.Recieptby,
 
-
-                    //     pp.Username,
-                    //     pp.ShippingPoint,
-                    //     pp.id,
-                    //     Subid = pp.IssueIDsub,
 
 
                     try
@@ -1664,7 +1655,7 @@ namespace Maketting.View
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Tim PO bị lỗi:" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -1676,6 +1667,11 @@ namespace Maketting.View
 
 
                 }
+
+
+
+                #endregion
+
 
                 #region  viewdetail 100 tạo phieu               phiếu
                 if (this.viewcode == 100 && (this.valuesave == "tk" || this.valuesave == "tkhead"))
@@ -1690,25 +1686,50 @@ namespace Maketting.View
 
 
                     string sophieufind = "";
-                    //      string region = "";
+                    // string region = "";
                     string storelocationfind = "";
                     //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
                     try
                     {
                         sophieufind = this.dataGridView1.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
                         storelocationfind = this.dataGridView1.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
-                        //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                        //  region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show("Tìm số phiếu bị lỗi: " +ex.ToString());
                         //     this.phieuchiid = 0;
                     }
 
                     View.Main main = new Main();
 
-                    View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind, storelocationfind);
-                    accsup.ShowDialog();
+
+                    //    MKTissuereturnRequest
+
+                    var ktrabienban = (from pp in dc.tbl_MKt_Listphieuheads
+                                       where pp.ShippingPoint == storelocationfind
+                                       && pp.Gate_pass == sophieufind
+
+                                       select pp.requestReturn).FirstOrDefault();
+
+
+
+                    if (ktrabienban == true)
+                    {
+                        View.MKTissuereturnRequest accsup1 = new MKTissuereturnRequest(main, sophieufind, storelocationfind);
+                        accsup1.ShowDialog();
+
+                    }
+                    else
+                    {
+                        View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind, storelocationfind);
+                        accsup.ShowDialog();
+                    }
+
+
+
+
+
                     //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
 
 
@@ -1955,57 +1976,16 @@ namespace Maketting.View
 
 
 
-                //#region  approval payment request
-                //if (this.valuesave == "PaymentRequest")
-                //{
-
-
-                //    //        if (this.dataGridView1.CurrentCell.RowIndex >= 0)
-                //    {
-
-                //        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value != "")
-                //        {
-                //            #region
-
-                //            int payID = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["payID"].Value;
-
-                //            View.MKTProgramepaymentbyFI accsup = new MKTProgramepaymentbyFI(payID, this.dataGridView1);
-                //            accsup.Show();
 
 
 
 
+            //}
+            //catch (Exception ex)
+            //{
 
-
-                //            #endregion
-
-
-                //        }
-
-                //    }
-
-
-
-
-
-
-
-
-
-                //}
-
-
-                //#endregion
-
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
+            //    MessageBox.Show("Có lỗi khi clik vào: "+ex.ToString());
+            //}
 
 
 

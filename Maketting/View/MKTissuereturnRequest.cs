@@ -70,15 +70,6 @@ namespace Maketting.View
         {
 
 
-            //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-            //dt.Columns.Add(new DataColumn("Description", typeof(string)));
-            //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
-            //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
-
-            //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-            //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-            //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
-
 
 
             string connection_string = Utils.getConnectionstr();
@@ -98,9 +89,14 @@ namespace Maketting.View
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
             //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
-            drToAdd["Request_collect_Quantity"] = PhieuMKT.Returnrequest;
-       //     drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) + PhieuMKT.Issued;
-         //   drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
+
+            if (PhieuMKT.Returnrequest != null)
+            {
+                drToAdd["Request_collect_Quantity"] = PhieuMKT.Returnrequest;
+            }
+
+            //     drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) + PhieuMKT.Issued;
+            //   drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
@@ -109,7 +105,7 @@ namespace Maketting.View
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
-    
+
 
 
         }
@@ -137,7 +133,7 @@ namespace Maketting.View
             datepickngayphieu.Enabled = true;
             txtNote.Text = "";
 
-         
+
             txtcustcode.Text = "";
             txtcustcode.Enabled = false;
 
@@ -183,13 +179,13 @@ namespace Maketting.View
             txtnguoiyeucau.Text = Utils.getname();
 
             txttel.Text = "";
-         
+
             lbgatepassno.Text = "";
             datepickngayphieu.Value = DateTime.Today;
 
             txtnguoiyeucau.Focus();
 
-            dataGridViewDetail = Model.MKT.Loadnewdetailcollectrequest (dataGridViewDetail);
+            dataGridViewDetail = Model.MKT.Loadnewdetailcollectrequest(dataGridViewDetail);
 
             //     cbkhohang.Items.Clear();
 
@@ -410,8 +406,8 @@ namespace Maketting.View
                     {
                         lbgatepassno.Text = this.sophieu;
 
-                       
-                     
+
+
 
                         txtnguoinhan.Text = rs.Receiver_by;// = 
 
@@ -428,7 +424,7 @@ namespace Maketting.View
                         }
 
 
-             
+
                         txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
                         txtShiptoCode.Text = rs.ShiptoCode.ToString();
                         txtdiachi.Text = rs.Address;
@@ -476,7 +472,7 @@ namespace Maketting.View
                     }
 
 
-                    //     }
+                    //    }
 
 
                     #endregion
@@ -485,23 +481,26 @@ namespace Maketting.View
                     #endregion
 
                     #region load detail so phieu va loacation
-                    var rs2 = from pp in dc.tbl_MKt_Listphieudetails
-                              where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                    var dsphieudetai = from pp in dc.tbl_MKt_Listphieudetails
+                                       where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
 
-                              select pp;
+                                       select pp;
 
-                    if (rs2.Count() > 0)
+                    if (dsphieudetai.Count() > 0)
                     {
                         cleartoblankDEtailphieu();
-                        foreach (var item in rs2)
+
+
+
+                        foreach (var phieudetail in dsphieudetai)
                         {
-                            addDEtailPhieuMKT(item);
+                            addDEtailPhieuMKT(phieudetail);
                             //  xxx
 
-                            txtcity.Text = item.shiptocity;
+                            txtcity.Text = phieudetail.shiptocity;
 
                         }
-                      
+
                     }
 
                     #endregion
@@ -587,7 +586,7 @@ namespace Maketting.View
 
         private void cbtennguoinop_KeyPress(object sender, KeyPressEventArgs e)
         {
-         
+
         }
 
         private void cbdiachi_KeyPress(object sender, KeyPressEventArgs e)
@@ -597,7 +596,7 @@ namespace Maketting.View
 
         private void cbdiengiai_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void cbsotien_KeyPress(object sender, KeyPressEventArgs e)
@@ -698,7 +697,7 @@ namespace Maketting.View
                 return;
             }
 
-         
+
             if (txtshiptoname.Text == "")
             {
                 MessageBox.Show("Pleae check Shipto name !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -707,7 +706,7 @@ namespace Maketting.View
                 return;
             }
 
-            
+
 
             if (cbkhohang.Text == "")
             {
@@ -767,7 +766,7 @@ namespace Maketting.View
 
                     }
 
-                
+
 
 
                 }
@@ -785,12 +784,12 @@ namespace Maketting.View
             if (checkdetail && checkhead)
             {
 
-            
+
 
 
                 if (this.statusphieu == 2) //; nếu là change requaes
                 {
-                  //  bool kq = Model.MKT.Deletephieutochange(this.sophieu, this.storelocation, this.region);
+                    //  bool kq = Model.MKT.Deletephieutochange(this.sophieu, this.storelocation, this.region);
 
 
                     bool kq = Model.MKT.Deletephieuthuchangtochange(this.sophieu, this.storelocation, this.region);
@@ -844,7 +843,7 @@ namespace Maketting.View
                     rs.Note = txtNote.Text.Truncate(225);
 
                     rs.Ngaytaophieu = datepickngayphieu.Value;
-            
+
                     rs.ShippingPoint = this.storelocation;
                     rs.Requested_by = txtnguoiyeucau.Text;
                     rs.Status = "CRT";
@@ -853,7 +852,7 @@ namespace Maketting.View
 
                     rs.Tel = txttel.Text.Truncate(50);
                     rs.Username = this.Username;
-                
+
                     dc.SubmitChanges();
 
                 }
@@ -875,7 +874,7 @@ namespace Maketting.View
                         detailphieu.Receiver_by = txtnguoinhan.Text.Truncate(225);
 
                         detailphieu.Ngaytaophieu = datepickngayphieu.Value;
-                    
+
 
 
                         detailphieu.Note = txtNote.Text.Truncate(225);
@@ -918,7 +917,7 @@ namespace Maketting.View
                             detailphieu.MateriaSAPcode = (string)dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value;
                         }
                         detailphieu.Issued = 0;
-                      
+
                         if (dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value != DBNull.Value)
                         {
                             requetedquantity = (float)dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value;
@@ -957,7 +956,7 @@ namespace Maketting.View
 
 
 
-           
+
 
 
 
@@ -1131,7 +1130,7 @@ namespace Maketting.View
                              Nguoinhanname = pp.Nguoinhanname,
                              Diachi = pp.Diachi,
                              mucdich = pp.mucdich,
-                             ghichu =     pp.ghichu,
+                             ghichu = pp.ghichu,
                              dienthoai = pp.dienthoai,
                              seri = pp.seri,
                              Barcode = pp.Barcode
@@ -1177,7 +1176,7 @@ namespace Maketting.View
         private void dataGridViewListphieuthu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-          
+
 
         }
 
@@ -1527,7 +1526,7 @@ namespace Maketting.View
 
         private void dataGridViewTkCo_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-     
+
 
             FormCollection fc = System.Windows.Forms.Application.OpenForms;
 
@@ -1599,7 +1598,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                       //      Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
+                             //      Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1620,7 +1619,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                          //   Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
+                             //   Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1640,7 +1639,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                          //   Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
+                             //   Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
 
                              pp.id,
 
@@ -1661,7 +1660,7 @@ namespace Maketting.View
                              pp.MATERIAL,
                              pp.Description,
                              pp.UNIT,
-                     //        Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
+                             //        Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
                              pp.id,
 
                          };
@@ -1688,10 +1687,10 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
-              //          dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
+                        //          dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = valuechon.UNIT;
 
-                //        dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storelocation);
+                        //        dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storelocation);
 
                         //dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
                         //                                                            where p.ITEM_Code == valuechon.ITEM_Code
@@ -1709,9 +1708,9 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
-                  //      dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
+                        //      dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
-                    //    dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = DBNull.Value;
+                        //    dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = DBNull.Value;
 
                     }
 
@@ -1927,7 +1926,7 @@ namespace Maketting.View
 
         private void dataGridViewListphieuchi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+
 
             string connection_string = Utils.getConnectionstr();
 
@@ -1964,34 +1963,34 @@ namespace Maketting.View
 
             if (rs != null)
             {
-              
+
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
-             
-              //  txtcustcode.Enabled = true;
-             
-           //     txtcustcode.Enabled = false;
 
-             //   txtShiptoCode.Enabled = true;
+                //  txtcustcode.Enabled = true;
 
-             
-             //   txtShiptoCode.Enabled = false;
+                //     txtcustcode.Enabled = false;
+
+                //   txtShiptoCode.Enabled = true;
+
+
+                //   txtShiptoCode.Enabled = false;
 
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
                 txtshiptoname.Text = rs.ShiptoName;
 
-                datepickngayphieu.Value = (DateTime)rs.Ngaytaophieu;// = ;
-               txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
+                datepickngayphieu.Value = rs.Ngaytaophieu.Value;// = ;
+                txtcustcode.Text = rs.Customer_SAP_Code.ToString();// = double.Parse(txtcustcode.Text);
                 txtShiptoCode.Text = rs.ShiptoCode.ToString();
 
-                
+
 
                 // txtcustcode
                 //         txtShiptoCode
                 txtNote.Text = rs.Note;
-             
+
                 //  cbkhohang.Items
                 foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
                 {
@@ -2007,7 +2006,7 @@ namespace Maketting.View
                     if (item.Value.ToString().Trim() == rs.Region.Trim())
                     {
                         cbfromRegion.SelectedItem = item;
-                       
+
                     }
                 }
 
@@ -2020,7 +2019,7 @@ namespace Maketting.View
                                      //   dc.SubmitChanges();
 
                 txtshiptoaddress.Text = rs.ShiptoAddress;
-               
+
             }
 
 
@@ -2032,7 +2031,7 @@ namespace Maketting.View
             #region load detail so phieu va loacation
             var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
-            //          && pp.Returnrequest != 0
+                      //          && pp.Returnrequest != 0
 
                       select pp;
 
@@ -2115,7 +2114,7 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKt_Listphieudetails
                          where pp.Status == "CRT" && pp.Username == username
-                         && pp.Returnrequest >0 
+                         && pp.Returnrequest > 0
                          select new
                          {
                              Date = pp.Ngaytaophieu,
@@ -2142,7 +2141,7 @@ namespace Maketting.View
 
                              //     Customer = pp.Customer_SAP_Code,
                              pp.Address,
-                            
+
                              Store = pp.ShippingPoint,
                              Created_by = pp.Username,
                              pp.Requested_by,
@@ -2183,14 +2182,14 @@ namespace Maketting.View
 
         private void txtmucdich_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
 
 
         }
 
         private void btmucdich_Click(object sender, EventArgs e)
         {
-         
+
 
 
         }
@@ -2234,7 +2233,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-            
+
 
 
                 // chanel of IO
@@ -2307,7 +2306,7 @@ namespace Maketting.View
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptoname.Text = rs2.FullNameN;
                     txtcity.Text = rs2.City;
-                 //  txtshiptocodeseach.Text = rs2.FullNameN;
+                    //  txtshiptocodeseach.Text = rs2.FullNameN;
 
                     txtshiptocodeseach.Text = "";
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
@@ -2369,7 +2368,7 @@ namespace Maketting.View
 
                 var rs = (from pp in dc.tbl_MKT_Soldtocodes
                           where pp.Customer == customercodefind
-                     &&     pp.ShiptoCode.Contains(seachtext)
+                     && pp.ShiptoCode.Contains(seachtext)
                           //     && pp.Soldtype == false
                           //  &&
                           select new
@@ -2461,7 +2460,7 @@ namespace Maketting.View
             {
                 e.Handled = true;
                 //  cbsophieu.
-           
+
 
 
                 // chanel of IO
@@ -2540,7 +2539,7 @@ namespace Maketting.View
 
                     txtShiptoCode.Text = rs2.ShiptoCode;
                     txtshiptocodeseach.Text = "";
-                //    txtshiptocodeseach.Text = rs2.FullNameN;
+                    //    txtshiptocodeseach.Text = rs2.FullNameN;
                     txtshiptoaddress.Text = rs2.Street + " ," + rs2.District + " ," + rs2.City;
                     txtcustcode.Text = rs2.Customer;
 
@@ -2628,7 +2627,7 @@ namespace Maketting.View
 
             var rs = (from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
-                      && pp.ShipmentNumber !=""
+                      && pp.ShipmentNumber != ""
                       select pp.ShipmentNumber).FirstOrDefault();
 
             if (rs != null)
