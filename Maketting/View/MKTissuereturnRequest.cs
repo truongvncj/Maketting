@@ -94,7 +94,10 @@ namespace Maketting.View
             {
                 drToAdd["Request_collect_Quantity"] = PhieuMKT.Returnrequest;
             }
-
+            else
+            {
+                drToAdd["Request_collect_Quantity"] = 0;
+            }
             //     drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) + PhieuMKT.Issued;
             //   drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam

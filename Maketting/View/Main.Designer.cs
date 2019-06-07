@@ -1039,7 +1039,7 @@
             // 
             this.sToolStripMenuItem.Name = "sToolStripMenuItem";
             this.sToolStripMenuItem.Size = new System.Drawing.Size(306, 24);
-            this.sToolStripMenuItem.Text = "Stock Movement by Region";
+            this.sToolStripMenuItem.Text = "Stock Movement detail by Region";
             this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
             // 
             // toolStripSeparator10

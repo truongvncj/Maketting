@@ -2855,10 +2855,13 @@ namespace Maketting.Model
                      {
 
                          // gg.
+                         pp.Region,
                          DocumentNumber = pp.DocumentNumber,
-                         Ngày_nhập_kho = pp.Regionchangedate,
                          DN_Number = pp.DnNumber,
+                         Ngày_nhập_kho = pp.Regionchangedate,
+                     
                          pp.MATERIAL,
+                         pp.Description,
                          pp.ITEM_Code,
                          pp.SAP_CODE,
                       //   pp.UNIT,
@@ -2873,8 +2876,7 @@ namespace Maketting.Model
                          pp.POnumber,
                          //   pp.id,
                          Subid = pp.idsub,
-
-
+                       
                      };
 
             return rs;

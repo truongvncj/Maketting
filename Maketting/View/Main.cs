@@ -6652,6 +6652,74 @@ namespace Maketting.View
 
             }
         }
+
+        private void stockMovementDetailByRegionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            MKTFromdateandStoreandRegion choosesl = new MKTFromdateandStoreandRegion();
+
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.store;
+            string region = choosesl.region;
+            DateTime Fromdate = choosesl.fromdate;
+            DateTime Todate = choosesl.todate;
+
+
+
+
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+                var rs5 = from gg in dc.tbl_MKT_StockendRegionBudgets
+                          where gg.Region == region
+                          && gg.Store_code == storelocation
+                          && gg.Regionchangedate >= Fromdate
+                          && gg.Regionchangedate <= Todate
+                          //group pp by new
+                          //{
+                          //    pp.Region,
+                          //    pp.ITEM_Code,
+
+                          //} into gg
+                          select new
+                          {
+                              Region = gg.Region,
+                              Shipping_Point = storelocation,
+                              Material_Item_Code = gg.ITEM_Code,
+                              Material_SAP_Code = gg.SAP_CODE,
+                              Material_Name = gg.MATERIAL,
+                              Description = gg.Description,
+                              UNIT = gg.UNIT,
+                              Quantity_PO_Reciepted = gg.QuantityInputbyPO,
+                              Issued = gg.QuantityOutput,//gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                              Return_Ticket = gg.QuantityInputbyReturn,// gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
+                              Transfer_in = gg.QuantityInputbytransferin,
+                              Adjusted_Device_Stock = gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
+
+
+
+
+
+                              //  Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                          };
+
+
+                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                tbl.ShowDialog();
+
+
+
+            }
+        }
     }
 
 
