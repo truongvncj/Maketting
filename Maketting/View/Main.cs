@@ -5678,6 +5678,9 @@ namespace Maketting.View
                           select new
                           {
                               Region = gg.Region,
+                              gg.DocumentNumber,
+                              gg.DnNumber,
+                             
                               Shipping_Point = storelocation,
                               Material_Item_Code = gg.ITEM_Code,
                               Material_SAP_Code = gg.SAP_CODE,
