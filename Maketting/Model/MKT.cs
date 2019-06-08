@@ -2874,6 +2874,7 @@ namespace Maketting.Model
                       //   Shipmnent = pp.s,
                     //     Transfer_in_number = pp.Transfer_number,
                          pp.POnumber,
+                       
                          //   pp.id,
                          Subid = pp.idsub,
                        
