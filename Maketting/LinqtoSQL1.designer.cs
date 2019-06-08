@@ -11151,6 +11151,8 @@ namespace Maketting
 		
 		private System.Nullable<double> _QuantityReceipt;
 		
+		private System.Nullable<System.DateTime> _Createdate;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -11197,6 +11199,8 @@ namespace Maketting
     partial void OnDnNumberChanged();
     partial void OnQuantityReceiptChanging(System.Nullable<double> value);
     partial void OnQuantityReceiptChanged();
+    partial void OnCreatedateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedateChanged();
     #endregion
 		
 		public tbl_MKT_StockendRegionBudget()
@@ -11620,6 +11624,26 @@ namespace Maketting
 					this._QuantityReceipt = value;
 					this.SendPropertyChanged("QuantityReceipt");
 					this.OnQuantityReceiptChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Createdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Createdate
+		{
+			get
+			{
+				return this._Createdate;
+			}
+			set
+			{
+				if ((this._Createdate != value))
+				{
+					this.OnCreatedateChanging(value);
+					this.SendPropertyChanging();
+					this._Createdate = value;
+					this.SendPropertyChanged("Createdate");
+					this.OnCreatedateChanged();
 				}
 			}
 		}

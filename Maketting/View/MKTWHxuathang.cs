@@ -561,7 +561,11 @@ namespace Maketting.View
                         newregionupdate.QuantitybyDevice = 0;
                         newregionupdate.Note = item.Gate_pass;
 
-                        newregionupdate.Regionchangedate = DateTime.Today;
+                        newregionupdate.Regionchangedate = ngayThuctexuat.Value;
+
+
+                        newregionupdate.Createdate = DateTime.Today;
+
 
                         dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
                         dc.SubmitChanges();

@@ -578,13 +578,18 @@ namespace Maketting.View
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
                                 newregionupdate.Note = item.POnumber;
-                                newregionupdate.Regionchangedate = datecreated.Value;
+                            //    newregionupdate.Regionchangedate = datecreated.Value;
 
                                 newregionupdate.Store_code = this.storelocation;
                                 newregionupdate.POnumber = this.POnumber;
                                 newregionupdate.idsub = this.subID; ;
                                 newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
+
                                 newregionupdate.DocumentNumber = this.POnumber.Truncate(50);
+                                newregionupdate.Regionchangedate = dateNgaynhaphang.Value;
+
+
+                                newregionupdate.Createdate = DateTime.Today;
 
 
 
@@ -648,6 +653,8 @@ namespace Maketting.View
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
+                                newreciepts.Doc_date = DateTime.Today;
+
                                 //          newreciepts.Serriload
 
                                 //  newreciepts.Status=""

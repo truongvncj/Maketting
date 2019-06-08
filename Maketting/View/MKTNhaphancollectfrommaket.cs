@@ -544,7 +544,8 @@ namespace Maketting.View
 
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
-                                // newregionupdate.Note = item.n;
+                                newregionupdate.Createdate = DateTime.Today;
+
                                 newregionupdate.Regionchangedate = dateNgaynhaphang.Value;
                                 newregionupdate.Store_code = this.storelocation;
 
@@ -570,6 +571,7 @@ namespace Maketting.View
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
+                                newreciepts.Doc_date = DateTime.Today;
                                 //          newreciepts.Serriload
 
                                 //  newreciepts.Status=""

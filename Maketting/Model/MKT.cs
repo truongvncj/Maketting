@@ -2803,13 +2803,14 @@ namespace Maketting.Model
             var rs = from pp in dc.tbl_MKt_WHstoreissues
                          // from gg in dc.tbl_MKt_POheads
                      where pp.RecieptQuantity != null //&& pp.POnumber == gg.PONumber
-                     && pp.date_input_output >= fromdate
-                      && pp.date_input_output <= todate
+                     && pp.Doc_date >= fromdate
+                      && pp.Doc_date <= todate
                           && pp.ShippingPoint == storecode
                      select new
                      {
                          // gg.
                          DocumentNumber = pp.Document_number,
+                         Ngày_nhập_phiếu = pp.Doc_date,
                          Ngày_nhập_kho = pp.date_input_output,
                          DN_Number = pp.DNNumber,
                          pp.Materiacode,
@@ -2848,8 +2849,8 @@ namespace Maketting.Model
                          // from gg in dc.tbl_MKt_POheads
                      where pp.QuantityReceipt >0
 
-                   && pp.Regionchangedate >= fromdate
-                      && pp.Regionchangedate <= todate
+                   && pp.Createdate >= fromdate
+                      && pp.Createdate <= todate
                           && pp.Store_code == storecode
                      select new
                      {
@@ -2858,6 +2859,7 @@ namespace Maketting.Model
                          pp.Region,
                          DocumentNumber = pp.DocumentNumber,
                          DN_Number = pp.DnNumber,
+                         Ngày_nhập_phiếu = pp.Createdate,
                          Ngày_nhập_kho = pp.Regionchangedate,
                      
                          pp.MATERIAL,

@@ -1064,20 +1064,24 @@ namespace Maketting.View
             int i = 0;
             foreach (var item in rptMKTdetailmk)
             {
-                i = i + 1;
+                if (item.Issued >0)
+                {
+                    i = i + 1;
 
-                tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
 
-                detailpx.stt = i.ToString();
-                detailpx.soluong = item.Issued;
-                detailpx.Username = this.Username;
-                detailpx.materialcode = item.Materiacode;
-                detailpx.tensanpham = item.Materialname;
-                detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+                    detailpx.stt = i.ToString();
+                    detailpx.soluong = item.Issued;
+                    detailpx.Username = this.Username;
+                    detailpx.materialcode = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
 
 
-                dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                dc.SubmitChanges();
+                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
+                }
+            
 
             }
 

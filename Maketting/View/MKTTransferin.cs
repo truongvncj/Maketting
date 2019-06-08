@@ -643,6 +643,11 @@ namespace Maketting.View
                                 newregionupdate.DnNumber = txtDNnumber.Text.Truncate(50);
                                 newregionupdate.DocumentNumber = this.TFnumber;
 
+                             //   newregionupdate.Regionchangedate = ngayThuctexuat.Value;
+
+
+                                newregionupdate.Createdate = DateTime.Today;
+
 
 
                                 dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);

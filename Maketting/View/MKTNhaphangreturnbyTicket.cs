@@ -574,6 +574,7 @@ namespace Maketting.View
                                 newregionupdate.QuantitybyDevice = 0;
                                // newregionupdate.Note = item.n;
                                 newregionupdate.Regionchangedate = datereturn.Value;
+                                newregionupdate.Createdate = DateTime.Today;
                                 newregionupdate.Store_code = this.storelocation;
 
                                 dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);

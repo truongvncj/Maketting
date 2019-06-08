@@ -6648,7 +6648,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.storeimportsreportsbyregion(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Store import detail by region reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "Region store import detail by created date reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
