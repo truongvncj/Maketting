@@ -6723,6 +6723,61 @@ namespace Maketting.View
 
             }
         }
+
+        private void goodReceiptColletedFromMarketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (!Username.getloadTransferINright())
+            //{
+            //    View.MKTNoouthourise view = new MKTNoouthourise();
+            //    view.ShowDialog();
+            //    return;
+            //}
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MINUTE SERRI NUMBER ");
+            pxk.ShowDialog();
+            bool kq = pxk.kq;
+            string serinumer = pxk.valuetext;
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var checknhaproi = (from pp in dc.tbl_MKt_WHstoreissues
+                                where pp.Document_number == serinumer
+                                && pp.RecieptQuantity > 0
+                                select pp).FirstOrDefault();
+
+            if (checknhaproi != null)
+            {
+
+
+                MessageBox.Show("Biên bản này đã nhập hàng trả về rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                kq = false;
+                return;
+            }
+
+
+            if (kq)
+            {
+
+                #region// nhập hagf
+                //if (name == "tmphieuthu")
+                //{
+                // MKTNhaphangtheoPo
+                //  Main.clearpannel();
+                //   Formload.
+                // clearpannel();
+                this.clearpannel();
+
+
+                View.MKTNhaphancollectfrommaket nhaphang = new MKTNhaphancollectfrommaket(this, serinumer);
+                this.clearpannelload(nhaphang);
+
+
+                // this.Close();
+                #endregion
+
+
+            }
+        }
     }
 
 

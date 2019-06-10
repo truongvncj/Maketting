@@ -555,35 +555,39 @@ namespace Maketting.View
 
                                 #endregion
 
-                                tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
+                                //#region  tăng kkho
+
+                                //tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
 
 
-                                //           newreciepts.IssueIDsub = IssueIDsub;
-                                newreciepts.RecieptQuantity = Receipt_Quantity;//float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-                                newreciepts.Recieptby = txtnguoinhanhang.Text;
-                                newreciepts.Materiacode = item.MateriaSAPcode;
-                                newreciepts.MateriaItemcode = item.Materiacode;
-                                newreciepts.Document_number = txtdnnumbar.Text;
-                                newreciepts.Materialname = item.Materialname.Truncate(50);
-                                //       newreciepts.POnumber = item.PO_number;
-                                newreciepts.Document_number = this.serinumer;
-                                newreciepts.ShippingPoint = item.ShippingPoint;
-                                newreciepts.Unit = item.Unit;
-                                newreciepts.date_input_output = dateNgaynhaphang.Value;
-                                newreciepts.DNNumber = txtdnnumbar.Text;
-                                newreciepts.Doc_date = DateTime.Today;
-                                //          newreciepts.Serriload
+                                ////           newreciepts.IssueIDsub = IssueIDsub;
+                                //newreciepts.RecieptQuantity = Receipt_Quantity;//float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                                //newreciepts.Recieptby = txtnguoinhanhang.Text;
+                                //newreciepts.Materiacode = item.MateriaSAPcode;
+                                //newreciepts.MateriaItemcode = item.Materiacode;
+                                //newreciepts.Document_number = txtdnnumbar.Text;
+                                //newreciepts.Materialname = item.Materialname.Truncate(50);
+                                ////       newreciepts.POnumber = item.PO_number;
+                                //newreciepts.Document_number = this.serinumer;
+                                //newreciepts.ShippingPoint = item.ShippingPoint;
+                                //newreciepts.Unit = item.Unit;
+                                //newreciepts.date_input_output = dateNgaynhaphang.Value;
+                                //newreciepts.DNNumber = txtdnnumbar.Text;
+                                //newreciepts.Doc_date = DateTime.Today;
+                                ////          newreciepts.Serriload
 
-                                //  newreciepts.Status=""
-                                newreciepts.Username = username;
-
-
-                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(newreciepts);
-                                dc.SubmitChanges();
+                                ////  newreciepts.Status=""
+                                //newreciepts.Username = username;
 
 
+                                //dc.tbl_MKt_WHstoreissues.InsertOnSubmit(newreciepts);
+                                //dc.SubmitChanges();
 
-                                Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
+
+
+                                //Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
+
+                                //#endregion tăng kho
 
 
 
