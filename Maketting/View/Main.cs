@@ -5764,7 +5764,7 @@ namespace Maketting.View
 
 
 
-                View.Viewtable tbl = new Viewtable(rs, dc, "REGION STOCK MOVEMENT REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                View.Viewtable tbl = new Viewtable(rs, dc, "PO Detail by region list Reports FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
                 tbl.ShowDialog();
 
 
@@ -5824,7 +5824,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs1 = Model.MKT.danhkhachhangrutgon(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 1000, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
         }
@@ -5842,7 +5842,7 @@ namespace Maketting.View
 
 
 
-            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 111, "STORERPT");
+            View.Viewtable tbl = new Viewtable(rs5, dc, "Soldto List", 1000, "STORERPT");
             tbl.ShowDialog();
 
         }
@@ -6564,7 +6564,7 @@ namespace Maketting.View
 
 
                         dc.SubmitChanges();
-                    
+
 
                     }
 
@@ -6601,7 +6601,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.storeimportsreports(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Store import detail reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "By input date store import detail reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -6684,7 +6684,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.storeimportsreportsbyregion(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "Region store import detail by created date reports", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "By input date region store import detail reports ", 1000, "storeimportList");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -6813,6 +6813,107 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void panelmain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void byInputDateStockMovementDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbyinputdate(dc, fromdate, todate, store);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+
+        }
+
+        private void byInputDateStockMovementDetailByRegionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            MKTFromdateandStoreandRegion choosesl = new MKTFromdateandStoreandRegion();
+
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.store;
+            string region = choosesl.region;
+            DateTime Fromdate = choosesl.fromdate;
+            DateTime Todate = choosesl.todate;
+
+
+
+
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+
+                var rs5 = from gg in dc.tbl_MKT_StockendRegionBudgets
+                          where gg.Region == region
+                          && gg.Store_code == storelocation
+                          && gg.Createdate >= Fromdate
+                          && gg.Createdate <= Todate
+                          //group pp by new
+                          //{
+                          //    pp.Region,
+                          //    pp.ITEM_Code,
+
+                          //} into gg
+                          select new
+                          {
+                              Region = gg.Region,
+                              gg.DocumentNumber,
+                              gg.DnNumber,
+
+                              Shipping_Point = storelocation,
+                              Material_Item_Code = gg.ITEM_Code,
+                              Material_SAP_Code = gg.SAP_CODE,
+                              Material_Name = gg.MATERIAL,
+                              Description = gg.Description,
+                              UNIT = gg.UNIT,
+                              Quantity_PO_Reciepted = gg.QuantityInputbyPO,
+                              Issued = gg.QuantityOutput,//gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                              Return_Ticket = gg.QuantityInputbyReturn,// gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0),
+                              Transfer_in = gg.QuantityInputbytransferin,
+                              Adjusted_Device_Stock = gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
+
+
+
+
+
+                              //  Balance = gg.Sum(m => m.QuantityInputbyPO).GetValueOrDefault(0) + gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0) + gg.Sum(m => m.QuantityInputbyReturn).GetValueOrDefault(0) - gg.Sum(m => m.QuantityOutput).GetValueOrDefault(0),
+                          };
+
+
+                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT BY INPUT DATE REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                tbl.ShowDialog();
+            }
+
         }
     }
 

@@ -78,7 +78,7 @@ namespace Maketting.View
                 {
 
 
-                    row["Balance"] = float.Parse(row["END_STOCK"].ToString()) -float.Parse( row["Region_Budgeted"].ToString()); 
+                    row["Balance"] = float.Parse(row["END_STOCK"].ToString()) - float.Parse( row["Region_Budgeted"].ToString()); 
 
                 }
 

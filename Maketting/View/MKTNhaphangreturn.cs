@@ -41,27 +41,39 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string urs = Utils.getusername();
+            //     btluu.Enabled = false;
 
-            var rs = from pp in dc.tbl_MKt_WHstoreissues
-                     where pp.Serriload == this.Loadnumberserri
+            var rs = from pp in dc.tbl_MKt_Listphieudetails
+                     where pp.ShippingPoint + pp.ShipmentNumber == this.Loadnumberserri
+
+                     group pp by pp.Materiacode into gg
+
                      select new
                      {
-                         ID = pp.id,
-                         Maketting_load = pp.LoadNumber,
-                         Shipping_Point = pp.ShippingPoint,
-                         Material_code = pp.Materiacode,
-                         Material_name = pp.Materialname,
-                         Requested_issue = pp.Issued ,
-
-
-
-
-
-                         //     Real_issue = 0,
-
-                      
+                         Maketting_load = gg.Select(m => m.ShipmentNumber).FirstOrDefault(),
+                         Shipping_Point = gg.Select(m => m.ShippingPoint).FirstOrDefault(),
+                         Material_code = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                         Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
+                         Issued = gg.Sum(m => m.Issued.GetValueOrDefault(0)),
+                         Return_Requested = gg.Sum(m => m.Returnrequest.GetValueOrDefault(0)),
 
                      };
+
+            //var rs = from pp in dc.tbl_MKt_WHstoreissues
+            //     where pp.Serriload == this.Loadnumberserri
+            //     select new
+            //     {
+            //         ID = pp.id,
+            //         Maketting_load = pp.LoadNumber,
+            //         Shipping_Point = pp.ShippingPoint,
+            //         Material_code = pp.Materiacode,
+            //         Material_name = pp.Materialname,
+            //         Requested_issue = pp.Issued ,
+
+            //         //     Real_issue = 0,
+
+            //     };
+
 
             if (rs.Count() > 0)
             {
@@ -78,18 +90,25 @@ namespace Maketting.View
                 dataGridViewLoaddetail.DataSource = dataTable;
 
 
-                dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
+             //   dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Maketting_load"].ReadOnly = true;
 
                 dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_code"].ReadOnly = true;
+
+
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
-                dataGridViewLoaddetail.Columns["Requested_issue"].ReadOnly = true;
+
+                dataGridViewLoaddetail.Columns["Issued"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Return_Requested"].ReadOnly = true;
+
+
                 dataGridViewLoaddetail.Columns["Maketting_load"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_code"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
-                dataGridViewLoaddetail.Columns["Requested_issue"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Issued"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Return_Requested"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -396,7 +415,7 @@ namespace Maketting.View
 
             bool checkdetail = true;
 
-        
+
 
             #region // detail
             for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
@@ -419,19 +438,27 @@ namespace Maketting.View
                 {
 
                     float ReturnQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
-                    float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
-                    if (yeucau < ReturnQuantity)
+                    float daxuathang = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Issued"].Value.ToString());
+                    float yeucauthuhang = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Requested"].Value.ToString());
+
+
+                    //Issued = gg.Sum(m => m.Issued),
+                    //     Return_Requested = gg.Sum(m => m.Returnrequest),
+
+
+
+                    if (daxuathang + yeucauthuhang < ReturnQuantity)
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
 
-                        MessageBox.Show("Số lượng hàng nhập lớn hơn số hàng xuất, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Số lượng hàng nhập lớn hơn số hàng xuất và yêu cầu thu, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         checkdetail = false;
 
                         return;
                     }
 
-                    if ( ReturnQuantity <0)
+                    if (ReturnQuantity < 0)
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
@@ -471,7 +498,7 @@ namespace Maketting.View
                 //          select pp.;
 
 
-             
+
 
 
                 #region // head 
@@ -489,76 +516,73 @@ namespace Maketting.View
                 //}
                 //this.subID = IssueIDsub;
 
-                for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
+                var item = (from pp in dc.tbl_MKt_WHstoreissues
+                            where pp.Serriload == this.Loadnumberserri
+                            select pp).FirstOrDefault();
+
+                if (item.IssueDate > datethucnhan.Value)
                 {
-                    if (dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value != DBNull.Value)
+                    MessageBox.Show("Ngày thực tế nhập lại hàng phải sau ngày hoặc cùng ngày xuất hàng !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    checkdetail = false;
+                    btluu.Enabled = true;
+                    return;
+                }
+
+                if (item != null)
+                {
+
+
+                    for (int idrow = 0; idrow < dataGridViewLoaddetail.RowCount; idrow++)
                     {
-                        int idfind = (int)dataGridViewLoaddetail.Rows[idrow].Cells["ID"].Value;
-
-                        var item = (from pp in dc.tbl_MKt_WHstoreissues
-                                 where pp.id == idfind
-                                 select pp).FirstOrDefault();
-
-                        if (item.IssueDate > datethucnhan.Value)
-                        {
-                            MessageBox.Show("Ngày thực tế nhập lại hàng phải sau ngày hoặc cùng ngày xuất hàng !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            checkdetail = false;
-                            btluu.Enabled = true;
-                            return;
-                        }
-
-                        if (item != null)
-                        {
-
                       
 
-                                tbl_MKt_WHstoreissue phieunhap = new tbl_MKt_WHstoreissue();
+                        tbl_MKt_WHstoreissue phieunhap = new tbl_MKt_WHstoreissue();
 
-                                phieunhap.Recieptby = txtnguoixuathang.Text;
-                                phieunhap.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
-                                phieunhap.IssueDate = datethucnhan.Value;
-                                phieunhap.Doc_date = datecreated.Value;
+                        phieunhap.Recieptby = txtnguoixuathang.Text;
+                        phieunhap.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
+                        phieunhap.IssueDate = datethucnhan.Value;
+                        phieunhap.Doc_date = datecreated.Value;
 
-                                phieunhap.date_input_output = datethucnhan.Value;
-                                phieunhap.Document_number = this.Loadnumberserri;
-                                //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
-                          //      phieuxuat.IssueIDsub = IssueIDsub;
-                                phieunhap.LoadNumber = this.soload;
-                                phieunhap.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+                        phieunhap.date_input_output = datethucnhan.Value;
+                        phieunhap.Document_number = this.Loadnumberserri;
+                        //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
+                        //      phieuxuat.IssueIDsub = IssueIDsub;
+                        phieunhap.LoadNumber = this.soload;
+                        phieunhap.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
 
-                                phieunhap.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
-                                phieunhap.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
-                                phieunhap.Serriload = this.Loadnumberserri;
-                                phieunhap.ShippingPoint = this.storelocation;
-                            //    phieunhap.Status = "CRT";
-                                phieunhap.Username = this.Username;
+                        phieunhap.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+                        phieunhap.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
+                        phieunhap.Serriload = this.Loadnumberserri;
+                        phieunhap.ShippingPoint = this.storelocation;
+                        //    phieunhap.Status = "CRT";
+                        phieunhap.Username = this.Username;
 
-                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieunhap);
-                                dc.SubmitChanges();
-
-
-                            
-                          
-
-
-                                dc.SubmitChanges();
-
-                                Model.MKT.tangkhokhinhaphang(phieunhap, this.storelocation);
+                        dc.tbl_MKt_WHstoreissues.InsertOnSubmit(phieunhap);
+                        dc.SubmitChanges();
 
 
 
 
 
-                            }
-                     
 
+                        dc.SubmitChanges();
 
-                      
+                        Model.MKT.tangkhokhinhaphang(phieunhap, this.storelocation);
+
 
 
 
 
                     }
+
+
+
+
+
+
+
+
+                    //   }
                 }
 
                 #endregion
@@ -662,7 +686,7 @@ namespace Maketting.View
             dc.SubmitChanges();
 
 
-            
+
 
             var rptMKThead = (from pp in dc.tbl_MKt_ListLoadheads
                               where pp.LoadNumber == this.soload && pp.ShippingPoint == this.storelocation
@@ -720,7 +744,7 @@ namespace Maketting.View
                          select new
                          {
                              Storeman = pp.Storeman,
-                             Subid =    pp.Subid,
+                             Subid = pp.Subid,
                              //     codetransporter = pp.codetransporter,
                              shippingpoint = pp.shippingpoint,
                              Ngaythang = pp.Ngaythang,
@@ -738,10 +762,10 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
-          
+
             var rsdetail = from pp in dc.tbl_MKt_WHstoreissues
                            where pp.Serriload == this.Loadnumberserri
-                           && pp.RecieptQuantity >0
+                           && pp.RecieptQuantity > 0
                            orderby pp.Materiacode
                            select new
                            {
@@ -751,10 +775,10 @@ namespace Maketting.View
                                Materialname = pp.Materialname,
                                soluong = pp.RecieptQuantity,
                                //   username = pp.Username,
-                            
+
 
                            };
-            if (rsdetail.Count()>0)
+            if (rsdetail.Count() > 0)
             {
                 int stt = 0;
                 foreach (var item in rsdetail)
@@ -763,20 +787,20 @@ namespace Maketting.View
 
                     stt = stt + 1;
 
-                        tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
+                    tbl_MKT_LoaddetailRpt detailpx = new tbl_MKT_LoaddetailRpt();
 
-                        detailpx.stt = stt.ToString();
-                        detailpx.soluong = item.soluong;
-                        detailpx.Username = this.Username;
-                        detailpx.materialcode = item.Materiacode;
-                        detailpx.tensanpham = item.Materialname;
-                        detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
+                    detailpx.stt = stt.ToString();
+                    detailpx.soluong = item.soluong;
+                    detailpx.Username = this.Username;
+                    detailpx.materialcode = item.Materiacode;
+                    detailpx.tensanpham = item.Materialname;
+                    detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.soluong.ToString()));
 
 
-                        dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
-                        dc.SubmitChanges();
+                    dc.tbl_MKT_LoaddetailRpts.InsertOnSubmit(detailpx);
+                    dc.SubmitChanges();
 
-                 
+
 
 
 
@@ -785,19 +809,19 @@ namespace Maketting.View
             }
 
             var rsdetail3 = from pp in dc.tbl_MKT_LoaddetailRpts
-                           where pp.Username == this.Username
-                           orderby pp.stt
-                           select new
-                           {
+                            where pp.Username == this.Username
+                            orderby pp.stt
+                            select new
+                            {
 
-                               stt = pp.stt,
-                               tensanpham = pp.tensanpham,
-                               materialcode = pp.materialcode,
-                               soluong = pp.soluong,
-                               //   username = pp.Username,
-                               bangchu = pp.bangchu,
+                                stt = pp.stt,
+                                tensanpham = pp.tensanpham,
+                                materialcode = pp.materialcode,
+                                soluong = pp.soluong,
+                                //   username = pp.Username,
+                                bangchu = pp.bangchu,
 
-                           };
+                            };
 
 
             var dataset2 = ut.ToDataTable(dc, rsdetail3); // detail

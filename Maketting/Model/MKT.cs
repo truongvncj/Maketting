@@ -518,6 +518,50 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
+        public static IQueryable DanhsacHSTOCKMOVEmentdetailbyinputdate(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_WHstoreissues
+                     where p.Doc_date >= fromdate && p.Doc_date <= todate
+                     && p.ShippingPoint == store
+                     orderby p.Doc_date
+                     select new
+                     {
+                         Input_Output_date = p.date_input_output,
+                         p.Document_number,
+
+                         p.Materiacode,
+                         p.MateriaItemcode,
+                         p.Materialname,
+                         p.Issued,
+                         Receipted = p.RecieptQuantity,
+                         Store_code = p.ShippingPoint,
+
+
+                         p.Username,
+
+                         p.IssueIDsub,
+                         p.id,
+
+
+
+
+
+
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
 
 
         public static IQueryable DanhsacHSTOCKMOVEmentdetailbyproduct(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store, string itemcode)
