@@ -73,7 +73,7 @@ namespace Maketting.View
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
                 dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
-                dataTable.Columns.Add(new DataColumn("For_Region", typeof(string)));
+                dataTable.Columns.Add(new DataColumn("Region", typeof(string)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -464,10 +464,10 @@ namespace Maketting.View
 
 
 
-                dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Style.BackColor = System.Drawing.Color.White;
-                if (dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value == DBNull.Value)
+                dataGridViewLoaddetail.Rows[idrow].Cells["Region"].Style.BackColor = System.Drawing.Color.White;
+                if (dataGridViewLoaddetail.Rows[idrow].Cells["Region"].Value == DBNull.Value)
                 {
-                    dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Style.BackColor = System.Drawing.Color.Orange;
+                    dataGridViewLoaddetail.Rows[idrow].Cells["Region"].Style.BackColor = System.Drawing.Color.Orange;
                     MessageBox.Show("Please select For Region !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     checkdetail = false;
 
@@ -506,7 +506,7 @@ namespace Maketting.View
 
 
 
-                    if (Reciept_Quantity > TransferOut_Quantity - Reciepted_Quantity)
+                    if (Reciept_Quantity > (TransferOut_Quantity - Reciepted_Quantity))
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
 
@@ -594,12 +594,13 @@ namespace Maketting.View
                                 //   item.b = item.Quantity - item.Reciepted_Quantity;
                                 dc.SubmitChanges();
 
-                           float Receipt_Quantity =     float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
-                          string For_Region =    dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50);
+                                float Receipt_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
+                                string Regionvalue = dataGridViewLoaddetail.Rows[idrow].Cells["Region"].Value.ToString().Truncate(50);
+
                                 tbl_MKt_TransferINdetail newtransferin = new tbl_MKt_TransferINdetail();
 
-                                newtransferin.Region = For_Region;// dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50);
-                    //            newtransferin.Region = 
+                                newtransferin.Region = Regionvalue;// dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50);
+                                                                   //            newtransferin.Region = 
                                 newtransferin.IssueIDsub = IssueIDsub;
                                 newtransferin.Reciepted_Quantity = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
                                 //   newtransferin.u = txtnguoinhanhang.Text;
@@ -626,9 +627,9 @@ namespace Maketting.View
 
                                 newregionupdate.ITEM_Code = item.MateriaItemcode;
                                 newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                                newregionupdate.MATERIAL = item.Materialname;
+                                newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                                 //   newregionupdate.Description = item.;
-                                newregionupdate.Region = For_Region;// item.dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50); 
+                                newregionupdate.Region = Regionvalue;// item.dataGridViewLoaddetail.Rows[idrow].Cells["For_Region"].Value.ToString().Truncate(50); 
                                 newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
                                 newregionupdate.QuantityInputbyReturn = 0;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());// 0;
                                 newregionupdate.QuantityOutput = 0;
@@ -643,7 +644,7 @@ namespace Maketting.View
                                 newregionupdate.DnNumber = txtDNnumber.Text.Truncate(50);
                                 newregionupdate.DocumentNumber = this.TFnumber;
 
-                             //   newregionupdate.Regionchangedate = ngayThuctexuat.Value;
+                                //   newregionupdate.Regionchangedate = ngayThuctexuat.Value;
 
 
                                 newregionupdate.Createdate = DateTime.Today;
@@ -2340,7 +2341,7 @@ namespace Maketting.View
                 IQueryable rs = null;
                 #region   region chose
 
-                if (columhead == "For Region")
+                if (columhead == "Region")
                 {
                     rs = from pp in dc.tbl_MKT_Regions
                          where pp.Note.Contains(valueseach) //&& pp.Store_code == this.storelocation
@@ -2375,13 +2376,13 @@ namespace Maketting.View
 
                         if (valuechon != null)
                         {
-                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["For_Region"].Value = valuechon.Region;
+                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Region"].Value = valuechon.Region;
 
 
                         }
                         else
                         {
-                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["For_Region"].Value = DBNull.Value;
+                            dataGridViewLoaddetail.Rows[e.RowIndex].Cells["Region"].Value = DBNull.Value;
 
 
                         }

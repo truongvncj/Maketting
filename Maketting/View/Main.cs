@@ -5680,7 +5680,7 @@ namespace Maketting.View
                               Region = gg.Region,
                               gg.DocumentNumber,
                               gg.DnNumber,
-                             
+
                               Shipping_Point = storelocation,
                               Material_Item_Code = gg.ITEM_Code,
                               Material_SAP_Code = gg.SAP_CODE,
@@ -6486,7 +6486,7 @@ namespace Maketting.View
                               pp.Return_reason,
                               pp.Returnby,
                               Incinclude_Shipment = pp.Included_Shipment,
-                            //  Quantity_Return_request = pp.Returnrequest
+                              //  Quantity_Return_request = pp.Returnrequest
 
 
 
@@ -6538,10 +6538,46 @@ namespace Maketting.View
 
         private void revertWrongTransferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transerin  ");
+            pxk.ShowDialog();
+            //c
+            string transfernumber = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKt_Transferoutdetails
+                         where pp.Tranfernumber == transfernumber
+                         select pp;
+
+                if (rs.Count() > 0)
+                {
+                    foreach (var item in rs)
+                    {
+                        item.Status = "CRT";
+                        item.Reciepted_Quantity = 0;
+
+
+                        dc.SubmitChanges();
+                    
+
+                    }
 
 
 
 
+                }
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+            }
 
         }
 

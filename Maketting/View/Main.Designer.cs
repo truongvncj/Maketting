@@ -124,6 +124,7 @@
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goodReceiptColletedFromMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerChannelManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOBudgetSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,7 +162,6 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.goodReceiptColletedFromMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -404,7 +404,7 @@
             // 
             // revertWrongTransferInToolStripMenuItem
             // 
-            this.revertWrongTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.revertWrongTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.revertWrongTransferInToolStripMenuItem.Name = "revertWrongTransferInToolStripMenuItem";
             this.revertWrongTransferInToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
             this.revertWrongTransferInToolStripMenuItem.Text = "Revert wrong Transfer in";
@@ -869,6 +869,13 @@
             this.gatepassHavePOSMReturnToolStripMenuItem.Text = "Gatepass have POSM return";
             this.gatepassHavePOSMReturnToolStripMenuItem.Click += new System.EventHandler(this.gatepassHavePOSMReturnToolStripMenuItem_Click);
             // 
+            // goodReceiptColletedFromMarketToolStripMenuItem
+            // 
+            this.goodReceiptColletedFromMarketToolStripMenuItem.Name = "goodReceiptColletedFromMarketToolStripMenuItem";
+            this.goodReceiptColletedFromMarketToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.goodReceiptColletedFromMarketToolStripMenuItem.Text = "Good receipt colleted from market";
+            this.goodReceiptColletedFromMarketToolStripMenuItem.Click += new System.EventHandler(this.goodReceiptColletedFromMarketToolStripMenuItem_Click);
+            // 
             // salesToolStripMenuItem
             // 
             this.salesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1150,13 +1157,6 @@
             this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
-            // 
-            // goodReceiptColletedFromMarketToolStripMenuItem
-            // 
-            this.goodReceiptColletedFromMarketToolStripMenuItem.Name = "goodReceiptColletedFromMarketToolStripMenuItem";
-            this.goodReceiptColletedFromMarketToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
-            this.goodReceiptColletedFromMarketToolStripMenuItem.Text = "Good receipt colleted from market";
-            this.goodReceiptColletedFromMarketToolStripMenuItem.Click += new System.EventHandler(this.goodReceiptColletedFromMarketToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -51,7 +51,12 @@ namespace Maketting.View
                          Shipping_Point = pp.ShippingPoint,
                          Material_code = pp.Materiacode,
                          Material_name = pp.Materialname,
-                         Requested_issue = pp.Issued,
+                         Requested_issue = pp.Issued ,
+
+
+
+
+
                          //     Real_issue = 0,
 
                       
