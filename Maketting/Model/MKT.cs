@@ -158,7 +158,7 @@ namespace Maketting.Model
             //      dt.Columns.Add(new DataColumn("Material_Name", typeof(string)));
             //        drToAdd["Material_Name"] = PhieuMKT.Materialname;
             dt.Columns.Add(new DataColumn("Request_collect_Quantity", typeof(float)));
-      
+
 
 
 
@@ -175,10 +175,10 @@ namespace Maketting.Model
 
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
-     
+
             dataGridViewDetail.Columns["Request_collect_Quantity"].DefaultCellStyle.Format = "N0";
 
-         
+
 
             #endregion datatable temp
 
@@ -779,6 +779,8 @@ namespace Maketting.Model
                      select new
                      {
                          Created_date = p.Ngaytaophieu,
+                         p.Requested_by,
+
                          p.Region,
                          p.Gate_pass,
                          Date_MKT_Phiếu = p.Ngaytaophieu,
@@ -788,9 +790,9 @@ namespace Maketting.Model
                          p.Status,
                          p.ShippingPoint,
                          p.ShipmentNumber,
+                         Shipment_created_date = p.Delivery_date,
                          p.Shipmentby,
-                         p.Requested_by,
-
+                   
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Tel,
@@ -805,13 +807,13 @@ namespace Maketting.Model
                          p.Unit,
                          Issued = p.Issued,
                          Pallet = p.pallet,
-                         p.Issued_dated,
+                         Issued_created_date = p.Issued_dated,
+                         Issued_by = p.Loadingby,
 
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
-                         p.Loadingby,
-                         p.Delivery_date,
+
 
                          Completed_date = p.Date_Received_Issued,
                          p.Completed_by,
@@ -820,8 +822,8 @@ namespace Maketting.Model
                          p.Return_reason,
                          p.Returnby,
                          Incinclude_Shipment = p.Included_Shipment,
-                //         Quantity_Return_request    =    p.Returnrequest
-                        
+                         //         Quantity_Return_request    =    p.Returnrequest
+
 
 
                          //    ID = p.id,
@@ -850,6 +852,8 @@ namespace Maketting.Model
                      select new
                      {
                          Created_date = p.Ngaytaophieu,
+                         p.Requested_by,
+
                          p.Region,
                          p.Gate_pass,
                          Date_MKT_Phiếu = p.Ngaytaophieu,
@@ -859,8 +863,8 @@ namespace Maketting.Model
                          p.Status,
                          p.ShippingPoint,
                          p.ShipmentNumber,
-
-                         p.Requested_by,
+                         Shipment_created_date = p.Delivery_date,
+                         p.Shipmentby,
 
                          p.Customer_SAP_Code,
                          p.Receiver_by,
@@ -876,13 +880,13 @@ namespace Maketting.Model
                          p.Unit,
                          Issued = p.Issued,
                          Pallet = p.pallet,
-                         p.Issued_dated,
+                         Issued_created_date = p.Issued_dated,
+                         Issued_by = p.Loadingby,
 
                          p.Price,
                          p.Tranposterby,
                          p.Truck,
-                         p.Loadingby,
-                         p.Delivery_date,
+
 
                          Completed_date = p.Date_Received_Issued,
                          p.Completed_by,
@@ -891,13 +895,8 @@ namespace Maketting.Model
                          p.Return_reason,
                          p.Returnby,
                          Incinclude_Shipment = p.Included_Shipment,
+                         //         Quantity_Return_request    =    p.Returnrequest
 
-
-                     //    Quantity_Return_request = p.Returnrequest
-
-
-
-                         //    ID = p.id,
                      };
 
 
@@ -1572,7 +1571,7 @@ namespace Maketting.Model
             }
 
 
-      
+
 
             var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
@@ -1664,7 +1663,7 @@ namespace Maketting.Model
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;
                 newitem.END_STOCK = itemnhap.RecieptQuantity;
-            //    newitem.END_STOCK = itemnhap.RecieptQuantity;
+                //    newitem.END_STOCK = itemnhap.RecieptQuantity;
 
 
                 dc.tbl_MKT_Stockends.InsertOnSubmit(newitem);
@@ -2126,8 +2125,8 @@ namespace Maketting.Model
         public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
         {
 
-        
-           
+
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -2149,7 +2148,7 @@ namespace Maketting.Model
 
 
             Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
-            
+
 
         }
 
@@ -2916,11 +2915,11 @@ namespace Maketting.Model
 
 
 
-      ///      tbl_MKT_StockendRegionBudget
+            ///      tbl_MKT_StockendRegionBudget
 
             var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
                          // from gg in dc.tbl_MKt_POheads
-                     where pp.QuantityReceipt >0
+                     where pp.QuantityReceipt > 0
 
                    && pp.Createdate >= fromdate
                       && pp.Createdate <= todate
@@ -2934,25 +2933,25 @@ namespace Maketting.Model
                          DN_Number = pp.DnNumber,
                          Ngày_nhập_phiếu = pp.Createdate,
                          Ngày_nhập_kho = pp.Regionchangedate,
-                     
+
                          pp.MATERIAL,
                          pp.Description,
                          pp.ITEM_Code,
                          pp.SAP_CODE,
-                      //   pp.UNIT,
+                         //   pp.UNIT,
                          pp.QuantityReceipt,
-                     //    pp.s,
+                         //    pp.s,
 
 
-                     //
+                         //
                          pp.Store_code,
-                      //   Shipmnent = pp.s,
-                    //     Transfer_in_number = pp.Transfer_number,
+                         //   Shipmnent = pp.s,
+                         //     Transfer_in_number = pp.Transfer_number,
                          pp.POnumber,
-                       
+
                          //   pp.id,
                          Subid = pp.idsub,
-                       
+
                      };
 
             return rs;
