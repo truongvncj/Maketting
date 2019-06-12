@@ -1627,6 +1627,104 @@ namespace Maketting.View
             //try
             //{
 
+
+            if (this.valuesave == "revertPogoodreceipt")
+            {
+                int id;
+                int idsub;
+                string POnumber;
+                try
+                {
+                     id = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                     idsub = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Subid"].Value;
+                    POnumber = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["POnumber"].Value;
+
+                }
+                catch (Exception)
+                {
+                    return;
+                  //  throw;
+                }
+
+         
+
+                DialogResult kq1 = MessageBox.Show("Bạn có chăc revert doc PO: " +POnumber.ToString()+" ID: "+ id.ToString()+ " Subid "+ idsub.ToString(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // bool kq;
+                switch (kq1)
+                {
+                    case DialogResult.None:
+                        break;
+                    case DialogResult.OK:
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                    case DialogResult.Abort:
+                        break;
+                    case DialogResult.Retry:
+                        break;
+                    case DialogResult.Ignore:
+                        break;
+                    case DialogResult.Yes:
+
+                        string connection_string = Utils.getConnectionstr();
+                        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+                        tbl_MKt_WHstoreissue khoissue = (from pp in dc.tbl_MKt_WHstoreissues
+                                       where pp.POnumber == POnumber
+                                       && pp.id == id
+                                       && pp.IssueIDsub == idsub
+
+                                       select pp).FirstOrDefault();
+
+                        if (khoissue != null)
+                        {
+                            #region giảm budget vùng
+
+                            var budgetvung = from pp in dc.tbl_MKT_StockendRegionBudgets
+                                             where pp.POnumber == POnumber
+                                                 && pp.idsub == idsub
+                                             select pp;
+
+                            dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(budgetvung);
+                            dc.SubmitChanges();
+                            #endregion
+
+                            #region giảm budget vùng
+
+
+
+                            Model.MKT.giamtrukhokhirevertgoodreceipt(khoissue);
+
+                            #endregion
+
+
+                            #region  xóa tồn kho đã nhập
+
+                            dc.tbl_MKt_WHstoreissues.DeleteOnSubmit(khoissue);
+                            dc.SubmitChanges();
+
+                            #endregion
+
+                            MessageBox.Show("Revert done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        //   this.updateNewAllToolStripMenuItem.Enabled = false;
+                        //   this.reportsToolStripMenuItem.Enabled = false;
+
+
+                        //     md.productlistinput();
+
+
+                        break;
+                    case DialogResult.No:
+                        break;
+                    default:
+                        break;
+                }
+
+
+            }
+
                 #region  tìm PO
 
 

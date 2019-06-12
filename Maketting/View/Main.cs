@@ -6538,7 +6538,7 @@ namespace Maketting.View
 
         private void revertWrongTransferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transerin  ");
+            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transer in  ");
             pxk.ShowDialog();
             //c
             string transfernumber = pxk.valuetext;
@@ -6914,6 +6914,113 @@ namespace Maketting.View
                 tbl.ShowDialog();
             }
 
+        }
+
+        private void revertTransferInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transer in  ");
+            pxk.ShowDialog();
+            //c
+            string transfernumber = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs = from pp in dc.tbl_MKt_WHstoreissues
+                         where pp.Transfer_number == transfernumber
+                         select pp;
+
+                if (rs.Count() > 0)
+                {
+
+                    View.Viewtable tbl = new Viewtable(rs, dc, "Double click on transer in need to revert", 100, "reverttransferin");
+                    tbl.ShowDialog();
+                    //foreach (var item in rs)
+                    //{
+                    //  //  item.Status = "CRT";
+                    //   // item.Reciepted_Quantity = 0;
+
+
+                    //    //dc.SubmitChanges();
+
+
+                    //}
+
+                }
+                else
+                {
+                    MessageBox.Show("Wrong PO number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+        }
+
+        private void revertGoodReceiptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("Please nhập số PO  ");
+            pxk.ShowDialog();
+            //c
+            string ponumber = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (kq)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+                var rs = from pp in dc.tbl_MKt_WHstoreissues
+                             // from gg in dc.tbl_MKt_POheads
+                         where pp.POnumber == ponumber
+                        // && pp.date_input_output >= fromdate
+                         // && pp.date_input_output <= todate
+                       //     && pp.ShippingPoint == storecode
+                         select new
+                         {
+                             // gg.
+                             pp.ShippingPoint,
+                             pp.POnumber,
+                             Ngày_nhập_kho = pp.date_input_output,
+                             DN_Number = pp.DNNumber,
+                             pp.Materiacode,
+                             pp.MateriaItemcode,
+                             pp.Materialname,
+                             pp.Unit,
+                             pp.RecieptQuantity,
+                             pp.Recieptby,
+
+
+                             pp.Username,
+                           
+                             pp.id,
+                             Subid = pp.IssueIDsub,
+
+
+                         };
+
+               
+                if (rs.Count() > 0)
+                {
+
+                    View.Viewtable tbl = new Viewtable(rs, dc, "Double click on good receipt to revert", 100, "revertPogoodreceipt");
+                    tbl.ShowDialog();
+                  
+
+                }
+                else
+                {
+                    MessageBox.Show("Wrong PO number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+
+            }
         }
     }
 

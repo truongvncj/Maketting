@@ -152,6 +152,9 @@
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRegionImportDetailReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byInputDateStockMovementDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byInputDateStockMovementDetailByRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.goodReceiptListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pODetailByRegionListReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,9 +163,8 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.byInputDateStockMovementDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.byInputDateStockMovementDetailByRegionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
+            this.revertTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertGoodReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -286,7 +288,9 @@
             this.revertWrongTransferInToolStripMenuItem,
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem,
             this.trackingWrongDocToolStripMenuItem,
-            this.revertStoreErrorIssueToolStripMenuItem});
+            this.revertStoreErrorIssueToolStripMenuItem,
+            this.revertTransferInToolStripMenuItem,
+            this.revertGoodReceiptToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -1093,6 +1097,25 @@
             this.storeRegionImportDetailReportsToolStripMenuItem.Text = "By input date region store import detail reports ";
             this.storeRegionImportDetailReportsToolStripMenuItem.Click += new System.EventHandler(this.storeRegionImportDetailReportsToolStripMenuItem_Click);
             // 
+            // byInputDateStockMovementDetailToolStripMenuItem
+            // 
+            this.byInputDateStockMovementDetailToolStripMenuItem.Name = "byInputDateStockMovementDetailToolStripMenuItem";
+            this.byInputDateStockMovementDetailToolStripMenuItem.Size = new System.Drawing.Size(396, 24);
+            this.byInputDateStockMovementDetailToolStripMenuItem.Text = "By input date Stock Movement Detail";
+            this.byInputDateStockMovementDetailToolStripMenuItem.Click += new System.EventHandler(this.byInputDateStockMovementDetailToolStripMenuItem_Click);
+            // 
+            // byInputDateStockMovementDetailByRegionToolStripMenuItem
+            // 
+            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Name = "byInputDateStockMovementDetailByRegionToolStripMenuItem";
+            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Size = new System.Drawing.Size(396, 24);
+            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Text = "By input date region stock Movement detail";
+            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Click += new System.EventHandler(this.byInputDateStockMovementDetailByRegionToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            this.toolStripSeparator28.Size = new System.Drawing.Size(393, 6);
+            // 
             // goodReceiptListToolStripMenuItem
             // 
             this.goodReceiptListToolStripMenuItem.Name = "goodReceiptListToolStripMenuItem";
@@ -1148,24 +1171,19 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // byInputDateStockMovementDetailToolStripMenuItem
+            // revertTransferInToolStripMenuItem
             // 
-            this.byInputDateStockMovementDetailToolStripMenuItem.Name = "byInputDateStockMovementDetailToolStripMenuItem";
-            this.byInputDateStockMovementDetailToolStripMenuItem.Size = new System.Drawing.Size(396, 24);
-            this.byInputDateStockMovementDetailToolStripMenuItem.Text = "By input date Stock Movement Detail";
-            this.byInputDateStockMovementDetailToolStripMenuItem.Click += new System.EventHandler(this.byInputDateStockMovementDetailToolStripMenuItem_Click);
+            this.revertTransferInToolStripMenuItem.Name = "revertTransferInToolStripMenuItem";
+            this.revertTransferInToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.revertTransferInToolStripMenuItem.Text = "Revert transfer in";
+            this.revertTransferInToolStripMenuItem.Click += new System.EventHandler(this.revertTransferInToolStripMenuItem_Click);
             // 
-            // byInputDateStockMovementDetailByRegionToolStripMenuItem
+            // revertGoodReceiptToolStripMenuItem
             // 
-            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Name = "byInputDateStockMovementDetailByRegionToolStripMenuItem";
-            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Size = new System.Drawing.Size(396, 24);
-            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Text = "By input date region stock Movement detail";
-            this.byInputDateStockMovementDetailByRegionToolStripMenuItem.Click += new System.EventHandler(this.byInputDateStockMovementDetailByRegionToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator28
-            // 
-            this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(393, 6);
+            this.revertGoodReceiptToolStripMenuItem.Name = "revertGoodReceiptToolStripMenuItem";
+            this.revertGoodReceiptToolStripMenuItem.Size = new System.Drawing.Size(330, 24);
+            this.revertGoodReceiptToolStripMenuItem.Text = "Revert good receipt";
+            this.revertGoodReceiptToolStripMenuItem.Click += new System.EventHandler(this.revertGoodReceiptToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1322,6 +1340,8 @@
         private ToolStripMenuItem byInputDateStockMovementDetailToolStripMenuItem;
         private ToolStripMenuItem byInputDateStockMovementDetailByRegionToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator28;
+        private ToolStripMenuItem revertTransferInToolStripMenuItem;
+        private ToolStripMenuItem revertGoodReceiptToolStripMenuItem;
     }
 }
 
