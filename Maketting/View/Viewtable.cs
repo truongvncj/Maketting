@@ -367,8 +367,8 @@ namespace Maketting.View
                     try
                     {
                         //    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
-                        ITEM_Code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ITEM_Code"].Value;
-                        Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                        ITEM_Code = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ITEM_Code"].Value.ToString();
+                        Store_code = this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value.ToString();
                         END_STOCK = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["END_STOCK"].Value.ToString());
                         Ordered = float.Parse(this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Ordered"].Value.ToString());
                         //   Store_code = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
