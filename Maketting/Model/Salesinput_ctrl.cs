@@ -84,29 +84,29 @@ namespace Maketting.Model
     //        Sales Group Sales Group desc Sales Off Sales Office Desc
 
             System.Data.DataTable batable = new System.Data.DataTable();
-            batable.Columns.Add("Soldto", typeof(double));
+            batable.Columns.Add("Soldto", typeof(float));
             batable.Columns.Add("CustName", typeof(string));
             batable.Columns.Add("MatNumber", typeof(string));
             batable.Columns.Add("SalesOrg", typeof(string));
-            batable.Columns.Add("InvoiceDocNr", typeof(double));
-            batable.Columns.Add("OutboundDelivery", typeof(double));
+            batable.Columns.Add("InvoiceDocNr", typeof(float));
+            batable.Columns.Add("OutboundDelivery", typeof(float));
             batable.Columns.Add("DeliveryDate", typeof(DateTime));
             batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("SalesDistrictdesc", typeof(string));
         //    batable.Columns.Add("SalesGroup", typeof(string));
          //   batable.Columns.Add("SalesOff", typeof(string));
-        //    batable.Columns.Add("SalesOfficeDesc", typeof(double));
-            batable.Columns.Add("KeyAccNr", typeof(double));
+        //    batable.Columns.Add("SalesOfficeDesc", typeof(float));
+            batable.Columns.Add("KeyAccNr", typeof(float));
             batable.Columns.Add("InvoiceDate", typeof(DateTime));
-            batable.Columns.Add("MatGroup", typeof(double));
+            batable.Columns.Add("MatGroup", typeof(float));
             batable.Columns.Add("MatGroupText", typeof(string));
             batable.Columns.Add("MatText", typeof(string));
              batable.Columns.Add("CondType", typeof(string));
 
       //      batable.Columns.Add("CondTypedesc", typeof(string));
-            batable.Columns.Add("BilledQty", typeof(double));
-            batable.Columns.Add("Netvalue", typeof(double));
-            batable.Columns.Add("CondValue", typeof(double));
+            batable.Columns.Add("BilledQty", typeof(float));
+            batable.Columns.Add("Netvalue", typeof(float));
+            batable.Columns.Add("CondValue", typeof(float));
             batable.Columns.Add("Currency", typeof(string));
          //   batable.Columns.Add("Username", typeof(string));
             batable.Columns.Add("UoM", typeof(string));

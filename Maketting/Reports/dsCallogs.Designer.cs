@@ -2315,13 +2315,13 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnPrograme);
                 this.columnSponsorship = new global::System.Data.DataColumn("Sponsorship", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSponsorship);
-                this.columnPaid = new global::System.Data.DataColumn("Paid", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnPaid = new global::System.Data.DataColumn("Paid", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaid);
-                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalance);
-                this.columnPaymentRequest = new global::System.Data.DataColumn("PaymentRequest", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnPaymentRequest = new global::System.Data.DataColumn("PaymentRequest", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentRequest);
-                this.columnBalanceAftApproval = new global::System.Data.DataColumn("BalanceAftApproval", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnBalanceAftApproval = new global::System.Data.DataColumn("BalanceAftApproval", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalanceAftApproval);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
@@ -2797,7 +2797,7 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columndiachinguoinop);
                 this.columnlydothu = new global::System.Data.DataColumn("lydothu", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlydothu);
-                this.columnsotien = new global::System.Data.DataColumn("sotien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsotien = new global::System.Data.DataColumn("sotien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsotien);
                 this.columnsotienbangchu = new global::System.Data.DataColumn("sotienbangchu", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsotienbangchu);
@@ -7933,13 +7933,13 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnmasanpham);
                 this.columndonvi = new global::System.Data.DataColumn("donvi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndonvi);
-                this.columnsoluongyeucau = new global::System.Data.DataColumn("soluongyeucau", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluongyeucau = new global::System.Data.DataColumn("soluongyeucau", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluongyeucau);
-                this.columnsoluongthucte = new global::System.Data.DataColumn("soluongthucte", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluongthucte = new global::System.Data.DataColumn("soluongthucte", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluongthucte);
-                this.columndongia = new global::System.Data.DataColumn("dongia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndongia = new global::System.Data.DataColumn("dongia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndongia);
-                this.columnthanhtien = new global::System.Data.DataColumn("thanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnthanhtien = new global::System.Data.DataColumn("thanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnthanhtien);
                 this.columnsophieunhap = new global::System.Data.DataColumn("sophieunhap", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsophieunhap);
@@ -8799,13 +8799,13 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnmasanpham);
                 this.columndonvi = new global::System.Data.DataColumn("donvi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndonvi);
-                this.columnsoluongyeucau = new global::System.Data.DataColumn("soluongyeucau", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluongyeucau = new global::System.Data.DataColumn("soluongyeucau", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluongyeucau);
-                this.columnsoluongthucte = new global::System.Data.DataColumn("soluongthucte", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluongthucte = new global::System.Data.DataColumn("soluongthucte", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluongthucte);
-                this.columndongia = new global::System.Data.DataColumn("dongia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndongia = new global::System.Data.DataColumn("dongia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndongia);
-                this.columnthanhtien = new global::System.Data.DataColumn("thanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnthanhtien = new global::System.Data.DataColumn("thanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnthanhtien);
                 this.columnsophieu = new global::System.Data.DataColumn("sophieu", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsophieu);
@@ -9526,21 +9526,21 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columntenhanghoa);
                 this.columndonvi = new global::System.Data.DataColumn("donvi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndonvi);
-                this.columnnhaptrongkysoluong = new global::System.Data.DataColumn("nhaptrongkysoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnhaptrongkysoluong = new global::System.Data.DataColumn("nhaptrongkysoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnhaptrongkysoluong);
-                this.columnnhaptrongkythanhtien = new global::System.Data.DataColumn("nhaptrongkythanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnhaptrongkythanhtien = new global::System.Data.DataColumn("nhaptrongkythanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnhaptrongkythanhtien);
-                this.columnxuattrongkysoluong = new global::System.Data.DataColumn("xuattrongkysoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnxuattrongkysoluong = new global::System.Data.DataColumn("xuattrongkysoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnxuattrongkysoluong);
-                this.columnxuattrongkythanhtien = new global::System.Data.DataColumn("xuattrongkythanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnxuattrongkythanhtien = new global::System.Data.DataColumn("xuattrongkythanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnxuattrongkythanhtien);
-                this.columntondaukysoluong = new global::System.Data.DataColumn("tondaukysoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntondaukysoluong = new global::System.Data.DataColumn("tondaukysoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntondaukysoluong);
-                this.columntoncuoikysoluong = new global::System.Data.DataColumn("toncuoikysoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntoncuoikysoluong = new global::System.Data.DataColumn("toncuoikysoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntoncuoikysoluong);
-                this.columntoncuoikythanhtien = new global::System.Data.DataColumn("toncuoikythanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntoncuoikythanhtien = new global::System.Data.DataColumn("toncuoikythanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntoncuoikythanhtien);
-                this.columntondaukythanhtien = new global::System.Data.DataColumn("tondaukythanhtien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntondaukythanhtien = new global::System.Data.DataColumn("tondaukythanhtien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntondaukythanhtien);
                 this.columndongiaton = new global::System.Data.DataColumn("dongiaton", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndongiaton);
@@ -11180,59 +11180,59 @@ namespace Maketting.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnnay01dt = new global::System.Data.DataColumn("nay01dt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnay01dt = new global::System.Data.DataColumn("nay01dt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnay01dt);
-                this.columnnaydttaichinh = new global::System.Data.DataColumn("naydttaichinh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaydttaichinh = new global::System.Data.DataColumn("naydttaichinh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaydttaichinh);
-                this.columnnay02giamdt = new global::System.Data.DataColumn("nay02giamdt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnay02giamdt = new global::System.Data.DataColumn("nay02giamdt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnay02giamdt);
-                this.columnnay11giavon = new global::System.Data.DataColumn("nay11giavon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnay11giavon = new global::System.Data.DataColumn("nay11giavon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnay11giavon);
-                this.columnnaycftaichinh = new global::System.Data.DataColumn("naycftaichinh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaycftaichinh = new global::System.Data.DataColumn("naycftaichinh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycftaichinh);
-                this.columnnaycflaivay = new global::System.Data.DataColumn("naycflaivay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaycflaivay = new global::System.Data.DataColumn("naycflaivay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycflaivay);
-                this.columnnaycfbanhang = new global::System.Data.DataColumn("naycfbanhang", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaycfbanhang = new global::System.Data.DataColumn("naycfbanhang", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycfbanhang);
-                this.columnnaythunhapkhac = new global::System.Data.DataColumn("naythunhapkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaythunhapkhac = new global::System.Data.DataColumn("naythunhapkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaythunhapkhac);
-                this.columnnaycftndnhienhanh = new global::System.Data.DataColumn("naycftndnhienhanh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaycftndnhienhanh = new global::System.Data.DataColumn("naycftndnhienhanh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycftndnhienhanh);
-                this.columnnaycfkhac = new global::System.Data.DataColumn("naycfkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaycfkhac = new global::System.Data.DataColumn("naycfkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycfkhac);
-                this.columnnaylaicbcophieu = new global::System.Data.DataColumn("naylaicbcophieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaylaicbcophieu = new global::System.Data.DataColumn("naylaicbcophieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaylaicbcophieu);
-                this.columnnaylaigiaomtrencphieu = new global::System.Data.DataColumn("naylaigiaomtrencphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnaylaigiaomtrencphieu = new global::System.Data.DataColumn("naylaigiaomtrencphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaylaigiaomtrencphieu);
-                this.columntruoc01dt = new global::System.Data.DataColumn("truoc01dt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoc01dt = new global::System.Data.DataColumn("truoc01dt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoc01dt);
-                this.columntruoc02giamdt = new global::System.Data.DataColumn("truoc02giamdt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoc02giamdt = new global::System.Data.DataColumn("truoc02giamdt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoc02giamdt);
-                this.columntruoc11giavon = new global::System.Data.DataColumn("truoc11giavon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoc11giavon = new global::System.Data.DataColumn("truoc11giavon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoc11giavon);
-                this.columntruocdttaichinh = new global::System.Data.DataColumn("truocdttaichinh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruocdttaichinh = new global::System.Data.DataColumn("truocdttaichinh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruocdttaichinh);
-                this.columntruoccftaichinh = new global::System.Data.DataColumn("truoccftaichinh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccftaichinh = new global::System.Data.DataColumn("truoccftaichinh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccftaichinh);
-                this.columntruoccflaivay = new global::System.Data.DataColumn("truoccflaivay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccflaivay = new global::System.Data.DataColumn("truoccflaivay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccflaivay);
-                this.columntruoccfbanhang = new global::System.Data.DataColumn("truoccfbanhang", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccfbanhang = new global::System.Data.DataColumn("truoccfbanhang", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccfbanhang);
-                this.columntruoccfquanlydn = new global::System.Data.DataColumn("truoccfquanlydn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccfquanlydn = new global::System.Data.DataColumn("truoccfquanlydn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccfquanlydn);
-                this.columntruocthunhapkhac = new global::System.Data.DataColumn("truocthunhapkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruocthunhapkhac = new global::System.Data.DataColumn("truocthunhapkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruocthunhapkhac);
-                this.columntruoccfkhac = new global::System.Data.DataColumn("truoccfkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccfkhac = new global::System.Data.DataColumn("truoccfkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccfkhac);
-                this.columntruoccftndnhienhanh = new global::System.Data.DataColumn("truoccftndnhienhanh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccftndnhienhanh = new global::System.Data.DataColumn("truoccftndnhienhanh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccftndnhienhanh);
-                this.columntruoccfdnhoanlai = new global::System.Data.DataColumn("truoccfdnhoanlai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoccfdnhoanlai = new global::System.Data.DataColumn("truoccfdnhoanlai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoccfdnhoanlai);
-                this.columntruoclaicbcophieu = new global::System.Data.DataColumn("truoclaicbcophieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoclaicbcophieu = new global::System.Data.DataColumn("truoclaicbcophieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoclaicbcophieu);
-                this.columntruoclaigiaomtrencphieu = new global::System.Data.DataColumn("truoclaigiaomtrencphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columntruoclaigiaomtrencphieu = new global::System.Data.DataColumn("truoclaigiaomtrencphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntruoclaigiaomtrencphieu);
-                this.columnnayfdnhoanlai = new global::System.Data.DataColumn("nayfdnhoanlai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnayfdnhoanlai = new global::System.Data.DataColumn("nayfdnhoanlai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnayfdnhoanlai);
                 this.columnnaycfquanlydn = new global::System.Data.DataColumn("naycfquanlydn", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnaycfquanlydn);
@@ -13843,369 +13843,369 @@ namespace Maketting.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columncn111tien = new global::System.Data.DataColumn("cn111tien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn111tien = new global::System.Data.DataColumn("cn111tien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn111tien);
-                this.columncn112tientduong = new global::System.Data.DataColumn("cn112tientduong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn112tientduong = new global::System.Data.DataColumn("cn112tientduong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn112tientduong);
-                this.columncn122ckduphong = new global::System.Data.DataColumn("cn122ckduphong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn122ckduphong = new global::System.Data.DataColumn("cn122ckduphong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn122ckduphong);
-                this.columncn121chungkhoan = new global::System.Data.DataColumn("cn121chungkhoan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn121chungkhoan = new global::System.Data.DataColumn("cn121chungkhoan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn121chungkhoan);
-                this.columncn123dtdenngay = new global::System.Data.DataColumn("cn123dtdenngay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn123dtdenngay = new global::System.Data.DataColumn("cn123dtdenngay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn123dtdenngay);
-                this.columncn131ptkhach = new global::System.Data.DataColumn("cn131ptkhach", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn131ptkhach = new global::System.Data.DataColumn("cn131ptkhach", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn131ptkhach);
-                this.columncn132tratruoc = new global::System.Data.DataColumn("cn132tratruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn132tratruoc = new global::System.Data.DataColumn("cn132tratruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn132tratruoc);
-                this.columncn133pthunbnganh = new global::System.Data.DataColumn("cn133pthunbnganh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn133pthunbnganh = new global::System.Data.DataColumn("cn133pthunbnganh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn133pthunbnganh);
-                this.columncn134pthutiendokh = new global::System.Data.DataColumn("cn134pthutiendokh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn134pthutiendokh = new global::System.Data.DataColumn("cn134pthutiendokh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn134pthutiendokh);
-                this.columncn135pthuchovay = new global::System.Data.DataColumn("cn135pthuchovay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn135pthuchovay = new global::System.Data.DataColumn("cn135pthuchovay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn135pthuchovay);
-                this.columncn136ptnganhan = new global::System.Data.DataColumn("cn136ptnganhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn136ptnganhan = new global::System.Data.DataColumn("cn136ptnganhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn136ptnganhan);
-                this.columncn137dpptnganhan = new global::System.Data.DataColumn("cn137dpptnganhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn137dpptnganhan = new global::System.Data.DataColumn("cn137dpptnganhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn137dpptnganhan);
-                this.columncn139tsthieucho = new global::System.Data.DataColumn("cn139tsthieucho", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn139tsthieucho = new global::System.Data.DataColumn("cn139tsthieucho", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn139tsthieucho);
-                this.columncn141hangton = new global::System.Data.DataColumn("cn141hangton", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn141hangton = new global::System.Data.DataColumn("cn141hangton", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn141hangton);
-                this.columncn149duphonght = new global::System.Data.DataColumn("cn149duphonght", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn149duphonght = new global::System.Data.DataColumn("cn149duphonght", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn149duphonght);
-                this.columncn151cftratruoc = new global::System.Data.DataColumn("cn151cftratruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn151cftratruoc = new global::System.Data.DataColumn("cn151cftratruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn151cftratruoc);
-                this.columncn152vatkhautru = new global::System.Data.DataColumn("cn152vatkhautru", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn152vatkhautru = new global::System.Data.DataColumn("cn152vatkhautru", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn152vatkhautru);
-                this.columncn153thuepthukac = new global::System.Data.DataColumn("cn153thuepthukac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn153thuepthukac = new global::System.Data.DataColumn("cn153thuepthukac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn153thuepthukac);
-                this.columncn154traiphieu = new global::System.Data.DataColumn("cn154traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn154traiphieu = new global::System.Data.DataColumn("cn154traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn154traiphieu);
-                this.columncn155tskhacnh = new global::System.Data.DataColumn("cn155tskhacnh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn155tskhacnh = new global::System.Data.DataColumn("cn155tskhacnh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn155tskhacnh);
-                this.columncn211ptkhach = new global::System.Data.DataColumn("cn211ptkhach", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn211ptkhach = new global::System.Data.DataColumn("cn211ptkhach", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn211ptkhach);
-                this.columncn212tratruocdh = new global::System.Data.DataColumn("cn212tratruocdh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn212tratruocdh = new global::System.Data.DataColumn("cn212tratruocdh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn212tratruocdh);
-                this.columncn213vonodonvi = new global::System.Data.DataColumn("cn213vonodonvi", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn213vonodonvi = new global::System.Data.DataColumn("cn213vonodonvi", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn213vonodonvi);
-                this.columncn214pthunbo = new global::System.Data.DataColumn("cn214pthunbo", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn214pthunbo = new global::System.Data.DataColumn("cn214pthunbo", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn214pthunbo);
-                this.columncn215pthuchovay = new global::System.Data.DataColumn("cn215pthuchovay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn215pthuchovay = new global::System.Data.DataColumn("cn215pthuchovay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn215pthuchovay);
-                this.columncn216pthukhac = new global::System.Data.DataColumn("cn216pthukhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn216pthukhac = new global::System.Data.DataColumn("cn216pthukhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn216pthukhac);
-                this.columncn219duphongpt = new global::System.Data.DataColumn("cn219duphongpt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn219duphongpt = new global::System.Data.DataColumn("cn219duphongpt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn219duphongpt);
-                this.columncn222tscdngia = new global::System.Data.DataColumn("cn222tscdngia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn222tscdngia = new global::System.Data.DataColumn("cn222tscdngia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn222tscdngia);
-                this.columncn223tskhauh = new global::System.Data.DataColumn("cn223tskhauh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn223tskhauh = new global::System.Data.DataColumn("cn223tskhauh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn223tskhauh);
-                this.columncn225tscdthung = new global::System.Data.DataColumn("cn225tscdthung", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn225tscdthung = new global::System.Data.DataColumn("cn225tscdthung", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn225tscdthung);
-                this.columncn226tscdthuekha = new global::System.Data.DataColumn("cn226tscdthuekha", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn226tscdthuekha = new global::System.Data.DataColumn("cn226tscdthuekha", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn226tscdthuekha);
-                this.columncn228tscdvohnggia = new global::System.Data.DataColumn("cn228tscdvohnggia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn228tscdvohnggia = new global::System.Data.DataColumn("cn228tscdvohnggia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn228tscdvohnggia);
-                this.columncn229tscdvhkhauh = new global::System.Data.DataColumn("cn229tscdvhkhauh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn229tscdvhkhauh = new global::System.Data.DataColumn("cn229tscdvhkhauh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn229tscdvhkhauh);
-                this.columncn231bdsngia = new global::System.Data.DataColumn("cn231bdsngia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn231bdsngia = new global::System.Data.DataColumn("cn231bdsngia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn231bdsngia);
-                this.columncn232bdshaomon = new global::System.Data.DataColumn("cn232bdshaomon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn232bdshaomon = new global::System.Data.DataColumn("cn232bdshaomon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn232bdshaomon);
-                this.columncn241cfkddd = new global::System.Data.DataColumn("cn241cfkddd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn241cfkddd = new global::System.Data.DataColumn("cn241cfkddd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn241cfkddd);
-                this.columncn242cfxddd = new global::System.Data.DataColumn("cn242cfxddd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn242cfxddd = new global::System.Data.DataColumn("cn242cfxddd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn242cfxddd);
-                this.columncn251dtuctycon = new global::System.Data.DataColumn("cn251dtuctycon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn251dtuctycon = new global::System.Data.DataColumn("cn251dtuctycon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn251dtuctycon);
-                this.columncn252dtuctylienket = new global::System.Data.DataColumn("cn252dtuctylienket", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn252dtuctylienket = new global::System.Data.DataColumn("cn252dtuctylienket", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn252dtuctylienket);
-                this.columncn253dtukhac = new global::System.Data.DataColumn("cn253dtukhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn253dtukhac = new global::System.Data.DataColumn("cn253dtukhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn253dtukhac);
-                this.columncn254duphongdt = new global::System.Data.DataColumn("cn254duphongdt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn254duphongdt = new global::System.Data.DataColumn("cn254duphongdt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn254duphongdt);
-                this.columncn255dtudaohan = new global::System.Data.DataColumn("cn255dtudaohan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn255dtudaohan = new global::System.Data.DataColumn("cn255dtudaohan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn255dtudaohan);
-                this.columncn261cftratruocdn = new global::System.Data.DataColumn("cn261cftratruocdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn261cftratruocdn = new global::System.Data.DataColumn("cn261cftratruocdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn261cftratruocdn);
-                this.columncn262thuetndnhl = new global::System.Data.DataColumn("cn262thuetndnhl", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn262thuetndnhl = new global::System.Data.DataColumn("cn262thuetndnhl", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn262thuetndnhl);
-                this.columncn263vtuthietbidn = new global::System.Data.DataColumn("cn263vtuthietbidn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn263vtuthietbidn = new global::System.Data.DataColumn("cn263vtuthietbidn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn263vtuthietbidn);
-                this.columncn268tskhac = new global::System.Data.DataColumn("cn268tskhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn268tskhac = new global::System.Data.DataColumn("cn268tskhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn268tskhac);
-                this.columncn311ptnbannh = new global::System.Data.DataColumn("cn311ptnbannh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn311ptnbannh = new global::System.Data.DataColumn("cn311ptnbannh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn311ptnbannh);
-                this.columncn312ngmuatratr = new global::System.Data.DataColumn("cn312ngmuatratr", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn312ngmuatratr = new global::System.Data.DataColumn("cn312ngmuatratr", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn312ngmuatratr);
-                this.columncn313thuephainop = new global::System.Data.DataColumn("cn313thuephainop", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn313thuephainop = new global::System.Data.DataColumn("cn313thuephainop", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn313thuephainop);
-                this.columncn314ptracnhan = new global::System.Data.DataColumn("cn314ptracnhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn314ptracnhan = new global::System.Data.DataColumn("cn314ptracnhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn314ptracnhan);
-                this.columncn315cphiptranh = new global::System.Data.DataColumn("cn315cphiptranh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn315cphiptranh = new global::System.Data.DataColumn("cn315cphiptranh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn315cphiptranh);
-                this.columncn316cfptranbonh = new global::System.Data.DataColumn("cn316cfptranbonh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn316cfptranbonh = new global::System.Data.DataColumn("cn316cfptranbonh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn316cfptranbonh);
-                this.columncn317ptrtheoluong = new global::System.Data.DataColumn("cn317ptrtheoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn317ptrtheoluong = new global::System.Data.DataColumn("cn317ptrtheoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn317ptrtheoluong);
-                this.columncn318pthuchunhan = new global::System.Data.DataColumn("cn318pthuchunhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn318pthuchunhan = new global::System.Data.DataColumn("cn318pthuchunhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn318pthuchunhan);
-                this.columncn319ptranhan = new global::System.Data.DataColumn("cn319ptranhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn319ptranhan = new global::System.Data.DataColumn("cn319ptranhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn319ptranhan);
-                this.columncn320vaynotcnhan = new global::System.Data.DataColumn("cn320vaynotcnhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn320vaynotcnhan = new global::System.Data.DataColumn("cn320vaynotcnhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn320vaynotcnhan);
-                this.columncn321duphptranh = new global::System.Data.DataColumn("cn321duphptranh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn321duphptranh = new global::System.Data.DataColumn("cn321duphptranh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn321duphptranh);
-                this.columncn322quykhen = new global::System.Data.DataColumn("cn322quykhen", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn322quykhen = new global::System.Data.DataColumn("cn322quykhen", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn322quykhen);
-                this.columncn323quygia = new global::System.Data.DataColumn("cn323quygia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn323quygia = new global::System.Data.DataColumn("cn323quygia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn323quygia);
-                this.columncn324bantraiphieu = new global::System.Data.DataColumn("cn324bantraiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn324bantraiphieu = new global::System.Data.DataColumn("cn324bantraiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn324bantraiphieu);
-                this.columncn331nodnngban = new global::System.Data.DataColumn("cn331nodnngban", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn331nodnngban = new global::System.Data.DataColumn("cn331nodnngban", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn331nodnngban);
-                this.columncn332ngmuatratdn = new global::System.Data.DataColumn("cn332ngmuatratdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn332ngmuatratdn = new global::System.Data.DataColumn("cn332ngmuatratdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn332ngmuatratdn);
-                this.columncn333cphiphaitra = new global::System.Data.DataColumn("cn333cphiphaitra", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn333cphiphaitra = new global::System.Data.DataColumn("cn333cphiphaitra", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn333cphiphaitra);
-                this.columncn334ptranbvevon = new global::System.Data.DataColumn("cn334ptranbvevon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn334ptranbvevon = new global::System.Data.DataColumn("cn334ptranbvevon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn334ptranbvevon);
-                this.columncn335ptranbdaihan = new global::System.Data.DataColumn("cn335ptranbdaihan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn335ptranbdaihan = new global::System.Data.DataColumn("cn335ptranbdaihan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn335ptranbdaihan);
-                this.columncn336dthuchthdn = new global::System.Data.DataColumn("cn336dthuchthdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn336dthuchthdn = new global::System.Data.DataColumn("cn336dthuchthdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn336dthuchthdn);
-                this.columncn337ptradnkhac = new global::System.Data.DataColumn("cn337ptradnkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn337ptradnkhac = new global::System.Data.DataColumn("cn337ptradnkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn337ptradnkhac);
-                this.columncn338vaynodn = new global::System.Data.DataColumn("cn338vaynodn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn338vaynodn = new global::System.Data.DataColumn("cn338vaynodn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn338vaynodn);
-                this.columncn339traiphieu = new global::System.Data.DataColumn("cn339traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn339traiphieu = new global::System.Data.DataColumn("cn339traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn339traiphieu);
-                this.columncn340cophieu = new global::System.Data.DataColumn("cn340cophieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn340cophieu = new global::System.Data.DataColumn("cn340cophieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn340cophieu);
-                this.columncn341tnhoanlai = new global::System.Data.DataColumn("cn341tnhoanlai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn341tnhoanlai = new global::System.Data.DataColumn("cn341tnhoanlai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn341tnhoanlai);
-                this.columncn342duphongdn = new global::System.Data.DataColumn("cn342duphongdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn342duphongdn = new global::System.Data.DataColumn("cn342duphongdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn342duphongdn);
-                this.columncn343quykhoahoc = new global::System.Data.DataColumn("cn343quykhoahoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn343quykhoahoc = new global::System.Data.DataColumn("cn343quykhoahoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn343quykhoahoc);
-                this.columncn411vongopcsh = new global::System.Data.DataColumn("cn411vongopcsh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn411vongopcsh = new global::System.Data.DataColumn("cn411vongopcsh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn411vongopcsh);
-                this.columncn411bcpudai = new global::System.Data.DataColumn("cn411bcpudai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn411bcpudai = new global::System.Data.DataColumn("cn411bcpudai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn411bcpudai);
-                this.columncn412thangduvon = new global::System.Data.DataColumn("cn412thangduvon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn412thangduvon = new global::System.Data.DataColumn("cn412thangduvon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn412thangduvon);
-                this.columncn413traiphieu = new global::System.Data.DataColumn("cn413traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn413traiphieu = new global::System.Data.DataColumn("cn413traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn413traiphieu);
-                this.columncn414voncshkhac = new global::System.Data.DataColumn("cn414voncshkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn414voncshkhac = new global::System.Data.DataColumn("cn414voncshkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn414voncshkhac);
-                this.columncn415cphieuquy = new global::System.Data.DataColumn("cn415cphieuquy", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn415cphieuquy = new global::System.Data.DataColumn("cn415cphieuquy", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn415cphieuquy);
-                this.columncn416chenhlechts = new global::System.Data.DataColumn("cn416chenhlechts", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn416chenhlechts = new global::System.Data.DataColumn("cn416chenhlechts", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn416chenhlechts);
-                this.columncn417tygia = new global::System.Data.DataColumn("cn417tygia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn417tygia = new global::System.Data.DataColumn("cn417tygia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn417tygia);
-                this.columncn418dautuptrien = new global::System.Data.DataColumn("cn418dautuptrien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn418dautuptrien = new global::System.Data.DataColumn("cn418dautuptrien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn418dautuptrien);
-                this.columncn419quyxxdn = new global::System.Data.DataColumn("cn419quyxxdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn419quyxxdn = new global::System.Data.DataColumn("cn419quyxxdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn419quyxxdn);
-                this.columncn420quykhacsh = new global::System.Data.DataColumn("cn420quykhacsh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn420quykhacsh = new global::System.Data.DataColumn("cn420quykhacsh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn420quykhacsh);
-                this.columncn421lnsauthue = new global::System.Data.DataColumn("cn421lnsauthue", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn421lnsauthue = new global::System.Data.DataColumn("cn421lnsauthue", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn421lnsauthue);
-                this.columncn421alnkytruoc = new global::System.Data.DataColumn("cn421alnkytruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn421alnkytruoc = new global::System.Data.DataColumn("cn421alnkytruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn421alnkytruoc);
-                this.columncn421blnkynay = new global::System.Data.DataColumn("cn421blnkynay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn421blnkynay = new global::System.Data.DataColumn("cn421blnkynay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn421blnkynay);
-                this.columncn422vonxdcb = new global::System.Data.DataColumn("cn422vonxdcb", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn422vonxdcb = new global::System.Data.DataColumn("cn422vonxdcb", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn422vonxdcb);
-                this.columncn431nkinhphi = new global::System.Data.DataColumn("cn431nkinhphi", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn431nkinhphi = new global::System.Data.DataColumn("cn431nkinhphi", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn431nkinhphi);
-                this.columncn432kpthanhtscd = new global::System.Data.DataColumn("cn432kpthanhtscd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn432kpthanhtscd = new global::System.Data.DataColumn("cn432kpthanhtscd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn432kpthanhtscd);
-                this.columndn111tien = new global::System.Data.DataColumn("dn111tien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn111tien = new global::System.Data.DataColumn("dn111tien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn111tien);
-                this.columndn112tientduong = new global::System.Data.DataColumn("dn112tientduong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn112tientduong = new global::System.Data.DataColumn("dn112tientduong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn112tientduong);
-                this.columndn121chungkhoan = new global::System.Data.DataColumn("dn121chungkhoan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn121chungkhoan = new global::System.Data.DataColumn("dn121chungkhoan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn121chungkhoan);
-                this.columndn122ckduphong = new global::System.Data.DataColumn("dn122ckduphong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn122ckduphong = new global::System.Data.DataColumn("dn122ckduphong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn122ckduphong);
-                this.columndn123dtdenngay = new global::System.Data.DataColumn("dn123dtdenngay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn123dtdenngay = new global::System.Data.DataColumn("dn123dtdenngay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn123dtdenngay);
-                this.columndn131ptkhach = new global::System.Data.DataColumn("dn131ptkhach", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn131ptkhach = new global::System.Data.DataColumn("dn131ptkhach", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn131ptkhach);
-                this.columndn132tratruoc = new global::System.Data.DataColumn("dn132tratruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn132tratruoc = new global::System.Data.DataColumn("dn132tratruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn132tratruoc);
-                this.columndn133pthunbnganh = new global::System.Data.DataColumn("dn133pthunbnganh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn133pthunbnganh = new global::System.Data.DataColumn("dn133pthunbnganh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn133pthunbnganh);
-                this.columndn134pthutiendokh = new global::System.Data.DataColumn("dn134pthutiendokh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn134pthutiendokh = new global::System.Data.DataColumn("dn134pthutiendokh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn134pthutiendokh);
-                this.columndn135pthuchovay = new global::System.Data.DataColumn("dn135pthuchovay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn135pthuchovay = new global::System.Data.DataColumn("dn135pthuchovay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn135pthuchovay);
-                this.columndn136ptnganhan = new global::System.Data.DataColumn("dn136ptnganhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn136ptnganhan = new global::System.Data.DataColumn("dn136ptnganhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn136ptnganhan);
-                this.columndn137dpptnganhan = new global::System.Data.DataColumn("dn137dpptnganhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn137dpptnganhan = new global::System.Data.DataColumn("dn137dpptnganhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn137dpptnganhan);
-                this.columndn139tsthieucho = new global::System.Data.DataColumn("dn139tsthieucho", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn139tsthieucho = new global::System.Data.DataColumn("dn139tsthieucho", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn139tsthieucho);
-                this.columndn141hangton = new global::System.Data.DataColumn("dn141hangton", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn141hangton = new global::System.Data.DataColumn("dn141hangton", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn141hangton);
-                this.columndn149duphonght = new global::System.Data.DataColumn("dn149duphonght", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn149duphonght = new global::System.Data.DataColumn("dn149duphonght", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn149duphonght);
-                this.columndn151cftratruoc = new global::System.Data.DataColumn("dn151cftratruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn151cftratruoc = new global::System.Data.DataColumn("dn151cftratruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn151cftratruoc);
-                this.columndn152vatkhautru = new global::System.Data.DataColumn("dn152vatkhautru", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn152vatkhautru = new global::System.Data.DataColumn("dn152vatkhautru", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn152vatkhautru);
-                this.columndn153thuepthukac = new global::System.Data.DataColumn("dn153thuepthukac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn153thuepthukac = new global::System.Data.DataColumn("dn153thuepthukac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn153thuepthukac);
-                this.columndn154traiphieu = new global::System.Data.DataColumn("dn154traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn154traiphieu = new global::System.Data.DataColumn("dn154traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn154traiphieu);
-                this.columndn155tskhacnh = new global::System.Data.DataColumn("dn155tskhacnh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn155tskhacnh = new global::System.Data.DataColumn("dn155tskhacnh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn155tskhacnh);
-                this.columndn211ptkhach = new global::System.Data.DataColumn("dn211ptkhach", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn211ptkhach = new global::System.Data.DataColumn("dn211ptkhach", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn211ptkhach);
-                this.columndn212tratruocdh = new global::System.Data.DataColumn("dn212tratruocdh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn212tratruocdh = new global::System.Data.DataColumn("dn212tratruocdh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn212tratruocdh);
-                this.columndn213vonodonvi = new global::System.Data.DataColumn("dn213vonodonvi", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn213vonodonvi = new global::System.Data.DataColumn("dn213vonodonvi", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn213vonodonvi);
-                this.columndn214pthunbo = new global::System.Data.DataColumn("dn214pthunbo", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn214pthunbo = new global::System.Data.DataColumn("dn214pthunbo", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn214pthunbo);
-                this.columndn215pthuchovay = new global::System.Data.DataColumn("dn215pthuchovay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn215pthuchovay = new global::System.Data.DataColumn("dn215pthuchovay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn215pthuchovay);
-                this.columndn216pthukhac = new global::System.Data.DataColumn("dn216pthukhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn216pthukhac = new global::System.Data.DataColumn("dn216pthukhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn216pthukhac);
-                this.columndn219duphongpt = new global::System.Data.DataColumn("dn219duphongpt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn219duphongpt = new global::System.Data.DataColumn("dn219duphongpt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn219duphongpt);
-                this.columndn222tscdngia = new global::System.Data.DataColumn("dn222tscdngia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn222tscdngia = new global::System.Data.DataColumn("dn222tscdngia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn222tscdngia);
-                this.columndn223tskhauh = new global::System.Data.DataColumn("dn223tskhauh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn223tskhauh = new global::System.Data.DataColumn("dn223tskhauh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn223tskhauh);
-                this.columndn225tscdthung = new global::System.Data.DataColumn("dn225tscdthung", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn225tscdthung = new global::System.Data.DataColumn("dn225tscdthung", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn225tscdthung);
-                this.columndn226tscdthuekha = new global::System.Data.DataColumn("dn226tscdthuekha", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn226tscdthuekha = new global::System.Data.DataColumn("dn226tscdthuekha", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn226tscdthuekha);
-                this.columndn228tscdvohnggia = new global::System.Data.DataColumn("dn228tscdvohnggia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn228tscdvohnggia = new global::System.Data.DataColumn("dn228tscdvohnggia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn228tscdvohnggia);
-                this.columndn229tscdvhkhauh = new global::System.Data.DataColumn("dn229tscdvhkhauh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn229tscdvhkhauh = new global::System.Data.DataColumn("dn229tscdvhkhauh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn229tscdvhkhauh);
-                this.columndn231bdsngia = new global::System.Data.DataColumn("dn231bdsngia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn231bdsngia = new global::System.Data.DataColumn("dn231bdsngia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn231bdsngia);
-                this.columndn232bdshaomon = new global::System.Data.DataColumn("dn232bdshaomon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn232bdshaomon = new global::System.Data.DataColumn("dn232bdshaomon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn232bdshaomon);
-                this.columndn241cfkddd = new global::System.Data.DataColumn("dn241cfkddd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn241cfkddd = new global::System.Data.DataColumn("dn241cfkddd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn241cfkddd);
-                this.columndn242cfxddd = new global::System.Data.DataColumn("dn242cfxddd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn242cfxddd = new global::System.Data.DataColumn("dn242cfxddd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn242cfxddd);
-                this.columndn251dtuctycon = new global::System.Data.DataColumn("dn251dtuctycon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn251dtuctycon = new global::System.Data.DataColumn("dn251dtuctycon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn251dtuctycon);
-                this.columndn252dtuctylienket = new global::System.Data.DataColumn("dn252dtuctylienket", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn252dtuctylienket = new global::System.Data.DataColumn("dn252dtuctylienket", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn252dtuctylienket);
-                this.columndn253dtukhac = new global::System.Data.DataColumn("dn253dtukhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn253dtukhac = new global::System.Data.DataColumn("dn253dtukhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn253dtukhac);
-                this.columndn254duphongdt = new global::System.Data.DataColumn("dn254duphongdt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn254duphongdt = new global::System.Data.DataColumn("dn254duphongdt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn254duphongdt);
-                this.columndn255dtudaohan = new global::System.Data.DataColumn("dn255dtudaohan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn255dtudaohan = new global::System.Data.DataColumn("dn255dtudaohan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn255dtudaohan);
-                this.columndn261cftratruocdn = new global::System.Data.DataColumn("dn261cftratruocdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn261cftratruocdn = new global::System.Data.DataColumn("dn261cftratruocdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn261cftratruocdn);
-                this.columndn262thuetndnhl = new global::System.Data.DataColumn("dn262thuetndnhl", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn262thuetndnhl = new global::System.Data.DataColumn("dn262thuetndnhl", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn262thuetndnhl);
-                this.columndn263vtuthietbidn = new global::System.Data.DataColumn("dn263vtuthietbidn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn263vtuthietbidn = new global::System.Data.DataColumn("dn263vtuthietbidn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn263vtuthietbidn);
-                this.columndn268tskhac = new global::System.Data.DataColumn("dn268tskhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn268tskhac = new global::System.Data.DataColumn("dn268tskhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn268tskhac);
-                this.columndn311ptnbannh = new global::System.Data.DataColumn("dn311ptnbannh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn311ptnbannh = new global::System.Data.DataColumn("dn311ptnbannh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn311ptnbannh);
-                this.columndn312ngmuatratr = new global::System.Data.DataColumn("dn312ngmuatratr", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn312ngmuatratr = new global::System.Data.DataColumn("dn312ngmuatratr", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn312ngmuatratr);
-                this.columndn313thuephainop = new global::System.Data.DataColumn("dn313thuephainop", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn313thuephainop = new global::System.Data.DataColumn("dn313thuephainop", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn313thuephainop);
-                this.columndn314ptracnhan = new global::System.Data.DataColumn("dn314ptracnhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn314ptracnhan = new global::System.Data.DataColumn("dn314ptracnhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn314ptracnhan);
-                this.columndn315cphiptranh = new global::System.Data.DataColumn("dn315cphiptranh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn315cphiptranh = new global::System.Data.DataColumn("dn315cphiptranh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn315cphiptranh);
-                this.columndn316cfptranbonh = new global::System.Data.DataColumn("dn316cfptranbonh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn316cfptranbonh = new global::System.Data.DataColumn("dn316cfptranbonh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn316cfptranbonh);
-                this.columndn317ptrtheoluong = new global::System.Data.DataColumn("dn317ptrtheoluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn317ptrtheoluong = new global::System.Data.DataColumn("dn317ptrtheoluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn317ptrtheoluong);
-                this.columndn318pthuchunhan = new global::System.Data.DataColumn("dn318pthuchunhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn318pthuchunhan = new global::System.Data.DataColumn("dn318pthuchunhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn318pthuchunhan);
-                this.columndn319ptranhan = new global::System.Data.DataColumn("dn319ptranhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn319ptranhan = new global::System.Data.DataColumn("dn319ptranhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn319ptranhan);
-                this.columndn320vaynotcnhan = new global::System.Data.DataColumn("dn320vaynotcnhan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn320vaynotcnhan = new global::System.Data.DataColumn("dn320vaynotcnhan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn320vaynotcnhan);
-                this.columndn323quygia = new global::System.Data.DataColumn("dn323quygia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn323quygia = new global::System.Data.DataColumn("dn323quygia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn323quygia);
-                this.columndn324bantraiphieu = new global::System.Data.DataColumn("dn324bantraiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn324bantraiphieu = new global::System.Data.DataColumn("dn324bantraiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn324bantraiphieu);
-                this.columndn321duphptranh = new global::System.Data.DataColumn("dn321duphptranh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn321duphptranh = new global::System.Data.DataColumn("dn321duphptranh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn321duphptranh);
-                this.columndn331nodnngban = new global::System.Data.DataColumn("dn331nodnngban", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn331nodnngban = new global::System.Data.DataColumn("dn331nodnngban", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn331nodnngban);
-                this.columndn332ngmuatratdn = new global::System.Data.DataColumn("dn332ngmuatratdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn332ngmuatratdn = new global::System.Data.DataColumn("dn332ngmuatratdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn332ngmuatratdn);
-                this.columndn333cphiphaitra = new global::System.Data.DataColumn("dn333cphiphaitra", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn333cphiphaitra = new global::System.Data.DataColumn("dn333cphiphaitra", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn333cphiphaitra);
-                this.columndn334ptranbvevon = new global::System.Data.DataColumn("dn334ptranbvevon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn334ptranbvevon = new global::System.Data.DataColumn("dn334ptranbvevon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn334ptranbvevon);
-                this.columndn335ptranbdaihan = new global::System.Data.DataColumn("dn335ptranbdaihan", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn335ptranbdaihan = new global::System.Data.DataColumn("dn335ptranbdaihan", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn335ptranbdaihan);
-                this.columndn336dthuchthdn = new global::System.Data.DataColumn("dn336dthuchthdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn336dthuchthdn = new global::System.Data.DataColumn("dn336dthuchthdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn336dthuchthdn);
-                this.columndn337ptradnkhac = new global::System.Data.DataColumn("dn337ptradnkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn337ptradnkhac = new global::System.Data.DataColumn("dn337ptradnkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn337ptradnkhac);
-                this.columndn338vaynodn = new global::System.Data.DataColumn("dn338vaynodn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn338vaynodn = new global::System.Data.DataColumn("dn338vaynodn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn338vaynodn);
-                this.columndn339traiphieu = new global::System.Data.DataColumn("dn339traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn339traiphieu = new global::System.Data.DataColumn("dn339traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn339traiphieu);
-                this.columndn340cophieu = new global::System.Data.DataColumn("dn340cophieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn340cophieu = new global::System.Data.DataColumn("dn340cophieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn340cophieu);
-                this.columndn341tnhoanlai = new global::System.Data.DataColumn("dn341tnhoanlai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn341tnhoanlai = new global::System.Data.DataColumn("dn341tnhoanlai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn341tnhoanlai);
-                this.columndn342duphongdn = new global::System.Data.DataColumn("dn342duphongdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn342duphongdn = new global::System.Data.DataColumn("dn342duphongdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn342duphongdn);
-                this.columndn343quykhoahoc = new global::System.Data.DataColumn("dn343quykhoahoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn343quykhoahoc = new global::System.Data.DataColumn("dn343quykhoahoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn343quykhoahoc);
-                this.columndn411vongopcsh = new global::System.Data.DataColumn("dn411vongopcsh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn411vongopcsh = new global::System.Data.DataColumn("dn411vongopcsh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn411vongopcsh);
-                this.columndn322quykhen = new global::System.Data.DataColumn("dn322quykhen", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn322quykhen = new global::System.Data.DataColumn("dn322quykhen", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn322quykhen);
-                this.columndn411bcpudai = new global::System.Data.DataColumn("dn411bcpudai", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn411bcpudai = new global::System.Data.DataColumn("dn411bcpudai", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn411bcpudai);
-                this.columndn412thangduvon = new global::System.Data.DataColumn("dn412thangduvon", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn412thangduvon = new global::System.Data.DataColumn("dn412thangduvon", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn412thangduvon);
-                this.columndn413traiphieu = new global::System.Data.DataColumn("dn413traiphieu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn413traiphieu = new global::System.Data.DataColumn("dn413traiphieu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn413traiphieu);
-                this.columndn414voncshkhac = new global::System.Data.DataColumn("dn414voncshkhac", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn414voncshkhac = new global::System.Data.DataColumn("dn414voncshkhac", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn414voncshkhac);
-                this.columndn415cphieuquy = new global::System.Data.DataColumn("dn415cphieuquy", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn415cphieuquy = new global::System.Data.DataColumn("dn415cphieuquy", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn415cphieuquy);
-                this.columndn416chenhlechts = new global::System.Data.DataColumn("dn416chenhlechts", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn416chenhlechts = new global::System.Data.DataColumn("dn416chenhlechts", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn416chenhlechts);
-                this.columndn417tygia = new global::System.Data.DataColumn("dn417tygia", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn417tygia = new global::System.Data.DataColumn("dn417tygia", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn417tygia);
-                this.columndn418dautuptrien = new global::System.Data.DataColumn("dn418dautuptrien", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn418dautuptrien = new global::System.Data.DataColumn("dn418dautuptrien", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn418dautuptrien);
-                this.columndn419quyxxdn = new global::System.Data.DataColumn("dn419quyxxdn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn419quyxxdn = new global::System.Data.DataColumn("dn419quyxxdn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn419quyxxdn);
-                this.columndn420quykhacsh = new global::System.Data.DataColumn("dn420quykhacsh", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn420quykhacsh = new global::System.Data.DataColumn("dn420quykhacsh", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn420quykhacsh);
-                this.columndn421lnsauthue = new global::System.Data.DataColumn("dn421lnsauthue", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn421lnsauthue = new global::System.Data.DataColumn("dn421lnsauthue", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn421lnsauthue);
-                this.columndn421alnkytruoc = new global::System.Data.DataColumn("dn421alnkytruoc", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn421alnkytruoc = new global::System.Data.DataColumn("dn421alnkytruoc", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn421alnkytruoc);
-                this.columndn421blnkynay = new global::System.Data.DataColumn("dn421blnkynay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn421blnkynay = new global::System.Data.DataColumn("dn421blnkynay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn421blnkynay);
-                this.columndn422vonxdcb = new global::System.Data.DataColumn("dn422vonxdcb", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn422vonxdcb = new global::System.Data.DataColumn("dn422vonxdcb", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn422vonxdcb);
-                this.columndn431nkinhphi = new global::System.Data.DataColumn("dn431nkinhphi", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn431nkinhphi = new global::System.Data.DataColumn("dn431nkinhphi", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn431nkinhphi);
-                this.columndn432kpthanhtscd = new global::System.Data.DataColumn("dn432kpthanhtscd", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn432kpthanhtscd = new global::System.Data.DataColumn("dn432kpthanhtscd", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn432kpthanhtscd);
-                this.columndn411acophieupt = new global::System.Data.DataColumn("dn411acophieupt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columndn411acophieupt = new global::System.Data.DataColumn("dn411acophieupt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndn411acophieupt);
-                this.columncn411acophieupt = new global::System.Data.DataColumn("cn411acophieupt", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncn411acophieupt = new global::System.Data.DataColumn("cn411acophieupt", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncn411acophieupt);
                 this.columncn111tien.Caption = "tencongty";
                 this.columncn112tientduong.Caption = "masothue";
@@ -15808,13 +15808,13 @@ namespace Maketting.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnnn01thudthu = new global::System.Data.DataColumn("nn01thudthu", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnn01thudthu = new global::System.Data.DataColumn("nn01thudthu", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn01thudthu);
-                this.columnnn02chiccap = new global::System.Data.DataColumn("nn02chiccap", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnn02chiccap = new global::System.Data.DataColumn("nn02chiccap", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn02chiccap);
-                this.columnnn03chilaodong = new global::System.Data.DataColumn("nn03chilaodong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnn03chilaodong = new global::System.Data.DataColumn("nn03chilaodong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn03chilaodong);
-                this.columnnn05chithuetndn = new global::System.Data.DataColumn("nn05chithuetndn", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnn05chithuetndn = new global::System.Data.DataColumn("nn05chithuetndn", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn05chithuetndn);
                 this.columnnn06thukhac = new global::System.Data.DataColumn("nn06thukhac", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn06thukhac);
@@ -15894,7 +15894,7 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnnt20llkd);
                 this.columnnn24thuchovay = new global::System.Data.DataColumn("nn24thuchovay", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn24thuchovay);
-                this.columnnn04chilaivay = new global::System.Data.DataColumn("nn04chilaivay", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnnn04chilaivay = new global::System.Data.DataColumn("nn04chilaivay", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnn04chilaivay);
                 this.columnnt35tragocthue = new global::System.Data.DataColumn("nt35tragocthue", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnt35tragocthue);
@@ -16596,7 +16596,7 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnstt);
                 this.columntensanpham = new global::System.Data.DataColumn("tensanpham", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntensanpham);
-                this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluong);
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusername);
@@ -16912,7 +16912,7 @@ namespace Maketting.Reports {
                 base.Columns.Add(this.columnstt);
                 this.columntensanpham = new global::System.Data.DataColumn("tensanpham", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntensanpham);
-                this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnsoluong = new global::System.Data.DataColumn("soluong", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsoluong);
                 this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnusername);
@@ -18436,7 +18436,7 @@ namespace Maketting.Reports {
             public double Paid {
                 get {
                     try {
-                        return ((double)(this[this.tabletbl_KAdetailprogrRpt.PaidColumn]));
+                        return ((float)(this[this.tabletbl_KAdetailprogrRpt.PaidColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Paid\' in table \'tbl_KAdetailprogrRpt\' is DBNull.", e);
@@ -18452,7 +18452,7 @@ namespace Maketting.Reports {
             public double Balance {
                 get {
                     try {
-                        return ((double)(this[this.tabletbl_KAdetailprogrRpt.BalanceColumn]));
+                        return ((float)(this[this.tabletbl_KAdetailprogrRpt.BalanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'tbl_KAdetailprogrRpt\' is DBNull.", e);
@@ -18468,7 +18468,7 @@ namespace Maketting.Reports {
             public double PaymentRequest {
                 get {
                     try {
-                        return ((double)(this[this.tabletbl_KAdetailprogrRpt.PaymentRequestColumn]));
+                        return ((float)(this[this.tabletbl_KAdetailprogrRpt.PaymentRequestColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'PaymentRequest\' in table \'tbl_KAdetailprogrRpt\' is DBNull.", e);
@@ -18484,7 +18484,7 @@ namespace Maketting.Reports {
             public double BalanceAftApproval {
                 get {
                     try {
-                        return ((double)(this[this.tabletbl_KAdetailprogrRpt.BalanceAftApprovalColumn]));
+                        return ((float)(this[this.tabletbl_KAdetailprogrRpt.BalanceAftApprovalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'BalanceAftApproval\' in table \'tbl_KAdetailprogrRpt\' is DBNu" +
@@ -18760,7 +18760,7 @@ namespace Maketting.Reports {
             public double sotien {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieuthuRPT.sotienColumn]));
+                        return ((float)(this[this.tablePhieuthuRPT.sotienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'sotien\' in table \'PhieuthuRPT\' is DBNull.", e);
@@ -22755,7 +22755,7 @@ namespace Maketting.Reports {
             public double soluongyeucau {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieunhapkhodetail01.soluongyeucauColumn]));
+                        return ((float)(this[this.tablePhieunhapkhodetail01.soluongyeucauColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluongyeucau\' in table \'Phieunhapkhodetail01\' is DBNull.", e);
@@ -22771,7 +22771,7 @@ namespace Maketting.Reports {
             public double soluongthucte {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieunhapkhodetail01.soluongthucteColumn]));
+                        return ((float)(this[this.tablePhieunhapkhodetail01.soluongthucteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluongthucte\' in table \'Phieunhapkhodetail01\' is DBNull.", e);
@@ -22787,7 +22787,7 @@ namespace Maketting.Reports {
             public double dongia {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieunhapkhodetail01.dongiaColumn]));
+                        return ((float)(this[this.tablePhieunhapkhodetail01.dongiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dongia\' in table \'Phieunhapkhodetail01\' is DBNull.", e);
@@ -22803,7 +22803,7 @@ namespace Maketting.Reports {
             public double thanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieunhapkhodetail01.thanhtienColumn]));
+                        return ((float)(this[this.tablePhieunhapkhodetail01.thanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'thanhtien\' in table \'Phieunhapkhodetail01\' is DBNull.", e);
@@ -23541,7 +23541,7 @@ namespace Maketting.Reports {
             public double soluongyeucau {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieuxuatkhodetail01.soluongyeucauColumn]));
+                        return ((float)(this[this.tablePhieuxuatkhodetail01.soluongyeucauColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluongyeucau\' in table \'Phieuxuatkhodetail01\' is DBNull.", e);
@@ -23557,7 +23557,7 @@ namespace Maketting.Reports {
             public double soluongthucte {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieuxuatkhodetail01.soluongthucteColumn]));
+                        return ((float)(this[this.tablePhieuxuatkhodetail01.soluongthucteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluongthucte\' in table \'Phieuxuatkhodetail01\' is DBNull.", e);
@@ -23573,7 +23573,7 @@ namespace Maketting.Reports {
             public double dongia {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieuxuatkhodetail01.dongiaColumn]));
+                        return ((float)(this[this.tablePhieuxuatkhodetail01.dongiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dongia\' in table \'Phieuxuatkhodetail01\' is DBNull.", e);
@@ -23589,7 +23589,7 @@ namespace Maketting.Reports {
             public double thanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tablePhieuxuatkhodetail01.thanhtienColumn]));
+                        return ((float)(this[this.tablePhieuxuatkhodetail01.thanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'thanhtien\' in table \'Phieuxuatkhodetail01\' is DBNull.", e);
@@ -24019,7 +24019,7 @@ namespace Maketting.Reports {
             public double nhaptrongkysoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.nhaptrongkysoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.nhaptrongkysoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nhaptrongkysoluong\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24035,7 +24035,7 @@ namespace Maketting.Reports {
             public double nhaptrongkythanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.nhaptrongkythanhtienColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.nhaptrongkythanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nhaptrongkythanhtien\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24051,7 +24051,7 @@ namespace Maketting.Reports {
             public double xuattrongkysoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.xuattrongkysoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.xuattrongkysoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'xuattrongkysoluong\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24067,7 +24067,7 @@ namespace Maketting.Reports {
             public double xuattrongkythanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.xuattrongkythanhtienColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.xuattrongkythanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'xuattrongkythanhtien\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24083,7 +24083,7 @@ namespace Maketting.Reports {
             public double tondaukysoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.tondaukysoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.tondaukysoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'tondaukysoluong\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24099,7 +24099,7 @@ namespace Maketting.Reports {
             public double toncuoikysoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.toncuoikysoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.toncuoikysoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'toncuoikysoluong\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24115,7 +24115,7 @@ namespace Maketting.Reports {
             public double toncuoikythanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.toncuoikythanhtienColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.toncuoikythanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'toncuoikythanhtien\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -24131,7 +24131,7 @@ namespace Maketting.Reports {
             public double tondaukythanhtien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailTHXNT.tondaukythanhtienColumn]));
+                        return ((float)(this[this.tableRPtdetailTHXNT.tondaukythanhtienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'tondaukythanhtien\' in table \'RPtdetailTHXNT\' is DBNull.", e);
@@ -25023,7 +25023,7 @@ namespace Maketting.Reports {
             public double nay01dt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.nay01dtColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.nay01dtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nay01dt\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25039,7 +25039,7 @@ namespace Maketting.Reports {
             public double naydttaichinh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naydttaichinhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naydttaichinhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naydttaichinh\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25055,7 +25055,7 @@ namespace Maketting.Reports {
             public double nay02giamdt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.nay02giamdtColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.nay02giamdtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nay02giamdt\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25071,7 +25071,7 @@ namespace Maketting.Reports {
             public double nay11giavon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.nay11giavonColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.nay11giavonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nay11giavon\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25087,7 +25087,7 @@ namespace Maketting.Reports {
             public double naycftaichinh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naycftaichinhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naycftaichinhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naycftaichinh\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25103,7 +25103,7 @@ namespace Maketting.Reports {
             public double naycflaivay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naycflaivayColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naycflaivayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naycflaivay\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25119,7 +25119,7 @@ namespace Maketting.Reports {
             public double naycfbanhang {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naycfbanhangColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naycfbanhangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naycfbanhang\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25135,7 +25135,7 @@ namespace Maketting.Reports {
             public double naythunhapkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naythunhapkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naythunhapkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naythunhapkhac\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25151,7 +25151,7 @@ namespace Maketting.Reports {
             public double naycftndnhienhanh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naycftndnhienhanhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naycftndnhienhanhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naycftndnhienhanh\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25167,7 +25167,7 @@ namespace Maketting.Reports {
             public double naycfkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naycfkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naycfkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naycfkhac\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25183,7 +25183,7 @@ namespace Maketting.Reports {
             public double naylaicbcophieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naylaicbcophieuColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naylaicbcophieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naylaicbcophieu\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25199,7 +25199,7 @@ namespace Maketting.Reports {
             public double naylaigiaomtrencphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.naylaigiaomtrencphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.naylaigiaomtrencphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'naylaigiaomtrencphieu\' in table \'RPtdetailKQKD200\' is DBNul" +
@@ -25216,7 +25216,7 @@ namespace Maketting.Reports {
             public double truoc01dt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoc01dtColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoc01dtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoc01dt\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25232,7 +25232,7 @@ namespace Maketting.Reports {
             public double truoc02giamdt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoc02giamdtColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoc02giamdtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoc02giamdt\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25248,7 +25248,7 @@ namespace Maketting.Reports {
             public double truoc11giavon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoc11giavonColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoc11giavonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoc11giavon\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25264,7 +25264,7 @@ namespace Maketting.Reports {
             public double truocdttaichinh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truocdttaichinhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truocdttaichinhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truocdttaichinh\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25280,7 +25280,7 @@ namespace Maketting.Reports {
             public double truoccftaichinh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccftaichinhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccftaichinhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccftaichinh\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25296,7 +25296,7 @@ namespace Maketting.Reports {
             public double truoccflaivay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccflaivayColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccflaivayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccflaivay\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25312,7 +25312,7 @@ namespace Maketting.Reports {
             public double truoccfbanhang {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccfbanhangColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccfbanhangColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccfbanhang\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25328,7 +25328,7 @@ namespace Maketting.Reports {
             public double truoccfquanlydn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccfquanlydnColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccfquanlydnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccfquanlydn\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25344,7 +25344,7 @@ namespace Maketting.Reports {
             public double truocthunhapkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truocthunhapkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truocthunhapkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truocthunhapkhac\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25360,7 +25360,7 @@ namespace Maketting.Reports {
             public double truoccfkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccfkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccfkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccfkhac\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25376,7 +25376,7 @@ namespace Maketting.Reports {
             public double truoccftndnhienhanh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccftndnhienhanhColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccftndnhienhanhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccftndnhienhanh\' in table \'RPtdetailKQKD200\' is DBNull." +
@@ -25393,7 +25393,7 @@ namespace Maketting.Reports {
             public double truoccfdnhoanlai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoccfdnhoanlaiColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoccfdnhoanlaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoccfdnhoanlai\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25409,7 +25409,7 @@ namespace Maketting.Reports {
             public double truoclaicbcophieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoclaicbcophieuColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoclaicbcophieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoclaicbcophieu\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25425,7 +25425,7 @@ namespace Maketting.Reports {
             public double truoclaigiaomtrencphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.truoclaigiaomtrencphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.truoclaigiaomtrencphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'truoclaigiaomtrencphieu\' in table \'RPtdetailKQKD200\' is DBN" +
@@ -25442,7 +25442,7 @@ namespace Maketting.Reports {
             public double nayfdnhoanlai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailKQKD200.nayfdnhoanlaiColumn]));
+                        return ((float)(this[this.tableRPtdetailKQKD200.nayfdnhoanlaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nayfdnhoanlai\' in table \'RPtdetailKQKD200\' is DBNull.", e);
@@ -25825,7 +25825,7 @@ namespace Maketting.Reports {
             public double cn111tien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn111tienColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn111tienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn111tien\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -25841,7 +25841,7 @@ namespace Maketting.Reports {
             public double cn112tientduong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn112tientduongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn112tientduongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn112tientduong\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -25858,7 +25858,7 @@ namespace Maketting.Reports {
             public double cn122ckduphong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn122ckduphongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn122ckduphongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn122ckduphong\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -25875,7 +25875,7 @@ namespace Maketting.Reports {
             public double cn121chungkhoan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn121chungkhoanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn121chungkhoanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn121chungkhoan\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -25892,7 +25892,7 @@ namespace Maketting.Reports {
             public double cn123dtdenngay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn123dtdenngayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn123dtdenngayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn123dtdenngay\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -25909,7 +25909,7 @@ namespace Maketting.Reports {
             public double cn131ptkhach {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn131ptkhachColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn131ptkhachColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn131ptkhach\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -25926,7 +25926,7 @@ namespace Maketting.Reports {
             public double cn132tratruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn132tratruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn132tratruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn132tratruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -25943,7 +25943,7 @@ namespace Maketting.Reports {
             public double cn133pthunbnganh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn133pthunbnganhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn133pthunbnganhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn133pthunbnganh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -25960,7 +25960,7 @@ namespace Maketting.Reports {
             public double cn134pthutiendokh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn134pthutiendokhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn134pthutiendokhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn134pthutiendokh\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -25977,7 +25977,7 @@ namespace Maketting.Reports {
             public double cn135pthuchovay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn135pthuchovayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn135pthuchovayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn135pthuchovay\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -25994,7 +25994,7 @@ namespace Maketting.Reports {
             public double cn136ptnganhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn136ptnganhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn136ptnganhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn136ptnganhan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26011,7 +26011,7 @@ namespace Maketting.Reports {
             public double cn137dpptnganhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn137dpptnganhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn137dpptnganhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn137dpptnganhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26028,7 +26028,7 @@ namespace Maketting.Reports {
             public double cn139tsthieucho {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn139tsthieuchoColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn139tsthieuchoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn139tsthieucho\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26045,7 +26045,7 @@ namespace Maketting.Reports {
             public double cn141hangton {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn141hangtonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn141hangtonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn141hangton\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26062,7 +26062,7 @@ namespace Maketting.Reports {
             public double cn149duphonght {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn149duphonghtColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn149duphonghtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn149duphonght\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26079,7 +26079,7 @@ namespace Maketting.Reports {
             public double cn151cftratruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn151cftratruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn151cftratruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn151cftratruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26096,7 +26096,7 @@ namespace Maketting.Reports {
             public double cn152vatkhautru {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn152vatkhautruColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn152vatkhautruColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn152vatkhautru\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26113,7 +26113,7 @@ namespace Maketting.Reports {
             public double cn153thuepthukac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn153thuepthukacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn153thuepthukacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn153thuepthukac\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26130,7 +26130,7 @@ namespace Maketting.Reports {
             public double cn154traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn154traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn154traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn154traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26147,7 +26147,7 @@ namespace Maketting.Reports {
             public double cn155tskhacnh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn155tskhacnhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn155tskhacnhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn155tskhacnh\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -26164,7 +26164,7 @@ namespace Maketting.Reports {
             public double cn211ptkhach {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn211ptkhachColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn211ptkhachColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn211ptkhach\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26181,7 +26181,7 @@ namespace Maketting.Reports {
             public double cn212tratruocdh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn212tratruocdhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn212tratruocdhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn212tratruocdh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26198,7 +26198,7 @@ namespace Maketting.Reports {
             public double cn213vonodonvi {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn213vonodonviColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn213vonodonviColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn213vonodonvi\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26215,7 +26215,7 @@ namespace Maketting.Reports {
             public double cn214pthunbo {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn214pthunboColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn214pthunboColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn214pthunbo\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26232,7 +26232,7 @@ namespace Maketting.Reports {
             public double cn215pthuchovay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn215pthuchovayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn215pthuchovayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn215pthuchovay\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26249,7 +26249,7 @@ namespace Maketting.Reports {
             public double cn216pthukhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn216pthukhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn216pthukhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn216pthukhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -26266,7 +26266,7 @@ namespace Maketting.Reports {
             public double cn219duphongpt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn219duphongptColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn219duphongptColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn219duphongpt\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26283,7 +26283,7 @@ namespace Maketting.Reports {
             public double cn222tscdngia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn222tscdngiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn222tscdngiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn222tscdngia\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -26300,7 +26300,7 @@ namespace Maketting.Reports {
             public double cn223tskhauh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn223tskhauhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn223tskhauhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn223tskhauh\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26317,7 +26317,7 @@ namespace Maketting.Reports {
             public double cn225tscdthung {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn225tscdthungColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn225tscdthungColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn225tscdthung\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26334,7 +26334,7 @@ namespace Maketting.Reports {
             public double cn226tscdthuekha {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn226tscdthuekhaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn226tscdthuekhaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn226tscdthuekha\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26351,7 +26351,7 @@ namespace Maketting.Reports {
             public double cn228tscdvohnggia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn228tscdvohnggiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn228tscdvohnggiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn228tscdvohnggia\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26368,7 +26368,7 @@ namespace Maketting.Reports {
             public double cn229tscdvhkhauh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn229tscdvhkhauhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn229tscdvhkhauhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn229tscdvhkhauh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26385,7 +26385,7 @@ namespace Maketting.Reports {
             public double cn231bdsngia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn231bdsngiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn231bdsngiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn231bdsngia\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26402,7 +26402,7 @@ namespace Maketting.Reports {
             public double cn232bdshaomon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn232bdshaomonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn232bdshaomonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn232bdshaomon\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26419,7 +26419,7 @@ namespace Maketting.Reports {
             public double cn241cfkddd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn241cfkdddColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn241cfkdddColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn241cfkddd\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -26435,7 +26435,7 @@ namespace Maketting.Reports {
             public double cn242cfxddd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn242cfxdddColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn242cfxdddColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn242cfxddd\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -26451,7 +26451,7 @@ namespace Maketting.Reports {
             public double cn251dtuctycon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn251dtuctyconColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn251dtuctyconColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn251dtuctycon\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26468,7 +26468,7 @@ namespace Maketting.Reports {
             public double cn252dtuctylienket {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn252dtuctylienketColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn252dtuctylienketColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn252dtuctylienket\' in table \'RPtdetailCDKT200lientuc\' is D" +
@@ -26485,7 +26485,7 @@ namespace Maketting.Reports {
             public double cn253dtukhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn253dtukhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn253dtukhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn253dtukhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26502,7 +26502,7 @@ namespace Maketting.Reports {
             public double cn254duphongdt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn254duphongdtColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn254duphongdtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn254duphongdt\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26519,7 +26519,7 @@ namespace Maketting.Reports {
             public double cn255dtudaohan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn255dtudaohanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn255dtudaohanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn255dtudaohan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26536,7 +26536,7 @@ namespace Maketting.Reports {
             public double cn261cftratruocdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn261cftratruocdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn261cftratruocdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn261cftratruocdn\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26553,7 +26553,7 @@ namespace Maketting.Reports {
             public double cn262thuetndnhl {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn262thuetndnhlColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn262thuetndnhlColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn262thuetndnhl\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26570,7 +26570,7 @@ namespace Maketting.Reports {
             public double cn263vtuthietbidn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn263vtuthietbidnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn263vtuthietbidnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn263vtuthietbidn\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26587,7 +26587,7 @@ namespace Maketting.Reports {
             public double cn268tskhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn268tskhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn268tskhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn268tskhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -26603,7 +26603,7 @@ namespace Maketting.Reports {
             public double cn311ptnbannh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn311ptnbannhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn311ptnbannhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn311ptnbannh\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -26620,7 +26620,7 @@ namespace Maketting.Reports {
             public double cn312ngmuatratr {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn312ngmuatratrColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn312ngmuatratrColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn312ngmuatratr\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26637,7 +26637,7 @@ namespace Maketting.Reports {
             public double cn313thuephainop {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn313thuephainopColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn313thuephainopColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn313thuephainop\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26654,7 +26654,7 @@ namespace Maketting.Reports {
             public double cn314ptracnhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn314ptracnhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn314ptracnhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn314ptracnhan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26671,7 +26671,7 @@ namespace Maketting.Reports {
             public double cn315cphiptranh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn315cphiptranhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn315cphiptranhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn315cphiptranh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26688,7 +26688,7 @@ namespace Maketting.Reports {
             public double cn316cfptranbonh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn316cfptranbonhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn316cfptranbonhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn316cfptranbonh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26705,7 +26705,7 @@ namespace Maketting.Reports {
             public double cn317ptrtheoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn317ptrtheoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn317ptrtheoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn317ptrtheoluong\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26722,7 +26722,7 @@ namespace Maketting.Reports {
             public double cn318pthuchunhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn318pthuchunhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn318pthuchunhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn318pthuchunhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26739,7 +26739,7 @@ namespace Maketting.Reports {
             public double cn319ptranhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn319ptranhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn319ptranhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn319ptranhan\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -26756,7 +26756,7 @@ namespace Maketting.Reports {
             public double cn320vaynotcnhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn320vaynotcnhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn320vaynotcnhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn320vaynotcnhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26773,7 +26773,7 @@ namespace Maketting.Reports {
             public double cn321duphptranh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn321duphptranhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn321duphptranhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn321duphptranh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26790,7 +26790,7 @@ namespace Maketting.Reports {
             public double cn322quykhen {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn322quykhenColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn322quykhenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn322quykhen\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26807,7 +26807,7 @@ namespace Maketting.Reports {
             public double cn323quygia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn323quygiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn323quygiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn323quygia\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -26823,7 +26823,7 @@ namespace Maketting.Reports {
             public double cn324bantraiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn324bantraiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn324bantraiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn324bantraiphieu\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26840,7 +26840,7 @@ namespace Maketting.Reports {
             public double cn331nodnngban {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn331nodnngbanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn331nodnngbanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn331nodnngban\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26857,7 +26857,7 @@ namespace Maketting.Reports {
             public double cn332ngmuatratdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn332ngmuatratdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn332ngmuatratdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn332ngmuatratdn\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26874,7 +26874,7 @@ namespace Maketting.Reports {
             public double cn333cphiphaitra {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn333cphiphaitraColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn333cphiphaitraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn333cphiphaitra\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26891,7 +26891,7 @@ namespace Maketting.Reports {
             public double cn334ptranbvevon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn334ptranbvevonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn334ptranbvevonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn334ptranbvevon\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -26908,7 +26908,7 @@ namespace Maketting.Reports {
             public double cn335ptranbdaihan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn335ptranbdaihanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn335ptranbdaihanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn335ptranbdaihan\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -26925,7 +26925,7 @@ namespace Maketting.Reports {
             public double cn336dthuchthdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn336dthuchthdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn336dthuchthdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn336dthuchthdn\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26942,7 +26942,7 @@ namespace Maketting.Reports {
             public double cn337ptradnkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn337ptradnkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn337ptradnkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn337ptradnkhac\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -26959,7 +26959,7 @@ namespace Maketting.Reports {
             public double cn338vaynodn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn338vaynodnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn338vaynodnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn338vaynodn\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -26976,7 +26976,7 @@ namespace Maketting.Reports {
             public double cn339traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn339traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn339traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn339traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -26993,7 +26993,7 @@ namespace Maketting.Reports {
             public double cn340cophieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn340cophieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn340cophieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn340cophieu\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27010,7 +27010,7 @@ namespace Maketting.Reports {
             public double cn341tnhoanlai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn341tnhoanlaiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn341tnhoanlaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn341tnhoanlai\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27027,7 +27027,7 @@ namespace Maketting.Reports {
             public double cn342duphongdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn342duphongdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn342duphongdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn342duphongdn\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27044,7 +27044,7 @@ namespace Maketting.Reports {
             public double cn343quykhoahoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn343quykhoahocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn343quykhoahocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn343quykhoahoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27061,7 +27061,7 @@ namespace Maketting.Reports {
             public double cn411vongopcsh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn411vongopcshColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn411vongopcshColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn411vongopcsh\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27078,7 +27078,7 @@ namespace Maketting.Reports {
             public double cn411bcpudai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn411bcpudaiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn411bcpudaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn411bcpudai\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27095,7 +27095,7 @@ namespace Maketting.Reports {
             public double cn412thangduvon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn412thangduvonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn412thangduvonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn412thangduvon\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27112,7 +27112,7 @@ namespace Maketting.Reports {
             public double cn413traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn413traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn413traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn413traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27129,7 +27129,7 @@ namespace Maketting.Reports {
             public double cn414voncshkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn414voncshkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn414voncshkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn414voncshkhac\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27146,7 +27146,7 @@ namespace Maketting.Reports {
             public double cn415cphieuquy {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn415cphieuquyColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn415cphieuquyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn415cphieuquy\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27163,7 +27163,7 @@ namespace Maketting.Reports {
             public double cn416chenhlechts {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn416chenhlechtsColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn416chenhlechtsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn416chenhlechts\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27180,7 +27180,7 @@ namespace Maketting.Reports {
             public double cn417tygia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn417tygiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn417tygiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn417tygia\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -27196,7 +27196,7 @@ namespace Maketting.Reports {
             public double cn418dautuptrien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn418dautuptrienColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn418dautuptrienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn418dautuptrien\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27213,7 +27213,7 @@ namespace Maketting.Reports {
             public double cn419quyxxdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn419quyxxdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn419quyxxdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn419quyxxdn\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27230,7 +27230,7 @@ namespace Maketting.Reports {
             public double cn420quykhacsh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn420quykhacshColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn420quykhacshColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn420quykhacsh\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27247,7 +27247,7 @@ namespace Maketting.Reports {
             public double cn421lnsauthue {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn421lnsauthueColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn421lnsauthueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn421lnsauthue\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27264,7 +27264,7 @@ namespace Maketting.Reports {
             public double cn421alnkytruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn421alnkytruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn421alnkytruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn421alnkytruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27281,7 +27281,7 @@ namespace Maketting.Reports {
             public double cn421blnkynay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn421blnkynayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn421blnkynayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn421blnkynay\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27298,7 +27298,7 @@ namespace Maketting.Reports {
             public double cn422vonxdcb {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn422vonxdcbColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn422vonxdcbColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn422vonxdcb\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27315,7 +27315,7 @@ namespace Maketting.Reports {
             public double cn431nkinhphi {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn431nkinhphiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn431nkinhphiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn431nkinhphi\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27332,7 +27332,7 @@ namespace Maketting.Reports {
             public double cn432kpthanhtscd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn432kpthanhtscdColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn432kpthanhtscdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn432kpthanhtscd\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27349,7 +27349,7 @@ namespace Maketting.Reports {
             public double dn111tien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn111tienColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn111tienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn111tien\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -27365,7 +27365,7 @@ namespace Maketting.Reports {
             public double dn112tientduong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn112tientduongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn112tientduongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn112tientduong\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27382,7 +27382,7 @@ namespace Maketting.Reports {
             public double dn121chungkhoan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn121chungkhoanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn121chungkhoanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn121chungkhoan\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27399,7 +27399,7 @@ namespace Maketting.Reports {
             public double dn122ckduphong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn122ckduphongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn122ckduphongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn122ckduphong\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27416,7 +27416,7 @@ namespace Maketting.Reports {
             public double dn123dtdenngay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn123dtdenngayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn123dtdenngayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn123dtdenngay\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27433,7 +27433,7 @@ namespace Maketting.Reports {
             public double dn131ptkhach {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn131ptkhachColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn131ptkhachColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn131ptkhach\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27450,7 +27450,7 @@ namespace Maketting.Reports {
             public double dn132tratruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn132tratruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn132tratruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn132tratruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27467,7 +27467,7 @@ namespace Maketting.Reports {
             public double dn133pthunbnganh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn133pthunbnganhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn133pthunbnganhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn133pthunbnganh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27484,7 +27484,7 @@ namespace Maketting.Reports {
             public double dn134pthutiendokh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn134pthutiendokhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn134pthutiendokhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn134pthutiendokh\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -27501,7 +27501,7 @@ namespace Maketting.Reports {
             public double dn135pthuchovay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn135pthuchovayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn135pthuchovayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn135pthuchovay\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27518,7 +27518,7 @@ namespace Maketting.Reports {
             public double dn136ptnganhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn136ptnganhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn136ptnganhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn136ptnganhan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27535,7 +27535,7 @@ namespace Maketting.Reports {
             public double dn137dpptnganhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn137dpptnganhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn137dpptnganhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn137dpptnganhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27552,7 +27552,7 @@ namespace Maketting.Reports {
             public double dn139tsthieucho {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn139tsthieuchoColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn139tsthieuchoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn139tsthieucho\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27569,7 +27569,7 @@ namespace Maketting.Reports {
             public double dn141hangton {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn141hangtonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn141hangtonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn141hangton\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27586,7 +27586,7 @@ namespace Maketting.Reports {
             public double dn149duphonght {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn149duphonghtColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn149duphonghtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn149duphonght\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27603,7 +27603,7 @@ namespace Maketting.Reports {
             public double dn151cftratruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn151cftratruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn151cftratruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn151cftratruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27620,7 +27620,7 @@ namespace Maketting.Reports {
             public double dn152vatkhautru {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn152vatkhautruColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn152vatkhautruColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn152vatkhautru\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27637,7 +27637,7 @@ namespace Maketting.Reports {
             public double dn153thuepthukac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn153thuepthukacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn153thuepthukacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn153thuepthukac\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27654,7 +27654,7 @@ namespace Maketting.Reports {
             public double dn154traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn154traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn154traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn154traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27671,7 +27671,7 @@ namespace Maketting.Reports {
             public double dn155tskhacnh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn155tskhacnhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn155tskhacnhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn155tskhacnh\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27688,7 +27688,7 @@ namespace Maketting.Reports {
             public double dn211ptkhach {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn211ptkhachColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn211ptkhachColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn211ptkhach\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27705,7 +27705,7 @@ namespace Maketting.Reports {
             public double dn212tratruocdh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn212tratruocdhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn212tratruocdhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn212tratruocdh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27722,7 +27722,7 @@ namespace Maketting.Reports {
             public double dn213vonodonvi {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn213vonodonviColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn213vonodonviColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn213vonodonvi\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27739,7 +27739,7 @@ namespace Maketting.Reports {
             public double dn214pthunbo {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn214pthunboColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn214pthunboColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn214pthunbo\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27756,7 +27756,7 @@ namespace Maketting.Reports {
             public double dn215pthuchovay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn215pthuchovayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn215pthuchovayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn215pthuchovay\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -27773,7 +27773,7 @@ namespace Maketting.Reports {
             public double dn216pthukhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn216pthukhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn216pthukhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn216pthukhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27790,7 +27790,7 @@ namespace Maketting.Reports {
             public double dn219duphongpt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn219duphongptColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn219duphongptColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn219duphongpt\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27807,7 +27807,7 @@ namespace Maketting.Reports {
             public double dn222tscdngia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn222tscdngiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn222tscdngiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn222tscdngia\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -27824,7 +27824,7 @@ namespace Maketting.Reports {
             public double dn223tskhauh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn223tskhauhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn223tskhauhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn223tskhauh\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27841,7 +27841,7 @@ namespace Maketting.Reports {
             public double dn225tscdthung {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn225tscdthungColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn225tscdthungColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn225tscdthung\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27858,7 +27858,7 @@ namespace Maketting.Reports {
             public double dn226tscdthuekha {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn226tscdthuekhaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn226tscdthuekhaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn226tscdthuekha\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27875,7 +27875,7 @@ namespace Maketting.Reports {
             public double dn228tscdvohnggia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn228tscdvohnggiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn228tscdvohnggiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn228tscdvohnggia\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -27892,7 +27892,7 @@ namespace Maketting.Reports {
             public double dn229tscdvhkhauh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn229tscdvhkhauhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn229tscdvhkhauhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn229tscdvhkhauh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -27909,7 +27909,7 @@ namespace Maketting.Reports {
             public double dn231bdsngia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn231bdsngiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn231bdsngiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn231bdsngia\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -27926,7 +27926,7 @@ namespace Maketting.Reports {
             public double dn232bdshaomon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn232bdshaomonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn232bdshaomonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn232bdshaomon\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27943,7 +27943,7 @@ namespace Maketting.Reports {
             public double dn241cfkddd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn241cfkdddColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn241cfkdddColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn241cfkddd\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -27959,7 +27959,7 @@ namespace Maketting.Reports {
             public double dn242cfxddd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn242cfxdddColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn242cfxdddColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn242cfxddd\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -27975,7 +27975,7 @@ namespace Maketting.Reports {
             public double dn251dtuctycon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn251dtuctyconColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn251dtuctyconColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn251dtuctycon\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -27992,7 +27992,7 @@ namespace Maketting.Reports {
             public double dn252dtuctylienket {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn252dtuctylienketColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn252dtuctylienketColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn252dtuctylienket\' in table \'RPtdetailCDKT200lientuc\' is D" +
@@ -28009,7 +28009,7 @@ namespace Maketting.Reports {
             public double dn253dtukhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn253dtukhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn253dtukhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn253dtukhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28026,7 +28026,7 @@ namespace Maketting.Reports {
             public double dn254duphongdt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn254duphongdtColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn254duphongdtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn254duphongdt\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28043,7 +28043,7 @@ namespace Maketting.Reports {
             public double dn255dtudaohan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn255dtudaohanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn255dtudaohanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn255dtudaohan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28060,7 +28060,7 @@ namespace Maketting.Reports {
             public double dn261cftratruocdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn261cftratruocdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn261cftratruocdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn261cftratruocdn\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -28077,7 +28077,7 @@ namespace Maketting.Reports {
             public double dn262thuetndnhl {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn262thuetndnhlColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn262thuetndnhlColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn262thuetndnhl\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28094,7 +28094,7 @@ namespace Maketting.Reports {
             public double dn263vtuthietbidn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn263vtuthietbidnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn263vtuthietbidnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn263vtuthietbidn\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -28111,7 +28111,7 @@ namespace Maketting.Reports {
             public double dn268tskhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn268tskhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn268tskhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn268tskhac\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -28127,7 +28127,7 @@ namespace Maketting.Reports {
             public double dn311ptnbannh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn311ptnbannhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn311ptnbannhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn311ptnbannh\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -28144,7 +28144,7 @@ namespace Maketting.Reports {
             public double dn312ngmuatratr {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn312ngmuatratrColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn312ngmuatratrColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn312ngmuatratr\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28161,7 +28161,7 @@ namespace Maketting.Reports {
             public double dn313thuephainop {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn313thuephainopColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn313thuephainopColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn313thuephainop\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28178,7 +28178,7 @@ namespace Maketting.Reports {
             public double dn314ptracnhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn314ptracnhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn314ptracnhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn314ptracnhan\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28195,7 +28195,7 @@ namespace Maketting.Reports {
             public double dn315cphiptranh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn315cphiptranhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn315cphiptranhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn315cphiptranh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28212,7 +28212,7 @@ namespace Maketting.Reports {
             public double dn316cfptranbonh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn316cfptranbonhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn316cfptranbonhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn316cfptranbonh\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28229,7 +28229,7 @@ namespace Maketting.Reports {
             public double dn317ptrtheoluong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn317ptrtheoluongColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn317ptrtheoluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn317ptrtheoluong\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -28246,7 +28246,7 @@ namespace Maketting.Reports {
             public double dn318pthuchunhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn318pthuchunhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn318pthuchunhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn318pthuchunhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28263,7 +28263,7 @@ namespace Maketting.Reports {
             public double dn319ptranhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn319ptranhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn319ptranhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn319ptranhan\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -28280,7 +28280,7 @@ namespace Maketting.Reports {
             public double dn320vaynotcnhan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn320vaynotcnhanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn320vaynotcnhanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn320vaynotcnhan\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28297,7 +28297,7 @@ namespace Maketting.Reports {
             public double dn323quygia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn323quygiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn323quygiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn323quygia\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -28313,7 +28313,7 @@ namespace Maketting.Reports {
             public double dn324bantraiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn324bantraiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn324bantraiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn324bantraiphieu\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -28330,7 +28330,7 @@ namespace Maketting.Reports {
             public double dn321duphptranh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn321duphptranhColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn321duphptranhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn321duphptranh\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28347,7 +28347,7 @@ namespace Maketting.Reports {
             public double dn331nodnngban {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn331nodnngbanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn331nodnngbanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn331nodnngban\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28364,7 +28364,7 @@ namespace Maketting.Reports {
             public double dn332ngmuatratdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn332ngmuatratdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn332ngmuatratdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn332ngmuatratdn\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28381,7 +28381,7 @@ namespace Maketting.Reports {
             public double dn333cphiphaitra {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn333cphiphaitraColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn333cphiphaitraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn333cphiphaitra\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28398,7 +28398,7 @@ namespace Maketting.Reports {
             public double dn334ptranbvevon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn334ptranbvevonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn334ptranbvevonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn334ptranbvevon\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28415,7 +28415,7 @@ namespace Maketting.Reports {
             public double dn335ptranbdaihan {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn335ptranbdaihanColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn335ptranbdaihanColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn335ptranbdaihan\' in table \'RPtdetailCDKT200lientuc\' is DB" +
@@ -28432,7 +28432,7 @@ namespace Maketting.Reports {
             public double dn336dthuchthdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn336dthuchthdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn336dthuchthdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn336dthuchthdn\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28449,7 +28449,7 @@ namespace Maketting.Reports {
             public double dn337ptradnkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn337ptradnkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn337ptradnkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn337ptradnkhac\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28466,7 +28466,7 @@ namespace Maketting.Reports {
             public double dn338vaynodn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn338vaynodnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn338vaynodnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn338vaynodn\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28483,7 +28483,7 @@ namespace Maketting.Reports {
             public double dn339traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn339traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn339traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn339traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28500,7 +28500,7 @@ namespace Maketting.Reports {
             public double dn340cophieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn340cophieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn340cophieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn340cophieu\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28517,7 +28517,7 @@ namespace Maketting.Reports {
             public double dn341tnhoanlai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn341tnhoanlaiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn341tnhoanlaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn341tnhoanlai\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28534,7 +28534,7 @@ namespace Maketting.Reports {
             public double dn342duphongdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn342duphongdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn342duphongdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn342duphongdn\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28551,7 +28551,7 @@ namespace Maketting.Reports {
             public double dn343quykhoahoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn343quykhoahocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn343quykhoahocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn343quykhoahoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28568,7 +28568,7 @@ namespace Maketting.Reports {
             public double dn411vongopcsh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn411vongopcshColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn411vongopcshColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn411vongopcsh\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28585,7 +28585,7 @@ namespace Maketting.Reports {
             public double dn322quykhen {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn322quykhenColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn322quykhenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn322quykhen\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28602,7 +28602,7 @@ namespace Maketting.Reports {
             public double dn411bcpudai {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn411bcpudaiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn411bcpudaiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn411bcpudai\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28619,7 +28619,7 @@ namespace Maketting.Reports {
             public double dn412thangduvon {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn412thangduvonColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn412thangduvonColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn412thangduvon\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28636,7 +28636,7 @@ namespace Maketting.Reports {
             public double dn413traiphieu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn413traiphieuColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn413traiphieuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn413traiphieu\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28653,7 +28653,7 @@ namespace Maketting.Reports {
             public double dn414voncshkhac {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn414voncshkhacColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn414voncshkhacColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn414voncshkhac\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28670,7 +28670,7 @@ namespace Maketting.Reports {
             public double dn415cphieuquy {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn415cphieuquyColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn415cphieuquyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn415cphieuquy\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28687,7 +28687,7 @@ namespace Maketting.Reports {
             public double dn416chenhlechts {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn416chenhlechtsColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn416chenhlechtsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn416chenhlechts\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28704,7 +28704,7 @@ namespace Maketting.Reports {
             public double dn417tygia {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn417tygiaColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn417tygiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn417tygia\' in table \'RPtdetailCDKT200lientuc\' is DBNull.", e);
@@ -28720,7 +28720,7 @@ namespace Maketting.Reports {
             public double dn418dautuptrien {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn418dautuptrienColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn418dautuptrienColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn418dautuptrien\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28737,7 +28737,7 @@ namespace Maketting.Reports {
             public double dn419quyxxdn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn419quyxxdnColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn419quyxxdnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn419quyxxdn\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28754,7 +28754,7 @@ namespace Maketting.Reports {
             public double dn420quykhacsh {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn420quykhacshColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn420quykhacshColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn420quykhacsh\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28771,7 +28771,7 @@ namespace Maketting.Reports {
             public double dn421lnsauthue {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn421lnsauthueColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn421lnsauthueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn421lnsauthue\' in table \'RPtdetailCDKT200lientuc\' is DBNul" +
@@ -28788,7 +28788,7 @@ namespace Maketting.Reports {
             public double dn421alnkytruoc {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn421alnkytruocColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn421alnkytruocColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn421alnkytruoc\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28805,7 +28805,7 @@ namespace Maketting.Reports {
             public double dn421blnkynay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn421blnkynayColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn421blnkynayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn421blnkynay\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -28822,7 +28822,7 @@ namespace Maketting.Reports {
             public double dn422vonxdcb {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn422vonxdcbColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn422vonxdcbColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn422vonxdcb\' in table \'RPtdetailCDKT200lientuc\' is DBNull." +
@@ -28839,7 +28839,7 @@ namespace Maketting.Reports {
             public double dn431nkinhphi {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn431nkinhphiColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn431nkinhphiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn431nkinhphi\' in table \'RPtdetailCDKT200lientuc\' is DBNull" +
@@ -28856,7 +28856,7 @@ namespace Maketting.Reports {
             public double dn432kpthanhtscd {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn432kpthanhtscdColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn432kpthanhtscdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn432kpthanhtscd\' in table \'RPtdetailCDKT200lientuc\' is DBN" +
@@ -28873,7 +28873,7 @@ namespace Maketting.Reports {
             public double dn411acophieupt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.dn411acophieuptColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.dn411acophieuptColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dn411acophieupt\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -28890,7 +28890,7 @@ namespace Maketting.Reports {
             public double cn411acophieupt {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetailCDKT200lientuc.cn411acophieuptColumn]));
+                        return ((float)(this[this.tableRPtdetailCDKT200lientuc.cn411acophieuptColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cn411acophieupt\' in table \'RPtdetailCDKT200lientuc\' is DBNu" +
@@ -31584,7 +31584,7 @@ namespace Maketting.Reports {
             public double nn01thudthu {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetaillchuyenttttiep.nn01thudthuColumn]));
+                        return ((float)(this[this.tableRPtdetaillchuyenttttiep.nn01thudthuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nn01thudthu\' in table \'RPtdetaillchuyenttttiep\' is DBNull.", e);
@@ -31600,7 +31600,7 @@ namespace Maketting.Reports {
             public double nn02chiccap {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetaillchuyenttttiep.nn02chiccapColumn]));
+                        return ((float)(this[this.tableRPtdetaillchuyenttttiep.nn02chiccapColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nn02chiccap\' in table \'RPtdetaillchuyenttttiep\' is DBNull.", e);
@@ -31616,7 +31616,7 @@ namespace Maketting.Reports {
             public double nn03chilaodong {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetaillchuyenttttiep.nn03chilaodongColumn]));
+                        return ((float)(this[this.tableRPtdetaillchuyenttttiep.nn03chilaodongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nn03chilaodong\' in table \'RPtdetaillchuyenttttiep\' is DBNul" +
@@ -31633,7 +31633,7 @@ namespace Maketting.Reports {
             public double nn05chithuetndn {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetaillchuyenttttiep.nn05chithuetndnColumn]));
+                        return ((float)(this[this.tableRPtdetaillchuyenttttiep.nn05chithuetndnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nn05chithuetndn\' in table \'RPtdetaillchuyenttttiep\' is DBNu" +
@@ -32301,7 +32301,7 @@ namespace Maketting.Reports {
             public double nn04chilaivay {
                 get {
                     try {
-                        return ((double)(this[this.tableRPtdetaillchuyenttttiep.nn04chilaivayColumn]));
+                        return ((float)(this[this.tableRPtdetaillchuyenttttiep.nn04chilaivayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'nn04chilaivay\' in table \'RPtdetaillchuyenttttiep\' is DBNull" +
@@ -33390,7 +33390,7 @@ namespace Maketting.Reports {
             public double soluong {
                 get {
                     try {
-                        return ((double)(this[this.tableMKTPhieuxuatMKTdetail.soluongColumn]));
+                        return ((float)(this[this.tableMKTPhieuxuatMKTdetail.soluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluong\' in table \'MKTPhieuxuatMKTdetail\' is DBNull.", e);
@@ -33545,7 +33545,7 @@ namespace Maketting.Reports {
             public double soluong {
                 get {
                     try {
-                        return ((double)(this[this.tableMKTloaddetail.soluongColumn]));
+                        return ((float)(this[this.tableMKTloaddetail.soluongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'soluong\' in table \'MKTloaddetail\' is DBNull.", e);

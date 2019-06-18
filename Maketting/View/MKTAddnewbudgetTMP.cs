@@ -340,7 +340,7 @@ namespace Maketting.View
 
                 if (Programelist.Count() > 0)
                 {
-                    double totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+                    double totalBudget = (float)Programelist.Sum(x => x.AprovalBudget);
 
                     viewtotal.Text = totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
 

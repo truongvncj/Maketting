@@ -1359,7 +1359,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs22)
                 {
-                    Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued, item.ShippingPoint);
+                    Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued, item.ShippingPoint);
 
                 }
 
@@ -1460,7 +1460,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs22)
                 {
-                    Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued, item.ShippingPoint);
+                    Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued, item.ShippingPoint);
 
                 }
 
@@ -2147,7 +2147,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued, itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
         }
@@ -2177,7 +2177,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.RecieptQuantity, itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.RecieptQuantity, itemxuat.ShippingPoint);
 
 
         }
@@ -2208,7 +2208,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.RecieptQuantity, itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.RecieptQuantity, itemxuat.ShippingPoint);
 
 
 

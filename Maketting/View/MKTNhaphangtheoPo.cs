@@ -558,7 +558,7 @@ namespace Maketting.View
                             foreach (var item in rs)
                             {
                                 item.StatusPO = "IN";
-                                item.RecieptedQuantity = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                item.RecieptedQuantity = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                                 item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
                                 dc.SubmitChanges();
 
@@ -571,8 +571,8 @@ namespace Maketting.View
                                 newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                                 newregionupdate.Description = item.Description;
                                 newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
-                                newregionupdate.QuantityReceipt = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                newregionupdate.QuantityReceipt = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                                 newregionupdate.QuantityInputbytransferin = 0;
                                 newregionupdate.QuantityInputbyReturn = 0;
                                 newregionupdate.QuantityOutput = 0;

@@ -66,11 +66,95 @@ namespace Maketting.View
 
         }
 
+
         public void addDEtailPhieuMKT(tbl_MKt_Listphieudetail PhieuMKT)
         {
 
 
-       
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+            //---------------
+
+            DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
+
+            DataRow drToAdd = dataTable.NewRow();
+
+            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
+            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
+            drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
+            drToAdd["Unit"] = PhieuMKT.Unit;
+            //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
+            drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
+            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation);// + PhieuMKT.Issued;
+            drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
+            //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
+
+            //     drToAdd["Region_Balance"] = PhieuMKT.Region;
+
+
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
+
+
+
+
+        }
+
+
+
+        public void addDEtailPhieuMKTdecopy(tbl_MKt_Listphieudetail PhieuMKT)
+        {
+
+
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+
+            //---------------
+
+            DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
+
+            DataRow drToAdd = dataTable.NewRow();
+
+            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
+            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
+            drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
+            drToAdd["Unit"] = PhieuMKT.Unit;
+            //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
+            drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
+            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) - PhieuMKT.Issued;
+            drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
+            //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
+
+            //     drToAdd["Region_Balance"] = PhieuMKT.Region;
+
+
+            dataTable.Rows.Add(drToAdd);
+            dataTable.AcceptChanges();
+
+
+
+
+        }
+
+
+        public void addDEtailPhieuMKTtochange(tbl_MKt_Listphieudetail PhieuMKT)
+        {
+
+
+
 
 
             string connection_string = Utils.getConnectionstr();
@@ -101,51 +185,11 @@ namespace Maketting.View
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
-          
-
-
-        }
-
-
-        public void addDEtailPhieuMKTdecopy(tbl_MKt_Listphieudetail PhieuMKT)
-        {
-
-
-
-
-
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-
-            //---------------
-
-            DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
-
-            DataRow drToAdd = dataTable.NewRow();
-
-            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
-            drToAdd["Description"] = PhieuMKT.Description;
-            drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
-            drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
-            drToAdd["Unit"] = PhieuMKT.Unit;
-            //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
-            drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
-            drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation);
-            drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
-            //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
-
-            //     drToAdd["Region_Balance"] = PhieuMKT.Region;
-
-
-            dataTable.Rows.Add(drToAdd);
-            dataTable.AcceptChanges();
-
 
 
 
         }
+
 
 
         public void reloadseachview(string nguoinop, string diachi, string noidung)
@@ -1026,7 +1070,7 @@ namespace Maketting.View
                         tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
                         newregionupdate.ITEM_Code = ItemCode;
-                        newregionupdate.SAP_CODE = (string)dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value;
+                        newregionupdate.SAP_CODE = dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value.ToString();
                         newregionupdate.MATERIAL = dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value.ToString().Truncate(255);
 
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
@@ -1039,7 +1083,7 @@ namespace Maketting.View
                         }
 
 
-                        newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                        newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                         newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
                         newregionupdate.QuantityOutput = float.Parse(dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value.ToString());// 0;
                         newregionupdate.QuantitybyDevice = 0;
@@ -1094,9 +1138,9 @@ namespace Maketting.View
                 MessageBox.Show("Phiếu " + this.sophieu.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 #region load detail so phieu va loacation
-            //    string connection_string = Utils.getConnectionstr();
+                //    string connection_string = Utils.getConnectionstr();
 
-              //  LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                //  LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs2 = from pp in dc.tbl_MKt_Listphieudetails
                           where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
@@ -1109,7 +1153,7 @@ namespace Maketting.View
 
                     foreach (var item in rs2)
                     {
-                        addDEtailPhieuMKTdecopy(item);
+                        addDEtailPhieuMKT(item);
                         //  xxx
 
                         txtcity.Text = item.shiptocity;
@@ -1765,9 +1809,9 @@ namespace Maketting.View
 
                          select new
                          {
-                             ITEM_Code =    pp.ITEM_Code.Trim(),
+                             ITEM_Code = pp.ITEM_Code.Trim(),
                              pp.SAP_CODE,
-                             MATERIAL =       pp.MATERIAL.Truncate(255),
+                             MATERIAL = pp.MATERIAL.Truncate(255),
                              Description = pp.Description.Truncate(255),
                              pp.UNIT,
                              Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
@@ -1830,7 +1874,7 @@ namespace Maketting.View
                              ITEM_Code = pp.ITEM_Code.Trim(),
                              pp.SAP_CODE,
                              MATERIAL = pp.MATERIAL.Truncate(255),
-                             Description =       pp.Description.Truncate(255),
+                             Description = pp.Description.Truncate(255),
                              pp.UNIT,
                              Avaiable_stock = pp.END_STOCK.GetValueOrDefault(0) - pp.Ordered.GetValueOrDefault(0),
                              pp.id,
@@ -2387,7 +2431,7 @@ namespace Maketting.View
                     this.ProgrameIDDocno = rs2.ProgrameIDDocno;
                     this.IO_number = rs2.IO_number;
 
-                    //this.Programebudgetbalance = (double)(from pp in dc.tbl_MKT_Programes
+                    //this.Programebudgetbalance = (float)(from pp in dc.tbl_MKT_Programes
                     //                      where pp.ProgrameIDDocno == this.ProgrameIDDocno
                     //                      select pp.BalanceBudget).FirstOrDefault().GetValueOrDefault(0);
                     //txtprogramebudgetbalance.Text = this.Programebudgetbalance.ToString("#,#", CultureInfo.InvariantCulture);
@@ -2697,7 +2741,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             string customercode = txtcustcode.Text;
 
-            if (customercode=="")
+            if (customercode == "")
             {
                 MessageBox.Show("Please select customer code !");
                 txtseachcode.Focus();
@@ -2796,7 +2840,7 @@ namespace Maketting.View
                     txtcustcode.Text = rs2.Customer;
 
                     txtnguoinhan.Text = rs2.FullNameN;
-              
+
                     txttel.Text = rs2.Telephone1;
                     txtshiptoname.Text = rs2.FullNameN;
                     txtcity.Text = rs2.City;
@@ -2876,6 +2920,37 @@ namespace Maketting.View
 
 
 
+            #region load detail so phieu va loacation
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                cleartoblankDEtailphieu();
+
+                foreach (var item in rs2)
+                {
+                    addDEtailPhieuMKTdecopy(item);
+                    //  xxx
+
+                    txtcity.Text = item.shiptocity;
+
+                }
+
+            }
+
+            #endregion
+
+
+
+
 
 
 
@@ -2918,14 +2993,42 @@ namespace Maketting.View
             this.statusphieu = 2;// change status
 
 
+            //      Model.MKT.updatetangOrdered()
 
-
+            //  Model.MKT.updategiamOrderedtheoORder(this.sophieu+this.storelocation);
 
             Model.MKT.DeleteALLphieutamTMP();
 
 
-            //   this.sophieu = Model.MKT.getMKtNo();
-            // lbgatepassno.Text = this.sophieu;
+            #region load detail so phieu va loacation
+
+            //      string connection_string = Utils.getConnectionstr();
+            // LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                cleartoblankDEtailphieu();
+
+                foreach (var item in rs2)
+                {
+                    addDEtailPhieuMKTtochange(item);
+                    //  xxx
+
+                    txtcity.Text = item.shiptocity;
+
+                }
+
+            }
+
+            #endregion
+
+
 
         }
 

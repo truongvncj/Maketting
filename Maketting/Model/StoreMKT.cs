@@ -60,13 +60,13 @@ namespace Maketting.Model
             System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
-            //   batable.Columns.Add("Delivery_No", typeof(double));
+            //   batable.Columns.Add("Delivery_No", typeof(float));
             batable.Columns.Add("SAPCODE", typeof(string));
             batable.Columns.Add("ITEMCode", typeof(string));
             batable.Columns.Add("MATERIAL", typeof(string));
             batable.Columns.Add("Description", typeof(string));
             batable.Columns.Add("UNIT", typeof(string));
-            batable.Columns.Add("ENDSTOCK", typeof(double));
+            batable.Columns.Add("ENDSTOCK", typeof(float));
 
 
             batable.Columns.Add("Store_code", typeof(string));
@@ -202,7 +202,7 @@ namespace Maketting.Model
                 //batable.Columns.Add("MATERIAL", typeof(string));
                 //batable.Columns.Add("Description", typeof(string));
                 //batable.Columns.Add("UNIT", typeof(string));
-                //batable.Columns.Add("ENDSTOCK", typeof(double));
+                //batable.Columns.Add("ENDSTOCK", typeof(float));
 
 
                 //batable.Columns.Add("Store_code", typeof(string));
@@ -271,13 +271,13 @@ namespace Maketting.Model
             System.Data.DataTable sourceData = ExcelProvide.GetDataFromExcel(filename);
 
             System.Data.DataTable batable = new System.Data.DataTable();
-            //   batable.Columns.Add("Delivery_No", typeof(double));
+            //   batable.Columns.Add("Delivery_No", typeof(float));
             batable.Columns.Add("SAPCODE", typeof(string));
             batable.Columns.Add("ITEMCode", typeof(string));
             batable.Columns.Add("MATERIAL", typeof(string));
             batable.Columns.Add("Description", typeof(string));
             batable.Columns.Add("UNIT", typeof(string));
-            batable.Columns.Add("ENDSTOCK", typeof(double));
+            batable.Columns.Add("ENDSTOCK", typeof(float));
 
             batable.Columns.Add("Username", typeof(string));
 
@@ -416,7 +416,7 @@ namespace Maketting.Model
                 //batable.Columns.Add("MATERIAL", typeof(string));
                 //batable.Columns.Add("Description", typeof(string));
                 //batable.Columns.Add("UNIT", typeof(string));
-                //batable.Columns.Add("ENDSTOCK", typeof(double));
+                //batable.Columns.Add("ENDSTOCK", typeof(float));
 
 
                 //batable.Columns.Add("Store_code", typeof(string));

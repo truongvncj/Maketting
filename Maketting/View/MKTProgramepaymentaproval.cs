@@ -74,7 +74,7 @@ namespace Maketting.View
 
         //    if (Programelist.Count() > 0)
         //    {
-        //        double totalBudgetup = (double)Programelist.Sum(x => x.AprovalBudget);
+        //        double totalBudgetup = (float)Programelist.Sum(x => x.AprovalBudget);
 
         //        txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
 
@@ -666,7 +666,7 @@ namespace Maketting.View
             this.dataGridviewpaymentapprval.DataSource = Programelist;
             if (Programelist.Count() > 0)
             {
-                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+                this.totalBudget = (float)Programelist.Sum(x => x.AprovalBudget);
 
                 txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
 
@@ -898,7 +898,7 @@ namespace Maketting.View
 
             if (Programelist.Count()>0)
             {
-                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+                this.totalBudget = (float)Programelist.Sum(x => x.AprovalBudget);
 
                 txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
 
@@ -1124,7 +1124,7 @@ namespace Maketting.View
 
             if (Programelist.Count() > 0)
             {
-                this.totalBudget = (double)Programelist.Sum(x => x.AprovalBudget);
+                this.totalBudget = (float)Programelist.Sum(x => x.AprovalBudget);
 
                 txttotalbudget.Text = this.totalBudget.ToString("#,#", CultureInfo.InvariantCulture);
 

@@ -889,7 +889,7 @@ namespace Maketting.View
                         newregionupdate.MATERIAL = (string)dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value;
                        newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
                         newregionupdate.Region = Model.Username.getuseRegion();
-                        newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                        newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                         newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
                         newregionupdate.QuantityOutput = (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
                         newregionupdate.QuantitybyDevice = 0;
@@ -2341,7 +2341,7 @@ namespace Maketting.View
                     this.ProgrameIDDocno = rs2.ProgrameIDDocno;
                     this.IO_number = rs2.IO_number;
 
-                    this.Programebudgetbalance = (double)(from pp in dc.tbl_MKT_Programes
+                    this.Programebudgetbalance = (float)(from pp in dc.tbl_MKT_Programes
                                           where pp.ProgrameIDDocno == this.ProgrameIDDocno
                                           select pp.BalanceBudget).FirstOrDefault().GetValueOrDefault(0);
                     txtprogramebudgetbalance.Text = this.Programebudgetbalance.ToString("#,#", CultureInfo.InvariantCulture);

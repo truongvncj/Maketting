@@ -534,7 +534,7 @@ namespace Maketting.View
 
                                 item.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["New_Reciept_Quantity"].Value);
 
-                             //   item.re = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                             //   item.re = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                               //  item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
                                 dc.SubmitChanges();
 

@@ -154,7 +154,7 @@ namespace Maketting.View
             newregionupdate.MATERIAL = materialname;
             //       newregionupdate.Description = (string)dataGridViewDetail.Rows[idrow].Cells["Description"].Value;
             newregionupdate.Region = this.Region;// Model.Username.getuseRegion();
-            newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+            newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
             newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
             newregionupdate.QuantityOutput = 0;// (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
             newregionupdate.QuantitybyDevice = this.addingamount;

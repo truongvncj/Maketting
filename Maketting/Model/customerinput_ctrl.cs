@@ -110,7 +110,7 @@ namespace Maketting.Model
             batable.Columns.Add("PaymentTerms", typeof(string));
             batable.Columns.Add("Chanel", typeof(string));
             batable.Columns.Add("PriceList", typeof(string));
-            batable.Columns.Add("KeyAcc", typeof(double));
+            batable.Columns.Add("KeyAcc", typeof(float));
             batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("Createdon", typeof(DateTime));
             batable.Columns.Add("Createby", typeof(string));
@@ -456,7 +456,7 @@ namespace Maketting.Model
             //    batable.Columns.Add("PaymentTerms", typeof(string));
 
             //    batable.Columns.Add("PriceList", typeof(string));
-            //    batable.Columns.Add("KeyAcc", typeof(double));
+            //    batable.Columns.Add("KeyAcc", typeof(float));
             //      batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("Createdon", typeof(DateTime));
             batable.Columns.Add("Createby", typeof(string));
@@ -812,7 +812,7 @@ namespace Maketting.Model
             //    batable.Columns.Add("PaymentTerms", typeof(string));
 
             //    batable.Columns.Add("PriceList", typeof(string));
-            //    batable.Columns.Add("KeyAcc", typeof(double));
+            //    batable.Columns.Add("KeyAcc", typeof(float));
             //      batable.Columns.Add("SalesDistrict", typeof(string));
             batable.Columns.Add("Createdon", typeof(DateTime));
             batable.Columns.Add("Createby", typeof(string));

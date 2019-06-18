@@ -154,7 +154,7 @@ namespace Maketting
         //    table.Columns.Add("PriceList", typeof(string));
         //    table.Columns.Add("Material", typeof(string));
         //    table.Columns.Add("MaterialNAme", typeof(string));
-        //    table.Columns.Add("Amount", typeof(double));
+        //    table.Columns.Add("Amount", typeof(float));
 
         //    table.Columns.Add("Unit", typeof(string));
         //    table.Columns.Add("UoM", typeof(string));
@@ -322,7 +322,7 @@ namespace Maketting
         //       //table.Columns.Add("PriceList", typeof(string));
         //       //table.Columns.Add("Material", typeof(string));
         //       //table.Columns.Add("MaterialNAme", typeof(string));
-        //       //table.Columns.Add("Amount", typeof(double));
+        //       //table.Columns.Add("Amount", typeof(float));
 
         //       //table.Columns.Add("Unit", typeof(string));
         //       //table.Columns.Add("UoM", typeof(string));

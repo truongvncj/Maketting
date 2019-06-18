@@ -535,7 +535,7 @@ namespace Maketting.View
                                 newregionupdate.MATERIAL = item.Materialname;
                                 //   newregionupdate.Description = item.;
                                 newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (double)item.inputRate);
+                                newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                                 newregionupdate.QuantityInputbyReturn = Receipt_Quantity;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Receipt_Quantity"].Value.ToString());// 0;
                                 newregionupdate.QuantityInputbytransferin = 0;
                                 newregionupdate.QuantityReceipt = Receipt_Quantity;

@@ -6979,9 +6979,9 @@ namespace Maketting.View
                 var rs = from pp in dc.tbl_MKt_WHstoreissues
                              // from gg in dc.tbl_MKt_POheads
                          where pp.POnumber == ponumber
-                        // && pp.date_input_output >= fromdate
+                         // && pp.date_input_output >= fromdate
                          // && pp.date_input_output <= todate
-                       //     && pp.ShippingPoint == storecode
+                         //     && pp.ShippingPoint == storecode
                          select new
                          {
                              // gg.
@@ -6998,20 +6998,20 @@ namespace Maketting.View
 
 
                              pp.Username,
-                           
+
                              pp.id,
                              Subid = pp.IssueIDsub,
 
 
                          };
 
-               
+
                 if (rs.Count() > 0)
                 {
 
                     View.Viewtable tbl = new Viewtable(rs, dc, "Double click on good receipt to revert", 100, "revertPogoodreceipt");
                     tbl.ShowDialog();
-                  
+
 
                 }
                 else
@@ -7021,6 +7021,86 @@ namespace Maketting.View
 
 
             }
+        }
+
+        private void statusShippingButHaveDeliveringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = from pp in dc.tbl_MKt_WHstoreissues
+                     from gg in dc.tbl_MKt_Listphieudetails
+                     where pp.ShippingPoint + pp.LoadNumber == gg.ShippingPoint + gg.ShipmentNumber
+                     && (gg.Status == "CRT" || gg.Status == "Shipping")
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                View.Viewtable tbl = new Viewtable(rs, dc, "List các bộ đã cộng số xuất nhưng chua chuyển trạng thái ", 1000, "kiemtrashipmentxuat");
+                tbl.ShowDialog();
+
+
+            }
+            else
+            {
+                MessageBox.Show("There have no shipment wrong of issue !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+        }
+
+        private void trackingWrongDocToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER ! ");
+            pxk.ShowDialog();
+
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = from pp in dc.tbl_MKt_WHstoreissues
+                          where pp.Serriload == Loadnumberserri
+                          select pp;
+                foreach (var item in rs5)
+                {
+
+                    Model.MKT.tangkhokhinhaphang(item, item.ShippingPoint);
+
+                }
+
+
+                dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(rs5);
+                dc.SubmitChanges();
+
+
+                var rs6 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                          where pp.DocumentNumber == Loadnumberserri
+                          select pp;
+
+                dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs6);
+                dc.SubmitChanges();
+
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+
         }
     }
 

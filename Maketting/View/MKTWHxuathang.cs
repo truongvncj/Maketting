@@ -498,10 +498,10 @@ namespace Maketting.View
               //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
                         phieuxuat.IssueIDsub = IssueIDsub;
                         phieuxuat.LoadNumber = this.soload;
-                        phieuxuat.MateriaItemcode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+                        phieuxuat.MateriaItemcode = dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
 
-                        phieuxuat.Materiacode = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
-                        phieuxuat.Materialname = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
+                        phieuxuat.Materiacode = dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value.ToString().Trim();
+                        phieuxuat.Materialname = dataGridViewLoaddetail.Rows[idrow].Cells["Material_name"].Value.ToString().Truncate(50);
                         phieuxuat.Serriload = this.Loadnumberserri;
                         phieuxuat.ShippingPoint = this.storelocation;
                         phieuxuat.Status = "CRT";
@@ -550,6 +550,8 @@ namespace Maketting.View
 
                         tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
+                        newregionupdate.DocumentNumber = item.ShippingPoint + item.ShipmentNumber;
+                      
                         newregionupdate.ITEM_Code = item.MateriaSAPcode;
                         newregionupdate.SAP_CODE = item.MateriaSAPcode;
                         newregionupdate.MATERIAL = item.Materialname.Truncate(255);
