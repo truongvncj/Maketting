@@ -6503,32 +6503,32 @@ namespace Maketting.View
 
         private void revertStoreErrorIssueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER ! ");
-            pxk.ShowDialog();
+            //MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER ! ");
+            //pxk.ShowDialog();
 
-            string Loadnumberserri = pxk.valuetext;
-            bool kq = pxk.kq;
+            //string Loadnumberserri = pxk.valuetext;
+            //bool kq = pxk.kq;
 
-            if (true)
-            {
-
-
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs5 = from pp in dc.tbl_MKt_WHstoreissues
-                          where pp.Serriload == Loadnumberserri
-                          select pp;
+            //if (true)
+            //{
 
 
+            //    string connection_string = Utils.getConnectionstr();
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(rs5);
-                dc.SubmitChanges();
+            //    var rs5 = from pp in dc.tbl_MKt_WHstoreissues
+            //              where pp.Serriload == Loadnumberserri
+            //              select pp;
 
-                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            }
+            //    dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(rs5);
+            //    dc.SubmitChanges();
+
+            //    MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            //}
 
 
 
@@ -6788,6 +6788,24 @@ namespace Maketting.View
                 MessageBox.Show("Biên bản này đã nhập hàng trả về rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 kq = false;
                 return;
+            }
+
+    //        string connection_string = Utils.getConnectionstr();
+      //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
+                       where  pp.Gate_pass == serinumer
+                       // && pp.completed == true
+
+
+                       select pp).FirstOrDefault();
+            if (rs5 == null)
+            {
+                MessageBox.Show("Wrong minute !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                kq = false;
+                return;
+
             }
 
 
