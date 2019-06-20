@@ -60,15 +60,20 @@
             this.channelListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.revertWrongReturnTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertWrongTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackingWrongDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertWrongReturnTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertReturnCollectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertGoodReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusShippingButHaveDeliveringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trackingWrongDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,6 +130,8 @@
             this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
             this.settlementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGatePassDeliveredToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator30 = new System.Windows.Forms.ToolStripSeparator();
             this.gatepassHavePOSMReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodReceiptColletedFromMarketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -167,10 +174,7 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctOrderedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -294,6 +298,7 @@
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem,
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem,
             this.revertWrongReturnTicketToolStripMenuItem,
+            this.revertReturnCollectionToolStripMenuItem,
             this.revertTransferInToolStripMenuItem,
             this.revertGoodReceiptToolStripMenuItem,
             this.toolStripSeparator3,
@@ -302,7 +307,8 @@
             this.trackingWrongDocToolStripMenuItem,
             this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem,
             this.toolStripSeparator29,
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem});
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem,
+            this.correctOrderedToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -413,13 +419,6 @@
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Text = "Check and update status after issue";
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Click += new System.EventHandler(this.checkAndUpdateStatusAfterIssueToolStripMenuItem_Click);
             // 
-            // revertWrongReturnTicketToolStripMenuItem
-            // 
-            this.revertWrongReturnTicketToolStripMenuItem.Name = "revertWrongReturnTicketToolStripMenuItem";
-            this.revertWrongReturnTicketToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.revertWrongReturnTicketToolStripMenuItem.Text = "Rever return ticket";
-            this.revertWrongReturnTicketToolStripMenuItem.Click += new System.EventHandler(this.revertWrongReturnTicketToolStripMenuItem_Click);
-            // 
             // revertWrongTransferInToolStripMenuItem
             // 
             this.revertWrongTransferInToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -435,20 +434,26 @@
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem.Text = "Delete shipto code is not a number";
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem.Click += new System.EventHandler(this.deleteShiptoCodeIsNotANumberToolStripMenuItem_Click);
             // 
-            // trackingWrongDocToolStripMenuItem
-            // 
-            this.trackingWrongDocToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.trackingWrongDocToolStripMenuItem.Name = "trackingWrongDocToolStripMenuItem";
-            this.trackingWrongDocToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.trackingWrongDocToolStripMenuItem.Text = "Shipment have wrong effect in shipment and store issue";
-            this.trackingWrongDocToolStripMenuItem.Click += new System.EventHandler(this.trackingWrongDocToolStripMenuItem_Click);
-            // 
             // revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem
             // 
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem.Name = "revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem";
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem.Text = "Revert store issue not with that effect endstock ";
+            this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem.Text = "Revert store issue with that effect endstock ";
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem.Click += new System.EventHandler(this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem_Click);
+            // 
+            // revertWrongReturnTicketToolStripMenuItem
+            // 
+            this.revertWrongReturnTicketToolStripMenuItem.Name = "revertWrongReturnTicketToolStripMenuItem";
+            this.revertWrongReturnTicketToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.revertWrongReturnTicketToolStripMenuItem.Text = "Rever return ticket";
+            this.revertWrongReturnTicketToolStripMenuItem.Click += new System.EventHandler(this.revertWrongReturnTicketToolStripMenuItem_Click);
+            // 
+            // revertReturnCollectionToolStripMenuItem
+            // 
+            this.revertReturnCollectionToolStripMenuItem.Name = "revertReturnCollectionToolStripMenuItem";
+            this.revertReturnCollectionToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.revertReturnCollectionToolStripMenuItem.Text = "Revert return collection ";
+            this.revertReturnCollectionToolStripMenuItem.Click += new System.EventHandler(this.revertReturnCollectionToolStripMenuItem_Click);
             // 
             // revertTransferInToolStripMenuItem
             // 
@@ -475,6 +480,40 @@
             this.statusShippingButHaveDeliveringToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
             this.statusShippingButHaveDeliveringToolStripMenuItem.Text = "Status Shipping but have delivering";
             this.statusShippingButHaveDeliveringToolStripMenuItem.Click += new System.EventHandler(this.statusShippingButHaveDeliveringToolStripMenuItem_Click);
+            // 
+            // shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem
+            // 
+            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Name = "shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem";
+            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Text = "Shipment have wrong effect on store issue and region budget";
+            // 
+            // trackingWrongDocToolStripMenuItem
+            // 
+            this.trackingWrongDocToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.trackingWrongDocToolStripMenuItem.Name = "trackingWrongDocToolStripMenuItem";
+            this.trackingWrongDocToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.trackingWrongDocToolStripMenuItem.Text = "Shipment have wrong effect in shipment and store issue";
+            this.trackingWrongDocToolStripMenuItem.Click += new System.EventHandler(this.trackingWrongDocToolStripMenuItem_Click);
+            // 
+            // pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem
+            // 
+            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Name = "pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem";
+            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Text = "PO Good receipt have worng on store issue and detail po";
+            // 
+            // toolStripSeparator29
+            // 
+            this.toolStripSeparator29.Name = "toolStripSeparator29";
+            this.toolStripSeparator29.Size = new System.Drawing.Size(483, 6);
+            // 
+            // checkInportExportsDetailAndStockEndMovementToolStripMenuItem
+            // 
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Name = "checkInportExportsDetailAndStockEndMovementToolStripMenuItem";
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Text = "Check inport exports detail and stock end movement";
             // 
             // MenuMaketting
             // 
@@ -880,6 +919,8 @@
             // 
             this.settlementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateGatePassDeliveredToolStripMenuItem1,
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem,
+            this.toolStripSeparator30,
             this.gatepassHavePOSMReturnToolStripMenuItem,
             this.goodReceiptColletedFromMarketToolStripMenuItem});
             this.settlementToolStripMenuItem.Name = "settlementToolStripMenuItem";
@@ -889,21 +930,33 @@
             // updateGatePassDeliveredToolStripMenuItem1
             // 
             this.updateGatePassDeliveredToolStripMenuItem1.Name = "updateGatePassDeliveredToolStripMenuItem1";
-            this.updateGatePassDeliveredToolStripMenuItem1.Size = new System.Drawing.Size(309, 24);
+            this.updateGatePassDeliveredToolStripMenuItem1.Size = new System.Drawing.Size(341, 24);
             this.updateGatePassDeliveredToolStripMenuItem1.Text = "Update Gate pass delivered ";
             this.updateGatePassDeliveredToolStripMenuItem1.Click += new System.EventHandler(this.updateGatePassDeliveredToolStripMenuItem1_Click);
+            // 
+            // revertWrongUpdateDeliveredOfTicketToolStripMenuItem
+            // 
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem.Name = "revertWrongUpdateDeliveredOfTicketToolStripMenuItem";
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem.Size = new System.Drawing.Size(341, 24);
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem.Text = "Revert wrong update delivered of ticket";
+            this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem.Click += new System.EventHandler(this.revertWrongUpdateDeliveredOfTicketToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator30
+            // 
+            this.toolStripSeparator30.Name = "toolStripSeparator30";
+            this.toolStripSeparator30.Size = new System.Drawing.Size(338, 6);
             // 
             // gatepassHavePOSMReturnToolStripMenuItem
             // 
             this.gatepassHavePOSMReturnToolStripMenuItem.Name = "gatepassHavePOSMReturnToolStripMenuItem";
-            this.gatepassHavePOSMReturnToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.gatepassHavePOSMReturnToolStripMenuItem.Size = new System.Drawing.Size(341, 24);
             this.gatepassHavePOSMReturnToolStripMenuItem.Text = "Gatepass have POSM return";
             this.gatepassHavePOSMReturnToolStripMenuItem.Click += new System.EventHandler(this.gatepassHavePOSMReturnToolStripMenuItem_Click);
             // 
             // goodReceiptColletedFromMarketToolStripMenuItem
             // 
             this.goodReceiptColletedFromMarketToolStripMenuItem.Name = "goodReceiptColletedFromMarketToolStripMenuItem";
-            this.goodReceiptColletedFromMarketToolStripMenuItem.Size = new System.Drawing.Size(309, 24);
+            this.goodReceiptColletedFromMarketToolStripMenuItem.Size = new System.Drawing.Size(341, 24);
             this.goodReceiptColletedFromMarketToolStripMenuItem.Text = "Good receipt colleted from market";
             this.goodReceiptColletedFromMarketToolStripMenuItem.Click += new System.EventHandler(this.goodReceiptColletedFromMarketToolStripMenuItem_Click);
             // 
@@ -1211,31 +1264,11 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem
+            // correctOrderedToolStripMenuItem
             // 
-            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Name = "shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem";
-            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem.Text = "Shipment have wrong effect on store issue and region budget";
-            // 
-            // pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem
-            // 
-            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Name = "pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem";
-            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem.Text = "PO Good receipt have worng on store issue and detail po";
-            // 
-            // toolStripSeparator29
-            // 
-            this.toolStripSeparator29.Name = "toolStripSeparator29";
-            this.toolStripSeparator29.Size = new System.Drawing.Size(483, 6);
-            // 
-            // checkInportExportsDetailAndStockEndMovementToolStripMenuItem
-            // 
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Name = "checkInportExportsDetailAndStockEndMovementToolStripMenuItem";
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Text = "Check inport exports detail and stock end movement";
+            this.correctOrderedToolStripMenuItem.Name = "correctOrderedToolStripMenuItem";
+            this.correctOrderedToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.correctOrderedToolStripMenuItem.Text = "Correct ordered";
             // 
             // Main
             // 
@@ -1400,6 +1433,10 @@
         private ToolStripMenuItem pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator29;
         private ToolStripMenuItem checkInportExportsDetailAndStockEndMovementToolStripMenuItem;
+        private ToolStripMenuItem revertReturnCollectionToolStripMenuItem;
+        private ToolStripMenuItem revertWrongUpdateDeliveredOfTicketToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator30;
+        private ToolStripMenuItem correctOrderedToolStripMenuItem;
     }
 }
 

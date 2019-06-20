@@ -2749,7 +2749,7 @@ namespace Maketting.View
             }
 
             var rs1 = Model.MKT.shiptolistbycustomerrutgon(dc, customercode);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 12 là danh sach khách hàng MKT
+            Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 16 là danh sach shipto list
 
             viewtbl.Show();
 

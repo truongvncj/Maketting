@@ -486,6 +486,7 @@ namespace Maketting.Model
                      {
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
+                         p.DNNumber,
 
                          p.Materiacode,
                          p.MateriaItemcode,
@@ -530,7 +531,7 @@ namespace Maketting.Model
                      {
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
-
+                         p.DNNumber,
                          p.Materiacode,
                          p.MateriaItemcode,
                          p.Materialname,
@@ -2046,6 +2047,7 @@ namespace Maketting.Model
                          SalesOrg = p.SalesOrg,
                          Region = p.Region,
                          Customer = p.Customer,
+                         p.ShiptoCode,
                          FullName = p.FullNameN,
                          Street = p.Street,
                          District = p.District,
@@ -2092,6 +2094,7 @@ namespace Maketting.Model
                           SalesOrg = p.SalesOrg,
                           Region = p.Region,
                           Customer = p.Customer,
+                          p.ShiptoCode,
                           FullName = p.FullNameN,
                           Street = p.Street,
                           District = p.District,
@@ -2101,7 +2104,7 @@ namespace Maketting.Model
 
 
                           ID = p.id,
-                      }).Take(100);
+                      }).Take(1000);
 
             //    grviewlisttk.DataSource = rs;
 

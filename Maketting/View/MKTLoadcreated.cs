@@ -2230,8 +2230,7 @@ namespace Maketting.View
             }
 
 
-
-
+            
 
             bool kq = Model.MKT.Deletephieuload(this.soload, this.storelocation);
             Model.MKT.restatusphieuLoadingtoCRT();

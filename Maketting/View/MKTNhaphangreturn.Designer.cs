@@ -52,6 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.datecreated = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.txtdnnumbar = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -184,6 +186,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtdnnumbar);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.datethucnhan);
             this.panel1.Controls.Add(this.txtstorelocation);
@@ -203,7 +207,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(931, 30);
+            this.label1.Location = new System.Drawing.Point(984, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 18);
             this.label1.TabIndex = 81;
@@ -215,7 +219,7 @@
             this.datethucnhan.CustomFormat = "dd.MM.yyyy";
             this.datethucnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datethucnhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datethucnhan.Location = new System.Drawing.Point(1047, 25);
+            this.datethucnhan.Location = new System.Drawing.Point(1100, 2);
             this.datethucnhan.Name = "datethucnhan";
             this.datethucnhan.Size = new System.Drawing.Size(119, 24);
             this.datethucnhan.TabIndex = 80;
@@ -325,6 +329,24 @@
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
+            // txtdnnumbar
+            // 
+            this.txtdnnumbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdnnumbar.Location = new System.Drawing.Point(1079, 38);
+            this.txtdnnumbar.Name = "txtdnnumbar";
+            this.txtdnnumbar.Size = new System.Drawing.Size(157, 20);
+            this.txtdnnumbar.TabIndex = 83;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(986, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 18);
+            this.label6.TabIndex = 82;
+            this.label6.Text = "DN Number";
+            // 
             // MKTNhaphangreturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,5 +393,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker datethucnhan;
+        private System.Windows.Forms.TextBox txtdnnumbar;
+        private System.Windows.Forms.Label label6;
     }
 }

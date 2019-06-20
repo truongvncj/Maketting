@@ -414,7 +414,16 @@ namespace Maketting.View
         {
 
             bool checkdetail = true;
+           // bool checkdetail = true;
+            //if (txtdnnumbar.Text == "")
+            //{
 
+
+            //    MessageBox.Show("Please input DN Number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    checkdetail = false;
+            //    txtdnnumbar.Focus();
+            //    return;
+            //}
 
 
             #region // detail
@@ -545,6 +554,7 @@ namespace Maketting.View
 
                         phieunhap.date_input_output = datethucnhan.Value;
                         phieunhap.Document_number = this.Loadnumberserri;
+                        phieunhap.DNNumber = txtdnnumbar.Text.Truncate(50);
                         //          phieuxuat.Unit = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_code"].Value;
                         //      phieuxuat.IssueIDsub = IssueIDsub;
                         phieunhap.LoadNumber = this.soload;

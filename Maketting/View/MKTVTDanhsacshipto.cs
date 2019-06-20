@@ -94,6 +94,7 @@ namespace Maketting.View
 
                     // txtdienthoai.Text = item.dienthoaiNVT;
                     txtcustomercode.Text = item.Customer;
+                    txtShiptocode.Text = item.ShiptoCode;
 
                     txtstreet.Text = item.Street;
 
@@ -308,7 +309,7 @@ namespace Maketting.View
             this.city = txtcity.Text;
             this.Region = txtRegion.Text;
             this.SalesOrg = txtSalesOrg.Text;
-            this.shiptocode = txtShiptocode.Text;
+            this.Customercode = txtcustomercode.Text.ToString().Trim().Truncate(50); 
 
 
 

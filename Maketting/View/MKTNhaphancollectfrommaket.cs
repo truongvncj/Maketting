@@ -533,6 +533,7 @@ namespace Maketting.View
                                 newregionupdate.ITEM_Code = item.Materiacode;
                                 newregionupdate.SAP_CODE = item.Materiacode;
                                 newregionupdate.MATERIAL = item.Materialname;
+                            
                                 //   newregionupdate.Description = item.;
                                 newregionupdate.Region = item.Region;
                                 newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);

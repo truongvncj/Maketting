@@ -1265,6 +1265,57 @@ namespace Maketting.View
             #endregion
 
 
+
+            #region  // viewcode ==16  la danh khách hàng shipto
+       //     Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 16 là danh sach shipto list
+       
+
+            if (this.viewcode == 16)
+            {
+
+
+                string makh = valuesave;
+
+                int idtk = 0;
+                try
+                {
+                    idtk = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ID"].Value;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+
+
+                View.MKTVTDanhsacshipto p = new MKTVTDanhsacshipto(4, idtk, makh);  // 4 là sửa
+
+                p.ShowDialog();
+
+                var rs = Model.MKT.shiptolistbycustomer(this.dc, makh);
+                //var rs = Model.MKT.shiptolist(this.dc);
+
+                dataGridView1.DataSource = rs;
+
+
+                this.rs = rs;
+            }
+
+
+
+            #endregion
+
+
+
+
+
+
+
+
             #region  // viewcode ==15 la dannhóm quen kho
 
 

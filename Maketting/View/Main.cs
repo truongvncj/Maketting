@@ -4943,20 +4943,32 @@ namespace Maketting.View
                     return;
 
                 }
+                //tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
+                //newregionupdate.ITEM_Code = item.Materiacode;
+                //newregionupdate.SAP_CODE = item.Materiacode;
+                //newregionupdate.MATERIAL = item.Materialname;
+                //newregionupdate.Description = item.;
+                //newregionupdate.Region = item.Region;
+                //newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                //newregionupdate.QuantityInputbyReturn = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());// 0;
 
-                //var rs6 = (from pp in dc.tbl_MKt_Listphieuheads
-                //           where pp.Gate_pass == Gatepassseru
-                //           && (pp.Status != "Delivering" || pp.Status != "completed")
+                //newregionupdate.QuantityReceipt = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());// 0;
+                //newregionupdate.DnNumber = this.ticketserri.Truncate(50);
+                //newregionupdate.DocumentNumber = this.ticketserri.Truncate(50);
 
-                //           select pp).FirstOrDefault();
-                //if (rs6 == null)
-                //{
-                //    MessageBox.Show("Phiếu chưa làm xuất hàng, please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                var rs6 = (from pp in dc.tbl_MKT_StockendRegionBudgets
+                           where pp.DocumentNumber == Gatepassseru
+                           //  && (pp.Status != "Delivering" || pp.Status != "completed")
 
-                //    return;
+                           select pp).FirstOrDefault();
+                if (rs6 != null)
+                {
+                    MessageBox.Show("Phiếu đã nhập hàng về rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                //}
+                    return;
+
+                }
 
 
 
@@ -5824,7 +5836,7 @@ namespace Maketting.View
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs1 = Model.MKT.danhkhachhangrutgon(dc);
-            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 1000, "MKT_KH");// mã 12 là danh sach khách hàng MKT
+            Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
         }
@@ -6773,12 +6785,14 @@ namespace Maketting.View
             pxk.ShowDialog();
             bool kq = pxk.kq;
             string serinumer = pxk.valuetext;
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //    newregionupdate.DocumentNumber = this.serinumer;
 
-            var checknhaproi = (from pp in dc.tbl_MKt_WHstoreissues
-                                where pp.Document_number == serinumer
-                                && pp.RecieptQuantity > 0
+            var checknhaproi = (from pp in dc.tbl_MKT_StockendRegionBudgets
+                                where pp.DocumentNumber == serinumer
+                                //    && pp.RecieptQuantity > 0
                                 select pp).FirstOrDefault();
 
             if (checknhaproi != null)
@@ -6790,11 +6804,11 @@ namespace Maketting.View
                 return;
             }
 
-    //        string connection_string = Utils.getConnectionstr();
-      //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //        string connection_string = Utils.getConnectionstr();
+            //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
-                       where  pp.Gate_pass == serinumer
+                       where pp.Region + pp.ShippingPoint + pp.Gate_pass == serinumer
                        // && pp.completed == true
 
 
@@ -7119,6 +7133,157 @@ namespace Maketting.View
 
             }
 
+        }
+
+        private void revertReturnCollectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiếu xuất kho
+            MKTvalueinput pxk = new MKTvalueinput("Please input Minute serrinumber : ");
+            pxk.ShowDialog();
+            //c
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                          where pp.DocumentNumber == Loadnumberserri
+                          select pp;
+
+                if (rs5.Count() > 0)
+                {
+                    dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs5);
+                    dc.SubmitChanges();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Minute serrinumber !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+
+            }
+        }
+
+        private void revertWrongUpdateDeliveredOfTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //phiueeys gatpaste
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT GATEPASS SERRI");
+            pxk.ShowDialog();
+            //c
+            string Gatepassseru = pxk.valuetext;
+            bool kq = pxk.kq;
+            bool check = false;
+            if (true)
+            {
+
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                #region save
+
+
+
+
+                var rs = from pp in dc.tbl_MKt_Listphieuheads
+                         where pp.Region + pp.ShippingPoint + pp.Gate_pass == Gatepassseru
+                         select pp;
+                if (rs.Count() > 0)
+                {
+                    foreach (var item in rs)
+                    {
+                        if (item.Status == "completed")
+                        {
+                            item.Status = "Delivering";
+                            item.completed = false;
+                            item.Date_Received_Issued = DateTime.Today;
+                            //    item.completedby = txtupdateby.Text;
+                            item.completedby = Utils.getusername();
+
+
+                            dc.SubmitChanges();
+
+
+                            check = true;
+
+
+
+
+                        }
+
+
+
+                    }
+                }
+                else
+                {
+
+                    MessageBox.Show("Wrong ticket serri number !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+
+
+
+                if (check == true)
+                {
+
+                    #region detai
+
+
+                    var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                              where pp.Region + pp.ShippingPoint + pp.Gate_pass == Gatepassseru
+                              select pp;
+                    if (rs.Count() > 0)
+                    {
+                        foreach (var item in rs2)
+                        {
+
+                            item.Status = "Delivering";
+                            item.Date_Received_Issued = DateTime.Today;
+                            //    item.completedby = txtupdateby.Text;
+                            item.Completed_by = Utils.getusername();
+
+
+                            dc.SubmitChanges();
+
+                        }
+                    }
+
+                    #endregion
+
+
+                }
+
+
+
+
+                #endregion
+
+
+                MessageBox.Show("Revert Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+
+
+
+            }
         }
     }
 
