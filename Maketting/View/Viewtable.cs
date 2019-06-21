@@ -670,6 +670,8 @@ namespace Maketting.View
 
 
 
+     //   Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
 
 
         public BindingSource source2;
@@ -1675,11 +1677,86 @@ namespace Maketting.View
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            //try
-            //{
+
+            #region viewdetail moverment one code of sumary
+            if (this.valuesave == "tksumarystoremovement")
+            {
+
+                //var rs = from p in dc.tbl_MKt_WHstoreissues
+                //         where p.date_input_output >= fromdate && p.date_input_output <= todate
+                //         && p.ShippingPoint == store
+                //         group p by new
+                //         {
+                //             //   pp.Region,
+                //             p.MateriaItemcode,
 
 
-            if (this.valuesave == "revertPogoodreceipt")
+
+                //         } into gg
+                //         select new
+                //         {
+                //             From_date = fromdate,
+                //             To_date = todate,
+                //             Shipping_point = store,
+
+                //             MateriaL_Item_code = gg.Key.MateriaItemcode,
+                //             MateriaL_SAP_code = gg.FirstOrDefault().Materiacode,
+                //             Material_name = gg.FirstOrDefault().Materialname,
+                //             Receipted = gg.Sum(m => m.RecieptQuantity).GetValueOrDefault(0),
+                //             Issued = gg.Sum(m => m.Issued).GetValueOrDefault(0),
+
+
+                //         };
+
+
+                //return rs;
+
+                DateTime fromdate;
+                DateTime todate;
+                string Itemcode;
+                string Shippingpoint;
+                try
+                {
+                    fromdate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["From_date"].Value;
+                    todate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["To_date"].Value;
+                    Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Shipping_point"].Value;
+                    Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaL_Item_code"].Value;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bạn phải chọn 1 sản phẩm trước ! " + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecode(dc, fromdate, todate, Shippingpoint, Itemcode);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+                
+
+
+
+
+
+
+            }
+
+
+                #endregion  viewdetail moverment one code of sumary
+
+
+                #region revert good rêcipt
+
+
+
+                if (this.valuesave == "revertPogoodreceipt")
             {
                 int id;
                 int idsub;
@@ -1776,10 +1853,13 @@ namespace Maketting.View
 
             }
 
-                #region  tìm PO
+
+            #endregion revert good rêcipt
+
+            #region  tìm PO
 
 
-                if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
+            if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
                 {
 
 
@@ -1991,8 +2071,6 @@ namespace Maketting.View
 
 
 
-
-
                 #region  view pdf file
 
                 if (this.valuesave == "Schemeprograme")
@@ -2125,16 +2203,6 @@ namespace Maketting.View
 
 
 
-
-
-
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show("Có lỗi khi clik vào: "+ex.ToString());
-            //}
 
 
 
