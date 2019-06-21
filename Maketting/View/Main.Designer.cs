@@ -74,6 +74,7 @@
             this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctOrderedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,12 +93,7 @@
             this.pOSMProgramCreatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOListManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoPhiếuMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.storeAvaiableReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsRegionProgramBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.storeDiviceByRegiomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.customerEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,7 +170,6 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.correctOrderedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -515,6 +510,12 @@
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Text = "Check inport exports detail and stock end movement";
             // 
+            // correctOrderedToolStripMenuItem
+            // 
+            this.correctOrderedToolStripMenuItem.Name = "correctOrderedToolStripMenuItem";
+            this.correctOrderedToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.correctOrderedToolStripMenuItem.Text = "Correct ordered";
+            // 
             // MenuMaketting
             // 
             this.MenuMaketting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -535,13 +536,8 @@
             this.pOSMProgramCreatToolStripMenuItem,
             this.iOListManageToolStripMenuItem,
             this.toolStripSeparator1,
-            this.toolStripMenuItem1,
-            this.báoCáoPhiếuMKTToolStripMenuItem,
-            this.toolStripSeparator14,
-            this.storeAvaiableReportsToolStripMenuItem,
-            this.reportsRegionProgramBudgetToolStripMenuItem,
-            this.toolStripSeparator11,
             this.storeDiviceByRegiomToolStripMenuItem,
+            this.reportsRegionProgramBudgetToolStripMenuItem,
             this.toolStripSeparator12,
             this.customerEditToolStripMenuItem,
             this.addCustomerAndShiptoListToolStripMenuItem});
@@ -552,7 +548,7 @@
             // lậpPhiếuXuấtĐồMKTToolStripMenuItem
             // 
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Name = "lậpPhiếuXuấtĐồMKTToolStripMenuItem";
-            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Text = "MKT Issue request";
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem.Click += new System.EventHandler(this.lậpPhiếuXuấtĐồMKTToolStripMenuItem_Click);
             // 
@@ -560,167 +556,136 @@
             // 
             this.mKTCollectedRequestToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.mKTCollectedRequestToolStripMenuItem.Name = "mKTCollectedRequestToolStripMenuItem";
-            this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.mKTCollectedRequestToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.mKTCollectedRequestToolStripMenuItem.Text = "MKT Collect request";
             this.mKTCollectedRequestToolStripMenuItem.Click += new System.EventHandler(this.mKTCollectedRequestToolStripMenuItem_Click);
             // 
             // toolStripSeparator23
             // 
             this.toolStripSeparator23.Name = "toolStripSeparator23";
-            this.toolStripSeparator23.Size = new System.Drawing.Size(301, 6);
+            this.toolStripSeparator23.Size = new System.Drawing.Size(283, 6);
             // 
             // gatePassUndeliveryListToolStripMenuItem
             // 
             this.gatePassUndeliveryListToolStripMenuItem.Name = "gatePassUndeliveryListToolStripMenuItem";
-            this.gatePassUndeliveryListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.gatePassUndeliveryListToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.gatePassUndeliveryListToolStripMenuItem.Text = "Gate pass undelivery list";
             this.gatePassUndeliveryListToolStripMenuItem.Click += new System.EventHandler(this.gatePassUndeliveryListToolStripMenuItem_Click);
             // 
             // danhSaToolStripMenuItem
             // 
             this.danhSaToolStripMenuItem.Name = "danhSaToolStripMenuItem";
-            this.danhSaToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.danhSaToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.danhSaToolStripMenuItem.Text = "Gate pass undelivery list detail";
             this.danhSaToolStripMenuItem.Click += new System.EventHandler(this.danhSaToolStripMenuItem_Click);
             // 
             // toolStripSeparator24
             // 
             this.toolStripSeparator24.Name = "toolStripSeparator24";
-            this.toolStripSeparator24.Size = new System.Drawing.Size(301, 6);
+            this.toolStripSeparator24.Size = new System.Drawing.Size(283, 6);
             // 
             // tậpHợpPhiếuMKTTrảVềToolStripMenuItem
             // 
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Name = "tậpHợpPhiếuMKTTrảVềToolStripMenuItem";
-            this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Text = "Update Gate pass delivered ";
             this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem.Click += new System.EventHandler(this.tậpHợpPhiếuMKTTrảVềToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(301, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(283, 6);
             // 
             // inputPOToolStripMenuItem
             // 
             this.inputPOToolStripMenuItem.Name = "inputPOToolStripMenuItem";
-            this.inputPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.inputPOToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.inputPOToolStripMenuItem.Text = "PO Input ";
             this.inputPOToolStripMenuItem.Click += new System.EventHandler(this.inputPOToolStripMenuItem_Click);
             // 
             // pOListToolStripMenuItem
             // 
             this.pOListToolStripMenuItem.Name = "pOListToolStripMenuItem";
-            this.pOListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.pOListToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.pOListToolStripMenuItem.Text = "PO Detail List Reports";
             this.pOListToolStripMenuItem.Click += new System.EventHandler(this.pOListToolStripMenuItem_Click);
             // 
             // pORToolStripMenuItem
             // 
             this.pORToolStripMenuItem.Name = "pORToolStripMenuItem";
-            this.pORToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.pORToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.pORToolStripMenuItem.Text = "PO Detail by region list Reports";
             this.pORToolStripMenuItem.Click += new System.EventHandler(this.pORToolStripMenuItem_Click);
             // 
             // storeInputDetailByPOToolStripMenuItem
             // 
             this.storeInputDetailByPOToolStripMenuItem.Name = "storeInputDetailByPOToolStripMenuItem";
-            this.storeInputDetailByPOToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.storeInputDetailByPOToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.storeInputDetailByPOToolStripMenuItem.Text = "PO Reciepted List";
             this.storeInputDetailByPOToolStripMenuItem.Click += new System.EventHandler(this.storeInputDetailByPOToolStripMenuItem_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(301, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(283, 6);
             // 
             // channelManageToolStripMenuItem
             // 
             this.channelManageToolStripMenuItem.Name = "channelManageToolStripMenuItem";
-            this.channelManageToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.channelManageToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.channelManageToolStripMenuItem.Text = "Channel manage";
             this.channelManageToolStripMenuItem.Click += new System.EventHandler(this.channelManageToolStripMenuItem_Click);
             // 
             // pOSMProgramCreatToolStripMenuItem
             // 
             this.pOSMProgramCreatToolStripMenuItem.Name = "pOSMProgramCreatToolStripMenuItem";
-            this.pOSMProgramCreatToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.pOSMProgramCreatToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.pOSMProgramCreatToolStripMenuItem.Text = "Create POSM Progarm";
             this.pOSMProgramCreatToolStripMenuItem.Click += new System.EventHandler(this.pOSMProgramCreatToolStripMenuItem_Click);
             // 
             // iOListManageToolStripMenuItem
             // 
             this.iOListManageToolStripMenuItem.Name = "iOListManageToolStripMenuItem";
-            this.iOListManageToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.iOListManageToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.iOListManageToolStripMenuItem.Text = "IO list manage";
             this.iOListManageToolStripMenuItem.Click += new System.EventHandler(this.iOListManageToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(301, 6);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
-            this.toolStripMenuItem1.Text = "Status Gate pass by region reports";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click_3);
-            // 
-            // báoCáoPhiếuMKTToolStripMenuItem
-            // 
-            this.báoCáoPhiếuMKTToolStripMenuItem.Name = "báoCáoPhiếuMKTToolStripMenuItem";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.báoCáoPhiếuMKTToolStripMenuItem.Text = "Status Gate pass  reports";
-            this.báoCáoPhiếuMKTToolStripMenuItem.Click += new System.EventHandler(this.báoCáoPhiếuMKTToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(301, 6);
-            // 
-            // storeAvaiableReportsToolStripMenuItem
-            // 
-            this.storeAvaiableReportsToolStripMenuItem.Name = "storeAvaiableReportsToolStripMenuItem";
-            this.storeAvaiableReportsToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.storeAvaiableReportsToolStripMenuItem.Text = "Store avaiable reports";
-            this.storeAvaiableReportsToolStripMenuItem.Click += new System.EventHandler(this.storeAvaiableReportsToolStripMenuItem_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(283, 6);
             // 
             // reportsRegionProgramBudgetToolStripMenuItem
             // 
             this.reportsRegionProgramBudgetToolStripMenuItem.Name = "reportsRegionProgramBudgetToolStripMenuItem";
-            this.reportsRegionProgramBudgetToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.reportsRegionProgramBudgetToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.reportsRegionProgramBudgetToolStripMenuItem.Text = "Store region budget reports";
             this.reportsRegionProgramBudgetToolStripMenuItem.Click += new System.EventHandler(this.reportsRegionProgramBudgetToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(301, 6);
             // 
             // storeDiviceByRegiomToolStripMenuItem
             // 
             this.storeDiviceByRegiomToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.storeDiviceByRegiomToolStripMenuItem.Name = "storeDiviceByRegiomToolStripMenuItem";
-            this.storeDiviceByRegiomToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.storeDiviceByRegiomToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.storeDiviceByRegiomToolStripMenuItem.Text = "Divide Store for  region";
             this.storeDiviceByRegiomToolStripMenuItem.Click += new System.EventHandler(this.storeDiviceByRegiomToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(301, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(283, 6);
             // 
             // customerEditToolStripMenuItem
             // 
             this.customerEditToolStripMenuItem.Name = "customerEditToolStripMenuItem";
-            this.customerEditToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.customerEditToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.customerEditToolStripMenuItem.Text = "Customer edit";
             this.customerEditToolStripMenuItem.Click += new System.EventHandler(this.customerEditToolStripMenuItem_Click);
             // 
             // addCustomerAndShiptoListToolStripMenuItem
             // 
             this.addCustomerAndShiptoListToolStripMenuItem.Name = "addCustomerAndShiptoListToolStripMenuItem";
-            this.addCustomerAndShiptoListToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.addCustomerAndShiptoListToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
             this.addCustomerAndShiptoListToolStripMenuItem.Text = "AddCustomer and shipto list";
             this.addCustomerAndShiptoListToolStripMenuItem.Click += new System.EventHandler(this.addCustomerAndShiptoListToolStripMenuItem_Click);
             // 
@@ -1264,12 +1229,6 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // correctOrderedToolStripMenuItem
-            // 
-            this.correctOrderedToolStripMenuItem.Name = "correctOrderedToolStripMenuItem";
-            this.correctOrderedToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.correctOrderedToolStripMenuItem.Text = "Correct ordered";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1307,7 +1266,6 @@
         private ToolStripMenuItem Menureports;
         private ToolStripMenuItem MenuMaketting;
         private ToolStripMenuItem lậpPhiếuXuấtĐồMKTToolStripMenuItem;
-        private ToolStripMenuItem báoCáoPhiếuMKTToolStripMenuItem;
         private ToolStripMenuItem tậpHợpPhiếuMKTTrảVềToolStripMenuItem;
         private ToolStripMenuItem Menuload;
         private ToolStripMenuItem danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem;
@@ -1318,7 +1276,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem inputPOToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripMenuItem storeAvaiableReportsToolStripMenuItem;
         private ToolStripMenuItem inventoryToolStripMenuItem;
         private ToolStripMenuItem statusGatepassReportsToolStripMenuItem;
         private ToolStripMenuItem inventoryApprovalToolStripMenuItem;
@@ -1350,7 +1307,6 @@
         private ToolStripMenuItem storeBalanceOnDateToolStripMenuItem;
         private ToolStripMenuItem inOutStoreReportsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator10;
-        private ToolStripSeparator toolStripSeparator11;
         private ToolStripMenuItem salesOrgListToolStripMenuItem;
         private ToolStripMenuItem regionListToolStripMenuItem;
         private ToolStripMenuItem channelListToolStripMenuItem;
@@ -1363,7 +1319,6 @@
         private ToolStripSeparator toolStripSeparator13;
         private ToolStripMenuItem settlementToolStripMenuItem;
         private ToolStripMenuItem updateGatePassDeliveredToolStripMenuItem1;
-        private ToolStripSeparator toolStripSeparator14;
         private ToolStripMenuItem reportsRegionProgramBudgetToolStripMenuItem;
         private ToolStripMenuItem gatepassHavePOSMReturnToolStripMenuItem;
         private ToolStripMenuItem viewStockCountToolStripMenuItem;
@@ -1375,7 +1330,6 @@
         private ToolStripMenuItem pOSMProgramCreatToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripMenuItem setPOSMProgarm2ToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem storeInputDetailByPOToolStripMenuItem;
         private ToolStripMenuItem pOListToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator17;

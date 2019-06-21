@@ -3221,27 +3221,27 @@ namespace Maketting.View
 
         private void báoCáoPhiếuMKTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTFromdatetodate datepick = new MKTFromdatetodate();
-            datepick.ShowDialog();
+            //MKTFromdatetodate datepick = new MKTFromdatetodate();
+            //datepick.ShowDialog();
 
-            DateTime fromdate = datepick.fromdate;
-            DateTime todate = datepick.todate;
-            bool kq = datepick.chon;
+            //DateTime fromdate = datepick.fromdate;
+            //DateTime todate = datepick.todate;
+            //bool kq = datepick.chon;
 
-            if (kq) // nueeus có chọn
-            {
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //if (kq) // nueeus có chọn
+            //{
+            //    string connection_string = Utils.getConnectionstr();
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatus(dc, fromdate, todate);
-
-
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
-
-                viewtbl.ShowDialog();
+            //    IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatus(dc, fromdate, todate);
 
 
-            }
+            //    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            //    viewtbl.ShowDialog();
+
+
+            //}
 
 
         }
@@ -3581,94 +3581,94 @@ namespace Maketting.View
         private void storeAvaiableReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
+            //List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            //string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            ///
-            string username = Utils.getusername();
-            string rightkho = Model.Username.getmaquyenkho();
-            string region = Model.Username.getuseRegion();
+            /////
+            //string username = Utils.getusername();
+            //string rightkho = Model.Username.getmaquyenkho();
+            //string region = Model.Username.getuseRegion();
 
-            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
-
-
-            ///
-
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                      where (from gg in dc.tbl_MKT_StoreRights
-                             where gg.storeright == rightkho
-                             select gg.makho).Contains(pp.makho)
-                      select pp;
-            foreach (var item2 in rs1)
+            ////    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
 
-            {
-                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
-            }
+            /////
+
+            //var rs1 = from pp in dc.tbl_MKT_khoMKTs
+            //          where (from gg in dc.tbl_MKT_StoreRights
+            //                 where gg.storeright == rightkho
+            //                 select gg.makho).Contains(pp.makho)
+            //          select pp;
+            //foreach (var item2 in rs1)
 
 
-            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
-            choosesl.ShowDialog();
-
-            string storelocation = choosesl.value;
-            bool kq = choosesl.kq;
-            if (kq)
-            {
-
+            //{
+            //    View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+            //    cb.Value = item2.makho.Trim();
+            //    cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+            //    CombomCollection.Add(cb);
+            //}
 
 
-                var rs5 = from pp in dc.tbl_MKT_Stockends
-                          where pp.Store_code == storelocation
-                          select new
-                          {
+            //MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            //choosesl.ShowDialog();
 
-                              pp.Store_code,
-                              pp.SAP_CODE,
-                              pp.ITEM_Code,
-
-                              // pp.RegionBudgeted,
+            //string storelocation = choosesl.value;
+            //bool kq = choosesl.kq;
+            //if (kq)
+            //{
 
 
-                              pp.MATERIAL,
 
-                              pp.Description,
+            //    var rs5 = from pp in dc.tbl_MKT_Stockends
+            //              where pp.Store_code == storelocation
+            //              select new
+            //              {
 
-                              pp.END_STOCK,
-                              pp.UNIT,
+            //                  pp.Store_code,
+            //                  pp.SAP_CODE,
+            //                  pp.ITEM_Code,
 
-                              pp.Ordered,
-                              pp.TransferingOUT,
-                              pp.ON_Hold,
-                              pp.Quantity_Per_Pallet,
-                              pp.End_Stock_By_Pallet,
-
-                              pp.id,
+            //                  // pp.RegionBudgeted,
 
 
-                          };
+            //                  pp.MATERIAL,
 
-                //foreach (var item in rs5)
-                //{
+            //                  pp.Description,
 
-                //    item.RegionBudgeted = Model.MKT.getBalancebuget(item.ITEM_Code, region, storelocation);
-                //    dc.SubmitChanges();
+            //                  pp.END_STOCK,
+            //                  pp.UNIT,
 
-                //}
+            //                  pp.Ordered,
+            //                  pp.TransferingOUT,
+            //                  pp.ON_Hold,
+            //                  pp.Quantity_Per_Pallet,
+            //                  pp.End_Stock_By_Pallet,
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
-                tbl.ShowDialog();
+            //                  pp.id,
 
 
+            //              };
+
+            //    //foreach (var item in rs5)
+            //    //{
+
+            //    //    item.RegionBudgeted = Model.MKT.getBalancebuget(item.ITEM_Code, region, storelocation);
+            //    //    dc.SubmitChanges();
+
+            //    //}
+
+            //    View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
+            //    tbl.ShowDialog();
 
 
 
 
-            }
+
+
+            //}
 
 
         }
@@ -4856,10 +4856,6 @@ namespace Maketting.View
 
 
 
-                //         string connection_string = Utils.getConnectionstr();
-                //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
                 var rs5 = from pp in dc.tbl_MKT_StockendRegionBudgets
                           where pp.Region == region
                           && pp.Store_code == storelocation
@@ -5319,30 +5315,30 @@ namespace Maketting.View
 
         private void toolStripMenuItem1_Click_3(object sender, EventArgs e)
         {
-            MKTFromdatetodateRegion datepick = new MKTFromdatetodateRegion();
-            datepick.ShowDialog();
+            //MKTFromdatetodateRegion datepick = new MKTFromdatetodateRegion();
+            //datepick.ShowDialog();
 
-            DateTime fromdate = datepick.fromdate;
-            DateTime todate = datepick.todate;
-            string region = datepick.region;
-            string statusphieu = datepick.ststusphieu.Trim();
+            //DateTime fromdate = datepick.fromdate;
+            //DateTime todate = datepick.todate;
+            //string region = datepick.region;
+            //string statusphieu = datepick.ststusphieu.Trim();
 
-            bool kq = datepick.chon;
+            //bool kq = datepick.chon;
 
-            if (kq) // nueeus có chọn
-            {
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            //if (kq) // nueeus có chọn
+            //{
+            //    string connection_string = Utils.getConnectionstr();
+            //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region, statusphieu);
-
-
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 100 là danh sach nha nha phiếu
-
-                viewtbl.ShowDialog();
+            //    IQueryable rs = Model.MKT.DanhsachPhieuMKTandstatusbyregion(dc, fromdate, todate, region, statusphieu);
 
 
-            }
+            //    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MAKETTING ", 100, "tk");// mã 100 là danh sach nha nha phiếu
+
+            //    viewtbl.ShowDialog();
+
+
+            //}
 
 
 
@@ -5835,7 +5831,7 @@ namespace Maketting.View
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs1 = Model.MKT.danhkhachhangrutgon(dc);
+            var rs1 = Model.MKT.danhkhachhang(dc);
             Viewtable viewtbl = new Viewtable(rs1, dc, "CUSTOMER LIST ", 12, "MKT_KH");// mã 12 là danh sach khách hàng MKT
 
             viewtbl.Show();
