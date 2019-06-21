@@ -1195,7 +1195,7 @@
                               <Value>=Fields!Sophieu.Value</Value>
                             </Parameter>
                           </Parameters>
-                          <Top>8.60439cm</Top>
+                          <Top>9.27114cm</Top>
                           <Left>0.14145cm</Left>
                           <Height>0.45625cm</Height>
                           <Width>18.3735cm</Width>
@@ -1229,7 +1229,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.30034in</Top>
+                              <Top>0.24791in</Top>
                               <Left>0.07167in</Left>
                               <Height>0.25in</Height>
                               <Width>1.9047in</Width>
@@ -1264,7 +1264,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.57811in</Top>
+                              <Top>0.52568in</Top>
                               <Left>0.07167in</Left>
                               <Height>0.25in</Height>
                               <Width>2.03375in</Width>
@@ -1301,7 +1301,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.02915in</Top>
+                              <Top>0.78922in</Top>
                               <Left>2.9088in</Left>
                               <Height>0.24722in</Height>
                               <Width>4.15282in</Width>
@@ -1338,7 +1338,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.02915in</Top>
+                              <Top>0.78922in</Top>
                               <Left>0.03in</Left>
                               <Height>0.25in</Height>
                               <Width>2.8788in</Width>
@@ -1375,7 +1375,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.60589in</Top>
+                              <Top>0.55346in</Top>
                               <Left>3.60097in</Left>
                               <Height>0.22222in</Height>
                               <Width>3.46065in</Width>
@@ -1412,7 +1412,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.05243in</Top>
                               <Left>0.08555in</Left>
                               <Height>0.20624in</Height>
                               <Width>2.01987in</Width>
@@ -1451,7 +1450,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.75901in</Top>
+                              <Top>2.51908in</Top>
                               <Left>0.02362in</Left>
                               <Height>0.1875in</Height>
                               <Width>5.14761in</Width>
@@ -1600,7 +1599,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.27915in</Top>
+                              <Top>1.03922in</Top>
                               <Left>0.02362in</Left>
                               <Height>1.41041in</Height>
                               <Width>2.88518in</Width>
@@ -1651,7 +1650,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.27915in</Top>
+                              <Top>1.03922in</Top>
                               <Left>2.9088in</Left>
                               <Height>1.41041in</Height>
                               <Width>4.15282in</Width>
@@ -1668,9 +1667,9 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Top>3.63663in</Top>
+                          <Top>3.87656in</Top>
                           <Left>0.07819in</Left>
-                          <Height>2.94651in</Height>
+                          <Height>2.70658in</Height>
                           <Width>7.16981in</Width>
                           <ZIndex>35</ZIndex>
                           <Style>
@@ -1679,6 +1678,78 @@
                             </Border>
                           </Style>
                         </Rectangle>
+                        <Textbox Name="Textbox59">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Note( Ghi chú):</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.33062in</Top>
+                          <Left>0.0726in</Left>
+                          <Height>0.21388in</Height>
+                          <Width>1.25601in</Width>
+                          <ZIndex>36</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox60">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ghichu.Value</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.332in</Top>
+                          <Left>1.37542in</Left>
+                          <Height>0.2in</Height>
+                          <Width>5.88345in</Width>
+                          <ZIndex>37</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <Style>
                         <Border>
@@ -1686,6 +1757,7 @@
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1764,7 +1836,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>18.62192cm</Width>
+              <Width>18.66903cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2953,7 +3025,7 @@
                               <Value>=Fields!Sophieu.Value</Value>
                             </Parameter>
                           </Parameters>
-                          <Top>8.60439cm</Top>
+                          <Top>9.11239cm</Top>
                           <Left>0.1986cm</Left>
                           <Height>0.45625cm</Height>
                           <Width>18.31635cm</Width>
@@ -2987,7 +3059,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.30034in</Top>
+                              <Top>0.25034in</Top>
                               <Left>0.07167in</Left>
                               <Height>0.25in</Height>
                               <Width>1.9047in</Width>
@@ -3022,7 +3094,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.57811in</Top>
+                              <Top>0.52811in</Top>
                               <Left>0.07167in</Left>
                               <Height>0.25in</Height>
                               <Width>2.03375in</Width>
@@ -3059,7 +3131,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.02915in</Top>
+                              <Top>0.84165in</Top>
                               <Left>2.9088in</Left>
                               <Height>0.24722in</Height>
                               <Width>4.15282in</Width>
@@ -3096,7 +3168,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.02915in</Top>
+                              <Top>0.84165in</Top>
                               <Left>0.03in</Left>
                               <Height>0.25in</Height>
                               <Width>2.8788in</Width>
@@ -3133,7 +3205,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.60589in</Top>
+                              <Top>0.55589in</Top>
                               <Left>3.60097in</Left>
                               <Height>0.22222in</Height>
                               <Width>3.46065in</Width>
@@ -3170,7 +3242,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>0.05243in</Top>
+                              <Top>0.00243in</Top>
                               <Left>0.08555in</Left>
                               <Height>0.20624in</Height>
                               <Width>2.01987in</Width>
@@ -3209,7 +3281,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>2.75901in</Top>
+                              <Top>2.57151in</Top>
                               <Left>0.02362in</Left>
                               <Height>0.1875in</Height>
                               <Width>5.14761in</Width>
@@ -3358,7 +3430,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.27915in</Top>
+                              <Top>1.09165in</Top>
                               <Left>0.02362in</Left>
                               <Height>1.41041in</Height>
                               <Width>2.88518in</Width>
@@ -3409,7 +3481,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Top>1.27915in</Top>
+                              <Top>1.09165in</Top>
                               <Left>2.9088in</Left>
                               <Height>1.41041in</Height>
                               <Width>4.15282in</Width>
@@ -3426,9 +3498,9 @@
                             </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
-                          <Top>3.63663in</Top>
+                          <Top>3.82413in</Top>
                           <Left>0.07819in</Left>
-                          <Height>2.94651in</Height>
+                          <Height>2.75901in</Height>
                           <Width>7.16981in</Width>
                           <ZIndex>35</ZIndex>
                           <Style>
@@ -3437,6 +3509,78 @@
                             </Border>
                           </Style>
                         </Rectangle>
+                        <Textbox Name="Textbox57">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Note( Ghi chú):</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.31673in</Top>
+                          <Left>0.10181in</Left>
+                          <Height>0.21388in</Height>
+                          <Width>1.25601in</Width>
+                          <ZIndex>36</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox58">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ghichu.Value</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Top>3.31811in</Top>
+                          <Left>1.40463in</Left>
+                          <Height>0.2in</Height>
+                          <Width>5.88345in</Width>
+                          <ZIndex>37</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
                       </ReportItems>
                       <Style>
                         <Border>
@@ -3511,7 +3655,7 @@
         <Top>17.47577cm</Top>
         <Left>0.17512cm</Left>
         <Height>16.88945cm</Height>
-        <Width>18.75845cm</Width>
+        <Width>18.80556cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -3528,7 +3672,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>18.93357cm</Width>
+  <Width>18.98068cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -3599,6 +3743,10 @@
         <Field Name="Barcode">
           <DataField>Barcode</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="ghichu">
+          <DataField>ghichu</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

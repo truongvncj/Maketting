@@ -472,6 +472,7 @@ thực tế thu</Value>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -808,6 +809,9 @@ thực tế thu</Value>
             </TablixMember>
             <TablixMember>
               <Group Name="Sophieu">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Sophieu.Value</GroupExpression>
+                </GroupExpressions>
                 <Filters>
                   <Filter>
                     <FilterExpression>=Fields!Sophieu.Value</FilterExpression>

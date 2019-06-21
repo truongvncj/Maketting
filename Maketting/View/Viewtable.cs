@@ -670,7 +670,7 @@ namespace Maketting.View
 
 
 
-     //   Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+        //   Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
 
 
 
@@ -719,7 +719,21 @@ namespace Maketting.View
                 lbf12stockmovementsum.Visible = true;
                 lbf9stocmovementdetail.Visible = true;
             }
+            //     Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL For this code as below ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
+            //  lbloodetailbygatepass
+            if (this.valuesave == "tkdetailnhapxuattheosanpham")
+            {
+                lbloodetailbygatepass.Visible = true;
+            }
 
+            //  
+
+
+
+            if (this.valuesave == "tksumarystoremovement")
+            {
+                lbdobleclickformore.Visible = true;
+            }
 
 
             if (viewcode == 1000) // 55 chỉ view và exports
@@ -1269,8 +1283,8 @@ namespace Maketting.View
 
 
             #region  // viewcode ==16  la danh khách hàng shipto
-       //     Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 16 là danh sach shipto list
-       
+            //     Viewtable viewtbl = new Viewtable(rs1, dc, "SHIPTO CODE LIST", 16, customercode);// mã 16 là danh sach shipto list
+
 
             if (this.viewcode == 16)
             {
@@ -1682,34 +1696,7 @@ namespace Maketting.View
             if (this.valuesave == "tksumarystoremovement")
             {
 
-                //var rs = from p in dc.tbl_MKt_WHstoreissues
-                //         where p.date_input_output >= fromdate && p.date_input_output <= todate
-                //         && p.ShippingPoint == store
-                //         group p by new
-                //         {
-                //             //   pp.Region,
-                //             p.MateriaItemcode,
 
-
-
-                //         } into gg
-                //         select new
-                //         {
-                //             From_date = fromdate,
-                //             To_date = todate,
-                //             Shipping_point = store,
-
-                //             MateriaL_Item_code = gg.Key.MateriaItemcode,
-                //             MateriaL_SAP_code = gg.FirstOrDefault().Materiacode,
-                //             Material_name = gg.FirstOrDefault().Materialname,
-                //             Receipted = gg.Sum(m => m.RecieptQuantity).GetValueOrDefault(0),
-                //             Issued = gg.Sum(m => m.Issued).GetValueOrDefault(0),
-
-
-                //         };
-
-
-                //return rs;
 
                 DateTime fromdate;
                 DateTime todate;
@@ -1734,12 +1721,12 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecode(dc, fromdate, todate, Shippingpoint, Itemcode);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
-
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL For this code as below ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
+                                                                                                                                                //  lbloodetailbygatepass
                 viewtbl.ShowDialog();
 
 
-                
+
 
 
 
@@ -1749,34 +1736,34 @@ namespace Maketting.View
             }
 
 
-                #endregion  viewdetail moverment one code of sumary
+            #endregion  viewdetail moverment one code of sumary
 
 
-                #region revert good rêcipt
+            #region revert good rêcipt
 
 
 
-                if (this.valuesave == "revertPogoodreceipt")
+            if (this.valuesave == "revertPogoodreceipt")
             {
                 int id;
                 int idsub;
                 string POnumber;
                 try
                 {
-                     id = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
-                     idsub = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Subid"].Value;
+                    id = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                    idsub = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Subid"].Value;
                     POnumber = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["POnumber"].Value;
 
                 }
                 catch (Exception)
                 {
                     return;
-                  //  throw;
+                    //  throw;
                 }
 
-         
 
-                DialogResult kq1 = MessageBox.Show("Bạn có chăc revert doc PO: " +POnumber.ToString()+" ID: "+ id.ToString()+ " Subid "+ idsub.ToString(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                DialogResult kq1 = MessageBox.Show("Bạn có chăc revert doc PO: " + POnumber.ToString() + " ID: " + id.ToString() + " Subid " + idsub.ToString(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 // bool kq;
                 switch (kq1)
                 {
@@ -1799,11 +1786,11 @@ namespace Maketting.View
 
 
                         tbl_MKt_WHstoreissue khoissue = (from pp in dc.tbl_MKt_WHstoreissues
-                                       where pp.POnumber == POnumber
-                                       && pp.id == id
-                                       && pp.IssueIDsub == idsub
+                                                         where pp.POnumber == POnumber
+                                                         && pp.id == id
+                                                         && pp.IssueIDsub == idsub
 
-                                       select pp).FirstOrDefault();
+                                                         select pp).FirstOrDefault();
 
                         if (khoissue != null)
                         {
@@ -1860,346 +1847,346 @@ namespace Maketting.View
 
 
             if (this.viewcode == 1000 && (this.valuesave == "tkRedeviceGRforRegion"))  // nếu là double clik trong mục po deviec region
+            {
+
+
+                string Ponumber = "";
+                int id;
+                int subid;
+                //pp.POnumber,
+
+
+
+                try
                 {
+                    Ponumber = (string)dataGridView1.Rows[e.RowIndex].Cells["POnumber"].Value.ToString();
+                    id = (int)dataGridView1.Rows[e.RowIndex].Cells["id"].Value;
+                    subid = (int)dataGridView1.Rows[e.RowIndex].Cells["Subid"].Value;
+
+                    //     this.Close();
+
+                    //  this.Close();
+
+                    //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Tim PO bị lỗi:" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
 
-                    string Ponumber = "";
-                    int id;
-                    int subid;
-                    //pp.POnumber,
+                MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
 
-
-
-                    try
-                    {
-                        Ponumber = (string)dataGridView1.Rows[e.RowIndex].Cells["POnumber"].Value.ToString();
-                        id = (int)dataGridView1.Rows[e.RowIndex].Cells["id"].Value;
-                        subid = (int)dataGridView1.Rows[e.RowIndex].Cells["Subid"].Value;
-
-                        //     this.Close();
-
-                        //  this.Close();
-
-                        //     region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Tim PO bị lỗi:" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-
-                    MKTNhaphangtheoPOredeviceforRegion reDevice = new MKTNhaphangtheoPOredeviceforRegion(Ponumber, id, subid);
-
-                    reDevice.Show();
+                reDevice.Show();
 
 
 
+            }
+
+
+
+            #endregion
+
+
+            #region  viewdetail 100 tạo phieu               phiếu
+            if (this.viewcode == 100 && (this.valuesave == "tk" || this.valuesave == "tkhead"))
+            {
+
+                if (!Username.getMakettingright())
+                {
+                    //  View.MKTNoouthourise view = new MKTNoouthourise();
+                    //   view.ShowDialog();
+                    return;
+                }
+
+
+                string sophieufind = "";
+                // string region = "";
+                string storelocationfind = "";
+                //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+                try
+                {
+                    sophieufind = this.dataGridView1.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
+                    storelocationfind = this.dataGridView1.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
+                    //  region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Tìm số phiếu bị lỗi: " + ex.ToString());
+                    //     this.phieuchiid = 0;
+                }
+
+                View.Main main = new Main();
+
+
+                //    MKTissuereturnRequest
+
+                var ktrabienban = (from pp in dc.tbl_MKt_Listphieuheads
+                                   where pp.ShippingPoint == storelocationfind
+                                   && pp.Gate_pass == sophieufind
+
+                                   select pp.requestReturn).FirstOrDefault();
+
+
+
+                if (ktrabienban == true)
+                {
+                    View.MKTissuereturnRequest accsup1 = new MKTissuereturnRequest(main, sophieufind, storelocationfind);
+                    accsup1.ShowDialog();
+
+                }
+                else
+                {
+                    View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind, storelocationfind);
+                    accsup.ShowDialog();
                 }
 
 
 
-                #endregion
 
 
-                #region  viewdetail 100 tạo phieu               phiếu
-                if (this.viewcode == 100 && (this.valuesave == "tk" || this.valuesave == "tkhead"))
+                //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
+
+
+            }
+            #endregion
+
+            #region  // viewcode ==55  sửa code sản phẩm
+
+
+            if (this.viewcode == 55 && this.valuesave == "STORERPT")
+            {
+
+
+                if (!Username.getchangeProductright())
                 {
-
-                    if (!Username.getMakettingright())
-                    {
-                        //  View.MKTNoouthourise view = new MKTNoouthourise();
-                        //   view.ShowDialog();
-                        return;
-                    }
-
-
-                    string sophieufind = "";
-                    // string region = "";
-                    string storelocationfind = "";
-                    //      LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-                    try
-                    {
-                        sophieufind = this.dataGridView1.Rows[e.RowIndex].Cells["Gate_pass"].Value.ToString();
-                        storelocationfind = this.dataGridView1.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
-                        //  region = this.dataGridView1.Rows[e.RowIndex].Cells["Region"].Value.ToString();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Tìm số phiếu bị lỗi: " +ex.ToString());
-                        //     this.phieuchiid = 0;
-                    }
-
-                    View.Main main = new Main();
-
-
-                    //    MKTissuereturnRequest
-
-                    var ktrabienban = (from pp in dc.tbl_MKt_Listphieuheads
-                                       where pp.ShippingPoint == storelocationfind
-                                       && pp.Gate_pass == sophieufind
-
-                                       select pp.requestReturn).FirstOrDefault();
-
-
-
-                    if (ktrabienban == true)
-                    {
-                        View.MKTissuereturnRequest accsup1 = new MKTissuereturnRequest(main, sophieufind, storelocationfind);
-                        accsup1.ShowDialog();
-
-                    }
-                    else
-                    {
-                        View.MKTissuephieu2 accsup = new MKTissuephieu2(main, sophieufind, storelocationfind);
-                        accsup.ShowDialog();
-                    }
-
-
-
-
-
-                    //    MKTissuephieu2 viewphieu = new MKTissuephieu2()
-
-
-                }
-                #endregion
-
-                #region  // viewcode ==55  sửa code sản phẩm
-
-
-                if (this.viewcode == 55 && this.valuesave == "STORERPT")
-                {
-
-
-                    if (!Username.getchangeProductright())
-                    {
-                        //  View.MKTNoouthourise view = new MKTNoouthourise();
-                        //   view.ShowDialog();
-                        return;
-                    }
-
-
-
-
-                    //       string makh = valuesave;
-
-
-                    int idsanpham = 0;
-                    string storelocation = "";
-                    //    int idtk = 0;
-                    try
-                    {
-                        idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
-                        storelocation = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
-                    }
-                    catch (Exception)
-                    {
-
-                        MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-
-
-
-
-
-
-
-
-                    View.MKTsanphammoi p = new MKTsanphammoi(4, idsanpham, storelocation, this);  // 3 là thêm ới
-
-                    p.ShowDialog();
-
-                    //var rs6 = from pp in dc.tbl_MKT_StockendTMPs
-                    //          where pp.Username == valuesave
-                    //          select pp;
-
-
-
-
-                    //this.dataGridView1.DataSource = rs6;
-                    // Reloadtonkhotheolocation(this, storelocation);
-
-                    var rs6 = from pp in dc.tbl_MKT_Stockends
-                              where pp.Store_code == storelocation
-                              select new
-                              {
-
-                                  pp.Store_code,
-                                  pp.SAP_CODE,
-                                  pp.ITEM_Code,
-
-                                  // pp.RegionBudgeted,
-
-
-                                  pp.MATERIAL,
-
-                                  pp.Description,
-
-                                  pp.END_STOCK,
-                                  pp.UNIT,
-
-                                  pp.Ordered,
-                                  pp.TransferingOUT,
-                                  pp.ON_Hold,
-                                  pp.Quantity_Per_Pallet,
-                                  pp.End_Stock_By_Pallet,
-
-                                  pp.id,
-
-
-                              };
-
-
-
-                    this.dataGridView1.DataSource = rs6;
-
-                    //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
-
-                    this.rs = rs6;
-
-
-
-
+                    //  View.MKTNoouthourise view = new MKTNoouthourise();
+                    //   view.ShowDialog();
+                    return;
                 }
 
 
 
-                #endregion
+
+                //       string makh = valuesave;
 
 
-
-                #region  view pdf file
-
-                if (this.valuesave == "Schemeprograme")
+                int idsanpham = 0;
+                string storelocation = "";
+                //    int idtk = 0;
+                try
+                {
+                    idsanpham = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                    storelocation = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                }
+                catch (Exception)
                 {
 
-                    //     view file pdf  programe
-                    {
+                    MessageBox.Show("Bạn phải chọn một dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                        if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != "")
+
+
+
+
+
+
+
+
+                View.MKTsanphammoi p = new MKTsanphammoi(4, idsanpham, storelocation, this);  // 3 là thêm ới
+
+                p.ShowDialog();
+
+                //var rs6 = from pp in dc.tbl_MKT_StockendTMPs
+                //          where pp.Username == valuesave
+                //          select pp;
+
+
+
+
+                //this.dataGridView1.DataSource = rs6;
+                // Reloadtonkhotheolocation(this, storelocation);
+
+                var rs6 = from pp in dc.tbl_MKT_Stockends
+                          where pp.Store_code == storelocation
+                          select new
+                          {
+
+                              pp.Store_code,
+                              pp.SAP_CODE,
+                              pp.ITEM_Code,
+
+                              // pp.RegionBudgeted,
+
+
+                              pp.MATERIAL,
+
+                              pp.Description,
+
+                              pp.END_STOCK,
+                              pp.UNIT,
+
+                              pp.Ordered,
+                              pp.TransferingOUT,
+                              pp.ON_Hold,
+                              pp.Quantity_Per_Pallet,
+                              pp.End_Stock_By_Pallet,
+
+                              pp.id,
+
+
+                          };
+
+
+
+                this.dataGridView1.DataSource = rs6;
+
+                //   dataGridView1.Columns["End_Stock_By_Pallet"].DefaultCellStyle.Format = "N0";
+
+                this.rs = rs6;
+
+
+
+
+            }
+
+
+
+            #endregion
+
+
+
+            #region  view pdf file
+
+            if (this.valuesave == "Schemeprograme")
+            {
+
+                //     view file pdf  programe
+                {
+
+                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != "")
+                    {
+                        #region
+
+
+
+
+                        string ProgrameIDDocno = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value;
+
+
+
+                        SaveFileDialog thedialog = new SaveFileDialog();
+                        //
+
+
+                        //   datagridview datagridview1 = new datagridview();
+                        //   datagridview1.datasource = datagrid.datasource;
+
+                        thedialog.Title = "export: " + ProgrameIDDocno + "  to PDF file";
+                        thedialog.Filter = "PDF files|*.pdf";
+                        thedialog.InitialDirectory = @"c:\";
+                        thedialog.FileName = "downloadfile";
+
+
+                        if (thedialog.ShowDialog() == DialogResult.OK)
                         {
-                            #region
 
+                            string filePath = thedialog.FileName.ToString();
 
+                            //     string id;
+                            //       FileStream FS = null;
 
-
-                            string ProgrameIDDocno = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value;
-
-
-
-                            SaveFileDialog thedialog = new SaveFileDialog();
-                            //
-
-
-                            //   datagridview datagridview1 = new datagridview();
-                            //   datagridview1.datasource = datagrid.datasource;
-
-                            thedialog.Title = "export: " + ProgrameIDDocno + "  to PDF file";
-                            thedialog.Filter = "PDF files|*.pdf";
-                            thedialog.InitialDirectory = @"c:\";
-                            thedialog.FileName = "downloadfile";
-
-
-                            if (thedialog.ShowDialog() == DialogResult.OK)
+                            //      byte[] dbbyte;
+                            try
                             {
+                                //Get a stored PDF bytes
+                                //   dbbyte = (byte[])dr["UploadFiles"];
 
-                                string filePath = thedialog.FileName.ToString();
 
-                                //     string id;
-                                //       FileStream FS = null;
+                                //store file Temporarily 
+                                string connection_string = Utils.getConnectionstr();
+                                var db = new LinqtoSQLDataContext(connection_string);
 
-                                //      byte[] dbbyte;
-                                try
+                                //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
+
+                                using (SqlConnection sqlconnection = new SqlConnection(connection_string))
                                 {
-                                    //Get a stored PDF bytes
-                                    //   dbbyte = (byte[])dr["UploadFiles"];
+                                    sqlconnection.Open();
+
+                                    string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
+
+                                    // Read File content from Sql Table 
+                                    SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
+
+                                    selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
 
 
-                                    //store file Temporarily 
-                                    string connection_string = Utils.getConnectionstr();
-                                    var db = new LinqtoSQLDataContext(connection_string);
-
-                                    //          using (var sqlWrite = new SqlCommand("insert into tbl_MKT_Programepdfdata (Name,Contentype,Data,ProgrameIDDocno)" + " values (@Name, @type, @Data, @ProgrameIDDocno)", varConnection))
-
-                                    using (SqlConnection sqlconnection = new SqlConnection(connection_string))
+                                    SqlDataReader reader = selectCommand.ExecuteReader();
+                                    if (reader.Read())
                                     {
-                                        sqlconnection.Open();
+                                        byte[] fileData = (byte[])reader[0];
 
-                                        string selectQuery = string.Format(@"Select tbl_MKT_Programepdfdata.Data   From tbl_MKT_Programepdfdata  Where tbl_MKT_Programepdfdata.ProgrameIDDocno = @ProgrameIDDocno");
-
-                                        // Read File content from Sql Table 
-                                        SqlCommand selectCommand = new SqlCommand(selectQuery, sqlconnection);
-
-                                        selectCommand.Parameters.Add("@ProgrameIDDocno", SqlDbType.NVarChar).Value = Utils.Truncate(ProgrameIDDocno, 50);
-
-
-                                        SqlDataReader reader = selectCommand.ExecuteReader();
-                                        if (reader.Read())
-                                        {
-                                            byte[] fileData = (byte[])reader[0];
-
-                                            // Write/Export File content into new text file
-                                            File.WriteAllBytes(filePath, fileData);
-                                        }
+                                        // Write/Export File content into new text file
+                                        File.WriteAllBytes(filePath, fileData);
                                     }
-
-
-                                    //Assign File path create file
-
-
-                                    //     FS = new FileStream(filepath, System.IO.FileMode.Create);
-
-
-
-                                    //Write bytes to create file
-                                    //    FS.Write(dbbyte, 0, dbbyte.Length);
-
-
-
-                                    // Open file after write 
-                                    //Create instance for process class
-                                    Process Proc = new Process();
-                                    //assign file path for process
-                                    Proc.StartInfo.FileName = filePath;
-                                    Proc.Start();
-                                }
-                                catch (Exception ex)
-                                {
-                                    // throw new System.ArgumentException(ex.Message);
-
-                                    //  ex.Message.ToString();
-                                    MessageBox.Show(ex.ToString());
-                                }
-                                finally
-                                {
-                                    //Close FileStream instance
-                                    //   FS.Close();
                                 }
 
 
+                                //Assign File path create file
+
+
+                                //     FS = new FileStream(filepath, System.IO.FileMode.Create);
 
 
 
+                                //Write bytes to create file
+                                //    FS.Write(dbbyte, 0, dbbyte.Length);
 
 
 
+                                // Open file after write 
+                                //Create instance for process class
+                                Process Proc = new Process();
+                                //assign file path for process
+                                Proc.StartInfo.FileName = filePath;
+                                Proc.Start();
+                            }
+                            catch (Exception ex)
+                            {
+                                // throw new System.ArgumentException(ex.Message);
 
-
+                                //  ex.Message.ToString();
+                                MessageBox.Show(ex.ToString());
+                            }
+                            finally
+                            {
+                                //Close FileStream instance
+                                //   FS.Close();
                             }
 
 
-                            #endregion
+
+
+
+
+
+
 
 
                         }
 
+
+                        #endregion
+
+
                     }
 
                 }
-                #endregion
+
+            }
+            #endregion
 
 
 

@@ -2525,13 +2525,14 @@ namespace Maketting.View
                 lastgatepass = item.Gate_pass;
 
 
-                if (item.Returnrequest != null)
+                if (item.Returnrequest >0 )
                 {
                     detailpx.thuhang = true;
                     detailpx.soluong = item.Returnrequest;
                     detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Returnrequest.ToString()));
                 }
-                else
+
+                if (item.Issued > 0)
                 {
                     detailpx.thuhang = false;
                     detailpx.soluong = item.Issued;

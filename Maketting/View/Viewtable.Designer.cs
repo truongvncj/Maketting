@@ -33,6 +33,8 @@ namespace Maketting.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Viewtable));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbf12stockmovementsum = new System.Windows.Forms.Label();
+            this.lbf9stocmovementdetail = new System.Windows.Forms.Label();
             this.lb_lookdetail = new System.Windows.Forms.Label();
             this.lbseach = new System.Windows.Forms.Label();
             this.btaddto = new System.Windows.Forms.Button();
@@ -55,8 +57,8 @@ namespace Maketting.View
             this.lb_bilingqtt = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbf9stocmovementdetail = new System.Windows.Forms.Label();
-            this.lbf12stockmovementsum = new System.Windows.Forms.Label();
+            this.lbloodetailbygatepass = new System.Windows.Forms.Label();
+            this.lbdobleclickformore = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.Pl_endview.SuspendLayout();
@@ -84,6 +86,8 @@ namespace Maketting.View
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.lbdobleclickformore);
+            this.panel2.Controls.Add(this.lbloodetailbygatepass);
             this.panel2.Controls.Add(this.lbf12stockmovementsum);
             this.panel2.Controls.Add(this.lbf9stocmovementdetail);
             this.panel2.Controls.Add(this.lb_lookdetail);
@@ -96,6 +100,30 @@ namespace Maketting.View
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1332, 28);
             this.panel2.TabIndex = 45;
+            // 
+            // lbf12stockmovementsum
+            // 
+            this.lbf12stockmovementsum.AutoSize = true;
+            this.lbf12stockmovementsum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbf12stockmovementsum.ForeColor = System.Drawing.Color.Red;
+            this.lbf12stockmovementsum.Location = new System.Drawing.Point(337, 4);
+            this.lbf12stockmovementsum.Name = "lbf12stockmovementsum";
+            this.lbf12stockmovementsum.Size = new System.Drawing.Size(223, 20);
+            this.lbf12stockmovementsum.TabIndex = 10;
+            this.lbf12stockmovementsum.Text = "F12- Stock Movement Sumary";
+            this.lbf12stockmovementsum.Visible = false;
+            // 
+            // lbf9stocmovementdetail
+            // 
+            this.lbf9stocmovementdetail.AutoSize = true;
+            this.lbf9stocmovementdetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbf9stocmovementdetail.ForeColor = System.Drawing.Color.Red;
+            this.lbf9stocmovementdetail.Location = new System.Drawing.Point(582, 5);
+            this.lbf9stocmovementdetail.Name = "lbf9stocmovementdetail";
+            this.lbf9stocmovementdetail.Size = new System.Drawing.Size(201, 20);
+            this.lbf9stocmovementdetail.TabIndex = 9;
+            this.lbf9stocmovementdetail.Text = "F9- Stock Movement Detail";
+            this.lbf9stocmovementdetail.Visible = false;
             // 
             // lb_lookdetail
             // 
@@ -357,29 +385,29 @@ namespace Maketting.View
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridView1_Paint);
             // 
-            // lbf9stocmovementdetail
+            // lbloodetailbygatepass
             // 
-            this.lbf9stocmovementdetail.AutoSize = true;
-            this.lbf9stocmovementdetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbf9stocmovementdetail.ForeColor = System.Drawing.Color.Red;
-            this.lbf9stocmovementdetail.Location = new System.Drawing.Point(582, 5);
-            this.lbf9stocmovementdetail.Name = "lbf9stocmovementdetail";
-            this.lbf9stocmovementdetail.Size = new System.Drawing.Size(201, 20);
-            this.lbf9stocmovementdetail.TabIndex = 9;
-            this.lbf9stocmovementdetail.Text = "F9- Stock Movement Detail";
-            this.lbf9stocmovementdetail.Visible = false;
+            this.lbloodetailbygatepass.AutoSize = true;
+            this.lbloodetailbygatepass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbloodetailbygatepass.ForeColor = System.Drawing.Color.Red;
+            this.lbloodetailbygatepass.Location = new System.Drawing.Point(641, 4);
+            this.lbloodetailbygatepass.Name = "lbloodetailbygatepass";
+            this.lbloodetailbygatepass.Size = new System.Drawing.Size(208, 20);
+            this.lbloodetailbygatepass.TabIndex = 11;
+            this.lbloodetailbygatepass.Text = "F6- Look detail by Gatepass";
+            this.lbloodetailbygatepass.Visible = false;
             // 
-            // lbf12stockmovementsum
+            // lbdobleclickformore
             // 
-            this.lbf12stockmovementsum.AutoSize = true;
-            this.lbf12stockmovementsum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbf12stockmovementsum.ForeColor = System.Drawing.Color.Red;
-            this.lbf12stockmovementsum.Location = new System.Drawing.Point(337, 4);
-            this.lbf12stockmovementsum.Name = "lbf12stockmovementsum";
-            this.lbf12stockmovementsum.Size = new System.Drawing.Size(223, 20);
-            this.lbf12stockmovementsum.TabIndex = 10;
-            this.lbf12stockmovementsum.Text = "F12- Stock Movement Sumary";
-            this.lbf12stockmovementsum.Visible = false;
+            this.lbdobleclickformore.AutoSize = true;
+            this.lbdobleclickformore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdobleclickformore.ForeColor = System.Drawing.Color.Red;
+            this.lbdobleclickformore.Location = new System.Drawing.Point(380, 4);
+            this.lbdobleclickformore.Name = "lbdobleclickformore";
+            this.lbdobleclickformore.Size = new System.Drawing.Size(199, 20);
+            this.lbdobleclickformore.TabIndex = 12;
+            this.lbdobleclickformore.Text = "Double click for more detail";
+            this.lbdobleclickformore.Visible = false;
             // 
             // Viewtable
             // 
@@ -437,5 +465,7 @@ namespace Maketting.View
         private System.Windows.Forms.Label lb_lookdetail;
         private System.Windows.Forms.Label lbf12stockmovementsum;
         private System.Windows.Forms.Label lbf9stocmovementdetail;
+        private System.Windows.Forms.Label lbloodetailbygatepass;
+        private System.Windows.Forms.Label lbdobleclickformore;
     }
 }

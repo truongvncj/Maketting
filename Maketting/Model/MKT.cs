@@ -531,10 +531,16 @@ namespace Maketting.Model
                      orderby p.date_input_output
                      select new
                      {
-                         
-                         Input_Output_date = p.date_input_output,
+                         From_date = fromdate,
+                         To_date = todate,
                          p.Document_number,
                          p.DNNumber,
+                         p.POnumber,
+                         p.Transfer_number,
+                         p.LoadNumber,
+
+                         Input_Output_date = p.date_input_output,
+                       
 
                          p.Materiacode,
                          p.MateriaItemcode,
@@ -546,8 +552,8 @@ namespace Maketting.Model
 
                          p.Username,
 
-                     //    p.IssueIDsub,
-                     //    p.id,
+                       //  p.IssueIDsub,
+                         p.id,
 
 
 
@@ -701,7 +707,7 @@ namespace Maketting.Model
         public static IQueryable DanhsacHSTOCKMOVEmentsUMMARY(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
         {
 
-            
+
 
 
             var rs = from p in dc.tbl_MKt_WHstoreissues
@@ -729,7 +735,7 @@ namespace Maketting.Model
 
 
                      };
-         
+
 
             return rs;
 
@@ -774,7 +780,7 @@ namespace Maketting.Model
                          p.Gate_pass,
                          Date_MKT_Phiếu = p.Ngaytaophieu,
                          IO = p.Purposeid,
-                         
+
                          p.Purpose,
                          p.Note,
                          p.Status,
@@ -782,7 +788,7 @@ namespace Maketting.Model
                          p.ShipmentNumber,
                          Shipment_created_date = p.Delivery_date,
                          p.Shipmentby,
-                   
+
                          p.Customer_SAP_Code,
                          p.Receiver_by,
                          p.Tel,
@@ -796,7 +802,7 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
-                         Return_request =        p.Returnrequest,
+                         Return_request = p.Returnrequest,
                          Pallet = p.pallet,
                          Issued_created_date = p.Issued_dated,
                          Issued_by = p.Loadingby,
