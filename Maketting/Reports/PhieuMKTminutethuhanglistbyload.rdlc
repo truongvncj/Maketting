@@ -583,6 +583,7 @@
                           </Style>
                         </Textbox>
                         <Textbox Name="Textbox38">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -605,7 +606,7 @@
                           <Top>3.67325in</Top>
                           <Left>1.80396in</Left>
                           <Height>0.19445in</Height>
-                          <Width>5.27303in</Width>
+                          <Width>5.17377in</Width>
                           <ZIndex>11</ZIndex>
                           <Style>
                             <Border>
@@ -641,7 +642,7 @@
                           <Top>3.44825in</Top>
                           <Left>1.77628in</Left>
                           <Height>0.20833in</Height>
-                          <Width>3.05501in</Width>
+                          <Width>5.20145in</Width>
                           <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
@@ -944,7 +945,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

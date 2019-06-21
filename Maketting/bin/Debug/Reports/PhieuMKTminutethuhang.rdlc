@@ -582,6 +582,7 @@
                           </Style>
                         </Textbox>
                         <Textbox Name="Textbox38">
+                          <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -640,7 +641,7 @@
                           <Top>3.65659in</Top>
                           <Left>1.70564in</Left>
                           <Height>0.20833in</Height>
-                          <Width>3.05501in</Width>
+                          <Width>5.52169in</Width>
                           <ZIndex>12</ZIndex>
                           <Style>
                             <Border>
@@ -847,7 +848,6 @@
                         </Border>
                       </Style>
                     </Rectangle>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1764,7 +1764,7 @@ thực tế thu về</Value>
       </Border>
     </Style>
   </Body>
-  <Width>19.07754cm</Width>
+  <Width>19.07755cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

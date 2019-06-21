@@ -457,7 +457,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewDetail.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewDetail.Location = new System.Drawing.Point(2, 29);
+            this.dataGridViewDetail.Location = new System.Drawing.Point(-35, 35);
             this.dataGridViewDetail.Name = "dataGridViewDetail";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;

@@ -534,10 +534,7 @@ namespace Maketting.Model
                          From_date = fromdate,
                          To_date = todate,
                          p.Document_number,
-                         p.DNNumber,
-                         p.POnumber,
-                         p.Transfer_number,
-                         p.LoadNumber,
+                      
 
                          Input_Output_date = p.date_input_output,
                        
@@ -548,7 +545,10 @@ namespace Maketting.Model
                          p.Issued,
                          Receipted = p.RecieptQuantity,
                          Store_code = p.ShippingPoint,
-
+                         p.DNNumber,
+                         p.POnumber,
+                         p.Transfer_number,
+                         p.LoadNumber,
 
                          p.Username,
 
