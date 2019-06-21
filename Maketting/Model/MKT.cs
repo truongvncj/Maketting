@@ -786,6 +786,7 @@ namespace Maketting.Model
                          p.Gate_pass,
                          Date_MKT_Phiếu = p.Ngaytaophieu,
                          IO = p.Purposeid,
+                         
                          p.Purpose,
                          p.Note,
                          p.Status,
@@ -807,6 +808,7 @@ namespace Maketting.Model
                          p.Description,
                          p.Unit,
                          Issued = p.Issued,
+                         Return_request =        p.Returnrequest,
                          Pallet = p.pallet,
                          Issued_created_date = p.Issued_dated,
                          Issued_by = p.Loadingby,
@@ -883,7 +885,7 @@ namespace Maketting.Model
                          Pallet = p.pallet,
                          Issued_created_date = p.Issued_dated,
                          Issued_by = p.Loadingby,
-
+                         Return_request = p.Returnrequest,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,

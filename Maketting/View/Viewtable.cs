@@ -580,7 +580,7 @@ namespace Maketting.View
                          p.Unit,
                          Issued = p.Issued,
                          p.pallet,
-
+                         Return_request = p.Returnrequest,
                          p.Price,
                          p.Tranposterby,
                          p.Truck,

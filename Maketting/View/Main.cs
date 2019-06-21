@@ -6480,7 +6480,7 @@ namespace Maketting.View
                               Issued = pp.Issued,
                               Pallet = pp.pallet,
                               pp.Issued_dated,
-
+                              Return_request = pp.Returnrequest,
                               pp.Price,
                               pp.Tranposterby,
                               pp.Truck,
