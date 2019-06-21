@@ -809,9 +809,6 @@ thực tế thu</Value>
             </TablixMember>
             <TablixMember>
               <Group Name="Sophieu">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!Sophieu.Value</GroupExpression>
-                </GroupExpressions>
                 <Filters>
                   <Filter>
                     <FilterExpression>=Fields!Sophieu.Value</FilterExpression>

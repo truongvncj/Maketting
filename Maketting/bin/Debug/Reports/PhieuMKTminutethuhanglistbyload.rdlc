@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>12.43116cm</Height>
+              <Height>15.08345cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -840,58 +840,24 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                      </ReportItems>
-                      <KeepTogether>true</KeepTogether>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                      </Style>
-                    </Rectangle>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <Group Name="Details" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
-        <Top>0.16558cm</Top>
-        <Left>0.31962cm</Left>
-        <Height>12.43116cm</Height>
-        <Width>17.97556cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Tablix>
-      <Tablix Name="Tablix1">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>18.1937cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>2.14619cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Rectangle Name="Rectangle1">
-                      <ReportItems>
+                        <Subreport Name="SubRPTBienbanthuhanglistbyLoad">
+                          <ReportName>Maketting.Reports.SubRPTBienbanthuhanglistbyLoad.rdlc</ReportName>
+                          <Parameters>
+                            <Parameter Name="Sophieu">
+                              <Value>=Fields!Sophieu.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                          <Top>12.44517cm</Top>
+                          <Left>0.24168cm</Left>
+                          <Height>0.53563cm</Height>
+                          <Width>17.73387cm</Width>
+                          <ZIndex>19</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Subreport>
                         <Textbox Name="Textbox24">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -955,10 +921,11 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox24</rd:DefaultName>
-                          <Top>0cm</Top>
-                          <Left>0.10086cm</Left>
+                          <Top>13.06955cm</Top>
+                          <Left>0.24168cm</Left>
                           <Height>1.74932cm</Height>
                           <Width>17.73387cm</Width>
+                          <ZIndex>20</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -970,15 +937,14 @@
                           </Style>
                         </Textbox>
                       </ReportItems>
-                      <PageBreak>
-                        <BreakLocation>End</BreakLocation>
-                      </PageBreak>
+                      <KeepTogether>true</KeepTogether>
                       <Style>
                         <Border>
                           <Style>None</Style>
                         </Border>
                       </Style>
                     </Rectangle>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -992,44 +958,25 @@
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
-            <TablixMember />
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <PageBreak>
-          <BreakLocation>End</BreakLocation>
-        </PageBreak>
-        <Top>13.41459cm</Top>
-        <Left>0.10148cm</Left>
-        <Height>2.14619cm</Height>
-        <Width>18.1937cm</Width>
-        <ZIndex>1</ZIndex>
+        <Top>0.16558cm</Top>
+        <Left>0.31962cm</Left>
+        <Height>15.08345cm</Height>
+        <Width>17.97556cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Subreport Name="SubRPTBienbanthuhanglistbyLoad">
-        <ReportName>Maketting.Reports.SubRPTBienbanthuhanglistbyLoad.rdlc</ReportName>
-        <Parameters>
-          <Parameter Name="Sophieu">
-            <Value>=Fields!Sophieu.Value</Value>
-          </Parameter>
-        </Parameters>
-        <Top>12.70257cm</Top>
-        <Left>0.20234cm</Left>
-        <Height>0.53563cm</Height>
-        <Width>17.73387cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Subreport>
     </ReportItems>
-    <Height>19.37078cm</Height>
+    <Height>15.30195cm</Height>
     <Style>
       <Border>
         <Color>White</Color>
@@ -1037,7 +984,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>18.74407cm</Width>
+  <Width>18.29518cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

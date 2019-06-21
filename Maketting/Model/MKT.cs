@@ -687,11 +687,16 @@ namespace Maketting.Model
                      } into gg
                      select new
                      {
+                         From_date = fromdate,
+                         To_date = todate,
+                         Shipping_point = store,
+
                          MateriaL_Item_code = gg.Key.MateriaItemcode,
                          MateriaL_SAP_code = gg.FirstOrDefault().Materiacode,
                          Material_name = gg.FirstOrDefault().Materialname,
                          Receipted = gg.Sum(m => m.RecieptQuantity).GetValueOrDefault(0),
                          Issued = gg.Sum(m => m.Issued).GetValueOrDefault(0),
+
 
 
                      };

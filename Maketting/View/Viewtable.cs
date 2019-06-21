@@ -252,15 +252,14 @@ namespace Maketting.View
 
                 if (kq) // nueeus có chọn
                 {
-                    //       string connection_string = Utils.getConnectionstr();
-                    //     LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
+                   
                     IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentsUMMARYbyproduct(dc, fromdate, todate, Store_code, ITEM_Code);
 
-
-                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMARY ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+                 
+                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tksumarystoremovement");// mã 5 là danh sach nha nha ccaaps
 
                     viewtbl.ShowDialog();
+               
 
                 }
 
