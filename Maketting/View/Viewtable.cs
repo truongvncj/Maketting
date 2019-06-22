@@ -209,6 +209,9 @@ namespace Maketting.View
 
             //}
 
+
+
+
             #region f12 xem chi tiên
 
 
@@ -334,6 +337,69 @@ namespace Maketting.View
 
             #endregion f9 xem chi tiet kho
 
+
+            #region  f6 xem detail của stock movermet
+          
+            if (this.valuesave == "tkdetailnhapxuattheosanpham" && e.KeyCode == Keys.F6)
+            {
+                //p.Document_number,
+                      
+
+                //         Input_Output_date = p.date_input_output,
+                       
+
+                //         p.Materiacode,
+                //         p.MateriaItemcode,
+                //         p.Materialname,
+                //         p.Issued,
+                //         Receipted = p.RecieptQuantity,
+                //         Store_code = p.ShippingPoint,
+                //         p.DNNumber,
+                //         p.POnumber,
+                //         p.Transfer_number,
+                //         p.LoadNumber,
+
+                //         p.Username,
+
+            //    DateTime fromdate;
+           //     DateTime todate;
+                string Itemcode;
+                string Shippingpoint;
+                string shipment;
+                try
+                {
+                //    fromdate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["From_date"].Value;
+                //    todate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["To_date"].Value;
+                    Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                    Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
+                    shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bạn phải chọn một có số shipment xuất hàng trước ! " + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+
+
+                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecodebygatepass(dc,  Shippingpoint, Itemcode, shipment);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL by Gate pass For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+                                                                                                                                    //  lbloodetailbygatepass
+                viewtbl.ShowDialog();
+
+
+            }
+
+            #endregion
+
+            #region f6 xem ma san pham
+
+
+
             if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F6) // tìm mas sản phẩm
             {
 
@@ -395,7 +461,13 @@ namespace Maketting.View
 
 
             }
+            #endregion
 
+            #region f3 tìm mã san pham
+
+
+
+  
             if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3) // tìm mas sản phẩm
             {
 
@@ -447,9 +519,14 @@ namespace Maketting.View
             }
 
 
+            #endregion
 
 
-            if ((viewcode == 100) && e.KeyCode == Keys.F3)  // viewocode là 100 tức là tìm phiếu mkt
+            #region f3  // viewocode là 100 tức là tìm phiếu mkt
+
+
+        
+            if ((viewcode == 100) && e.KeyCode == Keys.F3)  
             {
 
 
@@ -481,6 +558,13 @@ namespace Maketting.View
 
 
             }
+
+            #endregion
+
+
+
+
+
 
 
         }
@@ -1689,7 +1773,7 @@ namespace Maketting.View
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+             
 
             #region viewdetail moverment one code of sumary
             if (this.valuesave == "tksumarystoremovement")
