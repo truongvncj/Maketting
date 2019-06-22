@@ -6866,8 +6866,13 @@ namespace Maketting.View
 
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbyinputdate(dc, fromdate, todate, store);
 
+            //    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                //Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
+
+                //viewtbl.ShowDialog();
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -6916,10 +6921,14 @@ namespace Maketting.View
                           {
                               Region = gg.Region,
                               gg.DocumentNumber,
+                              input_date = gg.Regionchangedate,
                               gg.DnNumber,
+                              //     LoadNumber = gg.,
+                              Store_code = storelocation,
+                              gg.Gate_pass,
 
-                              Shipping_Point = storelocation,
-                              Material_Item_Code = gg.ITEM_Code,
+                           
+                              MateriaItemcode = gg.ITEM_Code,
                               Material_SAP_Code = gg.SAP_CODE,
                               Material_Name = gg.MATERIAL,
                               Description = gg.Description,
@@ -6930,6 +6939,9 @@ namespace Maketting.View
                               Transfer_in = gg.QuantityInputbytransferin,
                               Adjusted_Device_Stock = gg.QuantitybyDevice,// gg.Sum(m => m.QuantitybyDevice).GetValueOrDefault(0),
 
+                              //             Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                              //Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
+                              //shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
 
 
 
@@ -6938,7 +6950,7 @@ namespace Maketting.View
                           };
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT BY INPUT DATE REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "reginmovementstock");
+                View.Viewtable tbl = new Viewtable(rs5, dc, "REGION STOCK MOVEMENT BY INPUT DATE REPORTS FROM DATE: " + Fromdate.ToShortDateString() + " TO DATE: " + Todate.ToShortDateString(), 1000, "tk");
                 tbl.ShowDialog();
             }
 

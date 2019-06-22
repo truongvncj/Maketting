@@ -382,14 +382,17 @@ namespace Maketting.View
                 }
 
 
+                if (shipment !="")
+                {
+                    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecodebygatepass(dc, Shippingpoint, Itemcode, shipment);
 
 
-                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecodebygatepass(dc,  Shippingpoint, Itemcode, shipment);
+                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL by Gate pass For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+                                                                                                                                        //  lbloodetailbygatepass
+                    viewtbl.ShowDialog();
+                }
 
-
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL by Gate pass For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
-                                                                                                                                    //  lbloodetailbygatepass
-                viewtbl.ShowDialog();
+           
 
 
             }

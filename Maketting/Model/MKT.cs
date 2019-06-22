@@ -665,9 +665,11 @@ namespace Maketting.Model
                      orderby p.Doc_date
                      select new
                      {
+                        
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
                          p.DNNumber,
+                         p.LoadNumber,
                          p.Materiacode,
                          p.MateriaItemcode,
                          p.Materialname,
@@ -682,11 +684,14 @@ namespace Maketting.Model
                          p.id,
 
 
+            //             Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+            //Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
+            //shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
 
 
 
 
-                     };
+        };
 
 
 
