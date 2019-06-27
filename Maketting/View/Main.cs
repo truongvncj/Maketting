@@ -7563,6 +7563,112 @@ namespace Maketting.View
 
 
         }
+
+        private void ticketUndeliveryReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+            string region = Model.Username.getuseRegion();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                          //   where (from gg in dc.tbl_MKT_StoreRights
+                          //        where gg.storeright == rightkho
+                          //      select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                IQueryable rs = Model.MKT.DanhsachPhieuunloadingheadbystore(dc, storelocation);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Unloading list", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+        }
+
+        private void ticketUndeliveryReportsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+            string region = Model.Username.getuseRegion();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                          //   where (from gg in dc.tbl_MKT_StoreRights
+                          //        where gg.storeright == rightkho
+                          //      select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                IQueryable rs = Model.MKT.DanhsachPhieuundeliveryheadbystore(dc, storelocation);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "Gate pass Undelivery list", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
+        }
     }
 
 

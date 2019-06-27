@@ -100,6 +100,7 @@
             this.addCustomerAndShiptoListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuload = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reprintGatePassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menuwavehouse = new System.Windows.Forms.ToolStripMenuItem();
             this.nhậpKhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goodReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,7 +171,9 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.reprintGatePassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ticketUndeliveryReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.ticketUndeliveryReportsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -706,6 +709,13 @@
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Text = "Maketting Load Create";
             this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem.Click += new System.EventHandler(this.danhSáchCácPhiếuMKTCầnXuấtToolStripMenuItem_Click);
             // 
+            // reprintGatePassOfShipmentToolStripMenuItem
+            // 
+            this.reprintGatePassOfShipmentToolStripMenuItem.Name = "reprintGatePassOfShipmentToolStripMenuItem";
+            this.reprintGatePassOfShipmentToolStripMenuItem.Size = new System.Drawing.Size(276, 24);
+            this.reprintGatePassOfShipmentToolStripMenuItem.Text = "Reprint gate pass of shipment";
+            this.reprintGatePassOfShipmentToolStripMenuItem.Click += new System.EventHandler(this.reprintGatePassOfShipmentToolStripMenuItem_Click);
+            // 
             // Menuwavehouse
             // 
             this.Menuwavehouse.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1047,6 +1057,9 @@
             this.gatepassIssueFormDateToDateToolStripMenuItem,
             this.findGatepassOfShipmentToolStripMenuItem,
             this.findMakettingTicketToolStripMenuItem,
+            this.toolStripSeparator11,
+            this.ticketUndeliveryReportsToolStripMenuItem,
+            this.ticketUndeliveryReportsToolStripMenuItem1,
             this.toolStripSeparator19,
             this.storeInportReportsToolStripMenuItem,
             this.storeRegionImportDetailReportsToolStripMenuItem,
@@ -1231,12 +1244,24 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // reprintGatePassOfShipmentToolStripMenuItem
+            // ticketUndeliveryReportsToolStripMenuItem
             // 
-            this.reprintGatePassOfShipmentToolStripMenuItem.Name = "reprintGatePassOfShipmentToolStripMenuItem";
-            this.reprintGatePassOfShipmentToolStripMenuItem.Size = new System.Drawing.Size(276, 24);
-            this.reprintGatePassOfShipmentToolStripMenuItem.Text = "Reprint gate pass of shipment";
-            this.reprintGatePassOfShipmentToolStripMenuItem.Click += new System.EventHandler(this.reprintGatePassOfShipmentToolStripMenuItem_Click);
+            this.ticketUndeliveryReportsToolStripMenuItem.Name = "ticketUndeliveryReportsToolStripMenuItem";
+            this.ticketUndeliveryReportsToolStripMenuItem.Size = new System.Drawing.Size(396, 24);
+            this.ticketUndeliveryReportsToolStripMenuItem.Text = "Ticket unloading reports";
+            this.ticketUndeliveryReportsToolStripMenuItem.Click += new System.EventHandler(this.ticketUndeliveryReportsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(393, 6);
+            // 
+            // ticketUndeliveryReportsToolStripMenuItem1
+            // 
+            this.ticketUndeliveryReportsToolStripMenuItem1.Name = "ticketUndeliveryReportsToolStripMenuItem1";
+            this.ticketUndeliveryReportsToolStripMenuItem1.Size = new System.Drawing.Size(396, 24);
+            this.ticketUndeliveryReportsToolStripMenuItem1.Text = "Ticket undelivery reports";
+            this.ticketUndeliveryReportsToolStripMenuItem1.Click += new System.EventHandler(this.ticketUndeliveryReportsToolStripMenuItem1_Click);
             // 
             // Main
             // 
@@ -1401,6 +1426,9 @@
         private ToolStripSeparator toolStripSeparator30;
         private ToolStripMenuItem correctOrderedToolStripMenuItem;
         private ToolStripMenuItem reprintGatePassOfShipmentToolStripMenuItem;
+        private ToolStripMenuItem ticketUndeliveryReportsToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator11;
+        private ToolStripMenuItem ticketUndeliveryReportsToolStripMenuItem1;
     }
 }
 

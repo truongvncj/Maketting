@@ -1118,6 +1118,109 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachPhieuundeliveryheadbystore(LinqtoSQLDataContext dc, string store)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieuheads
+                     where p.ShippingPoint == store
+                     && ( p.Status == "CRT" || p.Status == "LOADING")
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.Note,
+
+                         p.ShippingPoint,
+
+                         p.Requested_by,
+                         p.Tel,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         Soldto_address = p.Address,
+                         Shipto_Address = p.ShiptoAddress,
+
+
+                         //    Completed_date = p.Date_Received_Issued,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
+
+        public static IQueryable DanhsachPhieuunloadingheadbystore(LinqtoSQLDataContext dc, string store)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieuheads
+                     where p.ShippingPoint == store
+                     && p.Status == "CRT" 
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.Note,
+
+                         p.ShippingPoint,
+
+                         p.Requested_by,
+                         p.Tel,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         Soldto_address = p.Address,
+                         Shipto_Address = p.ShiptoAddress,
+
+
+                         //    Completed_date = p.Date_Received_Issued,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
 
         public static IQueryable DanhsachPhieuMKTandstatusbyregion(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string region, string statusphieu)
         {
