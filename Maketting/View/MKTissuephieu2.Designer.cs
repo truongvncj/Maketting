@@ -36,6 +36,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bt_release = new System.Windows.Forms.Button();
+            this.bt_block = new System.Windows.Forms.Button();
             this.btchange = new System.Windows.Forms.Button();
             this.btcopy = new System.Windows.Forms.Button();
             this.btxoa = new System.Windows.Forms.Button();
@@ -114,6 +116,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.bt_release);
+            this.panel2.Controls.Add(this.bt_block);
             this.panel2.Controls.Add(this.btchange);
             this.panel2.Controls.Add(this.btcopy);
             this.panel2.Controls.Add(this.btxoa);
@@ -125,6 +129,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1280, 40);
             this.panel2.TabIndex = 1;
+            // 
+            // bt_release
+            // 
+            this.bt_release.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.bt_release.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.bt_release.Location = new System.Drawing.Point(831, 11);
+            this.bt_release.Name = "bt_release";
+            this.bt_release.Size = new System.Drawing.Size(65, 25);
+            this.bt_release.TabIndex = 62;
+            this.bt_release.TabStop = false;
+            this.bt_release.Text = "Release";
+            this.bt_release.UseVisualStyleBackColor = true;
+            this.bt_release.Visible = false;
+            this.bt_release.Click += new System.EventHandler(this.bt_release_Click);
+            // 
+            // bt_block
+            // 
+            this.bt_block.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.bt_block.ForeColor = System.Drawing.Color.Red;
+            this.bt_block.Location = new System.Drawing.Point(760, 10);
+            this.bt_block.Name = "bt_block";
+            this.bt_block.Size = new System.Drawing.Size(65, 25);
+            this.bt_block.TabIndex = 61;
+            this.bt_block.TabStop = false;
+            this.bt_block.Text = "Block";
+            this.bt_block.UseVisualStyleBackColor = true;
+            this.bt_block.Visible = false;
+            this.bt_block.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btchange
             // 
@@ -972,5 +1004,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtcity;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button bt_release;
+        private System.Windows.Forms.Button bt_block;
     }
 }

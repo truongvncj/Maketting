@@ -1168,6 +1168,125 @@ namespace Maketting.Model
 
             // throw new NotImplementedException();
         }
+        public static IQueryable DanhsachPhieuunisuebystore(LinqtoSQLDataContext dc, string store)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieuheads
+                     where p.ShippingPoint == store
+                     &&  p.Status == "LOADING"
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.Note,
+
+                         p.ShippingPoint,
+
+                         p.Requested_by,
+                         p.Tel,
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         Soldto_address = p.Address,
+                         Shipto_Address = p.ShiptoAddress,
+
+
+                         //    Completed_date = p.Date_Received_Issued,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+        public static IQueryable DanhsachPhieudetailblockbystore(LinqtoSQLDataContext dc, string store)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     where p.ShippingPoint == store
+                     && p.Status == "BLOCK"
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+                         p.Purpose,
+
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+
+                         p.Requested_by,
+
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Address,
+                         p.Tel,
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         Material_name = p.Materialname,
+                         p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
+                         p.Issued_dated,
+                         Pallet = p.pallet,
+                         p.Price,
+                         p.Tranposterby,
+                         p.Truck,
+                         p.Loadingby,
+                         p.Delivery_date,
+
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Returnby,
+                         Incinclude_Shipment = p.Included_Shipment,
+
+
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
 
 
         public static IQueryable DanhsachPhieuunloadingheadbystore(LinqtoSQLDataContext dc, string store)

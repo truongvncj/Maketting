@@ -455,6 +455,9 @@ namespace Maketting.View
                 btcopy.Enabled = false;
                 btchange.Enabled = false;
                 btluu.Enabled = true;
+                bt_block.Visible = false;
+                bt_release.Visible = false;
+
             }
             else
             {
@@ -465,6 +468,8 @@ namespace Maketting.View
                 btchange.Enabled = true;
                 btluu.Enabled = false;
 
+                bt_block.Visible = false;
+                bt_release.Visible = false;
 
 
 
@@ -787,6 +792,8 @@ namespace Maketting.View
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
+            bt_block.Visible = false;
+            bt_release.Visible = false;
 
 
 
@@ -1234,6 +1241,9 @@ namespace Maketting.View
             this.sophieu = Model.MKT.getMKtNo();
             lbgatepassno.Text = this.sophieu;
             btluu.Enabled = true;
+            bt_block.Visible = false;
+            bt_release.Visible = false;
+
             this.statusphieu = 1; // tạo mới
         }
 
@@ -2899,6 +2909,8 @@ namespace Maketting.View
 
         private void btcopy_Click(object sender, EventArgs e)
         {
+            bt_block.Visible = false;
+            bt_release.Visible = false;
 
             btluu.Enabled = true;
             //btsua.Enabled = true;
@@ -2983,6 +2995,8 @@ namespace Maketting.View
 
 
             }
+            bt_block.Visible = true;
+            bt_release.Visible = true;
 
             btluu.Enabled = true;
             //btsua.Enabled = true;
@@ -3058,6 +3072,196 @@ namespace Maketting.View
         private void lbgatepassno_TextChanged(object sender, EventArgs e)
         {
             this.sophieu = lbgatepassno.Text;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            btluu.Visible = false;
+            bt_block.Visible = false;
+            bt_release.Visible = false;
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+          
+
+            var rs = (from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                      && pp.Status == "CRT"
+                      select pp.Username).FirstOrDefault();
+
+            if (rs != null)
+            {
+
+                if (rs != Utils.getusername())
+                {
+                    MessageBox.Show("Phiểu này chỉ có " + rs + " có quyền block", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+                else
+                {
+                    var detail = from pp in dc.tbl_MKt_Listphieudetails
+                                  where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                                  && pp.Status == "CRT"
+                                  select pp;
+
+                    foreach (var item in detail)
+                    {
+                        float ordered = (float)item.Issued;
+
+                        item.Status = "BLOCK";
+                        dc.SubmitChanges();
+                      
+
+
+                        #region       //update giảm ordered
+                        Model.MKT.updatetangOrdered(item.Materiacode, -ordered, this.storelocation);
+
+
+
+                        #endregion
+
+
+
+
+
+
+                    }
+
+
+                    var head = from pp in dc.tbl_MKt_Listphieuheads
+                                 where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                                 && pp.Status == "CRT"
+                                 select pp;
+
+                    foreach (var item in head)
+                    {
+                        item.Status = "BLOCK";
+                        dc.SubmitChanges();
+
+
+
+
+                    }
+
+
+                }
+
+                MessageBox.Show("ORder block done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // return;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Chỉ block được đơn hàng CRT, please check !", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void bt_release_Click(object sender, EventArgs e)
+        {
+            btluu.Visible = false;
+            bt_block.Visible = false;
+            bt_release.Visible = false;
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var rs = (from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                      && pp.Status == "BLOCK"
+                      select pp.Username).FirstOrDefault();
+
+            if (rs != null)
+            {
+
+                if (rs != Utils.getusername())
+                {
+                    MessageBox.Show("Phiểu này chỉ có " + rs + " có quyền release !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+                else
+                {
+                    var detail = from pp in dc.tbl_MKt_Listphieudetails
+                                 where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                                 && pp.Status == "BLOCK"
+                                 select pp;
+
+                    foreach (var item in detail)
+                    {
+                        float ordered = (float)item.Issued;
+
+                        item.Status = "CRT";
+                        dc.SubmitChanges();
+
+
+
+                        #region       //update tăng ordered
+                        Model.MKT.updatetangOrdered(item.Materiacode, ordered, this.storelocation);
+
+
+
+                        #endregion
+
+
+
+
+
+
+                    }
+
+
+                    var head = from pp in dc.tbl_MKt_Listphieuheads
+                               where pp.Gate_pass == this.sophieu && pp.ShippingPoint == this.storelocation
+                               && pp.Status == "BLOCK"
+                               select pp;
+
+                    foreach (var item in head)
+                    {
+                        item.Status = "CRT";
+                        dc.SubmitChanges();
+
+
+
+
+                    }
+
+
+                }
+
+
+                MessageBox.Show("ORder release done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // return;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Chỉ release được các đơn hàng đã BLOCK !", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
+
+
+
+
+
+
         }
     }
 }
