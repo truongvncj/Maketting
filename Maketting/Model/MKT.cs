@@ -1954,7 +1954,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK + itemnhap.RecieptQuantity;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemnhap.RecieptQuantity.GetValueOrDefault(0);
                     dc.SubmitChanges();
                 }
 
@@ -1963,14 +1963,14 @@ namespace Maketting.Model
             {
 
                 tbl_MKT_Stockend newitem = new tbl_MKT_Stockend();
-                newitem.END_STOCK = itemnhap.RecieptQuantity;
+                newitem.END_STOCK = itemnhap.RecieptQuantity.GetValueOrDefault(0);
                 newitem.ITEM_Code = itemnhap.MateriaItemcode;
                 newitem.SAP_CODE = itemnhap.Materiacode;
                 newitem.MATERIAL = itemnhap.Materialname.Truncate(255);
 
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;
-                newitem.END_STOCK = itemnhap.RecieptQuantity;
+            //    newitem.END_STOCK = itemnhap.RecieptQuantity;
                 //    newitem.END_STOCK = itemnhap.RecieptQuantity;
 
 
@@ -1985,7 +1985,7 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
-        public static void updatetangOrdered(string itemCode, double ordered, string Store_code)
+        public static void updatetangOrdered(string itemCode, float ordered, string Store_code)
         {
 
 
@@ -2134,8 +2134,8 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK + itemout.Quantity;
-                    item.TransferingOUT = item.TransferingOUT - itemout.Quantity;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemout.Quantity;
+                    item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemout.Quantity;
                     dc.SubmitChanges();
                 }
 
@@ -2448,13 +2448,13 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK - itemxuat.Issued;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.Issued.GetValueOrDefault(0);
                     dc.SubmitChanges();
                 }
 
             }
 
-            //   Giảm ordered khi xuất hàng
+       //     valueitem.Ordered = valueitem.Ordered.GetValueOrDefault(0) + ordered;
 
 
             Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.Issued, itemxuat.ShippingPoint);
@@ -2478,7 +2478,8 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK - itemxuat.Issued;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.Issued;
+
                     dc.SubmitChanges();
                 }
 
@@ -2509,7 +2510,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs)
                 {
-                    item.END_STOCK = item.END_STOCK - itemxuat.RecieptQuantity;
+                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.RecieptQuantity;
                     dc.SubmitChanges();
                 }
 

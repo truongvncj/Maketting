@@ -643,6 +643,7 @@ namespace Maketting.View
 
                                 newreciepts.IssueIDsub = IssueIDsub;
                                 newreciepts.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
                                 newreciepts.Materiacode = item.Material_SAP_code;
                                 newreciepts.MateriaItemcode = item.Material_Item_code;
