@@ -543,6 +543,110 @@ namespace Maketting.View
 
                         string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
 
+
+                        #region  update gound recieot trong kho
+
+
+
+                        var rs2 = from pp in dc.tbl_MKt_POdetails
+                                  where pp.MateriaItemcode == Material_Item_code
+                                       && pp.POnumber == this.POnumber
+                                       && pp.Storelocation == this.storelocation
+                                  group pp by pp.MateriaItemcode into gg
+                                  select new
+                                  {
+                                      //    ID = pp.id,
+                                      PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
+                                      Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
+                                      Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+                                      Material_Item_code = gg.Key,
+                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault().Truncate(255),
+                                      Order_Quantity = gg.Sum(m => m.QuantityOrder),
+                                      Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
+                                                                                            //     Real_issue = 0,
+
+                                      Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
+                                      Unit = gg.Select(m => m.Unit).FirstOrDefault(),
+
+                                  };
+
+                        if (rs2.Count() > 0)
+                        {
+                            foreach (var item in rs2)
+                            {
+
+
+                                tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
+
+
+                                newreciepts.IssueIDsub = IssueIDsub;
+                                float nhap = 0;
+                                try
+                                {
+                                    nhap = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
+
+                                }
+                                catch (Exception)
+                                {
+
+
+                                    MessageBox.Show("Số lượng hàng  nhập tại dòng  " + idrow.ToString() + " phải là số > hoặc = 0 , please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    checkdetail = false;
+
+                                    return;
+                                }
+
+
+                                newreciepts.RecieptQuantity = nhap;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+
+                                newreciepts.Recieptby = txtnguoinhanhang.Text;
+                                newreciepts.Materiacode = item.Material_SAP_code;
+                                newreciepts.MateriaItemcode = item.Material_Item_code;
+                                newreciepts.Document_number = txtdnnumbar.Text;
+                                newreciepts.Materialname = item.Material_name.Truncate(50);
+                                newreciepts.POnumber = item.PO_number;
+                                newreciepts.ShippingPoint = item.Storelocation;
+                                newreciepts.Unit = item.Unit;
+                                newreciepts.date_input_output = dateNgaynhaphang.Value;
+                                newreciepts.DNNumber = txtdnnumbar.Text;
+                                newreciepts.Doc_date = DateTime.Today;
+
+                                //          newreciepts.Serriload
+
+                                //  newreciepts.Status=""
+                                newreciepts.Username = username;
+
+
+                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(newreciepts);
+                                dc.SubmitChanges();
+
+
+                                var headpo = (from pp in dc.tbl_MKt_POheads
+                                              where pp.PONumber == this.POnumber
+                                              select pp);
+                                if (headpo.Count() > 0)
+                                {
+                                    foreach (var item2 in headpo)
+                                    {
+                                        item2.Status = "IN";
+                                        dc.SubmitChanges();
+                                    }
+                                }
+
+
+                                Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
+
+
+
+                            }
+                        }
+
+
+                        #endregion
+
+
+
+
                         #region  update po detail
 
 
@@ -605,89 +709,6 @@ namespace Maketting.View
 
                         #endregion
 
-
-
-                        #region  update gound recieot trong kho
-
-
-
-                        var rs2 = from pp in dc.tbl_MKt_POdetails
-                                  where pp.MateriaItemcode == Material_Item_code
-                                       && pp.POnumber == this.POnumber
-                                  group pp by pp.MateriaItemcode into gg
-                                  select new
-                                  {
-                                      //    ID = pp.id,
-                                      PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                                      Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-                                      Material_Item_code = gg.Key,
-                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault().Truncate(255),
-                                      Order_Quantity = gg.Sum(m => m.QuantityOrder),
-                                      Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
-                                                                                            //     Real_issue = 0,
-
-                                      Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Unit = gg.Select(m => m.Unit).FirstOrDefault(),
-
-                                  };
-
-                        if (rs2.Count() > 0)
-                        {
-                            foreach (var item in rs2)
-                            {
-
-
-                                tbl_MKt_WHstoreissue newreciepts = new tbl_MKt_WHstoreissue();
-
-
-                                newreciepts.IssueIDsub = IssueIDsub;
-                                newreciepts.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-
-                                newreciepts.Recieptby = txtnguoinhanhang.Text;
-                                newreciepts.Materiacode = item.Material_SAP_code;
-                                newreciepts.MateriaItemcode = item.Material_Item_code;
-                                newreciepts.Document_number = txtdnnumbar.Text;
-                                newreciepts.Materialname = item.Material_name.Truncate(50);
-                                newreciepts.POnumber = item.PO_number;
-                                newreciepts.ShippingPoint = item.Storelocation;
-                                newreciepts.Unit = item.Unit;
-                                newreciepts.date_input_output = dateNgaynhaphang.Value;
-                                newreciepts.DNNumber = txtdnnumbar.Text;
-                                newreciepts.Doc_date = DateTime.Today;
-
-                                //          newreciepts.Serriload
-
-                                //  newreciepts.Status=""
-                                newreciepts.Username = username;
-
-
-                                dc.tbl_MKt_WHstoreissues.InsertOnSubmit(newreciepts);
-                                dc.SubmitChanges();
-
-
-                                var headpo = (from pp in dc.tbl_MKt_POheads
-                                              where pp.PONumber == this.POnumber
-                                              select pp);
-                                if (headpo.Count() > 0)
-                                {
-                                    foreach (var item2 in headpo)
-                                    {
-                                        item2.Status = "IN";
-                                        dc.SubmitChanges();
-                                    }
-                                }
-
-
-                                Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
-
-
-
-                            }
-                        }
-
-
-                        #endregion
 
 
 

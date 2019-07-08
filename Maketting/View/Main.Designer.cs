@@ -160,6 +160,8 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.ticketUndeliveryReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ticketUndeliveryReportsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.maketingTicketUnissueStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maketingTicketBlockReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.storeInportReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeRegionImportDetailReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,8 +176,8 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.maketingTicketUnissueStoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maketingTicketBlockReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -1055,6 +1057,8 @@
             this.stockMovementDetailToolStripMenuItem,
             this.sToolStripMenuItem,
             this.toolStripSeparator10,
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem,
+            this.toolStripSeparator14,
             this.statusGatepassReportsToolStripMenuItem,
             this.gatepassIssueFormDateToDateToolStripMenuItem,
             this.findGatepassOfShipmentToolStripMenuItem,
@@ -1174,6 +1178,20 @@
             this.ticketUndeliveryReportsToolStripMenuItem1.Text = "Maketing ticket undelivery reports";
             this.ticketUndeliveryReportsToolStripMenuItem1.Click += new System.EventHandler(this.ticketUndeliveryReportsToolStripMenuItem1_Click);
             // 
+            // maketingTicketUnissueStoreToolStripMenuItem
+            // 
+            this.maketingTicketUnissueStoreToolStripMenuItem.Name = "maketingTicketUnissueStoreToolStripMenuItem";
+            this.maketingTicketUnissueStoreToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.maketingTicketUnissueStoreToolStripMenuItem.Text = "Maketing ticket loaded but unissue store reports";
+            this.maketingTicketUnissueStoreToolStripMenuItem.Click += new System.EventHandler(this.maketingTicketUnissueStoreToolStripMenuItem_Click);
+            // 
+            // maketingTicketBlockReportsToolStripMenuItem
+            // 
+            this.maketingTicketBlockReportsToolStripMenuItem.Name = "maketingTicketBlockReportsToolStripMenuItem";
+            this.maketingTicketBlockReportsToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.maketingTicketBlockReportsToolStripMenuItem.Text = "Maketing ticket block reports";
+            this.maketingTicketBlockReportsToolStripMenuItem.Click += new System.EventHandler(this.maketingTicketBlockReportsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator19
             // 
             this.toolStripSeparator19.Name = "toolStripSeparator19";
@@ -1267,19 +1285,17 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // maketingTicketUnissueStoreToolStripMenuItem
+            // statusGatepassReportsByLoadingDateToolStripMenuItem
             // 
-            this.maketingTicketUnissueStoreToolStripMenuItem.Name = "maketingTicketUnissueStoreToolStripMenuItem";
-            this.maketingTicketUnissueStoreToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
-            this.maketingTicketUnissueStoreToolStripMenuItem.Text = "Maketing ticket loaded but unissue store reports";
-            this.maketingTicketUnissueStoreToolStripMenuItem.Click += new System.EventHandler(this.maketingTicketUnissueStoreToolStripMenuItem_Click);
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Name = "statusGatepassReportsByLoadingDateToolStripMenuItem";
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Text = "Status gatepass reports by loading date";
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsByLoadingDateToolStripMenuItem_Click);
             // 
-            // maketingTicketBlockReportsToolStripMenuItem
+            // toolStripSeparator14
             // 
-            this.maketingTicketBlockReportsToolStripMenuItem.Name = "maketingTicketBlockReportsToolStripMenuItem";
-            this.maketingTicketBlockReportsToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
-            this.maketingTicketBlockReportsToolStripMenuItem.Text = "Maketing ticket block reports";
-            this.maketingTicketBlockReportsToolStripMenuItem.Click += new System.EventHandler(this.maketingTicketBlockReportsToolStripMenuItem_Click);
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(394, 6);
             // 
             // Main
             // 
@@ -1449,6 +1465,8 @@
         private ToolStripMenuItem ticketUndeliveryReportsToolStripMenuItem1;
         private ToolStripMenuItem maketingTicketUnissueStoreToolStripMenuItem;
         private ToolStripMenuItem maketingTicketBlockReportsToolStripMenuItem;
+        private ToolStripMenuItem statusGatepassReportsByLoadingDateToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator14;
     }
 }
 

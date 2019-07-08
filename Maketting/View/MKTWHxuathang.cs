@@ -487,9 +487,28 @@ namespace Maketting.View
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value != DBNull.Value)
                     {
                         tbl_MKt_WHstoreissue phieuxuat = new tbl_MKt_WHstoreissue();
+                        float xuat = 0;
+                        try
+                        {
+                             xuat = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
+
+                        }
+                        catch (Exception)
+                        {
+
+
+                            MessageBox.Show("Số lượng hàng  xuất phải dòng  " + idrow.ToString() +" phải là số > hoặc = 0 , please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            checkdetail = false;
+
+                            return;
+                        }
+                     
+
+                        phieuxuat.Issued = xuat; // float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
 
                         phieuxuat.IssueBy = txtnguoixuathang.Text;
-                        phieuxuat.Issued = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
+
+
                         phieuxuat.IssueDate = ngayThuctexuat.Value;
                         phieuxuat.Doc_date = datecreated.Value;
 

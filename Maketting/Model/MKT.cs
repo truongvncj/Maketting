@@ -927,6 +927,79 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsachPhieuMKTandstatustheongaygheoload(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
+        {
+
+
+            var rs = from p in dc.tbl_MKt_Listphieudetails
+                     where p.Delivery_date >= fromdate && p.Delivery_date <= todate
+                     orderby p.Gate_pass
+                     select new
+                     {
+                         Created_date = p.Ngaytaophieu,
+                         p.Requested_by,
+
+                         p.Region,
+                         p.Gate_pass,
+                         Date_MKT_Phiếu = p.Ngaytaophieu,
+                         IO = p.Purposeid,
+
+                         p.Purpose,
+                         p.Note,
+                         p.Status,
+                         p.ShippingPoint,
+                         p.ShipmentNumber,
+                         Shipment_created_date = p.Delivery_date,
+                         p.Shipmentby,
+
+                         p.Customer_SAP_Code,
+                         p.Receiver_by,
+                         p.Tel,
+                         p.Address,
+
+                         //   Số_lượng_thực_xuất = p.Soluongdaxuat,
+                         // Số_lượng_còn_lại = p.Soluongconlai,
+                         p.Materiacode,
+                         p.MateriaSAPcode,
+                         Material_name = p.Materialname,
+                         p.Description,
+                         p.Unit,
+                         Issued = p.Issued,
+                         Return_request = p.Returnrequest,
+                         Pallet = p.pallet,
+                         Issued_created_date = p.Issued_dated,
+                         Issued_by = p.Loadingby,
+
+                         p.Price,
+                         p.Tranposterby,
+                         p.Truck,
+
+
+                         Completed_date = p.Date_Received_Issued,
+                         p.Completed_by,
+                         p.ReturnQuantity,
+                         p.Returndate,
+                         p.Return_reason,
+                         p.Returnby,
+                         Incinclude_Shipment = p.Included_Shipment,
+                         //         Quantity_Return_request    =    p.Returnrequest
+
+
+
+                         //    ID = p.id,
+                     };
+
+
+
+
+
+
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
 
         public static IQueryable DanhsachPhieuMKTandstatusbyIssuedate(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate)
         {
@@ -2442,6 +2515,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKT_Stockends
                      where p.ITEM_Code == itemxuat.MateriaItemcode
+                     && p.Store_code == itemxuat.ShippingPoint
                      select p;
 
             if (rs.Count() > 0)
@@ -2472,6 +2546,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKT_Stockends
                      where p.ITEM_Code == itemxuat.MateriaItemcode
+                     && p.Store_code == itemxuat.ShippingPoint
                      select p;
 
             if (rs.Count() > 0)
@@ -2504,6 +2579,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKT_Stockends
                      where p.ITEM_Code == itemxuat.MateriaItemcode
+                     && p.Store_code == itemxuat.ShippingPoint
                      select p;
 
             if (rs.Count() > 0)

@@ -548,7 +548,23 @@ namespace Maketting.View
                         tbl_MKt_WHstoreissue phieunhap = new tbl_MKt_WHstoreissue();
 
                         phieunhap.Recieptby = txtnguoixuathang.Text;
-                        phieunhap.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
+                        try
+                        {
+                            phieunhap.RecieptQuantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value.ToString());
+
+                        }
+                        catch (Exception)
+                        {
+
+                            MessageBox.Show("Please check return quantity !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            checkdetail = false;
+
+                            return;
+                        }
+
+                   
+
+
                         phieunhap.IssueDate = datethucnhan.Value;
                         phieunhap.Doc_date = datecreated.Value;
 
@@ -571,11 +587,7 @@ namespace Maketting.View
                         dc.SubmitChanges();
 
 
-
-
-
-
-                        dc.SubmitChanges();
+                        
 
                         Model.MKT.tangkhokhinhaphang(phieunhap, this.storelocation);
 
