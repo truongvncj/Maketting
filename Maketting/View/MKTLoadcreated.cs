@@ -1058,10 +1058,12 @@ namespace Maketting.View
                                      Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
                                      Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
 
-
+                                     palletnumber = gg.Sum(m => m.pallet),
 
                                  };
-            int i = 0;
+
+       ///     [pallet]
+        int i = 0;
             foreach (var item in rptMKTdetailmk)
             {
                 if (item.Issued >0)
@@ -1103,6 +1105,8 @@ namespace Maketting.View
                 headpx.codetransporter = rptMKThead.TransposterCode;
                 headpx.gatepasslist = gatepasslist.Truncate(500);
                 headpx.username = this.Username;
+
+
                 headpx.Loadnumber = rptMKThead.LoadNumber;
                 headpx.nametransporter = rptMKThead.TransposterName;
                 headpx.seri = this.storelocation + rptMKThead.LoadNumber;
@@ -1954,6 +1958,7 @@ namespace Maketting.View
 
                 txtmaNVT.Text = rs.TransposterCode.ToString();// = double.Parse(txtcustcode.Text);
                 txttenNVT.Text = rs.TransposterName;// = 
+                txttrucnumber.Text = rs.Truckno;
 
                 datecreated.Value = (DateTime)rs.Date_Created;// = ;
 

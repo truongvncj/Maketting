@@ -49,7 +49,8 @@ namespace Maketting.View
 
             dt.Columns.Add(new DataColumn("Maketting_Status", typeof(string)));
             dt.Columns.Add(new DataColumn("Maketting_load", typeof(float)));
-
+            dt.Columns.Add(new DataColumn("Update_time", typeof(DateTime)));
+          
 
 
             dataGridViewLoaddetail.DataSource = dt;
@@ -63,7 +64,7 @@ namespace Maketting.View
 
         }
 
-        public void addDEtailPhieuMKT(tbl_MKt_Listphieuhead PhieuMKT)
+        public void addDEtailPhieuMKT(tbl_MKt_Listphieudetail PhieuMKT)
         {
 
 
@@ -86,19 +87,35 @@ namespace Maketting.View
             drToAdd["Customer_code"] = PhieuMKT.Customer_SAP_Code;
             drToAdd["Customer_name"] = PhieuMKT.Requested_by;
             drToAdd["Maketting_Status"] = PhieuMKT.Status;
-            if (PhieuMKT.LoadNumber != null)
+
+            if (PhieuMKT.ShipmentNumber != null)
             {
-                drToAdd["Maketting_load"] = PhieuMKT.LoadNumber;
+                drToAdd["Maketting_load"] = PhieuMKT.ShipmentNumber;
             }
 
+            drToAdd["Update_time"] = DateTime.Now;
 
 
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
+            //// Create DataView
+            //DataView view = new DataView(yourDataTable);
 
+            //// Sort by Program column in ascending order
+            //view.Sort = "Program ASC";
+            //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
+            //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
 
+            //foreach (var c in dataGridViewListphieu.Columns)
+            //{
+            //    DataGridViewColumn clm = (DataGridViewColumn)c;
+            //    clm.HeaderText = clm.HeaderText.Replace("_", " ");
+            //}
 
+            // Next
+
+            dataGridViewLoaddetail.Sort(dataGridViewLoaddetail.Columns["Update_time"], ListSortDirection.Descending );
 
         }
 
@@ -2227,38 +2244,32 @@ namespace Maketting.View
                 #endregion
 
 
-                var rs = from pp in dc.tbl_MKt_Listphieuheads
+                var item = (from pp in dc.tbl_MKt_Listphieudetails
                          where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == seachtext
-                         select pp;
+                         select pp).FirstOrDefault();
 
-                if (rs.Count() == 1)
-
+                if (item  != null)
                 {
-
-                    foreach (var item in rs)
+                    if (item.Status == "Delivering")// 
                     {
-                        if (item.Status == "Delivering")// 
-                        {
-                            addDEtailPhieuMKT(item);
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please check, this POSM ticket status is : " + item.Status + " please issue Load: " + item.ShippingPoint + item.LoadNumber, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        addDEtailPhieuMKT(item);
 
                     }
-
-
+                    else
+                    {
+                        MessageBox.Show("Please check, this POSM ticket status is : " + item.Status + " please issue Load: " + item.ShippingPoint + item.ShipmentNumber, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     txtmktseri.Text = "";
                 }
-                else
+                   else
                 {
                     MessageBox.Show("Please check, wrong POSM ticket !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
 
 
+
+           
 
 
             }
