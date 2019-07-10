@@ -50,7 +50,7 @@ namespace Maketting.View
             dt.Columns.Add(new DataColumn("Maketting_Status", typeof(string)));
             dt.Columns.Add(new DataColumn("Maketting_load", typeof(float)));
             dt.Columns.Add(new DataColumn("Update_time", typeof(DateTime)));
-          
+
 
 
             dataGridViewLoaddetail.DataSource = dt;
@@ -115,7 +115,7 @@ namespace Maketting.View
 
             // Next
 
-            dataGridViewLoaddetail.Sort(dataGridViewLoaddetail.Columns["Update_time"], ListSortDirection.Descending );
+            dataGridViewLoaddetail.Sort(dataGridViewLoaddetail.Columns["Update_time"], ListSortDirection.Descending);
 
         }
 
@@ -2245,10 +2245,10 @@ namespace Maketting.View
 
 
                 var item = (from pp in dc.tbl_MKt_Listphieudetails
-                         where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == seachtext
-                         select pp).FirstOrDefault();
+                            where (pp.Region + pp.ShippingPoint + pp.Gate_pass) == seachtext
+                            select pp).FirstOrDefault();
 
-                if (item  != null)
+                if (item != null)
                 {
                     if (item.Status == "Delivering")// 
                     {
@@ -2261,7 +2261,7 @@ namespace Maketting.View
                     }
                     txtmktseri.Text = "";
                 }
-                   else
+                else
                 {
                     MessageBox.Show("Please check, wrong POSM ticket !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -2269,7 +2269,7 @@ namespace Maketting.View
 
 
 
-           
+
 
 
             }
@@ -2346,10 +2346,8 @@ namespace Maketting.View
                     {
                         foreach (var item in rs)
                         {
-                            if (item.Status == "Delivering")
-                            {
-                                item.Status = "completed";
-                            }
+
+                            item.Status = "completed";
 
                             item.completed = true;
                             item.Date_Received_Issued = dateupdate.Value;

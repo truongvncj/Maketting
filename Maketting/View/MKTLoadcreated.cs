@@ -829,9 +829,10 @@ namespace Maketting.View
                 {
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value != DBNull.Value)
                     {
+                        string gatepass = dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value.ToString();
+
                         var rs3 = from pp in dc.tbl_MKt_Listphieudetails
-                                  where pp.Gate_pass == (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value
-                                  && pp.ShippingPoint == this.storelocation
+                                  where pp.Gate_pass == gatepass  && pp.ShippingPoint == this.storelocation
                                   select pp;
                         foreach (var item in rs3)
                         {
@@ -853,8 +854,7 @@ namespace Maketting.View
                         //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
                         //    btluu.Enabled = false;
                         var rs2 = from pp in dc.tbl_MKt_Listphieuheads
-                                  where pp.Gate_pass == (string)dataGridViewLoaddetail.Rows[idrow].Cells["Gate_pass"].Value
-                                     && pp.ShippingPoint == this.storelocation
+                                  where pp.Gate_pass == gatepass && pp.ShippingPoint == this.storelocation
                                   select pp;
 
                         foreach (var item in rs2)
