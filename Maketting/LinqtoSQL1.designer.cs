@@ -3250,6 +3250,8 @@ namespace Maketting
 		
 		private string _Truckno;
 		
+		private System.Nullable<double> _pallet;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3274,6 +3276,8 @@ namespace Maketting
     partial void OnTransposterNameChanged();
     partial void OnTrucknoChanging(string value);
     partial void OnTrucknoChanged();
+    partial void OnpalletChanging(System.Nullable<double> value);
+    partial void OnpalletChanged();
     #endregion
 		
 		public tbl_MKt_ListLoadhead()
@@ -3477,6 +3481,26 @@ namespace Maketting
 					this._Truckno = value;
 					this.SendPropertyChanged("Truckno");
 					this.OnTrucknoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pallet", DbType="Float")]
+		public System.Nullable<double> pallet
+		{
+			get
+			{
+				return this._pallet;
+			}
+			set
+			{
+				if ((this._pallet != value))
+				{
+					this.OnpalletChanging(value);
+					this.SendPropertyChanging();
+					this._pallet = value;
+					this.SendPropertyChanged("pallet");
+					this.OnpalletChanged();
 				}
 			}
 		}
@@ -5722,6 +5746,8 @@ namespace Maketting
 		
 		private System.Data.Linq.Binary _Barcode;
 		
+		private System.Nullable<double> _pallet;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5748,6 +5774,8 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnBarcodeChanging(System.Data.Linq.Binary value);
     partial void OnBarcodeChanged();
+    partial void OnpalletChanging(System.Nullable<double> value);
+    partial void OnpalletChanged();
     #endregion
 		
 		public tbl_MKT_LoadHeadRpt()
@@ -5971,6 +5999,26 @@ namespace Maketting
 					this._Barcode = value;
 					this.SendPropertyChanged("Barcode");
 					this.OnBarcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pallet", DbType="Float")]
+		public System.Nullable<double> pallet
+		{
+			get
+			{
+				return this._pallet;
+			}
+			set
+			{
+				if ((this._pallet != value))
+				{
+					this.OnpalletChanging(value);
+					this.SendPropertyChanging();
+					this._pallet = value;
+					this.SendPropertyChanged("pallet");
+					this.OnpalletChanged();
 				}
 			}
 		}

@@ -476,9 +476,9 @@ namespace Maketting.Model
 
         public static IQueryable DanhsacHSTOCKMOVEmentdetail(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
         {
-          //  Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
-         //   Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
-        //    shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
+            //  Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+            //   Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
+            //    shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
 
             var rs = from p in dc.tbl_MKt_WHstoreissues
                      where p.date_input_output >= fromdate && p.date_input_output <= todate
@@ -491,7 +491,7 @@ namespace Maketting.Model
                          p.DNNumber,
                          p.LoadNumber,
                          p.Materiacode,
-                         MateriaItemcode =     p.MateriaItemcode,
+                         MateriaItemcode = p.MateriaItemcode,
                          p.Materialname,
                          p.Issued,
                          Receipted = p.RecieptQuantity,
@@ -523,7 +523,7 @@ namespace Maketting.Model
         }
 
 
-   
+
         public static IQueryable DanhsacHSTOCKMOVEmentdetailonecodebygatepass(LinqtoSQLDataContext dc, string store, string itemcode, string shipment)
         {
 
@@ -588,7 +588,7 @@ namespace Maketting.Model
 
                      };
 
-         
+
 
 
 
@@ -613,10 +613,10 @@ namespace Maketting.Model
                          From_date = fromdate,
                          To_date = todate,
                          p.Document_number,
-                      
+
 
                          Input_Output_date = p.date_input_output,
-                       
+
 
                          p.Materiacode,
                          p.MateriaItemcode,
@@ -631,7 +631,7 @@ namespace Maketting.Model
 
                          p.Username,
 
-                       //  p.IssueIDsub,
+                         //  p.IssueIDsub,
                          p.id,
 
 
@@ -665,7 +665,7 @@ namespace Maketting.Model
                      orderby p.Doc_date
                      select new
                      {
-                        
+
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
                          p.DNNumber,
@@ -684,14 +684,14 @@ namespace Maketting.Model
                          p.id,
 
 
-            //             Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
-            //Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
-            //shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
+                         //             Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
+                         //Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
+                         //shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
 
 
 
 
-        };
+                     };
 
 
 
@@ -1197,7 +1197,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == store
-                     && ( p.Status == "CRT" || p.Status == "LOADING")
+                     && (p.Status == "CRT" || p.Status == "LOADING")
                      orderby p.Gate_pass
                      select new
                      {
@@ -1247,7 +1247,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == store
-                     &&  p.Status == "LOADING"
+                     && p.Status == "LOADING"
                      orderby p.Gate_pass
                      select new
                      {
@@ -1368,7 +1368,7 @@ namespace Maketting.Model
 
             var rs = from p in dc.tbl_MKt_Listphieuheads
                      where p.ShippingPoint == store
-                     && p.Status == "CRT" 
+                     && p.Status == "CRT"
                      orderby p.Gate_pass
                      select new
                      {
@@ -1826,110 +1826,116 @@ namespace Maketting.Model
                 MessageBox.Show("Note " + sophieu + " can not delete detail by load created !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
-
-            #region  // giảm order và giảm budget region
-
-            #region       //update giảm ordered
-
-            var rs22 = from pp in dc.tbl_MKt_Listphieudetails
-                       where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                       select pp;
-
-
-            if (rs22.Count() > 0)
-            {
-                foreach (var item in rs22)
-                {
-                    Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued, item.ShippingPoint);
-
-                }
-
-
-
-            }
-
-
-
-
-            #endregion
-            //  xóa butget đã bocck
-            var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
-                       where pp.Gate_pass == sophieu && pp.Store_code == kho && pp.Region == Region
-                       select pp;
-
-
-            if (rs24.Count() > 0)
-            {
-                dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs24);
-                dc.SubmitChanges();
-
-            }
-            //newregionupdate.Store_code = this.storelocation;
-            //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
-            //newregionupdate.Gate_pass = this.sophieu;
-
-
-
-            #endregion
-
-
-
-            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
-                      where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                      select pp;
-
-
-            if (rs2.Count() > 0)
-            {
-                dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
-                dc.SubmitChanges();
-
-            }
-            //else
-            //{
-            //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return false;
-            //}
-
-            var rs = from pp in dc.tbl_MKt_Listphieuheads
-                     where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
-                     select pp;
-
-            if (rs.Count() > 0)
-            {
-                //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
-                foreach (var item in rs)
-                {
-                    item.Username = Username.getUsername();
-                    item.Status = "TMP";
-                    dc.SubmitChanges();
-                }
-
-            }
             else
             {
 
-                tbl_MKt_Listphieuhead newheaddoc = new tbl_MKt_Listphieuhead();
 
 
-                newheaddoc.Ngaytaophieu = DateTime.Today;
-                newheaddoc.Status = "TMP";
-                newheaddoc.Gate_pass = sophieu;
-                newheaddoc.ShippingPoint = kho;
-                newheaddoc.Username = Username.getUsername();
-                dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
-                dc.SubmitChanges();
+                #region  // giảm order và giảm budget region
+
+                #region       //update giảm ordered
+
+                var rs22 = from pp in dc.tbl_MKt_Listphieudetails
+                           where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                           select pp;
+
+
+                if (rs22.Count() > 0)
+                {
+                    foreach (var item in rs22)
+                    {
+                        Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued, item.ShippingPoint);
+
+                    }
+
+
+
+                }
+
+
+
+
+                #endregion
+                //  xóa butget đã bocck
+                var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
+                           where pp.Gate_pass == sophieu && pp.Store_code == kho && pp.Region == Region
+                           select pp;
+
+
+                if (rs24.Count() > 0)
+                {
+                    dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs24);
+                    dc.SubmitChanges();
+
+                }
+                //newregionupdate.Store_code = this.storelocation;
+                //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
+                //newregionupdate.Gate_pass = this.sophieu;
+
+
+
+                #endregion
+
+
+
+                var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                          where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                          select pp;
+
+
+                if (rs2.Count() > 0)
+                {
+                    dc.tbl_MKt_Listphieudetails.DeleteAllOnSubmit(rs2);
+                    dc.SubmitChanges();
+
+                }
+                //else
+                //{
+                //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return false;
+                //}
+
+                var rs = from pp in dc.tbl_MKt_Listphieuheads
+                         where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
+                         select pp;
+
+                if (rs.Count() > 0)
+                {
+                    //    dc.tbl_MKt_Listphieuheads.DeleteAllOnSubmit(rs);
+                    foreach (var item in rs)
+                    {
+                        item.Username = Username.getUsername();
+                        item.Status = "TMP";
+                        dc.SubmitChanges();
+                    }
+
+                }
+                else
+                {
+
+                    tbl_MKt_Listphieuhead newheaddoc = new tbl_MKt_Listphieuhead();
+
+
+                    newheaddoc.Ngaytaophieu = DateTime.Today;
+                    newheaddoc.Status = "TMP";
+                    newheaddoc.Gate_pass = sophieu;
+                    newheaddoc.ShippingPoint = kho;
+                    newheaddoc.Username = Username.getUsername();
+                    dc.tbl_MKt_Listphieuheads.InsertOnSubmit(newheaddoc);
+                    dc.SubmitChanges();
 
 
 
 
 
+
+
+                }
+
+                return true;
 
 
             }
-
-            return true;
         }
 
 
@@ -2043,7 +2049,7 @@ namespace Maketting.Model
 
                 newitem.Store_code = storecode;
                 newitem.UNIT = itemnhap.Unit;
-            //    newitem.END_STOCK = itemnhap.RecieptQuantity;
+                //    newitem.END_STOCK = itemnhap.RecieptQuantity;
                 //    newitem.END_STOCK = itemnhap.RecieptQuantity;
 
 
@@ -2072,7 +2078,7 @@ namespace Maketting.Model
 
             if (valueitem != null)
             {
-                valueitem.Ordered = valueitem.Ordered.GetValueOrDefault(0) + ordered;
+                valueitem.Ordered = valueitem.Ordered + ordered;
 
                 dc.SubmitChanges();
 
@@ -2513,25 +2519,24 @@ namespace Maketting.Model
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var rs = from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemxuat.MateriaItemcode
-                     && p.Store_code == itemxuat.ShippingPoint
-                     select p;
+            var item = (from p in dc.tbl_MKT_Stockends
+                        where p.ITEM_Code == itemxuat.MateriaItemcode
+                        && p.Store_code == itemxuat.ShippingPoint
+                        select p).FirstOrDefault();
 
-            if (rs.Count() > 0)
+            if (item != null)
             {
-                foreach (var item in rs)
-                {
-                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.Issued.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-                }
+
+                item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
+                Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.Issued.GetValueOrDefault(0), itemxuat.ShippingPoint);
 
             }
 
-       //     valueitem.Ordered = valueitem.Ordered.GetValueOrDefault(0) + ordered;
+            //     valueitem.Ordered = valueitem.Ordered.GetValueOrDefault(0) + ordered;
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.Issued, itemxuat.ShippingPoint);
 
 
         }

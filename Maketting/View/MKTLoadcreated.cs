@@ -774,7 +774,7 @@ namespace Maketting.View
                         item.Tranposterby = "";
                         item.LoadNumber = "";
                         item.Trucknumber = "";
-
+                      
 
 
                         dc.SubmitChanges();
@@ -814,7 +814,7 @@ namespace Maketting.View
                     rs.Created_by = txtnguoitaoload.Text;
                     rs.Status = "CRT";
                     rs.LoadNumber = this.soload;
-
+                    rs.pallet = this.palletofLoad;
 
                     rs.Username = this.Username;
                     dc.SubmitChanges();
@@ -1058,7 +1058,7 @@ namespace Maketting.View
                                      Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
                                      Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
 
-                                     palletnumber = gg.Sum(m => m.pallet),
+                               //      palletnumber = gg.Sum(m => m.pallet),
 
                                  };
 
@@ -1106,7 +1106,7 @@ namespace Maketting.View
                 headpx.gatepasslist = gatepasslist.Truncate(500);
                 headpx.username = this.Username;
 
-
+                headpx.pallet = rptMKThead.pallet;
                 headpx.Loadnumber = rptMKThead.LoadNumber;
                 headpx.nametransporter = rptMKThead.TransposterName;
                 headpx.seri = this.storelocation + rptMKThead.LoadNumber;
@@ -1120,7 +1120,7 @@ namespace Maketting.View
                 headpx.Ngaythang = rptMKThead.Date_Created;
                 headpx.shippingpoint = rptMKThead.ShippingPoint;
 
-                //   headpx.Truckno = rptMKThead.Truckno;
+              //   headpx.tr = rptMKThead.Truckno;
 
 
 
@@ -1157,12 +1157,12 @@ namespace Maketting.View
                              Ngaythang = pp.Ngaythang,
                              Loadnumber = pp.Loadnumber,
                              nametransporter = pp.nametransporter,
-                             //     Truckno = pp.Truckno,
+               //               Truckno = pp.tr,
                              gatepasslist = pp.gatepasslist,
                              seri = pp.seri,
                              Barcode = pp.Barcode,
 
-
+                             pallet = pp.pallet,
                          };
             Utils ut = new Utils();
             var dataset1 = ut.ToDataTable(dc, rshead); // head
