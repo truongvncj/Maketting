@@ -13,6 +13,7 @@ using Maketting.Control;
 
 using System.Threading;
 using System.Data.SqlClient;
+using Maketting.shared;
 //using System.Collections.Generic;
 //using System.Linq;
 
@@ -3391,20 +3392,19 @@ namespace Maketting.View
             if (kq)
             {
 
-
+                bool kq2 = true;
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
                            where pp.Serriload == Loadnumberserri
 
-
                            select pp).FirstOrDefault();
                 if (rs5 == null)
                 {
                     MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-
+                    kq2 = false;
                     return;
 
                 }
@@ -3419,30 +3419,33 @@ namespace Maketting.View
                 {
                     MessageBox.Show("Phiếu đã xuất hàng rồi !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-
+                    kq2 = false;
                     return;
 
                 }
 
 
 
+                if (kq2)
+                {
+
+                    #region// xuất hagf
+                    //if (name == "tmphieuthu")
+                    //{
+
+                    //  Main.clearpannel();
+                    //   Formload.
+                    // clearpannel();
+                    this.clearpannel();
 
 
-                #region// xuất hagf
-                //if (name == "tmphieuthu")
-                //{
-
-                //  Main.clearpannel();
-                //   Formload.
-                // clearpannel();
-                this.clearpannel();
+                    View.MKTWHxuathang xuatkho = new MKTWHxuathang(this, Loadnumberserri);
+                    this.clearpannelload(xuatkho);
+                    // this.Close();
+                    #endregion
 
 
-                View.MKTWHxuathang xuatkho = new MKTWHxuathang(this, Loadnumberserri);
-                this.clearpannelload(xuatkho);
-                // this.Close();
-                #endregion
-
+                }
 
 
             }
@@ -5547,7 +5550,7 @@ namespace Maketting.View
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
-               
+
 
                 Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
 
@@ -6159,6 +6162,10 @@ namespace Maketting.View
                     //completed
                 }
             }
+
+
+
+
 
             MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //        var q = from tblVat in dc.tblVats
@@ -6866,7 +6873,7 @@ namespace Maketting.View
 
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbyinputdate(dc, fromdate, todate, store);
 
-            //    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
+                //    IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
 
 
                 //Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
@@ -6927,7 +6934,7 @@ namespace Maketting.View
                               Store_code = storelocation,
                               gg.Gate_pass,
 
-                           
+
                               MateriaItemcode = gg.ITEM_Code,
                               Material_SAP_Code = gg.SAP_CODE,
                               Material_Name = gg.MATERIAL,
@@ -7326,7 +7333,7 @@ namespace Maketting.View
 
                 var rptMKThead = from pp in dc.tbl_MKt_Listphieuheads
 
-                                 where   pp.ShippingPoint + pp.LoadNumber == Loadnumberserri
+                                 where pp.ShippingPoint + pp.LoadNumber == Loadnumberserri
                                  //   && pp.requestReturn == false
                                  select pp;
 
@@ -7398,7 +7405,7 @@ namespace Maketting.View
                     lastgatepass = item.Gate_pass;
 
 
-                    if (item.Returnrequest >0)
+                    if (item.Returnrequest > 0)
                     {
                         detailpx.thuhang = true;
                         detailpx.soluong = item.Returnrequest;
@@ -7803,6 +7810,94 @@ namespace Maketting.View
 
 
 
+
+        }
+
+        private void correctShipmentHaveCreatedToIssueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
+            pxk.ShowDialog();
+
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (kq)
+            {
+
+                bool kq2 = true;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+                           where pp.Serriload == Loadnumberserri
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+
+                {
+
+                    #region  update tbl_MKt_ListLoadheadDetail
+                    //     btluu.Enabled = false;
+
+                    var rs4 = from pp in dc.tbl_MKt_Listphieudetails
+                              where pp.ShippingPoint  + pp.ShipmentNumber == Loadnumberserri
+                             
+                              group pp by pp.Materiacode into gg
+
+                              select new
+                              {
+                                  Issued = gg.Sum(m => m.Issued),
+                                  Materiacode = gg.Key,//       gg.FirstOrDefault().Materiacode,
+                                  Materialname = gg.Select(m => m.Materialname).FirstOrDefault(),
+                                  soload = gg.Select(m => m.ShipmentNumber).FirstOrDefault(),
+
+                                  storelocation = gg.Select(m => m.ShippingPoint).FirstOrDefault(),
+                              };
+                    //   int i = 0;
+                    foreach (var item in rs4)
+                    {
+                        //   i = i + 1;
+
+                        tbl_MKt_ListLoadheadDetail loaddetail = new tbl_MKt_ListLoadheadDetail();
+
+                        //   loaddetail.stt = i.ToString();
+                        loaddetail.LoadNumber = item.soload;
+                        loaddetail.Username = Utils.getusername();
+                        loaddetail.Materiacode = item.Materiacode.Truncate(50);
+                        loaddetail.Materialname = item.Materialname.Truncate(225);
+                        // loaddetail.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
+                        loaddetail.Serriload = Loadnumberserri;
+                        loaddetail.ShippingPoint = item.storelocation;
+                        loaddetail.Issued = item.Issued;
+                        loaddetail.Status = "CRT";
+
+
+
+                        dc.tbl_MKt_ListLoadheadDetails.InsertOnSubmit(loaddetail);
+                        dc.SubmitChanges();
+
+                    }
+
+
+
+
+                    #endregion
+
+                    MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Wrong load or have no error !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+        }
+
+        private void correctOrderedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

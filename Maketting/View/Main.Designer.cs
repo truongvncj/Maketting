@@ -74,7 +74,6 @@
             this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator29 = new System.Windows.Forms.ToolStripSeparator();
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.correctOrderedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuMaketting = new System.Windows.Forms.ToolStripMenuItem();
             this.lậpPhiếuXuấtĐồMKTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mKTCollectedRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -153,6 +152,8 @@
             this.stockMovementDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.statusGatepassReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gatepassIssueFormDateToDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findGatepassOfShipmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,8 +177,9 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusGatepassReportsByLoadingDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator32 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -296,7 +298,11 @@
             this.regionListToolStripMenuItem,
             this.channelListToolStripMenuItem,
             this.toolStripSeparator26,
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem,
+            this.toolStripSeparator31,
+            this.statusShippingButHaveDeliveringToolStripMenuItem,
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem,
+            this.toolStripSeparator32,
             this.revertWrongTransferInToolStripMenuItem,
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem,
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem,
@@ -305,13 +311,11 @@
             this.revertTransferInToolStripMenuItem,
             this.revertGoodReceiptToolStripMenuItem,
             this.toolStripSeparator3,
-            this.statusShippingButHaveDeliveringToolStripMenuItem,
             this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem,
             this.trackingWrongDocToolStripMenuItem,
             this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem,
             this.toolStripSeparator29,
-            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem,
-            this.correctOrderedToolStripMenuItem});
+            this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem});
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
             this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.masterDataToolStripMenuItem.Text = "Master data";
@@ -419,7 +423,7 @@
             // 
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Name = "checkAndUpdateStatusAfterIssueToolStripMenuItem";
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Text = "Check and update status after issue";
+            this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Text = "Check and update status after issue to Delivering";
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Click += new System.EventHandler(this.checkAndUpdateStatusAfterIssueToolStripMenuItem_Click);
             // 
             // revertWrongTransferInToolStripMenuItem
@@ -517,12 +521,6 @@
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Name = "checkInportExportsDetailAndStockEndMovementToolStripMenuItem";
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
             this.checkInportExportsDetailAndStockEndMovementToolStripMenuItem.Text = "Check inport exports detail and stock end movement";
-            // 
-            // correctOrderedToolStripMenuItem
-            // 
-            this.correctOrderedToolStripMenuItem.Name = "correctOrderedToolStripMenuItem";
-            this.correctOrderedToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.correctOrderedToolStripMenuItem.Text = "Correct ordered";
             // 
             // MenuMaketting
             // 
@@ -1131,6 +1129,18 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(394, 6);
             // 
+            // statusGatepassReportsByLoadingDateToolStripMenuItem
+            // 
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Name = "statusGatepassReportsByLoadingDateToolStripMenuItem";
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Text = "Status gatepass reports by loading date";
+            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsByLoadingDateToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(394, 6);
+            // 
             // statusGatepassReportsToolStripMenuItem
             // 
             this.statusGatepassReportsToolStripMenuItem.Name = "statusGatepassReportsToolStripMenuItem";
@@ -1285,17 +1295,22 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // statusGatepassReportsByLoadingDateToolStripMenuItem
+            // correctShipmentHaveCreatedToIssueToolStripMenuItem
             // 
-            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Name = "statusGatepassReportsByLoadingDateToolStripMenuItem";
-            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
-            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Text = "Status gatepass reports by loading date";
-            this.statusGatepassReportsByLoadingDateToolStripMenuItem.Click += new System.EventHandler(this.statusGatepassReportsByLoadingDateToolStripMenuItem_Click);
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Name = "correctShipmentHaveCreatedToIssueToolStripMenuItem";
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Text = "Correct Shipment have created to issue";
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Click += new System.EventHandler(this.correctShipmentHaveCreatedToIssueToolStripMenuItem_Click);
             // 
-            // toolStripSeparator14
+            // toolStripSeparator31
             // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(394, 6);
+            this.toolStripSeparator31.Name = "toolStripSeparator31";
+            this.toolStripSeparator31.Size = new System.Drawing.Size(483, 6);
+            // 
+            // toolStripSeparator32
+            // 
+            this.toolStripSeparator32.Name = "toolStripSeparator32";
+            this.toolStripSeparator32.Size = new System.Drawing.Size(483, 6);
             // 
             // Main
             // 
@@ -1458,7 +1473,6 @@
         private ToolStripMenuItem revertReturnCollectionToolStripMenuItem;
         private ToolStripMenuItem revertWrongUpdateDeliveredOfTicketToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator30;
-        private ToolStripMenuItem correctOrderedToolStripMenuItem;
         private ToolStripMenuItem reprintGatePassOfShipmentToolStripMenuItem;
         private ToolStripMenuItem ticketUndeliveryReportsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator11;
@@ -1467,6 +1481,9 @@
         private ToolStripMenuItem maketingTicketBlockReportsToolStripMenuItem;
         private ToolStripMenuItem statusGatepassReportsByLoadingDateToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator14;
+        private ToolStripMenuItem correctShipmentHaveCreatedToIssueToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator31;
+        private ToolStripSeparator toolStripSeparator32;
     }
 }
 

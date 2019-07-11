@@ -663,7 +663,7 @@ namespace Maketting.View
                     //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
                     checkhead = false;
                     return;
-
+                  
                 }
             }
 
@@ -760,7 +760,7 @@ namespace Maketting.View
                         item.Truck = "";
                         item.ShipmentNumber = "";
                         item.Shipmentby = "";
-
+                       
                         dc.SubmitChanges();
                     }
 
@@ -775,8 +775,7 @@ namespace Maketting.View
                         item.LoadNumber = "";
                         item.Trucknumber = "";
                       
-
-
+                      
                         dc.SubmitChanges();
                     }
 
@@ -805,13 +804,13 @@ namespace Maketting.View
                 if (rs != null)
                 {
 
-                    rs.TransposterCode = txtmaNVT.Text;
-                    rs.TransposterName = txttenNVT.Text;
+                    rs.TransposterCode = txtmaNVT.Text.Truncate(50);
+                    rs.TransposterName = txttenNVT.Text.Truncate(50);
                     rs.Date_Created = datecreated.Value;
-                    rs.Truckno = txttrucnumber.Text;
+                    rs.Truckno = txttrucnumber.Text.Truncate(50);
 
                     rs.ShippingPoint = this.storelocation;
-                    rs.Created_by = txtnguoitaoload.Text;
+                    rs.Created_by = txtnguoitaoload.Text.Truncate(50);
                     rs.Status = "CRT";
                     rs.LoadNumber = this.soload;
                     rs.pallet = this.palletofLoad;
@@ -837,8 +836,8 @@ namespace Maketting.View
                         foreach (var item in rs3)
                         {
                             item.Status = "Shipping";
-                            item.Tranposterby = txttenNVT.Text;
-                            item.Truck = txttrucnumber.Text;
+                            item.Tranposterby = txttenNVT.Text.Truncate(50);
+                            item.Truck = txttrucnumber.Text.Truncate(50);
                             item.ShipmentNumber = this.soload;
                             item.Shipmentby = this.Username;
                             item.Delivery_date = DateTime.Today;
@@ -861,8 +860,8 @@ namespace Maketting.View
                         {
                             item.LoadNumber = this.soload;
                             item.Status = "Shipping";
-                            item.Tranposterby = txttenNVT.Text;
-                            item.Trucknumber = txttrucnumber.Text;
+                            item.Tranposterby = txttenNVT.Text.Truncate(50);
+                            item.Trucknumber = txttrucnumber.Text.Truncate(50);
 
 
                             dc.SubmitChanges();
@@ -907,8 +906,8 @@ namespace Maketting.View
                     //   loaddetail.stt = i.ToString();
                     loaddetail.LoadNumber = this.soload;
                     loaddetail.Username = this.Username;
-                    loaddetail.Materiacode = item.Materiacode;
-                    loaddetail.Materialname = item.Materialname;
+                    loaddetail.Materiacode = item.Materiacode.Truncate(50);
+                    loaddetail.Materialname = item.Materialname.Truncate(225);
                     // loaddetail.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
                     loaddetail.Serriload = this.storelocation + this.soload;
                     loaddetail.ShippingPoint = this.storelocation;
@@ -926,6 +925,9 @@ namespace Maketting.View
 
 
                 #endregion
+
+
+
                 this.statusphieu = 1;
                 MessageBox.Show("Load " + this.soload.ToString() + " create done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //  cleartoblankphieu();
