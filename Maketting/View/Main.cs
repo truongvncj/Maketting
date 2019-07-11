@@ -7358,6 +7358,7 @@ namespace Maketting.View
                         headpx.Nguoiyeucau = item.Requested_by;
                         headpx.thuhang = item.requestReturn; // có phải thu hàng hay không
 
+                        headpx.ghichu = item.Note;
 
 
                         dc.tbl_MKT_headRpt_Phieuissues.InsertOnSubmit(headpx);
