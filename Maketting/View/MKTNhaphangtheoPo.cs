@@ -75,22 +75,36 @@ namespace Maketting.View
 
             var rs = from pp in dc.tbl_MKt_POdetails
                      where pp.POnumber == this.POnumber
-                     group pp by pp.MateriaItemcode into gg
                      select new
                      {
-                         //    ID = pp.id,
-                         PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                         Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                         Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-                         Material_Item_code = gg.Key,
-                         Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
-                         Order_Quantity = gg.Sum(m => m.QuantityOrder),
-                         Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
-                         //     Real_issue = 0,
-
+                         id = pp.id,
+                         Region = pp.Region,
+                         PO_number = pp.POnumber,
+                         Shipping_Point = pp.Storelocation,
+                         Material_SAP_code = pp.MateriaSAPcode,// gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+                         Material_Item_code = pp.MateriaItemcode,// gg.Key,
+                         Material_name = pp.Materialname,//gg.Select(m => m.Materialname).FirstOrDefault(),
+                         Order_Quantity = pp.QuantityOrder,// gg.Sum(m => m.QuantityOrder),
+                         Reciepted_Quantity = pp.RecieptedQuantity,//gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
 
 
                      };
+            //group pp by pp.MateriaItemcode into gg
+            //select new
+            //{
+            //    //    ID = pp.id,
+            //    PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
+            //    Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
+            //    Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
+            //    Material_Item_code = gg.Key,
+            //    Material_name = gg.Select(m => m.Materialname).FirstOrDefault(),
+            //    Order_Quantity = gg.Sum(m => m.QuantityOrder),
+            //    Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
+            //    //     Real_issue = 0,
+
+
+
+            //};
 
             if (rs.Count() > 0)
             {
@@ -108,7 +122,7 @@ namespace Maketting.View
 
                 //   dataGridViewLoaddetail.Columns["ID"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["PO_number"].ReadOnly = true;
-
+                dataGridViewLoaddetail.Columns["Region"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
@@ -116,7 +130,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Order_Quantity"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].ReadOnly = true;
 
-                //    dataGridViewLoaddetail.Columns["ID"].Visible = false;
+                dataGridViewLoaddetail.Columns["id"].Visible = false;
 
 
                 //       dataGridViewLoaddetail.Columns["ID"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
@@ -542,6 +556,10 @@ namespace Maketting.View
                         //     string Material_SAP_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_SAP_code"].Value;
 
                         string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
+                        int id = int.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["id"].Value.ToString());
+
+                        float nhap = 0;
+                        nhap = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
 
 
                         #region  update gound recieot trong kho
@@ -549,26 +567,12 @@ namespace Maketting.View
 
 
                         var rs2 = from pp in dc.tbl_MKt_POdetails
-                                  where pp.MateriaItemcode == Material_Item_code
+                                  where pp.id == id
                                        && pp.POnumber == this.POnumber
                                        && pp.Storelocation == this.storelocation
-                                  group pp by pp.MateriaItemcode into gg
-                                  select new
-                                  {
-                                      //    ID = pp.id,
-                                      PO_number = gg.Select(m => m.POnumber).FirstOrDefault(),
-                                      Shipping_Point = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Material_SAP_code = gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
-                                      Material_Item_code = gg.Key,
-                                      Material_name = gg.Select(m => m.Materialname).FirstOrDefault().Truncate(255),
-                                      Order_Quantity = gg.Sum(m => m.QuantityOrder),
-                                      Reciepted_Quantity = gg.Sum(m => m.RecieptedQuantity),// pp.RecieptedQuantity,
-                                                                                            //     Real_issue = 0,
+                                  select pp;
 
-                                      Storelocation = gg.Select(m => m.Storelocation).FirstOrDefault(),
-                                      Unit = gg.Select(m => m.Unit).FirstOrDefault(),
 
-                                  };
 
                         if (rs2.Count() > 0)
                         {
@@ -580,40 +584,22 @@ namespace Maketting.View
 
 
                                 newreciepts.IssueIDsub = IssueIDsub;
-                                float nhap = 0;
-                                try
-                                {
-                                    nhap = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
-
-                                }
-                                catch (Exception)
-                                {
-
-
-                                    MessageBox.Show("Số lượng hàng  nhập tại dòng  " + idrow.ToString() + " phải là số > hoặc = 0 , please check !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    checkdetail = false;
-
-                                    return;
-                                }
+                          
 
 
                                 newreciepts.RecieptQuantity = nhap;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
 
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
-                                newreciepts.Materiacode = item.Material_SAP_code;
-                                newreciepts.MateriaItemcode = item.Material_Item_code;
+                                newreciepts.Materiacode = item.MateriaSAPcode;
+                                newreciepts.MateriaItemcode = item.MateriaItemcode;
                                 newreciepts.Document_number = txtdnnumbar.Text;
-                                newreciepts.Materialname = item.Material_name.Truncate(50);
-                                newreciepts.POnumber = item.PO_number;
+                                newreciepts.Materialname = item.Materialname.Truncate(50);
+                                newreciepts.POnumber = item.POnumber;
                                 newreciepts.ShippingPoint = item.Storelocation;
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
                                 newreciepts.Doc_date = DateTime.Today;
-
-                                //          newreciepts.Serriload
-
-                                //  newreciepts.Status=""
                                 newreciepts.Username = username;
 
 
@@ -645,7 +631,7 @@ namespace Maketting.View
                         #endregion
 
 
-
+                        // xx
 
                         #region  update po detail
 
@@ -653,8 +639,9 @@ namespace Maketting.View
 
 
                         var rs = from pp in dc.tbl_MKt_POdetails
-                                 where pp.MateriaItemcode == Material_Item_code
-                                 && pp.POnumber == this.POnumber
+                                 where pp.id == id
+                                         && pp.POnumber == this.POnumber
+                                         && pp.Storelocation == this.storelocation
                                  select pp;
 
                         if (rs.Count() > 0)
@@ -662,7 +649,7 @@ namespace Maketting.View
                             foreach (var item in rs)
                             {
                                 item.StatusPO = "IN";
-                                item.RecieptedQuantity = item.RecieptedQuantity + Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                item.RecieptedQuantity = item.RecieptedQuantity + nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                                 item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
                                 dc.SubmitChanges();
 
@@ -675,14 +662,14 @@ namespace Maketting.View
                                 newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                                 newregionupdate.Description = item.Description;
                                 newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
-                                newregionupdate.QuantityReceipt = Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                newregionupdate.QuantityInputbyPO = nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                newregionupdate.QuantityReceipt = nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
                                 newregionupdate.QuantityInputbytransferin = 0;
                                 newregionupdate.QuantityInputbyReturn = 0;
                                 newregionupdate.QuantityOutput = 0;
                                 newregionupdate.QuantitybyDevice = 0;
                                 newregionupdate.Note = item.POnumber;
-                            //    newregionupdate.Regionchangedate = datecreated.Value;
+                                //    newregionupdate.Regionchangedate = datecreated.Value;
 
                                 newregionupdate.Store_code = this.storelocation;
                                 newregionupdate.POnumber = this.POnumber;
