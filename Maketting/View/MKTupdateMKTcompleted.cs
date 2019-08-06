@@ -115,7 +115,7 @@ namespace Maketting.View
 
             // Next
 
-            dataGridViewLoaddetail.Sort(dataGridViewLoaddetail.Columns["Update_time"], ListSortDirection.Descending);
+            dataGridViewLoaddetail.Sort(dataGridViewLoaddetail.Columns["Update_time"], ListSortDirection.Ascending);
 
         }
 

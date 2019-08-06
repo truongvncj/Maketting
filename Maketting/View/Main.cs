@@ -5144,7 +5144,7 @@ namespace Maketting.View
 
 
 
-                #region//tao load
+                #region//chia budget
                 //if (name == "tmphieuthu")
                 //{
 
