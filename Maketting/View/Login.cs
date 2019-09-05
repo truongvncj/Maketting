@@ -111,7 +111,7 @@ namespace Maketting.View
 
                         Model.Username user = new Model.Username();
                         int Ver = Model.Username.getVersion();
-                        if (Ver == 79)
+                        if (Ver == 80)
                         {
 
                             this.Hide();

@@ -7448,6 +7448,7 @@ namespace Maketting.View
                                  Nguoinhanname = pp.Nguoinhanname,
                                  Diachi = pp.Diachi,
                                  mucdich = pp.mucdich,
+                                 ghichu = pp.ghichu,
 
                                  dienthoai = pp.dienthoai,
                                  seri = pp.seri,

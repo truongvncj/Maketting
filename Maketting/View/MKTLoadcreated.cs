@@ -2090,6 +2090,7 @@ namespace Maketting.View
 
                 var rs = from pp in dc.tbl_MKt_ListLoadheads
                          where pp.ShippingPoint == this.storelocation //;//&& pp.Status == "CRT"
+                         && pp.Status == "CRT"
                          select new
                          {
                              Date = pp.Date_Created,
@@ -2573,7 +2574,7 @@ namespace Maketting.View
                              Nguoinhanname = pp.Nguoinhanname,
                              Diachi = pp.Diachi,
                              mucdich = pp.mucdich,
-
+                             ghichu = pp.ghichu,
                              dienthoai = pp.dienthoai,
                              seri = pp.seri,
                              Barcode = pp.Barcode

@@ -559,7 +559,7 @@ namespace Maketting.View
                         int id = int.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["id"].Value.ToString());
 
                         float nhap = 0;
-                        nhap = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
+                        nhap = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
 
 
                         #region  update gound recieot trong kho
