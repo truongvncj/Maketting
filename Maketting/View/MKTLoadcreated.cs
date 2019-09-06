@@ -2068,7 +2068,7 @@ namespace Maketting.View
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.TabIndex == 1) //  tao phieu
+            if (tabControl1.SelectedTab.Name == "tabPage1") // all Danh sách phiếu
 
             {
 
@@ -2077,7 +2077,7 @@ namespace Maketting.View
 
             }
 
-            if (tabControl1.TabIndex == 2) //  Danh sách phiếu
+            if (tabControl1.SelectedTab.Name == "tabPage2") // all Danh sách phiếu
 
             {
                 // string valueinput = cb_customerka.Text;
@@ -2108,6 +2108,44 @@ namespace Maketting.View
 
                          };
                 dataGridViewListphieu.DataSource = rs;
+
+
+
+
+
+            }
+
+            if (tabControl1.SelectedTab.Name == "tabPage3") // all Danh sách phiếu
+
+            {
+                // string valueinput = cb_customerka.Text;
+
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                string username = Utils.getusername();
+
+
+                var rs = from pp in dc.tbl_MKt_ListLoadheads
+                         where pp.ShippingPoint == this.storelocation //;//&& pp.Status == "CRT"
+                        // && pp.Status == "CRT"
+                         select new
+                         {
+                             Date = pp.Date_Created,
+
+                             pp.LoadNumber,
+                             pp.ShippingPoint,
+
+
+                             pp.Status,
+                             pp.TransposterCode,
+                             pp.TransposterName,
+
+                             Created_by = pp.Username,
+                             pp.id,
+
+                         };
+                dataGridViewALLLOAD.DataSource = rs;
 
 
 
@@ -2843,6 +2881,147 @@ namespace Maketting.View
         private void txtloadnumber_TextChanged(object sender, EventArgs e)
         {
             this.soload = txtloadnumber.Text;
+        }
+
+        private void dataGridViewALLLOAD_Paint(object sender, PaintEventArgs e)
+        {
+
+            //   Private Sub DataGridView1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles DataGridView1.Paint
+            //  For Each c As DataGridViewColumn In dataGridViewListphieuthu.Columns
+
+            foreach (var c in dataGridViewListphieu.Columns)
+            {
+                DataGridViewColumn clm = (DataGridViewColumn)c;
+                clm.HeaderText = clm.HeaderText.Replace("_", " ");
+            }
+
+            // Next
+
+
+        }
+
+        private void dataGridViewALLLOAD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //var rs = from pp in dc.tbl_MKt_ListLoadheads
+            //         where pp.ShippingPoint == this.storelocation //pp.Status == "CRT" && 
+            //         select new
+            //         {
+            //             Date = pp.Date_Created,
+
+            //             pp.LoadNumber,
+            //             pp.ShippingPoint,
+
+
+            //             pp.Status,
+            //             pp.TransposterCode,
+            //             pp.TransposterName,
+
+            //             Created_by = pp.Username,
+            //             pp.id,
+
+            //         };
+
+
+            string shipmentfind = "";
+            string ShippingPointfind = "";
+            this.palletofLoad = 0;
+            string connection_string = Utils.getConnectionstr();
+
+            //btluu.Enabled = false;
+            //btsua.Enabled = true;
+            //btmoi.Enabled = false;
+
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            try
+            {
+                shipmentfind = this.dataGridViewALLLOAD.Rows[e.RowIndex].Cells["LoadNumber"].Value.ToString();
+                ShippingPointfind = this.dataGridViewALLLOAD.Rows[e.RowIndex].Cells["ShippingPoint"].Value.ToString();
+
+            }
+            catch (Exception)
+            {
+                //    MessageBox.Show(ex.ToString());
+                //     this.phieuchiid = 0;
+            }
+
+            #region loaddead so phieu va location
+            #region // head 
+            //    tbl_MKt_Listphieuhead headphieu = new tbl_MKt_Listphieuhead();
+
+            var rs = (from pp in dc.tbl_MKt_ListLoadheads
+                      where pp.LoadNumber == shipmentfind && pp.ShippingPoint == ShippingPointfind
+
+                      select pp).FirstOrDefault();
+
+            if (rs != null)
+            {
+                this.soload = shipmentfind;
+                txtloadnumber.Text = this.soload;
+
+
+                txtmaNVT.Text = rs.TransposterCode.ToString();// = double.Parse(txtcustcode.Text);
+                txttenNVT.Text = rs.TransposterName;// = 
+                txttrucnumber.Text = rs.Truckno;
+
+                datecreated.Value = (DateTime)rs.Date_Created;// = ;
+
+                this.storelocation = rs.ShippingPoint;// = ;
+
+
+
+
+                //  cbkhohang.Items
+                foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
+                {
+                    if (item.Value.ToString().Trim() == rs.ShippingPoint.Trim())
+                    {
+                        cbkhohang.SelectedItem = item;
+                    }
+                }
+
+                txtnguoitaoload.Text = rs.Created_by;// = ;
+                                                     //   rs.Status = "CRT";
+                txtloadnumber.Text = this.soload;
+
+
+
+
+            }
+
+
+            #endregion
+
+
+            #endregion
+            //     public void addDEtailLoad(tbl_MKt_Listphieu PhieuMKT)
+            //{
+            dataGridViewLoaddetail = Model.MKT.Getbankdetailload(dataGridViewLoaddetail);
+
+            #region load detail so phieu va loacation
+            var rs2 = from pp in dc.tbl_MKt_Listphieudetails
+                      where pp.ShipmentNumber == shipmentfind && pp.ShippingPoint == ShippingPointfind
+
+                      select pp;
+
+            if (rs2.Count() > 0)
+            {
+                ///cleartoblankDEtailphieu();
+                foreach (var item in rs2)
+                {
+                    addDEtailLoad(item);
+
+
+
+                }
+
+            }
+
+            #endregion
+            btluu.Enabled = false;
+            btsua.Enabled = true;
+            tabControl1.SelectedTab = tabPage1;
         }
     }
 
