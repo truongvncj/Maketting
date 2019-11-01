@@ -255,14 +255,14 @@ namespace Maketting.View
 
                 if (kq) // nueeus có chọn
                 {
-                   
+
                     IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentsUMMARYbyproduct(dc, fromdate, todate, Store_code, ITEM_Code);
 
-                 
+
                     Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tksumarystoremovement");// mã 5 là danh sach nha nha ccaaps
 
                     viewtbl.ShowDialog();
-               
+
 
                 }
 
@@ -339,14 +339,14 @@ namespace Maketting.View
 
 
             #region  f6 xem detail của stock movermet
-          
+
             if (this.valuesave == "tkdetailnhapxuattheosanpham" && e.KeyCode == Keys.F6)
             {
                 //p.Document_number,
-                      
+
 
                 //         Input_Output_date = p.date_input_output,
-                       
+
 
                 //         p.Materiacode,
                 //         p.MateriaItemcode,
@@ -361,15 +361,15 @@ namespace Maketting.View
 
                 //         p.Username,
 
-            //    DateTime fromdate;
-           //     DateTime todate;
+                //    DateTime fromdate;
+                //     DateTime todate;
                 string Itemcode;
                 string Shippingpoint;
                 string shipment;
                 try
                 {
-                //    fromdate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["From_date"].Value;
-                //    todate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["To_date"].Value;
+                    //    fromdate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["From_date"].Value;
+                    //    todate = (DateTime)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["To_date"].Value;
                     Shippingpoint = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Store_code"].Value;
                     Itemcode = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["MateriaItemcode"].Value;
                     shipment = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["LoadNumber"].Value;
@@ -382,7 +382,7 @@ namespace Maketting.View
                 }
 
 
-                if (shipment !="")
+                if (shipment != "")
                 {
                     IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecodebygatepass(dc, Shippingpoint, Itemcode, shipment);
 
@@ -392,7 +392,7 @@ namespace Maketting.View
                     viewtbl.ShowDialog();
                 }
 
-           
+
 
 
             }
@@ -470,7 +470,7 @@ namespace Maketting.View
 
 
 
-  
+
             if (this.viewcode == 55 && this.valuesave == "STORERPT" && e.KeyCode == Keys.F3) // tìm mas sản phẩm
             {
 
@@ -528,8 +528,8 @@ namespace Maketting.View
             #region f3  // viewocode là 100 tức là tìm phiếu mkt
 
 
-        
-            if ((viewcode == 100) && e.KeyCode == Keys.F3)  
+
+            if ((viewcode == 100) && e.KeyCode == Keys.F3)
             {
 
 
@@ -1776,7 +1776,7 @@ namespace Maketting.View
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-             
+
 
             #region viewdetail moverment one code of sumary
             if (this.valuesave == "tksumarystoremovement")
@@ -1823,6 +1823,130 @@ namespace Maketting.View
 
 
             #endregion  viewdetail moverment one code of sumary
+
+            #region   revert transfer in reverttransferin
+            //   var rs = from pp in dc.tbl_MKt_WHstoreissues
+            //          where pp.t == transfernumber
+            //       select pp;
+
+            //     xx
+            if (this.valuesave == "reverttransferin")
+            {
+                int id;
+                int idsub;
+                string Transfer_number;
+                try
+                {
+                    //   id = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["id"].Value;
+                    idsub = (int)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["IssueIDsub"].Value;
+                    Transfer_number = (string)this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["Transfer_number"].Value;
+
+                }
+                catch (Exception)
+                {
+                    return;
+                    //  throw;
+                }
+
+
+
+                DialogResult kq2 = MessageBox.Show("Bạn có chăc revert doc Transfer number: " + Transfer_number + " Subid " + idsub.ToString(), "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // bool kq;
+                switch (kq2)
+                {
+                    case DialogResult.None:
+                        break;
+                    case DialogResult.OK:
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                    case DialogResult.Abort:
+                        break;
+                    case DialogResult.Retry:
+                        break;
+                    case DialogResult.Ignore:
+                        break;
+                    case DialogResult.Yes:
+
+                        string connection_string = Utils.getConnectionstr();
+                        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+                        #region giảm số budget
+
+
+
+
+                        #endregion
+
+                        var headTR = (from pp in dc.tbl_MKt_TransferoutHEADs
+                                      where pp.Tranfernumber == Transfer_number
+                                      select pp);
+                        if (headTR.Count() > 0)
+                        {
+                            foreach (var item2 in headTR)
+                            {
+                                item2.Status = "CRT";
+                                dc.SubmitChanges();
+                            }
+                        }
+
+
+                        #region  giảm ở detail tranfer in 
+
+                        var detaitranferin = from pp in dc.tbl_MKt_TransferINdetails
+                                             where pp.Tranfernumber == Transfer_number
+                                                      && pp.IssueIDsub == idsub
+
+                                             select pp;
+
+                        if (detaitranferin != null)
+                        {
+
+                            dc.tbl_MKt_TransferINdetails.DeleteAllOnSubmit(detaitranferin);
+                            dc.SubmitChanges();
+
+                        }
+
+                        #endregion
+
+
+                        #region  giảm ở kho
+
+
+
+                        var khoissue = (from pp in dc.tbl_MKt_WHstoreissues
+                                        where pp.Transfer_number == Transfer_number
+                                                           && pp.IssueIDsub == idsub
+
+                                        select pp);
+
+                        if (khoissue != null)
+                        {
+
+
+
+
+                            #region  xóa tồn kho đã nhập
+
+                            dc.tbl_MKt_WHstoreissues.DeleteAllOnSubmit(khoissue);
+                            dc.SubmitChanges();
+
+                            #endregion
+
+                            MessageBox.Show("Revert transfer in " + Transfer_number + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+
+                        #endregion
+                        break;
+                    case DialogResult.No:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            #endregion
 
 
             #region revert good rêcipt
@@ -1880,6 +2004,12 @@ namespace Maketting.View
 
                         if (khoissue != null)
                         {
+                            #region  giảm ở detail PO
+
+
+                            #endregion
+
+
                             #region giảm budget vùng
 
                             var budgetvung = from pp in dc.tbl_MKT_StockendRegionBudgets

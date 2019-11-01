@@ -6965,7 +6965,7 @@ namespace Maketting.View
 
         private void revertTransferInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transer in  ");
+            MKTvalueinput pxk = new MKTvalueinput("Please nhập số transer out need revert!  ");
             pxk.ShowDialog();
             //c
             string transfernumber = pxk.valuetext;
