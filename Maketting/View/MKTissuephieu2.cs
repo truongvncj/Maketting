@@ -3263,5 +3263,17 @@ namespace Maketting.View
 
 
         }
+
+        private void txtDoid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                txtmact.Focus();
+
+
+
+            }
+        }
     }
 }
