@@ -207,6 +207,8 @@ namespace Maketting.View
 
             #region  list black phiếu
 
+            this.txtDoid.Text = "";
+       
             this.IO_number = "";
             this.ProgrameIDDocno = "";
 
@@ -356,6 +358,7 @@ namespace Maketting.View
 
 
             #endregion
+            txtDoid.Focus();
 
 
         }
@@ -3269,7 +3272,7 @@ namespace Maketting.View
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                txtmact.Focus();
+                txtmucdichname.Focus();
 
 
 
