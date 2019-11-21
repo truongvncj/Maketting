@@ -77,9 +77,11 @@ namespace Maketting.Model
 
             DataTable dt = new DataTable();
 
+            //           Material_Description
+            // Description_in_Vietnamese
 
-            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-            dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("Description_in_Vietnamese", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
@@ -102,8 +104,11 @@ namespace Maketting.Model
             //dataGridProgramdetail.Columns["Payment_Control"].HeaderText = "Payment\nControl";
             //this.dataGridProgramdetail.Columns["Payment_Control"].SortMode = DataGridViewColumnSortMode.NotSortable;
             //      dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-            dataGridViewDetail.Columns["MATERIAL"].Width = 300;
-            dataGridViewDetail.Columns["Description"].Width = 300;
+            //           Material_Description
+            // Description_in_Vietnamese
+
+            dataGridViewDetail.Columns["Material_Description"].Width = 300;
+            dataGridViewDetail.Columns["Description_in_Vietnamese"].Width = 300;
 
             dataGridViewDetail.Columns["Unit"].ReadOnly = true;
             dataGridViewDetail.Columns["Unit"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
@@ -143,6 +148,8 @@ namespace Maketting.Model
             dataGridViewDetail.DataSource = null;
             #region datatable temp
 
+            //           Material_Description
+            // Description_in_Vietnamese
 
 
 
@@ -3463,5 +3470,59 @@ namespace Maketting.Model
 
         }
 
+        public static IQueryable Danhsachphieuchuaxuathoadon()
+        {
+
+
+
+
+            ///      tbl_MKT_StockendRegionBudget
+
+            var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
+                         // from gg in dc.tbl_MKt_POheads
+                     where pp.QuantityReceipt > 0
+
+                   && pp.Createdate >= fromdate
+                      && pp.Createdate <= todate
+                          && pp.Store_code == storecode
+                     select new
+                     {
+
+                         // gg.
+                         pp.Region,
+                         DocumentNumber = pp.DocumentNumber,
+                         DN_Number = pp.DnNumber,
+                         Ngày_nhập_phiếu = pp.Createdate,
+                         Ngày_nhập_kho = pp.Regionchangedate,
+
+                         pp.MATERIAL,
+                         pp.Description,
+                         pp.ITEM_Code,
+                         pp.SAP_CODE,
+                         //   pp.UNIT,
+                         pp.QuantityReceipt,
+                         //    pp.s,
+
+
+                         //
+                         pp.Store_code,
+                         //   Shipmnent = pp.s,
+                         //     Transfer_in_number = pp.Transfer_number,
+                         pp.POnumber,
+
+                         //   pp.id,
+                         Subid = pp.idsub,
+
+                     };
+
+            return rs;
+
+
+
+
+
+
+            //throw new NotImplementedException();
+        }
     }
 }

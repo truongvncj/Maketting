@@ -7901,6 +7901,20 @@ namespace Maketting.View
         {
 
         }
+
+        private void listExportForIssueEinvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            IQueryable rs = Model.MKT.Danhsachphieuchuaxuathoadon();
+
+
+            Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 100, "tk");// mã 5 là danh sach nha nha ccaaps
+
+            viewtbl.ShowDialog();
+
+        }
     }
 
 

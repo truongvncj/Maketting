@@ -234,6 +234,7 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="requestReturn" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DoiD" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">

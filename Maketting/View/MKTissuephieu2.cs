@@ -85,9 +85,15 @@ namespace Maketting.View
 
             DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
-            drToAdd["Description"] = PhieuMKT.Description;
+
+            //           Material_Description
+            // Description_in_Vietnamese
+
+
+            drToAdd["Material_Description"] = PhieuMKT.Materialname;
+            drToAdd["Description_in_Vietnamese"] = PhieuMKT.Description;
             drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
+
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
             //   drToAdd["Material_Name"] = PhieuMKT.Materialname;
@@ -121,14 +127,15 @@ namespace Maketting.View
 
 
 
+         
             //---------------
 
             DataTable dataTable = (DataTable)dataGridViewDetail.DataSource;
 
             DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
-            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["Material_Description"] = PhieuMKT.Materialname;
+            drToAdd["Description_in_Vietnamese"] = PhieuMKT.Description;
             drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
@@ -155,6 +162,8 @@ namespace Maketting.View
 
 
 
+            //           Material_Description
+            // Description_in_Vietnamese
 
 
             string connection_string = Utils.getConnectionstr();
@@ -168,8 +177,8 @@ namespace Maketting.View
 
             DataRow drToAdd = dataTable.NewRow();
 
-            drToAdd["MATERIAL"] = PhieuMKT.Materialname;
-            drToAdd["Description"] = PhieuMKT.Description;
+            drToAdd["Material_Description"] = PhieuMKT.Materialname;
+            drToAdd["Description_in_Vietnamese"] = PhieuMKT.Description;
             drToAdd["ITEM_Code"] = PhieuMKT.Materiacode;
             drToAdd["Sap_Code"] = PhieuMKT.MateriaSAPcode;
             drToAdd["Unit"] = PhieuMKT.Unit;
@@ -951,6 +960,10 @@ namespace Maketting.View
                 {
                     rs.Region = this.region;//Model.Username.getuseRegion();
                     rs.Address = txtdiachi.Text.Truncate(225);
+
+                    rs.DoiD = txtDoid.Text.Truncate(225);
+
+
                     rs.ShiptoAddress = txtshiptoaddress.Text.Truncate(225);
 
                     rs.Customer_SAP_Code = double.Parse(txtcustcode.Text);
@@ -1023,9 +1036,10 @@ namespace Maketting.View
                         //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
                         //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
 
-                        if (dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value != DBNull.Value)
+               
+                        if (dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value != DBNull.Value)
                         {
-                            detailphieu.Materialname = dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value.ToString().Truncate(225);
+                            detailphieu.Materialname = dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value.ToString().Truncate(225);
                         }
 
                         if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
@@ -1045,9 +1059,9 @@ namespace Maketting.View
                             ordered = float.Parse(dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value.ToString());
                             detailphieu.Issued = ordered;
                         }
-                        if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
+                        if (dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value != DBNull.Value)
                         {
-                            detailphieu.Description = dataGridViewDetail.Rows[idrow].Cells["Description"].Value.ToString().Truncate(225);
+                            detailphieu.Description = dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value.ToString().Truncate(225);
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Unit"].Value != DBNull.Value)
                         {
@@ -1081,11 +1095,15 @@ namespace Maketting.View
 
                         newregionupdate.ITEM_Code = ItemCode;
                         newregionupdate.SAP_CODE = dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value.ToString();
-                        newregionupdate.MATERIAL = dataGridViewDetail.Rows[idrow].Cells["MATERIAL"].Value.ToString().Truncate(255);
 
-                        if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
+                        //     drToAdd["Material_Description"] = PhieuMKT.Materialname;
+                        //       drToAdd["Description_in_Vietnamese"] = PhieuMKT.Description;
+
+                        newregionupdate.MATERIAL = dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value.ToString().Truncate(255);
+
+                        if (dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value != DBNull.Value)
                         {
-                            newregionupdate.Description = dataGridViewDetail.Rows[idrow].Cells["Description"].Value.ToString().Truncate(255);
+                            newregionupdate.Description = dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value.ToString().Truncate(255);
                         }
                         else
                         {
@@ -1812,8 +1830,10 @@ namespace Maketting.View
                 //                 select gg.makho).Contains(pp.makho)
                 //          select pp;
 
+             
 
-                if (columhead == "Description")
+
+                if (columhead == "Description in Vietnamese")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
@@ -1875,8 +1895,8 @@ namespace Maketting.View
                          };
 
                 }
-
-                if (columhead == "MATERIAL")
+             
+                if (columhead == "Material Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
                          where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
@@ -1912,8 +1932,10 @@ namespace Maketting.View
 
                     if (valuechon != null)
                     {
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["MATERIAL"].Value = valuechon.MATERIAL;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = valuechon.Description;
+
+             
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Material_Description"].Value = valuechon.MATERIAL;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Description_in_Vietnamese"].Value = valuechon.Description;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = valuechon.ITEM_Code;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = valuechon.SAP_CODE;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = valuechon.END_STOCK.GetValueOrDefault(0) - valuechon.Ordered.GetValueOrDefault(0);
@@ -1933,8 +1955,9 @@ namespace Maketting.View
                     }
                     else
                     {
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["MATERIAL"].Value = DBNull.Value;
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Description"].Value = DBNull.Value;
+                  
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Material_Description"].Value = DBNull.Value;
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Description_in_Vietnamese"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["ITEM_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Sap_Code"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Available_Quantity"].Value = DBNull.Value;
@@ -2196,7 +2219,7 @@ namespace Maketting.View
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
-
+                txtDoid.Text = rs.DoiD;
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
                 txtshiptoname.Text = rs.ShiptoName;

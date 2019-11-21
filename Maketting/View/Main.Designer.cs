@@ -59,7 +59,11 @@
             this.regionListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.channelListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusShippingButHaveDeliveringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator32 = new System.Windows.Forms.ToolStripSeparator();
             this.revertWrongTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteShiptoCodeIsNotANumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertStoreIssueNotWithThatEffectEndstockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +72,6 @@
             this.revertTransferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.revertGoodReceiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusShippingButHaveDeliveringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trackingWrongDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOGoodReceiptHaveWorngOnStoreIssueAndDetailPoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,9 +180,8 @@
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.correctShipmentHaveCreatedToIssueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator31 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator32 = new System.Windows.Forms.ToolStripSeparator();
+            this.einvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listExportForIssueEinvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -257,7 +259,8 @@
             this.settlementToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.Menureports,
-            this.passwordToolStripMenuItem});
+            this.passwordToolStripMenuItem,
+            this.einvoiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 28);
@@ -419,12 +422,36 @@
             this.toolStripSeparator26.Name = "toolStripSeparator26";
             this.toolStripSeparator26.Size = new System.Drawing.Size(483, 6);
             // 
+            // correctShipmentHaveCreatedToIssueToolStripMenuItem
+            // 
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Name = "correctShipmentHaveCreatedToIssueToolStripMenuItem";
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Text = "Correct Shipment have created to issue";
+            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Click += new System.EventHandler(this.correctShipmentHaveCreatedToIssueToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator31
+            // 
+            this.toolStripSeparator31.Name = "toolStripSeparator31";
+            this.toolStripSeparator31.Size = new System.Drawing.Size(483, 6);
+            // 
+            // statusShippingButHaveDeliveringToolStripMenuItem
+            // 
+            this.statusShippingButHaveDeliveringToolStripMenuItem.Name = "statusShippingButHaveDeliveringToolStripMenuItem";
+            this.statusShippingButHaveDeliveringToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
+            this.statusShippingButHaveDeliveringToolStripMenuItem.Text = "Status Shipping but have delivering";
+            this.statusShippingButHaveDeliveringToolStripMenuItem.Click += new System.EventHandler(this.statusShippingButHaveDeliveringToolStripMenuItem_Click);
+            // 
             // checkAndUpdateStatusAfterIssueToolStripMenuItem
             // 
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Name = "checkAndUpdateStatusAfterIssueToolStripMenuItem";
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Text = "Check and update status after issue to Delivering";
             this.checkAndUpdateStatusAfterIssueToolStripMenuItem.Click += new System.EventHandler(this.checkAndUpdateStatusAfterIssueToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator32
+            // 
+            this.toolStripSeparator32.Name = "toolStripSeparator32";
+            this.toolStripSeparator32.Size = new System.Drawing.Size(483, 6);
             // 
             // revertWrongTransferInToolStripMenuItem
             // 
@@ -480,13 +507,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(483, 6);
-            // 
-            // statusShippingButHaveDeliveringToolStripMenuItem
-            // 
-            this.statusShippingButHaveDeliveringToolStripMenuItem.Name = "statusShippingButHaveDeliveringToolStripMenuItem";
-            this.statusShippingButHaveDeliveringToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.statusShippingButHaveDeliveringToolStripMenuItem.Text = "Status Shipping but have delivering";
-            this.statusShippingButHaveDeliveringToolStripMenuItem.Click += new System.EventHandler(this.statusShippingButHaveDeliveringToolStripMenuItem_Click);
             // 
             // shipmentHaveWrongEffectOnStoreIssueAndRegionBudgetToolStripMenuItem
             // 
@@ -1295,22 +1315,20 @@
             this.changePasswordToolStripMenuItem1.Text = "Change password";
             this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
             // 
-            // correctShipmentHaveCreatedToIssueToolStripMenuItem
+            // einvoiceToolStripMenuItem
             // 
-            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Name = "correctShipmentHaveCreatedToIssueToolStripMenuItem";
-            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Text = "Correct Shipment have created to issue";
-            this.correctShipmentHaveCreatedToIssueToolStripMenuItem.Click += new System.EventHandler(this.correctShipmentHaveCreatedToIssueToolStripMenuItem_Click);
+            this.einvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listExportForIssueEinvoiceToolStripMenuItem});
+            this.einvoiceToolStripMenuItem.Name = "einvoiceToolStripMenuItem";
+            this.einvoiceToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.einvoiceToolStripMenuItem.Text = "E-invoice";
             // 
-            // toolStripSeparator31
+            // listExportForIssueEinvoiceToolStripMenuItem
             // 
-            this.toolStripSeparator31.Name = "toolStripSeparator31";
-            this.toolStripSeparator31.Size = new System.Drawing.Size(483, 6);
-            // 
-            // toolStripSeparator32
-            // 
-            this.toolStripSeparator32.Name = "toolStripSeparator32";
-            this.toolStripSeparator32.Size = new System.Drawing.Size(483, 6);
+            this.listExportForIssueEinvoiceToolStripMenuItem.Name = "listExportForIssueEinvoiceToolStripMenuItem";
+            this.listExportForIssueEinvoiceToolStripMenuItem.Size = new System.Drawing.Size(271, 24);
+            this.listExportForIssueEinvoiceToolStripMenuItem.Text = "List export for issue E-invoice";
+            this.listExportForIssueEinvoiceToolStripMenuItem.Click += new System.EventHandler(this.listExportForIssueEinvoiceToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1484,6 +1502,8 @@
         private ToolStripMenuItem correctShipmentHaveCreatedToIssueToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator31;
         private ToolStripSeparator toolStripSeparator32;
+        private ToolStripMenuItem einvoiceToolStripMenuItem;
+        private ToolStripMenuItem listExportForIssueEinvoiceToolStripMenuItem;
     }
 }
 

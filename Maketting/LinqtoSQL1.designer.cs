@@ -4930,6 +4930,8 @@ namespace Maketting
 		
 		private bool _requestReturn;
 		
+		private string _DoiD;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4984,6 +4986,8 @@ namespace Maketting
     partial void OnTrucknumberChanged();
     partial void OnrequestReturnChanging(bool value);
     partial void OnrequestReturnChanged();
+    partial void OnDoiDChanging(string value);
+    partial void OnDoiDChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -5487,6 +5491,26 @@ namespace Maketting
 					this._requestReturn = value;
 					this.SendPropertyChanged("requestReturn");
 					this.OnrequestReturnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoiD", DbType="NVarChar(255)")]
+		public string DoiD
+		{
+			get
+			{
+				return this._DoiD;
+			}
+			set
+			{
+				if ((this._DoiD != value))
+				{
+					this.OnDoiDChanging(value);
+					this.SendPropertyChanging();
+					this._DoiD = value;
+					this.SendPropertyChanged("DoiD");
+					this.OnDoiDChanged();
 				}
 			}
 		}
