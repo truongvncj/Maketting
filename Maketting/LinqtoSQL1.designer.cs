@@ -4932,6 +4932,8 @@ namespace Maketting
 		
 		private string _DoiD;
 		
+		private bool _einvoice;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4988,6 +4990,8 @@ namespace Maketting
     partial void OnrequestReturnChanged();
     partial void OnDoiDChanging(string value);
     partial void OnDoiDChanged();
+    partial void OneinvoiceChanging(bool value);
+    partial void OneinvoiceChanged();
     #endregion
 		
 		public tbl_MKt_Listphieuhead()
@@ -5511,6 +5515,26 @@ namespace Maketting
 					this._DoiD = value;
 					this.SendPropertyChanged("DoiD");
 					this.OnDoiDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_einvoice", DbType="Bit NOT NULL")]
+		public bool einvoice
+		{
+			get
+			{
+				return this._einvoice;
+			}
+			set
+			{
+				if ((this._einvoice != value))
+				{
+					this.OneinvoiceChanging(value);
+					this.SendPropertyChanging();
+					this._einvoice = value;
+					this.SendPropertyChanged("einvoice");
+					this.OneinvoiceChanged();
 				}
 			}
 		}

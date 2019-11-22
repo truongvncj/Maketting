@@ -3470,50 +3470,20 @@ namespace Maketting.Model
 
         }
 
-        public static IQueryable Danhsachphieuchuaxuathoadon()
+        public static IQueryable Danhsachphieuchuaxuathoadon(LinqtoSQLDataContext dc, string store)
         {
 
 
 
 
-            ///      tbl_MKT_StockendRegionBudget
-
-            var rs = from pp in dc.tbl_MKT_StockendRegionBudgets
+            var rs = from pp in dc.tbl_MKt_Listphieuheads
                          // from gg in dc.tbl_MKt_POheads
-                     where pp.QuantityReceipt > 0
+                     where pp.einvoice == false
+                     && pp.requestReturn ==false
 
-                   && pp.Createdate >= fromdate
-                      && pp.Createdate <= todate
-                          && pp.Store_code == storecode
-                     select new
-                     {
-
-                         // gg.
-                         pp.Region,
-                         DocumentNumber = pp.DocumentNumber,
-                         DN_Number = pp.DnNumber,
-                         Ngày_nhập_phiếu = pp.Createdate,
-                         Ngày_nhập_kho = pp.Regionchangedate,
-
-                         pp.MATERIAL,
-                         pp.Description,
-                         pp.ITEM_Code,
-                         pp.SAP_CODE,
-                         //   pp.UNIT,
-                         pp.QuantityReceipt,
-                         //    pp.s,
-
-
-                         //
-                         pp.Store_code,
-                         //   Shipmnent = pp.s,
-                         //     Transfer_in_number = pp.Transfer_number,
-                         pp.POnumber,
-
-                         //   pp.id,
-                         Subid = pp.idsub,
-
-                     };
+                   && pp.ShippingPoint == store
+                   && pp.Status =="Delivering"
+                     select pp;
 
             return rs;
 
