@@ -31,44 +31,6 @@ namespace Maketting.Model
 
 
 
-        //var rsdetaildele = (from tbl_kacontractsdetailpayment in dc.tbl_kacontractsdetailpayments
-        //                    where tbl_kacontractsdetailpayment.ContractNo.Equals(ContractNoin)
-        //                    && tbl_kacontractsdetailpayment.BatchNo == 0
-        //                    select tbl_kacontractsdetailpayment);
-        //if (rsdetaildele != null)
-        //{
-        //    dc.tbl_kacontractsdetailpayments.DeleteAllOnSubmit(rsdetaildele);
-        //    dc.SubmitChanges();
-
-        //}
-
-
-
-
-        //public static bool checkispaidandalive(string contractNo)
-        //{
-        //    string connection_string = Utils.getConnectionstr();
-        //    var db = new LinqtoSQLDataContext(connection_string);
-        //    var rs = (from tbl_kacontractsdetailpayment in db.tbl_kacontractsdetailpayments
-        //               where tbl_kacontractsdetailpayment.ContractNo.Equals( contractNo) && tbl_kacontractsdetailpayment.PayControl == "REQ" 
-        //               && tbl_kacontractsdetailpayment.BatchNo != 0
-        //              select tbl_kacontractsdetailpayment.ContractNo).FirstOrDefault();
-
-        //    var rs1 = (from tbl_kacontractdata in db.tbl_kacontractdatas
-        //               where tbl_kacontractdata.ContractNo == contractNo && tbl_kacontractdata.Consts != "ALV"
-        //               select tbl_kacontractdata.Consts).FirstOrDefault();
-
-        //    if (rs != null || rs1!= null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-            
-        //}
-
 
         public bool deleteallcontractbegindetail()
         {
@@ -84,17 +46,7 @@ namespace Maketting.Model
         }
 
 
-        //public IQueryable Setlect_all_begin(LinqtoSQLDataContext db)
-        //{
-
-        //    //var db = new LinqtoSQLDataContext(connection_string);
-        //    var rs = from tbl_kacontractbegindata in db.tbl_kacontractbegindatas
-        //             select tbl_kacontractbegindata;
-
-        //    return rs;
-
-        //}
-
+   
 
 
 

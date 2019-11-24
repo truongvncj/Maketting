@@ -1,11 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MKTing" Class="LinqtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=HAN-L-3PFF7H2;Initial Catalog=MKTing;Integrated Security=True" SettingsObjectName="Maketting.Properties.Settings" SettingsPropertyName="MKTingConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_MKT_CustomerChanel" Member="tbl_MKT_CustomerChanels">
-    <Type Name="tbl_MKT_CustomerChanel">
-      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+  <Table Name="dbo.EinvoiceExport" Member="EinvoiceExports">
+    <Type Name="EinvoiceExport">
+      <Column Name="[Ngày hóa đơn]" Member="Ngày_hóa_đơn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Nhóm số hóa đơn]" Member="Nhóm_số_hóa_đơn" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Loại tiền tệ]" Member="Loại_tiền_tệ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Ký hiệu]" Member="Ký_hiệu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Mã khách hàng]" Member="Mã_khách_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Họ tên người mua hàng]" Member="Họ_tên_người_mua_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Tên đơn vị]" Member="Tên_đơn_vị" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Mã số thuế]" Member="Mã_số_thuế" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Hình thức thanh toán]" Member="Hình_thức_thanh_toán" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Số Tài Khoản]" Member="Số_Tài_Khoản" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Tại ngân hàng]" Member="Tại_ngân_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Địa chỉ]" Member="Địa_chỉ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Số điện thoại]" Member="Số_điện_thoại" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VAT10" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VAT5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Đvt" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Mã Hàng hóa]" Member="Mã_Hàng_hóa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Tên hành hóa, dịch vụ]" Member="Tên_hành_hóa__dịch_vụ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Số lượng]" Member="Số_lượng" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Đơn giá]" Member="Đơn_giá" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Thành tiền]" Member="Thành_tiền" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Thuế suất GTGT]" Member="Thuế_suất_GTGT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Tiền Thuế GTGT]" Member="Tiền_Thuế_GTGT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Temp" Member="tbl_Temps">
@@ -50,6 +71,14 @@
       <Column Name="doViewcounting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="changeProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="deleteProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_CustomerChanel" Member="tbl_MKT_CustomerChanels">
+    <Type Name="tbl_MKT_CustomerChanel">
+      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">

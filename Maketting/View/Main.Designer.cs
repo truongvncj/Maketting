@@ -182,6 +182,8 @@
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.einvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listExportForIssueEinvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportEinvoiceByLoadNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportEinvoiceByMKTNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -1318,7 +1320,9 @@
             // einvoiceToolStripMenuItem
             // 
             this.einvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listExportForIssueEinvoiceToolStripMenuItem});
+            this.listExportForIssueEinvoiceToolStripMenuItem,
+            this.exportEinvoiceByLoadNumberToolStripMenuItem,
+            this.exportEinvoiceByMKTNumberToolStripMenuItem});
             this.einvoiceToolStripMenuItem.Name = "einvoiceToolStripMenuItem";
             this.einvoiceToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.einvoiceToolStripMenuItem.Text = "E-invoice";
@@ -1326,9 +1330,21 @@
             // listExportForIssueEinvoiceToolStripMenuItem
             // 
             this.listExportForIssueEinvoiceToolStripMenuItem.Name = "listExportForIssueEinvoiceToolStripMenuItem";
-            this.listExportForIssueEinvoiceToolStripMenuItem.Size = new System.Drawing.Size(271, 24);
+            this.listExportForIssueEinvoiceToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.listExportForIssueEinvoiceToolStripMenuItem.Text = "List export for issue E-invoice";
             this.listExportForIssueEinvoiceToolStripMenuItem.Click += new System.EventHandler(this.listExportForIssueEinvoiceToolStripMenuItem_Click);
+            // 
+            // exportEinvoiceByLoadNumberToolStripMenuItem
+            // 
+            this.exportEinvoiceByLoadNumberToolStripMenuItem.Name = "exportEinvoiceByLoadNumberToolStripMenuItem";
+            this.exportEinvoiceByLoadNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
+            this.exportEinvoiceByLoadNumberToolStripMenuItem.Text = "Export E-invoice by Load Number";
+            // 
+            // exportEinvoiceByMKTNumberToolStripMenuItem
+            // 
+            this.exportEinvoiceByMKTNumberToolStripMenuItem.Name = "exportEinvoiceByMKTNumberToolStripMenuItem";
+            this.exportEinvoiceByMKTNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
+            this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
             // 
             // Main
             // 
@@ -1504,6 +1520,8 @@
         private ToolStripSeparator toolStripSeparator32;
         private ToolStripMenuItem einvoiceToolStripMenuItem;
         private ToolStripMenuItem listExportForIssueEinvoiceToolStripMenuItem;
+        private ToolStripMenuItem exportEinvoiceByLoadNumberToolStripMenuItem;
+        private ToolStripMenuItem exportEinvoiceByMKTNumberToolStripMenuItem;
     }
 }
 

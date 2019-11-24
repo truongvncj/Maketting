@@ -30,12 +30,12 @@ namespace Maketting
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Inserttbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
-    partial void Updatetbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
-    partial void Deletetbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
     partial void Inserttbl_Temp(tbl_Temp instance);
     partial void Updatetbl_Temp(tbl_Temp instance);
     partial void Deletetbl_Temp(tbl_Temp instance);
+    partial void Inserttbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
+    partial void Updatetbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
+    partial void Deletetbl_MKT_CustomerChanel(tbl_MKT_CustomerChanel instance);
     partial void Inserttbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
     partial void Updatetbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
     partial void Deletetbl_MKT_CustomerChaneltmp(tbl_MKT_CustomerChaneltmp instance);
@@ -191,11 +191,11 @@ namespace Maketting
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tbl_MKT_CustomerChanel> tbl_MKT_CustomerChanels
+		public System.Data.Linq.Table<EinvoiceExport> EinvoiceExports
 		{
 			get
 			{
-				return this.GetTable<tbl_MKT_CustomerChanel>();
+				return this.GetTable<EinvoiceExport>();
 			}
 		}
 		
@@ -204,6 +204,14 @@ namespace Maketting
 			get
 			{
 				return this.GetTable<tbl_Temp>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_MKT_CustomerChanel> tbl_MKT_CustomerChanels
+		{
+			get
+			{
+				return this.GetTable<tbl_MKT_CustomerChanel>();
 			}
 		}
 		
@@ -544,136 +552,461 @@ namespace Maketting
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_CustomerChanel")]
-	public partial class tbl_MKT_CustomerChanel : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EinvoiceExport")]
+	public partial class EinvoiceExport
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private System.Nullable<System.DateTime> _Ngày_hóa_đơn;
 		
-		private string _Chanel_code;
+		private string _Nhóm_số_hóa_đơn;
 		
-		private string _Chanel_name;
+		private string _Loại_tiền_tệ;
 		
-		private int _id;
+		private string _Ký_hiệu;
 		
-		private string _Note;
+		private string _Mã_khách_hàng;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnChanel_codeChanging(string value);
-    partial void OnChanel_codeChanged();
-    partial void OnChanel_nameChanging(string value);
-    partial void OnChanel_nameChanged();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    #endregion
+		private string _Họ_tên_người_mua_hàng;
 		
-		public tbl_MKT_CustomerChanel()
+		private string _Tên_đơn_vị;
+		
+		private string _Mã_số_thuế;
+		
+		private string _Hình_thức_thanh_toán;
+		
+		private string _Số_Tài_Khoản;
+		
+		private string _Tại_ngân_hàng;
+		
+		private string _Địa_chỉ;
+		
+		private string _Số_điện_thoại;
+		
+		private string _Email;
+		
+		private System.Nullable<double> _VAT10;
+		
+		private string _VAT5;
+		
+		private string _Đvt;
+		
+		private string _Mã_Hàng_hóa;
+		
+		private string _Tên_hành_hóa__dịch_vụ;
+		
+		private System.Nullable<double> _Số_lượng;
+		
+		private System.Nullable<double> _Đơn_giá;
+		
+		private System.Nullable<double> _Thành_tiền;
+		
+		private System.Nullable<double> _Thuế_suất_GTGT;
+		
+		private System.Nullable<double> _Tiền_Thuế_GTGT;
+		
+		private string _Username;
+		
+		public EinvoiceExport()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_code", DbType="NVarChar(50)")]
-		public string Chanel_code
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ngày hóa đơn]", Storage="_Ngày_hóa_đơn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ngày_hóa_đơn
 		{
 			get
 			{
-				return this._Chanel_code;
+				return this._Ngày_hóa_đơn;
 			}
 			set
 			{
-				if ((this._Chanel_code != value))
+				if ((this._Ngày_hóa_đơn != value))
 				{
-					this.OnChanel_codeChanging(value);
-					this.SendPropertyChanging();
-					this._Chanel_code = value;
-					this.SendPropertyChanged("Chanel_code");
-					this.OnChanel_codeChanged();
+					this._Ngày_hóa_đơn = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_name", DbType="NVarChar(225)")]
-		public string Chanel_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Nhóm số hóa đơn]", Storage="_Nhóm_số_hóa_đơn", DbType="NVarChar(255)")]
+		public string Nhóm_số_hóa_đơn
 		{
 			get
 			{
-				return this._Chanel_name;
+				return this._Nhóm_số_hóa_đơn;
 			}
 			set
 			{
-				if ((this._Chanel_name != value))
+				if ((this._Nhóm_số_hóa_đơn != value))
 				{
-					this.OnChanel_nameChanging(value);
-					this.SendPropertyChanging();
-					this._Chanel_name = value;
-					this.SendPropertyChanged("Chanel_name");
-					this.OnChanel_nameChanged();
+					this._Nhóm_số_hóa_đơn = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Loại tiền tệ]", Storage="_Loại_tiền_tệ", DbType="NVarChar(255)")]
+		public string Loại_tiền_tệ
 		{
 			get
 			{
-				return this._id;
+				return this._Loại_tiền_tệ;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Loại_tiền_tệ != value))
 				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Loại_tiền_tệ = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(225)")]
-		public string Note
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ký hiệu]", Storage="_Ký_hiệu", DbType="NVarChar(255)")]
+		public string Ký_hiệu
 		{
 			get
 			{
-				return this._Note;
+				return this._Ký_hiệu;
 			}
 			set
 			{
-				if ((this._Note != value))
+				if ((this._Ký_hiệu != value))
 				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
+					this._Ký_hiệu = value;
 				}
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Mã khách hàng]", Storage="_Mã_khách_hàng", DbType="NVarChar(255)")]
+		public string Mã_khách_hàng
 		{
-			if ((this.PropertyChanging != null))
+			get
 			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
+				return this._Mã_khách_hàng;
+			}
+			set
+			{
+				if ((this._Mã_khách_hàng != value))
+				{
+					this._Mã_khách_hàng = value;
+				}
 			}
 		}
 		
-		protected virtual void SendPropertyChanged(String propertyName)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Họ tên người mua hàng]", Storage="_Họ_tên_người_mua_hàng", DbType="NVarChar(255)")]
+		public string Họ_tên_người_mua_hàng
 		{
-			if ((this.PropertyChanged != null))
+			get
 			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this._Họ_tên_người_mua_hàng;
+			}
+			set
+			{
+				if ((this._Họ_tên_người_mua_hàng != value))
+				{
+					this._Họ_tên_người_mua_hàng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tên đơn vị]", Storage="_Tên_đơn_vị", DbType="NVarChar(255)")]
+		public string Tên_đơn_vị
+		{
+			get
+			{
+				return this._Tên_đơn_vị;
+			}
+			set
+			{
+				if ((this._Tên_đơn_vị != value))
+				{
+					this._Tên_đơn_vị = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Mã số thuế]", Storage="_Mã_số_thuế", DbType="NVarChar(255)")]
+		public string Mã_số_thuế
+		{
+			get
+			{
+				return this._Mã_số_thuế;
+			}
+			set
+			{
+				if ((this._Mã_số_thuế != value))
+				{
+					this._Mã_số_thuế = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Hình thức thanh toán]", Storage="_Hình_thức_thanh_toán", DbType="NVarChar(255)")]
+		public string Hình_thức_thanh_toán
+		{
+			get
+			{
+				return this._Hình_thức_thanh_toán;
+			}
+			set
+			{
+				if ((this._Hình_thức_thanh_toán != value))
+				{
+					this._Hình_thức_thanh_toán = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Số Tài Khoản]", Storage="_Số_Tài_Khoản", DbType="NVarChar(255)")]
+		public string Số_Tài_Khoản
+		{
+			get
+			{
+				return this._Số_Tài_Khoản;
+			}
+			set
+			{
+				if ((this._Số_Tài_Khoản != value))
+				{
+					this._Số_Tài_Khoản = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tại ngân hàng]", Storage="_Tại_ngân_hàng", DbType="NVarChar(255)")]
+		public string Tại_ngân_hàng
+		{
+			get
+			{
+				return this._Tại_ngân_hàng;
+			}
+			set
+			{
+				if ((this._Tại_ngân_hàng != value))
+				{
+					this._Tại_ngân_hàng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Địa chỉ]", Storage="_Địa_chỉ", DbType="NVarChar(255)")]
+		public string Địa_chỉ
+		{
+			get
+			{
+				return this._Địa_chỉ;
+			}
+			set
+			{
+				if ((this._Địa_chỉ != value))
+				{
+					this._Địa_chỉ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Số điện thoại]", Storage="_Số_điện_thoại", DbType="NVarChar(255)")]
+		public string Số_điện_thoại
+		{
+			get
+			{
+				return this._Số_điện_thoại;
+			}
+			set
+			{
+				if ((this._Số_điện_thoại != value))
+				{
+					this._Số_điện_thoại = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT10", DbType="Float")]
+		public System.Nullable<double> VAT10
+		{
+			get
+			{
+				return this._VAT10;
+			}
+			set
+			{
+				if ((this._VAT10 != value))
+				{
+					this._VAT10 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VAT5", DbType="NVarChar(255)")]
+		public string VAT5
+		{
+			get
+			{
+				return this._VAT5;
+			}
+			set
+			{
+				if ((this._VAT5 != value))
+				{
+					this._VAT5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Đvt", DbType="NVarChar(255)")]
+		public string Đvt
+		{
+			get
+			{
+				return this._Đvt;
+			}
+			set
+			{
+				if ((this._Đvt != value))
+				{
+					this._Đvt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Mã Hàng hóa]", Storage="_Mã_Hàng_hóa", DbType="NVarChar(255)")]
+		public string Mã_Hàng_hóa
+		{
+			get
+			{
+				return this._Mã_Hàng_hóa;
+			}
+			set
+			{
+				if ((this._Mã_Hàng_hóa != value))
+				{
+					this._Mã_Hàng_hóa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tên hành hóa, dịch vụ]", Storage="_Tên_hành_hóa__dịch_vụ", DbType="NVarChar(255)")]
+		public string Tên_hành_hóa__dịch_vụ
+		{
+			get
+			{
+				return this._Tên_hành_hóa__dịch_vụ;
+			}
+			set
+			{
+				if ((this._Tên_hành_hóa__dịch_vụ != value))
+				{
+					this._Tên_hành_hóa__dịch_vụ = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Số lượng]", Storage="_Số_lượng", DbType="Float")]
+		public System.Nullable<double> Số_lượng
+		{
+			get
+			{
+				return this._Số_lượng;
+			}
+			set
+			{
+				if ((this._Số_lượng != value))
+				{
+					this._Số_lượng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Đơn giá]", Storage="_Đơn_giá", DbType="Float")]
+		public System.Nullable<double> Đơn_giá
+		{
+			get
+			{
+				return this._Đơn_giá;
+			}
+			set
+			{
+				if ((this._Đơn_giá != value))
+				{
+					this._Đơn_giá = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Thành tiền]", Storage="_Thành_tiền", DbType="Float")]
+		public System.Nullable<double> Thành_tiền
+		{
+			get
+			{
+				return this._Thành_tiền;
+			}
+			set
+			{
+				if ((this._Thành_tiền != value))
+				{
+					this._Thành_tiền = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Thuế suất GTGT]", Storage="_Thuế_suất_GTGT", DbType="Float")]
+		public System.Nullable<double> Thuế_suất_GTGT
+		{
+			get
+			{
+				return this._Thuế_suất_GTGT;
+			}
+			set
+			{
+				if ((this._Thuế_suất_GTGT != value))
+				{
+					this._Thuế_suất_GTGT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Tiền Thuế GTGT]", Storage="_Tiền_Thuế_GTGT", DbType="Float")]
+		public System.Nullable<double> Tiền_Thuế_GTGT
+		{
+			get
+			{
+				return this._Tiền_Thuế_GTGT;
+			}
+			set
+			{
+				if ((this._Tiền_Thuế_GTGT != value))
+				{
+					this._Tiền_Thuế_GTGT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NVarChar(255)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
 			}
 		}
 	}
@@ -1651,6 +1984,140 @@ namespace Maketting
 					this._deleteProduct = value;
 					this.SendPropertyChanged("deleteProduct");
 					this.OndeleteProductChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_MKT_CustomerChanel")]
+	public partial class tbl_MKT_CustomerChanel : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Chanel_code;
+		
+		private string _Chanel_name;
+		
+		private int _id;
+		
+		private string _Note;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnChanel_codeChanging(string value);
+    partial void OnChanel_codeChanged();
+    partial void OnChanel_nameChanging(string value);
+    partial void OnChanel_nameChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    #endregion
+		
+		public tbl_MKT_CustomerChanel()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_code", DbType="NVarChar(50)")]
+		public string Chanel_code
+		{
+			get
+			{
+				return this._Chanel_code;
+			}
+			set
+			{
+				if ((this._Chanel_code != value))
+				{
+					this.OnChanel_codeChanging(value);
+					this.SendPropertyChanging();
+					this._Chanel_code = value;
+					this.SendPropertyChanged("Chanel_code");
+					this.OnChanel_codeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chanel_name", DbType="NVarChar(225)")]
+		public string Chanel_name
+		{
+			get
+			{
+				return this._Chanel_name;
+			}
+			set
+			{
+				if ((this._Chanel_name != value))
+				{
+					this.OnChanel_nameChanging(value);
+					this.SendPropertyChanging();
+					this._Chanel_name = value;
+					this.SendPropertyChanged("Chanel_name");
+					this.OnChanel_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(225)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
 				}
 			}
 		}

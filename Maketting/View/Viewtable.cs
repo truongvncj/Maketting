@@ -786,7 +786,7 @@ namespace Maketting.View
             //     this.lb_seach.Visible = false;
             this.Pl_endview.Visible = false;
             //   gboxUnpaid.Visible = false; // an nhom field upaid
-
+            btforEinvoice.Visible = false;
             this.formlabel.Text = fornname;
             btaddto.Visible = false;
             if (viewcode == 55) // 55 chỉ view và exports
@@ -828,6 +828,7 @@ namespace Maketting.View
                 bt_sua.Visible = false;
                 btaddto.Visible = false;
                 lbseach.Visible = false;
+                btforEinvoice.Visible = true;
             }
 
             if (viewcode == 100)
@@ -2411,6 +2412,15 @@ namespace Maketting.View
 
 
 
+
+        }
+
+        private void btforEinvoice_Click(object sender, EventArgs e)
+        {
+            Control_ac ctrex = new Control_ac();
+
+
+            ctrex.exportexceldatagridtoEinvoice(this.rs, this.dc, this.Text);
 
         }
     }
