@@ -1373,6 +1373,7 @@ namespace Maketting.View
 
             //View.Viewtable vx1 = new Viewtable(rshead, dc, "test", 100, "100");
             //vx1.ShowDialog();
+
             var rsdetail = from pp in dc.tbl_MKT_DetailRpt_Phieuissues
                            where pp.Username == this.Username
                            orderby pp.stt

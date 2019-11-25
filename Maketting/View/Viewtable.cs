@@ -2458,7 +2458,7 @@ namespace Maketting.View
                                select pp).FirstOrDefault();
 
                     var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
-                                      where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
+                                      where pp.Gate_pass == headphieu.Gate_pass //&& pp.ShippingPoint == headphieu.ShippingPoint
                                       select pp;
 
                     foreach (var phieudetail in detailphieu)
