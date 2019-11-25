@@ -2338,12 +2338,15 @@ namespace Maketting.Model
 
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            giaPOgannhat = (double)(from p in dc.tbl_MKt_POdetails
-                                    where p.MateriaSAPcode == materiaSAPcode
-                                    orderby p.DatePO descending
-                                    select p.Unit_Price).FirstOrDefault();
+            var giamoi = (from p in dc.tbl_MKt_POdetails
+                          where p.MateriaSAPcode == materiaSAPcode
+                          orderby p.DatePO descending
+                          select p.Unit_Price).FirstOrDefault();
 
-
+            if (giamoi != null)
+            {
+                giaPOgannhat = (double)giamoi;
+            }
             return giaPOgannhat;
             //  throw new NotImplementedException();
         }

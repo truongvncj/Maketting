@@ -1339,12 +1339,14 @@
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Name = "exportEinvoiceByLoadNumberToolStripMenuItem";
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Text = "Export E-invoice by Load Number";
+            this.exportEinvoiceByLoadNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByLoadNumberToolStripMenuItem_Click);
             // 
             // exportEinvoiceByMKTNumberToolStripMenuItem
             // 
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Name = "exportEinvoiceByMKTNumberToolStripMenuItem";
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
+            this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
             // 
             // Main
             // 

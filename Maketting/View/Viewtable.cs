@@ -2442,7 +2442,7 @@ namespace Maketting.View
 
             //tính file einvoice
             int sodem = 0;
-            for (int idrow = 0; idrow < dataGridView1.RowCount - 1; idrow++)
+            for (int idrow = 0; idrow < dataGridView1.RowCount-1 ; idrow++)
             {
                 if (dataGridView1.Rows[idrow].Cells["id"].Value != DBNull.Value)
                 {
@@ -2452,11 +2452,14 @@ namespace Maketting.View
                                      where pp.id == idphieu// && pp.Status == "TMP"
                                      select pp).FirstOrDefault();
 
+                    var cus = (from pp in dc.tbl_MKT_Soldtocodes
+                               where pp.Customer == headphieu.Customer_SAP_Code.ToString()
+                               && pp.Region == headphieu.Region
+                               select pp).FirstOrDefault();
 
                     var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
                                       where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
                                       select pp;
-
 
                     foreach (var phieudetail in detailphieu)
                     {
@@ -2468,12 +2471,7 @@ namespace Maketting.View
                         EinvoiceExport.Loại_tiền_tệ = "VND";
                         EinvoiceExport.Ký_hiệu = "HN/18E";
                         EinvoiceExport.Mã_khách_hàng = headphieu.Customer_SAP_Code.ToString();
-                        //       EinvoiceExport.Tên_đơn_vị = cus.Receiver_by;
-                        //        EinvoiceExport.Mã_số_thuế = cus.vat;
                         EinvoiceExport.Hình_thức_thanh_toán = "2";
-                        EinvoiceExport.Địa_chỉ = headphieu.Address;
-                        //         EinvoiceExport.Số_điện_thoại = cus.Tel;
-                        //          EinvoiceExport.Email = cus.email;
                         EinvoiceExport.Đvt = "222";
 
 
@@ -2481,7 +2479,18 @@ namespace Maketting.View
                         EinvoiceExport.Tên_hành_hóa__dịch_vụ = phieudetail.Materialname;
                         EinvoiceExport.Số_lượng = phieudetail.Issued;
 
-                        if (headphieu.DoiD=="")
+                        if (cus != null)
+                        {
+                            EinvoiceExport.Tên_đơn_vị = cus.FullNameN;
+                            EinvoiceExport.Mã_số_thuế = cus.VATregistrationNo;
+
+                            EinvoiceExport.Địa_chỉ = cus.Street + " " + cus.District + " " + cus.City;
+                            EinvoiceExport.Số_điện_thoại = cus.Telephone1;
+                            EinvoiceExport.Email = cus.email1;
+
+                        }
+
+                        if (headphieu.DoiD == "")
                         {
                             EinvoiceExport.Đơn_giá = 0;
                             EinvoiceExport.Thành_tiền = 0;
@@ -2491,11 +2500,11 @@ namespace Maketting.View
                         }
                         else
                         {
-                            double giaPOgannhat = MKT.getgiaPOgannhat( phieudetail.MateriaSAPcode);
+                            double giaPOgannhat = MKT.getgiaPOgannhat(phieudetail.MateriaSAPcode);
                             EinvoiceExport.Đơn_giá = giaPOgannhat;
-                            EinvoiceExport.Thành_tiền = phieudetail.Issued* giaPOgannhat;
+                            EinvoiceExport.Thành_tiền = phieudetail.Issued * giaPOgannhat;
                             EinvoiceExport.Thuế_suất_GTGT = 10;
-                            EinvoiceExport.Tiền_Thuế_GTGT = phieudetail.Issued * giaPOgannhat*0.1;
+                            EinvoiceExport.Tiền_Thuế_GTGT = phieudetail.Issued * giaPOgannhat * 0.1;
 
                         }
 
@@ -2503,6 +2512,8 @@ namespace Maketting.View
                         dc.EinvoiceExports.InsertOnSubmit(EinvoiceExport);
                         dc.SubmitChanges();
                     }
+
+
 
 
 

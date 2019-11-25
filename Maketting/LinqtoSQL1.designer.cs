@@ -30,6 +30,9 @@ namespace Maketting
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertEinvoiceExport(EinvoiceExport instance);
+    partial void UpdateEinvoiceExport(EinvoiceExport instance);
+    partial void DeleteEinvoiceExport(EinvoiceExport instance);
     partial void Inserttbl_Temp(tbl_Temp instance);
     partial void Updatetbl_Temp(tbl_Temp instance);
     partial void Deletetbl_Temp(tbl_Temp instance);
@@ -553,8 +556,10 @@ namespace Maketting
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EinvoiceExport")]
-	public partial class EinvoiceExport
+	public partial class EinvoiceExport : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private System.Nullable<System.DateTime> _Ngày_hóa_đơn;
 		
@@ -606,8 +611,69 @@ namespace Maketting
 		
 		private string _Username;
 		
+		private int _Id;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNgày_hóa_đơnChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgày_hóa_đơnChanged();
+    partial void OnNhóm_số_hóa_đơnChanging(string value);
+    partial void OnNhóm_số_hóa_đơnChanged();
+    partial void OnLoại_tiền_tệChanging(string value);
+    partial void OnLoại_tiền_tệChanged();
+    partial void OnKý_hiệuChanging(string value);
+    partial void OnKý_hiệuChanged();
+    partial void OnMã_khách_hàngChanging(string value);
+    partial void OnMã_khách_hàngChanged();
+    partial void OnHọ_tên_người_mua_hàngChanging(string value);
+    partial void OnHọ_tên_người_mua_hàngChanged();
+    partial void OnTên_đơn_vịChanging(string value);
+    partial void OnTên_đơn_vịChanged();
+    partial void OnMã_số_thuếChanging(string value);
+    partial void OnMã_số_thuếChanged();
+    partial void OnHình_thức_thanh_toánChanging(string value);
+    partial void OnHình_thức_thanh_toánChanged();
+    partial void OnSố_Tài_KhoảnChanging(string value);
+    partial void OnSố_Tài_KhoảnChanged();
+    partial void OnTại_ngân_hàngChanging(string value);
+    partial void OnTại_ngân_hàngChanged();
+    partial void OnĐịa_chỉChanging(string value);
+    partial void OnĐịa_chỉChanged();
+    partial void OnSố_điện_thoạiChanging(string value);
+    partial void OnSố_điện_thoạiChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnVAT10Changing(System.Nullable<double> value);
+    partial void OnVAT10Changed();
+    partial void OnVAT5Changing(string value);
+    partial void OnVAT5Changed();
+    partial void OnĐvtChanging(string value);
+    partial void OnĐvtChanged();
+    partial void OnMã_Hàng_hóaChanging(string value);
+    partial void OnMã_Hàng_hóaChanged();
+    partial void OnTên_hành_hóa__dịch_vụChanging(string value);
+    partial void OnTên_hành_hóa__dịch_vụChanged();
+    partial void OnSố_lượngChanging(System.Nullable<double> value);
+    partial void OnSố_lượngChanged();
+    partial void OnĐơn_giáChanging(System.Nullable<double> value);
+    partial void OnĐơn_giáChanged();
+    partial void OnThành_tiềnChanging(System.Nullable<double> value);
+    partial void OnThành_tiềnChanged();
+    partial void OnThuế_suất_GTGTChanging(System.Nullable<double> value);
+    partial void OnThuế_suất_GTGTChanged();
+    partial void OnTiền_Thuế_GTGTChanging(System.Nullable<double> value);
+    partial void OnTiền_Thuế_GTGTChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    #endregion
+		
 		public EinvoiceExport()
 		{
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Ngày hóa đơn]", Storage="_Ngày_hóa_đơn", DbType="DateTime")]
@@ -621,7 +687,11 @@ namespace Maketting
 			{
 				if ((this._Ngày_hóa_đơn != value))
 				{
+					this.OnNgày_hóa_đơnChanging(value);
+					this.SendPropertyChanging();
 					this._Ngày_hóa_đơn = value;
+					this.SendPropertyChanged("Ngày_hóa_đơn");
+					this.OnNgày_hóa_đơnChanged();
 				}
 			}
 		}
@@ -637,7 +707,11 @@ namespace Maketting
 			{
 				if ((this._Nhóm_số_hóa_đơn != value))
 				{
+					this.OnNhóm_số_hóa_đơnChanging(value);
+					this.SendPropertyChanging();
 					this._Nhóm_số_hóa_đơn = value;
+					this.SendPropertyChanged("Nhóm_số_hóa_đơn");
+					this.OnNhóm_số_hóa_đơnChanged();
 				}
 			}
 		}
@@ -653,7 +727,11 @@ namespace Maketting
 			{
 				if ((this._Loại_tiền_tệ != value))
 				{
+					this.OnLoại_tiền_tệChanging(value);
+					this.SendPropertyChanging();
 					this._Loại_tiền_tệ = value;
+					this.SendPropertyChanged("Loại_tiền_tệ");
+					this.OnLoại_tiền_tệChanged();
 				}
 			}
 		}
@@ -669,7 +747,11 @@ namespace Maketting
 			{
 				if ((this._Ký_hiệu != value))
 				{
+					this.OnKý_hiệuChanging(value);
+					this.SendPropertyChanging();
 					this._Ký_hiệu = value;
+					this.SendPropertyChanged("Ký_hiệu");
+					this.OnKý_hiệuChanged();
 				}
 			}
 		}
@@ -685,7 +767,11 @@ namespace Maketting
 			{
 				if ((this._Mã_khách_hàng != value))
 				{
+					this.OnMã_khách_hàngChanging(value);
+					this.SendPropertyChanging();
 					this._Mã_khách_hàng = value;
+					this.SendPropertyChanged("Mã_khách_hàng");
+					this.OnMã_khách_hàngChanged();
 				}
 			}
 		}
@@ -701,7 +787,11 @@ namespace Maketting
 			{
 				if ((this._Họ_tên_người_mua_hàng != value))
 				{
+					this.OnHọ_tên_người_mua_hàngChanging(value);
+					this.SendPropertyChanging();
 					this._Họ_tên_người_mua_hàng = value;
+					this.SendPropertyChanged("Họ_tên_người_mua_hàng");
+					this.OnHọ_tên_người_mua_hàngChanged();
 				}
 			}
 		}
@@ -717,7 +807,11 @@ namespace Maketting
 			{
 				if ((this._Tên_đơn_vị != value))
 				{
+					this.OnTên_đơn_vịChanging(value);
+					this.SendPropertyChanging();
 					this._Tên_đơn_vị = value;
+					this.SendPropertyChanged("Tên_đơn_vị");
+					this.OnTên_đơn_vịChanged();
 				}
 			}
 		}
@@ -733,7 +827,11 @@ namespace Maketting
 			{
 				if ((this._Mã_số_thuế != value))
 				{
+					this.OnMã_số_thuếChanging(value);
+					this.SendPropertyChanging();
 					this._Mã_số_thuế = value;
+					this.SendPropertyChanged("Mã_số_thuế");
+					this.OnMã_số_thuếChanged();
 				}
 			}
 		}
@@ -749,7 +847,11 @@ namespace Maketting
 			{
 				if ((this._Hình_thức_thanh_toán != value))
 				{
+					this.OnHình_thức_thanh_toánChanging(value);
+					this.SendPropertyChanging();
 					this._Hình_thức_thanh_toán = value;
+					this.SendPropertyChanged("Hình_thức_thanh_toán");
+					this.OnHình_thức_thanh_toánChanged();
 				}
 			}
 		}
@@ -765,7 +867,11 @@ namespace Maketting
 			{
 				if ((this._Số_Tài_Khoản != value))
 				{
+					this.OnSố_Tài_KhoảnChanging(value);
+					this.SendPropertyChanging();
 					this._Số_Tài_Khoản = value;
+					this.SendPropertyChanged("Số_Tài_Khoản");
+					this.OnSố_Tài_KhoảnChanged();
 				}
 			}
 		}
@@ -781,7 +887,11 @@ namespace Maketting
 			{
 				if ((this._Tại_ngân_hàng != value))
 				{
+					this.OnTại_ngân_hàngChanging(value);
+					this.SendPropertyChanging();
 					this._Tại_ngân_hàng = value;
+					this.SendPropertyChanged("Tại_ngân_hàng");
+					this.OnTại_ngân_hàngChanged();
 				}
 			}
 		}
@@ -797,7 +907,11 @@ namespace Maketting
 			{
 				if ((this._Địa_chỉ != value))
 				{
+					this.OnĐịa_chỉChanging(value);
+					this.SendPropertyChanging();
 					this._Địa_chỉ = value;
+					this.SendPropertyChanged("Địa_chỉ");
+					this.OnĐịa_chỉChanged();
 				}
 			}
 		}
@@ -813,7 +927,11 @@ namespace Maketting
 			{
 				if ((this._Số_điện_thoại != value))
 				{
+					this.OnSố_điện_thoạiChanging(value);
+					this.SendPropertyChanging();
 					this._Số_điện_thoại = value;
+					this.SendPropertyChanged("Số_điện_thoại");
+					this.OnSố_điện_thoạiChanged();
 				}
 			}
 		}
@@ -829,7 +947,11 @@ namespace Maketting
 			{
 				if ((this._Email != value))
 				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
 					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
@@ -845,7 +967,11 @@ namespace Maketting
 			{
 				if ((this._VAT10 != value))
 				{
+					this.OnVAT10Changing(value);
+					this.SendPropertyChanging();
 					this._VAT10 = value;
+					this.SendPropertyChanged("VAT10");
+					this.OnVAT10Changed();
 				}
 			}
 		}
@@ -861,7 +987,11 @@ namespace Maketting
 			{
 				if ((this._VAT5 != value))
 				{
+					this.OnVAT5Changing(value);
+					this.SendPropertyChanging();
 					this._VAT5 = value;
+					this.SendPropertyChanged("VAT5");
+					this.OnVAT5Changed();
 				}
 			}
 		}
@@ -877,7 +1007,11 @@ namespace Maketting
 			{
 				if ((this._Đvt != value))
 				{
+					this.OnĐvtChanging(value);
+					this.SendPropertyChanging();
 					this._Đvt = value;
+					this.SendPropertyChanged("Đvt");
+					this.OnĐvtChanged();
 				}
 			}
 		}
@@ -893,7 +1027,11 @@ namespace Maketting
 			{
 				if ((this._Mã_Hàng_hóa != value))
 				{
+					this.OnMã_Hàng_hóaChanging(value);
+					this.SendPropertyChanging();
 					this._Mã_Hàng_hóa = value;
+					this.SendPropertyChanged("Mã_Hàng_hóa");
+					this.OnMã_Hàng_hóaChanged();
 				}
 			}
 		}
@@ -909,7 +1047,11 @@ namespace Maketting
 			{
 				if ((this._Tên_hành_hóa__dịch_vụ != value))
 				{
+					this.OnTên_hành_hóa__dịch_vụChanging(value);
+					this.SendPropertyChanging();
 					this._Tên_hành_hóa__dịch_vụ = value;
+					this.SendPropertyChanged("Tên_hành_hóa__dịch_vụ");
+					this.OnTên_hành_hóa__dịch_vụChanged();
 				}
 			}
 		}
@@ -925,7 +1067,11 @@ namespace Maketting
 			{
 				if ((this._Số_lượng != value))
 				{
+					this.OnSố_lượngChanging(value);
+					this.SendPropertyChanging();
 					this._Số_lượng = value;
+					this.SendPropertyChanged("Số_lượng");
+					this.OnSố_lượngChanged();
 				}
 			}
 		}
@@ -941,7 +1087,11 @@ namespace Maketting
 			{
 				if ((this._Đơn_giá != value))
 				{
+					this.OnĐơn_giáChanging(value);
+					this.SendPropertyChanging();
 					this._Đơn_giá = value;
+					this.SendPropertyChanged("Đơn_giá");
+					this.OnĐơn_giáChanged();
 				}
 			}
 		}
@@ -957,7 +1107,11 @@ namespace Maketting
 			{
 				if ((this._Thành_tiền != value))
 				{
+					this.OnThành_tiềnChanging(value);
+					this.SendPropertyChanging();
 					this._Thành_tiền = value;
+					this.SendPropertyChanged("Thành_tiền");
+					this.OnThành_tiềnChanged();
 				}
 			}
 		}
@@ -973,7 +1127,11 @@ namespace Maketting
 			{
 				if ((this._Thuế_suất_GTGT != value))
 				{
+					this.OnThuế_suất_GTGTChanging(value);
+					this.SendPropertyChanging();
 					this._Thuế_suất_GTGT = value;
+					this.SendPropertyChanged("Thuế_suất_GTGT");
+					this.OnThuế_suất_GTGTChanged();
 				}
 			}
 		}
@@ -989,7 +1147,11 @@ namespace Maketting
 			{
 				if ((this._Tiền_Thuế_GTGT != value))
 				{
+					this.OnTiền_Thuế_GTGTChanging(value);
+					this.SendPropertyChanging();
 					this._Tiền_Thuế_GTGT = value;
+					this.SendPropertyChanged("Tiền_Thuế_GTGT");
+					this.OnTiền_Thuế_GTGTChanged();
 				}
 			}
 		}
@@ -1005,8 +1167,52 @@ namespace Maketting
 			{
 				if ((this._Username != value))
 				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
 					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -10072,6 +10278,8 @@ namespace Maketting
 		
 		private string _Chanel;
 		
+		private string _email1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -10116,6 +10324,8 @@ namespace Maketting
     partial void OnCreatebyChanged();
     partial void OnChanelChanging(string value);
     partial void OnChanelChanged();
+    partial void Onemail1Changing(string value);
+    partial void Onemail1Changed();
     #endregion
 		
 		public tbl_MKT_Soldtocode()
@@ -10519,6 +10729,26 @@ namespace Maketting
 					this._Chanel = value;
 					this.SendPropertyChanged("Chanel");
 					this.OnChanelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email1", DbType="NVarChar(50)")]
+		public string email1
+		{
+			get
+			{
+				return this._email1;
+			}
+			set
+			{
+				if ((this._email1 != value))
+				{
+					this.Onemail1Changing(value);
+					this.SendPropertyChanging();
+					this._email1 = value;
+					this.SendPropertyChanged("email1");
+					this.Onemail1Changed();
 				}
 			}
 		}

@@ -7841,8 +7841,8 @@ namespace Maketting.View
                     //     btluu.Enabled = false;
 
                     var rs4 = from pp in dc.tbl_MKt_Listphieudetails
-                              where pp.ShippingPoint  + pp.ShipmentNumber == Loadnumberserri
-                             
+                              where pp.ShippingPoint + pp.ShipmentNumber == Loadnumberserri
+
                               group pp by pp.Materiacode into gg
 
                               select new
@@ -7944,8 +7944,8 @@ namespace Maketting.View
             if (kq)
             {
 
-          
-              
+
+
                 IQueryable rs = Model.MKT.Danhsachphieuchuaxuathoadon(dc, storelocation);
 
 
@@ -7957,7 +7957,133 @@ namespace Maketting.View
             }
 
             //
-          
+
+
+        }
+
+        private void exportEinvoiceByLoadNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
+            pxk.ShowDialog();
+
+            string Loadnumberserri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (kq)
+            {
+
+                bool kq2 = true;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+                           where pp.Serriload == Loadnumberserri
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                    kq2 = false;
+                    return;
+
+                }
+
+
+
+
+                if (kq2)
+                {
+
+
+                    var rs = from pp in dc.tbl_MKt_Listphieuheads
+                                 // from gg in dc.tbl_MKt_POheads
+                             where pp.einvoice == false
+                             && pp.ShippingPoint + pp.LoadNumber == Loadnumberserri
+
+
+                             select pp;
+                    //  select pp;
+
+
+
+
+                    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+
+                    viewtbl.ShowDialog();
+
+                }
+
+
+            }
+
+
+
+
+        }
+
+        private void exportEinvoiceByMKTNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MKT SERRI NUMBER ");
+            pxk.ShowDialog();
+
+            string MKTseri = pxk.valuetext;
+            bool kq = pxk.kq;
+
+            if (kq)
+            {
+
+                bool kq2 = true;
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
+                           where pp.ShippingPoint + pp.Gate_pass == MKTseri
+
+                           select pp).FirstOrDefault();
+                if (rs5 == null)
+                {
+                    MessageBox.Show("Wrong serri MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+                    kq2 = false;
+                    return;
+
+                }
+
+
+
+
+                if (kq2)
+                {
+
+
+                    var rs = from pp in dc.tbl_MKt_Listphieuheads
+                                 // from gg in dc.tbl_MKt_POheads
+                             where pp.einvoice == false
+                             && pp.ShippingPoint + pp.Gate_pass == MKTseri
+
+
+                             select pp;
+                    //  select pp;
+
+
+
+
+                    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+
+                    viewtbl.ShowDialog();
+
+                }
+
+
+            }
+
+
+
+
 
         }
     }
