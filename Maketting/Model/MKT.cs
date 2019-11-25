@@ -2032,17 +2032,17 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemnhap.MateriaItemcode
-                             && p.Store_code == storecode
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemnhap.MateriaItemcode
+                                && p.Store_code == storecode
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-        
-                    item.END_STOCK = item.END_STOCK + itemnhap.RecieptQuantity.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-        
+
+                item.END_STOCK = item.END_STOCK + itemnhap.RecieptQuantity.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
             }
             else
             {
@@ -2108,18 +2108,18 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemout.MateriaItemcode
-                     && p.Store_code == itemout.Store_OUT
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemout.MateriaItemcode
+                        && p.Store_code == itemout.Store_OUT
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-       
-                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemout.Quantity.GetValueOrDefault(0);
-                    item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) + itemout.Quantity.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-       
+
+                item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemout.Quantity.GetValueOrDefault(0);
+                item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) + itemout.Quantity.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
             }
 
 
@@ -2136,32 +2136,32 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemIN.MateriaItemcode
-                     && p.Store_code == itemIN.Store_OUT
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemIN.MateriaItemcode
+                        && p.Store_code == itemIN.Store_OUT
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-                   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-               
+                item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
 
             }
 
 
             var item2 = (from p in dc.tbl_MKT_Stockends
-                      where p.ITEM_Code == itemIN.MateriaItemcode
-                      && p.Store_code == itemIN.Store_IN
-                      select p).FirstOrDefault();
+                         where p.ITEM_Code == itemIN.MateriaItemcode
+                         && p.Store_code == itemIN.Store_IN
+                         select p).FirstOrDefault();
 
-            if (item2!= null)
+            if (item2 != null)
             {
 
                 item2.END_STOCK = item2.END_STOCK.GetValueOrDefault(0) + itemIN.Reciepted_Quantity.GetValueOrDefault(0);
-                    //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
-                    dc.SubmitChanges();
-             
+                //   item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemIN.Reciepted_Quantity;
+                dc.SubmitChanges();
+
             }
             else
             {
@@ -2206,17 +2206,17 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemout.MateriaItemcode
-                          && p.Store_code == storecode
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemout.MateriaItemcode
+                             && p.Store_code == storecode
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemout.Quantity.GetValueOrDefault(0);
-                    item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemout.Quantity.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-      
+                item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) + itemout.Quantity.GetValueOrDefault(0);
+                item.TransferingOUT = item.TransferingOUT.GetValueOrDefault(0) - itemout.Quantity.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
             }
 
 
@@ -2328,6 +2328,24 @@ namespace Maketting.Model
 
 
 
+        }
+
+        public static double getgiaPOgannhat(string materiaSAPcode)
+        {
+            double giaPOgannhat = 0;
+
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            giaPOgannhat = (double)(from p in dc.tbl_MKt_POdetails
+                                    where p.MateriaSAPcode == materiaSAPcode
+                                    orderby p.DatePO descending
+                                    select p.Unit_Price).FirstOrDefault();
+
+
+            return giaPOgannhat;
+            //  throw new NotImplementedException();
         }
 
         public static IQueryable danhkhachhangrutgon(LinqtoSQLDataContext dc)
@@ -2549,18 +2567,18 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemxuat.MateriaItemcode
-                     && p.Store_code == itemxuat.ShippingPoint
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemxuat.MateriaItemcode
+                        && p.Store_code == itemxuat.ShippingPoint
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-          
-                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.Issued.GetValueOrDefault(0);
 
-                    dc.SubmitChanges();
-          
+                item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.Issued.GetValueOrDefault(0);
+
+                dc.SubmitChanges();
+
             }
 
             //   Giảm ordered khi xuất hàng
@@ -2581,16 +2599,16 @@ namespace Maketting.Model
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                     where p.ITEM_Code == itemxuat.MateriaItemcode
-                     && p.Store_code == itemxuat.ShippingPoint
-                     select p).FirstOrDefault();
+                        where p.ITEM_Code == itemxuat.MateriaItemcode
+                        && p.Store_code == itemxuat.ShippingPoint
+                        select p).FirstOrDefault();
 
-            if (item!= null)
+            if (item != null)
             {
 
-                    item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.RecieptQuantity.GetValueOrDefault(0);
-                    dc.SubmitChanges();
-            
+                item.END_STOCK = item.END_STOCK.GetValueOrDefault(0) - itemxuat.RecieptQuantity.GetValueOrDefault(0);
+                dc.SubmitChanges();
+
             }
 
             //   Giảm ordered khi xuất hàng
@@ -3479,11 +3497,12 @@ namespace Maketting.Model
             var rs = from pp in dc.tbl_MKt_Listphieuheads
                          // from gg in dc.tbl_MKt_POheads
                      where pp.einvoice == false
-                     && pp.requestReturn ==false
+                     && pp.requestReturn == false
 
                    && pp.ShippingPoint == store
-                   && pp.Status =="Delivering"
+                   && pp.Status == "Delivering"
                      select pp;
+            //  select pp;
 
             return rs;
 

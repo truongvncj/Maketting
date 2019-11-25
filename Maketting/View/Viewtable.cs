@@ -2419,8 +2419,109 @@ namespace Maketting.View
         {
             Control_ac ctrex = new Control_ac();
 
+            //xóa file templeate cùng user
+            string urs = Utils.getusername();
 
-            ctrex.exportexceldatagridtoEinvoice(this.rs, this.dc, this.Text);
+            var rs = from pp in dc.EinvoiceExports
+                     where pp.Username == urs // && pp.Status == "TMP"
+                     select pp;
+
+            if (rs.Count() > 0)
+            {
+
+                dc.EinvoiceExports.DeleteAllOnSubmit(rs);
+                dc.SubmitChanges();
+                //  dc.Connection.Close();
+            }
+
+            //tính file einvoice
+
+
+
+
+
+            //tính file einvoice
+            int sodem = 0;
+            for (int idrow = 0; idrow < dataGridView1.RowCount - 1; idrow++)
+            {
+                if (dataGridView1.Rows[idrow].Cells["id"].Value != DBNull.Value)
+                {
+                    int idphieu = (int)dataGridView1.Rows[idrow].Cells["id"].Value;
+                    sodem = sodem + 1;
+                    var headphieu = (from pp in dc.tbl_MKt_Listphieuheads
+                                     where pp.id == idphieu// && pp.Status == "TMP"
+                                     select pp).FirstOrDefault();
+
+
+                    var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
+                                      where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
+                                      select pp;
+
+
+                    foreach (var phieudetail in detailphieu)
+                    {
+
+                        EinvoiceExport EinvoiceExport = new EinvoiceExport();
+                        EinvoiceExport.Username = urs;
+                        EinvoiceExport.Nhóm_số_hóa_đơn = sodem.ToString();
+                        EinvoiceExport.Ngày_hóa_đơn = DateTime.Today;
+                        EinvoiceExport.Loại_tiền_tệ = "VND";
+                        EinvoiceExport.Ký_hiệu = "HN/18E";
+                        EinvoiceExport.Mã_khách_hàng = headphieu.Customer_SAP_Code.ToString();
+                        //       EinvoiceExport.Tên_đơn_vị = cus.Receiver_by;
+                        //        EinvoiceExport.Mã_số_thuế = cus.vat;
+                        EinvoiceExport.Hình_thức_thanh_toán = "2";
+                        EinvoiceExport.Địa_chỉ = headphieu.Address;
+                        //         EinvoiceExport.Số_điện_thoại = cus.Tel;
+                        //          EinvoiceExport.Email = cus.email;
+                        EinvoiceExport.Đvt = "222";
+
+
+                        EinvoiceExport.Mã_Hàng_hóa = phieudetail.MateriaSAPcode;
+                        EinvoiceExport.Tên_hành_hóa__dịch_vụ = phieudetail.Materialname;
+                        EinvoiceExport.Số_lượng = phieudetail.Issued;
+
+                        if (headphieu.DoiD=="")
+                        {
+                            EinvoiceExport.Đơn_giá = 0;
+                            EinvoiceExport.Thành_tiền = 0;
+                            EinvoiceExport.Thuế_suất_GTGT = 0;
+                            EinvoiceExport.Tiền_Thuế_GTGT = 0;
+
+                        }
+                        else
+                        {
+                            double giaPOgannhat = MKT.getgiaPOgannhat( phieudetail.MateriaSAPcode);
+                            EinvoiceExport.Đơn_giá = giaPOgannhat;
+                            EinvoiceExport.Thành_tiền = phieudetail.Issued* giaPOgannhat;
+                            EinvoiceExport.Thuế_suất_GTGT = 10;
+                            EinvoiceExport.Tiền_Thuế_GTGT = phieudetail.Issued * giaPOgannhat*0.1;
+
+                        }
+
+
+                        dc.EinvoiceExports.InsertOnSubmit(EinvoiceExport);
+                        dc.SubmitChanges();
+                    }
+
+
+
+
+                }
+            }
+
+
+
+
+
+            // kết xuất ra file
+            IQueryable iquery2 = from pp in dc.EinvoiceExports
+                                 where pp.Username == urs // && pp.Status == "TMP"
+                                 select pp;
+
+
+            ctrex.exportexceldatagridtofile(iquery2, this.dc, this.Text);
+            // kết xuất ra file
 
         }
     }

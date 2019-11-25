@@ -22,7 +22,7 @@ namespace Maketting.Control
     {
 
 
-        public static void messagetomanin(Main main, string messagetext, Color maunen )
+        public static void messagetomanin(Main main, string messagetext, Color maunen)
         {
             main.messagetext(messagetext, maunen);
 
@@ -30,7 +30,7 @@ namespace Maketting.Control
 
         }
 
- 
+
         class datashowwait
         {
 
@@ -143,7 +143,7 @@ namespace Maketting.Control
             // Copy the column names to the first row of the object array
             for (int col = 0; col < dt.Columns.Count; col++)
             {
-                rawData[0, col] = dt.Columns[col].ColumnName.Replace("_"," ");
+                rawData[0, col] = dt.Columns[col].ColumnName.Replace("_", " ");
             }
 
             // Copy the values to the object array
@@ -220,7 +220,7 @@ namespace Maketting.Control
         {
             System.Data.DataTable datatable1 = new System.Data.DataTable();
             //
-           
+
             Utils ul = new Utils();
 
             datatable1 = ul.ToDataTable(db, iquery);
@@ -235,7 +235,7 @@ namespace Maketting.Control
             thedialog.Filter = "excel files|*.xlsx; *.xls";
             thedialog.InitialDirectory = @"c:\";
 
-        
+
             if (thedialog.ShowDialog() == DialogResult.OK)
             {
 
@@ -252,61 +252,6 @@ namespace Maketting.Control
 
         public void exportexceldatagridtoEinvoice(IQueryable iquery, LinqtoSQLDataContext db, string tittle)
         {
-
-           xxx
-            //xóa file templeate cùng user
-            string urs = Utils.getusername();
-            
-            var rs = from pp in db.EinvoiceExports
-                     where pp.Username == urs // && pp.Status == "TMP"
-                     select pp;
-
-            if (rs.Count() > 0)
-            {
-
-                db.EinvoiceExports.DeleteAllOnSubmit(rs);
-                db.SubmitChanges();
-                //  dc.Connection.Close();
-            }
-
-
-            //end xóa file template cùng user
-            //  tính file xuất ra
-
-
-            //end tính file xuất ra
-
-
-            System.Data.DataTable datatable1 = new System.Data.DataTable();
-            //
-
-            Utils ul = new Utils();
-
-            datatable1 = ul.ToDataTable(db, iquery);
-            SaveFileDialog thedialog = new SaveFileDialog();
-            //
-
-
-            //   datagridview datagridview1 = new datagridview();
-            //   datagridview1.datasource = datagrid.datasource;
-
-            thedialog.Title = "export to excel file for E-invoice";
-            thedialog.Filter = "excel files|*.xlsx; *.xls";
-            thedialog.InitialDirectory = @"c:\";
-
-
-            if (thedialog.ShowDialog() == DialogResult.OK)
-            {
-
-                string filename = thedialog.FileName.ToString();
-                Thread t1 = new Thread(exportsexcel);
-                t1.IsBackground = true;
-                t1.Start(new datatoExport() { dataGrid1 = datatable1, filename = filename, tittle = tittle });
-                // t1.join();
-            }
-
-
-
 
 
 
