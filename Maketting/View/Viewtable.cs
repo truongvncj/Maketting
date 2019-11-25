@@ -2442,8 +2442,12 @@ namespace Maketting.View
 
             //tính file einvoice
             int sodem = 0;
-            for (int idrow = 0; idrow < dataGridView1.RowCount-1 ; idrow++)
+            for (int idrow = 0; idrow < dataGridView1.RowCount; idrow++)
             {
+
+              //  MessageBox.Show(" test " + dataGridView1.Rows[idrow].Cells["id"].Value.ToString());
+
+
                 if (dataGridView1.Rows[idrow].Cells["id"].Value != DBNull.Value)
                 {
                     int idphieu = (int)dataGridView1.Rows[idrow].Cells["id"].Value;
@@ -2454,11 +2458,11 @@ namespace Maketting.View
 
                     var cus = (from pp in dc.tbl_MKT_Soldtocodes
                                where pp.Customer == headphieu.Customer_SAP_Code.ToString()
-                               && pp.Region == headphieu.Region
+                               && pp.Region == headphieu.ShippingPoint
                                select pp).FirstOrDefault();
 
                     var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
-                                      where pp.Gate_pass == headphieu.Gate_pass //&& pp.ShippingPoint == headphieu.ShippingPoint
+                                      where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
                                       select pp;
 
                     foreach (var phieudetail in detailphieu)
@@ -2511,15 +2515,13 @@ namespace Maketting.View
 
                         dc.EinvoiceExports.InsertOnSubmit(EinvoiceExport);
                         dc.SubmitChanges();
-                    }
+                    } // for ec detial 
 
 
 
+                } // if  line have makt number
 
-
-
-                }
-            }
+            } // for ech line
 
 
 
