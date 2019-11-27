@@ -199,61 +199,7 @@ namespace Maketting.View
 
         private void button4_Click(object sender, EventArgs e)
         {
-            fuctionprog fuct = new fuctionprog();
-            //       DialogResult kq1 = MessageBox.Show("Xóa toàn bộ Fuction ? ", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //      bool kq;
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            //     var typeff = typeof(tbl_Kafuctionlist);
-            //switch (kq1)
-            //{
-
-            //    case DialogResult.None:
-            //        break;
-            //    case DialogResult.Yes:
-
-            //        //  this.uploadCustomerToolStripMenuItem.Enabled = false;
-
-            //        //    this.reportsToolStripMenuItem.Enabled = false;
-
-
-            //        fuct.Fuction_input();
-
-
-
-            //    VInputchange inputcdata = new VInputchange("", "LIST PROGRAM FUCTIONS ", dc, "tbl_Kafuctionlist", "tbl_Kafuctionlist", typeff, typeff, "id", "id", "");
-            //        inputcdata.Show();
-
-
-
-
-            //        break;
-            //    case DialogResult.Cancel:
-            //        break;
-            //    case DialogResult.Abort:
-            //        break;
-            //    case DialogResult.Retry:
-            //        break;
-            //    case DialogResult.Ignore:
-            //        break;
-            //    case DialogResult.OK:
-            //        break;
-            //    case DialogResult.No:
-
-
-
-
-            //        inputcdata = new VInputchange("", "LIST PROGRAM FUCTION ", dc, "tbl_Kafuctionlist", "tbl_Kafuctionlist", typeff, typeff, "id", "id", "");
-            //        inputcdata.Show();
-
-
-            //        break;
-            //    default:
-            //        break;
-            //}
+          
 
         }
 

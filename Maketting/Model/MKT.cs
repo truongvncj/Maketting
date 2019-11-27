@@ -348,13 +348,15 @@ namespace Maketting.Model
             dataGridViewDetail.DataSource = null;
             #region datatable temp
 
+            //dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
+            //dt.Columns.Add(new DataColumn("Description_in_Vietnamese", typeof(string)));
 
 
 
             DataTable dt = new DataTable();
 
             dt.Columns.Add(new DataColumn("Region", typeof(string)));
-            dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
+            dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
             dt.Columns.Add(new DataColumn("Description", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));

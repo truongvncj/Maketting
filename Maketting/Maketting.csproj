@@ -119,8 +119,6 @@
     <Compile Include="Model\MKT.cs" />
     <Compile Include="Model\Salesinput_ctrl.cs" />
     <Compile Include="Model\customerinput_ctrl.cs" />
-    <Compile Include="Model\fuctionprog.cs" />
-    <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Nhacungcap.cs" />
     <Compile Include="Model\Username.cs" />

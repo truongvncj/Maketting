@@ -361,6 +361,37 @@ namespace Maketting.View
 
             #endregion
 
+            #region // load curent region
+
+            List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
+
+            var rs4 = from pp in dc.tbl_MKT_Storelocations
+
+                      select pp;
+            foreach (var item2 in rs4)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Location.Trim();
+                cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
+                itemthislocation.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+            cbstorelocation.DataSource = itemthislocation;
+            cbstorelocation.SelectedIndex = 0;
+            //this.region = Model.Username.getuseRegion();
+
+            
+            //foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
+            //{
+            //    if (item.Value.ToString().Trim() == this.region.Trim())
+            //    {
+            //        cbfromRegion.SelectedItem = item;
+            //    }
+            //}
+
+            #endregion
 
             Model.MKT.DeleteALLphieutamTMP();
 

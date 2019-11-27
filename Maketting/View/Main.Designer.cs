@@ -110,10 +110,6 @@
             this.xuấtĐồToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reDeviceGoodRecieptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.onHoldReleaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onHoldBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.onHoldReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.transferOUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -184,6 +180,10 @@
             this.listExportForIssueEinvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByLoadNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByMKTNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uploadBeginStoreDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+            this.adminUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -280,6 +280,11 @@
             // 
             // usersToolStripMenuItem1
             // 
+            this.usersToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adminUsersToolStripMenuItem,
+            this.toolStripSeparator21,
+            this.uploadBeginStoreDetailLocationToolStripMenuItem,
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem});
             this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
             this.usersToolStripMenuItem1.Size = new System.Drawing.Size(159, 24);
             this.usersToolStripMenuItem1.Text = "Admin users";
@@ -395,7 +400,7 @@
             // 
             this.storeLocationManageToolStripMenuItem.Name = "storeLocationManageToolStripMenuItem";
             this.storeLocationManageToolStripMenuItem.Size = new System.Drawing.Size(486, 24);
-            this.storeLocationManageToolStripMenuItem.Text = "Store location manage";
+            this.storeLocationManageToolStripMenuItem.Text = "Plant manage";
             this.storeLocationManageToolStripMenuItem.Click += new System.EventHandler(this.storeLocationManageToolStripMenuItem_Click);
             // 
             // salesOrgListToolStripMenuItem
@@ -749,10 +754,6 @@
             this.xuấtĐồToolStripMenuItem,
             this.reDeviceGoodRecieptToolStripMenuItem,
             this.toolStripSeparator5,
-            this.onHoldReleaseToolStripMenuItem,
-            this.onHoldBlockToolStripMenuItem,
-            this.onHoldReportsToolStripMenuItem,
-            this.toolStripSeparator21,
             this.transferOUtToolStripMenuItem,
             this.transferInToolStripMenuItem,
             this.toolStripSeparator6,
@@ -808,30 +809,6 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(259, 6);
-            // 
-            // onHoldReleaseToolStripMenuItem
-            // 
-            this.onHoldReleaseToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.onHoldReleaseToolStripMenuItem.Name = "onHoldReleaseToolStripMenuItem";
-            this.onHoldReleaseToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.onHoldReleaseToolStripMenuItem.Text = "On Hold release";
-            // 
-            // onHoldBlockToolStripMenuItem
-            // 
-            this.onHoldBlockToolStripMenuItem.Name = "onHoldBlockToolStripMenuItem";
-            this.onHoldBlockToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.onHoldBlockToolStripMenuItem.Text = "On Hold block";
-            // 
-            // onHoldReportsToolStripMenuItem
-            // 
-            this.onHoldReportsToolStripMenuItem.Name = "onHoldReportsToolStripMenuItem";
-            this.onHoldReportsToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
-            this.onHoldReportsToolStripMenuItem.Text = "On Hold reports";
-            // 
-            // toolStripSeparator21
-            // 
-            this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(259, 6);
             // 
             // transferOUtToolStripMenuItem
             // 
@@ -1348,6 +1325,32 @@
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
             // 
+            // uploadBeginStoreDetailLocationToolStripMenuItem
+            // 
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Name = "uploadBeginStoreDetailLocationToolStripMenuItem";
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Text = "Upload Begin Store with detail Location";
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreDetailLocationToolStripMenuItem_Click);
+            // 
+            // createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem
+            // 
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Name = "createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem";
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Text = "Create Begin Stock end from Store with detail Location";
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator21
+            // 
+            this.toolStripSeparator21.Name = "toolStripSeparator21";
+            this.toolStripSeparator21.Size = new System.Drawing.Size(439, 6);
+            // 
+            // adminUsersToolStripMenuItem
+            // 
+            this.adminUsersToolStripMenuItem.Name = "adminUsersToolStripMenuItem";
+            this.adminUsersToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.adminUsersToolStripMenuItem.Text = "Admin users";
+            this.adminUsersToolStripMenuItem.Click += new System.EventHandler(this.adminUsersToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1465,10 +1468,6 @@
         private ToolStripMenuItem sToolStripMenuItem;
         private ToolStripMenuItem pODetailByRegionListReportsToolStripMenuItem;
         private ToolStripMenuItem pORToolStripMenuItem;
-        private ToolStripMenuItem onHoldReleaseToolStripMenuItem;
-        private ToolStripMenuItem onHoldBlockToolStripMenuItem;
-        private ToolStripMenuItem onHoldReportsToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator21;
         private ToolStripMenuItem customerEditToolStripMenuItem;
         private ToolStripMenuItem viewCustomerListToolStripMenuItem1;
         private ToolStripMenuItem viewShiptoListToolStripMenuItem1;
@@ -1524,6 +1523,10 @@
         private ToolStripMenuItem listExportForIssueEinvoiceToolStripMenuItem;
         private ToolStripMenuItem exportEinvoiceByLoadNumberToolStripMenuItem;
         private ToolStripMenuItem exportEinvoiceByMKTNumberToolStripMenuItem;
+        private ToolStripMenuItem uploadBeginStoreDetailLocationToolStripMenuItem;
+        private ToolStripMenuItem createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator21;
+        private ToolStripMenuItem adminUsersToolStripMenuItem;
     }
 }
 

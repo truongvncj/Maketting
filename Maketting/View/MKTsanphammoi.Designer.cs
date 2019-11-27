@@ -198,7 +198,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 74;
-            this.label2.Text = "Description";
+            this.label2.Text = "Description in Vietnamese";
             // 
             // label9
             // 
@@ -294,7 +294,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(125, 20);
             this.label21.TabIndex = 49;
-            this.label21.Text = "MATERIAL NAME";
+            this.label21.Text = "Material Description";
             // 
             // MKTsanphammoi
             // 

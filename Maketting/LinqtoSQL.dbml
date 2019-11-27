@@ -554,6 +554,34 @@
       <Column Name="End_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_MKT_Stockendlocation" Member="tbl_MKT_Stockendlocations">
+    <Type Name="tbl_MKT_Stockendlocation">
+      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Stockendlocationdetail" Member="tbl_MKT_Stockendlocationdetails">
+    <Type Name="tbl_MKT_Stockendlocationdetail">
+      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Doctype" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DocNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_MKT_StockendRegionBudget" Member="tbl_MKT_StockendRegionBudgets">
     <Type Name="tbl_MKT_StockendRegionBudget">
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -591,6 +619,13 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_MKT_Storelocation" Member="tbl_MKT_Storelocations">
+    <Type Name="tbl_MKT_Storelocation">
+      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StoreRight" Member="tbl_MKT_StoreRights">

@@ -789,6 +789,11 @@ namespace Maketting.View
             btforEinvoice.Visible = false;
             this.formlabel.Text = fornname;
             btaddto.Visible = false;
+            bt_themmoi.Visible = false;
+            bt_sua.Visible = false;
+            btaddto.Visible = false;
+
+
             if (viewcode == 55) // 55 chỉ view và exports
             {
                 bt_themmoi.Visible = true;
