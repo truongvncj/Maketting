@@ -88,9 +88,9 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             //      dt.Columns.Add(new DataColumn("Material_Name", typeof(string)));
             //        drToAdd["Material_Name"] = PhieuMKT.Materialname;
-            dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Region_Balance", typeof(float)));
+            dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(double)));
+            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
+            dt.Columns.Add(new DataColumn("Region_Balance", typeof(double)));
             //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
 
 
@@ -2072,7 +2072,7 @@ namespace Maketting.Model
             //  throw new NotImplementedException();
         }
 
-        public static void updatetangOrdered(string itemCode, float ordered, string Store_code)
+        public static void updatetangOrdered(string itemCode, double ordered, string Store_code)
         {
 
 
@@ -2092,13 +2092,7 @@ namespace Maketting.Model
 
             }
 
-
-
-
-
-
-
-
+            
 
             //throw new NotImplementedException();
         }

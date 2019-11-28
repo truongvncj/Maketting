@@ -6291,7 +6291,7 @@ namespace Maketting.View
 
                 #endregion
 
-               
+
 
                 #region thuvej hien gộp file detail và add vào file stockend
 
@@ -6304,8 +6304,8 @@ namespace Maketting.View
                           } into gg
                           select new
                           {
-                           
-                           
+
+
                               ITEM_Code = gg.Key.SAP_CODE,
                               SAP_CODE = gg.Key.SAP_CODE,
                               MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
@@ -6313,10 +6313,10 @@ namespace Maketting.View
                               UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
                               END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
                               Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
-                           
+
                           };
 
-                if (rs2.Count()>0)
+                if (rs2.Count() > 0)
                 {
 
                     foreach (var item in rs2)
@@ -6390,6 +6390,88 @@ namespace Maketting.View
 
 
 
+
+        }
+
+        private void viewStoreReportsWithDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+            string connection_string = Utils.getConnectionstr();
+
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            ///
+            string username = Utils.getusername();
+            string rightkho = Model.Username.getmaquyenkho();
+            string region = Model.Username.getuseRegion();
+
+            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+
+
+            ///
+
+            var rs1 = from pp in dc.tbl_MKT_khoMKTs
+                          //   where (from gg in dc.tbl_MKT_StoreRights
+                          //        where gg.storeright == rightkho
+                          //      select gg.makho).Contains(pp.makho)
+                      select pp;
+
+            foreach (var item2 in rs1)
+
+
+            {
+                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+                cb.Value = item2.makho.Trim();
+                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+                CombomCollection.Add(cb);
+            }
+
+
+            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+            choosesl.ShowDialog();
+
+            string storelocation = choosesl.value;
+            bool kq = choosesl.kq;
+            if (kq)
+            {
+
+                #region
+
+
+                var rs5 = from pp in dc.tbl_MKT_Stockendlocations
+                          where pp.Store_code == storelocation
+                          select new
+                          {
+
+                              pp.Store_code,
+                              pp.location,
+                              pp.SAP_CODE,
+                              pp.ITEM_Code,
+
+                              // pp.RegionBudgeted,
+
+
+                              pp.MATERIAL,
+
+                              pp.Description,
+
+                              pp.END_STOCK,
+                              pp.UNIT,
+
+
+                              pp.id,
+
+
+                          };
+
+
+                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS DETAIL BY LOCATION", 0, "STORERPT");
+                tbl.ShowDialog();
+                #endregion
+
+
+            }
 
         }
     }

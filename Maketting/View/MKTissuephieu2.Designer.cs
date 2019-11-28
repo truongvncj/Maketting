@@ -50,6 +50,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbstorelocation = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.txtDoid = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtcity = new System.Windows.Forms.TextBox();
@@ -101,8 +103,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.cbstorelocation = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -387,6 +387,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1270, 297);
             this.panel1.TabIndex = 65;
+            // 
+            // cbstorelocation
+            // 
+            this.cbstorelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbstorelocation.FormattingEnabled = true;
+            this.cbstorelocation.Location = new System.Drawing.Point(980, 96);
+            this.cbstorelocation.Name = "cbstorelocation";
+            this.cbstorelocation.Size = new System.Drawing.Size(224, 26);
+            this.cbstorelocation.TabIndex = 100;
+            this.cbstorelocation.SelectedValueChanged += new System.EventHandler(this.cbstorelocation_SelectedValueChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(850, 99);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(121, 18);
+            this.label26.TabIndex = 99;
+            this.label26.Text = "Storage Location";
             // 
             // txtDoid
             // 
@@ -939,26 +960,6 @@
             this.dataGridViewListphieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellContentClick);
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
-            // 
-            // cbstorelocation
-            // 
-            this.cbstorelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbstorelocation.FormattingEnabled = true;
-            this.cbstorelocation.Location = new System.Drawing.Point(980, 96);
-            this.cbstorelocation.Name = "cbstorelocation";
-            this.cbstorelocation.Size = new System.Drawing.Size(224, 26);
-            this.cbstorelocation.TabIndex = 100;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(850, 99);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(121, 18);
-            this.label26.TabIndex = 99;
-            this.label26.Text = "Storage Location";
             // 
             // MKTissuephieu2
             // 

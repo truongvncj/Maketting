@@ -43,6 +43,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Menusystem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
+            this.uploadBeginStoreDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewProductListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadBeginStoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,10 +184,8 @@
             this.listExportForIssueEinvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByLoadNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByMKTNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadBeginStoreDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
-            this.adminUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator33 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -261,8 +263,8 @@
             this.settlementToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.Menureports,
-            this.passwordToolStripMenuItem,
-            this.einvoiceToolStripMenuItem});
+            this.einvoiceToolStripMenuItem,
+            this.passwordToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1354, 28);
@@ -289,6 +291,32 @@
             this.usersToolStripMenuItem1.Size = new System.Drawing.Size(159, 24);
             this.usersToolStripMenuItem1.Text = "Admin users";
             this.usersToolStripMenuItem1.Click += new System.EventHandler(this.usersToolStripMenuItem1_Click);
+            // 
+            // adminUsersToolStripMenuItem
+            // 
+            this.adminUsersToolStripMenuItem.Name = "adminUsersToolStripMenuItem";
+            this.adminUsersToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.adminUsersToolStripMenuItem.Text = "Admin users";
+            this.adminUsersToolStripMenuItem.Click += new System.EventHandler(this.adminUsersToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator21
+            // 
+            this.toolStripSeparator21.Name = "toolStripSeparator21";
+            this.toolStripSeparator21.Size = new System.Drawing.Size(439, 6);
+            // 
+            // uploadBeginStoreDetailLocationToolStripMenuItem
+            // 
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Name = "uploadBeginStoreDetailLocationToolStripMenuItem";
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Text = "Upload Begin Store with detail Location";
+            this.uploadBeginStoreDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreDetailLocationToolStripMenuItem_Click);
+            // 
+            // createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem
+            // 
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Name = "createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem";
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Text = "Create Begin Stock end from Store with detail Location";
+            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click);
             // 
             // masterDataToolStripMenuItem
             // 
@@ -1076,7 +1104,9 @@
             this.pODetailByRegionListReportsToolStripMenuItem,
             this.toolStripSeparator22,
             this.viewCustomerListToolStripMenuItem1,
-            this.viewShiptoListToolStripMenuItem1});
+            this.viewShiptoListToolStripMenuItem1,
+            this.toolStripSeparator33,
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem});
             this.Menureports.Name = "Menureports";
             this.Menureports.Size = new System.Drawing.Size(72, 24);
             this.Menureports.Text = "Reports";
@@ -1325,31 +1355,17 @@
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
             // 
-            // uploadBeginStoreDetailLocationToolStripMenuItem
+            // toolStripSeparator33
             // 
-            this.uploadBeginStoreDetailLocationToolStripMenuItem.Name = "uploadBeginStoreDetailLocationToolStripMenuItem";
-            this.uploadBeginStoreDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
-            this.uploadBeginStoreDetailLocationToolStripMenuItem.Text = "Upload Begin Store with detail Location";
-            this.uploadBeginStoreDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.uploadBeginStoreDetailLocationToolStripMenuItem_Click);
+            this.toolStripSeparator33.Name = "toolStripSeparator33";
+            this.toolStripSeparator33.Size = new System.Drawing.Size(394, 6);
             // 
-            // createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem
+            // viewStoreReportsWithDetailLocationToolStripMenuItem
             // 
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Name = "createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem";
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Text = "Create Begin Stock end from Store with detail Location";
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator21
-            // 
-            this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(439, 6);
-            // 
-            // adminUsersToolStripMenuItem
-            // 
-            this.adminUsersToolStripMenuItem.Name = "adminUsersToolStripMenuItem";
-            this.adminUsersToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
-            this.adminUsersToolStripMenuItem.Text = "Admin users";
-            this.adminUsersToolStripMenuItem.Click += new System.EventHandler(this.adminUsersToolStripMenuItem_Click);
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Name = "viewStoreReportsWithDetailLocationToolStripMenuItem";
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Text = "View store reports with detail location";
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.viewStoreReportsWithDetailLocationToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1527,6 +1543,8 @@
         private ToolStripMenuItem createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator21;
         private ToolStripMenuItem adminUsersToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator33;
+        private ToolStripMenuItem viewStoreReportsWithDetailLocationToolStripMenuItem;
     }
 }
 
