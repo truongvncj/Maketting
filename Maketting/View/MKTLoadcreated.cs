@@ -21,7 +21,7 @@ namespace Maketting.View
         public string Username { get; set; }
         public IQueryable rs { get; set; }
         public LinqtoSQLDataContext dc { get; set; }
-        public float palletofLoad { get; set; }
+        public double palletofLoad { get; set; }
         public string shipmentghep { get; set; }
         //  public string isGheplI { get; set; }
 
@@ -74,7 +74,7 @@ namespace Maketting.View
             drToAdd["Issued"] = PhieuMKT.Issued;
             if (PhieuMKT.pallet != null)
             {
-                this.palletofLoad = this.palletofLoad + float.Parse(PhieuMKT.pallet.ToString());
+                this.palletofLoad = this.palletofLoad + double.Parse(PhieuMKT.pallet.ToString());
                 txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
             }
 
@@ -82,51 +82,7 @@ namespace Maketting.View
             dataTable.Rows.Add(drToAdd);
             dataTable.AcceptChanges();
 
-            //  dataGridViewDetail.DataSource = dataTable;
-
-            ////      drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
-            ////   drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
-
-            ////if (socaitemp.PsNo != null)
-            ////{
-            ////    drToAdd["Số_tiền"] = socaitemp.PsNo;
-            ////}
-
-            //drToAdd["Mã_chi_tiết"] = socaitemp.MaCTietTKCo;
-            //drToAdd["Tên_chi_tiết"] = socaitemp.tenchitietCo;
-
-            //drToAdd["tkNohide"] = socaitemp.TkNo;
-
-
-            //     drToAdd["ngayctuhide"] = socaitemp.Ngayctu;
-
-            //dataTable.Rows.Add(drToAdd);
-            //dataTable.AcceptChanges();
-
-
-
-            //int i = dataTable.Rows.Count - 1;
-            //   int i = dataGridViewTkCo.RowCount -1;
-
-            //DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
-            //DataGridViewCell dgvc = (DataGridViewCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
-
-            //#region tim item comboboc
-
-            //foreach (ComboboxItem item in (List<ComboboxItem>)cb.DataSource)
-            //{
-
-            //    if (item.Value.ToString().Trim() == socaitemp.TkNo.ToString().Trim())
-            //    {
-
-            //        dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"].Value = item.Value;
-            //    }
-
-            //}
-
-
-            //#endregion tom item comboubox
-
+       
 
 
 
@@ -167,84 +123,13 @@ namespace Maketting.View
 
             if (PhieuMKT.pallet != null)
             {
-                this.palletofLoad = this.palletofLoad - float.Parse(PhieuMKT.pallet.ToString());
+                this.palletofLoad = this.palletofLoad - double.Parse(PhieuMKT.pallet.ToString());
                 txtPallet.Text = this.palletofLoad.ToString("0.000", CultureInfo.InvariantCulture);
             }
 
 
 
-            //foreach (DataRow row in dataTable.Rows)
-            //{
-
-            //   if ((string)row["Gate_pass"] == PhieuMKT.Gate_pass)
-            //       {
-            //           dataTable.Rows.Remove(row);
-            //           dataTable.AcceptChanges();
-            //       }
-
-            ////   }
-
-            //DataRow drToAdd = dataTable.NewRow();
-
-            //drToAdd["Gate_pass"] = PhieuMKT.Gate_pass;
-            //drToAdd["Customer_Code"] = PhieuMKT.Customer_SAP_Code;
-            //drToAdd["Receiver_by"] = PhieuMKT.Receiver_by;
-            //drToAdd["Address"] = PhieuMKT.Address;
-            //drToAdd["Materiacode"] = PhieuMKT.Materiacode;
-            //drToAdd["Materialname"] = PhieuMKT.Materialname;
-            //drToAdd["Issued"] = PhieuMKT.Issued;
-
-
-
-            //dataTable.Rows.Add(drToAdd);
-
-
-            //  dataGridViewDetail.DataSource = dataTable;
-
-            ////      drToAdd["Số_chứng_từ"] = socaitemp.Soctu;
-            ////   drToAdd["Ký_hiêu"] = socaitemp.Kyhieuctu;
-
-            ////if (socaitemp.PsNo != null)
-            ////{
-            ////    drToAdd["Số_tiền"] = socaitemp.PsNo;
-            ////}
-
-            //drToAdd["Mã_chi_tiết"] = socaitemp.MaCTietTKCo;
-            //drToAdd["Tên_chi_tiết"] = socaitemp.tenchitietCo;
-
-            //drToAdd["tkNohide"] = socaitemp.TkNo;
-
-
-            //     drToAdd["ngayctuhide"] = socaitemp.Ngayctu;
-
-            //dataTable.Rows.Add(drToAdd);
-            //dataTable.AcceptChanges();
-
-
-
-            //int i = dataTable.Rows.Count - 1;
-            //   int i = dataGridViewTkCo.RowCount -1;
-
-            //DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
-            //DataGridViewCell dgvc = (DataGridViewCell)dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"];
-
-            //#region tim item comboboc
-
-            //foreach (ComboboxItem item in (List<ComboboxItem>)cb.DataSource)
-            //{
-
-            //    if (item.Value.ToString().Trim() == socaitemp.TkNo.ToString().Trim())
-            //    {
-
-            //        dataGridViewTkNo.Rows[i].Cells["Tk_Nợ"].Value = item.Value;
-            //    }
-
-            //}
-
-
-            //#endregion tom item comboubox
-
-
+          
 
 
         }
@@ -1212,22 +1097,7 @@ namespace Maketting.View
                 this.soload = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Gate_pass"].Value;
                 this.storelocation = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Store"].Value;
 
-                //Date = pp.Ngaytaophieu,
-                //             pp.Gate_pass,
-                //             pp.Requested_by,
-                //             pp.Purpose,
-
-
-                //             pp.Receiver_by,
-                //             pp.Customer_SAP_Code,
-                //             pp.Address,
-                //             pp.Materiacode,
-                //             //  pp.MateriaSAPcode,
-                //             pp.Description,
-                //             pp.Issued,
-                //             Store = pp.ShippingPoint,
-                //             Created_by = pp.Username,
-                //             pp.id,
+           
             }
             catch (Exception)
             {
@@ -1236,134 +1106,6 @@ namespace Maketting.View
             }
 
 
-            //List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
-            //var rs = from tbl_dstaikhoan in dc.tbl_dstaikhoans
-            //         where tbl_dstaikhoan.loaitkid == "tien" // tien mat la loai 8
-            //         orderby tbl_dstaikhoan.matk
-            //         select tbl_dstaikhoan;
-            //foreach (var item in rs)
-            //{
-            //    ComboboxItem cb = new ComboboxItem();
-            //    cb.Value = item.matk.Trim();
-            //    cb.Text = item.matk.Trim() + ": " + item.tentk;
-            //    CombomCollection.Add(cb);
-            //}
-
-            //cbtkco.DataSource = CombomCollection;
-
-            //#endregion load tk nợ
-
-
-
-            //   try
-            //{
-            //    this.phieuchiid = (int)this.dataGridViewListphieuchi.Rows[this.dataGridViewListphieuchi.CurrentCell.RowIndex].Cells["ID"].Value;
-
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    this.phieuchiid = 0;
-            //}
-
-            //if (this.phieuchiid != 0)
-            //{
-
-            //    string macty = Model.Username.getmacty();
-
-            //    #region view load form
-            //    var phieuchi = (from tbl_SoQuy in dc.tbl_SoQuys
-            //                    where tbl_SoQuy.id == this.phieuchiid
-            //                    && tbl_SoQuy.macty == macty
-            //                    select new
-            //                    {
-
-            //                        //     tencongty = Model.Congty.getnamecongty(),
-            //                        //     diachicongty = Model.Congty.getdiachicongty(),
-            //                        ////     masothue = Model.Congty.getmasothuecongty(),
-            //                        //   tengiamdoc = Model.Congty.gettengiamdoccongty(),
-            //                        //    tenketoantruong = Model.Congty.gettenketoantruongcongty(),
-
-            //                        sophieuthu = tbl_SoQuy.Sophieu,
-            //                        ngaychungtu = tbl_SoQuy.Ngayctu,
-            //                        nguoinoptien = tbl_SoQuy.Nguoinopnhantien,
-            //                        //    nguoilapphieu = Utils.getname(),
-            //                        diachinguoinop = tbl_SoQuy.Diachinguoinhannop,
-            //                        lydothu = tbl_SoQuy.Diengiai,
-            //                        sotien = tbl_SoQuy.PsCo,
-            //                        //   sotienbangchu = Utils.ChuyenSo(tbl_SoQuy.PsNo.ToString()),
-            //                        sochungtugoc = tbl_SoQuy.Chungtugockemtheo,
-            //                        //    username = Utils.getusername(),
-
-
-            //                        machitietco = tbl_SoQuy.ChitietTM,
-            //                        tentkchitiet = tbl_SoQuy.TenchitietTM,
-            //                        tkno = tbl_SoQuy.TKtienmat,
-
-            //                        taikhoandoiung = tbl_SoQuy.TKdoiung,
-
-            //                    }).FirstOrDefault();
-
-
-            //    if (phieuchi != null)
-            //    {
-            //        datepickngayphieu.Value = phieuchi.ngaychungtu;
-
-            //        txttennguoinhan.Text = phieuchi.nguoinoptien;
-            //        txtdiachi.Text = phieuchi.diachinguoinop;
-            //        txtdiengiai.Text = phieuchi.lydothu;
-
-
-            //        //foreach (ComboboxItem item in (List<ComboboxItem>)cbtkco.DataSource)
-            //        //{
-            //        //    if (item.Value.ToString().Trim() == phieuchi.tkno.Trim())
-            //        //    {
-            //        //        cbtkco.SelectedItem = item;
-            //        //    }
-            //        //}
-
-
-
-
-
-
-
-
-            //        datepickngayphieu.Enabled = false;
-
-            //        txttennguoinhan.Enabled = false;
-            //        txtdiachi.Enabled = false;
-            //        txtdiengiai.Enabled = false;
-
-            //        btsua.Enabled = true;
-
-
-
-
-
-
-
-            //        this.statusphieuchi = 3;// View
-            // //       Model.Phieuthuchi.reloadnewdetailtaikhoanNo(dataGridViewTkNo);
-            //    Model.Phieuthuchi.reloaddetailtaikhoannophieuchi(this.dataGridViewTkNo, this, phieuchi.tkno.Trim(), phieuchi.sophieuthu);
-            //        btluu.Visible = false;
-
-            //    }
-
-
-
-            //    #endregion view load form
-
-
-
-
-
-
-
-
-
-            //}
 
 
         }

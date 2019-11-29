@@ -6299,13 +6299,14 @@ namespace Maketting.View
                           where pp.Store_code == storelocation
                           group pp by new
                           {
-                              pp.SAP_CODE
+                              pp.SAP_CODE,
+                              pp.location,
 
                           } into gg
                           select new
                           {
 
-
+                              location = gg.Key.location,
                               ITEM_Code = gg.Key.SAP_CODE,
                               SAP_CODE = gg.Key.SAP_CODE,
                               MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
@@ -6322,8 +6323,8 @@ namespace Maketting.View
                     foreach (var item in rs2)
                     {
 
-                        tbl_MKT_Stockend stockitem = new tbl_MKT_Stockend();
-
+                        tbl_MKT_Stockendlocation stockitem = new tbl_MKT_Stockendlocation();
+                        stockitem.location = item.location;
                         stockitem.ITEM_Code = item.ITEM_Code;
                         stockitem.SAP_CODE = item.SAP_CODE;
                         stockitem.MATERIAL = item.MATERIAL;
@@ -6332,7 +6333,7 @@ namespace Maketting.View
                         stockitem.Store_code = item.Store_code;
                         stockitem.UNIT = item.UNIT;
 
-                        dc.tbl_MKT_Stockends.InsertOnSubmit(stockitem);
+                        dc.tbl_MKT_Stockendlocations.InsertOnSubmit(stockitem);
                         dc.SubmitChanges();
 
 
@@ -6348,7 +6349,7 @@ namespace Maketting.View
                 MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                var rs5 = from pp in dc.tbl_MKT_Stockends
+                var rs5 = from pp in dc.tbl_MKT_Stockendlocations
                           where pp.Store_code == storelocation
                           select new
                           {
@@ -6367,12 +6368,12 @@ namespace Maketting.View
                               pp.END_STOCK,
                               pp.UNIT,
 
-                              pp.Ordered,
+                              //pp.Ordered,
 
-                              pp.TransferingOUT,
-                              pp.ON_Hold,
-                              pp.Quantity_Per_Pallet,
-                              pp.End_Stock_By_Pallet,
+                              //pp.TransferingOUT,
+                              //pp.ON_Hold,
+                              //pp.Quantity_Per_Pallet,
+                              //pp.End_Stock_By_Pallet,
 
                               pp.id,
 

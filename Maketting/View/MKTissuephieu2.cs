@@ -247,16 +247,6 @@ namespace Maketting.View
 
             txtshiptoaddress.Enabled = false;
 
-            //       public double POSMisuevalue { get; set; }
-            //public double Programebudgetbalance { get; set; }
-            //public double Customerbugetioaproval { get; set; }
-            //public double Customerbugetioused { get; set; }
-            //public double Customerbugetiobalance { get; set; }
-
-            //txtcustomerbudget.Text = this.Customerbugetioaproval.ToString("#,#", CultureInfo.InvariantCulture);
-            //txtcustomerbudgetuse.Text = this.Customerbugetioused.ToString("#,#", CultureInfo.InvariantCulture);
-            //txtcustomerbudgetbalance.Text = this.Customerbugetiobalance.ToString("#,#", CultureInfo.InvariantCulture);
-
             txtnguoiyeucau.Enabled = true;
             txtnguoinhan.Enabled = true;
 
@@ -907,14 +897,7 @@ namespace Maketting.View
                 if (dataGridViewDetail.Rows[idrow].Cells["ITEM_Code"].Value != DBNull.Value)
                 {
 
-                    //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Description", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
-
-                    //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-                    //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                    //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
+                  
 
                     dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.White;
 

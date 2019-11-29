@@ -282,7 +282,9 @@ namespace Maketting.Model
 
             batable.Columns.Add("Store_code", typeof(string));
             batable.Columns.Add("Doctype", typeof(string));
-            
+            batable.Columns.Add("Createdate", typeof(DateTime));
+
+         
             //      [location]
             //,[SAP_CODE]
             //,[ITEM_Code]
@@ -425,6 +427,7 @@ namespace Maketting.Model
 
                     dr["Store_code"] = storelocation;
                     dr["Doctype"] = "Begin";
+                    dr["Createdate"] = DateTime.Today;
 
                     batable.Rows.Add(dr);
 
@@ -466,10 +469,10 @@ namespace Maketting.Model
                 bulkCopy.ColumnMappings.Add("UNIT", "[UNIT]");
                 bulkCopy.ColumnMappings.Add("Store_code", "[Store_code]");
                 bulkCopy.ColumnMappings.Add("Doctype", "[Doctype]");
-                //bulkCopy.ColumnMappings.Add("Store_code", "[Store_code]");
+                bulkCopy.ColumnMappings.Add("Createdate", "[Createdate]");
 
-             //   dr["Store_code"] = storelocation;
-             //   dr["Doctype"] = "Begin";
+                //   dr["Store_code"] = storelocation;
+                //   dr["Doctype"] = "Begin";
 
                 try
                 {

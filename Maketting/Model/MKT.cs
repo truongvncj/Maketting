@@ -531,7 +531,42 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static void giamtrutbl_MKT_Stockendlocation(tbl_MKt_WHstoreissue phieuxuat)
+        {
 
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+
+            var dsphieudetail = from p in dc.tbl_MKt_Listphieudetails
+                        where p.ShippingPoint + p.ShipmentNumber == phieuxuat.ShippingPoint + phieuxuat.LoadNumber
+                        select p;
+
+            if (dsphieudetail.Count()>0)
+            {
+                foreach (var item in dsphieudetail)
+                {
+
+
+                    x
+
+
+                }
+            }
+          
+            //if (item != null)
+            //{
+
+            //    item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
+            //    dc.SubmitChanges();
+
+
+            //}
+
+
+
+
+        }
 
         public static IQueryable DanhsacHSTOCKMOVEmentdetailonecodebygatepass(LinqtoSQLDataContext dc, string store, string itemcode, string shipment)
         {
@@ -2546,7 +2581,7 @@ namespace Maketting.Model
                 item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
                 dc.SubmitChanges();
 
-                Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.Issued.GetValueOrDefault(0), itemxuat.ShippingPoint);
+                Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued.GetValueOrDefault(0), itemxuat.ShippingPoint);
 
             }
 

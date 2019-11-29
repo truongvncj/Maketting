@@ -4580,6 +4580,8 @@ namespace Maketting
 		
 		private System.Nullable<double> _Returnrequest;
 		
+		private string _location;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4672,6 +4674,8 @@ namespace Maketting
     partial void OnReturn_reasonChanged();
     partial void OnReturnrequestChanging(System.Nullable<double> value);
     partial void OnReturnrequestChanged();
+    partial void OnlocationChanging(string value);
+    partial void OnlocationChanged();
     #endregion
 		
 		public tbl_MKt_Listphieudetail()
@@ -5555,6 +5559,26 @@ namespace Maketting
 					this._Returnrequest = value;
 					this.SendPropertyChanged("Returnrequest");
 					this.OnReturnrequestChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_location", DbType="NVarChar(50)")]
+		public string location
+		{
+			get
+			{
+				return this._location;
+			}
+			set
+			{
+				if ((this._location != value))
+				{
+					this.OnlocationChanging(value);
+					this.SendPropertyChanging();
+					this._location = value;
+					this.SendPropertyChanged("location");
+					this.OnlocationChanged();
 				}
 			}
 		}
@@ -12235,6 +12259,10 @@ namespace Maketting
 		
 		private string _DocNumber;
 		
+		private System.Nullable<System.DateTime> _Createdate;
+		
+		private System.Nullable<int> _Statusupdate;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -12261,6 +12289,10 @@ namespace Maketting
     partial void OnDoctypeChanged();
     partial void OnDocNumberChanging(string value);
     partial void OnDocNumberChanged();
+    partial void OnCreatedateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedateChanged();
+    partial void OnStatusupdateChanging(System.Nullable<int> value);
+    partial void OnStatusupdateChanged();
     #endregion
 		
 		public tbl_MKT_Stockendlocationdetail()
@@ -12484,6 +12516,46 @@ namespace Maketting
 					this._DocNumber = value;
 					this.SendPropertyChanged("DocNumber");
 					this.OnDocNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Createdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Createdate
+		{
+			get
+			{
+				return this._Createdate;
+			}
+			set
+			{
+				if ((this._Createdate != value))
+				{
+					this.OnCreatedateChanging(value);
+					this.SendPropertyChanging();
+					this._Createdate = value;
+					this.SendPropertyChanged("Createdate");
+					this.OnCreatedateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Statusupdate", DbType="Int")]
+		public System.Nullable<int> Statusupdate
+		{
+			get
+			{
+				return this._Statusupdate;
+			}
+			set
+			{
+				if ((this._Statusupdate != value))
+				{
+					this.OnStatusupdateChanging(value);
+					this.SendPropertyChanging();
+					this._Statusupdate = value;
+					this.SendPropertyChanged("Statusupdate");
+					this.OnStatusupdateChanged();
 				}
 			}
 		}

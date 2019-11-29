@@ -66,7 +66,7 @@ namespace Maketting.View
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
-                dataTable.Columns.Add(new DataColumn("Real_issue", typeof(float)));
+                dataTable.Columns.Add(new DataColumn("Real_issue", typeof(double)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -415,8 +415,9 @@ namespace Maketting.View
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value != DBNull.Value)
                 {
 
-                    float xuat = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
-                    float yeucau = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value.ToString());
+                    double xuat = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
+                    double yeucau = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Requested_issue"].Value;
+
                     if (yeucau != xuat)
                     {
                         dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Style.BackColor = System.Drawing.Color.Orange;
@@ -487,10 +488,10 @@ namespace Maketting.View
                     if (dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value != DBNull.Value)
                     {
                         tbl_MKt_WHstoreissue phieuxuat = new tbl_MKt_WHstoreissue();
-                        float xuat = 0;
+                        double xuat = 0;
                         try
                         {
-                             xuat = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value.ToString());
+                             xuat = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Real_issue"].Value;
 
                         }
                         catch (Exception)
@@ -532,6 +533,9 @@ namespace Maketting.View
 
                         Model.MKT.giamtrukhokhixuathang(phieuxuat);
 
+                        Model.MKT.giamtrutbl_MKT_Stockendlocation(phieuxuat);
+
+                     //   Model.MKT.themvaotbl_MKT_Stockendlocationdetail(phieuxuat);
 
 
 
@@ -567,29 +571,29 @@ namespace Maketting.View
 
 
 
-                        tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+                        //tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
 
-                        newregionupdate.DocumentNumber = item.ShippingPoint + item.ShipmentNumber;
+                        //newregionupdate.DocumentNumber = item.ShippingPoint + item.ShipmentNumber;
                       
-                        newregionupdate.ITEM_Code = item.MateriaSAPcode;
-                        newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                        newregionupdate.MATERIAL = item.Materialname.Truncate(255);
-                        newregionupdate.Description = item.Description;
-                        newregionupdate.Region = item.Region;
-                        newregionupdate.QuantityInputbyPO = 0;
-                        newregionupdate.QuantityInputbyReturn = 0;
-                        newregionupdate.QuantityOutput = item.Issued;
-                        newregionupdate.QuantitybyDevice = 0;
-                        newregionupdate.Note = item.Gate_pass;
+                        //newregionupdate.ITEM_Code = item.MateriaSAPcode;
+                        //newregionupdate.SAP_CODE = item.MateriaSAPcode;
+                        //newregionupdate.MATERIAL = item.Materialname.Truncate(255);
+                        //newregionupdate.Description = item.Description;
+                        //newregionupdate.Region = item.Region;
+                        //newregionupdate.QuantityInputbyPO = 0;
+                        //newregionupdate.QuantityInputbyReturn = 0;
+                        //newregionupdate.QuantityOutput = item.Issued;
+                        //newregionupdate.QuantitybyDevice = 0;
+                        //newregionupdate.Note = item.Gate_pass;
 
-                        newregionupdate.Regionchangedate = ngayThuctexuat.Value;
-
-
-                        newregionupdate.Createdate = DateTime.Today;
+                        //newregionupdate.Regionchangedate = ngayThuctexuat.Value;
 
 
-                        dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
-                        dc.SubmitChanges();
+                        //newregionupdate.Createdate = DateTime.Today;
+
+
+                        //dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                        //dc.SubmitChanges();
 
 
 
