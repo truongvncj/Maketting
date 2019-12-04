@@ -101,6 +101,8 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation);// + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
+            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.location, this.storelocation);
+
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
@@ -144,6 +146,8 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) - PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
+            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.location, this.storelocation);
+
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
@@ -187,7 +191,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storelocation) + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storelocation);
-            //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
+            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.location, this.storelocation);
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
 
@@ -1096,6 +1100,7 @@ namespace Maketting.View
                         {
                             detailphieu.Description = dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value.ToString().Truncate(225);
                         }
+
                         if (dataGridViewDetail.Rows[idrow].Cells["Unit"].Value != DBNull.Value)
                         {
                             detailphieu.Unit = dataGridViewDetail.Rows[idrow].Cells["Unit"].Value.ToString().Trim();
@@ -1971,6 +1976,10 @@ namespace Maketting.View
 
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storelocation);
 
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = Model.MKT.getBalancebugetlocation(valuechon.ITEM_Code, this.location, this.storelocation);
+
+
+                     
                         //dataGridViewDetail.Rows[e.RowIndex].Cells["Price"].Value = (from p in dc.tbl_MKT_Programepriceproducts
                         //                                                            where p.ITEM_Code == valuechon.ITEM_Code
                         //                                                            && p.ProgrameIDDocno == this.ProgrameIDDocno
@@ -1992,6 +2001,10 @@ namespace Maketting.View
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Unit"].Value = DBNull.Value;
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = DBNull.Value;
 
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = DBNull.Value;
+
+
+                 
                     }
 
 
@@ -2962,7 +2975,9 @@ namespace Maketting.View
 
         private void cbfromRegion_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.region = (cbfromRegion.SelectedItem as ComboboxItem).Value.ToString();
+            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+
+            cleartoblankDEtailphieu();
         }
 
         private void lbweight_Click(object sender, EventArgs e)
@@ -3341,7 +3356,9 @@ namespace Maketting.View
 
         private void cbstorelocation_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.location = (cbstorelocation.SelectedItem as ComboboxItem).Value.ToString();
+            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+
+            cleartoblankDEtailphieu();
         }
     }
 }

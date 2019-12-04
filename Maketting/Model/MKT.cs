@@ -91,6 +91,8 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(double)));
             dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
             dt.Columns.Add(new DataColumn("Region_Balance", typeof(double)));
+            dt.Columns.Add(new DataColumn("Location_Balance", typeof(double)));
+
             //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
 
 
@@ -117,6 +119,7 @@ namespace Maketting.Model
 
             dataGridViewDetail.Columns["Region_Balance"].ReadOnly = true;
             dataGridViewDetail.Columns["Region_Balance"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewDetail.Columns["Location_Balance"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
 
             //        dataGridViewDetail.Columns["Price"].ReadOnly = true;
             //      dataGridViewDetail.Columns["Price"].DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
@@ -127,6 +130,7 @@ namespace Maketting.Model
             dataGridViewDetail.Columns["Issue_Quantity"].DefaultCellStyle.Format = "N0";
 
             dataGridViewDetail.Columns["Region_Balance"].DefaultCellStyle.Format = "N0";
+            dataGridViewDetail.Columns["Location_Balance"].DefaultCellStyle.Format = "N0";
 
 
             #endregion datatable temp
@@ -531,6 +535,34 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
+        public static IQueryable DanhsacHSTOCKMOVEmentdetailbylocation(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
+        {
+
+            var rs = from p in dc.tbl_MKT_Stockendlocationdetails
+                     where p.Createdate >= fromdate && p.Createdate <= todate
+                     && p.Store_code == store
+                     orderby p.Createdate
+                     select new
+                     {
+                         Createdate = p.Createdate,
+                         p.DocNumber,
+                         p.Description,
+                         p.Doctype,
+                         p.MATERIAL,
+                         MateriaItemcode = p.ITEM_Code,
+                         p.SAP_CODE,
+                         p.END_STOCK,
+
+                         p.id,
+
+                     };
+
+            return rs;
+
+
+            // throw new NotImplementedException();
+        }
+
         public static void giamtrutbl_MKT_Stockendlocation(tbl_MKt_WHstoreissue phieuxuat)
         {
 
@@ -539,21 +571,53 @@ namespace Maketting.Model
 
 
             var dsphieudetail = from p in dc.tbl_MKt_Listphieudetails
-                        where p.ShippingPoint + p.ShipmentNumber == phieuxuat.ShippingPoint + phieuxuat.LoadNumber
-                        select p;
+                                where p.ShippingPoint + p.ShipmentNumber == phieuxuat.ShippingPoint + phieuxuat.LoadNumber
+                                select p;
 
-            if (dsphieudetail.Count()>0)
+            if (dsphieudetail.Count() > 0)
             {
                 foreach (var item in dsphieudetail)
                 {
 
+                    var detaiLocation = (from p in dc.tbl_MKT_Stockendlocations
+                                         where p.ITEM_Code == item.Materiacode
+                                         && p.Store_code == item.ShippingPoint
+                                         && p.location == item.location
+                                         select p).FirstOrDefault();
+                    if (detaiLocation != null)
+                    {
+                        detaiLocation.END_STOCK = detaiLocation.END_STOCK - item.Issued;
+                        dc.SubmitChanges();
 
-                    x
+
+                        tbl_MKT_Stockendlocationdetail newupdate = new tbl_MKT_Stockendlocationdetail();
+
+                        newupdate.Createdate = DateTime.Today;
+                        newupdate.Description = item.ShipmentNumber;
+                        newupdate.DocNumber = item.Gate_pass;
+                        newupdate.Doctype = "Order";
+                        newupdate.END_STOCK = item.Issued;
+                        newupdate.ITEM_Code = item.Materiacode;
+                        newupdate.SAP_CODE = item.MateriaSAPcode;
+                        newupdate.MATERIAL = item.Materialname;
+                        newupdate.location = item.location;
+                        newupdate.Store_code = item.ShippingPoint;
+                        //    newupdate. = item.ShippingPoint;
+
+
+                        dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(newupdate);
+                        dc.SubmitChanges();
+
+
+                    }
+
+
+                    //        x
 
 
                 }
             }
-          
+
             //if (item != null)
             //{
 
@@ -2127,7 +2191,7 @@ namespace Maketting.Model
 
             }
 
-            
+
 
             //throw new NotImplementedException();
         }
@@ -3459,6 +3523,25 @@ namespace Maketting.Model
             }
 
 
+            return kq;
+
+        }
+        public static double getBalancebugetlocation(string materialitemcode, string storelocation, string location)
+        {
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+            double kq = 0;
+            var kqtim = (from pp in dc.tbl_MKT_Stockendlocations
+                         where pp.location == location
+                         && pp.Store_code == storelocation
+                      && pp.ITEM_Code == materialitemcode
+                         select pp.END_STOCK).FirstOrDefault();
+
+
+            if (kqtim != null)
+            {
+                kq = (double)kqtim;
+            }
             return kq;
 
         }

@@ -178,14 +178,15 @@
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.viewCustomerListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewShiptoListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator33 = new System.Windows.Forms.ToolStripSeparator();
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listExportForIssueEinvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByLoadNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportEinvoiceByMKTNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator33 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewDetailMovementStoreByLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -1106,7 +1107,8 @@
             this.viewCustomerListToolStripMenuItem1,
             this.viewShiptoListToolStripMenuItem1,
             this.toolStripSeparator33,
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem});
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem,
+            this.viewDetailMovementStoreByLocationToolStripMenuItem});
             this.Menureports.Name = "Menureports";
             this.Menureports.Size = new System.Drawing.Size(72, 24);
             this.Menureports.Text = "Reports";
@@ -1309,20 +1311,17 @@
             this.viewShiptoListToolStripMenuItem1.Text = "View shipto list";
             this.viewShiptoListToolStripMenuItem1.Click += new System.EventHandler(this.viewShiptoListToolStripMenuItem1_Click);
             // 
-            // passwordToolStripMenuItem
+            // toolStripSeparator33
             // 
-            this.passwordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePasswordToolStripMenuItem1});
-            this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
-            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.passwordToolStripMenuItem.Text = "Password";
+            this.toolStripSeparator33.Name = "toolStripSeparator33";
+            this.toolStripSeparator33.Size = new System.Drawing.Size(394, 6);
             // 
-            // changePasswordToolStripMenuItem1
+            // viewStoreReportsWithDetailLocationToolStripMenuItem
             // 
-            this.changePasswordToolStripMenuItem1.Name = "changePasswordToolStripMenuItem1";
-            this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
-            this.changePasswordToolStripMenuItem1.Text = "Change password";
-            this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Name = "viewStoreReportsWithDetailLocationToolStripMenuItem";
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Text = "View store reports with detail location";
+            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.viewStoreReportsWithDetailLocationToolStripMenuItem_Click);
             // 
             // einvoiceToolStripMenuItem
             // 
@@ -1355,17 +1354,27 @@
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
             // 
-            // toolStripSeparator33
+            // passwordToolStripMenuItem
             // 
-            this.toolStripSeparator33.Name = "toolStripSeparator33";
-            this.toolStripSeparator33.Size = new System.Drawing.Size(394, 6);
+            this.passwordToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem1});
+            this.passwordToolStripMenuItem.Name = "passwordToolStripMenuItem";
+            this.passwordToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.passwordToolStripMenuItem.Text = "Password";
             // 
-            // viewStoreReportsWithDetailLocationToolStripMenuItem
+            // changePasswordToolStripMenuItem1
             // 
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Name = "viewStoreReportsWithDetailLocationToolStripMenuItem";
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Text = "View store reports with detail location";
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.viewStoreReportsWithDetailLocationToolStripMenuItem_Click);
+            this.changePasswordToolStripMenuItem1.Name = "changePasswordToolStripMenuItem1";
+            this.changePasswordToolStripMenuItem1.Size = new System.Drawing.Size(195, 24);
+            this.changePasswordToolStripMenuItem1.Text = "Change password";
+            this.changePasswordToolStripMenuItem1.Click += new System.EventHandler(this.changePasswordToolStripMenuItem1_Click);
+            // 
+            // viewDetailMovementStoreByLocationToolStripMenuItem
+            // 
+            this.viewDetailMovementStoreByLocationToolStripMenuItem.Name = "viewDetailMovementStoreByLocationToolStripMenuItem";
+            this.viewDetailMovementStoreByLocationToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
+            this.viewDetailMovementStoreByLocationToolStripMenuItem.Text = "View detail movement store by location";
+            this.viewDetailMovementStoreByLocationToolStripMenuItem.Click += new System.EventHandler(this.viewDetailMovementStoreByLocationToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1545,6 +1554,7 @@
         private ToolStripMenuItem adminUsersToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator33;
         private ToolStripMenuItem viewStoreReportsWithDetailLocationToolStripMenuItem;
+        private ToolStripMenuItem viewDetailMovementStoreByLocationToolStripMenuItem;
     }
 }
 

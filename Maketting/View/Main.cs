@@ -6292,11 +6292,83 @@ namespace Maketting.View
                 #endregion
 
 
+                #region  thực hiện trong if  xóa trắng file  tbl_MKT_Stockendlocation của kho đó
+           
+
+
+                dc.ExecuteCommand("DELETE FROM tbl_MKT_Stockendlocation   where  tbl_MKT_Stockendlocation.Store_code = '" + storelocation + "'");
+                //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+                dc.CommandTimeout = 0;
+                dc.SubmitChanges();
+
+                #endregion
+
+                #region thuvej hien gộp file detail và add vào file stockend
+
+                var rs3 = from pp in dc.tbl_MKT_Stockendlocationdetails
+                          where pp.Store_code == storelocation
+                          && pp.Doctype == "Begin"
+                          group pp by new
+                          {
+                              pp.SAP_CODE,
+                           //   pp.location,
+
+                          } into gg
+                          select new
+                          {
+
+                        //      location = gg.Key.location,
+                              ITEM_Code = gg.Key.SAP_CODE,
+                              SAP_CODE = gg.Key.SAP_CODE,
+                              MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
+                              Description = gg.Select(m => m.Description).FirstOrDefault(),
+                              UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
+                              END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
+                              Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
+
+                          };
+
+                if (rs3.Count() > 0)
+                {
+
+                    foreach (var item in rs3)
+                    {
+
+                        tbl_MKT_Stockend stockitem = new tbl_MKT_Stockend();
+                     //   stockitem.location = item.location;
+                        stockitem.ITEM_Code = item.ITEM_Code;
+                        stockitem.SAP_CODE = item.SAP_CODE;
+                        stockitem.MATERIAL = item.MATERIAL;
+                        stockitem.Description = item.Description;
+                        stockitem.END_STOCK = item.END_STOCK;
+                        stockitem.Store_code = item.Store_code;
+                        stockitem.UNIT = item.UNIT;
+
+                        stockitem.Ordered =0;
+                        stockitem.TransferingOUT = 0;
+                        //stockitem.UNIT = item.UNIT;
+                        //stockitem.UNIT = item.UNIT;
+                        //stockitem.UNIT = item.UNIT;
+
+
+                        dc.tbl_MKT_Stockends.InsertOnSubmit(stockitem);
+                        dc.SubmitChanges();
+
+
+
+                    }
+
+                }
+
+
+                #endregion
+
 
                 #region thuvej hien gộp file detail và add vào file stockend
 
                 var rs2 = from pp in dc.tbl_MKT_Stockendlocationdetails
                           where pp.Store_code == storelocation
+                          && pp.Doctype =="Begin"
                           group pp by new
                           {
                               pp.SAP_CODE,
@@ -6353,14 +6425,12 @@ namespace Maketting.View
                           where pp.Store_code == storelocation
                           select new
                           {
-
                               pp.Store_code,
+                              pp.location,
+                          
                               pp.SAP_CODE,
                               pp.ITEM_Code,
-
-                              // pp.RegionBudgeted,
-
-
+                          
                               pp.MATERIAL,
 
                               pp.Description,
@@ -6474,6 +6544,33 @@ namespace Maketting.View
 
             }
 
+        }
+
+        private void viewDetailMovementStoreByLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MKTFromdatetodatestore datepick = new MKTFromdatetodatestore();
+            datepick.ShowDialog();
+
+            DateTime fromdate = datepick.fromdate;
+            DateTime todate = datepick.todate;
+            string store = datepick.Store;
+
+            bool kq = datepick.chon;
+
+            if (kq) // nueeus có chọn
+            {
+                string connection_string = Utils.getConnectionstr();
+                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbylocation(dc, fromdate, todate, store);
+
+
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK Detail location MOVEMENT ", 0, "tkmovementdetail");// mã 5 là danh sach nha nha ccaaps
+
+                viewtbl.ShowDialog();
+
+
+            }
         }
     }
 
