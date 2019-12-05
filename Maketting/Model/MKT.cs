@@ -3526,8 +3526,11 @@ namespace Maketting.Model
             return kq;
 
         }
-        public static double getBalancebugetlocation(string materialitemcode, string storelocation, string location)
+        public static double getBalancebugetlocation(string materialitemcode, string location , string storelocation)
         {
+
+          //  MessageBox.Show(storelocation);
+
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
             double kq = 0;

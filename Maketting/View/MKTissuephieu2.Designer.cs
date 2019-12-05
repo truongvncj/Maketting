@@ -50,7 +50,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbstorelocation = new System.Windows.Forms.ComboBox();
+            this.cblocation = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtDoid = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -335,7 +335,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.cbstorelocation);
+            this.panel1.Controls.Add(this.cblocation);
             this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.txtDoid);
             this.panel1.Controls.Add(this.label25);
@@ -388,16 +388,16 @@
             this.panel1.Size = new System.Drawing.Size(1270, 297);
             this.panel1.TabIndex = 65;
             // 
-            // cbstorelocation
+            // cblocation
             // 
-            this.cbstorelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbstorelocation.FormattingEnabled = true;
-            this.cbstorelocation.Location = new System.Drawing.Point(980, 96);
-            this.cbstorelocation.Name = "cbstorelocation";
-            this.cbstorelocation.Size = new System.Drawing.Size(224, 26);
-            this.cbstorelocation.TabIndex = 100;
-            this.cbstorelocation.SelectedValueChanged += new System.EventHandler(this.cbstorelocation_SelectedValueChanged);
+            this.cblocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cblocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cblocation.FormattingEnabled = true;
+            this.cblocation.Location = new System.Drawing.Point(980, 96);
+            this.cblocation.Name = "cblocation";
+            this.cblocation.Size = new System.Drawing.Size(224, 26);
+            this.cblocation.TabIndex = 100;
+            this.cblocation.SelectedValueChanged += new System.EventHandler(this.cbstorelocation_SelectedValueChanged);
             // 
             // label26
             // 
@@ -1057,7 +1057,7 @@
         private System.Windows.Forms.Button bt_block;
         private System.Windows.Forms.TextBox txtDoid;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox cbstorelocation;
+        private System.Windows.Forms.ComboBox cblocation;
         private System.Windows.Forms.Label label26;
     }
 }

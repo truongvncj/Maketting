@@ -317,6 +317,13 @@ namespace Maketting.View
             }
             cbkhohang.DataSource = itemstorecolect;
             cbkhohang.SelectedIndex = 0;
+            foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
+            {
+                //if (item.Value.ToString().Trim() == this.location.Trim())
+                //{
+                cbkhohang.SelectedItem = item;
+                //}
+            }
 
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
@@ -373,11 +380,25 @@ namespace Maketting.View
                 //  cbkhohang.Items.Add(cb);
                 //  CombomCollection.Add(cb);
             }
-            cbstorelocation.DataSource = itemthislocation;
-            cbstorelocation.SelectedIndex = 0;
+
+            cblocation.DataSource = itemthislocation;
+            cblocation.SelectedIndex = 0;
+          
+            //  thus region.Items
+            foreach (ComboboxItem item in (List<ComboboxItem>)cblocation.DataSource)
+            {
+                //if (item.Value.ToString().Trim() == this.location.Trim())
+                //{
+                    cblocation.SelectedItem = item;
+                this.location = item.Value.ToString().Trim();
+                //}
+            }
+
+         
+
             //this.region = Model.Username.getuseRegion();
 
-            
+
             //foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
             //{
             //    if (item.Value.ToString().Trim() == this.region.Trim())
@@ -877,10 +898,10 @@ namespace Maketting.View
                 return;
             }
 
-            if (cbstorelocation.Text == "")
+            if (cblocation.Text == "")
             {
                 MessageBox.Show("Pleae select a Store Location !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cbstorelocation.Focus();
+                cblocation.Focus();
                 checkhead = false;
                 return;
             }
@@ -2299,11 +2320,11 @@ namespace Maketting.View
                     }
                 }
 
-                foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
+                foreach (ComboboxItem item in (List<ComboboxItem>)cblocation.DataSource)
                 {
                     if (item.Value.ToString().Trim() == rs.Region.Trim())
                     {
-                        cbstorelocation.SelectedItem = item;
+                        cblocation.SelectedItem = item;
                     }
                 }
 
@@ -2975,7 +2996,7 @@ namespace Maketting.View
 
         private void cbfromRegion_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+            this.region = (cbfromRegion.SelectedItem as ComboboxItem).Value.ToString();
 
             cleartoblankDEtailphieu();
         }
@@ -3356,7 +3377,7 @@ namespace Maketting.View
 
         private void cbstorelocation_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+            this.location = (cblocation.SelectedItem as ComboboxItem).Value.ToString();
 
             cleartoblankDEtailphieu();
         }
