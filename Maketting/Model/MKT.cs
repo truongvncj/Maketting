@@ -2196,6 +2196,33 @@ namespace Maketting.Model
             //throw new NotImplementedException();
         }
 
+
+        public static void updatetangtocklocation(string itemCode, double ordered, string Store_code, string locationstore)
+        {
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var valueitem = (from p in dc.tbl_MKT_Stockendlocations
+                             where p.ITEM_Code == itemCode
+                             && p.Store_code == Store_code
+                             && p.location == locationstore
+                             select p).FirstOrDefault();
+
+            if (valueitem != null)
+            {
+                valueitem.END_STOCK = valueitem.END_STOCK.GetValueOrDefault(0) + ordered;
+
+                dc.SubmitChanges();
+
+            }
+
+
+
+            //throw new NotImplementedException();
+        }
+
         public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout)
         {
 
