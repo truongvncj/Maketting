@@ -6537,7 +6537,7 @@ namespace Maketting.View
                           };
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS DETAIL BY LOCATION", 0, "STORERPT");
+                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS DETAIL BY LOCATION", 0, "STORERPTwithlocation");
                 tbl.ShowDialog();
                 #endregion
 

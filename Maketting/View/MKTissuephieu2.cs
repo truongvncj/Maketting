@@ -101,7 +101,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode);// + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
@@ -146,7 +146,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode) - PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
@@ -191,7 +191,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode) + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.MKT.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
 
@@ -1131,7 +1131,7 @@ namespace Maketting.View
                         detailphieuloca.Createdate = DateTime.Today;
                         detailphieuloca.Description = detailphieu.Materialname;
                         detailphieuloca.DocNumber = detailphieu.Gate_pass;
-                        detailphieuloca.Doctype = "Gatepassissue";
+                        detailphieuloca.Doctype = "GPissue";
                         detailphieuloca.END_STOCK = -detailphieu.Issued;
                         detailphieuloca.ITEM_Code = detailphieu.Materiacode;
                         detailphieuloca.location = this.locationstore;
@@ -1158,7 +1158,7 @@ namespace Maketting.View
 
 
                         #region       //update giảm location detail & giảm location store
-                        Model.MKT.updatetangtocklocation(ItemCode, -ordered, this.storecode, this.locationstore);
+                        Model.Storewithlocation.updatetangtocklocation(ItemCode, -ordered, this.storecode, this.locationstore);
 
 
 
@@ -2023,7 +2023,7 @@ namespace Maketting.View
 
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storecode);
 
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = Model.MKT.getBalancebugetlocation(valuechon.ITEM_Code, this.locationstore, this.storecode);
+                        dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = Model.Storewithlocation.getBalancebugetlocation(valuechon.ITEM_Code, this.locationstore, this.storecode);
 
 
                      
