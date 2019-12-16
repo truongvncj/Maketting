@@ -281,6 +281,7 @@ namespace Maketting.View
             lbstorelocation.Text = this.locationstore;
 
             txtshippingpoint.Text = this.shippingpoint;
+
             dataGridViewLoaddetail.Focus();
 
         }

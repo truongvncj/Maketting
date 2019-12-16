@@ -8545,7 +8545,7 @@ namespace Maketting
 		
 		private string _Username;
 		
-		private string _Storelocation;
+		private string _shippingpoint;
 		
 		private string _StatusPO;
 		
@@ -8560,6 +8560,8 @@ namespace Maketting
 		private System.Nullable<double> _inputRate;
 		
 		private System.Nullable<System.DateTime> _POdate;
+		
+		private string _locationstore;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -8583,8 +8585,8 @@ namespace Maketting
     partial void OnidChanged();
     partial void OnUsernameChanging(string value);
     partial void OnUsernameChanged();
-    partial void OnStorelocationChanging(string value);
-    partial void OnStorelocationChanged();
+    partial void OnshippingpointChanging(string value);
+    partial void OnshippingpointChanged();
     partial void OnStatusPOChanging(string value);
     partial void OnStatusPOChanged();
     partial void OnIOcodeChanging(string value);
@@ -8599,6 +8601,8 @@ namespace Maketting
     partial void OninputRateChanged();
     partial void OnPOdateChanging(System.Nullable<System.DateTime> value);
     partial void OnPOdateChanged();
+    partial void OnlocationstoreChanging(string value);
+    partial void OnlocationstoreChanged();
     #endregion
 		
 		public tbl_MKt_POdetail_TMP()
@@ -8786,22 +8790,22 @@ namespace Maketting
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Storelocation", DbType="NVarChar(50)")]
-		public string Storelocation
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shippingpoint", DbType="NVarChar(50)")]
+		public string shippingpoint
 		{
 			get
 			{
-				return this._Storelocation;
+				return this._shippingpoint;
 			}
 			set
 			{
-				if ((this._Storelocation != value))
+				if ((this._shippingpoint != value))
 				{
-					this.OnStorelocationChanging(value);
+					this.OnshippingpointChanging(value);
 					this.SendPropertyChanging();
-					this._Storelocation = value;
-					this.SendPropertyChanged("Storelocation");
-					this.OnStorelocationChanged();
+					this._shippingpoint = value;
+					this.SendPropertyChanged("shippingpoint");
+					this.OnshippingpointChanged();
 				}
 			}
 		}
@@ -8942,6 +8946,26 @@ namespace Maketting
 					this._POdate = value;
 					this.SendPropertyChanged("POdate");
 					this.OnPOdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_locationstore", DbType="NVarChar(50)")]
+		public string locationstore
+		{
+			get
+			{
+				return this._locationstore;
+			}
+			set
+			{
+				if ((this._locationstore != value))
+				{
+					this.OnlocationstoreChanging(value);
+					this.SendPropertyChanging();
+					this._locationstore = value;
+					this.SendPropertyChanged("locationstore");
+					this.OnlocationstoreChanged();
 				}
 			}
 		}

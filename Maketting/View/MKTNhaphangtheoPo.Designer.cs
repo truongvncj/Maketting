@@ -40,6 +40,8 @@
             this.dataGridViewLoaddetail = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbstorelocation = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtdnnumbar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.lbstorelocation = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -207,6 +207,26 @@
             this.panel1.TabIndex = 65;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
+            // lbstorelocation
+            // 
+            this.lbstorelocation.AutoSize = true;
+            this.lbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbstorelocation.Location = new System.Drawing.Point(560, 41);
+            this.lbstorelocation.Name = "lbstorelocation";
+            this.lbstorelocation.Size = new System.Drawing.Size(40, 18);
+            this.lbstorelocation.TabIndex = 83;
+            this.lbstorelocation.Text = "0061";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(449, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 18);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "Store Location";
+            // 
             // txtdnnumbar
             // 
             this.txtdnnumbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,26 +370,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 565);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // lbstorelocation
-            // 
-            this.lbstorelocation.AutoSize = true;
-            this.lbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbstorelocation.Location = new System.Drawing.Point(560, 41);
-            this.lbstorelocation.Name = "lbstorelocation";
-            this.lbstorelocation.Size = new System.Drawing.Size(40, 18);
-            this.lbstorelocation.TabIndex = 83;
-            this.lbstorelocation.Text = "0061";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(449, 41);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 18);
-            this.label8.TabIndex = 82;
-            this.label8.Text = "Store Location";
             // 
             // MKTNhaphangtheoPo
             // 

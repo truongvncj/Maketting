@@ -394,7 +394,7 @@
       <Column Name="QuantityOrder" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="shippingpoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -402,6 +402,7 @@
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="inputRate" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="POdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="locationstore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POhead" Member="tbl_MKt_POheads">

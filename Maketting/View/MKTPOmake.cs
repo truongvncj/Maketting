@@ -661,7 +661,8 @@ namespace Maketting.View
 
                         //detailphieu.IOcode = txtmact.Text;
                         //detailphieu.IOname = txtmucdichname.Text;
-                        detailphieu.Storelocation = this.shippingpoint;
+                        detailphieu.shippingpoint = this.shippingpoint;
+                        detailphieu.locationstore = this.storelocation;
                         //   detailphieu. = txtnguoiyeucau.Text;
                         detailphieu.StatusPO = "TMP";
                         //     detailphieu.Tel = lbtel.Text;
@@ -749,7 +750,7 @@ namespace Maketting.View
                         detailPO.MateriaSAPcode = item.MateriaSAPcode;
                         detailPO.POnumber = item.POnumber;
                         detailPO.QuantityOrder = item.QuantityOrder;
-                        detailPO.shippingpoint = item.Storelocation;
+                        detailPO.shippingpoint = item.shippingpoint;
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
