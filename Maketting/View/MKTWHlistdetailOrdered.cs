@@ -20,9 +20,9 @@ namespace Maketting.View
         public string Itemcode { get; set; }
         //    public string soload { get; set; }
         public string storelocation { get; set; }
-        public float END_STOCK { get; set; }
-        public float Ordered { get; set; }
-        public float newOrdered { get; set; }
+        public double END_STOCK { get; set; }
+        public double Ordered { get; set; }
+        public double newOrdered { get; set; }
         public string Username { get; set; }
         public string Createdby { get; set; }
 
@@ -124,7 +124,7 @@ namespace Maketting.View
 
         public View.Main main1;
 
-        public MKTWHlistdetailOrdered(string ITEM_Code, string Store_code, float END_STOCK, float Ordered)
+        public MKTWHlistdetailOrdered(string ITEM_Code, string Store_code, double END_STOCK, double Ordered)
         {
 
             //  MKTWHlistdetailOrdered viewordered = new MKTWHlistdetailOrdered(ITEM_Code, Store_code, END_STOCK, Ordered);

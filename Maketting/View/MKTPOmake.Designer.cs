@@ -46,6 +46,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbstorelocation = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btaddnew = new System.Windows.Forms.Button();
             this.txtSapPO = new System.Windows.Forms.TextBox();
             this.cbkhohang = new System.Windows.Forms.ComboBox();
@@ -61,8 +63,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
-            this.cbstorelocation = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -256,6 +256,28 @@
             this.panel1.Size = new System.Drawing.Size(1270, 172);
             this.panel1.TabIndex = 65;
             // 
+            // cbstorelocation
+            // 
+            this.cbstorelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbstorelocation.FormattingEnabled = true;
+            this.cbstorelocation.Location = new System.Drawing.Point(177, 102);
+            this.cbstorelocation.Name = "cbstorelocation";
+            this.cbstorelocation.Size = new System.Drawing.Size(268, 26);
+            this.cbstorelocation.TabIndex = 77;
+            this.cbstorelocation.SelectedValueChanged += new System.EventHandler(this.cbstorelocation_SelectedValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(14, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 18);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Location:";
+            // 
             // btaddnew
             // 
             this.btaddnew.Location = new System.Drawing.Point(1088, 140);
@@ -280,7 +302,7 @@
             this.cbkhohang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbkhohang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbkhohang.FormattingEnabled = true;
-            this.cbkhohang.Location = new System.Drawing.Point(176, 96);
+            this.cbkhohang.Location = new System.Drawing.Point(176, 71);
             this.cbkhohang.Name = "cbkhohang";
             this.cbkhohang.Size = new System.Drawing.Size(269, 26);
             this.cbkhohang.TabIndex = 73;
@@ -290,7 +312,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 99);
+            this.label4.Location = new System.Drawing.Point(14, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 18);
             this.label4.TabIndex = 72;
@@ -309,9 +331,9 @@
             // txtnguoiyeucau
             // 
             this.txtnguoiyeucau.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoiyeucau.Location = new System.Drawing.Point(174, 59);
+            this.txtnguoiyeucau.Location = new System.Drawing.Point(177, 40);
             this.txtnguoiyeucau.Name = "txtnguoiyeucau";
-            this.txtnguoiyeucau.Size = new System.Drawing.Size(271, 24);
+            this.txtnguoiyeucau.Size = new System.Drawing.Size(268, 24);
             this.txtnguoiyeucau.TabIndex = 21;
             this.txtnguoiyeucau.Text = "LÊ THANH VÂN";
             this.txtnguoiyeucau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbtennguoinop_KeyPress);
@@ -330,7 +352,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 62);
+            this.label5.Location = new System.Drawing.Point(12, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 18);
             this.label5.TabIndex = 7;
@@ -444,27 +466,6 @@
             this.dataGridViewListphieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellContentClick);
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
-            // 
-            // cbstorelocation
-            // 
-            this.cbstorelocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbstorelocation.FormattingEnabled = true;
-            this.cbstorelocation.Location = new System.Drawing.Point(578, 96);
-            this.cbstorelocation.Name = "cbstorelocation";
-            this.cbstorelocation.Size = new System.Drawing.Size(166, 26);
-            this.cbstorelocation.TabIndex = 77;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(463, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 18);
-            this.label3.TabIndex = 76;
-            this.label3.Text = "Store Location:";
             // 
             // MKTPOmake
             // 

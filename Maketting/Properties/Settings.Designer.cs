@@ -32,5 +32,16 @@ namespace Maketting.Properties {
                 return ((string)(this["MKTingConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HAN-L-3PFF7H2;Initial Catalog=ARconfirmationletter;Persist Security I" +
+            "nfo=True;User ID=sa;Password=tienmat1$")]
+        public string ARconfirmationletterConnectionString {
+            get {
+                return ((string)(this["ARconfirmationletterConnectionString"]));
+            }
+        }
     }
 }

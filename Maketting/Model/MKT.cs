@@ -93,7 +93,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Region_Balance", typeof(double)));
             dt.Columns.Add(new DataColumn("Location_Balance", typeof(double)));
 
-            //      dt.Columns.Add(new DataColumn("Price", typeof(float)));
+            //      dt.Columns.Add(new DataColumn("Price", typeof(double)));
 
 
 
@@ -168,7 +168,7 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
             //      dt.Columns.Add(new DataColumn("Material_Name", typeof(string)));
             //        drToAdd["Material_Name"] = PhieuMKT.Materialname;
-            dt.Columns.Add(new DataColumn("Request_collect_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Request_collect_Quantity", typeof(double)));
 
 
 
@@ -229,8 +229,8 @@ namespace Maketting.Model
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-            dt.Columns.Add(new DataColumn("Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("Quantity", typeof(double)));
+            dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
 
 
 
@@ -355,20 +355,20 @@ namespace Maketting.Model
             //dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
             //dt.Columns.Add(new DataColumn("Description_in_Vietnamese", typeof(string)));
 
-
+        //    Bayern
 
             DataTable dt = new DataTable();
 
             dt.Columns.Add(new DataColumn("Region", typeof(string)));
             dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
-            dt.Columns.Add(new DataColumn("Description", typeof(string)));
+            dt.Columns.Add(new DataColumn("Description_in_Vietnamese", typeof(string)));
             dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
             dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
             dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-            dt.Columns.Add(new DataColumn("PO_Quantity", typeof(float)));
-            dt.Columns.Add(new DataColumn("Unit_Price", typeof(float)));
-            //     dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
+            dt.Columns.Add(new DataColumn("PO_Quantity", typeof(double)));
+            dt.Columns.Add(new DataColumn("Unit_Price", typeof(double)));
+            //     dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
 
 
 
@@ -1848,7 +1848,7 @@ namespace Maketting.Model
             {
                 foreach (var item in rs22)
                 {
-                    Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued.GetValueOrDefault(0), item.ShippingPoint);
+                    Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued.GetValueOrDefault(0), item.ShippingPoint);
 
                 }
 
@@ -1939,7 +1939,6 @@ namespace Maketting.Model
 
 
 
-                #region  // giảm order và giảm budget region
 
                 #region       //update giảm ordered
 
@@ -1952,7 +1951,7 @@ namespace Maketting.Model
                 {
                     foreach (var item in rs22)
                     {
-                        Model.MKT.updatetangOrdered(item.Materiacode, -(float)item.Issued.GetValueOrDefault(0), item.ShippingPoint);
+                        Model.MKT.updatetangOrdered(item.Materiacode, -(double)item.Issued.GetValueOrDefault(0), item.ShippingPoint);
 
                     }
 
@@ -1964,25 +1963,42 @@ namespace Maketting.Model
 
 
                 #endregion
-                //  xóa butget đã bocck
-                var rs24 = from pp in dc.tbl_MKT_StockendRegionBudgets
-                           where pp.Gate_pass == sophieu && pp.Store_code == kho && pp.Region == Region
+                
+                #region  //tăng stocklocation 
+
+                var rs33 = from pp in dc.tbl_MKt_Listphieudetails
+                           where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
                            select pp;
-
-
-                if (rs24.Count() > 0)
+                if (rs33.Count() > 0)
                 {
-                    dc.tbl_MKT_StockendRegionBudgets.DeleteAllOnSubmit(rs24);
+                    foreach (var item in rs22)
+                    {
+                        Model.Storewithlocation.updatetangtocklocation(item.Materiacode, (double)item.Issued.GetValueOrDefault(0), item.ShippingPoint, item.location);
+
+
+                    }
+                 
+                       
+                }
+
+                #endregion
+
+                #region xóa detail stocklocationdetail
+                var r44 = from pp in dc.tbl_MKT_Stockendlocationdetails
+                          where pp.DocNumber == sophieu && pp.Store_code == kho
+                          select pp;
+
+
+                if (r44.Count() > 0)
+                {
+                    dc.tbl_MKT_Stockendlocationdetails.DeleteAllOnSubmit(r44);
                     dc.SubmitChanges();
 
                 }
-                //newregionupdate.Store_code = this.storelocation;
-                //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
-                //newregionupdate.Gate_pass = this.sophieu;
-
-
 
                 #endregion
+                
+                #region xóa detail và headphieu phiếu
 
 
 
@@ -1997,11 +2013,6 @@ namespace Maketting.Model
                     dc.SubmitChanges();
 
                 }
-                //else
-                //{
-                //    MessageBox.Show("Please check phiếu: " + sophieu + " can not delete detail!", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return false;
-                //}
 
                 var rs = from pp in dc.tbl_MKt_Listphieuheads
                          where pp.Gate_pass == sophieu && pp.ShippingPoint == kho
@@ -2039,6 +2050,7 @@ namespace Maketting.Model
 
 
                 }
+                #endregion
 
                 return true;
 
@@ -2197,7 +2209,7 @@ namespace Maketting.Model
         }
 
 
-   
+
         public static void tranferoutrequestmakechange(tbl_MKt_Transferoutdetail itemout)
         {
 
@@ -2684,11 +2696,41 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.RecieptQuantity.GetValueOrDefault(0), itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.RecieptQuantity.GetValueOrDefault(0), itemxuat.ShippingPoint);
 
 
         }
 
+        public static void giamtrudetailPOkhirevertgoodreceipt(tbl_MKt_WHstoreissue itemxuat)
+        {
+
+
+
+            string connection_string = Utils.getConnectionstr();
+            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+            var item = (from p in dc.tbl_MKt_POdetails
+                        where p.MateriaItemcode == itemxuat.MateriaItemcode
+                        && p.Storelocation == itemxuat.ShippingPoint
+                        && p.POnumber == itemxuat.POnumber
+                        select p).FirstOrDefault();
+
+            if (item != null)
+            {
+
+
+                item.RecieptedQuantity = item.RecieptedQuantity - itemxuat.Issued.GetValueOrDefault(0);
+
+                dc.SubmitChanges();
+
+            }
+
+            //   Giảm ordered khi xuất hàng
+
+
+
+
+        }
 
         public static void giamtrukhokhireverthangnhamsaive(tbl_MKt_WHstoreissue itemxuat)
         {
@@ -2714,7 +2756,7 @@ namespace Maketting.Model
             //   Giảm ordered khi xuất hàng
 
 
-            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(float)itemxuat.RecieptQuantity.GetValueOrDefault(0), itemxuat.ShippingPoint);
+            Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.RecieptQuantity.GetValueOrDefault(0), itemxuat.ShippingPoint);
 
 
 
@@ -3528,7 +3570,7 @@ namespace Maketting.Model
             return kq;
 
         }
-       
+
 
         public static void updatePalleCRTorder()
         {

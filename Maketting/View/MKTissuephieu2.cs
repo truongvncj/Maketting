@@ -1090,10 +1090,10 @@ namespace Maketting.View
                         //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
 
                         //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-                        //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(float)));
-                        //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(float)));
+                        //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(double)));
+                        //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
 
-               
+
                         if (dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value != DBNull.Value)
                         {
                             detailphieu.Materialname = dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value.ToString().Truncate(225);
@@ -1163,52 +1163,6 @@ namespace Maketting.View
 
 
                         #endregion
-                        #region       //add detail phiếu tang giàm
-                     
-
-                       
-
-                        #endregion
-                        //#region giảm budget region
-                        //tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
-
-                        //newregionupdate.ITEM_Code = ItemCode;
-                        //newregionupdate.SAP_CODE = dataGridViewDetail.Rows[idrow].Cells["SAP_CODE"].Value.ToString();
-
-                        ////     drToAdd["Material_Description"] = PhieuMKT.Materialname;
-                        ////       drToAdd["Description_in_Vietnamese"] = PhieuMKT.Description;
-
-                        //newregionupdate.MATERIAL = dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value.ToString().Truncate(255);
-
-                        //if (dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value != DBNull.Value)
-                        //{
-                        //    newregionupdate.Description = dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value.ToString().Truncate(255);
-                        //}
-                        //else
-                        //{
-                        //    newregionupdate.Description = "";
-                        //}
-
-
-                        //newregionupdate.QuantityInputbyPO = 0;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
-                        //newregionupdate.QuantityInputbyReturn = 0;// (float)dataGridViewLoaddetail.Rows[idrow].Cells["Return_Quantity"].Value;// 0;
-                        //newregionupdate.QuantityOutput = (double)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;// 0;
-                        //newregionupdate.QuantitybyDevice = 0;
-                        //// newregionupdate.Note = item.n;
-                        //newregionupdate.Regionchangedate = datepickngayphieu.Value;
-                        //newregionupdate.Store_code = this.storelocation;
-                        //newregionupdate.Region = this.region;//Model.Username.getuseRegion();
-                        //newregionupdate.Gate_pass = this.sophieu;
-
-                        //dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
-                        //dc.SubmitChanges();
-
-
-                        //#endregion
-
-
-
-
 
 
 
@@ -1219,25 +1173,6 @@ namespace Maketting.View
 
 
 
-                //#region          // trừ tồn bughet của chương trình
-
-
-                //var programebudget2 = (from pp in dc.tbl_MKT_Programes
-                //                       where pp.ProgrameIDDocno == this.ProgrameIDDocno
-                //                       select pp).FirstOrDefault();
-                //if (programebudget2 != null)
-                //{
-                //    programebudget2.BalanceBudget = programebudget2.BalanceBudget - this.POSMisuevalue;
-                //    programebudget2.UsedBudget = programebudget2.UsedBudget + -this.POSMisuevalue;
-
-                //    dc.SubmitChanges();
-
-                //}
-
-
-
-
-                //#endregion                //
 
                 btcopy.Enabled = true;
                 btchange.Enabled = true;
@@ -2077,7 +2012,7 @@ namespace Maketting.View
             //    {
             //        if (dataGridViewDetail.Rows[idrow].Cells["Price"].Value != DBNull.Value && dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value != DBNull.Value)
             //        {
-            //            this.POSMisuevalue = POSMisuevalue + (float)dataGridViewDetail.Rows[idrow].Cells["Price"].Value * (float)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
+            //            this.POSMisuevalue = POSMisuevalue + (double)dataGridViewDetail.Rows[idrow].Cells["Price"].Value * (double)dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Value;
 
 
             //        }
@@ -2564,7 +2499,7 @@ namespace Maketting.View
                     this.ProgrameIDDocno = rs2.ProgrameIDDocno;
                     this.IO_number = rs2.IO_number;
 
-                    //this.Programebudgetbalance = (float)(from pp in dc.tbl_MKT_Programes
+                    //this.Programebudgetbalance = (double)(from pp in dc.tbl_MKT_Programes
                     //                      where pp.ProgrameIDDocno == this.ProgrameIDDocno
                     //                      select pp.BalanceBudget).FirstOrDefault().GetValueOrDefault(0);
                     //txtprogramebudgetbalance.Text = this.Programebudgetbalance.ToString("#,#", CultureInfo.InvariantCulture);
@@ -3232,7 +3167,7 @@ namespace Maketting.View
 
                     foreach (var item in detail)
                     {
-                        float ordered = (float)item.Issued;
+                        double ordered = (double)item.Issued;
 
                         item.Status = "BLOCK";
                         dc.SubmitChanges();
@@ -3327,7 +3262,7 @@ namespace Maketting.View
 
                     foreach (var item in detail)
                     {
-                        float ordered = (float)item.Issued;
+                        double ordered = (double)item.Issued;
 
                         item.Status = "CRT";
                         dc.SubmitChanges();

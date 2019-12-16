@@ -17,7 +17,8 @@ namespace Maketting.View
         public int statusphieu { get; set; } // mới  // 2 suawra // 3 display //
                                              //   public string sophieuID { get; set; }
         public string PONumber { get; set; }
-        public string storelocation { get; set; }
+        public string shippingpoint { get; set; }
+         public string storelocation { get; set; }
         public string Username { get; set; }
 
         public class ComboboxItem
@@ -67,7 +68,7 @@ namespace Maketting.View
 
             //dt.Columns.Add(new DataColumn("Material_Description", typeof(string)));
             //dt.Columns.Add(new DataColumn("Description_in_Vietnamese", typeof(string)));
-
+       
             drToAdd["Region"] = Ponumber.Region;
             drToAdd["Material_Description"] = Ponumber.Materialname;
             drToAdd["Description_in_Vietnamese"] = Ponumber.Description;
@@ -128,9 +129,9 @@ namespace Maketting.View
 
             dataGridViewDetail = Model.MKT.LoadnewdetailPO(dataGridViewDetail);
 
-            //     cbkhohang.Items.Clear();
+            #endregion
 
-            //   List<ComboboxItem> CombomCollection = new List<ComboboxItem>();
+            #region load cb kho hàng
             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -158,13 +159,50 @@ namespace Maketting.View
             cbkhohang.DataSource = itemstorecolect;
             cbkhohang.SelectedIndex = 0;
 
-            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+            this.shippingpoint = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             //this.matk = taikhoan;
 
 
             //   Model.MKT.DeleteALLphieuPOtamTMP();
 
 
+
+            #endregion
+
+            #region // load curent region
+
+            List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
+
+            var rs4 = from pp in dc.tbl_MKT_Storelocations
+
+                      select pp;
+            foreach (var item2 in rs4)
+            {
+                ComboboxItem cb = new ComboboxItem();
+                cb.Value = item2.Location.Trim();
+                cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
+                itemthislocation.Add(cb);
+
+                //  cbkhohang.Items.Add(cb);
+                //  CombomCollection.Add(cb);
+            }
+
+            cbstorelocation.DataSource = itemthislocation;
+            cbstorelocation.SelectedIndex = 0;
+
+            //  thus region.Items
+            foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
+            {
+                //if (item.Value.ToString().Trim() == this.location.Trim())
+                //{
+                cbstorelocation.SelectedItem = item;
+                this.storelocation = item.Value.ToString().Trim();
+                //}
+            }
+
+
+
+          
 
             #endregion
 
@@ -474,20 +512,22 @@ namespace Maketting.View
 
             if (cbkhohang.Text == "")
             {
-                MessageBox.Show("Pleae select a Location Wave House (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pleae select a shipping point (Chọn Kho) !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbkhohang.Focus();
                 checkhead = false;
                 return;
             }
 
 
-            //if (txtmucdichname.Text == "")
-            //{
-            //    MessageBox.Show("Pleae input a IO !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    cbkhohang.Focus();
-            //    checkhead = false;
-            //    return;
-            //}
+
+            if (cbstorelocation.Text == "")
+            {
+                MessageBox.Show("Pleae select a Location  !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbstorelocation.Focus();
+                checkhead = false;
+                return;
+            }
+
             #endregion
 
 
@@ -543,7 +583,7 @@ namespace Maketting.View
 
                     if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                     {
-                        if ((float)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value <= 0)
+                        if ((double)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value <= 0)
                         {
                             MessageBox.Show("Please số lượng lớn 0, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
@@ -555,7 +595,7 @@ namespace Maketting.View
 
                     if (dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value != DBNull.Value)
                     {
-                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value <= 0)
+                        if ((double)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value <= 0)
                         {
                             MessageBox.Show("Please check unit price, please check dòng:  " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Style.BackColor = System.Drawing.Color.Orange;
@@ -589,7 +629,8 @@ namespace Maketting.View
                 ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
                 //     rs.Purposeid = txtmact.Text;
-                ponew.StoreLocation = this.storelocation;
+                ponew.StoreLocation = this.shippingpoint;
+                ponew.
                 ponew.Created_by = txtnguoiyeucau.Text;
                 ponew.Status = "CRT";
                 ponew.PONumber = txtSapPO.Text;
@@ -620,7 +661,7 @@ namespace Maketting.View
 
                         //detailphieu.IOcode = txtmact.Text;
                         //detailphieu.IOname = txtmucdichname.Text;
-                        detailphieu.Storelocation = this.storelocation;
+                        detailphieu.Storelocation = this.shippingpoint;
                         //   detailphieu. = txtnguoiyeucau.Text;
                         detailphieu.StatusPO = "TMP";
                         //     detailphieu.Tel = lbtel.Text;
@@ -655,7 +696,7 @@ namespace Maketting.View
                         if (dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value != DBNull.Value)
                         {
 
-                            detailphieu.QuantityOrder = (float)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value;
+                            detailphieu.QuantityOrder = (double)dataGridViewDetail.Rows[idrow].Cells["PO_Quantity"].Value;
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description_in_Vietnamese"].Value != DBNull.Value)
                         {
@@ -667,7 +708,7 @@ namespace Maketting.View
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value != DBNull.Value)
                         {
-                            detailphieu.Unit_Price = (float)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value;
+                            detailphieu.Unit_Price = (double)dataGridViewDetail.Rows[idrow].Cells["Unit_Price"].Value;
                         }
 
 
@@ -816,7 +857,7 @@ namespace Maketting.View
             try
             {
                 this.PONumber = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Gate_pass"].Value;
-                this.storelocation = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Store"].Value;
+                this.shippingpoint = (string)this.dataGridViewDetail.Rows[this.dataGridViewDetail.CurrentCell.RowIndex].Cells["Store"].Value;
 
                 //Date = pp.Ngaytaophieu,
                 //             pp.Gate_pass,
@@ -1359,22 +1400,24 @@ namespace Maketting.View
                 string valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
 
                 IQueryable rs = null;
+       //         dataGridViewDetail.Rows[e.RowIndex].Cells["Material_Description"].Value = valuechon.MATERIAL;
+       //         dataGridViewDetail.Rows[e.RowIndex].Cells["Description_in_Vietnamese"].Value = valuechon.Description;
 
 
                 #region   product chose
-                
+
                 if (columhead == "Description in Vietnamese")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
 
-                         where pp.Description.Contains(valueseach) && pp.Store_code == this.storelocation
+                         where pp.Description.Contains(valueseach) && pp.Store_code == this.shippingpoint
                          && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
                              pp.SAP_CODE,
-                             pp.MATERIAL,
-                             pp.Description,
+                             Material_Description =         pp.MATERIAL,
+                             Description_in_Vietnamese =       pp.Description,
                              pp.UNIT,
                              //     Avaiable_stock = pp.END_STOCK,
 
@@ -1387,14 +1430,15 @@ namespace Maketting.View
                 if (columhead == "ITEM Code")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.storelocation
+                         where pp.ITEM_Code.Contains(valueseach) && pp.Store_code == this.shippingpoint
                            && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
                              pp.SAP_CODE,
-                             pp.MATERIAL,
-                             pp.Description,
+                             Material_Description = pp.MATERIAL,
+                             Description_in_Vietnamese = pp.Description,
+
                              pp.UNIT,
                              //  Avaiable_stock = pp.END_STOCK,
 
@@ -1406,14 +1450,15 @@ namespace Maketting.View
                 if (columhead == "Sap Code")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.storelocation
+                         where pp.SAP_CODE.Contains(valueseach) && pp.Store_code == this.shippingpoint
                            && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
                              pp.SAP_CODE,
-                             pp.MATERIAL,
-                             pp.Description,
+                             Material_Description = pp.MATERIAL,
+                             Description_in_Vietnamese = pp.Description,
+
                              pp.UNIT,
                              //    Avaiable_stock = pp.END_STOCK,
 
@@ -1426,14 +1471,15 @@ namespace Maketting.View
                 if (columhead == "Material Description")
                 {
                     rs = from pp in dc.tbl_MKT_Stockends
-                         where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.storelocation
+                         where pp.MATERIAL.Contains(valueseach) && pp.Store_code == this.shippingpoint
                            && pp.ITEM_Code == pp.ITEM_Code
                          select new
                          {
                              pp.ITEM_Code,
                              pp.SAP_CODE,
-                             pp.MATERIAL,
-                             pp.Description,
+                             Material_Description = pp.MATERIAL,
+                             Description_in_Vietnamese = pp.Description,
+
                              pp.UNIT,
                              //   Avaiable_stock = pp.END_STOCK,
 
@@ -1709,7 +1755,7 @@ namespace Maketting.View
                 datepickngayphieu.Value = (DateTime)rs.DatePo;// = ;
                                                               //       txtmucdichname.Text = rs.Purpose;//= ;
                                                               //       txtmact.Text = rs.Purposeid;//=;
-                this.storelocation = rs.StoreLocation;// = ;
+                this.shippingpoint = rs.StoreLocation;// = ;
 
 
 
@@ -1864,7 +1910,7 @@ namespace Maketting.View
 
         private void cbkhohang_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
+            this.shippingpoint = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
             cleartoblankDEtailphieu();
         }
 
@@ -1913,7 +1959,7 @@ namespace Maketting.View
 
         private void btxoa_Click(object sender, EventArgs e)
         {
-            bool kq = Model.MKT.DeletePurchase(this.PONumber, this.storelocation);
+            bool kq = Model.MKT.DeletePurchase(this.PONumber, this.shippingpoint);
             if (kq)
             {
                 MessageBox.Show("Delete " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1996,7 +2042,7 @@ namespace Maketting.View
             if (Model.Username.getaddNewProductRight())
             {
 
-                View.MKTsanphammoi p = new MKTsanphammoi(3, -1, this.storelocation, temp);  // 3 là thêm ới
+                View.MKTsanphammoi p = new MKTsanphammoi(3, -1, this.shippingpoint, temp);  // 3 là thêm ới
 
                 p.ShowDialog();
             }
@@ -2100,6 +2146,12 @@ namespace Maketting.View
         private void txtmucdichname_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbstorelocation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.storelocation = (cbstorelocation.SelectedItem as ComboboxItem).Value.ToString();
+            cleartoblankDEtailphieu();
         }
     }
 }
