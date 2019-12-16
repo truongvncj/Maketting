@@ -629,8 +629,8 @@ namespace Maketting.View
                 ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
                 //     rs.Purposeid = txtmact.Text;
-                ponew.StoreLocation = this.shippingpoint;
-                ponew.
+                ponew.Shippingpoint = this.shippingpoint;
+                ponew.Storelocation = this.storelocation;
                 ponew.Created_by = txtnguoiyeucau.Text;
                 ponew.Status = "CRT";
                 ponew.PONumber = txtSapPO.Text;
@@ -749,7 +749,7 @@ namespace Maketting.View
                         detailPO.MateriaSAPcode = item.MateriaSAPcode;
                         detailPO.POnumber = item.POnumber;
                         detailPO.QuantityOrder = item.QuantityOrder;
-                        detailPO.Storelocation = item.Storelocation;
+                        detailPO.shippingpoint = item.Storelocation;
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
@@ -1723,7 +1723,7 @@ namespace Maketting.View
 
                 //   xxx
                 POnumberfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["PONumber"].Value.ToString();
-                storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["StoreLocation"].Value.ToString();
+                storelocationfind = this.dataGridViewListphieu.Rows[e.RowIndex].Cells["Shippingpoint"].Value.ToString();
 
             }
             catch (Exception ex)
@@ -1739,7 +1739,7 @@ namespace Maketting.View
 
 
             var rs = (from pp in dc.tbl_MKt_POheads
-                      where pp.PONumber == POnumberfind && pp.StoreLocation == storelocationfind
+                      where pp.PONumber == POnumberfind && pp.Shippingpoint == storelocationfind
 
                       select pp).FirstOrDefault();
 
@@ -1755,7 +1755,7 @@ namespace Maketting.View
                 datepickngayphieu.Value = (DateTime)rs.DatePo;// = ;
                                                               //       txtmucdichname.Text = rs.Purpose;//= ;
                                                               //       txtmact.Text = rs.Purposeid;//=;
-                this.shippingpoint = rs.StoreLocation;// = ;
+                this.shippingpoint = rs.Shippingpoint;// = ;
 
 
 
@@ -1763,9 +1763,17 @@ namespace Maketting.View
                 //  cbkhohang.Items
                 foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
                 {
-                    if (item.Value.ToString().Trim() == rs.StoreLocation.Trim())
+                    if (item.Value.ToString().Trim() == rs.Shippingpoint.Trim())
                     {
                         cbkhohang.SelectedItem = item;
+                    }
+                }
+
+                foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
+                {
+                    if (item.Value.ToString().Trim() == rs.Storelocation.Trim())
+                    {
+                        cbstorelocation.SelectedItem = item;
                     }
                 }
 
@@ -1788,7 +1796,7 @@ namespace Maketting.View
 
             #region load detail so phieu va loacation
             var rs2 = from pp in dc.tbl_MKt_POdetails
-                      where pp.POnumber == POnumberfind && pp.Storelocation == storelocationfind
+                      where pp.POnumber == POnumberfind && pp.shippingpoint == storelocationfind
 
                       select pp;
 
@@ -1876,7 +1884,7 @@ namespace Maketting.View
                              Date = pp.DatePo,
                              pp.PONumber,
                              pp.Created_by,
-                             pp.StoreLocation,
+                             pp.Shippingpoint,
 
 
                              pp.Status,

@@ -19,7 +19,9 @@ namespace Maketting.View
         public int subID { get; set; }
         public string POnumber { get; set; }
         // public string soload { get; set; }
-        public string storelocation { get; set; }
+        public string shippingpoint { get; set; }
+        public string locationstore { get; set; }
+
         public string Username { get; set; }
         public string Createdby { get; set; }
 
@@ -80,7 +82,8 @@ namespace Maketting.View
                          id = pp.id,
                          Region = pp.Region,
                          PO_number = pp.POnumber,
-                         Shipping_Point = pp.Storelocation,
+                         Shipping_Point = pp.shippingpoint,
+                         Stote_location = pp.locationstore,
                          Material_SAP_code = pp.MateriaSAPcode,// gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                          Material_Item_code = pp.MateriaItemcode,// gg.Key,
                          Material_name = pp.Materialname,//gg.Select(m => m.Materialname).FirstOrDefault(),
@@ -111,7 +114,7 @@ namespace Maketting.View
                 //  dataGridViewLoaddetail.DataSource = rs;
 
                 //     this.soload = rs.FirstOrDefault().Maketting_load;
-                this.storelocation = rs.FirstOrDefault().Shipping_Point;
+                this.shippingpoint = rs.FirstOrDefault().Shipping_Point;
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
@@ -273,7 +276,7 @@ namespace Maketting.View
             btluu.Enabled = true;
             btinphieu.Enabled = false;
 
-            txtstorelocation.Text = this.storelocation;
+            txtstorelocation.Text = this.shippingpoint;
             dataGridViewLoaddetail.Focus();
 
         }
@@ -569,7 +572,7 @@ namespace Maketting.View
                         var rs2 = from pp in dc.tbl_MKt_POdetails
                                   where pp.id == id
                                        && pp.POnumber == this.POnumber
-                                       && pp.Storelocation == this.storelocation
+                                       && pp.shippingpoint == this.shippingpoint
                                   select pp;
 
 
@@ -595,7 +598,7 @@ namespace Maketting.View
                                 newreciepts.Document_number = txtdnnumbar.Text;
                                 newreciepts.Materialname = item.Materialname.Truncate(50);
                                 newreciepts.POnumber = item.POnumber;
-                                newreciepts.ShippingPoint = item.Storelocation;
+                                newreciepts.ShippingPoint = item.shippingpoint;
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
@@ -620,7 +623,7 @@ namespace Maketting.View
                                 }
 
 
-                                Model.MKT.tangkhokhinhaphang(newreciepts, this.storelocation);
+                                Model.MKT.tangkhokhinhaphang(newreciepts, this.shippingpoint);
 
 
 
@@ -641,7 +644,7 @@ namespace Maketting.View
                         var rs = from pp in dc.tbl_MKt_POdetails
                                  where pp.id == id
                                          && pp.POnumber == this.POnumber
-                                         && pp.Storelocation == this.storelocation
+                                         && pp.shippingpoint == this.shippingpoint
                                  select pp;
 
                         if (rs.Count() > 0)
@@ -671,7 +674,7 @@ namespace Maketting.View
                                 newregionupdate.Note = item.POnumber;
                                 //    newregionupdate.Regionchangedate = datecreated.Value;
 
-                                newregionupdate.Store_code = this.storelocation;
+                                newregionupdate.Store_code = this.shippingpoint;
                                 newregionupdate.POnumber = this.POnumber;
                                 newregionupdate.idsub = this.subID; ;
                                 newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
@@ -822,16 +825,16 @@ namespace Maketting.View
                 headpx.username = this.Username;
                 headpx.Loadnumber = rptMKThead.PONumber;
                 //    headpx.nametransporter = rptMKThead.TransposterName;
-                headpx.seri = this.storelocation + rptMKThead.PONumber + "-" + this.subID;
+                headpx.seri = this.shippingpoint + rptMKThead.PONumber + "-" + this.subID;
 
                 BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                 BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                 //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + rptMKThead.PONumber), 1, true), typeof(Byte[]));
+                Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.shippingpoint + rptMKThead.PONumber), 1, true), typeof(Byte[]));
 
                 headpx.Barcode = result;
                 headpx.Ngaythang = rptMKThead.DatePo;
-                headpx.shippingpoint = rptMKThead.StoreLocation;
+                headpx.shippingpoint = rptMKThead.Shippingpoint;
 
                 headpx.Storeman = this.Createdby;
 
@@ -2109,12 +2112,12 @@ namespace Maketting.View
                     headpx.Username = this.Username;
                     headpx.Sophieu = item.Gate_pass;
                     headpx.Nguoinhanname = item.Receiver_by;
-                    headpx.seri = this.storelocation + item.Gate_pass;
+                    headpx.seri = this.shippingpoint + item.Gate_pass;
 
                     BarcodeGenerator.Code128.Encoder c128 = new BarcodeGenerator.Code128.Encoder();
                     BarcodeGenerator.Code128.BarcodeImage barcodeImage = new BarcodeGenerator.Code128.BarcodeImage();
                     //     picBarcode.Image = barcodeImage.CreateImage(    c128.Encode(txtInput.Text),   1, true);
-                    Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.storelocation + item.Gate_pass), 1, true), typeof(Byte[]));
+                    Byte[] result = (Byte[])new ImageConverter().ConvertTo(barcodeImage.CreateImage(c128.Encode(this.shippingpoint + item.Gate_pass), 1, true), typeof(Byte[]));
 
                     headpx.Barcode = result;
                     headpx.dienthoai = item.Tel;

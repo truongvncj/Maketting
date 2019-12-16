@@ -2711,7 +2711,7 @@ namespace Maketting.Model
 
             var item = (from p in dc.tbl_MKt_POdetails
                         where p.MateriaItemcode == itemxuat.MateriaItemcode
-                        && p.Storelocation == itemxuat.ShippingPoint
+                        && p.shippingpoint == itemxuat.ShippingPoint
                         && p.POnumber == itemxuat.POnumber
                         select p).FirstOrDefault();
 
@@ -3143,7 +3143,7 @@ namespace Maketting.Model
 
 
             var rs = from pp in dc.tbl_MKt_POheads
-                     where pp.PONumber == pONumber && pp.StoreLocation == storelocation
+                     where pp.PONumber == pONumber && pp.Shippingpoint == storelocation
                      && pp.Status == "CRT"
                      select pp;
 
@@ -3166,7 +3166,7 @@ namespace Maketting.Model
 
 
             var rs2 = from pp in dc.tbl_MKt_POdetails
-                      where pp.POnumber == pONumber && pp.Storelocation == storelocation
+                      where pp.POnumber == pONumber && pp.shippingpoint == storelocation
                       select pp;
 
             if (rs2.Count() > 0)
@@ -3282,7 +3282,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.Storelocation,
+                         pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,
@@ -3315,7 +3315,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.Storelocation,
+                         pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,
@@ -3351,7 +3351,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.Storelocation,
+                         pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,

@@ -733,7 +733,7 @@ namespace Maketting.View
 
                 headpx.Barcode = result;
                 headpx.Ngaythang = rptMKThead.DatePo;
-                headpx.shippingpoint = rptMKThead.StoreLocation;
+                headpx.shippingpoint = rptMKThead.Shippingpoint;
 
                 headpx.Storeman = this.Createdby;
 
