@@ -44,7 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateNgaynhaphang = new System.Windows.Forms.DateTimePicker();
-            this.txtstorelocation = new System.Windows.Forms.Label();
+            this.txtshippingpoint = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.datecreated = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,6 +54,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.lbstorelocation = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -184,11 +186,13 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbstorelocation);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtdnnumbar);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateNgaynhaphang);
-            this.panel1.Controls.Add(this.txtstorelocation);
+            this.panel1.Controls.Add(this.txtshippingpoint);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.datecreated);
             this.panel1.Controls.Add(this.label4);
@@ -243,15 +247,15 @@
             this.dateNgaynhaphang.TabIndex = 70;
             this.dateNgaynhaphang.Value = new System.DateTime(2017, 7, 18, 0, 0, 0, 0);
             // 
-            // txtstorelocation
+            // txtshippingpoint
             // 
-            this.txtstorelocation.AutoSize = true;
-            this.txtstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstorelocation.Location = new System.Drawing.Point(402, 40);
-            this.txtstorelocation.Name = "txtstorelocation";
-            this.txtstorelocation.Size = new System.Drawing.Size(41, 18);
-            this.txtstorelocation.TabIndex = 79;
-            this.txtstorelocation.Text = "V101";
+            this.txtshippingpoint.AutoSize = true;
+            this.txtshippingpoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtshippingpoint.Location = new System.Drawing.Point(402, 41);
+            this.txtshippingpoint.Name = "txtshippingpoint";
+            this.txtshippingpoint.Size = new System.Drawing.Size(41, 18);
+            this.txtshippingpoint.TabIndex = 79;
+            this.txtshippingpoint.Text = "V101";
             // 
             // label2
             // 
@@ -310,7 +314,7 @@
             // 
             this.txtnguoinhanhang.Enabled = false;
             this.txtnguoinhanhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnguoinhanhang.Location = new System.Drawing.Point(532, 37);
+            this.txtnguoinhanhang.Location = new System.Drawing.Point(372, 4);
             this.txtnguoinhanhang.Name = "txtnguoinhanhang";
             this.txtnguoinhanhang.Size = new System.Drawing.Size(267, 24);
             this.txtnguoinhanhang.TabIndex = 21;
@@ -331,7 +335,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(449, 41);
+            this.label5.Location = new System.Drawing.Point(289, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 7;
@@ -346,6 +350,26 @@
             this.tabControl1.Size = new System.Drawing.Size(1280, 565);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // lbstorelocation
+            // 
+            this.lbstorelocation.AutoSize = true;
+            this.lbstorelocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbstorelocation.Location = new System.Drawing.Point(560, 41);
+            this.lbstorelocation.Name = "lbstorelocation";
+            this.lbstorelocation.Size = new System.Drawing.Size(40, 18);
+            this.lbstorelocation.TabIndex = 83;
+            this.lbstorelocation.Text = "0061";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(449, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 18);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "Store Location";
             // 
             // MKTNhaphangtheoPo
             // 
@@ -381,7 +405,7 @@
         private System.Windows.Forms.DataGridView dataGridViewLoaddetail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label txtstorelocation;
+        private System.Windows.Forms.Label txtshippingpoint;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label txtPonumber;
@@ -395,5 +419,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateNgaynhaphang;
         private System.Windows.Forms.TextBox txtdnnumbar;
+        private System.Windows.Forms.Label lbstorelocation;
+        private System.Windows.Forms.Label label8;
     }
 }

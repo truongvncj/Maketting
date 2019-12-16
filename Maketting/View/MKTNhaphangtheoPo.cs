@@ -115,6 +115,7 @@ namespace Maketting.View
 
                 //     this.soload = rs.FirstOrDefault().Maketting_load;
                 this.shippingpoint = rs.FirstOrDefault().Shipping_Point;
+                this.locationstore = rs.FirstOrDefault().Stote_location;
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
@@ -127,6 +128,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["PO_number"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Region"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Shipping_Point"].ReadOnly = true;
+                dataGridViewLoaddetail.Columns["Stote_location"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_SAP_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_Item_code"].ReadOnly = true;
                 dataGridViewLoaddetail.Columns["Material_name"].ReadOnly = true;
@@ -144,6 +146,7 @@ namespace Maketting.View
                 dataGridViewLoaddetail.Columns["Material_name"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Order_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
                 dataGridViewLoaddetail.Columns["Reciepted_Quantity"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
+                dataGridViewLoaddetail.Columns["Stote_location"].DefaultCellStyle.BackColor = Color.LightSkyBlue;
 
 
             }
@@ -275,8 +278,9 @@ namespace Maketting.View
 
             btluu.Enabled = true;
             btinphieu.Enabled = false;
+            lbstorelocation.Text = this.locationstore;
 
-            txtstorelocation.Text = this.shippingpoint;
+            txtshippingpoint.Text = this.shippingpoint;
             dataGridViewLoaddetail.Focus();
 
         }
