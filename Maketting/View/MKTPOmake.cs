@@ -751,6 +751,7 @@ namespace Maketting.View
                         detailPO.POnumber = item.POnumber;
                         detailPO.QuantityOrder = item.QuantityOrder;
                         detailPO.shippingpoint = item.shippingpoint;
+                        detailPO.locationstore = item.locationstore;
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
