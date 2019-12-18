@@ -3567,7 +3567,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetail(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 1000, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL ", 0, "tkdetailnhapxuattheosanpham");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 
@@ -3621,7 +3621,7 @@ namespace Maketting.View
                 IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentsUMMARY(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 1000, "tksumarystoremovement");// mã 5 là danh sach nha nha ccaaps
+                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT SUMMARY ", 0, "tksumarystoremovement");// mã 5 là danh sach nha nha ccaaps
 
                 viewtbl.ShowDialog();
 

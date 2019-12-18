@@ -1083,7 +1083,7 @@ namespace Maketting.View
                         detailphieu.Gate_pass = this.sophieu;
                         detailphieu.Region = this.region;//Model.Username.getuseRegion();
                         detailphieu.ShippingPoint = this.storecode;
-
+                        detailphieu.location = this.locationstore;
                         //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
                         //dt.Columns.Add(new DataColumn("Description", typeof(string)));
                         //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));

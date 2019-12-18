@@ -119,7 +119,7 @@ namespace Maketting.View
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
-                dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(float)));
+                dataTable.Columns.Add(new DataColumn("Reciept_Quantity", typeof(double)));
 
 
                 dataGridViewLoaddetail.DataSource = dataTable;
@@ -489,9 +489,9 @@ namespace Maketting.View
                 if (dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value != DBNull.Value)
                 {
 
-                    float Reciep_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());
-                    float Reciepted_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value.ToString());
-                    float Order_Quantity = float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Order_Quantity"].Value.ToString());
+                    double Reciep_Quantity = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                    double Reciepted_Quantity = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Reciepted_Quantity"].Value;
+                    double Order_Quantity = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Order_Quantity"].Value;
 
 
 
@@ -566,8 +566,8 @@ namespace Maketting.View
                         string Material_Item_code = (string)dataGridViewLoaddetail.Rows[idrow].Cells["Material_Item_code"].Value;
                         int id = int.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["id"].Value.ToString());
 
-                        float nhap = 0;
-                        nhap = (float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
+                        double nhap = 0;
+                        nhap = (double)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
 
 
                         #region  update gound recieot trong kho
@@ -592,11 +592,11 @@ namespace Maketting.View
 
 
                                 newreciepts.IssueIDsub = IssueIDsub;
-                          
+                                newreciepts.region = item.Region;
+                                newreciepts.locationstore = item.locationstore;
 
 
-                                newreciepts.RecieptQuantity = nhap;// float.Parse(dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value.ToString());//(float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value;
-
+                                newreciepts.RecieptQuantity = nhap;// 
                                 newreciepts.Recieptby = txtnguoinhanhang.Text;
                                 newreciepts.Materiacode = item.MateriaSAPcode;
                                 newreciepts.MateriaItemcode = item.MateriaItemcode;
@@ -657,7 +657,7 @@ namespace Maketting.View
                             foreach (var item in rs)
                             {
                                 item.StatusPO = "IN";
-                                item.RecieptedQuantity = item.RecieptedQuantity + nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                item.RecieptedQuantity = item.RecieptedQuantity + nhap;
                                 item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
                                 dc.SubmitChanges();
 
@@ -670,8 +670,8 @@ namespace Maketting.View
                                 newregionupdate.MATERIAL = item.Materialname.Truncate(255);
                                 newregionupdate.Description = item.Description;
                                 newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
-                                newregionupdate.QuantityReceipt = nhap;// Math.Round((float)dataGridViewLoaddetail.Rows[idrow].Cells["Reciept_Quantity"].Value * (float)item.inputRate);
+                                newregionupdate.QuantityInputbyPO = nhap;
+                                newregionupdate.QuantityReceipt = nhap;
                                 newregionupdate.QuantityInputbytransferin = 0;
                                 newregionupdate.QuantityInputbyReturn = 0;
                                 newregionupdate.QuantityOutput = 0;

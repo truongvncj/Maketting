@@ -16351,6 +16351,12 @@ namespace Maketting
 		
 		private System.Nullable<System.DateTime> _Doc_date;
 		
+		private string _locationstore;
+		
+		private string _region;
+		
+		private string _Gatepass;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -16399,6 +16405,12 @@ namespace Maketting
     partial void OnTransfer_numberChanged();
     partial void OnDoc_dateChanging(System.Nullable<System.DateTime> value);
     partial void OnDoc_dateChanged();
+    partial void OnlocationstoreChanging(string value);
+    partial void OnlocationstoreChanged();
+    partial void OnregionChanging(string value);
+    partial void OnregionChanged();
+    partial void OnGatepassChanging(string value);
+    partial void OnGatepassChanged();
     #endregion
 		
 		public tbl_MKt_WHstoreissue()
@@ -16842,6 +16854,66 @@ namespace Maketting
 					this._Doc_date = value;
 					this.SendPropertyChanged("Doc_date");
 					this.OnDoc_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_locationstore", DbType="NVarChar(50)")]
+		public string locationstore
+		{
+			get
+			{
+				return this._locationstore;
+			}
+			set
+			{
+				if ((this._locationstore != value))
+				{
+					this.OnlocationstoreChanging(value);
+					this.SendPropertyChanging();
+					this._locationstore = value;
+					this.SendPropertyChanged("locationstore");
+					this.OnlocationstoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_region", DbType="NVarChar(50)")]
+		public string region
+		{
+			get
+			{
+				return this._region;
+			}
+			set
+			{
+				if ((this._region != value))
+				{
+					this.OnregionChanging(value);
+					this.SendPropertyChanging();
+					this._region = value;
+					this.SendPropertyChanged("region");
+					this.OnregionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gatepass", DbType="NVarChar(50)")]
+		public string Gatepass
+		{
+			get
+			{
+				return this._Gatepass;
+			}
+			set
+			{
+				if ((this._Gatepass != value))
+				{
+					this.OnGatepassChanging(value);
+					this.SendPropertyChanging();
+					this._Gatepass = value;
+					this.SendPropertyChanged("Gatepass");
+					this.OnGatepassChanged();
 				}
 			}
 		}

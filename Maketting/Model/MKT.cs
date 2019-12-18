@@ -501,15 +501,19 @@ namespace Maketting.Model
                      {
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
+                         p.Gatepass ,
                          p.DNNumber,
                          p.LoadNumber,
+                         p.POnumber,
+                         p.Transfer_number,
                          p.Materiacode,
                          MateriaItemcode = p.MateriaItemcode,
                          p.Materialname,
                          p.Issued,
                          Receipted = p.RecieptQuantity,
                          Store_code = p.ShippingPoint,
-
+                         Location = p.locationstore,
+                         Region = p.region,
 
                          p.Username,
 
@@ -2640,26 +2644,21 @@ namespace Maketting.Model
         }
 
         //   tbl_MKt_WHstoreissue
-        public static void giamtrukhokhixuathang(tbl_MKt_WHstoreissue itemxuat)
+        public static void giamtrukhokhixuathang(string MateriaItemcode, string ShippingPoint , double IssuedQuantity)
         {
-
-
-
-            string connection_string = Utils.getConnectionstr();
+             string connection_string = Utils.getConnectionstr();
             LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
             var item = (from p in dc.tbl_MKT_Stockends
-                        where p.ITEM_Code == itemxuat.MateriaItemcode
-                        && p.Store_code == itemxuat.ShippingPoint
+                        where p.ITEM_Code == MateriaItemcode
+                        && p.Store_code == ShippingPoint
                         select p).FirstOrDefault();
 
             if (item != null)
             {
 
-                item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
+                item.END_STOCK = item.END_STOCK - IssuedQuantity;
                 dc.SubmitChanges();
-
-                Model.MKT.updatetangOrdered(itemxuat.MateriaItemcode, -(double)itemxuat.Issued.GetValueOrDefault(0), itemxuat.ShippingPoint);
 
             }
 

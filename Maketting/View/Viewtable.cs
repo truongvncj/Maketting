@@ -387,7 +387,7 @@ namespace Maketting.View
                     IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailonecodebygatepass(dc, Shippingpoint, Itemcode, shipment);
 
 
-                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL by Gate pass For this code as below ", 1000, "tk");// mã 5 là danh sach nha nha ccaaps
+                    Viewtable viewtbl = new Viewtable(rs, dc, "STOCK MOVEMENT DETAIL by Gate pass For this code as below ", 0, "tk");// mã 5 là danh sach nha nha ccaaps
                                                                                                                                         //  lbloodetailbygatepass
                     viewtbl.ShowDialog();
                 }
