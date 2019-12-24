@@ -65,6 +65,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.dataGridViewListphieu = new System.Windows.Forms.DataGridView();
+            this.cbstorelocationout = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbstorelocationin = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -198,9 +206,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridViewDetail);
-            this.panel4.Location = new System.Drawing.Point(0, 185);
+            this.panel4.Location = new System.Drawing.Point(0, 212);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1266, 347);
+            this.panel4.Size = new System.Drawing.Size(1266, 320);
             this.panel4.TabIndex = 67;
             // 
             // dataGridViewDetail
@@ -237,7 +245,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 329);
+            this.dataGridViewDetail.Size = new System.Drawing.Size(1252, 302);
             this.dataGridViewDetail.TabIndex = 3;
             this.dataGridViewDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDetail_CellContentClick);
             this.dataGridViewDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTkCo_CellEndEdit);
@@ -254,6 +262,14 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.cbstorelocationin);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.cbstorelocationout);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txttrucknumber);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txttrasfernumber);
@@ -269,13 +285,13 @@
             this.panel1.Controls.Add(this.datepickngayphieu);
             this.panel1.Location = new System.Drawing.Point(-4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1270, 176);
+            this.panel1.Size = new System.Drawing.Size(1270, 203);
             this.panel1.TabIndex = 65;
             // 
             // txttrucknumber
             // 
             this.txttrucknumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttrucknumber.Location = new System.Drawing.Point(258, 140);
+            this.txttrucknumber.Location = new System.Drawing.Point(258, 167);
             this.txttrucknumber.Name = "txttrucknumber";
             this.txttrucknumber.Size = new System.Drawing.Size(228, 24);
             this.txttrucknumber.TabIndex = 85;
@@ -285,7 +301,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(127, 146);
+            this.label7.Location = new System.Drawing.Point(127, 173);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 18);
             this.label7.TabIndex = 84;
@@ -316,9 +332,9 @@
             this.cbkhohangin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbkhohangin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbkhohangin.FormattingEnabled = true;
-            this.cbkhohangin.Location = new System.Drawing.Point(578, 103);
+            this.cbkhohangin.Location = new System.Drawing.Point(258, 136);
             this.cbkhohangin.Name = "cbkhohangin";
-            this.cbkhohangin.Size = new System.Drawing.Size(255, 26);
+            this.cbkhohangin.Size = new System.Drawing.Size(228, 26);
             this.cbkhohangin.TabIndex = 81;
             this.cbkhohangin.SelectedValueChanged += new System.EventHandler(this.cbkhohangin_SelectedValueChanged);
             // 
@@ -326,7 +342,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(506, 106);
+            this.label3.Location = new System.Drawing.Point(127, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 80;
@@ -492,6 +508,90 @@
             this.dataGridViewListphieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListphieuchi_CellDoubleClick);
             this.dataGridViewListphieu.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewListphieuthu_Paint);
             // 
+            // cbstorelocationout
+            // 
+            this.cbstorelocationout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstorelocationout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbstorelocationout.FormattingEnabled = true;
+            this.cbstorelocationout.Location = new System.Drawing.Point(622, 103);
+            this.cbstorelocationout.Name = "cbstorelocationout";
+            this.cbstorelocationout.Size = new System.Drawing.Size(192, 26);
+            this.cbstorelocationout.TabIndex = 87;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(507, 106);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(109, 18);
+            this.label8.TabIndex = 86;
+            this.label8.Text = "From Location:";
+            // 
+            // cbstorelocationin
+            // 
+            this.cbstorelocationin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstorelocationin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbstorelocationin.FormattingEnabled = true;
+            this.cbstorelocationin.Location = new System.Drawing.Point(622, 136);
+            this.cbstorelocationin.Name = "cbstorelocationin";
+            this.cbstorelocationin.Size = new System.Drawing.Size(192, 26);
+            this.cbstorelocationin.TabIndex = 89;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(507, 139);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 18);
+            this.label9.TabIndex = 88;
+            this.label9.Text = "To Location:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(956, 136);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(192, 26);
+            this.comboBox1.TabIndex = 93;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(841, 139);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 18);
+            this.label10.TabIndex = 92;
+            this.label10.Text = "To Region:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(956, 103);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(192, 26);
+            this.comboBox2.TabIndex = 91;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(841, 106);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 18);
+            this.label11.TabIndex = 90;
+            this.label11.Text = "From Region:";
+            // 
             // MKTWHtransferout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,5 +652,13 @@
         private System.Windows.Forms.Button btinphieu;
         private System.Windows.Forms.TextBox txttrucknumber;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbstorelocationin;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbstorelocationout;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label11;
     }
 }
