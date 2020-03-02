@@ -106,8 +106,7 @@ namespace Maketting.View
                         bm.WritestringtoFile(fileName, s2);
 
                         #endregion
-
-
+                    
 
                         Model.Username user = new Model.Username();
                         int Ver = Model.Username.getVersion();
@@ -118,6 +117,7 @@ namespace Maketting.View
                             View.Main main = new Main(); //
                             main.Closed += (s, args) => this.Close();
                             main.Show();
+
                         }
                         else
                         {
