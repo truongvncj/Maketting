@@ -2250,15 +2250,15 @@ namespace Maketting.View
 
                 if (item != null)
                 {
-                    if (item.Status == "Delivering")// 
-                    {
+                    //if (item.Status == "Delivering")// 
+                    //{
                         addDEtailPhieuMKT(item);
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please check, this POSM ticket status is : " + item.Status + " please issue Load: " + item.ShippingPoint + item.ShipmentNumber, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Please check, this POSM ticket status is : " + item.Status + " please issue Load: " + item.ShippingPoint + item.ShipmentNumber, "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
                     txtmktseri.Text = "";
                 }
                 else
