@@ -113,7 +113,7 @@ namespace Maketting.View
             this.btforEinvoice.TabIndex = 13;
             this.btforEinvoice.Text = "Export for E-Invoice";
             this.btforEinvoice.UseVisualStyleBackColor = true;
-            this.btforEinvoice.Click += new System.EventHandler(this.btforEinvoice_Click);
+      //      this.btforEinvoice.Click += new System.EventHandler(this.btforEinvoice_Click);
             // 
             // lbdobleclickformore
             // 

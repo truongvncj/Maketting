@@ -527,7 +527,7 @@ namespace Maketting.View
                         phieuxuat.Serriload = this.Loadnumberserri;
                         phieuxuat.date_input_output = ngayThuctexuat.Value;
                         phieuxuat.Document_number = item.Gate_pass.Truncate(50);
-                        phieuxuat.Gatepass = item.Gate_pass.Truncate(50);
+                 //       phieuxuat.Gatepass = item.Gate_pass.Truncate(50);
                         phieuxuat.Doc_date = datecreated.Value;
                         phieuxuat.IssueBy = txtnguoixuathang.Text.Truncate(50);
                         phieuxuat.Issued = item.Issued;
@@ -535,8 +535,8 @@ namespace Maketting.View
                         phieuxuat.LoadNumber = this.soload;
                         phieuxuat.ShippingPoint = this.shippingpoint;
 
-                        phieuxuat.locationstore = item.location;
-                        phieuxuat.region = item.Region;
+                    //    phieuxuat.locationstore = item.location;
+                    //    phieuxuat.region = item.Region;
                       
                         phieuxuat.Materiacode = item.MateriaSAPcode;
                         phieuxuat.MateriaItemcode = item.Materiacode;

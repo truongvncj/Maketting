@@ -5840,7 +5840,7 @@ namespace Maketting.View
             if (kq)
             {
 
-                bool kq2 = true;
+             //   bool kq2 = true;
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
@@ -5961,12 +5961,12 @@ namespace Maketting.View
 
 
 
-                IQueryable rs = Model.MKT.Danhsachphieuchuaxuathoadon(dc, storelocation);
+                //IQueryable rs = Model.MKT.Danhsachphieuchuaxuathoadon(dc, storelocation);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+                //Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
 
-                viewtbl.ShowDialog();
+                //viewtbl.ShowDialog();
 
 
             }
@@ -5976,131 +5976,131 @@ namespace Maketting.View
 
         }
 
-        private void exportEinvoiceByLoadNumberToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        //private void exportEinvoiceByLoadNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
 
 
 
-            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
-            pxk.ShowDialog();
+        //    MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT LOADSERI NUMBER");
+        //    pxk.ShowDialog();
 
-            string Loadnumberserri = pxk.valuetext;
-            bool kq = pxk.kq;
+        //    string Loadnumberserri = pxk.valuetext;
+        //    bool kq = pxk.kq;
 
-            if (kq)
-            {
+        //    if (kq)
+        //    {
 
-                bool kq2 = true;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //        bool kq2 = true;
+        //        string connection_string = Utils.getConnectionstr();
+        //        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
-                           where pp.Serriload == Loadnumberserri
+        //        var rs5 = (from pp in dc.tbl_MKt_ListLoadheadDetails
+        //                   where pp.Serriload == Loadnumberserri
 
-                           select pp).FirstOrDefault();
-                if (rs5 == null)
-                {
-                    MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                    kq2 = false;
-                    return;
+        //                   select pp).FirstOrDefault();
+        //        if (rs5 == null)
+        //        {
+        //            MessageBox.Show("Wrong serri load !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+        //            kq2 = false;
+        //            return;
 
-                }
-
-
-
-
-                if (kq2)
-                {
-
-
-                    var rs = from pp in dc.tbl_MKt_Listphieuheads
-                                 // from gg in dc.tbl_MKt_POheads
-                             where pp.einvoice == false
-                             && pp.ShippingPoint + pp.LoadNumber == Loadnumberserri
-
-
-                             select pp;
-                    //  select pp;
+        //        }
 
 
 
 
-                    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
-
-                    viewtbl.ShowDialog();
-
-                }
+        //        if (kq2)
+        //        {
 
 
-            }
+        //            var rs = from pp in dc.tbl_MKt_Listphieuheads
+        //                         // from gg in dc.tbl_MKt_POheads
+        //                     where pp.einvoice == false
+        //                     && pp.ShippingPoint + pp.LoadNumber == Loadnumberserri
 
 
-
-
-        }
-
-        private void exportEinvoiceByMKTNumberToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MKT SERRI NUMBER ");
-            pxk.ShowDialog();
-
-            string MKTseri = pxk.valuetext;
-            bool kq = pxk.kq;
-
-            if (kq)
-            {
-
-                bool kq2 = true;
-                string connection_string = Utils.getConnectionstr();
-                LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-                var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
-                           where pp.ShippingPoint + pp.Gate_pass == MKTseri
-
-                           select pp).FirstOrDefault();
-                if (rs5 == null)
-                {
-                    MessageBox.Show("Wrong serri MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
-                    kq2 = false;
-                    return;
-
-                }
+        //                     select pp;
+        //            //  select pp;
 
 
 
 
-                if (kq2)
-                {
+        //            Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+
+        //            viewtbl.ShowDialog();
+
+        //        }
 
 
-                    var rs = from pp in dc.tbl_MKt_Listphieuheads
-                                 // from gg in dc.tbl_MKt_POheads
-                             where pp.einvoice == false
-                             && pp.ShippingPoint + pp.Gate_pass == MKTseri
-
-
-                             select pp;
-                    //  select pp;
+        //    }
 
 
 
 
-                    Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+        //}
 
-                    viewtbl.ShowDialog();
+        //private void exportEinvoiceByMKTNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    MKTvalueinput pxk = new MKTvalueinput("PLEASE INPUT MKT SERRI NUMBER ");
+        //    pxk.ShowDialog();
 
-                }
+        //    string MKTseri = pxk.valuetext;
+        //    bool kq = pxk.kq;
+
+        //    if (kq)
+        //    {
+
+        //        bool kq2 = true;
+        //        string connection_string = Utils.getConnectionstr();
+        //        LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+        //        var rs5 = (from pp in dc.tbl_MKt_Listphieuheads
+        //                   where pp.ShippingPoint + pp.Gate_pass == MKTseri
+
+        //                   select pp).FirstOrDefault();
+        //        if (rs5 == null)
+        //        {
+        //            MessageBox.Show("Wrong serri MKT !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            //      dataGridViewDetail.Rows[idrow].Cells["Issue_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
+        //            kq2 = false;
+        //            return;
+
+        //        }
 
 
-            }
+
+
+        //        if (kq2)
+        //        {
+
+
+        //            var rs = from pp in dc.tbl_MKt_Listphieuheads
+        //                         // from gg in dc.tbl_MKt_POheads
+        //                     where pp.einvoice == false
+        //                     && pp.ShippingPoint + pp.Gate_pass == MKTseri
+
+
+        //                     select pp;
+        //            //  select pp;
+
+
+
+
+        //            Viewtable viewtbl = new Viewtable(rs, dc, "DANH SÁCH PHIẾU MKT CHƯA XUẤT HÓA ĐƠN ", 1000, "Danhsachchuaxuathoadon");// mã 5 là danh sach nha nha ccaaps
+
+        //            viewtbl.ShowDialog();
+
+        //        }
+
+
+        //    }
 
 
 
 
 
-        }
+        //}
 
         private void uploadBeginStoreDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -6163,18 +6163,18 @@ namespace Maketting.View
                 //  LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-                var rs2 = from pp in dc.tbl_MKT_Stockendlocationdetails
-                          where pp.Doctype == "Begin"
-                          && pp.Store_code == storelocation
-                          //   where (from gg in dc.tbl_MKT_StoreRights
-                          //        where gg.storeright == rightkho
-                          //      select gg.makho).Contains(pp.makho)
-                          select pp;
+                //var rs2 = from pp in dc.tbl_MKT_Stockendlocationdetails
+                //          where pp.Doctype == "Begin"
+                //          && pp.Store_code == storelocation
+                //          //   where (from gg in dc.tbl_MKT_StoreRights
+                //          //        where gg.storeright == rightkho
+                //          //      select gg.makho).Contains(pp.makho)
+                //          select pp;
 
 
-                Viewtable viewtbl = new Viewtable(rs2, dc, "Begin of store " + storelocation, 0, "tk");// mã 5 là danh sach nha nha ccaaps
+                //Viewtable viewtbl = new Viewtable(rs2, dc, "Begin of store " + storelocation, 0, "tk");// mã 5 là danh sach nha nha ccaaps
 
-                viewtbl.ShowDialog();
+                //viewtbl.ShowDialog();
 
 
             }
@@ -6222,329 +6222,329 @@ namespace Maketting.View
 
         }
 
-        private void createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!Username.getuploadBeginStoreright())
-            {
-                View.MKTNoouthourise view = new MKTNoouthourise();
-                view.ShowDialog();
-                return;
-            }
+        //private void createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (!Username.getuploadBeginStoreright())
+        //    {
+        //        View.MKTNoouthourise view = new MKTNoouthourise();
+        //        view.ShowDialog();
+        //        return;
+        //    }
 
 
-            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
+        //    List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+        //    string connection_string = Utils.getConnectionstr();
 
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            ///
-            string username = Utils.getusername();
-            string rightkho = Model.Username.getmaquyenkho();
+        //    ///
+        //    string username = Utils.getusername();
+        //    string rightkho = Model.Username.getmaquyenkho();
 
-            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
-
-
-            ///
-
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                          //   where (from gg in dc.tbl_MKT_StoreRights
-                          //        where gg.storeright == rightkho
-                          //      select gg.makho).Contains(pp.makho)
-                      select pp;
-
-            foreach (var item2 in rs1)
+        //    //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
 
-            {
-                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
-            }
+        //    ///
+
+        //    var rs1 = from pp in dc.tbl_MKT_khoMKTs
+        //                  //   where (from gg in dc.tbl_MKT_StoreRights
+        //                  //        where gg.storeright == rightkho
+        //                  //      select gg.makho).Contains(pp.makho)
+        //              select pp;
+
+        //    foreach (var item2 in rs1)
 
 
-            MKTselectinput choosesl = new MKTselectinput("SELECT STORE ", CombomCollection);
-            choosesl.ShowDialog();
-
-            string storelocation = choosesl.value;
-            bool kq = choosesl.kq;
-            if (kq)
-            {
-
-                #region  thực hiện trong if  xóa trắng file  tbl_MKT_Stockend của kho đó
-                //   string connection_string = Utils.getConnectionstr();
-                //  LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
-
-                // datainportF inf = (datainportF)obj;
-
-                //                string filename = inf.filename;
-                //              string storelocation = inf.storelocation;
+        //    {
+        //        View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+        //        cb.Value = item2.makho.Trim();
+        //        cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+        //        CombomCollection.Add(cb);
+        //    }
 
 
-                //            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    MKTselectinput choosesl = new MKTselectinput("SELECT STORE ", CombomCollection);
+        //    choosesl.ShowDialog();
+
+        //    string storelocation = choosesl.value;
+        //    bool kq = choosesl.kq;
+        //    if (kq)
+        //    {
+
+        //        #region  thực hiện trong if  xóa trắng file  tbl_MKT_Stockend của kho đó
+        //        //   string connection_string = Utils.getConnectionstr();
+        //        //  LinqtoSQLDataContext db = new LinqtoSQLDataContext(connection_string);
+
+        //        // datainportF inf = (datainportF)obj;
+
+        //        //                string filename = inf.filename;
+        //        //              string storelocation = inf.storelocation;
 
 
-                dc.ExecuteCommand("DELETE FROM tbl_MKT_Stockend   where  tbl_MKT_Stockend.Store_code = '" + storelocation + "'");
-                //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-                dc.CommandTimeout = 0;
-                dc.SubmitChanges();
-
-                #endregion
+        //        //            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-                #region  thực hiện trong if  xóa trắng file  tbl_MKT_Stockendlocation của kho đó
+        //        dc.ExecuteCommand("DELETE FROM tbl_MKT_Stockend   where  tbl_MKT_Stockend.Store_code = '" + storelocation + "'");
+        //        //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+        //        dc.CommandTimeout = 0;
+        //        dc.SubmitChanges();
+
+        //        #endregion
+
+
+        //        #region  thực hiện trong if  xóa trắng file  tbl_MKT_Stockendlocation của kho đó
            
 
 
-                dc.ExecuteCommand("DELETE FROM tbl_MKT_Stockendlocation   where  tbl_MKT_Stockendlocation.Store_code = '" + storelocation + "'");
-                //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
-                dc.CommandTimeout = 0;
-                dc.SubmitChanges();
+        //        dc.ExecuteCommand("DELETE FROM tbl_MKT_Stockendlocation   where  tbl_MKT_Stockendlocation.Store_code = '" + storelocation + "'");
+        //        //    dc.tblFBL5Nnewthisperiods.DeleteAllOnSubmit(rsthisperiod);
+        //        dc.CommandTimeout = 0;
+        //        dc.SubmitChanges();
 
-                #endregion
+        //        #endregion
 
-                #region thuvej hien gộp file detail và add vào file stockend
+        //        //#region thuvej hien gộp file detail và add vào file stockend
 
-                var rs3 = from pp in dc.tbl_MKT_Stockendlocationdetails
-                          where pp.Store_code == storelocation
-                          && pp.Doctype == "Begin"
-                          group pp by new
-                          {
-                              pp.SAP_CODE,
-                           //   pp.location,
+        //        //var rs3 = from pp in dc.tbl_MKT_Stockendlocationdetails
+        //        //          where pp.Store_code == storelocation
+        //        //          && pp.Doctype == "Begin"
+        //        //          group pp by new
+        //        //          {
+        //        //              pp.SAP_CODE,
+        //        //           //   pp.location,
 
-                          } into gg
-                          select new
-                          {
+        //        //          } into gg
+        //        //          select new
+        //        //          {
 
-                        //      location = gg.Key.location,
-                              ITEM_Code = gg.Key.SAP_CODE,
-                              SAP_CODE = gg.Key.SAP_CODE,
-                              MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
-                              Description = gg.Select(m => m.Description).FirstOrDefault(),
-                              UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
-                              END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
-                              Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
+        //        //        //      location = gg.Key.location,
+        //        //              ITEM_Code = gg.Key.SAP_CODE,
+        //        //              SAP_CODE = gg.Key.SAP_CODE,
+        //        //              MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
+        //        //              Description = gg.Select(m => m.Description).FirstOrDefault(),
+        //        //              UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
+        //        //              END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
+        //        //              Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
 
-                          };
+        //        //          };
 
-                if (rs3.Count() > 0)
-                {
+        //        //if (rs3.Count() > 0)
+        //        //{
 
-                    foreach (var item in rs3)
-                    {
+        //        //    foreach (var item in rs3)
+        //        //    {
 
-                        tbl_MKT_Stockend stockitem = new tbl_MKT_Stockend();
-                     //   stockitem.location = item.location;
-                        stockitem.ITEM_Code = item.ITEM_Code;
-                        stockitem.SAP_CODE = item.SAP_CODE;
-                        stockitem.MATERIAL = item.MATERIAL;
-                        stockitem.Description = item.Description;
-                        stockitem.END_STOCK = item.END_STOCK;
-                        stockitem.Store_code = item.Store_code;
-                        stockitem.UNIT = item.UNIT;
+        //        //        tbl_MKT_Stockend stockitem = new tbl_MKT_Stockend();
+        //        //     //   stockitem.location = item.location;
+        //        //        stockitem.ITEM_Code = item.ITEM_Code;
+        //        //        stockitem.SAP_CODE = item.SAP_CODE;
+        //        //        stockitem.MATERIAL = item.MATERIAL;
+        //        //        stockitem.Description = item.Description;
+        //        //        stockitem.END_STOCK = item.END_STOCK;
+        //        //        stockitem.Store_code = item.Store_code;
+        //        //        stockitem.UNIT = item.UNIT;
 
-                        stockitem.Ordered =0;
-                        stockitem.TransferingOUT = 0;
-                        //stockitem.UNIT = item.UNIT;
-                        //stockitem.UNIT = item.UNIT;
-                        //stockitem.UNIT = item.UNIT;
-
-
-                        dc.tbl_MKT_Stockends.InsertOnSubmit(stockitem);
-                        dc.SubmitChanges();
+        //        //        stockitem.Ordered =0;
+        //        //        stockitem.TransferingOUT = 0;
+        //        //        //stockitem.UNIT = item.UNIT;
+        //        //        //stockitem.UNIT = item.UNIT;
+        //        //        //stockitem.UNIT = item.UNIT;
 
 
-
-                    }
-
-                }
-
-
-                #endregion
-
-
-                #region thuvej hien gộp file detail và add vào file stockend
-
-                var rs2 = from pp in dc.tbl_MKT_Stockendlocationdetails
-                          where pp.Store_code == storelocation
-                          && pp.Doctype =="Begin"
-                          group pp by new
-                          {
-                              pp.SAP_CODE,
-                              pp.location,
-
-                          } into gg
-                          select new
-                          {
-
-                              location = gg.Key.location,
-                              ITEM_Code = gg.Key.SAP_CODE,
-                              SAP_CODE = gg.Key.SAP_CODE,
-                              MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
-                              Description = gg.Select(m => m.Description).FirstOrDefault(),
-                              UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
-                              END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
-                              Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
-
-                          };
-
-                if (rs2.Count() > 0)
-                {
-
-                    foreach (var item in rs2)
-                    {
-
-                        tbl_MKT_Stockendlocation stockitem = new tbl_MKT_Stockendlocation();
-                        stockitem.location = item.location;
-                        stockitem.ITEM_Code = item.ITEM_Code;
-                        stockitem.SAP_CODE = item.SAP_CODE;
-                        stockitem.MATERIAL = item.MATERIAL;
-                        stockitem.Description = item.Description;
-                        stockitem.END_STOCK = item.END_STOCK;
-                        stockitem.Store_code = item.Store_code;
-                        stockitem.UNIT = item.UNIT;
-
-                        dc.tbl_MKT_Stockendlocations.InsertOnSubmit(stockitem);
-                        dc.SubmitChanges();
+        //        //        dc.tbl_MKT_Stockends.InsertOnSubmit(stockitem);
+        //        //        dc.SubmitChanges();
 
 
 
-                    }
+        //        //    }
 
-                }
-
-
-                #endregion
+        //        //}
 
 
-                MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        //#endregion
 
 
-                var rs5 = from pp in dc.tbl_MKT_Stockendlocations
-                          where pp.Store_code == storelocation
-                          select new
-                          {
-                              pp.Store_code,
-                              pp.location,
+        //        #region thuvej hien gộp file detail và add vào file stockend
+
+        //        var rs2 = from pp in dc.tbl_MKT_Stockendlocationdetails
+        //                  where pp.Store_code == storelocation
+        //                  && pp.Doctype == "Begin"
+        //                  group pp by new
+        //                  {
+        //                      pp.SAP_CODE,
+        //                      pp.location,
+
+        //                  } into gg
+        //                  select new
+        //                  {
+
+        //                      location = gg.Key.location,
+        //                      ITEM_Code = gg.Key.SAP_CODE,
+        //                      SAP_CODE = gg.Key.SAP_CODE,
+        //                      MATERIAL = gg.Select(m => m.MATERIAL).FirstOrDefault(),
+        //                      Description = gg.Select(m => m.Description).FirstOrDefault(),
+        //                      UNIT = gg.Select(m => m.UNIT).FirstOrDefault(),
+        //                      END_STOCK = gg.Select(m => m.END_STOCK).Sum(),
+        //                      Store_code = gg.Select(m => m.Store_code).FirstOrDefault(),
+
+        //                  };
+
+        //        if (rs2.Count() > 0)
+        //        {
+
+        //            foreach (var item in rs2)
+        //            {
+
+        //                tbl_MKT_Stockendlocation stockitem = new tbl_MKT_Stockendlocation();
+        //                stockitem.location = item.location;
+        //                stockitem.ITEM_Code = item.ITEM_Code;
+        //                stockitem.SAP_CODE = item.SAP_CODE;
+        //                stockitem.MATERIAL = item.MATERIAL;
+        //                stockitem.Description = item.Description;
+        //                stockitem.END_STOCK = item.END_STOCK;
+        //                stockitem.Store_code = item.Store_code;
+        //                stockitem.UNIT = item.UNIT;
+
+        //                dc.tbl_MKT_Stockendlocations.InsertOnSubmit(stockitem);
+        //                dc.SubmitChanges();
+
+
+
+        //            }
+
+        //        }
+
+
+        //        #endregion
+
+
+        //        MessageBox.Show("Done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+        //        var rs5 = from pp in dc.tbl_MKT_Stockendlocations
+        //                  where pp.Store_code == storelocation
+        //                  select new
+        //                  {
+        //                      pp.Store_code,
+        //                      pp.location,
                           
-                              pp.SAP_CODE,
-                              pp.ITEM_Code,
+        //                      pp.SAP_CODE,
+        //                      pp.ITEM_Code,
                           
-                              pp.MATERIAL,
+        //                      pp.MATERIAL,
 
-                              pp.Description,
+        //                      pp.Description,
 
-                              pp.END_STOCK,
-                              pp.UNIT,
+        //                      pp.END_STOCK,
+        //                      pp.UNIT,
 
-                              //pp.Ordered,
+        //                      //pp.Ordered,
 
-                              //pp.TransferingOUT,
-                              //pp.ON_Hold,
-                              //pp.Quantity_Per_Pallet,
-                              //pp.End_Stock_By_Pallet,
+        //                      //pp.TransferingOUT,
+        //                      //pp.ON_Hold,
+        //                      //pp.Quantity_Per_Pallet,
+        //                      //pp.End_Stock_By_Pallet,
 
-                              pp.id,
-
-
-                          };
+        //                      pp.id,
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
-                tbl.ShowDialog();
+        //                  };
 
 
-
-
-            }
+        //        View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS", 55, "STORERPT");
+        //        tbl.ShowDialog();
 
 
 
 
-        }
-
-        private void viewStoreReportsWithDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
-            string connection_string = Utils.getConnectionstr();
-
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-            ///
-            string username = Utils.getusername();
-            string rightkho = Model.Username.getmaquyenkho();
-            string region = Model.Username.getuseRegion();
-
-            //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
+        //    }
 
 
-            ///
-
-            var rs1 = from pp in dc.tbl_MKT_khoMKTs
-                          //   where (from gg in dc.tbl_MKT_StoreRights
-                          //        where gg.storeright == rightkho
-                          //      select gg.makho).Contains(pp.makho)
-                      select pp;
-
-            foreach (var item2 in rs1)
 
 
-            {
-                View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
-                cb.Value = item2.makho.Trim();
-                cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
-                CombomCollection.Add(cb);
-            }
+        //}
+
+        //private void viewStoreReportsWithDetailLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+
+        //    List<View.MKTselectinput.ComboboxItem> CombomCollection = new List<View.MKTselectinput.ComboboxItem>();
+        //    string connection_string = Utils.getConnectionstr();
+
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+
+        //    ///
+        //    string username = Utils.getusername();
+        //    string rightkho = Model.Username.getmaquyenkho();
+        //    string region = Model.Username.getuseRegion();
+
+        //    //    List<ComboboxItem> itemstorecolect = new List<ComboboxItem>();
 
 
-            MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
-            choosesl.ShowDialog();
+        //    ///
 
-            string storelocation = choosesl.value;
-            bool kq = choosesl.kq;
-            if (kq)
-            {
+        //    var rs1 = from pp in dc.tbl_MKT_khoMKTs
+        //                  //   where (from gg in dc.tbl_MKT_StoreRights
+        //                  //        where gg.storeright == rightkho
+        //                  //      select gg.makho).Contains(pp.makho)
+        //              select pp;
 
-                #region
-
-
-                var rs5 = from pp in dc.tbl_MKT_Stockendlocations
-                          where pp.Store_code == storelocation
-                          select new
-                          {
-
-                              pp.Store_code,
-                              pp.location,
-                              pp.SAP_CODE,
-                              pp.ITEM_Code,
-
-                              // pp.RegionBudgeted,
+        //    foreach (var item2 in rs1)
 
 
-                              pp.MATERIAL,
-
-                              pp.Description,
-
-                              pp.END_STOCK,
-                              pp.UNIT,
-
-
-                              pp.id,
+        //    {
+        //        View.MKTselectinput.ComboboxItem cb = new View.MKTselectinput.ComboboxItem();
+        //        cb.Value = item2.makho.Trim();
+        //        cb.Text = item2.makho.Trim() + ": " + item2.tenkho.Trim().ToUpper();// + "    || Example: " + item2.Example;
+        //        CombomCollection.Add(cb);
+        //    }
 
 
-                          };
+        //    MKTselectinput choosesl = new MKTselectinput("PLEASE SELECT A STORE ", CombomCollection);
+        //    choosesl.ShowDialog();
+
+        //    string storelocation = choosesl.value;
+        //    bool kq = choosesl.kq;
+        //    if (kq)
+        //    {
+
+        //        #region
 
 
-                View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS DETAIL BY LOCATION", 0, "STORERPTwithlocation");
-                tbl.ShowDialog();
-                #endregion
+        //        var rs5 = from pp in dc.tbl_MKT_Stockendlocations
+        //                  where pp.Store_code == storelocation
+        //                  select new
+        //                  {
+
+        //                      pp.Store_code,
+        //                      pp.location,
+        //                      pp.SAP_CODE,
+        //                      pp.ITEM_Code,
+
+        //                      // pp.RegionBudgeted,
 
 
-            }
+        //                      pp.MATERIAL,
 
-        }
+        //                      pp.Description,
+
+        //                      pp.END_STOCK,
+        //                      pp.UNIT,
+
+
+        //                      pp.id,
+
+
+        //                  };
+
+
+        //        View.Viewtable tbl = new Viewtable(rs5, dc, "STORE REPORTS DETAIL BY LOCATION", 0, "STORERPTwithlocation");
+        //        tbl.ShowDialog();
+        //        #endregion
+
+
+        //    }
+
+        //}
 
         private void viewDetailMovementStoreByLocationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -6562,12 +6562,12 @@ namespace Maketting.View
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-                IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbylocation(dc, fromdate, todate, store);
+        //        IQueryable rs = Model.MKT.DanhsacHSTOCKMOVEmentdetailbylocation(dc, fromdate, todate, store);
 
 
-                Viewtable viewtbl = new Viewtable(rs, dc, "STOCK Detail location MOVEMENT ", 0, "tkmovementdetail");// mã 5 là danh sach nha nha ccaaps
+          //      Viewtable viewtbl = new Viewtable(rs, dc, "STOCK Detail location MOVEMENT ", 0, "tkmovementdetail");// mã 5 là danh sach nha nha ccaaps
 
-                viewtbl.ShowDialog();
+            //    viewtbl.ShowDialog();
 
 
             }

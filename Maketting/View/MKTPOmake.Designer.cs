@@ -101,7 +101,7 @@
             this.btxoa.TabStop = false;
             this.btxoa.Text = "Xóa";
             this.btxoa.UseVisualStyleBackColor = true;
-            this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
+         //   this.btxoa.Click += new System.EventHandler(this.btxoa_Click);
             // 
             // btmoi
             // 

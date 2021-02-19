@@ -501,7 +501,7 @@ namespace Maketting.Model
                      {
                          Input_Output_date = p.date_input_output,
                          p.Document_number,
-                         p.Gatepass ,
+                   //      p.Gatepass ,
                          p.DNNumber,
                          p.LoadNumber,
                          p.POnumber,
@@ -512,8 +512,8 @@ namespace Maketting.Model
                          p.Issued,
                          Receipted = p.RecieptQuantity,
                          Store_code = p.ShippingPoint,
-                         Location = p.locationstore,
-                         Region = p.region,
+                   //      Location = p.locationstore,
+                     //    Region = p.region,
 
                          p.Username,
 
@@ -539,102 +539,102 @@ namespace Maketting.Model
             // throw new NotImplementedException();
         }
 
-        public static IQueryable DanhsacHSTOCKMOVEmentdetailbylocation(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
-        {
+        //public static IQueryable DanhsacHSTOCKMOVEmentdetailbylocation(LinqtoSQLDataContext dc, DateTime fromdate, DateTime todate, string store)
+        //{
 
-            var rs = from p in dc.tbl_MKT_Stockendlocationdetails
-                     where p.Createdate >= fromdate && p.Createdate <= todate
-                     && p.Store_code == store
-                     orderby p.Createdate
-                     select new
-                     {
-                         Createdate = p.Createdate,
-                         p.DocNumber,
-                         p.Description,
-                         p.Doctype,
-                         p.MATERIAL,
-                         MateriaItemcode = p.ITEM_Code,
-                         p.SAP_CODE,
-                         p.END_STOCK,
+        //    var rs = from p in dc.tbl_MKT_Stockendlocationdetails
+        //             where p.Createdate >= fromdate && p.Createdate <= todate
+        //             && p.Store_code == store
+        //             orderby p.Createdate
+        //             select new
+        //             {
+        //                 Createdate = p.Createdate,
+        //                 p.DocNumber,
+        //                 p.Description,
+        //                 p.Doctype,
+        //                 p.MATERIAL,
+        //                 MateriaItemcode = p.ITEM_Code,
+        //                 p.SAP_CODE,
+        //                 p.END_STOCK,
 
-                         p.id,
+        //                 p.id,
 
-                     };
+        //             };
 
-            return rs;
-
-
-            // throw new NotImplementedException();
-        }
-
-        public static void giamtrutbl_MKT_Stockendlocation(tbl_MKt_WHstoreissue phieuxuat)
-        {
-
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    return rs;
 
 
-            var dsphieudetail = from p in dc.tbl_MKt_Listphieudetails
-                                where p.ShippingPoint + p.ShipmentNumber == phieuxuat.ShippingPoint + phieuxuat.LoadNumber
-                                select p;
+        //    // throw new NotImplementedException();
+        //}
 
-            if (dsphieudetail.Count() > 0)
-            {
-                foreach (var item in dsphieudetail)
-                {
+        //public static void giamtrutbl_MKT_Stockendlocation(tbl_MKt_WHstoreissue phieuxuat)
+        //{
 
-                    var detaiLocation = (from p in dc.tbl_MKT_Stockendlocations
-                                         where p.ITEM_Code == item.Materiacode
-                                         && p.Store_code == item.ShippingPoint
-                                         && p.location == item.location
-                                         select p).FirstOrDefault();
-                    if (detaiLocation != null)
-                    {
-                        detaiLocation.END_STOCK = detaiLocation.END_STOCK - item.Issued;
-                        dc.SubmitChanges();
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-                        tbl_MKT_Stockendlocationdetail newupdate = new tbl_MKT_Stockendlocationdetail();
+        //    var dsphieudetail = from p in dc.tbl_MKt_Listphieudetails
+        //                        where p.ShippingPoint + p.ShipmentNumber == phieuxuat.ShippingPoint + phieuxuat.LoadNumber
+        //                        select p;
 
-                        newupdate.Createdate = DateTime.Today;
-                        newupdate.Description = item.ShipmentNumber;
-                        newupdate.DocNumber = item.Gate_pass;
-                        newupdate.Doctype = "Order";
-                        newupdate.END_STOCK = item.Issued;
-                        newupdate.ITEM_Code = item.Materiacode;
-                        newupdate.SAP_CODE = item.MateriaSAPcode;
-                        newupdate.MATERIAL = item.Materialname;
-                        newupdate.location = item.location;
-                        newupdate.Store_code = item.ShippingPoint;
-                        //    newupdate. = item.ShippingPoint;
+        //    if (dsphieudetail.Count() > 0)
+        //    {
+        //        foreach (var item in dsphieudetail)
+        //        {
 
-
-                        dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(newupdate);
-                        dc.SubmitChanges();
-
-
-                    }
+        //            var detaiLocation = (from p in dc.tbl_MKT_Stockendlocations
+        //                                 where p.ITEM_Code == item.Materiacode
+        //                                 && p.Store_code == item.ShippingPoint
+        //                                 && p.location == item.location
+        //                                 select p).FirstOrDefault();
+        //            if (detaiLocation != null)
+        //            {
+        //                detaiLocation.END_STOCK = detaiLocation.END_STOCK - item.Issued;
+        //                dc.SubmitChanges();
 
 
-                    //        x
+        //                tbl_MKT_Stockendlocationdetail newupdate = new tbl_MKT_Stockendlocationdetail();
+
+        //                newupdate.Createdate = DateTime.Today;
+        //                newupdate.Description = item.ShipmentNumber;
+        //                newupdate.DocNumber = item.Gate_pass;
+        //                newupdate.Doctype = "Order";
+        //                newupdate.END_STOCK = item.Issued;
+        //                newupdate.ITEM_Code = item.Materiacode;
+        //                newupdate.SAP_CODE = item.MateriaSAPcode;
+        //                newupdate.MATERIAL = item.Materialname;
+        //                newupdate.location = item.location;
+        //                newupdate.Store_code = item.ShippingPoint;
+        //                //    newupdate. = item.ShippingPoint;
 
 
-                }
-            }
-
-            //if (item != null)
-            //{
-
-            //    item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
-            //    dc.SubmitChanges();
+        //                dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(newupdate);
+        //                dc.SubmitChanges();
 
 
-            //}
+        //            }
+
+
+        //            //        x
+
+
+        //        }
+        //    }
+
+        //    //if (item != null)
+        //    //{
+
+        //    //    item.END_STOCK = item.END_STOCK - itemxuat.Issued.GetValueOrDefault(0);
+        //    //    dc.SubmitChanges();
+
+
+        //    //}
 
 
 
 
-        }
+        //}
 
         public static IQueryable DanhsacHSTOCKMOVEmentdetailonecodebygatepass(LinqtoSQLDataContext dc, string store, string itemcode, string shipment)
         {
@@ -1977,7 +1977,7 @@ namespace Maketting.Model
                 {
                     foreach (var item in rs22)
                     {
-                        Model.Storewithlocation.updatetangtocklocation(item.Materiacode, (double)item.Issued.GetValueOrDefault(0), item.ShippingPoint, item.location);
+               //         Model.Storewithlocation.updatetangtocklocation(item.Materiacode, (double)item.Issued.GetValueOrDefault(0), item.ShippingPoint, item.location);
 
 
                     }
@@ -1987,20 +1987,20 @@ namespace Maketting.Model
 
                 #endregion
 
-                #region xóa detail stocklocationdetail
-                var r44 = from pp in dc.tbl_MKT_Stockendlocationdetails
-                          where pp.DocNumber == sophieu && pp.Store_code == kho
-                          select pp;
+                //#region xóa detail stocklocationdetail
+                //var r44 = from pp in dc.tbl_MKT_Stockendlocationdetails
+                //          where pp.DocNumber == sophieu && pp.Store_code == kho
+                //          select pp;
 
 
-                if (r44.Count() > 0)
-                {
-                    dc.tbl_MKT_Stockendlocationdetails.DeleteAllOnSubmit(r44);
-                    dc.SubmitChanges();
+                //if (r44.Count() > 0)
+                //{
+                //    dc.tbl_MKT_Stockendlocationdetails.DeleteAllOnSubmit(r44);
+                //    dc.SubmitChanges();
 
-                }
+                //}
 
-                #endregion
+                //#endregion
                 
                 #region xóa detail và headphieu phiếu
 
@@ -2700,36 +2700,36 @@ namespace Maketting.Model
 
         }
 
-        public static void giamtrudetailPOkhirevertgoodreceipt(tbl_MKt_WHstoreissue itemxuat)
-        {
+        //public static void giamtrudetailPOkhirevertgoodreceipt(tbl_MKt_WHstoreissue itemxuat)
+        //{
 
 
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
-            var item = (from p in dc.tbl_MKt_POdetails
-                        where p.MateriaItemcode == itemxuat.MateriaItemcode
-                        && p.shippingpoint == itemxuat.ShippingPoint
-                        && p.POnumber == itemxuat.POnumber
-                        select p).FirstOrDefault();
+        //    var item = (from p in dc.tbl_MKt_POdetails
+        //                where p.MateriaItemcode == itemxuat.MateriaItemcode
+        //                && p.shippingpoint == itemxuat.ShippingPoint
+        //                && p.POnumber == itemxuat.POnumber
+        //                select p).FirstOrDefault();
 
-            if (item != null)
-            {
-
-
-                item.RecieptedQuantity = item.RecieptedQuantity - itemxuat.Issued.GetValueOrDefault(0);
-
-                dc.SubmitChanges();
-
-            }
-
-            //   Giảm ordered khi xuất hàng
+        //    if (item != null)
+        //    {
 
 
+        //        item.RecieptedQuantity = item.RecieptedQuantity - itemxuat.Issued.GetValueOrDefault(0);
+
+        //        dc.SubmitChanges();
+
+        //    }
+
+        //    //   Giảm ordered khi xuất hàng
 
 
-        }
+
+
+        //}
 
         public static void giamtrukhokhireverthangnhamsaive(tbl_MKt_WHstoreissue itemxuat)
         {
@@ -3130,62 +3130,62 @@ namespace Maketting.Model
             //   throw new NotImplementedException();
         }
 
-        public static bool DeletePurchase(string pONumber, string storelocation)
-        {
-            // deleead head
+        //public static bool DeletePurchase(string pONumber, string storelocation)
+        //{
+        //    // deleead head
 
-            bool kq = false;
-            string urs = Utils.getusername();
+        //    bool kq = false;
+        //    string urs = Utils.getusername();
 
-            string connection_string = Utils.getConnectionstr();
-            LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
-
-
-            var rs = from pp in dc.tbl_MKt_POheads
-                     where pp.PONumber == pONumber && pp.Shippingpoint == storelocation
-                     && pp.Status == "CRT"
-                     select pp;
-
-            if (rs.Count() > 0)
-            {
-
-                dc.tbl_MKt_POheads.DeleteAllOnSubmit(rs);
-                dc.SubmitChanges();
-
-                kq = true;
-            }
-            else
-            {
-                //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                return kq;
-            }
-
-            // upload detail
+        //    string connection_string = Utils.getConnectionstr();
+        //    LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
 
 
-            var rs2 = from pp in dc.tbl_MKt_POdetails
-                      where pp.POnumber == pONumber && pp.shippingpoint == storelocation
-                      select pp;
+        //    var rs = from pp in dc.tbl_MKt_POheads
+        //             where pp.PONumber == pONumber && pp.Shippingpoint == storelocation
+        //             && pp.Status == "CRT"
+        //             select pp;
 
-            if (rs2.Count() > 0)
-            {
-                foreach (var item in rs2)
-                {
-                    dc.tbl_MKt_POdetails.DeleteAllOnSubmit(rs2);
-                    dc.SubmitChanges();
+        //    if (rs.Count() > 0)
+        //    {
+
+        //        dc.tbl_MKt_POheads.DeleteAllOnSubmit(rs);
+        //        dc.SubmitChanges();
+
+        //        kq = true;
+        //    }
+        //    else
+        //    {
+        //        //  MessageBox.Show("Can not deleted please check ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        //        return kq;
+        //    }
+
+        //    // upload detail
 
 
-                }
-            }
+        //    var rs2 = from pp in dc.tbl_MKt_POdetails
+        //              where pp.POnumber == pONumber && pp.shippingpoint == storelocation
+        //              select pp;
+
+        //    if (rs2.Count() > 0)
+        //    {
+        //        foreach (var item in rs2)
+        //        {
+        //            dc.tbl_MKt_POdetails.DeleteAllOnSubmit(rs2);
+        //            dc.SubmitChanges();
+
+
+        //        }
+        //    }
 
 
 
-            return kq;
+        //    return kq;
 
 
-            // throw new NotImplementedException();
-        }
+        //    // throw new NotImplementedException();
+        //}
 
 
         public static bool DeleteTransfernumber(string Tranfernumber, string Store_OUT)
@@ -3281,7 +3281,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.shippingpoint,
+                 //        pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,
@@ -3314,7 +3314,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.shippingpoint,
+                    //     pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,
@@ -3350,7 +3350,7 @@ namespace Maketting.Model
                      {
                          pp.Region,
                          pp.POnumber,
-                         pp.shippingpoint,
+                      //   pp.shippingpoint,
                          pp.DatePO,
                          pp.MateriaSAPcode,
                          pp.MateriaItemcode,
@@ -3629,30 +3629,33 @@ namespace Maketting.Model
 
         }
 
-        public static IQueryable Danhsachphieuchuaxuathoadon(LinqtoSQLDataContext dc, string store)
-        {
+        //public static IQueryable Danhsachphieuchuaxuathoadon(LinqtoSQLDataContext dc, string store)
+        //{
 
 
 
 
-            var rs = from pp in dc.tbl_MKt_Listphieuheads
-                         // from gg in dc.tbl_MKt_POheads
-                     where pp.einvoice == false
-                     && pp.requestReturn == false
+        //    var rs = from pp in dc.tbl_MKt_Listphieuheads
+        //                 // from gg in dc.tbl_MKt_POheads
+        //             where pp.einvoice == false
+        //             && pp.requestReturn == false
 
-                   && pp.ShippingPoint == store
-                   && pp.Status == "Delivering"
-                     select pp;
-            //  select pp;
+        //           && pp.ShippingPoint == store
+        //           && pp.Status == "Delivering"
+        //             select pp;
+        //    //  select pp;
 
-            return rs;
-
-
+        //    return rs;
 
 
 
 
-            //throw new NotImplementedException();
-        }
+
+
+        //    //throw new NotImplementedException();
+        //}
+
+
+
     }
 }

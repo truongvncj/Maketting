@@ -82,8 +82,8 @@ namespace Maketting.View
                          id = pp.id,
                          Region = pp.Region,
                          PO_number = pp.POnumber,
-                         Shipping_Point = pp.shippingpoint,
-                         Stote_location = pp.locationstore,
+                      //   Shipping_Point = pp.shippingpoint,
+                      //   Stote_location = pp.locationstore,
                          Material_SAP_code = pp.MateriaSAPcode,// gg.Select(m => m.MateriaSAPcode).FirstOrDefault(),
                          Material_Item_code = pp.MateriaItemcode,// gg.Key,
                          Material_name = pp.Materialname,//gg.Select(m => m.Materialname).FirstOrDefault(),
@@ -114,8 +114,8 @@ namespace Maketting.View
                 //  dataGridViewLoaddetail.DataSource = rs;
 
                 //     this.soload = rs.FirstOrDefault().Maketting_load;
-                this.shippingpoint = rs.FirstOrDefault().Shipping_Point;
-                this.locationstore = rs.FirstOrDefault().Stote_location;
+           //     this.shippingpoint = rs.FirstOrDefault().Shipping_Point;
+          //      this.locationstore = rs.FirstOrDefault().Stote_location;
 
                 Utils ut = new Utils();
                 DataTable dataTable = ut.ToDataTable(dc, rs);
@@ -577,7 +577,7 @@ namespace Maketting.View
                         var rs2 = from pp in dc.tbl_MKt_POdetails
                                   where pp.id == id
                                        && pp.POnumber == this.POnumber
-                                       && pp.shippingpoint == this.shippingpoint
+                                 //      && pp.shippingpoint == this.shippingpoint
                                   select pp;
 
 
@@ -592,8 +592,8 @@ namespace Maketting.View
 
 
                                 newreciepts.IssueIDsub = IssueIDsub;
-                                newreciepts.region = item.Region;
-                                newreciepts.locationstore = item.locationstore;
+                         //       newreciepts.region = item.Region;
+                         //       newreciepts.locationstore = item.locationstore;
 
 
                                 newreciepts.RecieptQuantity = nhap;// 
@@ -603,7 +603,7 @@ namespace Maketting.View
                                 newreciepts.Document_number = txtdnnumbar.Text;
                                 newreciepts.Materialname = item.Materialname.Truncate(50);
                                 newreciepts.POnumber = item.POnumber;
-                                newreciepts.ShippingPoint = item.shippingpoint;
+                          //      newreciepts.ShippingPoint = item.shippingpoint;
                                 newreciepts.Unit = item.Unit;
                                 newreciepts.date_input_output = dateNgaynhaphang.Value;
                                 newreciepts.DNNumber = txtdnnumbar.Text;
@@ -641,68 +641,68 @@ namespace Maketting.View
 
                         // xx
 
-                        #region  update po detail
+                        //#region  update po detail
 
 
 
 
-                        var rs = from pp in dc.tbl_MKt_POdetails
-                                 where pp.id == id
-                                         && pp.POnumber == this.POnumber
-                                         && pp.shippingpoint == this.shippingpoint
-                                 select pp;
+                        //var rs = from pp in dc.tbl_MKt_POdetails
+                        //         where pp.id == id
+                        //                 && pp.POnumber == this.POnumber
+                        //                 && pp.shippingpoint == this.shippingpoint
+                        //         select pp;
 
-                        if (rs.Count() > 0)
-                        {
-                            foreach (var item in rs)
-                            {
-                                item.StatusPO = "IN";
-                                item.RecieptedQuantity = item.RecieptedQuantity + nhap;
-                                item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
-                                dc.SubmitChanges();
-
-
-
-                                tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
-
-                                newregionupdate.ITEM_Code = item.MateriaItemcode;
-                                newregionupdate.SAP_CODE = item.MateriaSAPcode;
-                                newregionupdate.MATERIAL = item.Materialname.Truncate(255);
-                                newregionupdate.Description = item.Description;
-                                newregionupdate.Region = item.Region;
-                                newregionupdate.QuantityInputbyPO = nhap;
-                                newregionupdate.QuantityReceipt = nhap;
-                                newregionupdate.QuantityInputbytransferin = 0;
-                                newregionupdate.QuantityInputbyReturn = 0;
-                                newregionupdate.QuantityOutput = 0;
-                                newregionupdate.QuantitybyDevice = 0;
-                                newregionupdate.Note = item.POnumber;
-                                //    newregionupdate.Regionchangedate = datecreated.Value;
-
-                                newregionupdate.Store_code = this.shippingpoint;
-                                newregionupdate.POnumber = this.POnumber;
-                                newregionupdate.idsub = this.subID; ;
-                                newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
-
-                                newregionupdate.DocumentNumber = this.POnumber.Truncate(50);
-                                newregionupdate.Regionchangedate = dateNgaynhaphang.Value;
-
-
-                                newregionupdate.Createdate = DateTime.Today;
+                        //if (rs.Count() > 0)
+                        //{
+                        //    foreach (var item in rs)
+                        //    {
+                        //        item.StatusPO = "IN";
+                        //        item.RecieptedQuantity = item.RecieptedQuantity + nhap;
+                        //        item.BalanceQuantity = item.QuantityOrder - item.RecieptedQuantity;
+                        //        dc.SubmitChanges();
 
 
 
-                                dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
-                                dc.SubmitChanges();
+                        //        tbl_MKT_StockendRegionBudget newregionupdate = new tbl_MKT_StockendRegionBudget();
+
+                        //        newregionupdate.ITEM_Code = item.MateriaItemcode;
+                        //        newregionupdate.SAP_CODE = item.MateriaSAPcode;
+                        //        newregionupdate.MATERIAL = item.Materialname.Truncate(255);
+                        //        newregionupdate.Description = item.Description;
+                        //        newregionupdate.Region = item.Region;
+                        //        newregionupdate.QuantityInputbyPO = nhap;
+                        //        newregionupdate.QuantityReceipt = nhap;
+                        //        newregionupdate.QuantityInputbytransferin = 0;
+                        //        newregionupdate.QuantityInputbyReturn = 0;
+                        //        newregionupdate.QuantityOutput = 0;
+                        //        newregionupdate.QuantitybyDevice = 0;
+                        //        newregionupdate.Note = item.POnumber;
+                        //        //    newregionupdate.Regionchangedate = datecreated.Value;
+
+                        //        newregionupdate.Store_code = this.shippingpoint;
+                        //        newregionupdate.POnumber = this.POnumber;
+                        //        newregionupdate.idsub = this.subID; ;
+                        //        newregionupdate.DnNumber = txtdnnumbar.Text.Truncate(50);
+
+                        //        newregionupdate.DocumentNumber = this.POnumber.Truncate(50);
+                        //        newregionupdate.Regionchangedate = dateNgaynhaphang.Value;
+
+
+                        //        newregionupdate.Createdate = DateTime.Today;
 
 
 
-                            }
+                        //        dc.tbl_MKT_StockendRegionBudgets.InsertOnSubmit(newregionupdate);
+                        //        dc.SubmitChanges();
 
 
-                        }
 
-                        #endregion
+                        //    }
+
+
+                        //}
+
+                        //#endregion
 
 
 
@@ -839,7 +839,7 @@ namespace Maketting.View
 
                 headpx.Barcode = result;
                 headpx.Ngaythang = rptMKThead.DatePo;
-                headpx.shippingpoint = rptMKThead.Shippingpoint;
+           //     headpx.shippingpoint = rptMKThead.Shippingpoint;
 
                 headpx.Storeman = this.Createdby;
 

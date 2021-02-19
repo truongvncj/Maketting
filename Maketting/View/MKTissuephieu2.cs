@@ -101,7 +101,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode);// + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+      //      drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
@@ -146,7 +146,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode) - PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+        //    drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //   drToAdd["Material_Name"] = PhieuMKT.Materialnam
 
@@ -191,7 +191,7 @@ namespace Maketting.View
             drToAdd["Issue_Quantity"] = PhieuMKT.Issued;
             drToAdd["Available_Quantity"] = Model.MKT.getAvailable_Quantity(PhieuMKT.Materiacode, this.storecode) + PhieuMKT.Issued;
             drToAdd["Region_Balance"] = Model.MKT.getBalancebuget(PhieuMKT.Materiacode, this.region, this.storecode);
-            drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
+      //      drToAdd["Location_Balance"] = Model.Storewithlocation.getBalancebugetlocation(PhieuMKT.Materiacode, this.locationstore, this.storecode);
 
             //     drToAdd["Region_Balance"] = PhieuMKT.Region;
 
@@ -363,51 +363,51 @@ namespace Maketting.View
 
             #endregion
 
-            #region // load curent region
+            //#region // load curent region
 
-            List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
+            //List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
 
-            var rs4 = from pp in dc.tbl_MKT_Storelocations
+            //var rs4 = from pp in dc.tbl_MKT_Storelocations
 
-                      select pp;
-            foreach (var item2 in rs4)
-            {
-                ComboboxItem cb = new ComboboxItem();
-                cb.Value = item2.Location.Trim();
-                cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
-                itemthislocation.Add(cb);
+            //          select pp;
+            //foreach (var item2 in rs4)
+            //{
+            //    ComboboxItem cb = new ComboboxItem();
+            //    cb.Value = item2.Location.Trim();
+            //    cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
+            //    itemthislocation.Add(cb);
 
-                //  cbkhohang.Items.Add(cb);
-                //  CombomCollection.Add(cb);
-            }
+            //    //  cbkhohang.Items.Add(cb);
+            //    //  CombomCollection.Add(cb);
+            //}
 
-            cblocation.DataSource = itemthislocation;
-            cblocation.SelectedIndex = 0;
+            //cblocation.DataSource = itemthislocation;
+            //cblocation.SelectedIndex = 0;
           
-            //  thus region.Items
-            foreach (ComboboxItem item in (List<ComboboxItem>)cblocation.DataSource)
-            {
-                //if (item.Value.ToString().Trim() == this.location.Trim())
-                //{
-                    cblocation.SelectedItem = item;
-                this.locationstore = item.Value.ToString().Trim();
-                //}
-            }
+            ////  thus region.Items
+            //foreach (ComboboxItem item in (List<ComboboxItem>)cblocation.DataSource)
+            //{
+            //    //if (item.Value.ToString().Trim() == this.location.Trim())
+            //    //{
+            //        cblocation.SelectedItem = item;
+            //    this.locationstore = item.Value.ToString().Trim();
+            //    //}
+            //}
 
          
 
-            //this.region = Model.Username.getuseRegion();
+            ////this.region = Model.Username.getuseRegion();
 
 
-            //foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
-            //{
-            //    if (item.Value.ToString().Trim() == this.region.Trim())
-            //    {
-            //        cbfromRegion.SelectedItem = item;
-            //    }
-            //}
+            ////foreach (ComboboxItem item in (List<ComboboxItem>)cbfromRegion.DataSource)
+            ////{
+            ////    if (item.Value.ToString().Trim() == this.region.Trim())
+            ////    {
+            ////        cbfromRegion.SelectedItem = item;
+            ////    }
+            ////}
 
-            #endregion
+            //#endregion
 
             Model.MKT.DeleteALLphieutamTMP();
 
@@ -1014,11 +1014,11 @@ namespace Maketting.View
 
                 if (rs != null)
                 {
-                    rs.location = this.locationstore;
+                //    rs.location = this.locationstore;
                     rs.Region = this.region;//Model.Username.getuseRegion();
                     rs.Address = txtdiachi.Text.Truncate(225);
 
-                    rs.DoiD = txtDoid.Text.Truncate(225);
+                //    rs.DoiD = txtDoid.Text.Truncate(225);
 
 
                     rs.ShiptoAddress = txtshiptoaddress.Text.Truncate(225);
@@ -1083,7 +1083,7 @@ namespace Maketting.View
                         detailphieu.Gate_pass = this.sophieu;
                         detailphieu.Region = this.region;//Model.Username.getuseRegion();
                         detailphieu.ShippingPoint = this.storecode;
-                        detailphieu.location = this.locationstore;
+                   //     detailphieu.location = this.locationstore;
                         //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
                         //dt.Columns.Add(new DataColumn("Description", typeof(string)));
                         //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
@@ -1126,26 +1126,26 @@ namespace Maketting.View
                         {
                             detailphieu.Unit = dataGridViewDetail.Rows[idrow].Cells["Unit"].Value.ToString().Trim();
                         }
-                        tbl_MKT_Stockendlocationdetail detailphieuloca = new tbl_MKT_Stockendlocationdetail();
+                        //tbl_MKT_Stockendlocationdetail detailphieuloca = new tbl_MKT_Stockendlocationdetail();
 
-                        detailphieuloca.Createdate = DateTime.Today;
-                        detailphieuloca.Description = detailphieu.Materialname;
-                        detailphieuloca.DocNumber = detailphieu.Gate_pass;
-                        detailphieuloca.Doctype = "GPissue";
-                        detailphieuloca.END_STOCK = -detailphieu.Issued;
-                        detailphieuloca.ITEM_Code = detailphieu.Materiacode;
-                        detailphieuloca.location = this.locationstore;
-                        detailphieuloca.MATERIAL = detailphieu.Materialname;
-                        detailphieuloca.SAP_CODE = detailphieu.MateriaSAPcode;
-                        detailphieuloca.Store_code = this.storecode;
-                        detailphieuloca.UNIT = detailphieu.Unit;
+                        //detailphieuloca.Createdate = DateTime.Today;
+                        //detailphieuloca.Description = detailphieu.Materialname;
+                        //detailphieuloca.DocNumber = detailphieu.Gate_pass;
+                        //detailphieuloca.Doctype = "GPissue";
+                        //detailphieuloca.END_STOCK = -detailphieu.Issued;
+                        //detailphieuloca.ITEM_Code = detailphieu.Materiacode;
+                        //detailphieuloca.location = this.locationstore;
+                        //detailphieuloca.MATERIAL = detailphieu.Materialname;
+                        //detailphieuloca.SAP_CODE = detailphieu.MateriaSAPcode;
+                        //detailphieuloca.Store_code = this.storecode;
+                        //detailphieuloca.UNIT = detailphieu.Unit;
 
 
-                        dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
-                        dc.SubmitChanges();
+                        //dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
+                        //dc.SubmitChanges();
 
-                        dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(detailphieuloca);
-                        dc.SubmitChanges();
+                        //dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(detailphieuloca);
+                        //dc.SubmitChanges();
 
 
 
@@ -1158,7 +1158,7 @@ namespace Maketting.View
 
 
                         #region       //update giảm location detail & giảm location store
-                        Model.Storewithlocation.updatetangtocklocation(ItemCode, -ordered, this.storecode, this.locationstore);
+              //          Model.Storewithlocation.updatetangtocklocation(ItemCode, -ordered, this.storecode, this.locationstore);
 
 
 
@@ -1958,7 +1958,7 @@ namespace Maketting.View
 
                         dataGridViewDetail.Rows[e.RowIndex].Cells["Region_Balance"].Value = Model.MKT.getBalancebuget(valuechon.ITEM_Code, this.region, this.storecode);
 
-                        dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = Model.Storewithlocation.getBalancebugetlocation(valuechon.ITEM_Code, this.locationstore, this.storecode);
+                    //    dataGridViewDetail.Rows[e.RowIndex].Cells["Location_Balance"].Value = Model.Storewithlocation.getBalancebugetlocation(valuechon.ITEM_Code, this.locationstore, this.storecode);
 
 
                      
@@ -2242,7 +2242,7 @@ namespace Maketting.View
                 lbgatepassno.Text = this.sophieu;
 
                 txtdiachi.Text = rs.Address;
-                txtDoid.Text = rs.DoiD;
+          //      txtDoid.Text = rs.DoiD;
 
                 txtnguoinhan.Text = rs.Receiver_by;// = 
                 txtshiptoname.Text = rs.ShiptoName;

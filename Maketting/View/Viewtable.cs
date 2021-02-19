@@ -1838,7 +1838,7 @@ namespace Maketting.View
             //     xx
             if (this.valuesave == "reverttransferin")
             {
-                int id;
+              //  int id;
                 int idsub;
                 string Transfer_number;
                 try
@@ -2012,7 +2012,7 @@ namespace Maketting.View
                         {
                             #region  giảm ở detail PO
 
-                            Model.MKT.giamtrudetailPOkhirevertgoodreceipt(khoissue);
+                    //        Model.MKT.giamtrudetailPOkhirevertgoodreceipt(khoissue);
 
 
 
@@ -2295,7 +2295,7 @@ namespace Maketting.View
                 //     view file pdf  programe
                 {
 
-                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value && this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != "")
+                    if (this.dataGridView1.Rows[this.dataGridView1.CurrentCell.RowIndex].Cells["ProgrameIDDocno"].Value != DBNull.Value )
                     {
                         #region
 
@@ -2427,128 +2427,131 @@ namespace Maketting.View
 
         }
 
-        private void btforEinvoice_Click(object sender, EventArgs e)
-        {
-            Control_ac ctrex = new Control_ac();
+        //private void btforEinvoice_Click(object sender, EventArgs e)
+        //{
+        //    Control_ac ctrex = new Control_ac();
 
-            //xóa file templeate cùng user
-            string urs = Utils.getusername();
+        //    //xóa file templeate cùng user
+        //    string urs = Utils.getusername();
 
-            var rs = from pp in dc.EinvoiceExports
-                     where pp.Username == urs // && pp.Status == "TMP"
-                     select pp;
+        //    var rs = from pp in dc.EinvoiceExports
+        //             where pp.Username == urs // && pp.Status == "TMP"
+        //             select pp;
 
-            if (rs.Count() > 0)
-            {
+        //    if (rs.Count() > 0)
+        //    {
 
-                dc.EinvoiceExports.DeleteAllOnSubmit(rs);
-                dc.SubmitChanges();
-                //  dc.Connection.Close();
-            }
+        //        dc.EinvoiceExports.DeleteAllOnSubmit(rs);
+        //        dc.SubmitChanges();
+        //        //  dc.Connection.Close();
+        //    }
 
-            //tính file einvoice
-
-
-
-
-
-            //tính file einvoice
-            int sodem = 0;
-            for (int idrow = 0; idrow < dataGridView1.RowCount; idrow++)
-            {
-
-              //  MessageBox.Show(" test " + dataGridView1.Rows[idrow].Cells["id"].Value.ToString());
-
-
-                if (dataGridView1.Rows[idrow].Cells["id"].Value != DBNull.Value)
-                {
-                    int idphieu = (int)dataGridView1.Rows[idrow].Cells["id"].Value;
-                    sodem = sodem + 1;
-                    var headphieu = (from pp in dc.tbl_MKt_Listphieuheads
-                                     where pp.id == idphieu// && pp.Status == "TMP"
-                                     select pp).FirstOrDefault();
-
-                    var cus = (from pp in dc.tbl_MKT_Soldtocodes
-                               where pp.Customer == headphieu.Customer_SAP_Code.ToString()
-                               && pp.Region == headphieu.ShippingPoint
-                               select pp).FirstOrDefault();
-
-                    var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
-                                      where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
-                                      select pp;
-
-                    foreach (var phieudetail in detailphieu)
-                    {
-
-                        EinvoiceExport EinvoiceExport = new EinvoiceExport();
-                        EinvoiceExport.Username = urs;
-                        EinvoiceExport.Nhóm_số_hóa_đơn = sodem.ToString();
-                        EinvoiceExport.Ngày_hóa_đơn = DateTime.Today;
-                        EinvoiceExport.Loại_tiền_tệ = "VND";
-                        EinvoiceExport.Ký_hiệu = "HN/18E";
-                        EinvoiceExport.Mã_khách_hàng = headphieu.Customer_SAP_Code.ToString();
-                        EinvoiceExport.Hình_thức_thanh_toán = "2";
-                        EinvoiceExport.Đvt = "222";
-
-
-                        EinvoiceExport.Mã_Hàng_hóa = phieudetail.MateriaSAPcode;
-                        EinvoiceExport.Tên_hành_hóa__dịch_vụ = phieudetail.Materialname;
-                        EinvoiceExport.Số_lượng = phieudetail.Issued;
-
-                        if (cus != null)
-                        {
-                            EinvoiceExport.Tên_đơn_vị = cus.FullNameN;
-                            EinvoiceExport.Mã_số_thuế = cus.VATregistrationNo;
-
-                            EinvoiceExport.Địa_chỉ = cus.Street + " " + cus.District + " " + cus.City;
-                            EinvoiceExport.Số_điện_thoại = cus.Telephone1;
-                            EinvoiceExport.Email = cus.email1;
-
-                        }
-
-                        if (headphieu.DoiD == "")
-                        {
-                            EinvoiceExport.Đơn_giá = 0;
-                            EinvoiceExport.Thành_tiền = 0;
-                            EinvoiceExport.Thuế_suất_GTGT = 0;
-                            EinvoiceExport.Tiền_Thuế_GTGT = 0;
-
-                        }
-                        else
-                        {
-                            double giaPOgannhat = MKT.getgiaPOgannhat(phieudetail.MateriaSAPcode);
-                            EinvoiceExport.Đơn_giá = giaPOgannhat;
-                            EinvoiceExport.Thành_tiền = phieudetail.Issued * giaPOgannhat;
-                            EinvoiceExport.Thuế_suất_GTGT = 10;
-                            EinvoiceExport.Tiền_Thuế_GTGT = phieudetail.Issued * giaPOgannhat * 0.1;
-
-                        }
-
-
-                        dc.EinvoiceExports.InsertOnSubmit(EinvoiceExport);
-                        dc.SubmitChanges();
-                    } // for ec detial 
-
-
-
-                } // if  line have makt number
-
-            } // for ech line
+        //    //tính file einvoice
 
 
 
 
 
-            // kết xuất ra file
-            IQueryable iquery2 = from pp in dc.EinvoiceExports
-                                 where pp.Username == urs // && pp.Status == "TMP"
-                                 select pp;
+        //    //tính file einvoice
+        //    int sodem = 0;
+        //    for (int idrow = 0; idrow < dataGridView1.RowCount; idrow++)
+        //    {
+
+        //      //  MessageBox.Show(" test " + dataGridView1.Rows[idrow].Cells["id"].Value.ToString());
 
 
-            ctrex.exportexceldatagridtofile(iquery2, this.dc, this.Text);
-            // kết xuất ra file
+        //        if (dataGridView1.Rows[idrow].Cells["id"].Value != DBNull.Value)
+        //        {
+        //            int idphieu = (int)dataGridView1.Rows[idrow].Cells["id"].Value;
+        //            sodem = sodem + 1;
+        //            var headphieu = (from pp in dc.tbl_MKt_Listphieuheads
+        //                             where pp.id == idphieu// && pp.Status == "TMP"
+        //                             select pp).FirstOrDefault();
 
-        }
+        //            var cus = (from pp in dc.tbl_MKT_Soldtocodes
+        //                       where pp.Customer == headphieu.Customer_SAP_Code.ToString()
+        //                       && pp.Region == headphieu.ShippingPoint
+        //                       select pp).FirstOrDefault();
+
+        //            var detailphieu = from pp in dc.tbl_MKt_Listphieudetails
+        //                              where pp.Gate_pass == headphieu.Gate_pass && pp.ShippingPoint == headphieu.ShippingPoint
+        //                              select pp;
+
+        //            foreach (var phieudetail in detailphieu)
+        //            {
+
+        //                EinvoiceExport EinvoiceExport = new EinvoiceExport();
+        //                EinvoiceExport.Username = urs;
+        //                EinvoiceExport.Nhóm_số_hóa_đơn = sodem.ToString();
+        //                EinvoiceExport.Ngày_hóa_đơn = DateTime.Today;
+        //                EinvoiceExport.Loại_tiền_tệ = "VND";
+        //                EinvoiceExport.Ký_hiệu = "HN/18E";
+        //                EinvoiceExport.Mã_khách_hàng = headphieu.Customer_SAP_Code.ToString();
+        //                EinvoiceExport.Hình_thức_thanh_toán = "2";
+        //                EinvoiceExport.Đvt = "222";
+
+
+        //                EinvoiceExport.Mã_Hàng_hóa = phieudetail.MateriaSAPcode;
+        //                EinvoiceExport.Tên_hành_hóa__dịch_vụ = phieudetail.Materialname;
+        //                EinvoiceExport.Số_lượng = phieudetail.Issued;
+
+        //                if (cus != null)
+        //                {
+        //                    EinvoiceExport.Tên_đơn_vị = cus.FullNameN;
+        //                    EinvoiceExport.Mã_số_thuế = cus.VATregistrationNo;
+
+        //                    EinvoiceExport.Địa_chỉ = cus.Street + " " + cus.District + " " + cus.City;
+        //                    EinvoiceExport.Số_điện_thoại = cus.Telephone1;
+        //                    EinvoiceExport.Email = cus.email1;
+
+        //                }
+
+        //                if (headphieu.DoiD == "")
+        //                {
+        //                    EinvoiceExport.Đơn_giá = 0;
+        //                    EinvoiceExport.Thành_tiền = 0;
+        //                    EinvoiceExport.Thuế_suất_GTGT = 0;
+        //                    EinvoiceExport.Tiền_Thuế_GTGT = 0;
+
+        //                }
+        //                else
+        //                {
+        //                    double giaPOgannhat = MKT.getgiaPOgannhat(phieudetail.MateriaSAPcode);
+        //                    EinvoiceExport.Đơn_giá = giaPOgannhat;
+        //                    EinvoiceExport.Thành_tiền = phieudetail.Issued * giaPOgannhat;
+        //                    EinvoiceExport.Thuế_suất_GTGT = 10;
+        //                    EinvoiceExport.Tiền_Thuế_GTGT = phieudetail.Issued * giaPOgannhat * 0.1;
+
+        //                }
+
+
+        //                dc.EinvoiceExports.InsertOnSubmit(EinvoiceExport);
+        //                dc.SubmitChanges();
+        //            } // for ec detial 
+
+
+
+        //        } // if  line have makt number
+
+        //    } // for ech line
+
+
+
+
+
+        //    // kết xuất ra file
+        //    IQueryable iquery2 = from pp in dc.EinvoiceExports
+        //                         where pp.Username == urs // && pp.Status == "TMP"
+        //                         select pp;
+
+
+        //    ctrex.exportexceldatagridtofile(iquery2, this.dc, this.Text);
+        //    // kết xuất ra file
+
+        //}
+
+
+
     }
 
 

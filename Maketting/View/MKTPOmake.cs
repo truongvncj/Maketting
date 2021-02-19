@@ -169,42 +169,42 @@ namespace Maketting.View
 
             #endregion
 
-            #region // load curent region
+            //#region // load curent region
 
-            List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
+            //List<ComboboxItem> itemthislocation = new List<ComboboxItem>();
 
-            var rs4 = from pp in dc.tbl_MKT_Storelocations
+            //var rs4 = from pp in dc.tbl_MKT_Storelocations
 
-                      select pp;
-            foreach (var item2 in rs4)
-            {
-                ComboboxItem cb = new ComboboxItem();
-                cb.Value = item2.Location.Trim();
-                cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
-                itemthislocation.Add(cb);
+            //          select pp;
+            //foreach (var item2 in rs4)
+            //{
+            //    ComboboxItem cb = new ComboboxItem();
+            //    cb.Value = item2.Location.Trim();
+            //    cb.Text = item2.Location.Trim() + ": " + item2.Note.Trim();
+            //    itemthislocation.Add(cb);
 
-                //  cbkhohang.Items.Add(cb);
-                //  CombomCollection.Add(cb);
-            }
+            //    //  cbkhohang.Items.Add(cb);
+            //    //  CombomCollection.Add(cb);
+            //}
 
-            cbstorelocation.DataSource = itemthislocation;
-            cbstorelocation.SelectedIndex = 0;
+            //cbstorelocation.DataSource = itemthislocation;
+            //cbstorelocation.SelectedIndex = 0;
 
-            //  thus region.Items
-            foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
-            {
-                //if (item.Value.ToString().Trim() == this.location.Trim())
-                //{
-                cbstorelocation.SelectedItem = item;
-                this.storelocation = item.Value.ToString().Trim();
-                //}
-            }
+            ////  thus region.Items
+            //foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
+            //{
+            //    //if (item.Value.ToString().Trim() == this.location.Trim())
+            //    //{
+            //    cbstorelocation.SelectedItem = item;
+            //    this.storelocation = item.Value.ToString().Trim();
+            //    //}
+            //}
 
 
 
           
 
-            #endregion
+            //#endregion
 
 
         }
@@ -629,8 +629,8 @@ namespace Maketting.View
                 ponew.DatePo = datepickngayphieu.Value;
                 //    rs.Purpose = txtmucdichname.Text;
                 //     rs.Purposeid = txtmact.Text;
-                ponew.Shippingpoint = this.shippingpoint;
-                ponew.Storelocation = this.storelocation;
+             //   ponew.Shippingpoint = this.shippingpoint;
+           ///     ponew.Storelocation = this.storelocation;
                 ponew.Created_by = txtnguoiyeucau.Text;
                 ponew.Status = "CRT";
                 ponew.PONumber = txtSapPO.Text;
@@ -661,8 +661,8 @@ namespace Maketting.View
 
                         //detailphieu.IOcode = txtmact.Text;
                         //detailphieu.IOname = txtmucdichname.Text;
-                        detailphieu.shippingpoint = this.shippingpoint;
-                        detailphieu.locationstore = this.storelocation;
+                     //   detailphieu.shippingpoint = this.shippingpoint;
+                  //      detailphieu.locationstore = this.storelocation;
                         //   detailphieu. = txtnguoiyeucau.Text;
                         detailphieu.StatusPO = "TMP";
                         //     detailphieu.Tel = lbtel.Text;
@@ -750,8 +750,8 @@ namespace Maketting.View
                         detailPO.MateriaSAPcode = item.MateriaSAPcode;
                         detailPO.POnumber = item.POnumber;
                         detailPO.QuantityOrder = item.QuantityOrder;
-                        detailPO.shippingpoint = item.shippingpoint;
-                        detailPO.locationstore = item.locationstore;
+                   //     detailPO.shippingpoint = item.shippingpoint;
+                     //   detailPO.locationstore = item.locationstore;
                         detailPO.Unit = item.Unit;
                         detailPO.Username = item.Username;
                         detailPO.StatusPO = "CRT";
@@ -1741,7 +1741,7 @@ namespace Maketting.View
 
 
             var rs = (from pp in dc.tbl_MKt_POheads
-                      where pp.PONumber == POnumberfind && pp.Shippingpoint == storelocationfind
+                      where pp.PONumber == POnumberfind// && pp.Shippingpoint == storelocationfind
 
                       select pp).FirstOrDefault();
 
@@ -1757,27 +1757,27 @@ namespace Maketting.View
                 datepickngayphieu.Value = (DateTime)rs.DatePo;// = ;
                                                               //       txtmucdichname.Text = rs.Purpose;//= ;
                                                               //       txtmact.Text = rs.Purposeid;//=;
-                this.shippingpoint = rs.Shippingpoint;// = ;
+            //    this.shippingpoint = rs.Shippingpoint;// = ;
 
 
 
 
                 //  cbkhohang.Items
-                foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
-                {
-                    if (item.Value.ToString().Trim() == rs.Shippingpoint.Trim())
-                    {
-                        cbkhohang.SelectedItem = item;
-                    }
-                }
+                //foreach (ComboboxItem item in (List<ComboboxItem>)cbkhohang.DataSource)
+                //{
+                //    if (item.Value.ToString().Trim() == rs.Shippingpoint.Trim())
+                //    {
+                //        cbkhohang.SelectedItem = item;
+                //    }
+                //}
 
-                foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
-                {
-                    if (item.Value.ToString().Trim() == rs.Storelocation.Trim())
-                    {
-                        cbstorelocation.SelectedItem = item;
-                    }
-                }
+                //foreach (ComboboxItem item in (List<ComboboxItem>)cbstorelocation.DataSource)
+                //{
+                //    if (item.Value.ToString().Trim() == rs.Storelocation.Trim())
+                //    {
+                //        cbstorelocation.SelectedItem = item;
+                //    }
+                //}
 
                 txtnguoiyeucau.Text = rs.Created_by;// = ;
                                                     //   rs.Status = "CRT";
@@ -1798,7 +1798,7 @@ namespace Maketting.View
 
             #region load detail so phieu va loacation
             var rs2 = from pp in dc.tbl_MKt_POdetails
-                      where pp.POnumber == POnumberfind && pp.shippingpoint == storelocationfind
+                      where pp.POnumber == POnumberfind //&& pp.shippingpoint == storelocationfind
 
                       select pp;
 
@@ -1886,7 +1886,7 @@ namespace Maketting.View
                              Date = pp.DatePo,
                              pp.PONumber,
                              pp.Created_by,
-                             pp.Shippingpoint,
+                    //         pp.Shippingpoint,
 
 
                              pp.Status,
@@ -1967,21 +1967,21 @@ namespace Maketting.View
 
         }
 
-        private void btxoa_Click(object sender, EventArgs e)
-        {
-            bool kq = Model.MKT.DeletePurchase(this.PONumber, this.shippingpoint);
-            if (kq)
-            {
-                MessageBox.Show("Delete " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cleartoblankPOphieu();
-            }
-            else
-            {
-                MessageBox.Show("Can not deleted: " + this.PONumber.ToString() + " ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //private void btxoa_Click(object sender, EventArgs e)
+        //{
+        //    bool kq = Model.MKT.DeletePurchase(this.PONumber, this.shippingpoint);
+        //    if (kq)
+        //    {
+        //        MessageBox.Show("Delete " + this.PONumber.ToString() + " done !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        cleartoblankPOphieu();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Can not deleted: " + this.PONumber.ToString() + " ", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            }
+        //    }
 
-        }
+        //}
 
         private void txtnguoinhan_KeyPress(object sender, KeyPressEventArgs e)
         {

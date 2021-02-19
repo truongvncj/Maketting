@@ -317,7 +317,7 @@
             this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Name = "createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem";
             this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(442, 24);
             this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Text = "Create Begin Stock end from Store with detail Location";
-            this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click);
+            //this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.createBeginStockEndFromStoreWithDetailLocationToolStripMenuItem_Click);
             // 
             // masterDataToolStripMenuItem
             // 
@@ -1321,7 +1321,7 @@
             this.viewStoreReportsWithDetailLocationToolStripMenuItem.Name = "viewStoreReportsWithDetailLocationToolStripMenuItem";
             this.viewStoreReportsWithDetailLocationToolStripMenuItem.Size = new System.Drawing.Size(397, 24);
             this.viewStoreReportsWithDetailLocationToolStripMenuItem.Text = "View store reports with detail location";
-            this.viewStoreReportsWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.viewStoreReportsWithDetailLocationToolStripMenuItem_Click);
+          //  this.viewStoreReportsWithDetailLocationToolStripMenuItem.Click += new System.EventHandler(this.viewStoreReportsWithDetailLocationToolStripMenuItem_Click);
             // 
             // einvoiceToolStripMenuItem
             // 
@@ -1345,14 +1345,14 @@
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Name = "exportEinvoiceByLoadNumberToolStripMenuItem";
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.exportEinvoiceByLoadNumberToolStripMenuItem.Text = "Export E-invoice by Load Number";
-            this.exportEinvoiceByLoadNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByLoadNumberToolStripMenuItem_Click);
+          //  this.exportEinvoiceByLoadNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByLoadNumberToolStripMenuItem_Click);
             // 
             // exportEinvoiceByMKTNumberToolStripMenuItem
             // 
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Name = "exportEinvoiceByMKTNumberToolStripMenuItem";
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Size = new System.Drawing.Size(301, 24);
             this.exportEinvoiceByMKTNumberToolStripMenuItem.Text = "Export E-invoice by MKT Number";
-            this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
+           // this.exportEinvoiceByMKTNumberToolStripMenuItem.Click += new System.EventHandler(this.exportEinvoiceByMKTNumberToolStripMenuItem_Click);
             // 
             // passwordToolStripMenuItem
             // 

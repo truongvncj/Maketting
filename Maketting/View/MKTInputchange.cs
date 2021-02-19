@@ -1098,8 +1098,8 @@ namespace Maketting.View
                 MessageBox.Show("Add data Done !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                string connection_string = Utils.getConnectionstr();
-                var db = new LinqtoSQLDataContext(connection_string);
+              //  string connection_string = Utils.getConnectionstr();
+            //    var db = new LinqtoSQLDataContext(connection_string);
                 string username = Utils.getusername();
                 //  var rs = from tblEDLP in db.tblEDLPs
                 //          select tblEDLP;

@@ -1,33 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MKTing" Class="LinqtoSQLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=HAN-L-3PFF7H2;Initial Catalog=MKTing;Integrated Security=True" SettingsObjectName="Maketting.Properties.Settings" SettingsPropertyName="MKTingConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.EinvoiceExport" Member="EinvoiceExports">
-    <Type Name="EinvoiceExport">
-      <Column Name="[Ngày hóa đơn]" Member="Ngày_hóa_đơn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[Nhóm số hóa đơn]" Member="Nhóm_số_hóa_đơn" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Loại tiền tệ]" Member="Loại_tiền_tệ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Ký hiệu]" Member="Ký_hiệu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Mã khách hàng]" Member="Mã_khách_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Họ tên người mua hàng]" Member="Họ_tên_người_mua_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Tên đơn vị]" Member="Tên_đơn_vị" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Mã số thuế]" Member="Mã_số_thuế" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Hình thức thanh toán]" Member="Hình_thức_thanh_toán" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Số Tài Khoản]" Member="Số_Tài_Khoản" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Tại ngân hàng]" Member="Tại_ngân_hàng" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Địa chỉ]" Member="Địa_chỉ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Số điện thoại]" Member="Số_điện_thoại" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="VAT10" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="VAT5" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Đvt" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Mã Hàng hóa]" Member="Mã_Hàng_hóa" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Tên hành hóa, dịch vụ]" Member="Tên_hành_hóa__dịch_vụ" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="[Số lượng]" Member="Số_lượng" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Đơn giá]" Member="Đơn_giá" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Thành tiền]" Member="Thành_tiền" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Thuế suất GTGT]" Member="Thuế_suất_GTGT" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[Tiền Thuế GTGT]" Member="Tiền_Thuế_GTGT" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="Username" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-UVMCLH1;Initial Catalog=MKTing;Integrated Security=True" SettingsObjectName="Maketting.Properties.Settings" SettingsPropertyName="MKTingConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_MKT_CustomerChanel" Member="tbl_MKT_CustomerChanels">
+    <Type Name="tbl_MKT_CustomerChanel">
+      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_Temp" Member="tbl_Temps">
@@ -72,14 +50,6 @@
       <Column Name="doViewcounting" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="changeProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="deleteProduct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_CustomerChanel" Member="tbl_MKT_CustomerChanels">
-    <Type Name="tbl_MKT_CustomerChanel">
-      <Column Name="Chanel_code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Chanel_name" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(225)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_CustomerChaneltmp" Member="tbl_MKT_CustomerChaneltmps">
@@ -235,7 +205,6 @@
       <Column Name="shiptocity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Return_reason" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Returnrequest" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_Listphieuhead" Member="tbl_MKt_Listphieuheads">
@@ -265,9 +234,6 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Trucknumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="requestReturn" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="DoiD" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="einvoice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_LoaddetailRpt" Member="tbl_MKT_LoaddetailRpts">
@@ -290,10 +256,10 @@
       <Column Name="Loadcreatebby" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="codetransporter" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="nametransporter" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="gatepasslist" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="seri" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="gatepasslist" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
@@ -374,13 +340,12 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BalanceQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="shippingpoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="RecieptedQuantity" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Unit_Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="inputRate" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="locationstore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POdetail_TMP" Member="tbl_MKt_POdetail_TMPs">
@@ -394,7 +359,7 @@
       <Column Name="QuantityOrder" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="shippingpoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="StatusPO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
@@ -402,7 +367,6 @@
       <Column Name="Region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="inputRate" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="POdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="locationstore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKt_POhead" Member="tbl_MKt_POheads">
@@ -413,10 +377,9 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Shippingpoint" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StoreLocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IOname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Storelocation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Programe" Member="tbl_MKT_Programes">
@@ -502,7 +465,6 @@
       <Column Name="Createdon" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Createby" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Chanel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="email1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_Stockcount" Member="tbl_MKT_Stockcounts">
@@ -557,37 +519,6 @@
       <Column Name="TransferingOUT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="ON_Hold" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="End_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Stockendlocation" Member="tbl_MKT_Stockendlocations">
-    <Type Name="tbl_MKT_Stockendlocation">
-      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Stockendlocationdetail" Member="tbl_MKT_Stockendlocationdetails">
-    <Type Name="tbl_MKT_Stockendlocationdetail">
-      <Column Name="location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="SAP_CODE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="ITEM_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="MATERIAL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="UNIT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="END_STOCK" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="Doctype" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="DocNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Createdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Statusupdate" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StockendRegionBudget" Member="tbl_MKT_StockendRegionBudgets">
@@ -609,10 +540,10 @@
       <Column Name="Gate_pass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="POnumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="idsub" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QuantityInputbytransferin" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityReceipt" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DocumentNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="DnNumber" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="QuantityReceipt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityInputbytransferin" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Createdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
@@ -627,13 +558,6 @@
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Store_code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_MKT_Storelocation" Member="tbl_MKT_Storelocations">
-    <Type Name="tbl_MKT_Storelocation">
-      <Column Name="Location" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_MKT_StoreRight" Member="tbl_MKT_StoreRights">
@@ -794,9 +718,6 @@
       <Column Name="Document_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Transfer_number" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Doc_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="locationstore" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="region" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Gatepass" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
