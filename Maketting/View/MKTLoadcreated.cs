@@ -338,7 +338,7 @@ namespace Maketting.View
                 //  CombomCollection.Add(cb);
             }
             cbkhohang.DataSource = itemstorecolect;
-           // cbkhohang.SelectedIndex = ;
+            cbkhohang.SelectedIndex =0 ;
             this.storelocation = (cbkhohang.SelectedItem as ComboboxItem).Value.ToString();
 
 
