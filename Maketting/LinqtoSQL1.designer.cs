@@ -1880,6 +1880,8 @@ namespace Maketting
 		
 		private bool _thuhang;
 		
+		private string _masanpham;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1900,6 +1902,8 @@ namespace Maketting
     partial void OnSophieuChanged();
     partial void OnthuhangChanging(bool value);
     partial void OnthuhangChanged();
+    partial void OnmasanphamChanging(string value);
+    partial void OnmasanphamChanged();
     #endregion
 		
 		public tbl_MKT_DetailRpt_Phieuissue()
@@ -2063,6 +2067,26 @@ namespace Maketting
 					this._thuhang = value;
 					this.SendPropertyChanged("thuhang");
 					this.OnthuhangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masanpham", DbType="NVarChar(255)")]
+		public string masanpham
+		{
+			get
+			{
+				return this._masanpham;
+			}
+			set
+			{
+				if ((this._masanpham != value))
+				{
+					this.OnmasanphamChanging(value);
+					this.SendPropertyChanging();
+					this._masanpham = value;
+					this.SendPropertyChanged("masanpham");
+					this.OnmasanphamChanged();
 				}
 			}
 		}

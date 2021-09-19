@@ -5415,6 +5415,7 @@ namespace Maketting.View
 
                     detailpx.Username = usernamme;
                     detailpx.tensanpham = item.Materialname;
+                    detailpx.masanpham = item.Materiacode;
 
                     detailpx.Sophieu = item.Gate_pass;
                     lastgatepass = item.Gate_pass;
@@ -5485,6 +5486,7 @@ namespace Maketting.View
 
                                    stt = pp.stt,
                                    tensanpham = pp.tensanpham,
+                                   pp.masanpham,
                                    Sophieu = pp.Sophieu,
                                    soluong = pp.soluong,
                                    //   username = pp.Username,
@@ -5553,6 +5555,7 @@ namespace Maketting.View
 
                                         stt = pp.stt,
                                         tensanpham = pp.tensanpham,
+                                        pp.masanpham,
                                         Sophieu = pp.Sophieu,
                                         soluong = pp.soluong,
                                         //   username = pp.Username,

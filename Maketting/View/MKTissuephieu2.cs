@@ -1354,6 +1354,8 @@ namespace Maketting.View
                 detailpx.soluong = item.Issued;
                 detailpx.Username = this.Username;
                 detailpx.tensanpham = item.Materialname;
+                detailpx.masanpham = item.Materiacode;
+
                 detailpx.bangchu = Utils.ChuyenSo(decimal.Parse(item.Issued.ToString()));
 
 
@@ -1396,6 +1398,7 @@ namespace Maketting.View
 
                                stt = pp.stt,
                                tensanpham = pp.tensanpham,
+                               pp.masanpham,
 
                                soluong = pp.soluong,
                                //   username = pp.Username,
