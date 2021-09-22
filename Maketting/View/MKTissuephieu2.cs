@@ -898,13 +898,7 @@ namespace Maketting.View
                 return;
             }
 
-            if (cblocation.Text == "")
-            {
-                MessageBox.Show("Pleae select a Store Location !", "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cblocation.Focus();
-                checkhead = false;
-                return;
-            }
+          
             #endregion
 
 
@@ -2284,13 +2278,7 @@ namespace Maketting.View
                     }
                 }
 
-                foreach (ComboboxItem item in (List<ComboboxItem>)cblocation.DataSource)
-                {
-                    if (item.Value.ToString().Trim() == rs.Region.Trim())
-                    {
-                        cblocation.SelectedItem = item;
-                    }
-                }
+            
 
 
                 txtnguoiyeucau.Text = rs.Requested_by;// = ;
@@ -3341,9 +3329,7 @@ namespace Maketting.View
 
         private void cbstorelocation_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.locationstore = (cblocation.SelectedItem as ComboboxItem).Value.ToString();
-
-            cleartoblankDEtailphieu();
+          
         }
     }
 }
