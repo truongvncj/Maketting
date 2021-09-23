@@ -400,9 +400,9 @@
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(13, 67);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(165, 18);
+            this.label25.Size = new System.Drawing.Size(166, 18);
             this.label25.TabIndex = 98;
-            this.label25.Text = "DoID  (Số hiệu đăng ký)";
+            this.label25.Text = "DOIT  (Số hiệu đăng ký)";
             // 
             // txtcity
             // 

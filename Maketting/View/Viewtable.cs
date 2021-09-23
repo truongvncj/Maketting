@@ -849,6 +849,13 @@ namespace Maketting.View
                 btaddto.Visible = true;
 
             }
+            if (viewcode == 12) // là them mới khách hàng
+            {
+                bt_themmoi.Visible = true;
+                bt_sua.Visible = true;
+           //     btaddto.Visible = true;
+
+            }
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
                                                                                                             //   this.Show();

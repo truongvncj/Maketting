@@ -1055,11 +1055,11 @@ namespace Maketting.View
                         double ordered = 0;
                         detailphieu.Address = txtshiptoaddress.Text.Truncate(225);
 
-                        detailphieu.Customer_SAP_Code = txtcustcode.Text;
+                        detailphieu.Customer_SAP_Code = txtcustcode.Text.Truncate(50);
                         detailphieu.Receiver_by = txtnguoinhan.Text.Truncate(225);
 
                         detailphieu.Ngaytaophieu = datepickngayphieu.Value;
-                        detailphieu.Purpose = txtmucdichname.Text;
+                        detailphieu.Purpose = txtmucdichname.Text.Truncate(255);
                         detailphieu.Purposeid = txtmact.Text;
                         //   detailphieu.
 
@@ -1077,16 +1077,7 @@ namespace Maketting.View
                         detailphieu.Gate_pass = this.sophieu;
                         detailphieu.Region = this.region;//Model.Username.getuseRegion();
                         detailphieu.ShippingPoint = this.storecode;
-                   //     detailphieu.location = this.locationstore;
-                        //dt.Columns.Add(new DataColumn("MATERIAL", typeof(string)));
-                        //dt.Columns.Add(new DataColumn("Description", typeof(string)));
-                        //dt.Columns.Add(new DataColumn("ITEM_Code", typeof(string)));
-                        //dt.Columns.Add(new DataColumn("Sap_Code", typeof(string)));
-
-                        //dt.Columns.Add(new DataColumn("Unit", typeof(string)));
-                        //dt.Columns.Add(new DataColumn("Issue_Quantity", typeof(double)));
-                        //dt.Columns.Add(new DataColumn("Available_Quantity", typeof(double)));
-
+                
 
                         if (dataGridViewDetail.Rows[idrow].Cells["Material_Description"].Value != DBNull.Value)
                         {
@@ -1120,23 +1111,11 @@ namespace Maketting.View
                         {
                             detailphieu.Unit = dataGridViewDetail.Rows[idrow].Cells["Unit"].Value.ToString().Trim();
                         }
-                        //tbl_MKT_Stockendlocationdetail detailphieuloca = new tbl_MKT_Stockendlocationdetail();
-
-                        //detailphieuloca.Createdate = DateTime.Today;
-                        //detailphieuloca.Description = detailphieu.Materialname;
-                        //detailphieuloca.DocNumber = detailphieu.Gate_pass;
-                        //detailphieuloca.Doctype = "GPissue";
-                        //detailphieuloca.END_STOCK = -detailphieu.Issued;
-                        //detailphieuloca.ITEM_Code = detailphieu.Materiacode;
-                        //detailphieuloca.location = this.locationstore;
-                        //detailphieuloca.MATERIAL = detailphieu.Materialname;
-                        //detailphieuloca.SAP_CODE = detailphieu.MateriaSAPcode;
-                        //detailphieuloca.Store_code = this.storecode;
-                        //detailphieuloca.UNIT = detailphieu.Unit;
+                      
 
 
-                        //dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
-                        //dc.SubmitChanges();
+                        dc.tbl_MKt_Listphieudetails.InsertOnSubmit(detailphieu);
+                        dc.SubmitChanges();
 
                         //dc.tbl_MKT_Stockendlocationdetails.InsertOnSubmit(detailphieuloca);
                         //dc.SubmitChanges();
