@@ -759,7 +759,7 @@ namespace Maketting.View
                     {
 
 
-                        if ((float)dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value <= 0)
+                        if ((double)dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value <= 0)
                         {
                             MessageBox.Show("Số lượng phải lớn hơn 0 tại dòng: " + (idrow + 1).ToString(), "Thông báo ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Style.BackColor = System.Drawing.Color.Orange;
@@ -870,7 +870,7 @@ namespace Maketting.View
                     {
                         tbl_MKt_Listphieudetail detailphieu = new tbl_MKt_Listphieudetail();
                         string ItemCode = "";
-                        float requetedquantity = 0;
+                        double requetedquantity = 0;
                         detailphieu.Address = txtshiptoaddress.Text.Truncate(225);
 
                         detailphieu.Customer_SAP_Code = txtcustcode.Text;
@@ -923,7 +923,7 @@ namespace Maketting.View
 
                         if (dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value != DBNull.Value)
                         {
-                            requetedquantity = (float)dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value;
+                            requetedquantity = (double)dataGridViewDetail.Rows[idrow].Cells["Request_collect_Quantity"].Value;
                             detailphieu.Returnrequest = requetedquantity;
                         }
                         if (dataGridViewDetail.Rows[idrow].Cells["Description"].Value != DBNull.Value)
@@ -1564,7 +1564,7 @@ namespace Maketting.View
                 }
                 else
                 {
-                    valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Trim();
                 }
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);

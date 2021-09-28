@@ -1797,7 +1797,7 @@ namespace Maketting.View
                 }
                 else
                 {
-                    valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                    valueseach = dataGridViewDetail.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Trim();
                 }
                 string connection_string = Utils.getConnectionstr();
                 LinqtoSQLDataContext dc = new LinqtoSQLDataContext(connection_string);
@@ -2504,6 +2504,8 @@ namespace Maketting.View
                 Viewtable viewtbl = new Viewtable(rs1, dc, "DANH SÁCH CHƯƠNG TRÌNH MAKETTING", 13, "MKT_CT");// mã 13 là danh sach CT MKT
 
                 viewtbl.Show();
+            
+
 
             }
             else

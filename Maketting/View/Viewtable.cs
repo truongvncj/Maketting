@@ -856,6 +856,24 @@ namespace Maketting.View
            //     btaddto.Visible = true;
 
             }
+
+            if (viewcode == 13) // là them mới MKT_CT
+            {
+                bt_themmoi.Visible = true;
+                bt_sua.Visible = true;
+           //     btaddto.Visible = true;
+
+            }
+
+
+            if (viewcode == 16) // là them mới Mã shipto
+            {
+                bt_themmoi.Visible = true;
+                bt_sua.Visible = true;
+           //     btaddto.Visible = true;
+
+            }
+
             this.lb_totalrecord.Text = dataGridView1.RowCount.ToString("#,#", CultureInfo.InvariantCulture);// ;//String.Format("{0:0,0}", k33q); 
                                                                                                             //  this.lb_totalrecord.ForeColor = Color.Chocolate;
                                                                                                             //   this.Show();
